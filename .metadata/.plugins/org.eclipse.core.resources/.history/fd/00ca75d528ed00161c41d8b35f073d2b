@@ -1,0 +1,311 @@
+//---------------------------------------------------------------------------  
+// IBM Confidential                                                            
+//                                                                             
+// OCO Source Materials                                                        
+//                                                                             
+// 5724-Q55                                                                 
+//                                                                             
+// (C) Copyright IBM Corporation 2009, 2011                                              
+//                                                                             
+// The source code for this program is not published or otherwise              
+// divested of its trade secrets, irrespective of what has been                
+// deposited with the U.S. Copyright Office.                                     
+//---------------------------------------------------------------------------  
+//-*-************************************************************************  
+//                                                                             
+// IBM InfoSphere Information Server Packs for SAP Applications 
+//                                                                             
+// Module Name : com.ibm.is.sappack.dsstages.common.impl
+//                                                                             
+//*************************-END OF SPECIFICATIONS-***************************
+package com.ibm.is.sappack.dsstages.common.impl;
+
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import com.ibm.is.sappack.dsstages.common.CCFResource;
+import com.ibm.is.sappack.dsstages.common.Constants;
+import com.ibm.is.sappack.dsstages.common.IDocTypeConfiguration;
+import com.ibm.is.sappack.dsstages.common.StageLogger;
+import com.ibm.is.sappack.dsstages.common.Utilities;
+
+/**
+ * A config file of the DS SAP connections contains a list of configuration entries. 
+ * A configuration entry is either
+ * 1. a key / value pair where the key is a string and the value is either a string or a list of configuration entries
+ * 2. a list of configuration entries
+ */
+public class ConfigFile {
+	
+	static String copyright() {
+		return com.ibm.is.sappack.dsstages.common.impl.Copyright.IBM_COPYRIGHT_SHORT;
+	}
+
+	final static String CLASSNAME = ConfigFile.class.getName();
+	final static String BEGIN = "<BEGIN>"; //$NON-NLS-1$
+	final static String END = "<END>"; //$NON-NLS-1$
+	
+	public static class Entry {
+		public String key;
+		public Object value;
+
+		public String toString() {
+			return key + "=" + value.toString(); //$NON-NLS-1$
+		}
+	}
+	
+	public static Object findInList(List<Object> l, String entryKey) {
+		System.out.println("entryKey"+entryKey);
+		for (Object o : l) {
+			if (o instanceof Entry) {
+				Entry e = (Entry) o;
+				if (e.key.equals(entryKey)) {
+					System.out.println("e.key"+e.key);
+					System.out.println("value"+e.value);
+					return e.value;
+				}
+			}
+		}
+		return null;
+	}
+
+	File file;
+	List<Object> configuration = null;
+	Logger logger = null;
+	
+	public ConfigFile(String fileName) throws IOException {
+		this(new File(fileName));
+	}
+
+	public ConfigFile(File file) throws IOException {
+		this.logger = StageLogger.getLogger();
+		this.file = file;
+		readConfigFile();
+	}
+
+	public String getConfigFileEncoding() {
+		// config file encoding is independent of the actual file
+		String enc = Utilities.getConfigFileEncoding();
+		logger.log(Level.FINER, "config file encoding: {0}", enc); //$NON-NLS-1$
+		return enc;
+	}
+
+	void readConfigFile() throws IOException {
+		final String METHODNAME = "readConfigFile(String)"; //$NON-NLS-1$
+		logger.entering(CLASSNAME, METHODNAME);
+
+		if (!this.file.exists()) {
+			String msgId = "CC_IDOC_ConfigFileNotFound"; //$NON-NLS-1$
+			logger.log(Level.SEVERE, msgId, new Object[] { file.getAbsolutePath() } );
+			throw new FileNotFoundException(CCFResource.getCCFMessage(msgId, file.getAbsolutePath()));
+		}
+		String enc = getConfigFileEncoding();
+
+		InputStream is = new BufferedInputStream(new FileInputStream(this.file));
+		byte[] fileContents = Utilities.readInputStream(is);
+		String configFile = new String(fileContents, enc);
+
+		StringBuffer buf = new StringBuffer(configFile);
+		parseConfigString(buf);
+		is.close();
+	}
+
+	private boolean isEOLChar(char c) {
+		return c == '\n' || c == '\r';
+	}
+
+	private String fetchNextLine(StringBuffer buf) {
+		int i = 0;
+		int textEnd = 0;
+		boolean atEnd = false;
+		while (i < buf.length()) {
+			char c = buf.charAt(i);
+			if (atEnd) {
+				if (isEOLChar(c)) {
+					i++;
+				} else {
+					break;
+				}
+			} else {
+				if (isEOLChar(c)) {
+					atEnd = true;
+					textEnd = i;
+				}
+				i++;
+			}
+		}
+		String s = buf.substring(0, textEnd);
+		buf.delete(0, i);
+		return s;
+	}
+
+	private <T> List<T> createList() {
+		return new ArrayList<T>();
+	}
+
+	private void parseConfigString(StringBuffer configFile) throws IOException {
+		final String METHODNAME = "parseConfigString(StringBuffer, List<Object>)"; //$NON-NLS-1$
+		logger.entering(CLASSNAME, METHODNAME);
+		String wrongFileFormatMsg = CCFResource.getCCFMessage("CC_IDOC_ConfigFileWrongFormat", this.file.getAbsolutePath()); //$NON-NLS-1$
+
+		Stack<List<Object>> stack = new Stack<List<Object>>();
+		stack.push(createList());
+		while (configFile.length() > 0) {
+			String line = fetchNextLine(configFile);
+			logger.log(Level.FINEST, "Getting next line: ''{0}''", line); //$NON-NLS-1$
+			if (line.startsWith(BEGIN)) {
+				List<Object> l = new ArrayList<Object>();
+				stack.peek().add(l);
+				stack.push(l);
+			} else if (line.startsWith(END)) {
+				stack.pop();
+			} else {
+				int ix = line.indexOf('=');
+				if (ix == -1) {
+					logger.log(Level.WARNING, "CC_IDOC_ConfigFileWrongFormat", this.file.getAbsolutePath()); //$NON-NLS-1$
+					throw new IOException(wrongFileFormatMsg);
+				}
+
+				String key = line.substring(0, ix);
+				String valueStart = line.substring(ix + 1);
+				Entry entry = new Entry();
+				stack.peek().add(entry);
+				entry.key = key;
+				if (valueStart.startsWith(BEGIN)) {
+					List<Object> l = createList();
+					entry.value = l;
+					stack.push(l);
+				} else {
+					entry.value = valueStart;
+				}
+			}
+		}
+		logger.log(Level.FINER, "Stack: {0}", stack); //$NON-NLS-1$
+		if (stack.size() != 1) {
+			logger.log(Level.WARNING, "CC_IDOC_ConfigFileWrongFormat", new Object[] { this.file.getAbsolutePath() } ); //$NON-NLS-1$
+			throw new IOException(wrongFileFormatMsg);
+		}
+		this.configuration = stack.pop();
+		logger.exiting(CLASSNAME, METHODNAME);
+	}
+
+	/**
+	 * returns a list of configuration entries. 
+	 * The objects in this list can wither be
+	 * 1. an object of type Entry
+	 * 2. a list of configuration entries
+	 */
+	public List<Object> getConfiguration() {
+		return this.configuration;
+	}
+
+	private static void collectConfigFiles(File f, List<File> allFiles) {
+		File[] files = f.listFiles();
+		if (files == null) {
+			if (f.getName().endsWith(".config")) { //$NON-NLS-1$
+				allFiles.add(f);
+			}
+			return;
+		}
+		for (File file : files) {
+			collectConfigFiles(file, allFiles);
+		}
+	}
+	public static String convertIDocTypeNameToFileName(String idocTypeName) {
+		return Utilities.idocType2FileName(idocTypeName);
+	}
+	// TODO: remove prior to shipment
+	@SuppressWarnings("nls")
+	public static void main(String[] args) {
+		List<IDocTypeConfiguration> idocTypeConfigurations;
+		try {
+			System.out.println("Starting...");
+			boolean collectAllConfigFiles = true;
+			/*if (collectAllConfigFiles) {
+				String dssapConnectionsDir = "c:\\home\\SAPPacks\\code\\PacksV7\\DSSAPConnectionsFiles\\DSSAPConnections";
+				List<File> allFiles = new ArrayList<File>();
+				collectConfigFiles(new File(dssapConnectionsDir), allFiles);
+				for (File f : allFiles) {
+					String absPath = f.getAbsolutePath();
+					ConfigFile cf = new ConfigFile(absPath);
+					System.out.println("configuration for file " + absPath);
+					System.out.println("    " + cf.getConfiguration());
+
+				}
+
+			} */
+			idocTypeConfigurations = new ArrayList<IDocTypeConfiguration>();
+				ConfigFile f = new ConfigFile("c:\\home\\SAPPacks\\code\\PacksV7\\DSSAPConnectionsFiles\\DSSAPConnections\\DSSAPConnections.config");
+				List<Object> configuration = f.getConfiguration();
+				ConfigFile idocTypesConfigFile = new ConfigFile("c:\\home\\SAPPacks\\code\\PacksV7\\DSSAPConnectionsFiles\\DSSAPConnections\\IDocTypes\\IDocTypes.config");
+				List<Object> idocTypesConfig = idocTypesConfigFile.getConfiguration();
+				List<Object> idocTypesConfigList = (List<Object>) ConfigFile.findInList(idocTypesConfig, Constants.CONFIG_FILE_IDOC_TYPES_PROPERTY_DSIDOCTYPES);
+				for (Object o : idocTypesConfigList) {
+					List<Object> idocTypeConfig = (List<Object>) o;
+					System.out.println("idocTypeConfig   "+idocTypeConfig.toString());
+					String idocTypeName = (String) ConfigFile.findInList(idocTypeConfig, "NAME");
+					System.out.println(idocTypeName);
+					IDocTypeConfigurationImpl itc = new IDocTypeConfigurationImpl();
+					itc.idocTypeName = idocTypeName;
+
+					String idocTypeNameAsFile = convertIDocTypeNameToFileName(idocTypeName);
+					System.out.println("idocTypeNameAsFile"+idocTypeNameAsFile);
+					IDocExtractConfigurationImpl iec = new IDocExtractConfigurationImpl();
+					String useDefaultPath = (String) ConfigFile.findInList(idocTypeConfig, Constants.CONFIG_FILE_IDOC_TYPES_PROPERTY_USE_DEFAULT_PATH); 
+					String idocExtractDir = "c:\\home\\SAPPacks\\code\\PacksV7\\DSSAPConnectionsFiles\\DSSAPConnections\\IDocTypes "+ File.separator + convertIDocTypeNameToFileName(idocTypeName);
+					if (Constants.CONFIG_FILE_PROPERTY_VALUE_FALSE.equals(useDefaultPath)) {
+						
+						idocExtractDir = (String) ConfigFile.findInList(idocTypeConfig, Constants.CONFIG_FILE_IDOC_TYPES_PROPERTY_IDOC_FILES_PATH); 
+						System.out.println("idocExtractDir"  +idocExtractDir);
+						
+					}
+					String idocTypeConfigFileFolder = "c:\\home\\SAPPacks\\code\\PacksV7\\DSSAPConnectionsFiles\\DSSAPConnections\\IDocTypes";
+					
+					if (Constants.CONFIG_FILE_PROPERTY_VALUE_FALSE.equals(useDefaultPath)){
+						idocTypeConfigFileFolder = idocExtractDir;
+						System.out.println("idocTypeConfigFileFolder" +idocTypeConfigFileFolder);
+					}else {
+						idocTypeConfigFileFolder = idocTypeConfigFileFolder + File.separator + idocTypeNameAsFile;
+						System.out.println(" inside else idocTypeConfigFileFolder" +idocTypeConfigFileFolder);
+					}
+					File specificIDocTypeConfigFile = new File(idocTypeConfigFileFolder + File.separator + idocTypeNameAsFile + ".config"); //$NON-NLS-1$
+					if (!specificIDocTypeConfigFile.exists()) {
+						System.out.println(  specificIDocTypeConfigFile +" not found");
+					} else {
+						ConfigFile specificIDocTypeConfig = new ConfigFile(specificIDocTypeConfigFile);
+						String release = (String) ConfigFile.findInList(specificIDocTypeConfig.getConfiguration(), Constants.CONFIG_FILE_IDOC_TYPE_PROPERTY_R3VERSION);
+						itc.release = release;
+					}
+					
+					iec.idocExtractDir = idocExtractDir;
+					itc.extractConfig = iec;
+					
+					idocTypeConfigurations.add(itc);
+			        
+					
+
+					
+				}
+				for(int i=0; i<idocTypeConfigurations.size(); i++){
+			        System.out.println(idocTypeConfigurations.get(i));
+			    }
+				System.out.println("idocTypesConfig config: " + idocTypesConfig);
+				
+				System.out.println("Configuration: " + configuration);
+			
+			System.out.println("Finished");
+		} catch (Throwable t) {
+			t.printStackTrace();
+		}
+	}
+
+}

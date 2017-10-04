@@ -1,0 +1,17 @@
+<div dojoType="dijit.layout.ContentPane" class="bdrTab">
+	<div dojoType="idx.layout.BorderContainer" dojoAttachPoint="borderContainer" gutters="false" class="fullSizeContainer">
+		<div dojoType="dijit.layout.ContentPane" region="top">
+			<div class="idxButtonBar TabFields_buttonBar">
+				<div class="idxButtonBarLeading idxButtonBarPrimary">
+					<button dojoType="dijit.form.Button" type="button" dojoAttachPoint="addButton">${msg.ADD}</button>
+					<button dojoType="dijit.form.Button" type="button" dojoAttachPoint="removeButton" disabled="true">${msg.BPHTAB_2}</button>
+				</div>
+				<div dojoType="cwapp.main.SearchBox" placeHolder="${msg.BPHTABLESTAB_7}" dojoAttachPoint="transactionDataGridFilter"
+					style="float: right;"></div>
+			</div>
+		</div>
+		<div dojoType="dijit.layout.ContentPane" region="center" class="fullSizePaddedContainer gridUnderButtonBar">
+			<div dojoAttachPoint="transactionDataGridDiv" class="contentPane"></div>
+		</div>
+	</div>
+</div>

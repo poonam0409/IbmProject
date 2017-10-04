@@ -1,0 +1,36 @@
+################################################################################
+# Copyright definitions for Hypertext Markup Language (HTML) files
+#
+# Reference: http://www.w3schools.com/tags/tag_comment.asp
+#            http://www.featureblend.com/dtd-comments.html
+#            http://www.w3schools.com/xml/xml_syntax.asp
+#            http://java.sun.com/j2ee/tutorial/1_3-fcs/doc/JSPTags5.html
+################################################################################
+
+top-line=<!-- **************************************************** {tag.top} ***
+text.1  =* {category.licensed}
+text.2  =* {licensed.rm}
+text.3  =* {product}
+text.4  =* 
+text.5  =* {copyright}  {all.rights} 
+text.6  =* 
+text.7  =* {us.gov.1}
+text.8  =* {us.gov.2}
+end-line=********************************************************* {tag.end} -->
+
+use-for =ant, dtd, htm, tld, xml, xsd, xsl, xmi
+
+head.1  =<html
+head.2  =<HTML
+head.3  =<?xml
+
+################################################################################
+# Define strategy to use when defined "head.x" is not found
+#
+# top    = place copyright banner at top    of file   <-- default
+# bottom = place copyright banner at bottom of file
+# error  = treat as error
+#
+# - using BOTTOM so that Dijit template files continue to work
+################################################################################
+head.notfound = bottom

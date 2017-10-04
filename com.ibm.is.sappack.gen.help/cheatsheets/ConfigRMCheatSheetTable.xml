@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="Running the Rapid Modeler wizard">
+   <intro>
+      <description>
+         This cheat sheet shows you how to create a logical data model and how to import ABAP table metadata.
+         <br/>
+         <b>NOTE: Be sure to enter the names of projects, models, etc. in the following steps exactly as
+         indicated otherwise the "Click to perform" buttons might not work. 
+         However, the "Click when complete" buttons will continue to work.
+         </b>
+      </description>
+   </intro>
+   <item
+         title="Open the Data perspective">
+      <command
+            required="false"
+            serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=com.ibm.datatools.core.internal.ui.perspective)"/>
+         
+      <description>
+         If you&apos;re not already in the Data perspective, in the main menu select <b>Window</b> &gt; <b>Open Perspective</b> &gt; <b>Data</b>.
+      </description>
+   </item>
+   <item
+         title="Create a Data Design project">
+      <description>      
+         Before creating a data model, we need a project to put it in. 
+         In the main toolbar, click on <b>File</b> &gt; <b>New</b> &gt; <b>Data Design Project</b>. 
+         <br/>
+         Enter <b>RMTestProject</b> in the <b>Project name</b> field.
+         <br/>Click <b>Finish</b>.
+      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.ui.newWizard(newWizardId=com.ibm.datatools.core.internal.ui.wizard.DatabaseCreationProjectWizard)"/>
+   </item>
+   <item
+         title="Create a logical data model file">
+      <description>      
+         The next step is to create a new logical data model file. In the main toolbar again, click on <b>File</b> &gt; <b>New</b>  &gt; <b>Logical Data Model</b>. 
+         <br/>Make sure that the <b>Destination folder</b> is set to the name of the project created in the previous step, i.e., <b>RMTestProject</b>
+         <br/>Enter <b>RMTableModel</b> as the file name.
+         <br/>Click <b>Finish</b>.
+      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.ui.newWizard(newWizardId=com.ibm.datatools.logical.ui.wizards.NewLogicalModelWizard)"/>
+
+   </item>
+   <item dialog="true" 
+            title="Open the Rapid Modeler for SAP wizard">
+        <description>
+         Now that you have created your logical model you are ready to import SAP metadata into this model. 
+         <br/>
+         In the main toolbar select <b>SAP Pack</b> &gt; <b>Import metadata from SAP</b>.
+        </description>
+            <action required="false"
+			pluginId="com.ibm.is.sappack.gen.tools.sap"
+			class="com.ibm.iis.sappack.gen.tools.sap.importwizard.MetadataImportCheatSheetAction"/>            
+      </item>
+   <item
+         title="Select SAP connection">
+      <description>
+         On the first wizard page select an SAP connection. You can manage these connections
+         in the <b>SAP Pack Connections</b> view (see separate cheatsheet "Defining connections to SAP systems and Information Server instances").
+         <br/>Click <b>Next</b>.
+      </description>
+   </item>
+   <item
+         title="Select ABAP Table List">
+      <description>
+         Select the existing ABAP Table List containing the objects that you want to import.
+         See cheat sheet "Creating an ABAP Table List".      
+         <br/>Click <b>Next</b>.
+      </description>
+   </item>
+   <item
+         title="Select Rapid Modeler configuration">
+      <description>
+      Select the existing Rapid Modeler configuration that defines how the ABAP tables should to imported
+      into a logical data model. See cheat sheet "Creating a Rapid Modeler configuration".
+         <br/>
+         Click <b>Next</b>.
+      </description>
+   </item>
+   <item
+         title="Select logical data model">
+      <description>
+      Select the logical data model where the SAP objects should be imported into.
+         <br/>
+         Click <b>Next</b>. 
+      </description>
+   </item>
+   <item
+         title="Review tables">
+      <description>
+         On the <b>Review tables to be imported</b> page, you can check all tables that will be imported.
+         When you select a table by clicking on it and click the <b>Additional information</b> button, details about
+         this table are displayed.
+         <br/>
+         Click <b>Next</b>. The actual import process starts.
+      </description>
+   </item>
+   <item
+         title="Finish the wizard">
+      <description>
+         On the <b>Import Summary</b> page, review the import summary.
+         <br/>
+         Click <b>Finish</b> to save the imported model to your logical data model.
+         
+      </description>
+      <onCompletion>Congratulations! You have imported a logical table from SAP into your logical data model.
+      </onCompletion>
+         </item>
+      </cheatsheet>

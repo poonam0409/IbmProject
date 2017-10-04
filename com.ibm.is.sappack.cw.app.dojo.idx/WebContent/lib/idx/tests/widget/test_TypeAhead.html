@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Test TypeAhead</title>
+	<script type="text/javascript" src="../dojoVersion.js"></script>
+
+	<script type="text/javascript">
+		dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+	</script>
+	
+	<style id="idxStyles" type="text/css">
+        @import "../../themes/oneui/oneui.css";
+        @import "../../themes/vienna/vienna.css";
+        @import "../../themes/claro/claro.css";
+        @import "../../resources/claro_idx.css";
+        @import "../../resources/vienna_idx.css";
+        @import "../../themes/test.css";
+	</style>
+		
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+		dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+
+	<script type="text/javascript" id="postDojo">
+		var modules=["doh",
+					 "doh.runner",
+					 "dijit.dijit", // optimize: load dijit layer
+					 "dijit/registry",
+					 "dojo/dom-construct",
+					 "dojo.data.ItemFileReadStore",
+					 "idx.widget.TypeAhead"];
+
+		var store = null;
+		
+		function callback(modules) {
+		    var parser = modules["dojo/parser"];
+			var dDoh = modules["doh"] ? modules["doh"] : doh;
+			var TypeAhead = modules["idx/widget/TypeAhead"];
+			var dRegistry = modules["dijit/registry"] ? modules["dijit/registry"] : dijit;
+			var dDomConstruct = modules["dojo/dom-construct"] ? modules["dojo/dom-construct"] : dojo;
+			var ItemFileReadStore = modules["dojo/data/ItemFileReadStore"];
+			
+			store = new ItemFileReadStore({data: {items: [
+				{name: "Label 1", value: "value1"}, 
+				{name: "Label 2", value: "value2"}, 
+				{name: "Label 3", value: "value3"},
+				{name: "Label 4", value: "value4"},
+				{name: "Label 5", value: "value5"}
+			], identifier: "value", label: "name"}});
+			
+			dDoh.register("create", function(){
+				var node = dDomConstruct.create("input");
+				var typeAhead = new TypeAhead({connectedNode: node, store: store});
+				doh.t(typeAhead != null);
+			});
+
+			dDoh.register("parse", function(){
+				parser.parse();
+				doh.t(dRegistry.byId("typeAhead") != null);
+			});
+
+			dDoh.run();
+		}
+
+		dojoRequireModules(modules, null, currentDojoVersion.async, true, callback);
+	</script>
+</head>
+<body>
+	<input id="input"/>
+	<div dojoType="idx.widget.TypeAhead" id="typeAhead" connectedNode="input" store="store"></div>
+</body>
+</html>

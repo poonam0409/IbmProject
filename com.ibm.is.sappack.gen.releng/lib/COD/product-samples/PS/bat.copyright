@@ -1,0 +1,17 @@
+################################################################################
+# Copyright definitions for Batch Script (BAT) files
+################################################################################
+
+top-line=rem ****************************************************** {tag.top} ***
+
+text.1  =rem {category.licensed}
+text.2  =rem {product}
+text.3  =rem 
+text.4  =rem {copyright}
+text.5  =rem 
+text.6  =rem {us.gov.1}
+text.7  =rem {us.gov.2}
+
+end-line=rem ****************************************************** {tag.end} ***
+
+use-for =cmd

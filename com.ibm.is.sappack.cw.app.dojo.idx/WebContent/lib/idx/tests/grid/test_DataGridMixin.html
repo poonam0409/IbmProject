@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Test _DataGridMixin</title>
+	<script type="text/javascript" src="../dojoVersion.js"></script>
+
+	<script type="text/javascript">
+		dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxSt;fyles");
+	</script>
+	
+    <style id="idxStyles" type="text/css">
+   	    @import "../../../themes/oneui/oneui.css";
+   	    @import "../../../themes/vienna/vienna.css";
+   	    @import "../../../themes/claro/claro.css";
+   	    @import "../../../resources/claro_idx.css";
+   	    @import "../../../resources/vienna_idx.css";
+   	    @import "../../../themes/test.css";
+    </style>
+		
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+		dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+
+	<script type="text/javascript" id="postDojo">
+		var modules=["doh",
+					 "doh.runner",
+					 "dijit.dijit", // optimize: load dijit layer
+					 "dijit/registry",
+					 "dojo/_base/window",
+					 "dojo/_base/declare",
+					 "dojo/dom-construct",
+					 "dojo.data.ItemFileWriteStore",
+					 "dojox.grid.DataGrid",
+					 "idx.grid._DataGridMixin"];
+					 
+		function postParse(modules) {
+			var dDoh = modules["doh"] ? modules["doh"] : doh;
+			var DataGrid = modules["dojox/grid/DataGrid"];
+			var DataGridMixin = modules["idx/grid/_DataGridMixin"];
+			var ItemFileWriteStore = modules["dojo/data/ItemFileWriteStore"];
+			var declare = modules["dojo/_base/declare"] ? modules["dojo/_base/declare"] : dojo.declare;
+			var dWindow = modules["dojo/_base/window"] ? modules["dojo/_base/window"] : dojo;
+			var dDomConstruct = modules["dojo/dom-construct"] ? modules["dojo/dom-construct"] : dojo;
+			
+			var TestDataGrid = declare("TestDataGrid", [DataGrid, DataGridMixin], {});
+			var data = [
+				{name: "name1", value: "value1"}, 
+				{name: "name2", value: "value2"}, 
+				{name: "name3", value: "value3"}
+			];
+			var structure = [
+				{field: "name"},
+				{field: "value"}
+			];
+			var store = new ItemFileWriteStore({data: {items: data}});
+
+			var dataGrid;
+
+			dDoh.register("create", function(){
+				dataGrid = new TestDataGrid({store: store, structure: structure});
+				dDomConstruct.place(dataGrid.domNode, dWindow.body());
+				dataGrid.startup();
+			});
+
+			dDoh.register("selectByAttribute", function(){
+				dataGrid.selectByAttribute("name", "name2");
+				doh.t(dataGrid.store.getValue(dataGrid.getSelectedItem(), "name") == "name2");
+			});
+
+			dDoh.register("moveUpSelectedRows", function(){
+				dataGrid.moveUpSelectedRows();
+				doh.t(dataGrid.selection.selectedIndex === 0);
+			});
+
+			dDoh.register("moveDownSelectedRows", function(){
+				dataGrid.moveDownSelectedRows();
+				doh.t(dataGrid.selection.selectedIndex === 1);
+			});
+
+			dDoh.run();
+		}
+		
+		dojoRequireModules(modules, null, currentDojoVersion.async, null, postParse);
+		
+	</script>
+</head>
+<body>
+</body>
+</html>

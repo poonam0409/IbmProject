@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+<!--© Copyright IBM Corporation 2011-->
+<toc label="IBM InfoSphere Rapid Modeler for SAP Applications および IBM InfoSphere Rapid Generator for SAP Applications"
+     link_to="../com.ibm.swg.im.iis.ds.entpak.nav.doc/entpak_nav.xml#pack_08"
+     topic="nl/ja/contents/topics/c_gen_pack_sap_container.html">
+   <topic label="Pack for SAP Applications 用の IBM InfoSphere Data Architect コンポーネント"
+          href="nl/ja/contents/topics/c_gen_pack_sap_container.html">
+      <topic label="概要" href="nl/ja/contents/topics/c_is_pack_sap_applications.html">
+         <topic label="IBM InfoSphere Data Architect Rapid Modeler for SAP Applications の概要"
+                href="nl/ja/contents/topics/c_intro_rapid_modeler.html"/>
+         <topic label="IBM InfoSphere Rapid Generator for SAP Applications の概要"
+                href="nl/ja/contents/topics/c_intro_rapid_generator.html"/>
+      </topic>
+      <topic label="前提条件" href="nl/ja/contents/topics/c_installation_prerequisites.html"/>
+      <topic label="IBM InfoSphere Data Architect コンポーネントのインストール"
+             href="nl/ja/contents/topics/c_install_ida_components.html">
+         <topic label="クライアントのインストール" href="nl/ja/contents/topics/t_install_client.html"/>
+         <topic label="サーバー・コンポーネントのインストール" href="nl/ja/contents/topics/t_install_server_component.html"/>
+      </topic>
+      <topic label="Rapid Generator for SAP 用の IBM InfoSphere DataStage 環境の構成"
+             href="nl/ja/contents/topics/t_prepare_ds_environment_rapid_generator.html"/>
+      <topic label="InfoSphere Data Architect ワークスペースの準備"
+             href="nl/ja/contents/topics/c_prepare_ida_workspace.html">
+         <topic label="SAP JCo コネクターの構成" href="nl/ja/contents/topics/t_configure_jco_connector.html"/>
+         <topic label="InfoSphere Information Server クライアントの構成"
+                href="nl/ja/contents/topics/t_configure_is_client.html"/>
+      </topic>
+      <topic label="Rapid Modeler を使用した SAP メタデータのインポート"
+             href="nl/ja/contents/topics/t_import_metadata_rapid_modeler.html">
+         <topic label="SAP から論理テーブルをインポート" href="nl/ja/contents/topics/t_import_logical_tables_sap.html"/>
+         <topic label="SAP からの IDoc タイプのインポート" href="nl/ja/contents/topics/t_import_idoc_types_sap.html"/>
+      </topic>
+      <topic label="IBM InfoSphere Rapid Generator for SAP を使用した InfoSphere DataStage ジョブの生成"
+             href="nl/ja/contents/topics/t_generate_ds_jobs_rapid_generator.html">
+         <topic label="ABAP Extract ジョブのジョブ生成の構成"
+                href="nl/ja/contents/topics/t_configure_job_abap_extract.html"/>
+         <topic label="IDoc Extract ジョブのジョブ生成の構成"
+                href="nl/ja/contents/topics/t_configure_job_idoc_extract.html"/>
+         <topic label="IDoc Load ジョブのジョブ生成の構成" href="nl/ja/contents/topics/t_configure_job_idoc_load.html"/>
+      </topic>
+      <topic label="SAP システムとモデルを調整する" href="nl/ja/contents/topics/t_reconcile_model_sap_system.html"/>
+      <topic label="トラブルシューティング" href="nl/ja/contents/topics/c_troubleshooting.html"/>
+   </topic>
+</toc>

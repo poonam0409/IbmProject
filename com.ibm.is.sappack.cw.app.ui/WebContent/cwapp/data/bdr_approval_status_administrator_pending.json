@@ -1,0 +1,8 @@
+{
+	"identifier": "statusId",
+	"label": "name",
+	"items": [
+	        {"statusId": "0", "name": "Draft", "statusCode": "0"},
+	        {"statusId": "2", "name": "Approved", "statusCode": "2"}
+	]
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Test DropDownLink</title>
+		<script type="text/javascript" src="../dojoVersion.js"></script>
+
+		<script type="text/javascript">
+			dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		</script>
+	
+	    <style id="idxStyles" type="text/css">
+    	    @import "../../../themes/oneui/oneui.css";
+    	    @import "../../../themes/vienna/vienna.css";
+    	    @import "../../../themes/claro/claro.css";
+    	    @import "../../../resources/claro_idx.css";
+    	    @import "../../../resources/vienna_idx.css";
+    	    @import "../../../themes/test.css";
+	    </style>
+		
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+			dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+
+		<script type="text/javascript" id="postDojo">
+		var modules=["doh",
+					 "doh.runner",
+					 "dijit.dijit", // optimize: load dijit layer
+					 "dijit/registry",
+					 "idx.form.DropDownLink"];
+
+		function postParse(modules) {
+			var myDoh = modules["doh"] ? modules["doh"] : doh;
+			var DropDownLink = modules["idx/form/DropDownLink"];
+			var dRegistry = modules["dijit/registry"] ? modules["dijit/registry"] : dijit;
+			
+			myDoh.register("create", function(){
+				var dropDownLink = new DropDownLink({});
+				myDoh.t(dropDownLink != null);
+			});
+
+			myDoh.register("parse", function(){
+				myDoh.t(dRegistry.byId("dropDownLink") != null);
+			});
+
+			myDoh.run();
+		}
+
+		dojoRequireModules(modules, null, currentDojoVersion.async, null, postParse);
+	</script>
+</head>
+<body>
+	<a dojoType="idx.form.DropDownLink" id="dropDownLink">
+	</a>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<extensions>
+	<tocOrder>
+	  <toc id="/com.ibm.is.sappack.gen.help/toc.xml" />
+		<toc id="/com.ibm.nex.designer.doc/using_data_privacy_policies.xml" />
+		<toc id="/com.ibm.help.common.nav.doc/migrate_toc.xml" />
+		<toc id="/com.ibm.help.common.nav.doc/config_toc.xml" />
+		<toc id="/com.ibm.help.common.nav.doc/design_toc.xml" />
+		<toc id="/com.ibm.help.common.nav.doc/develop_toc.xml" />
+		<toc id="/com.ibm.help.common.nav.doc/team_toc.xml" />
+		<toc id="/com.ibm.help.common.nav.doc/samples_toc.xml" />
+		<toc id="/com.ibm.help.common.nav.doc/troubleshoot_toc.xml" />
+		<toc id="/com.ibm.help.common.nav.doc/glossary_toc.xml" />
+		<toc id="/com.ibm.datatools.optimconsole.doc/opconusr_help_plugin.xml" />
+		<toc id="/com.ibm.help.common.nav.doc/eclipse_workbench_book_toc.xml" />
+	</tocOrder>
+
+	<hidden>
+		<toc id="/com.ibm.help.common.nav.doc/ref_toc.xml" />
+		<toc id="/com.ibm.help.common.nav.doc/extend_toc.xml" />
+		<toc id="/com.ibm.help.common.nav.doc/tours_toc.xml" />
+		<toc id="/com.ibm.help.common.nav.doc/tutorials_toc.xml" />
+		<toc id="/com.ibm.help.common.nav.doc/report_toc.xml" />
+		<toc id="/com.ibm.help.common.nav.doc/test_toc.xml" />
+		<toc id="/com.ibm.help.common.nav.doc/integrate_toc.xml" />
+		<toc id="/com.ibm.help.common.nav.doc/collaborate_toc.xml" />
+		<toc id="/com.ibm.help.common.nav.doc/require_toc.xml" />
+		<toc id="/com.ibm.help.common.nav.doc/govern_toc.xml" />
+		<toc id="/com.ibm.help.common.nav.doc/process_toc.xml" />
+		<toc id="/com.ibm.help.common.nav.doc/administer_toc.xml" />
+		<toc id="/com.ibm.help.common.nav.doc/intro_toc.xml" />
+		<toc id="/com.ibm.help.common.nav.doc/install_toc.xml" />
+		<toc id="/org.abc.doc.isv/toc.xml" />
+	</hidden>
+</extensions>
+

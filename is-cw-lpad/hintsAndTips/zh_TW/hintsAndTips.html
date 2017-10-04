@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="zh-tw" xml:lang="zh-tw">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="copyright" content="&copy; Copyright IBM Corporation 2006" />
+<meta name="DC.rights.owner" content="&copy; Copyright IBM Corporation 2006" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Express 快速入門範本的提示和要訣" />
+<meta name="abstract" content="「Express 快速入門範本」提供您建立快速入門手冊的起點，讓您可以搭配 Express 品牌產品一起使用。" />
+<meta name="description" content="「Express 快速入門範本」提供您建立快速入門手冊的起點，讓您可以搭配 Express 品牌產品一起使用。" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="hintsandtips" />
+<meta name="DC.Language" content="zh-tw" />
+<!-- All rights reserved. Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="stylesheet" type="text/css" href="../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../swg_info_common.css" />
+<title>Express 快速入門範本的提示和要訣</title>
+</head>
+<body id="hintsandtips"><a name="hintsandtips"><!-- --></a>
+<h1 class="topictitle1">Express 快速入門範本的提示和要訣</h1>
+<div><p>「Express 快速入門範本」提供您建立快速入門手冊的起點，讓您可以搭配 Express 品牌產品一起使用。</p>
+<p> 這個範本中的程式碼，可讓您用來啟動產品安裝程式、顯示說明文件，以及提供本地化的內容。</p>
+<p>「Express 快速入門範本」的注意事項：</p>
+<ul><li>launchpadContent/global.properties 定義了所有指令和程式。</li>
+<li>「磁碟佈置」頁面中的 disk1 含有範例應用程式。
+如果要新增自訂安裝程式或應用程式，請遵循範例應用程式的範例，
+在 launchpadContent\global.properties 中定義應用程式。請使用在磁碟佈置標籤中找到的控制項，
+將應用程式匯入到專案中的適當磁碟。</li>
+<li>所有 HTML 檔都會使用名稱為 content.css 的同一個樣式表（其位於 launchpadContent 目錄中）。</li>
+</ul>
+<p>「Express 快速入門範本」範本包含下列頁面：</p>
+<ul><li><strong>歡迎使用</strong> - 歡迎使用頁面通常會提供產品的概觀，以及快速入門手冊的功能說明。歡迎使用頁面應該要簡單扼要，但要讓使用者可以選擇尋找產品的相關資訊（透過提供在新瀏覽器視窗中顯示的產品網站鏈結）。歡迎使用頁面包含可在瀏覽器中開啟外部網站的程式碼。請使用 <samp class="codeph">viewPage()</samp> 函數來顯示新視窗，
+而不要使用 JavaScript 的 <samp class="codeph">window.open()</samp>，因為 <samp class="codeph">window.open() </samp>
+很可能會被蹦現阻斷程式所阻斷。</li>
+歡迎使用頁面也包含用來檢視 PDF 及執行應用程式的程式碼。<li><strong>存取您的軟體</strong> -「存取您的軟體」頁面通常包含產品的內容，以及指向下載文件的鏈結。</li>
+<li><strong>評估硬體和系統配置</strong> - 這個頁面通常提供系統需求的相關資訊，
+並提供指向詳細系統需求文件的鏈結。
+這個頁面包含可在瀏覽器中開啟外部網站的程式碼。</li>
+<li><strong>檢查基本架構和安裝步驟</strong> - 這個頁面通常提供主要產品的基本架構圖。</li>
+<li><strong>存取您的文件</strong> -「存取您的文件」內容通常提供使用者如何存取產品隨附文件的相關資訊。
+這個頁面包含可在瀏覽器中開啟本端和外部 HTML 頁面的程式碼。</li>
+<li><strong>安裝產品</strong> -「產品安裝」頁面通常控制起始產品安裝。安裝頁面的特性包含有用來啟動產品安裝的程式碼。</li>
+<li><strong>結束</strong> - 導覽功能表上的結束鏈結可結束快速入門手冊。</li>
+</ul>
+</div>
+</body>
+</html>

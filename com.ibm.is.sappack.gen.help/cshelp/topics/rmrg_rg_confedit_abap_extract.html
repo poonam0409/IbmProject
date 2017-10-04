@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="cshelp" />
+<meta name="DC.Title" content="ABAP Extract" />
+<meta name="abstract" content="You can use this page to configure how to generate ABAP extract jobs." />
+<meta name="Description" content="You can use this page to configure how to generate ABAP extract jobs." />
+<meta name="DC.Coverage" content="ABAP Extract" />
+<meta name="DC.Date" scheme="iso8601" content="2014-04-30" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="abapextract" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+<title>ABAP Extract</title>
+<script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+<script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+<script type="text/javascript">
+var mDivision = "IM/IS";
+var mProductName = "IBM InfoSphere Information Server";
+var mProductVersion = "9.1.0";
+var mToList = "comments@us.ibm.com,cgauthie@us.ibm.com,burkharj@us.ibm.com,eldredge@us.ibm.com";
+var mNewWindow = false;
+var plugin_form = "com.ibm.srcf.doc";
+</script>
+
+<script type="text/javascript" src="../tutorials.js"> </script></head>
+<body role="main" id="abapextract">
+<div role="banner" id="runningheader" class="runningheader">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/IBM_IC_cue.gif" />
+<span class="hf-bold">IBM InfoSphere Information Server Pack for SAP Applications, Version 8.0.0.1</span><div id="runningheader-feedback" class="runningheader-feedback">
+<a href="javascript:ibm_id_form()"><span class="hf-bold">Feedback</span></a></div>
+<hr class="hf-hr" />
+</div>
+<!-- This headerarea file can be used for any topic placed in only one subdirectory,
+     not in the root directory of the plug-in. 
+     Template; ICCC Version 3.1, CBU Version 4.2, May 2011.
+--><!-- BEGIN NON-TRANSLATE SECTION --><div>
+   <!-- Additional meta information. -->
+   <meta name="dc.identifier" content="headerfile" />
+   <meta name="dc.rights" content="© Copyright IBM Corporation 2011, 2014" />
+   <!-- meta name="DC.Rights.Owner" content="For support, contact sharpt@us.ibm.com" -->
+   <meta name="feedback" content="" />
+   <meta name="ibm.country" content="US" />
+   <meta name="source" content="CBU map.infocenter transform from DITA" />
+   <!-- Common CSS -->
+   <link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+   <!-- topic_url.js for writing the topic URL in the footer. -->
+   <script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+   <!-- srcfv3.js and variable setup for the Feedback link. -->
+   <script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+   <script type="text/javascript">
+      var mDivision = "IM";
+      var mProductName = "IBM InfoSphere Information Server";
+      var mProductVersion = "multiple";
+      var mToList = "comments@us.ibm.com";
+      var plugin_form = "com.ibm.srcf.doc"; 
+   </script>
+   <noscript>
+      <style type="text/css"><!--.collapsecontent{display:block;}// -->
+      </style>
+   </noscript>
+</div><!-- END NON-TRANSLATE SECTION -->
+<h1 class="title topictitle1">ABAP Extract jobs</h1>
+<div class="body csbody">
+  <p class="shortdesc">In the ABAP Extract page you can specify the ABAP extract settings.</p>
+  <dl class="dl">
+    <dt class="dt dlterm">Gateway settings</dt>(communication settings)
+    <dd>
+      <dl class="dl">
+        <dt class="dt dlterm">SAP Gateway Host</dt>
+        <dd>SAP Gateway hostname.</dd>
+        <dt class="dt dlterm">SAP Gateway Service</dt>
+        <dd>SAP Gateway Service name, for example, <b>sapgw00</b>.</dd>
+      </dl>
+    </dd>
+    <dt class="dt dlterm">RFC destination creation</dt>
+    <dd>
+      <dl class="dl">
+        <dt class="dt dlterm">Create RFC destination automatically</dt>
+        <dd>Select to create an RFC destination when the ABAP extraction jobs are generated.
+          <p>The RFC destination is deleted after the job iss successfully run.<br/><br/>
+             <b>Note: </b>If the RFC destination already exists and you do not choose to delete the existing RFC destination then
+                it results in an error when the job is run.
+          </p> 
+        </dd>
+        <dt class="dt dlterm">Delete RFC destination if it exists</dt>
+        <dd>Select to delete an RFC destination if it exists.</dd>
+      </dl>
+    </dd>
+<!--
+ -->
+    <dt class="dt dlterm">RFC destination names</dt>
+    <dd class="dd">You can choose one of the following options to specify the names of RFC destinations:
+      <dl class="dl">
+        <dt class="dt dlterm">Static (from list)</dt>
+        <dd class="dd">The list contains one line for each RFC destination. Each line contains the name of the RFC
+                       destination and the program ID to be used for the RFC destination separated by white space.
+                       For example, you can define two static RFC destinations as follows:
+                       <pre class="pre codeblock"><code>
+ZDEST1 ZPROGID1
+ZDEST2 ZPROGID2
+                       </code></pre>
+        </dd>
+        <dt class="dt dlterm">Dynamic (generated from prefix)</dt>
+        <dd class="dd">Enter the name prefix of the RFC destination that is generated when the job is generated and not when
+                       the job is run. The complete name is generated with a unique number appended to the specified prefix.</dd>
+        <dt class="dt dlterm">Max. number of flows in a job</dt>
+        <dd class="dd">Specify the number of flows to be created per job to indicate the number of ABAP extract stages
+                       that can appear in a generated job. You cannot run two ABAP extract stages that use the same RFC
+                       destination at the same time.</dd>
+      </dl>
+    </dd>
+    <dt class="dt dlterm">Background processing</dt>
+    <dd class="dd">
+      <dl class="dl">
+        <dt class="dt dlterm">Enable background processing</dt>
+        <dd class="dd">Select if you want the generated ABAP extraction jobs to run the ABAP programs in the background.</dd>
+        <dt class="dt dlterm">Variant prefix</dt>
+        <dd class="dd">Specify a variant of the program to be created in SAP. The name of the variant is generated
+                       during the job generation by appending an ID to the variant name prefix.</dd>
+        <dt class="dt dlterm">Program startup delay in seconds</dt>
+        <dd class="dd">Specify the number of seconds that the ABAP stage must wait before it schedules the background job.</dd>
+      </dl>
+    </dd>
+  </dl>
+</div>
+<div class="related-links"></div>
+<br />
+<div role="contentinfo" id="runningfooter" class="runningfooter">
+<hr class="hf-hr" />
+
+<p class="runningfooter">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/timestamp.gif" />
+Last updated: 2014-04-30
+</p>
+</div>
+</body>
+</html>

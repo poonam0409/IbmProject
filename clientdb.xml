@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.magnolia.clientmodel:ClientModelRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.magnolia.clientmodel="http:///com/ibm/magnolia/clientmodel.ecore">
+  <workItemEditorHistory>
+    <internalContents date="2017-01-30T12:39:01.442+0530" description="262275: Error occurred while running Delta Extract full load for 0FI_GL_14 (General Ledger) and 1_CO_PA800IDEA (COPA) DataSources : SAP App Packs 8001" repository="https://ips-rtc.swg.usma.ibm.com/jazz/">
+      <workItem itemId="_YjrxUOIGEeakI_qUh_88JA"/>
+    </internalContents>
+    <internalContents date="2016-07-08T14:00:56.358+0530" description="252284: Support RMRG plugin installation on IDA 9.1.2:SAPPack_71" repository="https://ips-rtc.swg.usma.ibm.com/jazz/">
+      <workItem itemId="_qcVIgAY5EealG5XH_44SIw"/>
+    </internalContents>
+  </workItemEditorHistory>
+  <queries/>
+  <queryViews/>
+</com.ibm.magnolia.clientmodel:ClientModelRoot>

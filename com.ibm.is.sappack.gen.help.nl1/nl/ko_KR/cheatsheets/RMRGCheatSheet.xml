@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<compositeCheatsheet name="엔드 투 엔드 시나리오: SAP 테이블 가져오기 및 추출 작업 생성">
+   <taskGroup kind="sequence" name="SAP 테이블 가져오기 및 추출 작업 생성" skip="false">
+      <intro>
+         이 치트 시트에서는 SAP에서 논리 데이터 모델로 논리 테이블을
+         가져오고 논리 데이터 모델을 실제 데이터 모델로 변환하고
+         실제 모델에서 데이터베이스를 작성한 후 마지막으로 SAP 테이블을
+         작성된 데이터베이스에 추출하는 DataStage 작업을 생성하는 프로세스에
+         대해 전체적으로 안내합니다.
+      </intro>
+      <onCompletion>
+         이제 SAP 메타데이터가 들어 있는 논리 데이터 모델, SAP 데이터를 보유할 수 있는
+         데이터베이스 및 SAP에서 이 데이터베이스로 데이터를 추출할 수 있는 작업을 작성했습니다.
+      </onCompletion>
+      <task kind="cheatsheet" name="SAP에서 논리 테이블 가져오기" skip="true">
+         <intro>
+            이 태스크에서는 논리 데이터 모델을 작성하고 SAP 논리 테이블의 메타데이터를
+            이 모델로 가져오는 것에 대해 안내합니다.
+         </intro>
+         <param name="id" value="com.ibm.is.sappack.gen.help.cheatsheet.rm.tables">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="작업 생성을 위해 논리 데이터 모델 준비" skip="true">
+         <intro>
+            이 태스크에서는 Rapid Generator for SAP를 위해 이전에 작성된 논리 데이터
+            모델을 준비하는 것에 대해 안내합니다. 이 태스크는 해당 논리 데이터 모델을
+            실제 데이터 모델로 변환하는 것을 포함하며 실제 모델의 데이터베이스를 작성합니다.
+         </intro>
+         <param name="id" value="com.ibm.is.sappack.gen.help.cheatsheet.transform">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Rapid Generator for SAP를 사용하여 작업 생성" skip="true">
+         <intro>
+            이 태스크는 이전에 작성된 실제 모델에서 작업을 생성하는 방법을 보여 줍니다.
+            이러한 작업은 작성된 데이터베이스를 사용하여 SAP 데이터를 보유합니다.
+         </intro>
+         <param name="id" value="com.ibm.is.sappack.gen.help.cheatsheet.rg.tables">
+         </param>
+      </task>
+   </taskGroup>
+</compositeCheatsheet>

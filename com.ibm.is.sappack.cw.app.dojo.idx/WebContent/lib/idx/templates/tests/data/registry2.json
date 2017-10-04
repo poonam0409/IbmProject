@@ -1,0 +1,39 @@
+{
+	"identifier": "id",
+	"label": "name",
+    "items": [
+        {
+            "name": "Console Context 1",
+            "id": "suiteadmin",
+            "type": "context",
+            "cssclass": "idxConsoleLayoutTabs"
+        },
+        {
+            "name": "Console Context 2",
+            "id": "suiteadmin2",
+            "type": "context",
+            "cssclass": "idxConsoleLayoutTabs"
+        },
+     	{
+          	"name": "Tab 1 Ctx 1",
+            "id": "ctx1_tab1",
+            "type": "tab",          
+            "containerId": "suiteadmin",  
+            "href": "test_console_tab.html"          
+        },
+     	{
+          	"name": "Tab 2 Ctx 1",
+            "id": "ctx1_tab2",
+            "type": "tab",          
+            "containerId": "suiteadmin",  
+            "href": "test_console_tab.html"          
+        },
+         {
+          	"name": "Tab 1 Ctx 2",
+            "id": "ctx2_tab2",
+            "type": "tab",          
+            "containerId": "suiteadmin2",  
+            "href": "test_console_tab.html"          
+        }
+   ]
+} 

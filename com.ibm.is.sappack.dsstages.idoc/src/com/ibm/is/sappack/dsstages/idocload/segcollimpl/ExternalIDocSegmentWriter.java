@@ -1,0 +1,62 @@
+//---------------------------------------------------------------------------  
+// IBM Confidential                                                            
+//                                                                             
+// OCO Source Materials                                                        
+//                                                                             
+// 5724-Q55                                                                 
+//                                                                             
+// (C) Copyright IBM Corporation 2009, 2011                                              
+//                                                                             
+// The source code for this program is not published or otherwise              
+// divested of its trade secrets, irrespective of what has been                
+// deposited with the U.S. Copyright Office.                                     
+//---------------------------------------------------------------------------  
+//-*-************************************************************************  
+//                                                                             
+// IBM InfoSphere Information Server Packs for SAP Applications 
+//                                                                             
+// Module Name : com.ibm.is.sappack.dsstages.idocload.segcollimpl
+//                                                                             
+//*************************-END OF SPECIFICATIONS-***************************
+package com.ibm.is.sappack.dsstages.idocload.segcollimpl;
+
+import java.io.BufferedOutputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+/**
+ * Write IDoc data to a file. Each call to addIDocData() simply appends the data.
+ * The file should be read with ExternalIDocSegmentReader.
+ *
+ */
+public class ExternalIDocSegmentWriter {
+
+	static String copyright() {
+		return com.ibm.is.sappack.dsstages.idocload.segcollimpl.Copyright.IBM_COPYRIGHT_SHORT;
+	}
+
+	DataOutputStream os;
+	
+	public ExternalIDocSegmentWriter(File f) throws IOException {
+		this.os = new DataOutputStream( new BufferedOutputStream( new FileOutputStream(f)) );
+	}
+	
+	/**
+	 * Appends IDoc data to the file.
+	 */
+	public void addIDocData(String idocNum, String segNum, String psgNum, String segmentName, char[] data) throws IOException {
+		this.os.writeUTF(idocNum);
+		this.os.writeUTF(segNum);
+		this.os.writeUTF(psgNum);
+		this.os.writeUTF(segmentName);
+		this.os.writeUTF(new String(data));
+	}
+	
+	public void close() throws IOException {
+		this.os.close();
+	}
+	
+	
+}

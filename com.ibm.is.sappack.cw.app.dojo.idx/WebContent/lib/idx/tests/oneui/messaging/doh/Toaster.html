@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>oneui.form.CheckBox DoH</title>
+		<style type="text/css">
+			@import "../../../../oneui/themes/oneui/oneui.css";
+			@import "../../../../dijit/tests/css/dijitTests.css";
+			
+		</style>
+		<!-- required: dojo.js -->
+		<script type="text/javascript" src="../../../../dojo/dojo.js" data-dojo-config="isDebug: true, parseOnLoad: false">
+		</script>
+		<script type="text/javascript" src="../../../../dijit/tests/_testCommon.js"></script>
+		<script type="text/javascript">
+
+			define(["doh", "idx/oneui/messaging/Toaster", "dojo/query", "dojo/dom-class", "dojo/dom-style", "dojo/string"], 
+				function(doh, Toaster, query, domClass, domStyle, str){
+				
+			    doh.register("tests.oneui.messaging.Toaster", [
+			        {
+			            name: "MessagesListIsEmptyByDefault",
+			            setUp: function () {
+			                this.toaster = new Toaster();
+			            },
+			            runTest: function () {
+			                var hint = "No messages shown by default.";
+			                doh.assertEqual(0, query("li", this.toaster.domNode).length, hint);
+			            }
+			        }, 
+			        {
+			            name: "CanAddANewMessage",
+			            setUp: function () {
+			                this.toaster = new Toaster();
+			                this.message = {
+			                    type: "success",
+			                    content: "Some message text goes here..."
+			                };
+			            },
+			            runTest: function () {
+			                var hint = "Must have a new message in the toaster";
+			                this.toaster.add(this.message);
+			                var message = query("li", this.toaster.domNode).pop();
+			                doh.assertTrue(!!message, hint);
+			
+			                hint = "Message should have minimum details, status and content";
+			                doh.assertTrue(domClass.contains(query(".status", message).pop(), this.message.type), hint);
+			                var contentNode = query(".content", message).pop(), text = contentNode.innerText || contentNode.textContent;
+			                // Cross-browser IE8 and others...
+			                doh.assertEqual(str.trim(text), this.message.content, hint);
+			
+			                hint = "Message timestamp and id should be empty";
+			                contentNode = query(".msg_id", message).pop(); text = contentNode.innerText || contentNode.textContent;
+			                doh.assertEqual("", str.trim(text), hint);
+			
+			                contentNode = query(".timestamp", message).pop(); text = contentNode.innerText || contentNode.textContent;
+			                doh.assertEqual("", str.trim(text), hint);
+			            }
+			        },
+			        {
+			            name: "CanAddAMessageWithOptionalTimeStamp",
+			            setUp: function () {
+			                this.toaster = new Toaster();
+			                this.message = {
+			                    timestamp: "timestamp"
+			                };
+			            }, 
+			            runTest: function () {
+			                this.toaster.add(this.message);
+			                var hint = "Message should have non-empty timestamp";
+			                var contentNode = query(".timestamp", this.toaster.domNode).pop(), text = contentNode.innerText || contentNode.textContent;
+			                // Cross-browser IE8 and others...
+			                doh.assertEqual(str.trim(text), this.message.timestamp, hint);
+			            }
+			        },
+			        {
+			            name: "CanAddAMessageWithOptionalMsgId",
+			            setUp: function () {
+			                this.toaster = new Toaster();
+			                this.message = {
+			                    msg_id: "12345"
+			                };
+			            }, 
+			            runTest: function () {
+			                this.toaster.add(this.message);
+			                var hint = "Message should have non-empty message id";
+			                var contentNode = query(".msg_id", this.toaster.domNode).pop(), text = contentNode.innerText || contentNode.textContent;
+			                // Cross-browser IE8 and others...
+			                doh.assertEqual(str.trim(text), this.message.msg_id, hint);
+			            }
+			        },
+			        {
+			            name: "NewMessagesAddedToTheTop",
+			            setUp: function () {
+			                this.toaster = new Toaster();
+			            }, 
+			            runTest: function () {
+			                for(var i = 0; i < 5; i++) {
+			                    this.toaster.add({msg_id: i});
+			                }
+			
+			                var items = query("li", this.toaster.domNode);
+			                var hint = "Message list should contains five items";
+			                doh.assertEqual(5, items.length);
+			
+			                hint = "Messages should be in present in a LIFO fashion";
+			                var indices = items.map(function (item) {
+			                    return str.trim(item.innerText || item.contentText);
+			                }).join(",");
+			                doh.assertEqual("4,3,2,1,0", indices);
+			
+			            }
+			        }, 
+			        {
+			            name: "CanDisplayNoMoreThanTenMessages",
+			            setUp: function () {
+			                this.toaster = new Toaster();
+			            }, 
+			            runTest: function () {
+			                return;
+			
+			                for(var i = 0; i < 20; i++) {
+			                    this.toaster.add({msg_id: i});
+			                }
+			
+			                var hidden = 0, that = this;
+			                var items = query("li", this.toaster.domNode).forEach(function (list_item) {
+			                    console.log(list_item.offsetTop);
+			                    hidden += list_item.offsetTop > domStyle.get(that.toaster.messageList, "height") ? 1 : 0; 
+			                });
+			                var hint = "Ten elements should be hidden";
+			                doh.assertEqual(10, hidden);
+			            }
+			        },
+			        {
+			            name: "NewMessagesShownForFiveSeconds",
+			            setUp: function () {
+			                this.toaster = new Toaster();
+			            },
+			            timeout: 6000,
+			            runTest: function () {
+			                for(var i = 0; i < 15; i++) {
+			                    this.toaster.add({msg_id: i});
+			                }
+			
+			                var items = query("li", this.toaster.domNode);
+			                doh.assertEqual(15, items.length);
+			
+			                var async = new doh.Deferred(), that = this;
+			
+			                setTimeout(function () {
+			                    items = query("li", that.toaster.domNode);
+			                    hint = "Message list should no items ";
+			                    doh.assertEqual(0, items.length);
+			                    async.callback(true);
+			                }, 6000);
+			
+			                return async;
+			            }
+			        }, 
+			        {
+			            name: "MoreMessagesLinkShownAfterTenMessages",
+			            setUp: function () {
+			                this.toaster = new Toaster();
+			            },
+			            timeout: 6500,
+			            runTest: function () {
+			                for(var i = 0; i < 10; i++) {
+			                    this.toaster.add({msg_id: i});
+			                } 
+			
+			                var display = domClass.contains(this.toaster.domNode, "overflow"),
+			                    hint = "Reveal messages link should be hidden at under ten messages";
+			
+			                doh.assertFalse(display, hint);
+			
+			                for(i = 0; i < 5; i++) {
+			                    this.toaster.add({msg_id: i});
+			                } 
+			
+			
+			                var that = this;
+			                var async = new doh.Deferred();
+			
+			                setTimeout(function () {
+			                    display = domClass.contains(that.toaster.domNode, "overflow");
+			                    hint = "Reveal messages should be now shown";
+			                    doh.assertTrue(display, hint);
+			
+			                    setTimeout(function () {
+			                        display = domClass.contains(that.toaster.domNode, "overflow");
+			                        hint = "Overflow state removed after last message is cleared.";
+			                        doh.assertFalse(display, hint);
+			                        async.callback(true);
+			                    }, 5000);
+			                }, 1000);
+			                return async;
+			            }
+			        }, 
+			        {
+			            name: "MessagesLinkContainsTotalMessageCount",
+			            timeout: 6500,
+			            setUp: function () {
+			                this.toaster = new Toaster();
+			            },
+			            runTest: function () {
+			                var hint = "Overflow message count should increase with messages";
+			
+			                for(var i = 0; i < 15; i++) {
+			                    this.toaster.add({msg_id: i});
+			                } 
+			
+			                var async = new doh.Deferred(), that = this;
+			
+			                setTimeout(function () {
+			                    doh.assertEqual("15", that.toaster.get("overflowMsgCount"));
+			                }, 1000);
+			
+			
+			                setTimeout(function () {
+			                    hint = "Overflow count should decrease as all messages are removed";
+			                    doh.assertEqual("0", that.toaster.get("overflowMsgCount"));
+			                    async.callback(true);
+			                }, 6000);
+			
+			                return async;
+			            }
+			        }
+			    ]);      
+
+				doh.run();
+			});
+		</script>
+	</head>
+	<body class="oneui">
+		<h1 class="testTitle">DoH Test of Toaster</h1>
+	</body>
+</html>

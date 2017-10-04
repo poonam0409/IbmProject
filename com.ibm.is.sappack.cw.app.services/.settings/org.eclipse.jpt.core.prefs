@@ -1,0 +1,6 @@
+#Mon Feb 27 14:48:53 CET 2012
+org.eclipse.jpt.core.discoverAnnotatedClasses=false
+eclipse.preferences.version=1
+problem.PROJECT_NO_PERSISTENCE_XML=ignore
+workspace_preferences_overriden=true
+org.eclipse.jpt.core.platform=webSpherePlatform_jpa2_0

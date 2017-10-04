@@ -1,0 +1,33 @@
+<script type="text/javascript">
+_container_.require("dijit.form.Form");
+_container_.require("dijit.form.Select");
+_container_.require("dijit.form.Button");
+</script>
+<p>
+This is test workspace B
+</p>
+
+<div dojoType="dijit.form.Form">
+<script type="dojo/connect" event="onSubmit" args="e">
+var selectBox = idx.util.getChildWidget(this, false, dijit.form.Select);
+var value = selectBox.get("value");
+var launcher = idx.util.getParentWidget(this, idx.app._Launcher);
+launcher.selectFirstWorkspaceOfType(value);
+if (e) dojo.stopEvent(e);
+</script>
+
+<label for="workspaceType">Workspace Type</label><select dojoType="dijit.form.Select" name="workspaceType">
+<script type="dojo/connect" event="startup">
+var launcher = idx.util.getParentWidget(this, idx.app._Launcher);
+var workspaceTypeIDs = launcher.getWorkspaceTypeIDs();
+var options = new Array();
+for (var index = 0; index < workspaceTypeIDs.length; index++) {
+	var workspaceTypeID = workspaceTypeIDs[index];
+	options.push({label: workspaceTypeID, value: workspaceTypeID});
+}
+this.addOption(options);
+</script>
+</select>
+<div dojoType="dijit.form.Button" type="submit" label="Select First Workspace of Type"></div>
+</div>
+

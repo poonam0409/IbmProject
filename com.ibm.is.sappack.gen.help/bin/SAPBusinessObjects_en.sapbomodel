@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<tns:contents xmlns:tns="http://www.ibm.com/sappack/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ibm.com/sappack/metadata content.xsd">
+	<package name="BUPA">
+		<label>business partners</label>
+		<description>The BUPA object contains all tables that store data related to business partners</description>
+		<tables>
+			<table name="BUT000"><description>BP: General data I</description></table>
+			<table name="BUT020"><description>BP: Addresses</description></table>
+			<table name="BUT050"><description>BP relationships/role definitions: General data</description></table>
+			<table name="BUT051"><description>BP Relationship: Contact Person Relationship</description></table>
+			<table name="BUT050"><description>BP relationships/role definitions: General data</description></table>
+			<table name="BUT0BK"><description>BP: Bank Details</description></table>
+			<table name="BNKA"><description>Bank master record</description></table>
+			<table name="BUT100"><description>BP: Roles</description></table>
+			<table name="ADR2"><description>Telephone Numbers (Business Address Services)</description></table>
+			<table name="ADR6"><description>E-Mail Addresses (Business Address Services)</description></table>
+			<table name="ADRC"><description>Addresses (Business Address Services)</description></table>
+			<table name="TSAD3T"><description>Titles (Texts) (Business Address Services)</description></table>
+		</tables>
+	</package>
+
+	<package name="KNA1">
+		<label>client base</label>
+		<description>The KNA1 object contains all tables that store data related to the SAP client base</description>
+		<tables>
+			<table name="KLPA"><description>Customer/Vendor Linking</description></table>
+			<table name="KNA1"><description>General Data in Customer Master</description></table>
+			<table name="KNAS"><description>Customer master (VAT registration numbers general section)</description></table>
+			<table name="KNAT"><description>Customer Master Record (Tax Groupings)</description></table>
+			<table name="KNB1"><description>Customer Master (Company Code)</description></table>
+			<table name="KNB4"><description>Customer Payment History</description></table>
+			<table name="KNB5"><description>Customer master (dunning data)</description></table>
+			<table name="KNBK"><description>Customer Master (Bank Details)</description></table>
+			<table name="KNBW"><description>Customer master record (withholding tax types) X</description></table>
+			<table name="KNEX"><description>Customer Master: Legal Control - Sanctioned Party List</description></table>
+			<table name="KNKA"><description>Customer master credit management: Central data</description></table>
+			<table name="KNKK"><description>Customer master credit management: Control area data</description></table>
+			<table name="KNMT"><description>Customer-Material Info Record Data Table</description></table>
+			<table name="KNVA"><description>Customer Master Unloading Points</description></table>
+			<table name="KNVD"><description>Customer master record sales request form</description></table>
+			<table name="KNVI"><description>Customer Master Tax Indicator</description></table>
+			<table name="KNVK"><description>Customer Master Contact Partner</description></table>
+			<table name="KNVL"><description>Customer Master Licenses</description></table>
+			<table name="KNVP"><description>Customer Master Partner Functions</description></table>
+			<table name="KNVS"><description>Customer Master Shipping Data</description></table>
+			<table name="KNVV"><description>Customer Master Sales Data</description></table>
+			<table name="KNZA"><description>Permitted Alternative Payer</description></table>
+			<table name="KSSK"><description>Allocation Table: Object to Class</description></table>
+			<table name="VCKUN"><description>Assign customer-credit card</description></table>
+		</tables>
+	</package>
+
+	<package name="MARA">
+		<label>material</label>
+		<description>The MARA object contains all tables that store data related to material</description>
+		<tables>
+			<table name="MAKT"><description>Material Descriptions</description></table>
+			<table name="MARA"><description>General Material Data</description></table>
+			<table name="MARC"><description>Plant Data for Material</description></table>
+			<table name="MARC"><description>Plant Data for Material</description></table>
+			<table name="MARD"><description>Storage Location Data for Material</description></table>
+			<table name="MARM"><description>Units of Measure for Material</description></table>
+			<table name="MBEW"><description>Material Valuation</description></table>
+			<table name="MFHM"><description>Production Resource Tool (PRT) Fields in the Material Master</description></table>
+			<table name="MKAL"><description>Production Versions of Material</description></table>
+			<table name="MLAN"><description>Tax Classification for Material</description></table>
+			<table name="MLGN"><description>Material Data for Each Warehouse Number</description></table>
+			<table name="MPGD"><description>Change Document Structure for Material Master/Product Group</description></table>
+			<table name="MPOP"><description>Forecast Parameters</description></table>
+			<table name="MPRW"><description>Data Transfer: Forecast Values</description></table>
+			<table name="MTXH"><description>Auxiliary Fields for Matrix Processing: Totals</description></table>
+			<table name="MVEG"><description>Material Master Data Transfer: Total Consumption</description></table>
+			<table name="MVEU"><description>Material Master Data Transfer: Unplanned Consumption</description></table>
+			<table name="MVKE"><description>Sales Data for Material</description></table>
+		</tables>
+	</package>
+
+	<package name="IBASE">
+		<label>installed inventory</label>
+		<description>The IBASE object contains all tables that store data about the installed inventory</description>
+		<tables>
+			<table name="COMM_IL_IBCQFR"><description>Qualification Requirements IBase Components (As for BPQFR)</description></table>
+			<table name="COMM_IL_IBCQFR_H"><description>Qualification Requirements IBase Components (As for BPQFR)</description></table>
+			<table name="COMM_IL_IBCWTY"><description>Installed Base Components - Warranty Relationship</description></table>
+			<table name="COMM_IL_IBCWTY_H"><description>Installed Base Components - Warranty Relationship History</description></table>
+			<table name="COMM_IL_IBHQFR"><description>Qualification Requirements IBase Components (As for BPQFR)</description></table>
+			<table name="COMM_IL_IBHQFR_H"><description>Qualif. Requirements IBase Components (As for BPQFR) History</description></table>
+			<table name="IBADDR"><description>IBase: Business Address Services Connection</description></table>
+			<table name="IBIB"><description>IB: Installed Base/IBase</description></table>
+			<table name="IBIN"><description>IB: IBase Components - Condition</description></table>
+			<table name="IBINOBS"><description>IB: Observer of an IBase Component</description></table>
+			<table name="IBINOWN"><description>IB: Owner of an IBase Component</description></table>
+			<table name="IBINVALUES"><description>IB: IBase Components - Condition Characteristic Evaluation</description></table>
+			<table name="IBPART"><description>IB: Connection to Partner</description></table>
+			<table name="IBSP"><description>IB: Installed Base Component - Enhancement/Specialization</description></table>
+			<table name="IBST"><description>IB: Installation Component - Structure</description></table>
+			<table name="IBSTREF"><description>IB: Installed Base - Reference to Master Data Structure</description></table>
+			<table name="IBSYMBOL"><description>IB: Characteristic Value Assignment</description></table>
+			<table name="T371A"><description>IB: Installed Base Category</description></table>
+			<table name="T371B"><description>IB: Groups of Database Tables</description></table>
+			<table name="T371C"><description>IBase: Authorization Group (Not Currently Analyzed)</description></table>
+			<table name="T371D"><description>IB: Installation Component - Object Type</description></table>
+			<table name="T371F"><description>IB: Owner-Observer-Object Category</description></table>
+			<table name="T371G"><description>IB: Installed Base - Structure Reference Category</description></table>
+			<table name="T371K"><description>IBase: Object Families per IBase Category</description></table>
+			<table name="T371U"><description>IB: Permitted Object Types per IBase Type</description></table>
+		</tables>
+	</package>
+</tns:contents>

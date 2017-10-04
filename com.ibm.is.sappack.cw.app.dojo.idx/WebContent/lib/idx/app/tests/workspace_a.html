@@ -1,0 +1,70 @@
+<script type="text/javascript">
+_container_.require("dijit.form.Button");
+_container_.require("idx.util");
+_container_.require("idx.app._Launcher");
+</script>
+
+<p>
+This is test workspace A
+</p>
+
+<div dojoType="dijit.form.Button" label="Dummy Button">
+<script type="dojo/connect" event="startup">
+var launcher = idx.util.getParentWidget(this, idx.app._Launcher);
+var workspaces = launcher.getWorkspaces("WORKSPACE_B");
+if ((!workspaces) || (workspaces.length < 1)) {
+	this._hasFirstWorkspace = false;
+	return;
+}
+this._hasFirstWorkspace = true;
+var workspace = workspaces[0];
+var workspaceTitle = workspace.get("title");
+this.set("label", "Select " + workspaceTitle);
+</script>
+<script type="dojo/connect" event="onClick">
+if (this._hasFirstWorkspace) {
+	var launcher = idx.util.getParentWidget(this, idx.app._Launcher);
+ 	launcher.selectFirstWorkspaceOfType("WORKSPACE_B");
+}
+</script>
+</div>
+
+<div dojoType="dijit.form.Button" label="Dummy Button">
+<script type="dojo/connect" event="startup">
+var launcher = idx.util.getParentWidget(this, idx.app._Launcher);
+var workspaces = launcher.getWorkspaces("WORKSPACE_B");
+if ((!workspaces) || (workspaces.length < 2)) {
+	return;
+}
+var workspace = workspaces[1];
+var workspaceTitle = workspace.get("title");
+this.set("label", "Select " + workspaceTitle);
+</script>
+<script type="dojo/connect" event="onClick">
+var launcher = idx.util.getParentWidget(this, idx.app._Launcher);
+var workspaces = launcher.getWorkspaces("WORKSPACE_B");
+if ((!workspaces) || (workspaces.length < 2)) return;
+var workspace = workspaces[1];
+launcher.selectWorkspace(workspace);
+</script>
+</div>
+
+<div dojoType="dijit.form.Button" label="Dummy Button">
+<script type="dojo/connect" event="startup">
+var launcher = idx.util.getParentWidget(this, idx.app._Launcher);
+var workspaces = launcher.getWorkspaces();
+if ((!workspaces) || (workspaces.length == 0)) {
+	return;
+}
+this.set("label", "Select Last Workspace");
+</script>
+<script type="dojo/connect" event="onClick">
+var launcher = idx.util.getParentWidget(this, idx.app._Launcher);
+var workspaces = launcher.getWorkspaces();
+if ((!workspaces) || (workspaces.length == 0)) {
+	return;
+}
+var workspace = workspaces[workspaces.length-1];
+launcher.selectWorkspace(workspace);
+</script>
+</div>

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<!--
+ Description:
+
+ Ant build file for the IDoc load and extract connectors.
+ This build file is run on every build, it copies the resource bundles and all required
+ java files from the build tree and builds a distribution CC_IDocX.jar 
+ (where X is either "load" or "extract" to be deployed on 
+ IIS with he command:
+ <IISServer>/DSComponents/bin/dscompinst -install -force CC_IDocX.jar
+ 
+ Warning: DO NOT undeploy the the stage via the command
+ <IISServer>/DSComponents/bin/dscompinst -remove IDOCX
+ as it can leave the system in a corrupted state.
+ 
+ Use the following command instead (this overwrites also the descriptor): 
+ <IISServer>/DSComponents/bin/dscompinst -username <user> -password <password> -skipstagecheck -install -force CC_IDocload.jar
+
+-->
+
+<!-- This build file requries the property "stage" to be set to either "load" or "extract"  -->
+<project name="IDoc Connectors" basedir="." default="all">
+
+	<property name="build" value="./bin"/>
+	<property name="src" value="../src"/>
+	<property name="ccjcsrc" value="../src"/>
+	<property name="commonsrc" value="../../com.ibm.is.sappack.dsstages.common/src"/>
+	<property name="commonccfsrc" value="../../com.ibm.is.sappack.dsstages.common.ccf/src"/>
+	<property name="dist" value="./dist"/>
+	<property name="package" value="./dist/package"/>
+	<property name="stage-desc" value="./stageDesc"/>
+	<property name="extLibs" value="../../extLibsIISServer85"/>
+	<property name="icu-jar" value="${extLibs}/DSComponents/bin/icu4j_3_2.jar"/>
+	<property name="icu-bin" value="${extLibs}/icu/win32/icu/bin"/>
+	
+	<property name="genld-jar" value="${extLibs}/genld/genld.jar"/>
+	<property name="genid-jar" value="${extLibs}/genid/genid.jar"/>	
+	<property name="extLibsJCO" value="../../extLibsJCO"/>
+
+	<path id="classpath">
+		<pathelement path="./bin"/>
+		<pathelement location="${extLibs}/DSComponents/bin/icu4j_3_2.jar"/>
+		<pathelement location="${extLibs}/DSComponents/bin/ccapi.jar"/>
+		<pathelement location="${extLibs}/genld/genld.jar"/>
+		<pathelement location="${extLibsJCO}/sapjco3.jar"/>
+	</path>
+
+	<target name="all" depends="prepare, build, cleanup"/>
+
+	
+	<target name="prepare">
+		<delete dir="${build}"/>
+		<delete dir="${dist}/lib"/>
+		<delete dir="${dist}/package"/>
+		<delete dir="${dist}/resources"/>
+		<delete>
+			<fileset dir="." includes="CC_IDOC_ids_root.txt *.res *.class *.java *.xml" excludes="ccidocload.xml ccidocextract.xml CC_SAPCommonProperties.xml ccidocloadDeploy.xml ccidocextractDeploy.xml build*.xml"/>
+		</delete>
+		<condition property="isLoad">
+			<equals arg1="${stage}" arg2="load"/>
+	    </condition>
+		<condition property="isExtract">
+			<equals arg1="${stage}" arg2="extract"/>
+	    </condition>
+	</target>
+	
+	
+	<target name="cleanup">
+		<delete dir="${build}"/>
+		<delete dir="${dist}/lib"/>
+		<delete dir="${dist}/package"/>
+		<delete dir="${dist}/resources"/>
+		<delete>
+			<fileset dir="." includes="CC_IDOC_ids_root.txt *.res *.class *.java *.xml" excludes="ccidocload.xml ccidocextract.xml CC_SAPCommonProperties.xml ccidocloadDeploy.xml ccidocextractDeploy.xml build*.xml"/>
+		</delete>
+	</target>
+
+	
+	<target name="create-dir" description="create directories">
+		<mkdir dir="${build}"/>
+		<mkdir dir="${dist}"/>
+		<mkdir dir="${dist}/lib"/>
+		<mkdir dir="${dist}/resources/sap"/>
+		<mkdir dir="${package}"/>
+		<mkdir dir="${package}/etc"/>
+		<mkdir dir="${package}/META-INF"/>
+		<mkdir dir="${package}/META-INF/en"/>
+		<mkdir dir="${package}/Server/Shared"/>
+		<mkdir dir="${package}/Server/Shared/resbe"/>
+		<mkdir dir="${package}/Bitmaps"/>
+	</target>
+
+	
+	<target name="create-ccdesc">
+
+        <copy todir=".">
+            <fileset dir="ccresourcefiles" includes="*.java"/>
+            <fileset dir="ccresourcefiles" includes="*.res"/>
+            <fileset dir="ccresourcefiles/bigendian" includes="*.res"/>
+        </copy>
+		<javac srcdir="." classpath="${icu-jar}" includes="Bundle_CC_IDOC*.java"/>
+
+		<java fork="true" dir="." classname="genld" classpath="${genld-jar};${icu-jar}">
+			<arg line="-noencoding -noval ccidoc${stage}.xml"/>
+       	</java>
+
+	</target>
+	
+	
+	<target name="build-idoc-connector" description="build sap idoc extract runtime Connector package">
+		<javac sourcepath="" srcdir="${commonsrc}" destdir="${build}" classpathref="classpath" debug="${debug}">
+			<include name="com/ibm/is/sappack/dsstages/**/*.java"/>
+		</javac>
+		<javac sourcepath="" srcdir="${commonccfsrc}" destdir="${build}" classpathref="classpath" debug="${debug}">
+			<include name="com/ibm/is/sappack/dsstages/**/*.java"/>
+		</javac>
+		<javac sourcepath="" srcdir="${ccjcsrc}" destdir="${build}" classpathref="classpath" debug="${debug}">
+			<include name="com/ibm/is/sappack/dsstages/**"/>
+		</javac>
+		<!-- copy resource bundles -->
+		<copy todir="${build}">
+			<fileset dir="${commonsrc}" includes="**/*.properties"/>
+			<fileset dir="${commonccfsrc}" includes="**/*.properties"/>
+			<fileset dir="${ccjcsrc}" includes="**/*.properties"/>
+		</copy>
+		<jar jarfile="${dist}/lib/ccidoc${stage}stage.jar" basedir="${build}">
+			<include name="com/ibm/is/sappack/dsstages/**"/>
+		</jar>
+	</target>
+
+	<!--
+	<target name="copyLoadINIFile" if="isLoad">
+		<copy file="../build/SAPIDocLoadConnector.ini" todir="${package}/Server/Shared"/>
+	</target>
+	<target name="copyExtractINIFile" if="isExtract">
+		<copy file="../build/SAPIDocExtractConnector.ini" todir="${package}/Server/Shared"/>
+	</target>
+-->
+	<target name="build" depends="create-dir, build-idoc-connector, create-ccdesc">
+		<copy file="./ccidoc${stage}Deploy.xml" tofile="${package}/META-INF/en/Deploy.xml"/>
+		<copy file="./ccidoc${stage}_en_US.xml" tofile="${package}/META-INF/en/StageDsc.xml"/>
+
+		<copy file="./ccidoc${stage}Deploy.xml" tofile="${package}/META-INF/de/Deploy.xml"/>
+		<copy file="./ccidoc${stage}_de_DE.xml" tofile="${package}/META-INF/de/StageDsc.xml"/>
+		
+		<copy file="./ccidoc${stage}Deploy.xml" tofile="${package}/META-INF/es/Deploy.xml"/>
+		<copy file="./ccidoc${stage}_es_ES.xml" tofile="${package}/META-INF/es/StageDsc.xml"/>
+		
+		<copy file="./ccidoc${stage}Deploy.xml" tofile="${package}/META-INF/fr/Deploy.xml"/>
+		<copy file="./ccidoc${stage}_fr_FR.xml" tofile="${package}/META-INF/fr/StageDsc.xml"/>
+		
+		<copy file="./ccidoc${stage}Deploy.xml" tofile="${package}/META-INF/it/Deploy.xml"/>
+		<copy file="./ccidoc${stage}_it_IT.xml" tofile="${package}/META-INF/it/StageDsc.xml"/>
+	
+		<copy file="./ccidoc${stage}Deploy.xml" tofile="${package}/META-INF/pt_BR/Deploy.xml"/>
+		<copy file="./ccidoc${stage}_pt_BR.xml" tofile="${package}/META-INF/pt_BR/StageDsc.xml"/>
+
+		<copy file="./ccidoc${stage}Deploy.xml" tofile="${package}/META-INF/ja/Deploy.xml"/>
+		<copy file="./ccidoc${stage}_ja_JP.xml" tofile="${package}/META-INF/ja/StageDsc.xml"/>
+		
+		<copy file="./ccidoc${stage}Deploy.xml" tofile="${package}/META-INF/ko/Deploy.xml"/>
+		<copy file="./ccidoc${stage}_ko_KR.xml" tofile="${package}/META-INF/ko/StageDsc.xml"/>
+		
+		<copy file="./ccidoc${stage}Deploy.xml" tofile="${package}/META-INF/zh_CN/Deploy.xml"/>
+		<copy file="./ccidoc${stage}_zh_CN.xml" tofile="${package}/META-INF/zh_CN/StageDsc.xml"/>
+
+		<copy file="./ccidoc${stage}Deploy.xml" tofile="${package}/META-INF/zh_TW/Deploy.xml"/>
+		<copy file="./ccidoc${stage}_zh_TW.xml" tofile="${package}/META-INF/zh_TW/StageDsc.xml"/>
+
+		<copy file="./CC_IDOC_ids_root.res" tofile="${package}/Server/Shared/CC_IDOC_ids_root.res"/>
+		<copy file="./CC_IDOC_msgs_root.res" tofile="${package}/Server/Shared/CC_IDOC_msgs_root.res"/>
+		<copy file="./CC_IDOC_msgs_en_US.res" tofile="${package}/Server/Shared/CC_IDOC_msgs_en_US.res"/>
+		<copy file="./CC_IDOC_msgs_de_DE.res" tofile="${package}/Server/Shared/CC_IDOC_msgs_de_DE.res"/>
+		<copy file="./CC_IDOC_msgs_es_ES.res" tofile="${package}/Server/Shared/CC_IDOC_msgs_es_ES.res"/>
+		<copy file="./CC_IDOC_msgs_fr_FR.res" tofile="${package}/Server/Shared/CC_IDOC_msgs_fr_FR.res"/>
+		<copy file="./CC_IDOC_msgs_it_IT.res" tofile="${package}/Server/Shared/CC_IDOC_msgs_it_IT.res"/>
+		<copy file="./CC_IDOC_msgs_pt_BR.res" tofile="${package}/Server/Shared/CC_IDOC_msgs_pt_BR.res"/>
+		<copy file="./CC_IDOC_msgs_ja_JP.res" tofile="${package}/Server/Shared/CC_IDOC_msgs_ja_JP.res"/>
+		<copy file="./CC_IDOC_msgs_ko_KR.res" tofile="${package}/Server/Shared/CC_IDOC_msgs_ko_KR.res"/>
+		<copy file="./CC_IDOC_msgs_zh_CN.res" tofile="${package}/Server/Shared/CC_IDOC_msgs_zh_CN.res"/>
+		<copy file="./CC_IDOC_msgs_zh_TW.res" tofile="${package}/Server/Shared/CC_IDOC_msgs_zh_TW.res"/>
+
+		<copy file="../build/ccresourcefiles/bigendian/CC_IDOC_ids_root.res" tofile="${package}/Server/Shared/resbe/CC_IDOC_ids_root.res"/>
+		<copy file="../build/ccresourcefiles/bigendian/CC_IDOC_msgs_root.res" tofile="${package}/Server/Shared/resbe/CC_IDOC_msgs_root.res"/>
+		<copy file="../build/ccresourcefiles/bigendian/CC_IDOC_msgs_en_US.res" tofile="${package}/Server/Shared/resbe/CC_IDOC_msgs_en_US.res"/>
+		<copy file="../build/ccresourcefiles/bigendian/CC_IDOC_msgs_de_DE.res" tofile="${package}/Server/Shared/resbe/CC_IDOC_msgs_de_DE.res"/>
+		<copy file="../build/ccresourcefiles/bigendian/CC_IDOC_msgs_es_ES.res" tofile="${package}/Server/Shared/resbe/CC_IDOC_msgs_es_ES.res"/>
+		<copy file="../build/ccresourcefiles/bigendian/CC_IDOC_msgs_fr_FR.res" tofile="${package}/Server/Shared/resbe/CC_IDOC_msgs_fr_FR.res"/>
+		<copy file="../build/ccresourcefiles/bigendian/CC_IDOC_msgs_it_IT.res" tofile="${package}/Server/Shared/resbe/CC_IDOC_msgs_it_IT.res"/>
+		<copy file="../build/ccresourcefiles/bigendian/CC_IDOC_msgs_pt_BR.res" tofile="${package}/Server/Shared/resbe/CC_IDOC_msgs_pt_BR.res"/>
+		<copy file="../build/ccresourcefiles/bigendian/CC_IDOC_msgs_ja_JP.res" tofile="${package}/Server/Shared/resbe/CC_IDOC_msgs_ja_JP.res"/>
+		<copy file="../build/ccresourcefiles/bigendian/CC_IDOC_msgs_ko_KR.res" tofile="${package}/Server/Shared/resbe/CC_IDOC_msgs_ko_KR.res"/>
+		<copy file="../build/ccresourcefiles/bigendian/CC_IDOC_msgs_zh_CN.res" tofile="${package}/Server/Shared/resbe/CC_IDOC_msgs_zh_CN.res"/>
+		<copy file="../build/ccresourcefiles/bigendian/CC_IDOC_msgs_zh_TW.res" tofile="${package}/Server/Shared/resbe/CC_IDOC_msgs_zh_TW.res"/>
+
+		<copy file="../build/${inifile}" todir="${package}/Server/Shared"/>
+		
+		<copy todir="${package}/Bitmaps">
+			<fileset dir="./icons.${stage}" includes="*.bmp"/>
+		</copy>
+
+		<copy file="${dist}/lib/ccidoc${stage}stage.jar" tofile="${package}/Server/Shared/ccidoc${stage}stage.jar"/>
+
+		<jar jarfile="${dist}/CC_IDoc${stage}.jar" basedir="${package}">
+			<include name="etc/**"/>
+			<include name="META-INF/**"/>
+			<include name="Server/**"/>
+			<include name="Bitmaps/**"/>
+		</jar>
+
+		<!--
+		<delete file="./CC_IDOC_ids_root.res"/>
+		<delete file="./CC_IDOC_msgs_en_US.res"/>
+		<delete file="./CC_IDOC_msgs_root.res"/>
+		-->
+	</target>
+
+
+</project>

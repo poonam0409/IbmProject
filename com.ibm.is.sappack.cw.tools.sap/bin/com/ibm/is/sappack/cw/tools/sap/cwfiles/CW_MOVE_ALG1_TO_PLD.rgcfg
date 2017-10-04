@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="DBPage.source.odbcAlternateSchema">#p_ALG_Schema#</entry>
+<entry key="DBPage.source.odbcDataSourceText">#CW_DB.ps_Conn#</entry>
+<entry key="DBPage.odbcAlternateSchema">#p_PLD_Schema#</entry>
+<entry key="PROP_TRANSCODE_REFERENCE_FIELDS">false</entry>
+<entry key="DBPage.source.odbcUseAlternateSchema">true</entry>
+<entry key="DBPage.odbcSqlWhereCondText">CW_LOB=&apos;#CW_Part.ps_LOB#&apos; AND CW_RLOUT=&apos;#CW_Part.ps_RLOUT#&apos;</entry>
+<entry key="PARAMETER_PFX_7">p_PLD_Schema#p_PLD_Schema#String##</entry>
+<entry key="PARAMETER_PFX_6">p_PLD_Schema#p_PLD_Schema#String##</entry>
+<entry key="PROP_TRANSCODE_TARGET_LEGACY_ID"></entry>
+<entry key="PARAMETER_PFX_5">p_ALG_Schema#p_ALG_Schema#String##</entry>
+<entry key="DBPage.source.odbcPasswordText">#CW_DB.ps_Pass#</entry>
+<entry key="PARAMETER_PFX_4">CW_Part.ps_RLOUT#CW_Part.ps_RLOUT#String##</entry>
+<entry key="PARAMETER_PFX_3">CW_Part.ps_LOB#CW_Part.ps_LOB#String##</entry>
+<entry key="PROP_TRANSCODE_DOMAIN_VALUE_FIELDS">false</entry>
+<entry key="PARAMETER_PFX_2">CW_DB.ps_Pass#CW_DB.ps_Pass#Encrypted##</entry>
+<entry key="DBPage.target.odbcCodePageSelection">1</entry>
+<entry key="PARAMETER_PFX_1">CW_DB.ps_User#CW_DB.ps_User#String##</entry>
+<entry key="PROP_KEY_MODE">RMRG_CW_MODE</entry>
+<entry key="PARAMETER_PFX_0">CW_DB.ps_Conn#CW_DB.ps_Conn#String##</entry>
+<entry key="DBPage.target.odbcUserText">#CW_DB.ps_User#</entry>
+<entry key="VERSION">1.0</entry>
+<entry key="JobDescriptionPage.descEnabled">true</entry>
+<entry key="JobDescriptionPage.editorText">(C) COPYRIGHT International Business Machines Corp. 2009, 2011
+All Rights Reserved
+Licensed Materials - Property of IBM
+ 
+US Government Users Restricted Rights - Use, duplication or
+disclosure restricted by GSA ADP Schedule Contract with IBM Corp.</entry>
+<entry key="PARAMETER_NUM">7</entry>
+<entry key="DBPage.persistenceTypesCombo">0</entry>
+<entry key="ID">13466738274651726399585</entry>
+<entry key="PROP_TRANSCODE_NON_REFERENCE_FIELDS">false</entry>
+<entry key="DBPage.odbcPasswordText">#CW_DB.ps_Pass#</entry>
+<entry key="DBPage.source.odbcSqlWhereCondText">CW_LOB=&apos;#CW_Part.ps_LOB#&apos; AND CW_RLOUT=&apos;#CW_Part.ps_RLOUT#&apos;</entry>
+<entry key="DBPage.odbcDataSourceText">#CW_DB.ps_Conn#</entry>
+<entry key="DOCUMENTATION">Rapid Generator configuration for jobs that move from the ALG1 area to the PLD area.</entry>
+<entry key="DBPage.odbcUserText">#CW_DB.ps_User#</entry>
+<entry key="DBPage.target.odbcUseAlternateSchema">true</entry>
+<entry key="DBPage.source.odbcCodePageSelection">1</entry>
+<entry key="PARAMETER_PROPERTY_NAMES">DBPage.odbcDataSourceText#DBPage.odbcUserText#DBPage.odbcPasswordText#DBPage.odbcSqlWhereCondText#DBPage.odbcAlternateSchema#PROP_TRANSCODE_TARGET_LEGACY_ID#DBPage.source.odbcDataSourceText#DBPage.target.odbcDataSourceText#DBPage.target.odbcUserText#DBPage.source.odbcUserText#DBPage.source.odbcPasswordText#DBPage.target.odbcPasswordText#DBPage.source.odbcSqlWhereCondText#DBPage.source.odbcAlternateSchema#DBPage.target.odbcAlternateSchema</entry>
+<entry key="RGCFG_TYPE">MOVE_TRANSCODE</entry>
+<entry key="DBPage.target.odbcAlternateSchema">#p_PLD_Schema#</entry>
+<entry key="DBPage.target.odbcPasswordText">#CW_DB.ps_Pass#</entry>
+<entry key="DBPage.source.odbcUserText">#CW_DB.ps_User#</entry>
+<entry key="DBPage.odbcCodePageSelection">1</entry>
+<entry key="AUTHOR">CW</entry>
+<entry key="COMPANY">IBM</entry>
+<entry key="DBPage.odbcUseAlternateSchema">true</entry>
+<entry key="DBPage.target.odbcDataSourceText">#CW_DB.ps_Conn#</entry>
+</properties>

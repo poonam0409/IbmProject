@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="Prereq checker" basedir="." default="all">
+	<property name="build" value="./bin" />
+	<property name="src" value="../src/main/java" />
+    <property name="resources" value="../src/main/resources" />
+	<property name="dist" value="./dist" />
+	<property name="jarFileName" value="sappackv7prereqcheck.jar" />
+
+	<target name="cleanup">
+		<delete dir="${build}" />
+		<delete dir="${dist}" />
+	</target>
+
+	<target name="create-dir" description="create directories">
+		<mkdir dir="${build}" />
+		<mkdir dir="${dist}" />
+	</target>
+
+	<target name="buildcodejar" description="compile code">
+		<javac sourcepath="" srcdir="${src}" destdir="${build}">
+			<include name="com/ibm/is/sappack/dsstages/**/*.java" />
+		</javac>
+		<copy todir="${build}">
+			<fileset dir="${resources}" includes="**/*.properties" />
+		</copy>
+		<jar jarfile="${build}/${jarFileName}" manifest="${src}/META-INF/MANIFEST.MF" basedir="${build}">
+			<include name="com/ibm/is/sappack/dsstages/**" />
+		</jar>
+	</target>
+
+	<target name="zipall">
+		<tstamp/>
+		<zip destfile="${dist}/sappackv7prereqcheck_${DSTAMP}_${TSTAMP}.zip">
+			<fileset dir="${build}" includes="${jarFileName}" />
+			<fileset dir="../script" includes="prereqcheck.sh,readme*" />
+		</zip>
+	</target>
+
+	<target name="all" depends="cleanup,create-dir,buildcodejar,zipall">
+	</target>
+
+</project>

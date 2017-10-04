@@ -1,0 +1,126 @@
+/*
+Licensed Material - Property of IBM
+
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+ 
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+*/
+
+@import "../com.ibm.swg.im.iis.common.ic.swg.help.doc/swg_info_common.css";
+
+ul.callout {list-style: none; }
+ul.callout li { margin-top: 4px; }
+
+.userinput { font-family: monospace; font-size: 12px; }
+
+.fp1 {padding-left: 10px;
+background-image: url(../com.ibm.swg.im.iis.functional.doc/images/one.gif);
+background-repeat: no-repeat;
+background-position: 0 .2em;}
+
+.fp8 {padding-left: 10px;
+background-image: url(../com.ibm.swg.im.iis.functional.doc/images/eight.gif);
+background-repeat: no-repeat;
+background-position: 0 .2em;}
+
+.fp9 {padding-left: 10px;
+background-image: url(../com.ibm.swg.im.iis.functional.doc/images/nine.gif);
+background-repeat: no-repeat;
+background-position: 0 .2em;}
+
+TABLE {
+   color: black; 
+   width: 90%;
+   border-collapse: collapse;
+   border-color: Black;
+   background: white;  
+   margin-top: 0.5em;
+   margin-bottom: 0.5em;
+   margin-left: 0em;
+   margin-right: 0em;
+} 
+
+.tbldesc { font-style: italic; font-size: 12px; }
+caption { text-align: left; font-style: italic; font-size: 12px; }
+
+TH {
+   font-weight: bold;
+   font-size: 12px;
+   color: black; 
+   background-color: #dadada;  
+   padding-top: 0.1em;
+   padding-bottom: 0.3em;
+   padding-left: 0.4em;
+   padding-right: 1em;
+} 
+
+TH.base {
+    font-weight: bold;
+    color: black; 
+    border: 1 solid #606060;
+    background-color: #dcdada;  
+    padding-top: 0.65em;
+    padding-bottom: 0.65em;
+    padding-left: 1em;
+    padding-right: 1em;
+} 
+
+TD {
+   font-size: 12px;
+   color: black;  
+   background-color: white;  
+   padding-top: 0.1em;
+   padding-bottom: 0.0em;
+   padding-left: 0.4em;
+   padding-right: 1em;
+}  
+
+#runheaderdiv TABLE {
+   color: black; 
+   width: 97%;
+   border-collapse: collapse;
+   border-color: Black;
+   background: white;  
+   margin-top: 0.5em;
+   margin-bottom: 0.5em;
+   margin-left: 0em;
+   margin-right: 0em;
+} 
+
+#runheaderdiv TD {
+   font-size: 0.75em;
+   color: black;  
+   background-color: white;  
+   padding-top: 0.1em;
+   padding-bottom: 0.3em;
+   padding-left: 0.4em;
+   padding-right: 1em;
+}  
+
+/* BEGIN OF REPLICATION DITA-SOURCED HOME PAGE CSS
+Do not remove or change
+*/
+h1.dochomeh1   {background-image: url(../com.ibm.swg.im.repl.common.doc/dochome/Standalone_SWGbranding/ibm/info_ibm.gif); background-position: left;background-repeat:no-repeat;padding-left: 47px;font-size: 18px;font-style : normal;font-weight : bold;	padding-bottom: 0em;margin-top : 0;	margin-bottom: 0;}
+h1.dochomeh1_2 {background-image: url(../com.ibm.swg.im.iis.common.ic.swg.help.doc/dochome/Standalone_SWGbranding/websphere/info_ws.gif); background-position: left;background-repeat:no-repeat;padding-left: 41px;font-size: 18px;font-style : normal;font-weight : bold;	padding-bottom: 0em;margin-top : 0;	margin-bottom: 0;}
+/*Introduction text block*/
+div#iiyrcnav_dochome__intro   {border-top: 2px solid #336699;margin-top : 0px;  margin-right : 48px;margin-bottom : 24px;margin-left: 39px;}
+div#iiyrcnav_dochome__intro_2 {border-top: 2px solid #996699;margin-top : 0px;  margin-right : 48px;margin-bottom : 24px;margin-left: 39px;}
+/* 'In this document' block*/
+div#iiyrcnav_dochome__itd {padding-left : 39px;padding-right: 6px;margin-bottom : 24px;width: 45%; float : left;}
+/*left column*/
+div#iiyrcnav_dochome__itd1 {width : 45%;	float : left;}
+/*2nd column*/
+div#iiyrcnav_dochome__itd2 {padding-left : 12px;width : 45%;float : left;}
+/*'ibm.com and other resources' block*/
+div#iiyrcnav_dochome__rer { width : 45%;float : left;padding-left : 12px;border-left : solid 1px #999;margin-bottom : 24px;}
+div#iiyrcnav_dochome__rer .p{margin-top: 10px;}
+div#iiyrcnav_dochome__rer ul{list-style: none;	padding-left: 0; margin-left: 0;}
+/*Blok titles, section headers*/
+div#iiyrcnav_dochome__itd h2,div#iiyrcnav_dochome__rer h2,div#iiyrcnav_dochome__itd p.h2 {font-size : 16px;font-style : normal;font-weight : bold;margin-bottom : 12px;margin-top : 0;}
+div#iiyrcnav_dochome__itd1 h3,div#iiyrcnav_dochome__itd2 h3, div#iiyrcnav_dochome__rer h3 { padding-top : 14px; margin-top : 0;font-size: 12px;font-weight : bold;margin-bottom : 0;	padding-bottom : 0;}
+div#iiyrcnav_dochome__itd a, div#iiyrcnav_dochome__rer a {	font-size: 12px; font-weight : normal;}
+div#runfooterdiv {display: block; clear: both; }
+/* END OF REPLICATION DITA SOURCE HOME PAGE CSS*/

@@ -1,0 +1,14 @@
+# Apache Xerces (XML4J)
+
+This product includes software developed by the Apache Software Foundation ([http://www.apache.org/][1]). 
+
+Portions of this software were originally based on the following: 
+
+  * software copyright (c) 1999, IBM Corporation., [http://www.ibm.com][2].
+  * software copyright (c) 1999, Sun Microsystems., [http://www.sun.com][3].
+  * voluntary contributions made by Paul Eng on behalf of the Apache Software Foundation that were originally developed at iClick, Inc., software copyright (c) 1999.
+
+   [1]: http://www.apache.org/
+   [2]: http://www.ibm.com
+   [3]: http://www.sun.com
+

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project name="build">
+
+	<target name="deleteZip" description="delete">
+		<delete failonerror="false">
+			<fileset dir="../UpdateSite_RMRGForSAPPack/out">
+				<exclude name="documentation" />
+				<exclude name="README" />
+				<include name="*" />
+			</fileset>
+		</delete>
+	</target>
+
+	<target name="createZip" description="createZip" >
+		<mkdir dir="../UpdateSite_RMRGForSAPPack/out" />
+		<property name="dest.dir" value="../UpdateSite_RMRGForSAPPack/out" />
+		<property name="src.dir" value="../UpdateSite_RMRGForSAPPack/" />
+
+		<javac sourcepath="" srcdir="${src.dir}" destdir="${dest.dir}" debug="${debug}">
+			<include name="**/*.jar" />
+		</javac>
+
+		<zip destfile="${dest.dir}/ISPackForSAP_RMRG.zip" basedir="${src.dir}">
+			<exclude name="**/.project" />
+			<exclude name="**/site.xml" />
+			<exclude name="**/Build.xml" />
+			<exclude name="**/*.zip" />
+			<exclude name="**/out" />
+		</zip>
+		
+	</target>
+	
+	<target name="clean" description="delete">
+		<delete quiet="true" dir="features"/>
+		<delete quiet="true" dir="plugins"/>
+		<delete quiet="true" file="artifacts.jar"/>
+		<delete quiet="true" file="content.jar"/>
+		<delete quiet="true" file="logs.zip"/>
+	</target>
+
+</project>

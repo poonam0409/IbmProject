@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="Preparing a logical data model for job generation">
+   <intro>
+      <description>
+         This cheat sheet shows you how to transform a logical data model into a physical data model
+         to be used for the Rapid Generator for SAP.
+         It will also show how a DB can be created from this physical model.
+         
+         <br/>
+         <b>NOTE: Be sure to enter the names of projects, models, etc. in the following steps exactly as
+         indicated otherwise the "Click to perform" buttons might not work. 
+         However, the "Click when complete" buttons will continue to work.
+         </b>
+      </description>
+   </intro>
+   <item
+         dialog="true"
+         href="/com.ibm.datatools.transform.ui.doc/topics/ctransform.html"
+         title="Transform the logical into a physical model">
+      <description>
+         Navigate to the logical data model you have used to import metadata from SAP
+         using Rapid Modeler for SAP.
+      </description>
+      <subitem
+            label="Right click on the logical data model and select Transform to Physical Data Model.">
+      </subitem>
+      <subitem
+            label="On the Target Physical data model page select Create New model. Click Next.">
+      </subitem>
+      <subitem
+            label="On the Physical Data Model File page select DB2 as the target database. Click Next.">
+      </subitem>
+      <subitem
+            label="On the Options page check the settings, in particular, the schema name. Click Next.">
+      </subitem>
+      <subitem
+            label="On the Output wizard page click Finish">
+      </subitem>
+         </item>
+   <item
+         title="Identify DB2 database">
+      <description>
+         Identify a DB2 database somewhere in your system landscape that you want to use to hold
+         SAP data.
+         <br/> 
+         You will have to create an ODBC connection on your DataStage server machine to this
+         database.
+         How to create an ODBC connection depends on the operating system. Please consult your system 
+         administrator.
+      </description>
+   </item>
+   <item
+         dialog="true"
+         href="/com.ibm.datatools.connection.repository.ui.doc/topics/tcommon_connecting_wiz.html"
+         title="Create a connection to the database">
+      <description>
+         This step lets you create a connection to your database in InfoSphere Data Architect.
+         <br/>
+         You can skip this step if you want to run the DDL script created in the previously on the database manually.
+      </description>
+      <subitem
+            label="In the Data Source Explorer View right click on Database Connection -&gt; New."
+            skip="true"> New.">
+      </subitem>
+      <subitem
+            label="Click through the New Connection wizard while entering the connection info of your database."
+            skip="true">
+      </subitem>
+   </item>
+   <item
+         skip="true"
+         title="Create an ODBC connection on the DataStage Server">
+      <description>
+         You must create an ODBC connection on the 
+DataStage Server machine to your database to be able
+to use it in DataStage jobs.
+      </description>
+   </item>
+   <item
+         dialog="true"
+         href="/com.ibm.datatools.fe.ui.doc/topics/ruidll_saverun.html"
+         title="Generate DDL script">
+      <description>
+         Navigate to the result physical data model created in the previous step in the Data Project Explorer. Double-click on the dbm entry. Right-click on the Database entry under the dbm file and select Generate DDL. Walk through the Generate DDL wizard to create a .sql file in the Data Design Project.
+      </description>
+      <subitem
+            label="Navigate to the result physical data model created in the previous step in the Data Project Explorer and double click on it.">
+      </subitem>
+      <subitem
+            label="Right-click on the Database entry under the dbm file and select Generate DDL.">
+      </subitem>
+      <subitem
+            label="Walk through the Generate DDL wizard to create a .sql file in the Data Design Project.">
+      </subitem>
+   </item>
+   <item
+         href="/com.ibm.datatools.server.ui.doc/topics/cdatabaseexplorer.html"
+         title="Run DDL script on the database">
+      <description>
+         This step shows how to run the DDL script on the connection created in the previous step.
+      </description>
+      <subitem
+            label="Right click on the .sql file in the SQL scripts folder in your Data Design project and select Run SQL."
+            skip="true">
+      </subitem>
+      <subitem
+            label="Select the database connection created in the previous step and finish the wizard."
+            skip="true">
+      </subitem>
+   </item>
+      </cheatsheet>

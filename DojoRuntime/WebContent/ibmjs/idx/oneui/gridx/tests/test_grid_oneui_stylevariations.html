@@ -1,0 +1,350 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>Gridx OneUI Style Variations</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+	<style type="text/css">
+		.testDataWarningStatus,
+		.testDataCriticalStatus,
+		.testDataNormalStatus {
+			background-image: url("../../../gridx/tests/support/data/status.png");
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		.testDataWarningStatus {
+			background-position: 0 -2px;
+		}
+
+		.testDataNormalStatus {
+			background-position: -18px -2px;
+		}
+
+		.testDataCriticalStatus {
+			background-position: -36px -2px;
+		}
+
+		.testToolbarButtonCut,
+		.testToolbarButtonCopy,
+		.testToolbarButtonPaste {
+			background-image: url("../../../gridx/tests/support/data/toolbarbuttons.png");
+			background-repeat: no-repeat;
+			width: 16px;
+			height: 16px;
+			background-position: -4px -6px;
+		}
+
+		.gridxRtl .testToolbarButtonCut,
+		.gridxRtl .testToolbarButtonCopy,
+		.gridxRtl .testToolbarButtonPaste {
+			background-image: url("../../../gridx/tests/support/data/toolbarbuttons_rtl.png");
+		}
+
+		.testToolbarButtonCopy {
+			background-position: -29px -5px;
+		}
+
+		.testToolbarButtonPaste {
+			background-position: -55px -5px;
+		}
+
+		.dijitButtonHover .testToolbarButtonCut,
+		.dijitButtonActive .testToolbarButtonCut,
+		.dijitButtonHover .testToolbarButtonCopy,
+		.dijitButtonActive .testToolbarButtonCopy,
+		.dijitButtonHover .testToolbarButtonPaste,
+		.dijitButtonActive .testToolbarButtonPaste {
+			background-image: url("../../../icons/images/editorIconsHover.png");
+			background-repeat: no-repeat;
+			width: 16px;
+			height: 16px;
+			background-position: -54px -1px;
+		}
+
+		.gridxRtl .dijitButtonHover .testToolbarButtonCut,
+		.gridxRtl .dijitButtonActive .testToolbarButtonCut,
+		.gridxRtl .dijitButtonHover .testToolbarButtonCopy,
+		.gridxRtl .dijitButtonActive .testToolbarButtonCopy,
+		.gridxRtl .dijitButtonHover .testToolbarButtonPaste,
+		.gridxRtl .dijitButtonActive .testToolbarButtonPaste {
+			background-image: url("../../../icons/images/editorIconsHover_rtl.png");
+		}
+
+
+		.dijitButtonHover .testToolbarButtonCopy, 
+		.dijitButtonActive .testToolbarButtonCopy {
+			background-position: -72px -1px;
+		}
+
+		.dijitButtonHover .testToolbarButtonPaste,
+		.dijitButtonActive .testToolbarButtonPaste {
+			background-position: -90px -1px;
+		}
+
+		.gridx {
+			width: 800px;
+			height: 350px;
+			margin-bottom: 20px;
+		}
+	</style>
+	<script type="text/javascript" src="../../../tests/dojoVersion.js"></script>
+	<script type="text/javascript">
+		dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+	<style id="idxStyles" type="text/css">
+		@import "../../../themes/oneui/dijit/document.css";
+		@import "../../../themes/oneui/oneui.css";
+		@import "../../../themes/test.css";
+	</style>
+	<link rel='stylesheet' href="support/common.css" />
+
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+		dojoConfig.parseOnLoad = true;
+		dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+	<script type="text/javascript" src='test_grid_oneui_stylevariations.js'></script>
+	<script type="text/javascript" src="../../../gridx/tests/support/common.js"></script>
+	<script type="text/javascript" src="../../../tests/commonTest.js"></script>
+</head>
+<body class='oneui'>
+	<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+	<h1 class='title' tabindex='0' onfocus='this.style.color="blue"' 
+		onblur='this.style.color=""'>
+		Gridx OneUI Style Variations
+	</h1>
+	<br/><br/>
+	<h2>Style A</h2>
+	<p>Airy grid with cell outlines.</p>
+	<div jsid="gridA" data-dojo-type="idx/gridx/Grid" data-dojo-props="
+		cacheClass: 'idx/gridx/core/model/cache/Sync',
+		store: store,
+		structure: layout,
+		autoWidth: true,
+		selectRowTriggerOnCell: true,
+		modules: [
+			'idx/gridx/modules/Focus',
+			'idx/gridx/modules/filter/Filter',
+			'idx/gridx/modules/CellWidget',
+			'idx/gridx/modules/extendedSelect/Row',
+			'idx/gridx/modules/ColumnResizer',
+			'idx/gridx/modules/VirtualVScroller',
+			'idx/gridx/modules/ToolBar',
+			'idx/gridx/modules/SummaryBar',
+			'idx/oneui/gridx/modules/filter/QuickFilter',
+			'idx/oneui/gridx/modules/Sort'
+		]
+	"></div>
+
+	<h2>Style B</h2>
+	<p>Airy grid with row striping and no cell outlines.</p>
+	<div jsid="gridB" data-dojo-type="idx/gridx/Grid" data-dojo-props="
+		'class': 'gridxAlternatingRows gridxWholeRow',
+		cacheClass: 'idx/gridx/core/model/cache/Sync',
+		store: store,
+		structure: layout,
+		autoWidth: true,
+		bodyRowHoverEffect: false,
+		modules: [
+			'idx/gridx/modules/Focus',
+			'idx/gridx/modules/filter/Filter',
+			'idx/gridx/modules/CellWidget',
+			'idx/gridx/modules/ColumnResizer',
+			'idx/gridx/modules/VirtualVScroller',
+			'idx/gridx/modules/ToolBar',
+			'idx/gridx/modules/SummaryBar',
+			'idx/oneui/gridx/modules/filter/QuickFilter',
+			'idx/oneui/gridx/modules/Sort'
+		]
+	"></div>
+
+	<h2>Style C</h2>
+	<p>Airy grid with row striping and column outlines.<p>
+	<div jsid="gridC" data-dojo-type="idx/gridx/Grid" data-dojo-props="
+		'class': 'gridxAlternatingRows',
+		cacheClass: 'idx/gridx/core/model/cache/Sync',
+		store: store,
+		structure: layout,
+		autoWidth: true,
+		selectRowTriggerOnCell: true,
+		modules: [
+			'idx/gridx/modules/Focus',
+			'idx/gridx/modules/filter/Filter',
+			'idx/gridx/modules/CellWidget',
+			'idx/gridx/modules/ColumnResizer',
+			'idx/gridx/modules/extendedSelect/Row',
+			'idx/gridx/modules/VirtualVScroller',
+			'idx/gridx/modules/ToolBar',
+			'idx/gridx/modules/SummaryBar',
+			'idx/oneui/gridx/modules/filter/QuickFilter',
+			'idx/oneui/gridx/modules/Sort'
+		]
+	"></div>
+
+	<h2>Style D</h2>
+	<p>Airy grid with row outlines.</p>
+	<div jsid="gridD" data-dojo-type="idx/gridx/Grid" data-dojo-props="
+		'class': 'gridxWholeRow',
+		cacheClass: 'idx/gridx/core/model/cache/Sync',
+		store: store,
+		structure: layout,
+		autoWidth: true,
+		selectRowTriggerOnCell: true,
+		modules: [
+			'idx/gridx/modules/Focus',
+			'idx/gridx/modules/filter/Filter',
+			'idx/gridx/modules/CellWidget',
+			'idx/gridx/modules/ColumnResizer',
+			'idx/gridx/modules/extendedSelect/Row',
+			'idx/gridx/modules/VirtualVScroller',
+			'idx/gridx/modules/ToolBar',
+			'idx/gridx/modules/SummaryBar',
+			'idx/oneui/gridx/modules/filter/QuickFilter',
+			'idx/oneui/gridx/modules/Sort'
+		]
+	"></div>
+
+	<h2>Style E</h2>
+	<p>Compact grid with cell outlines.</p>
+	<div jsid="gridE" data-dojo-type="idx/gridx/Grid" data-dojo-props="
+		'class': 'compact',
+		cacheClass: 'idx/gridx/core/model/cache/Sync',
+		store: store,
+		structure: layout,
+		autoWidth: true,
+		bodyRowHoverEffect: false,
+		modules: [
+			'idx/gridx/modules/Focus',
+			'idx/gridx/modules/filter/Filter',
+			'idx/gridx/modules/CellWidget',
+			'idx/gridx/modules/ColumnResizer',
+			'idx/gridx/modules/VirtualVScroller',
+			'idx/gridx/modules/ToolBar',
+			'idx/gridx/modules/SummaryBar',
+			'idx/oneui/gridx/modules/filter/QuickFilter',
+			'idx/oneui/gridx/modules/Sort'
+		]
+	"></div>
+
+	<h2>Style F</h2>
+	<p>Compact grid with row striping and no cell outlines.</p>
+	<div jsid="gridF" data-dojo-type="idx/gridx/Grid" data-dojo-props="
+		'class': 'compact gridxAlternatingRows gridxWholeRow',
+		cacheClass: 'idx/gridx/core/model/cache/Sync',
+		store: store,
+		structure: layout,
+		autoWidth: true,
+		selectRowTriggerOnCell: true,
+		bodyRowHoverEffect: false,
+		modules: [
+			'idx/gridx/modules/Focus',
+			'idx/gridx/modules/filter/Filter',
+			'idx/gridx/modules/CellWidget',
+			'idx/gridx/modules/ColumnResizer',
+			'idx/gridx/modules/VirtualVScroller',
+			'idx/gridx/modules/ToolBar',
+			'idx/gridx/modules/SummaryBar',
+			'idx/oneui/gridx/modules/filter/QuickFilter',
+			'idx/oneui/gridx/modules/Sort'
+		]
+	"></div>
+
+	<h2>Style G</h2>
+	<p>Compact grid with row striping and column outlines.</p>
+	<div jsid="gridG" data-dojo-type="idx/gridx/Grid" data-dojo-props="
+		'class': 'compact gridxAlternatingRows',
+		cacheClass: 'idx/gridx/core/model/cache/Sync',
+		store: store,
+		structure: layout,
+		autoWidth: true,
+		selectRowTriggerOnCell: true,
+		bodyRowHoverEffect: false,
+		modules: [
+			'idx/gridx/modules/Focus',
+			'idx/gridx/modules/filter/Filter',
+			'idx/gridx/modules/CellWidget',
+			'idx/gridx/modules/ColumnResizer',
+			'idx/gridx/modules/VirtualVScroller',
+			'idx/gridx/modules/ToolBar',
+			'idx/gridx/modules/SummaryBar',
+			'idx/oneui/gridx/modules/filter/QuickFilter',
+			'idx/oneui/gridx/modules/Sort'
+		]
+	"></div>
+
+	<h2>Style H</h2>
+	<p>Compact grid with rows outlines.</p>
+	<div jsid="gridH" data-dojo-type="idx/gridx/Grid" data-dojo-props="
+		'class': 'compact gridxWholeRow',
+		cacheClass: 'idx/gridx/core/model/cache/Sync',
+		store: store,
+		structure: layout,
+		autoWidth: true,
+		selectRowTriggerOnCell: true,
+		bodyRowHoverEffect: false,
+		modules: [
+			'idx/gridx/modules/Focus',
+			'idx/gridx/modules/filter/Filter',
+			'idx/gridx/modules/CellWidget',
+			'idx/gridx/modules/ColumnResizer',
+			'idx/gridx/modules/VirtualVScroller',
+			'idx/gridx/modules/ToolBar',
+			'idx/gridx/modules/SummaryBar',
+			'idx/oneui/gridx/modules/filter/QuickFilter',
+			'idx/oneui/gridx/modules/Sort'
+		]
+	"></div>
+
+	<h2>Style I</h2>
+	<p>Airy full page grid with row striping.</p>
+	<div jsid="gridI" data-dojo-type="idx/gridx/Grid" data-dojo-props="
+		'class': 'gridxFullPage gridxAlternatingRows',
+		cacheClass: 'idx/gridx/core/model/cache/Sync',
+		store: store,
+		structure: layout,
+		autoWidth: true,
+		selectRowTriggerOnCell: true,
+		modules: [
+			'idx/gridx/modules/Focus',
+			'idx/gridx/modules/filter/Filter',
+			'idx/gridx/modules/CellWidget',
+			'idx/gridx/modules/ColumnResizer',
+			'idx/gridx/modules/extendedSelect/Row',
+			'idx/gridx/modules/VirtualVScroller',
+			'idx/gridx/modules/ToolBar',
+			'idx/gridx/modules/SummaryBar',
+			'idx/oneui/gridx/modules/filter/QuickFilter',
+			'idx/oneui/gridx/modules/Sort'
+		]
+	"></div>
+
+	<h2>Style J</h2>
+	<p>Airy full page grid with row lines.</p>
+	<div jsid="gridJ" data-dojo-type="idx/gridx/Grid" data-dojo-props="
+		'class': 'gridxFullPage',
+		cacheClass: 'idx/gridx/core/model/cache/Sync',
+		store: store,
+		structure: layout,
+		autoWidth: true,
+		selectRowTriggerOnCell: true,
+		bodyRowHoverEffect: false,
+		modules: [
+			'idx/gridx/modules/Focus',
+			'idx/gridx/modules/filter/Filter',
+			'idx/gridx/modules/CellWidget',
+			'idx/gridx/modules/ColumnResizer',
+			'idx/gridx/modules/VirtualVScroller',
+			'idx/gridx/modules/ToolBar',
+			'idx/gridx/modules/SummaryBar',
+			'idx/oneui/gridx/modules/filter/QuickFilter',
+			'idx/oneui/gridx/modules/Sort'
+		]
+	"></div>
+
+</body>
+</html>

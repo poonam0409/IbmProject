@@ -1,0 +1,149 @@
+/***************************************************** {COPYRIGHT-TOP} ***
+* IBM Confidential
+*
+* Licensed Internal Code - Property of IBM
+*
+* Copyrights On Demand (COD)
+*
+* (C) Copyright IBM Corp. 2004, 2008  All Rights Reserved.
+******************************************************* {COPYRIGHT-END} */
+
+/******************************************************************************/
+/* COD Stylesheet                                                             */
+/******************************************************************************/
+/*                                                                            */
+/* rgb(204,204,255) = #CCCCFF (dark)                                          */
+/* rgb(238,238,255) = #EEEEFF (light)                                         */
+/* rgb(248,248,255) =         (very-light)                                    */
+/******************************************************************************/
+
+/* Custom Headings */
+
+h1               {
+                   font-size         : 24px;
+	           font-weight       : bold;
+                 }
+
+h2               {
+  	           font-size         : 20px;
+	           font-weight       : bold;
+                 }
+                 
+h3               {
+                   font-size         : 16px;
+                   font-weight       : bold;
+                   font-style        : italic;
+}
+
+/* Custom HR tag formatting */
+
+.Sep             { 
+                   color             : #CCCCFF;                  
+                   height            : 6px;                   
+                   text-align        : left
+                 }
+
+.Rule            { 
+                   color             : rgb(204,204,255);                  
+                   height            : 4px;                   
+                   text-align        : left;                   
+                   margin-right      : 1in;
+                 }
+                 
+/* Custom formatting */
+
+.Code            {
+	           font-family       : "Courier New", Courier, mono;
+	           font-size         : medium;
+	           font-style        : normal;
+	           font-weight       : normal;
+	           color             : #006600;
+	           background-color  : #FFFFCC;
+	           margin            : 4px;
+	           padding           : 4px;
+	           height            : auto;
+	           width             : auto;
+	           border            : 1px solid #000000;
+                 }
+
+.Term            { 
+                   font-weight       : bold;
+                   font-family       : Arial, serif;
+                 }
+  
+.Title           {
+                   font-family       : "Times New Roman", Times, serif;
+                   font-size         : 36px;
+	           font-weight       : bolder;
+	           color             : #000000;
+                 }
+
+/* Custom TD tag formatting */
+                 
+.Cell            { 
+                   background-color: rgb(238,238,255); 
+                   
+                   font-weight     : bold;
+                 }
+                 
+.Data            { 
+                   vertical-align  : top;
+                   
+                   border-top      : 4px solid rgb(228,228,255);                    
+                   border-left     : 4px solid rgb(228,228,255);                   
+                 }
+		  
+.Desc            { 
+                   background-color:           rgb(204,204,255); 
+                   
+                   border-bottom   : 3px solid rgb(  0,  0,  0); 
+                   border-top      : 3px solid rgb(  0,  0,  0); 
+                   border-left     : 3px solid rgb(  0,  0,  0); 
+                   border-right    : 3px solid rgb(  0,  0,  0);
+                   
+                   padding-bottom  : 4px; 
+                   padding-top     : 4px; 
+                   padding-left    : 6px; 
+                   padding-right   : 4px;
+                 }
+		  
+.Item            { 
+                   background-color : rgb(204,204,255);
+                   
+                   vertical-align   : top;
+                   
+                   font-weight      : bold;
+                   font-family      : Arial, serif;
+                 }
+                 		  
+.Box            { 
+                   border-bottom   : 3px solid rgb(  0,  0,  0); 
+                   border-top      : 3px solid rgb(  0,  0,  0); 
+                   border-left     : 3px solid rgb(  0,  0,  0); 
+                   border-right    : 3px solid rgb(  0,  0,  0);
+                   
+                   padding-bottom  : 4px; 
+                   padding-top     : 4px; 
+                   padding-left    : 6px; 
+                   padding-right   : 4px;
+                 }
+
+.arg             {
+                    font-weight     : bolder;
+                    color           : #006600;
+                 }
+
+.Tip             {
+                    font-style       : oblique;
+                    font-weight      : bolder;
+                    color            : #FF0000;
+                    background-color : #FFFF00;
+                    border           : thin dotted #000000;
+                    padding          : 2px;
+                 }
+
+.Property        {
+	           font-weight  : bold;
+	           font-family  : Arial, serif;
+	           color        : #666666;
+                 }

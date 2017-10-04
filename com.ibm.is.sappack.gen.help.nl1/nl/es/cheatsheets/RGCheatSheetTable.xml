@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="Generación de trabajos de DataStage de extracción de tablas con Rapid Generator for SAP">
+   <intro>
+      <description>
+         Esta hoja de apuntes muestra cómo crear un modelo de datos lógico y cómo extraer metadatos para una tabla lógica de SAP.
+         <br/>
+         <b>NOTA: Esta hoja de apuntes supone que ha completado la hoja de apuntes
+         "Importación de tablas lógicas desde SAP utilizando Rapid Modeler for SAP"
+         y
+         "Preparación del modelo de datos lógico para la generación de trabajos".
+         Asegúrese de que los nombres de proyectos, modelos, etc. utilizados en
+         estas hojas de apuntes sean exactos como se indica, de lo contrario es
+         posible que aquí los botones "Pulsar para realizar" no funcionen. 
+         Sin embargo, los botones "Pulsar al finalizar" seguirán funcionando.
+         </b>
+      </description>
+   </intro>
+   <item
+         title="Abrir la perspectiva de Datos">
+      <command
+            required="false"
+            serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=com.ibm.datatools.core.internal.ui.perspective)"/>         
+      <description>
+         Si todavía no está en la perspectiva de Datos, en el menú principal seleccione <b>Ventana</b> &gt; <b>Abrir perspectiva</b> &gt; <b>Datos</b>.
+      </description>
+   </item>
+   <item dialog="true" 
+            title="Abrir el asistente de Rapid Generator for SAP en un modelo de datos físico">
+        <description>
+        Asegúrese de que el archivo <b>RMTableModel.dbm</b> existe en el proyecto de diseño de datos <b>RMTestProject</b>.
+        Recuerde que este archivo es el resultado de la transformación del modelo lógico <b>RMTableModel.ldm</b> en un modelo de datos físico.
+         <br/>Pulse con el botón derecho del ratón en <b>RMTableModel.dbm</b> y seleccione <b>Rapid Generator for SAP</b> &gt; <b>Generar trabajo de DataStage</b>.
+        </description>
+      <action required="false"
+			pluginId="com.ibm.is.sappack.gen.tools.jobgenerator"
+			class="com.ibm.is.sappack.gen.tools.jobgenerator.popup.actions.JobGeneratorCheatSheetAction"
+			param1="RMTestProject" param2="RMTableModel.dbm"/>              
+      </item>
+   <item
+         title="Seleccionar el tipo de trabajo">
+      <description>
+       En la página <b>Seleccionar el tipo de trabajo</b> seleccione <b>Trabajo de ABAP Extract</b>.
+       <br/>
+       Pulse <b>Siguiente</b>.
+      </description>
+   </item>
+   <item
+         title="Especificar detalles de Information Server">
+      <description>
+        Especifique la información de conexión en la instalación de Information Server.
+        Normalmente el nombre de dominio es similar a <b>Servername:9080</b>.
+        Utilice los recuadros desplegables para seleccionar el proyecto de DataStage y la
+        carpeta dentro del proyecto.
+        Especifique la serie <b>RGTableJob</b> como el <b>Prefijo de nombre de trabajo</b>.
+        <br/>
+        Pulse <b>Siguiente</b>. 
+      </description>
+   </item>
+   <item
+         title="Especificar detalles de etapa de ABAP">
+      <description>
+         En la página <b>Opciones de ABAP Extract</b> rellene las secciones siguientes:
+</description>
+      <subitem
+            label="En la sección Opciones de origen seleccione la conexión de SAP definida en el servidor DataStage además de las credenciales.">
+      </subitem>
+      <subitem
+            label="En la sección Opciones de destino seleccione Conector ODBC como el tipo de etapa. Especifique el nombre del origen de datos ODBC y sus credenciales de usuario. ">
+      </subitem>
+      <subitem
+            label="En la sección Método de transferencia RFC especifique la pasarela de SAP y el servicio. Normalmente son el mismo nombre de host que el servidor de aplicaciones SAP y la serie &apos;sapgw&apos; seguida del número del sistema, e.g., sapgw00. Seleccione un archivo que contenga una lista de destinos RFC disponibles. El formato de este archivo contiene una línea con &lt;NombreDestinoRFC&gt;&lt;Blanco&gt;&lt;IDProgramaDestinoRFC&gt; para cada destino RFC. Si no conoce esta información, póngase en contacto con el administrador del sistema SAP. Seleccione 1 en el desplegable &apos;Número máx. de flujos&apos;. Deje &apos;Crear destino RFC&apos; sin seleccionar.">
+      </subitem>
+      <subitem
+            label="En la sección Opciones del programa ABAP, seleccione &apos;Guardar los programas ABAP en el espacio de trabajo&apos; y &apos;Subir los programas a SAP&apos;. Seleccione la conexión de SAP siguiente a la que desea subir los programas ABAP.">
+      </subitem>
+      <subitem
+            label="Pulse el botón &apos;Validar valores de SAP&apos; para validar los valores. Si la validación indica que todos los valores son correctos, pulse Siguiente.">
+      </subitem>
+   </item>
+   <item
+         title="Saltar la página Definir parámetros del trabajo">
+      <description>
+        En la página <b>Definir parámetros del trabajo</b>, deje todos los valores.
+         <br/>
+         Pulse <b>Siguiente</b>.
+      </description>
+   </item>
+   <item
+         title="Saltar la página Definir derivaciones de columna">
+      <description>
+        En la página <b>Definir derivaciones de columna</b>, deseleccione <b>Utilizar derivaciones personalizadas</b>.
+         <br/>
+         Cuando pulse siguiente en esta página se iniciará el proceso de generación de trabajos.
+         <br/>
+         Pulse <b>Siguiente</b>.
+      </description>
+   </item>
+   <item
+         title="Finalizar el asistente">
+      <description>
+         En la página <b>Resumen</b>, revise el resumen que indica qué trabajos se han generado.
+         <br/>
+         Marque el recuadro de selección <b>Iniciar compilador de varios trabajos de DataStage</b> si desea compilar el trabajo.
+         <br/>
+         Pulse <b>Finalizar</b>.
+      </description>
+         </item>
+   <item
+         skip="true"
+         title="Compile el trabajo">
+      <description>
+        Cuando finalice el asistente, se iniciará el compilador de varios trabajos de
+        DataStage con los trabajos generados seleccionados. Avance por el asistente para
+        compilar el trabajo.
+      </description>
+   </item>
+   <item href="http://publib.boulder.ibm.com/infocenter/iisinfsv/v8r1/topic/com.ibm.swg.im.iis.productization.iisinfsv.overview.doc/topics/cisodsdirector.html"
+         title="Ejecutar el trabajo">
+      <description>
+      Para ejecutar el trabajo, abra <b>Director de DataStage</b>, seleccione el
+      trabajo que acaba de generar y seleccione <b>Ejecutar</b>.
+      </description>
+   </item>
+      </cheatsheet>

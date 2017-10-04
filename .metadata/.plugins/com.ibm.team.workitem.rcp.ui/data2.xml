@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkItem_RCP_UI.models:WorkItemRCPUIModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:WorkItem_RCP_UI.models="http:///WorkItem_RCP_UI/models.ecore" xmlns:process="com.ibm.team.process" xmlns:workitem="com.ibm.team.workitem">
+  <categoryHistory>
+    <internalContents repository="https://ips-rtc.swg.usma.ibm.com/jazz/">
+      <projectArea xsi:type="process:ProjectAreaHandle" itemId="_U4rkgLGyEd6tcpaYdliIJw">
+        <stateId xsi:nil="true"/>
+      </projectArea>
+      <category xsi:type="workitem:CategoryHandle" itemId="_TVEQMB85EeCeWN37TSm3yA">
+        <stateId xsi:nil="true"/>
+      </category>
+    </internalContents>
+    <internalContents repository="https://ips-rtc.swg.usma.ibm.com/jazz/">
+      <projectArea xsi:type="process:ProjectAreaHandle" itemId="_U4rkgLGyEd6tcpaYdliIJw">
+        <stateId xsi:nil="true"/>
+      </projectArea>
+      <category xsi:type="workitem:CategoryHandle" itemId="_HHxNsHm3EeGE_Lx6CwaWcA">
+        <stateId xsi:nil="true"/>
+      </category>
+    </internalContents>
+    <internalContents repository="https://ips-rtc.swg.usma.ibm.com/jazz/">
+      <projectArea xsi:type="process:ProjectAreaHandle" itemId="_U4rkgLGyEd6tcpaYdliIJw">
+        <stateId xsi:nil="true"/>
+      </projectArea>
+      <category xsi:type="workitem:CategoryHandle" itemId="_NLOiEHlbEeSR7eAWk30IWA">
+        <stateId xsi:nil="true"/>
+      </category>
+    </internalContents>
+    <internalContents repository="https://ips-rtc.swg.usma.ibm.com/jazz/">
+      <projectArea xsi:type="process:ProjectAreaHandle" itemId="_U4rkgLGyEd6tcpaYdliIJw">
+        <stateId xsi:nil="true"/>
+      </projectArea>
+      <category xsi:type="workitem:CategoryHandle" itemId="_PUar8OI1Ed-bjeX2lIkt2A">
+        <stateId xsi:nil="true"/>
+      </category>
+    </internalContents>
+    <internalContents repository="https://ips-rtc.swg.usma.ibm.com/jazz/">
+      <projectArea xsi:type="process:ProjectAreaHandle" itemId="_U4rkgLGyEd6tcpaYdliIJw">
+        <stateId xsi:nil="true"/>
+      </projectArea>
+      <category xsi:type="workitem:CategoryHandle" itemId="_TzNpoADNEeCJDaIBThxwnw">
+        <stateId xsi:nil="true"/>
+      </category>
+    </internalContents>
+    <internalContents repository="https://ips-rtc.swg.usma.ibm.com/jazz/">
+      <projectArea xsi:type="process:ProjectAreaHandle" itemId="_U4rkgLGyEd6tcpaYdliIJw">
+        <stateId xsi:nil="true"/>
+      </projectArea>
+      <category xsi:type="workitem:CategoryHandle" itemId="_5NZC4AkiEeCL9IONqVxsiw">
+        <stateId xsi:nil="true"/>
+      </category>
+    </internalContents>
+    <internalContents repository="https://ips-rtc.swg.usma.ibm.com/jazz/">
+      <projectArea xsi:type="process:ProjectAreaHandle" itemId="_U4rkgLGyEd6tcpaYdliIJw">
+        <stateId xsi:nil="true"/>
+      </projectArea>
+      <category xsi:type="workitem:CategoryHandle" itemId="_8IaCgAkiEeCL9IONqVxsiw">
+        <stateId xsi:nil="true"/>
+      </category>
+    </internalContents>
+    <internalContents repository="https://ips-rtc.swg.usma.ibm.com/jazz/">
+      <projectArea xsi:type="process:ProjectAreaHandle" itemId="_U4rkgLGyEd6tcpaYdliIJw">
+        <stateId xsi:nil="true"/>
+      </projectArea>
+      <category xsi:type="workitem:CategoryHandle" itemId="_WZQAYNJvEeG0UrvPDVeTgg">
+        <stateId xsi:nil="true"/>
+      </category>
+    </internalContents>
+  </categoryHistory>
+</WorkItem_RCP_UI.models:WorkItemRCPUIModel>

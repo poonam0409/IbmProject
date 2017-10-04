@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?com.ibm.xtools.emf.core.signature <signature id="com.ibm.etools.model2.diagram.web.WebDiagramEditorSignature" version="7.0.0"><feature description="" name="Web Diagram Editor" url="" version="7.1.0"/></signature>?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:DiagramModel="http://www.ibm.com/etools/7.0/DiagramModel" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation">
+  <notation:Diagram xmi:id="_c3ggURIREd66UZTNUUb65g" type="wde.element" element="_c3ggVBIREd66UZTNUUb65g" name="WebDiagram.gph" measurementUnit="Himetric">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_c3ggUhIREd66UZTNUUb65g"/>
+  </notation:Diagram>
+  <DiagramModel:Model xmi:id="_c3ggUxIREd66UZTNUUb65g" id="com.ibm.etools.model2.diagram.web.WebDiagram">
+    <diagram xmi:id="_c3ggVBIREd66UZTNUUb65g" titleProperty="_c3qRUBIREd66UZTNUUb65g" type="com.ibm.etools.model2.diagram.web.WebDiagram" version="7.0">
+      <persistedProperties xmi:id="_c3qRUBIREd66UZTNUUb65g" name="Name" value="Web Diagram"/>
+      <nodes xmi:id="_c3ggVRIREd66UZTNUUb65g" titleProperty="_c3ggVhIREd66UZTNUUb65g" type="com.ibm.etools.model2.diagram.web.WelcomeNode"/>
+    </diagram>
+  </DiagramModel:Model>
+</xmi:XMI>

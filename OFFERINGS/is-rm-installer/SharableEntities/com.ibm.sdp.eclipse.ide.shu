@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<?metadata version='0.0.4'?>
+<su id='com.ibm.sdp.eclipse.ide' version='1.0.1' iuCount='1' installContext='true' qualifiable='true' scope='Profile' adapters='native, eclipse'>
+  <property name='installLocation' value='${context:installLocation}'/>
+  <property name='configLocation' value='${context:installLocation}/configuration'/>
+  <selector id='installContext'/>
+  <iu id='com.ibm.sdp.eclipse.ide.directories' version='1.0.1' adapterId='native'>
+    <selectedBy id='installContext'/>
+    <adapterSpecificData>
+      <perform duringPhases='install'>
+        <mkdir
+          dir='${context:installLocation}'/>
+        <mkdir
+          dir='${context:configLocation}'/>
+      </perform>
+    </adapterSpecificData>
+  </iu>
+</su>

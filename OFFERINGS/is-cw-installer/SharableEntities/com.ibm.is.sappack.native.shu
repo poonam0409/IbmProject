@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<?metadata version='0.0.4'?>
+<su id='com.ibm.is.sappack.native' version='1.1.0.qualifier' installContext='true' adapters='native'>
+  <information name='This file is a variation of the com.ibm.sdp.native SU.'/>
+  <property name='installLocation' value='${context:installLocation}/client'/>
+  <selector id='installContext'/>
+  <iu id='com.ibm.is.sappack.native.directory' version='1.1.0' adapterId='native'>
+    <selectedBy id='installContext'/>
+    <adapterSpecificData>
+      <perform duringPhases='install'>
+        <mkdir
+          dir='${context:installLocation}'/>
+      </perform>
+	  <!--
+      <perform duringPhases='uninstall'> 
+        <delete 
+          file='${profile:installLocation}' 
+          deleteDirIfEmpty='false'/> 
+      </perform> 
+	  -->
+    </adapterSpecificData>
+  </iu>	
+</su>

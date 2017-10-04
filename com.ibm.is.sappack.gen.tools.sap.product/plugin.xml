@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<?eclipse version="3.4"?>
+<plugin>
+<!--
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.ldm"
+            id="com.ibm.is.sappack.gen.tools.sap">
+			<menu label="%menuLabel"
+	               path="additions"
+	               id="com.ibm.is.sappack.gen.tools">
+	            <separator
+	                  name="group1">
+	            </separator>
+	         </menu>
+             <action
+                   class="com.ibm.is.sappack.gen.tools.sap.product.MetadataImportReplayActionProxy"
+                   enablesFor="+"
+                   id="com.ibm.is.sappack.gen.tools.sap.action.ReplayAction"
+                   label="%replayAction"
+                   menubarPath="com.ibm.is.sappack.gen.tools/group1">
+             </action>            
+	         <action
+	               label="%extractAction"
+	               class="com.ibm.is.sappack.gen.tools.sap.product.MetadataImportWizardActionProxy"
+	               menubarPath="com.ibm.is.sappack.gen.tools/group1"
+	               enablesFor="+"
+	               id="com.ibm.is.sappack.gen.tools.sap.action.MetadataImportAction">
+	         </action>
+      </objectContribution>
+   </extension>
+   -->
+   <!--
+   <extension
+         point="com.ibm.is.sappack.gen.common.ui.mode">
+      <rmrgmode
+            modeDescription="%defaultModeDescription"
+            modeID="RMRMG_DEFAULT_MODE"
+            modeName="%defaultModeName"
+            modeOptions="com.ibm.is.sappack.gen.common.ui.EmptyModeOptions"
+            replayAction="com.ibm.is.sappack.gen.tools.sap.action.MetadataImportReplayAction"
+            rmAction="com.ibm.is.sappack.gen.tools.sap.action.MetadataImportAction">
+      </rmrgmode>
+   </extension>
+-->
+<!--
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.ldm"
+            id="com.ibm.is.sappack.gen.tools.sap">
+			<menu label="%menuLabel"
+	               path="additions"
+	               id="com.ibm.is.sappack.gen.tools">
+	            <separator
+	                  name="group1">
+	            </separator>
+	         </menu>
+	         <action
+	               label="OLIX import"
+	               class="com.ibm.is.sappack.gen.tools.sap.product.ModeBasedImportWizardAction"
+	               menubarPath="com.ibm.is.sappack.gen.tools/group1"
+	               enablesFor="+"
+	               id="com.ibm.is.sappack.gen.tools.sap.action.MetadataImportActionqqq">
+	         </action>
+      </objectContribution>
+   </extension>
+-->
+
+<!--
+<extension
+         id="com.ibm.is.sappack.gen.tools.sap.reports.popup1"
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            id="com.ibm.is.sappack.gen.tools.sap.reports.objectContribution1"
+            nameFilter="*.ldm"
+            objectClass="org.eclipse.core.resources.IFile">
+         <menu
+               id="com.ibm.is.sappack.gen.tools.sap.reports.menu1"
+               label="%reportMenuLabel"
+               path="additions">
+            <groupMarker
+                  name="groupMarker1">
+            </groupMarker>
+         </menu>
+         <action
+               class="com.ibm.is.sappack.gen.tools.sap.reports.AppendIncludeStructureReportAction"
+               enablesFor="+"
+               id="com.ibm.is.sappack.gen.tools.sap.reports.action1"
+               label="%appendIncludeStructureAction"
+               menubarPath="com.ibm.is.sappack.gen.tools.sap.reports.menu1/groupMarker1">
+         </action>
+      </objectContribution>
+
+      <objectContribution
+            adaptable="true"
+            id="com.ibm.is.sappack.gen.tools.sap.reports.objectContribution2"
+            objectClass="com.ibm.db.models.logical.Entity">
+         <menu
+               id="com.ibm.is.sappack.gen.tools.sap.reports.menu2"
+               label="%reportMenuLabel"
+               path="additions">
+            <groupMarker
+                  name="groupMarker2">
+            </groupMarker>
+         </menu>
+         <action
+               class="com.ibm.is.sappack.gen.tools.sap.reports.AppendIncludeStructureReportAction"
+               enablesFor="+"
+               id="com.ibm.is.sappack.gen.tools.sap.reports.action2"
+               label="%appendIncludeStructureAction"
+               menubarPath="com.ibm.is.sappack.gen.tools.sap.reports.menu2/groupMarker2">
+         </action>
+      </objectContribution>
+
+
+   </extension>
+-->
+</plugin>

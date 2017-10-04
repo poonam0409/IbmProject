@@ -1,0 +1,3 @@
+Localize messaging icons for supporting Hebrew localization:
+
+Here's a snippet of localization selector code (.oneui.idx_i18n_il) to add to call in the localized icons. 

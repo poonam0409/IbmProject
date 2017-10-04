@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+	<title>Dijit Unit Test Runner</title>
+	<script type="text/javascript" src="../dojoVersion.js"></script>
+	<script type="text/javascript">
+  		// in order to take account of dojo versions and paths, we build the REFRESH statement dynamically.
+		// Four substitutions are applied:
+		//   @DOJOPATH@ - path from library root to dojo root
+		//   @DOHPATH@ - path from dojo root to doh directory
+		//   @DOHREVERSE@ - path from doh directory to dojo root
+		//   @VER@ - the dojo version as selected by dojoVersion.js 
+        var importStatement = '<meta http-equiv="REFRESH" content="0;'  // immediately redirect to DOH runner
+         + 'url=../../../../@DOJOPATH@/@DOHPATH@/runner.html'           // runner.html in doh directory under dojo root
+		 + '?boot=@DOHBOOTPATH@'                   		                // load dojo.js from dojo directory under dojo root
+		 + "&dojoUrl=@DOHBOOTPATH@"										// handles boot path for Dojo 1.6
+		 + '&paths=doh,../@DOHPATH@'                                    // map 'doh' package to doh directory under dojo root
+		 + '&registerModulePath=idx,../../ibmjs/idx'                    // map 'idx' package to idx directory from dojo root
+		 + '&testModule=idx.tests.layout.module'                      	    // doh module to load
+		 + '&dojo=@VER@">';                                             // also pass dojo= to be passed to each test page
+		
+        importStatement = importStatement.replace(/@DOJOPATH@/g, currentDojoVersion.path);
+        importStatement = importStatement.replace(/@DOHPATH@/g, currentDojoVersion.dohPath);
+        importStatement = importStatement.replace(/@DOHBOOTPATH@/g, currentDojoVersion.dohBootPath);
+        importStatement = importStatement.replace(/@VER@/g, currentDojoVersion.code);
+        document.write(importStatement);
+	</script>
+    </HEAD>
+	<BODY>
+		Redirecting to D.O.H runner.
+	</BODY>
+</HTML>

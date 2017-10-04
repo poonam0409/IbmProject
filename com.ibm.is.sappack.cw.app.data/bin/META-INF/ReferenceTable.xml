@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd ">
+	<named-query name="ReferenceTable.retrieveAll">
+		<query>
+			SELECT
+				r
+			FROM
+				REFTABLE r
+		</query>
+	</named-query>
+	<named-query name="ReferenceTable.retrieveAllOrderByNameAsc">
+		<query>
+			SELECT
+				r
+			FROM
+				REFTABLE r
+			ORDER BY
+				r.name ASC
+		</query>
+	</named-query>
+	<named-query name="ReferenceTable.retrieveAllOrderByNameDesc">
+		<query>
+			SELECT
+				r
+			FROM
+				REFTABLE r
+			ORDER BY
+				r.name DESC
+		</query>
+	</named-query>
+	<named-query name="ReferenceTable.retrieveByName">
+		<query>
+			SELECT
+				r
+			FROM
+				REFTABLE r
+			WHERE
+				r.name = :name
+		</query>
+	</named-query>
+	<named-query name="ReferenceTable.retrieveByRDMId">
+		<query>
+			SELECT
+				r
+			FROM
+				REFTABLE r
+			WHERE
+				r.targetRdmSet.rdmId = :id
+		</query>
+	</named-query>
+	<named-query name="ReferenceTable.retrieveByTranscodingTableName">
+		<query>
+			SELECT
+				r
+			FROM
+				REFTABLE r
+			WHERE
+				r.transcodingTable.name = :ttname
+		</query>
+	</named-query>
+	<named-query name="ReferenceTable.retrieveByTableNameList">
+		<query>
+			SELECT
+				r
+			FROM
+				REFTABLE r
+			WHERE
+				r.name IN :names
+		</query>
+	</named-query>
+</entity-mappings>

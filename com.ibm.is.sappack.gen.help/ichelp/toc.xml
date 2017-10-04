@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="InfoSphere Pack for SAP" topic="ichelp/start.html">
+    <topic href="ichelp/whatsnew.html" label="What's new">
+    </topic>
+    <topic href="ichelp/gettinghelp.html" label="Tutorials and Help"/>
+</toc>

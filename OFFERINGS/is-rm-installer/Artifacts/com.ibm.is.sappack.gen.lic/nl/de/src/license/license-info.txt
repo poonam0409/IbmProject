@@ -1,0 +1,49 @@
+﻿LIZENZINFORMATION
+
+Für die Lizenzierung der nachfolgend aufgelisteten Programme gelten zusätzlich zu den 'IBM Internationale Nutzungsbedingungen für Programmpakete' (IBM Formnummer Z125-3301-14) die folgenden Bedingungen.
+
+Programmname: IBM InfoSphere Information Server Pack for SAP Applications v7.1
+Programmnummer: 5724-Q55
+
+Programmname: IBM InfoSphere Information Server Pack for SAP Applications for Non-Production v7.1
+Programmnummer: 5724-Q55
+
+Gemäß der Beschreibung in den Internationalen Nutzungsbedingungen für Programmpakete ("IPLA") und dieser Lizenzinformation gewährt IBM dem Lizenznehmer ein beschränktes Recht zur Nutzung des Programms. Dieses Recht ist auf die Art der Nutzungsberechtigung, z. B. Prozessor-Value-Unit ("PVU") oder Value-Unit ("VU"), oder eine andere angegebene Nutzungsstufe beschränkt, für die der Lizenznehmer laut Berechtigungsnachweis (Proof of Entitlement = PoE) bezahlt hat. Die Nutzung des Lizenznehmers kann auf eine bestimmte Maschine beschränkt sein, ggf. darf er das Programm nur als Unterstützungsprogramm verwenden oder die Nutzung kann sonstigen Beschränkungen unterliegen. Da der Lizenznehmer nicht für den gesamten wirtschaftlichen Wert des Programms bezahlt hat, sind andere Nutzungsarten ohne Zahlung zusätzlicher Gebühren untersagt. Ferner ist der Lizenznehmer, wie in den IPLA festgelegt, nicht berechtigt, das Programm zur Bereitstellung kommerzieller IT-Services für Dritte, zur Bereitstellung kommerzieller Hosting-Services oder für kommerziell betriebenes Time-Sharing einzusetzen oder das Programm zu vermieten, zu verleasen oder Unterlizenzen für das Programm zu vergeben, sofern dies in den maßgeblichen Vereinbarungen, unter denen der Lizenznehmer die Berechtigungen zur Nutzung des Programms erworben hat, nicht ausdrücklich vorgesehen ist. Dem Lizenznehmer werden abhängig von der Zahlung zusätzlicher Gebühren oder unter abweichenden oder ergänzenden Bedingungen ggf. weitere Rechte eingeräumt. IBM behält sich das Recht vor, darüber zu entscheiden, ob dem Lizenznehmer weitere Rechte gewährt werden.
+
+Die Programmspezifikationen sind in den Abschnitten "Description" und "Technical Information" der Ankündigungsschreiben des Programms zu finden.
+
+Unterstützungsprogramme
+
+Das Programm wird als Multiproduktpaket lizenziert und enthält die nachfolgend aufgeführten Unterstützungsprogramme. Der Lizenznehmer darf die Unterstützungsprogramme unter dieser Vereinbarung und im Rahmen der Berechtigungsnachweise (Proofs of Entitlement = PoEs) für das Programm nur zur Unterstützung des Hauptprogramms installieren und nutzen (sofern an anderer Stelle in dieser Lizenzinformation keine weitergehenden Rechte erteilt werden). Der Ausdruck "nur zur Unterstützung" umfasst nur die erforderliche Nutzung oder diejenige Nutzung, die im direkten Zusammenhang mit der lizenzierten Nutzung des Hauptprogramms oder eines anderen Unterstützungsprogramms steht. Die Unterstützungsprogramme dürfen nicht für andere Zwecke verwendet werden. Der Lizenznehmer ist nicht berechtigt, die Unterstützungsprogramme ohne das Hauptprogramm zu übertragen oder weiterzuvertreiben. Einem Unterstützungsprogramm können Lizenzbedingungen beigefügt sein, denen die Nutzung des betreffenden Unterstützungsprogramms durch den Lizenznehmer unterliegt. Im Falle eines Widerspruchs haben die Bedingungen dieses Lizenzinformationsdokuments Vorrang vor den Bedingungen des Unterstützungsprogramms. Wenn das Recht des Lizenznehmers zur Nutzung des Programms abläuft oder erlischt, muss er die Nutzung der Unterstützungsprogramme einstellen und alle Kopien der Unterstützungsprogramme vernichten oder unverzüglich bei der Stelle zurückgeben, von der er das Programm bezogen hat. Hat der Lizenznehmer die Unterstützungsprogramme heruntergeladen, sollte er sich an die Stelle wenden, von der er das Programm bezogen hat. Um die Unterstützungsprogramme für eine Nutzung ohne die obigen Beschränkungen zu lizenzieren, sollte sich der Lizenznehmer bitte an seinen IBM Vertriebsbeauftragten oder an die Stelle wenden, von der er das Programm bezogen hat, um die entsprechende Lizenz zu erwerben.
+
+Diese Liste enthält die Unterstützungsprogramme, die mit dem Programm lizenziert werden:
+- IBM Cognos Business Intelligence v10.2
+- IBM Master Data Management Reference Data Management Hub v10.1
+- IBM Conversion Workbench Migration Asset for SAP Applications v2.1
+- IBM Cognos Data Manager Connector for SAP R/3 v10.2
+
+Zugelassene Komponenten
+
+Ungeachtet der Bedingungen in der Vereinbarung ist der Lizenznehmer nur zur Nutzung der folgenden Komponenten oder Funktionen des angegebenen Unterstützungsprogramms berechtigt:
+- IBM Master Data Management Reference Data Management Hub (may only be used with IBM Conversion Workbench Migration Asset for SAP Applications)
+- IBM Cognos Business Intelligence (may only be used with IBM Conversion Workbench Migration Asset for SAP Applications)
+- Cognos Connection (of IBM Cognos Business Intelligence)
+- Framework Manager (of IBM Cognos Business Intelligence)
+- Report Studio (of IBM Cognos Business Intelligence)
+- Report Viewer (of IBM Cognos Business Intelligence)
+
+Beschränkung bei der nicht produktiven Nutzung
+
+Wenn das Programm als "Non-Production" gekennzeichnet ist, kann es nur als Teil der internen Entwicklungs- und Testumgebung des Lizenznehmers für interne, nicht produktionsbezogene Aktivitäten implementiert werden, einschließlich aber nicht abschließend zum Testen, zur Leistungsoptimierung, zur Fehlerdiagnose, zum internen Benchmarking, zur Bereitstellung, Qualitätssicherung und/oder Entwicklung intern verwendeter Zusätze oder Erweiterungen zum Programm unter Verwendung veröffentlichter Anwendungsprogrammierschnittstellen. Der Lizenznehmer ist nicht berechtigt, irgendwelche Bestandteile des Programms für andere Zwecke zu nutzen, ohne die entsprechenden Produktionsberechtigungen zu erwerben.
+
+Beschränkungen bei der Nutzung zum Vorteil Dritter
+
+Der Lizenznehmer darf das Programm oder dessen Komponenten nur mit schriftlicher Genehmigung von IBM an Dritte übertragen oder verwenden, um Leistungen eines Serviceunternehmens, Hosting-Services oder andere kommerzielle IT-Services für Dritte bereitzustellen.
+
+Installation
+
+"Installation" ist eine Maßeinheit für die Lizenzierung des Programms. Eine Installation ist eine installierte Kopie des Programms auf einer physischen oder virtuellen Platte, die zur Ausführung auf einem Computer bereitgestellt wird. Der Lizenznehmer muss für jede Programminstallation eine Berechtigung erwerben.
+
+L/N:  L-SBRN-9FN46Q
+D/N:  L-SBRN-9FN46Q
+P/N:  L-SBRN-9FN46Q 

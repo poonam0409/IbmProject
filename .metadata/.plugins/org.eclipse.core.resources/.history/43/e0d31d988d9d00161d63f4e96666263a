@@ -1,0 +1,66 @@
+//---------------------------------------------------------------------------  
+// IBM Confidential                                                            
+//                                                                             
+// OCO Source Materials                                                        
+//                                                                             
+// 5724-Q55                                                                 
+//                                                                             
+// (C) Copyright IBM Corporation 2009, 2011                                              
+//                                                                             
+// The source code for this program is not published or otherwise              
+// divested of its trade secrets, irrespective of what has been                
+// deposited with the U.S. Copyright Office.                                     
+//---------------------------------------------------------------------------  
+//-*-************************************************************************  
+//                                                                             
+// IBM InfoSphere Information Server Packs for SAP Applications 
+//                                                                             
+// Module Name : com.ibm.is.sappack.dsstages.idocload.segcollimpl
+//                                                                             
+//*************************-END OF SPECIFICATIONS-***************************
+package com.ibm.is.sappack.dsstages.idocload.segcollimpl;
+
+import java.io.IOException;
+
+import com.ibm.is.sappack.dsstages.common.DSEnvironment;
+import com.ibm.is.sappack.dsstages.common.DSSAPConnection;
+import com.ibm.is.sappack.dsstages.common.IDocType;
+import com.ibm.is.sappack.dsstages.idocload.SegmentValidationHandler;
+
+public class FixedFilesSegmentCollector extends FileSegmentCollectorBase {
+
+	static String copyright() {
+		return com.ibm.is.sappack.dsstages.idocload.segcollimpl.Copyright.IBM_COPYRIGHT_SHORT;
+	}
+
+	private static final String CLASSNAME = FixedFilesSegmentCollector.class.getName();
+
+	public FixedFilesSegmentCollector(DSEnvironment env, DSSAPConnection dsSAPConnection, IDocType idocType, SegmentValidationHandler handler, int numberOfFiles) throws IOException {
+		super(env, dsSAPConnection, idocType, handler);
+		final String METHODNAME = "<init>"; //$NON-NLS-1$
+		this.logger.entering(CLASSNAME, METHODNAME);
+		for (int i = 0; i < numberOfFiles; i++) {
+			if(env.getCurrentNodeNumber()!=(-2))
+			{
+				
+			addNewEntry(env.getCurrentNodeNumber());
+			}
+		}
+		this.logger.exiting(CLASSNAME, METHODNAME);
+	}
+
+	@Override
+	protected Entry findEntry(String idocNumber) {
+		final String METHODNAME = "findEntry"; //$NON-NLS-1$
+		this.logger.entering(CLASSNAME, METHODNAME);
+		
+		// using a bitwise AND with Integer.MAX_VALUE to clear the high bit
+		// and therefore to ensure that the result is always non-negative
+		// is safer than using Math.abs(idocNumber.hashCode()) which could
+		// return a negative value in rare cases
+		int index = (idocNumber.hashCode() & Integer.MAX_VALUE) % this.entries.size();
+		Entry e = this.entries.get(index);
+		this.logger.exiting(CLASSNAME, METHODNAME);
+		return e;
+	}
+}

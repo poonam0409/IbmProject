@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+======================================================================
+   Ant files containing rapidModeler and rapidGenerator tasks must be run
+   from within InfoSphere Data Architect as follows:
+         - Right click on the file from the Navigator view
+         - Select Run As -> Ant...
+         - In the Edit Configuration dialog, go to the tab "JRE"
+         - Select "Run in the same JRE as the workspace"
+         - Click Apply to save this change or Run to run the script
+         Note: you will only have to do this once per build file. Otherwise
+               you can run the script directly with
+               Right click -> Run As -> Ant Build  
+                                                               
+====================================================================== 
+-->
+
+<project name="myProject" default="exampleDefault">
+    <description>
+       Example Ant file for Rapid Modeler and Rapid Generator tasks
+    </description>
+	
+	<target name="exampleDefault"/>
+
+    <target name="rapidModelerExample1" description="Import metadata from SAP">
+    	
+       <rapidModeler 
+       	    sapSystemName="MySAPSystem" 
+       	    sapObjectListFile="/Project1/MyTableList.rmtl"
+       	    rapidModelerConfigurationFile="/Project1/MyRMConfig.rmcfg" 
+       	    ldmFile="/Project1/MyLDMFile.ldm" 
+       />
+	
+    </target>
+    
+	
+    <target name="rapidGeneratorExample1" description="Simple generation for SAP extract">
+    
+      <rapidGenerator 
+            rapidGeneratorConfiguration="/Project1/RGConf.rgcfg" 
+			targetDBMFile="/Project1/MyTarget.dbm"
+			uploadABAPPrograms="false"
+		    saveABAPPrograms="true"
+			iisConnection="MyConnection"
+			dsProject="MYDSSERVER/MyProject"
+		    dsFolder="\\Jobs\\MyFolder"
+			jobNamePrefix="MyPfx_"
+	  />
+    </target>
+
+    <target name="rapidGeneratorExample2" description="Generation for SAP Extract with ABAP program upload">
+      <rapidGenerator 
+            rapidGeneratorConfiguration="/Project1/RGConf.rgcfg" 
+			targetDBMFile="/Project1/MyTarget.dbm"
+		    saveABAPPrograms="true"
+			iisConnection="MyConnection"
+			dsProject="MYDSSERVER/MyProject"
+		    dsFolder="\\Jobs\\MyFolder"
+			jobNamePrefix="MyPfx_"
+     		uploadABAPPrograms="true"
+    	    abapUploadSAPConnection="MySAPConnection"
+      	    useCTS="true"
+    	      ctsPackage="MyPackage"
+    	      ctsRequest="MyRequest"
+	  />
+    </target>
+
+    <target name="rapidGeneratorExample3" description="Generation for IDoc load">
+      <rapidGenerator 
+            rapidGeneratorConfiguration="/Project1/RGConf.rgcfg" 
+			sourceDBMFile="/Project1/MySource.dbm"
+			iisConnection="MyConnection"
+			dsProject="MYDSSERVER/MyProject"
+		    dsFolder="\\Jobs\\MyFolder"
+			jobNamePrefix="MyPfx_"
+      	    idocLoadMessageType="MyMessageType"
+	  />
+    </target>
+
+    <target name="rapidGeneratorExample4" description="Generation for Move">
+      <rapidGenerator 
+            rapidGeneratorConfiguration="/Project1/RGConf.rgcfg" 
+     		sourceDBMFile="/Project1/MySource.dbm"
+		    targetDBMFile="/Project1/MyTarget.dbm"
+			iisConnection="MyConnection"
+			dsProject="MYDSSERVER/MyProject"
+		    dsFolder="\\Jobs\\MyFolder"
+			jobNamePrefix="MyPfx_"
+	  />
+    </target>
+
+</project>

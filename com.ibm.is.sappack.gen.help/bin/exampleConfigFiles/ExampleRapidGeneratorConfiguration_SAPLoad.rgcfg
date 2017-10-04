@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="ID">1341745345687-932519169</entry>
+<entry key="PARAMETER_NUM">1</entry>
+<entry key="PARAMETER_PROPERTY_NAMES">CONN_NAME</entry>
+<entry key="PARAMETER_PFX_0">SAPConn#SAPConn#String##</entry>
+<entry key="DOCUMENTATION">This is an example for an Rapid generator configuration for SAP load jobs.</entry>
+<entry key="CONN_NAME">#SAPConn#</entry>
+<entry key="RGCFG_TYPE">SAP_LOAD</entry>
+<entry key="PROP_KEY_MODE">RMRG_CW_MODE</entry>
+</properties>

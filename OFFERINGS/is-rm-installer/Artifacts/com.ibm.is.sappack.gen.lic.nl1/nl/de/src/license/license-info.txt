@@ -1,0 +1,154 @@
+﻿LIZENZINFORMATION
+
+Für die Lizenzierung der nachfolgend aufgelisteten Programme gelten zusätzlich zu den Bedingungen in Internationale Nutzungsbedingungen für Programmpakete die folgenden Vertragsbedingungen.
+
+Programmname: IBM Administration Client for Application Support Facility V1.0
+Programmnummer: 5655-U83
+Berechtigung zur Nutzung auf Heimcomputer/tragbarem Computer: Das Programm darf auf der primären Maschine und einer weiteren Maschine unter der Voraussetzung installiert werden, dass es nicht auf beiden Maschinen gleichzeitig ausgeführt wird.
+
+Eingeschränkte Nutzungsrechte für andere IBM Programme
+
+Haben Sie dieses Programm als Teil eines anderen IBM Programms ("Hauptprogramm") bezogen und ist dieses Programm dort unter "Andere IBM Programme" aufgelistet, so dient dieses Programm nur zur Unterstützung des Hauptprogramms, und Ihre Rechte zur Nutzung des Programms werden durch die Lizenz des Hauptprogramms eingeschränkt. Wenn Sie eine separate Lizenz für dieses Programm erwerben möchten, die nicht durch die Lizenz des Hauptprogramms eingeschränkt wird, wenden Sie sich bitte an Ihren IBM Vertriebsbeauftragten.
+
+Ausgeschlossene Komponenten
+
+Die Bedingungen dieses Abschnitts kommen nicht zur Anwendung, wenn sie im Rahmen der Gesetzgebung, der diese Lizenz unterliegt, als ungültig oder nicht durchsetzbar erachtet werden. Die Komponenten in der folgenden Liste sind "Ausgeschlossene Komponenten". Ungeachtet der Bedingungen in der Vereinbarung oder einer anderen Vereinbarung zwischen Ihnen und IBM gilt Folgendes:
+(a) Die Dritthersteller der ausgeschlossenen Komponenten (auch "Lieferanten" genannt) übernehmen keine Gewährleistung für die bereitgestellten Komponenten, einschließlich der Gewährleistung für Rechtsmängel, für die Handelsüblichkeit, die Verwendungsfähigkeit für einen bestimmten Zweck und die Freiheit der Rechte Dritter;
+(b) die Lieferanten haften in keinem Fall für unmittelbare, mittelbare oder sonstige Folgeschäden (einschließlich, aber nicht begrenzt auf Datenverlust, entgangene Gewinne und entgangene Einsparungen) hinsichtlich der ausgeschlossenen Komponenten; und
+(c) IBM und die Lieferanten übernehmen keine Verpflichtung, Sie für irgendwelche Schäden hinsichtlich der ausgeschlossenen Komponenten schadlos zu halten.
+
+Ungeachtet der genannten Ausschlüsse unterliegen die Gewährleistung und Haftung von IBM für die ausgeschlossenen Komponenten in Deutschland und Österreich ausschließlich den Bedingungen, die in den IBM Lizenzvereinbarungen explizit für Deutschland und Österreich angegeben sind.
+
+Hinweise und wichtige Informationen, die IBM Ihnen für die ausgeschlossenen Komponenten zur Verfügung stellen muss (einschließlich Anweisungen zum Erhalt des Quellcodes für bestimmte ausgeschlossene Komponenten), befinden sich in den NOTICES-Dateien, die dem Programm beigepackt sind.
+
+Ihre Nutzung der ausgeschlossenen Komponenten unterliegt den Bedingungen der Vereinbarung und nicht den Bedingungen in den NOTICES-Dateien. Die Bedingungen der Vereinbarung werden nur von IBM und sonst von keiner anderen Partei angeboten. Zukünftige Programmupdates oder Fixpacks können weitere ausgeschlossene Komponenten enthalten, die zusammen mit zugehörigen Hinweisen und Informationen ebenfalls in einer Datei namens NOTICES aufgeführt sind, die dem Programmupdate oder Fixpack beigepackt ist.
+
+Die ausgeschlossenen Komponenten sind:
+Apache Bean Scripting Framework (BSF) V2.4
+Apache Commons-BeanUtils V1.7.0
+Apache Commons-Collections V3.2
+Apache Commons-Configuration V1.1
+Apache Commons-DBCP v1.2.1
+Apache Commons-JXPath V1.2
+Apache Commons-Lang V2.3
+Apache Commons-Logging V1.1
+Apache Commons-Pool V1.3
+Apache Log4j V1.2.14
+Apache XMLBeans V2.3.0
+Apache XML4J V4.5.1
+Apache XSLT4J V2.7.8
+Eclipse Platform Classes:
+*com.ibm.lpex.alef.LpexTextViewer.java
+*com.ibm.lpex.alef.LpexTextViewerHoverManager.java
+*com.ibm.lpex.alef.LpexAnnotationBarHoverManager.java
+*com.ibm.lpex.alef.LpexAnnotationRulerColumn.java
+*com.ibm.lpex.alef.LpexChangeRulerColumn.java
+*com.ibm.lpex.alef.LpexSourceViewer.java
+*com.ibm.lpex.alef.LpexVerticalRuler.java
+*com.ibm.lpex.alef.DefaultEncodingSupport.java
+*com.ibm.lpex.alef.LpexTextEditor.java
+*com.ibm.lpex.alef.LpexAbstractDecoratedTextEditor.java
+*com.ibm.lpex.alef.LpexAbstractTextEditor.java
+*com.ibm.lpex.alef.EditorStatusLine.java
+*com.ibm.lpex.alef.LpexStatusTextEditor.java
+*package com.ibm.lpex.alef.contentassist.
+IBM Dojo Toolkit (IDT) V0.4
+IBM Dojo Toolkit (IDT) V1.0.x
+IBM Eclipse Help System (IEHS) V3.1.2
+IBM Eclipse Help System Installer (IEHSI) V3.1.2
+IBM Eclipse Help System (IEHS) for WAS 6.x V3.0.1
+IBM Eclipse SDK (IES) V3.2.2
+International Component for Unicode (ICU4J) V3.4
+LPEX V3.2.x
+
+Spezifizierte Einsatzbedingungen
+
+Die Programmspezifikationen und die Angaben zu den spezifizierten Einsatzbedingungen befinden sich in der mit dem Programm gelieferten Dokumentation (sofern verfügbar), wie z. B. in einer Readme-Datei, oder in anderen, von IBM veröffentlichten Informationen, wie z. B. in einer Vertriebsfreigabe. Sie sind damit einverstanden, dass Dokumentationen dieser Art und andere Programminhalte nur in englischer Sprache zur Verfügung gestellt werden.
+
+Programmspezifische Bedingungen
+
+BERECHTIGUNG
+
+Wenn Sie über einen aktuellen iSeries SW Maintenance- oder S/W Subscription-Vertrag für WebSphere Development Studio for iSeries verfügen, sind Sie zum Erhalt dieses Programms berechtigt und dürfen das Programm entsprechend der Beschreibung in der Berechtigung für WebSphere Development Studio for iSeries zur Entwicklung von i5/OS-Anwendungen installieren.
+
+KOMPONENTE IBM WEBFACING TOOL
+
+Das Programm enthält eine Version des IBM WebFacing Tool ausschließlich für Entwicklungszwecke. Um mit dem IBM WebFacing Tool entwickelte WebFacing-Anwendungen zu implementieren zu können, müssen Sie die entsprechende Lizenz für das IBM WebFacing Deployment Tool for WebSphere Development Studio V7.0, 5724-N52 erwerben.
+
+IBM WEBSPHERE HOST ACCESS TRANSFORMATION SERVICES (HATS) TOOLKIT VERSION 7.0
+
+Das Programm enthält eine Version des HATS Toolkits ausschließlich für Entwicklungszwecke. Um mit dem Toolkit entwickelte HATS-Anwendungen implementieren zu können, müssen Sie die entsprechende Lizenz für das IBM WebFacing Deployment Tool for WebSphere Development Studio V7.0, 5724-N52 erwerben.
+
+COOPERATIVE DEVELOPMENT ENVIRONMENT UND VISUALAGE RPG (CODE und VARPG)
+
+CODE und VARPG ist eine Komponente dieses Programms und befindet sich auf einer separaten CD-ROM. Durch die Installation und Nutzung der Komponente CODE und VARPG akzeptieren Sie die Bedingungen in der Lizenz für CODE und VARPG auf der separaten CD-ROM.
+
+DB2-KOMPONENTEN
+
+DB2 Connect-Komponenten: Das Programm umfasst Teile der DB2 Connect-Technologie. Sie dürfen eine (1) Kopie dieser Komponenten nur in Verbindung mit Ihrer lizenzierten Nutzung dieses Programms zur Anwendungsentwicklung und Modellierung von Datenobjekten installieren und nutzen, die von DB2 für z/OS und DB2 für iSeries verwaltet werden. Die mit diesem Programm bereitgestellte DB2 Connect-Technologie darf nicht für andere Zwecke verwendet werden. Mit der DB2 Connect-Technologie können nur Verbindungen zu diesem Programm und nicht zu anderen Anwendungen hergestellt werden. Für Verbindungen zu anderen Anwendungen muss eine entsprechende DB2 Connect-Lizenz erworben werden.
+
+Ihre Nutzung der DB2 Connect-Komponenten unterliegt den Bedingungen der mit den Komponenten bereitgestellten Lizenzvereinbarung (mit Ausnahme der Einschränkungen in dieser Lizenz). Die DB2 Connect-Komponenten dürfen nicht für andere Zwecke eingesetzt werden. Wenden Sie sich bitte an den zuständigen DB2-Reseller, wenn Ihre Anforderungen diese Lizenzvereinbarung überschreiten und Sie eine Voll-Lizenz für DB2 Connect benötigen.
+
+IBM WEBSPHERE APPLICATION SERVER
+
+WEBSPHERE APPLICATION SERVER: Im Lieferumfang des Programms sind mehrere Kopien von WebSphere Application Server enthalten, einschließlich Kopien von WebSphere Application Server, die zur "Einheitentestumgebung" des Programms gehören. Sie dürfen jede Komponente dieser Kopien von WebSphere Application Server auf derselben Maschine wie die restlichen Programmteile zur Nutzung für "Einheitentests" durch einen einzigen Entwickler installieren, wobei das Testen darauf beschränkt ist festzustellen, ob der von dem betreffenden Entwickler geschriebene oder erzeugte Code gemäß dem Entwurf funktioniert. Sie sind nicht berechtigt, Kopien der WebSphere Application Server-Komponenten, die auf der Basis des Einheitentest-Berechtigungsnachweises installiert und genutzt werden, für folgende Zwecke einzusetzen: zum Testen von Anwendungen auf Servern außerhalb der Maschinenumgebung des Entwicklers oder zum Simulieren von Produktionsworkloads bzw. zum Testen der Skalierbarkeit von Code, Anwendung oder System. Die WebSphere Application Server-Komponenten dürfen nicht produktiv genutzt werden.
+
+QUELLCODE: Einige Komponenten von WebSphere Application Server werden möglicherweise im Quellcodeformat zur Verfügung gestellt. Ungeachtet gegenteiliger Regelungen in dieser Vereinbarung werden Programmservices nur für die unveränderten Binärcodeversionen der im WebSphere Application Server-Paket enthaltenen Komponenten zur Verfügung gestellt, und nicht für den Quellcode dieser Komponenten oder von Ihnen erstellte Bearbeitungen dieser Komponenten.
+
+J2C-TECHNOLOGIE
+
+Dieses Programm enthält J2C-Connectortechnologie. Hierzu gelten folgende Informationen:
+
+IMS:
+Das Programm enthält separate JCA 1.0- und JCA 1.5-Versionen des IMS-TM-Ressourcenadapters (der auch als IMS-Connector for Java bezeichnet wird). Diese Ressourcenadapter dürfen nur zum Schreiben oder Generieren von Code verwendet werden. Zum Durchführen von Einheitentests für den mit dem Programm geschriebenen und generierten Code müssen Sie mindestens eine (1) Lizenz für IMS V9 besitzen. Sie sind nicht berechtigt, die mit dem Programm zur Verfügung gestellten IMS-TM-Ressourcenadapter für Produktionszwecke einzusetzen. Wenn die IMS-TM-Ressourcenadapter für Produktionszwecke genutzt werden sollen, lesen Sie bitte die Informationen auf der Website des IMS Connector for Java unter www.ibm.com/ims.
+
+JCA:
+Die mit dem Programm gelieferten J2EE Connector Architecture-Ressourcenadapter (J2EE Connector Architecture = JCA), die in der Datei 'cicseci.rar' gepackt sind, und die mit dem Programm gelieferten Java-Clientklassen, die in der Datei 'ctgclient.jar' gepackt sind, dürfen von lizenzierten Benutzern des Programms uneingeschränkt weitergegeben werden. Die lizenzierten Benutzer, die diese Clientklassen weitergeben, übernehmen die Verantwortung für die Unterstützung und Pflege der weitergegebenen Klassen. Das Einverständnis von IBM mit der Weitergabe ist davon abhängig, dass die lizenzierten Benutzer des Programms Folgendes sicherstellen:
+
+(i) Die Originalversion der 'JAR'- oder 'RAR'-Dateien wird nicht geändert;
+(ii) die 'JAR'- oder 'RAR'-Dateien werden nur in einer von dem Programm unterstützten Java-Umgebung genutzt; und
+(iii) die gesamte Kommunikation findet mit einem CICS Transaction Gateway statt, der sich auf demselben oder einem höheren Releasestand befindet als die Version der Datei 'ctgclient.jar' oder der 'RAR'-Datei.
+
+JRPC DEVELOPMENT KIT
+
+Die folgenden Rechte und Einschränkungen beziehen sich auf die Komponente JRPC Development Kit, die in das Programm integriert ist. Durch die Installation des Programms erklären Sie Ihr Einverständnis mit den folgenden Bedingungen:
+
+Das Programm ist nicht für die folgenden Einsatzgebiete konzipiert oder vorgesehen: zur Flugverkehrssteuerung, Flugverkehrssicherung, Flugzeugnavigation oder Kommunikation beim Flugverkehr; oder für den Entwurf, die Konstruktion, den Betrieb oder die Wartung von nuklearen Einrichtungen. Der Lizenznehmer verpflichtet sich, das Programm nicht für solche Zwecke einzusetzen.
+
+Komponente J2C-TECHNOLOGIE: COBOL Compiler
+
+Ihre Kopie des Programms enthält J2C-Connectortechnologie, zu der die Komponente IBM WebSphere Studio COBOL for Windows: COBOL Compiler gehört. Die im Programm enthaltenen COBOL Compiler-Komponenten dürfen nur von den internen Komponenten des Programms zum Importieren von Metadaten für COBOL-Datenstrukturen genutzt werden. Dieser Code darf nicht für Produktionszwecke eingesetzt werden.
+
+Komponente J2C-TECHNOLOGIE: PL/I Compiler
+
+Ihre Kopie des Programms enthält J2C-Connectortechnologie, zu der die Komponente IBM WebSphere Studio PL/I for Windows: PL/I Compiler gehört. Die im Programm enthaltenen PL/I Compiler-Komponenten dürfen nur von den internen Komponenten des Programms zum Importieren von Metadaten für PL/I-Datenstrukturen genutzt werden. Dieser Code darf nicht für Produktionszwecke eingesetzt werden.
+
+CODE VON MICROSOFT
+
+Die Programme enthalten weiterverteilbare Software der Microsoft Corporation. Neben weiteren Bedingungen in dieser Lizenzvereinbarung ist Ihnen das Rückentwickeln, Dekompilieren oder Disassemblieren der Software nicht gestattet (außer und ausschließlich in dem Maß, in dem solche Aktivitäten ungeachtet dieser Einschränkung gesetzlich ausdrücklich zulässig sind.)
+
+Die Ergebnisse von Benchmark-Tests des Microsoft .Net Framework dürfen ohne vorherige schriftliche Zustimmung von Microsoft nicht an Dritte weitergegeben werden.
+
+Im größtmöglichen durch das anwendbare Recht gestatteten Umfang sind Microsoft oder deren Lieferanten in keinem Fall haftbar für irgendwelche speziellen, zufälligen, strafrechtlichen, indirekten oder Folgeschäden welcher Art auch immer (einschließlich, aber nicht beschränkt auf Schäden aus entgangenem Gewinn, Verlust von vertraulichen oder anderen Informationen, Geschäftsunterbrechung, Personenschäden, Verlust von Privatsphäre, Verletzung von Vertragspflichten (einschließlich Pflichten nach Treu und Glauben oder Sorgfaltspflichten), Fahrlässigkeit sowie Vermögens- oder sonstige Schäden), die aus der Verwendung der Software oder der Tatsache, dass diese nicht verwendet werden kann, oder in Verbindung mit den für die Software zur Verfügung gestellten Supportleistungen oder anderen Leistungen, Informationen, Software und dazugehörigem Inhalt oder der Tatsache, dass diese nicht bereitgestellt wurden, selbst im Falle von Verschulden, unerlaubten Handlungen (einschließlich Fahrlässigkeit), irreführenden Angaben, verschuldensunabhängiger Haftung oder Produkthaftung, Vertragsbruch oder Verletzung der Garantie von/durch Microsoft oder deren Lieferanten, und selbst wenn Microsoft oder deren Lieferanten auf die Möglichkeit solcher Schäden hingewiesen wurden.
+
+Ungeachtet aller Schäden, die Sie aus irgendeinem Grund erleiden könnten (einschließlich, aber nicht beschränkt auf alle oben angesprochenen Schäden und alle direkten oder allgemeinen Schäden auf Grundlage eines Vertrags oder Sonstigem), ist die gesamte Haftung von Microsoft und deren Lieferanten und Ihr ausschließlicher Anspruch für alles oben Genannte für tatsächlich von Ihnen im vernünftigen Vertrauen auf die Software erlittene Schäden beschränkt auf den höheren dieser beiden Beträge: den tatsächlich für das Software gezahlten Betrag oder US-Dollar 5,00. Die vorstehenden Beschränkungen und Ausschlüsse gelten im größtmöglichen durch das anwendbare Recht gestatteten Umfang, auch wenn ein Anspruch seinen wesentlichen Zweck verfehlt.
+
+MUSTERGALERIE (SAMPLES GALLERY)
+
+Das Programm kann Musterquellcode oder Musterprogramme enthalten, die Programmiertechniken veranschaulichen. Die Muster befinden sich in der Mustergalerie. Sie dürfen diese Muster oder Bearbeitungen der Muster in jeder beliebigen Form intern als Teil Ihrer Anwendung oder im Rahmen der Referenzliteratur kopieren, ändern und weitergeben. Diese Muster wurden nicht unter allen erdenkbaren Bedingungen getestet und werden von IBM ohne eine Verpflichtung zur Unterstützung bereitgestellt. IBM stellt die Muster ohne Wartung (auf "as-is"-Basis) und vorbehaltlich einer gesetzlichen Gewährleistung, die nicht ausgeschlossen werden kann, zur Verfügung. IBM übernimmt im Hinblick auf die Muster oder die technische Unterstützung (sofern vorgesehen) keine Gewährleistung, einschließlich einer Gewährleistung für die Handelsüblichkeit und die Verwendungsfähigkeit für einen bestimmten Zweck oder die Freiheit der Rechte Dritter. Sie verpflichten sich, IBM oder Dritthersteller, die IBM Produkte anbieten ("Dritthersteller"), von allen Ansprüchen von Dritten und gegen Dritte, die aufgrund der Nutzung, Änderung oder Weitergabe dieser Muster mit Ihren Anwendungen geltend gemacht werden, freizustellen. Sie dürfen nicht denselben Pfadnamen wie für die Originaldateien/-module verwenden. Sie dürfen die Copyrightvermerke in den Mustern nicht ändern oder löschen.
+
+AKTUALISIERUNG ALLGEMEINER KOMPONENTEN
+
+Bestimmte Teile dieses Programms wurden von IBM intern als allgemeine Komponenten gekennzeichnet, die von mehreren IBM Programmen gemeinsam nutzbar sind. Sie bestätigen hiermit, dass die Installation dieses Programms, zukünftiger Programmupdates oder anderer IBM Programme, die die allgemeinen Komponenten nutzen, unter Umständen dazu führt, dass die allgemeinen Komponenten in mehreren IBM Programmen aktualisiert werden.
+
+WEB-SERVICES
+
+Das Programm enthält Muster, die im Verzeichnis eclipse\plugins\com.ibm.etools.webservice.samples*.jar ("Apache-Axis-Beispiele") gespeichert sind. Dazu gehören mit Apache Axis generierte Komponenten oder Komponenten, aus denen Apache-Axis-Komponenten generiert werden können. IBM leistet keine Unterstützung für die Apache-Axis-Beispiele oder die von Ihnen generierten Apache-Axis-Komponenten.
+
+LPEX
+
+IBM hat bestimmte Bearbeitungen am Eclipse-Code für die LPEX-Komponente vorgenommen, die als "Eclipse Platform Classes" bezeichnet werden. Die Eclipse Platform Classes wurden nicht als Beitrag an die Eclipse Foundation zurückgeleitet, da sie eine spezielle Entwicklung für dieses Programm und seine LPEX-Komponente darstellen. Der Quellcode für die Eclipse Platform Classes kann bei IBM in Form einer E-Mail an die folgende Adresse angefordert werden: stori@ca.ibm.com.
+
+
+D/N:  L-TDEN-7CHHUL
+P/N:  L-TDEN-7CHHUL

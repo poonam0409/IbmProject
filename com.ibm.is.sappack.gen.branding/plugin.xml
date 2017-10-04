@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<?eclipse version="3.4"?>
+<plugin>
+   <!--
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="com.ibm.is.sappack.gen.branding.Application">
+         </run>
+      </application>
+   </extension>
+   -->
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.eclipse.ui.ide.workbench"
+            name="%productName">
+         <property
+               name="appName"
+               value="%productName">
+         </property>
+         <property
+               name="aboutText"
+               value="%aboutText">
+         </property>
+         <property
+               name="windowImages"
+               value="icons/is-generator.gif,icons/is-generator.gif,icons/is-generator.gif,icons/is-generator.gif,icons/is-generator.gif">
+         </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
+         </property>
+         <property
+               name="aboutImage"
+               value="icons/about.gif">
+         </property>
+         <property
+               name="introBrandingImage"
+               value="product:intro/IBM_logo.gif"/>
+         <property
+               name="introBrandingImageText"
+               value="%productIntroBrandingText"/>
+         <property 
+               name="startupForegroundColor" 
+               value="000000"/>
+         <property 
+               name="startupProgressRect" 
+               value="0,389,516,12"/>
+         <property 
+               name="startupMessageRect" 
+               value="12,405,444,15"/>
+
+      </product>
+   </extension>
+   <extension
+         point="com.ibm.ccl.common.splash.splashExtension">
+      <splashExtension
+            copyrighttext="%copyrightText"
+            endcopyright="2011"
+            fullproductname="%productNameWithVersion"
+            icon="icons/is-generator16.gif"
+            id="com.ibm.is.sappack.gen.branding.splashExtension"
+            startcopyright="2009"
+            tooltip="%pluginName"
+            tpicon1="icons/eclipsetpi.jpg"
+            tpicon2="icons/javatpi.jpg">
+      </splashExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.splashHandlers">
+      <splashHandlerProductBinding
+            productId="com.ibm.is.sappack.gen.branding.product"
+            splashId="com.ibm.ccl.common.splash.extensible">
+      </splashHandlerProductBinding>
+   </extension>
+   <!--   
+   <extension
+         point="org.eclipse.ui.splashHandlers">
+      <splashHandlerProductBinding
+            productId="com.ibm.is.sappack.gen.branding.product"
+            splashId="com.ibm.is.sappack.gen.branding.splashHandler">
+      </splashHandlerProductBinding>
+      <splashHandler
+            class="com.ibm.is.sappack.gen.branding.splash.SplashHandler"
+            id="com.ibm.is.sappack.gen.branding.splashHandler">
+      </splashHandler>
+   </extension>
+   -->
+   <extension
+         point="org.eclipse.ui.intro">
+      <introProductBinding
+            introId="org.eclipse.ui.intro.universal"
+            productId="com.ibm.is.sappack.gen.branding.product">
+      </introProductBinding>
+   </extension>
+</plugin>

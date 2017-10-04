@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Class-Path: 
+
+Name: com/ibm/is/sappack/cw/app/data
+Specification-Title: IS CW App Data Abstraction Layer
+Specification-Vendor: IBM Corporation
+Specification-Version: 1.0
+Implementation-Title: com.ibm.is.sappack.cw.app.data
+Implementation-Version: @PRODUCT.VERSION@
+Implementation-Vendor: IBM Corporation
+Implementation-URL: http://www.ibm.com/
+Built-By: @BUILD.BY@
+Built-Date: @BUILD.DATE@
+

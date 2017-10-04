@@ -1,0 +1,49 @@
+﻿INFORMACJE LICENCYJNE
+
+Wymienione poniżej Programy są licencjonowane na poniższych warunkach, które uzupełniają warunki dokumentu IBM Międzynarodowa Umowa Licencyjna na Program (numer formularza IBM Z125-3301-14).
+
+Nazwa Programu: IBM InfoSphere Information Server Pack for SAP Applications v7.1
+Numer Programu: 5724-Q55
+
+Nazwa Programu: IBM InfoSphere Information Server Pack for SAP Applications for Non-Production v7.1
+Numer Programu: 5724-Q55
+
+Zgodnie z Międzynarodową Umową Licencyjną na Program ("IPLA") i niniejszym dokumentem Informacje licencyjne IBM udziela Licencjobiorcy ograniczonego prawa do używania Programu. Prawo to jest ograniczone do poziomu Autoryzowanego Używania, takiego jak Procesorowa Jednostka Wartości ("PVU"), Jednostka Wartości ("VU") lub inny określony poziom używania, opłacony przez Licencjobiorcę i potwierdzony dokumentem Proof of Entitlement (PoE). Używanie Programu przez Licencjobiorcę może być również ograniczone do określonej maszyny, może podlegać innym ograniczeniom lub może obejmować używanie Programu wyłącznie jako Programu Wspierającego. Jako że Licencjobiorca nie zapłacił za całą wartość ekonomiczną Programu, używanie Programu w dowolnym innym celu bez uiszczenia dodatkowych opłat jest zabronione. Ponadto, zgodnie z zapisami Międzynarodowej Umowy Licencyjnej na Program (IPLA), Licencjobiorca nie jest upoważniony do używania Programu do świadczenia osobom trzecim komercyjnych usług informatycznych, usług serwerowych ani usług podziału czasu, jak również nie jest upoważniony do udzielania dalszych licencji na Program oraz wypożyczania i wydzierżawiania Programu, chyba że stosowne umowy, na mocy których Licencjobiorca jest upoważniony do używania Programu, wyraźnie stanowią inaczej. Licencjobiorca może uzyskać dodatkowe prawa pod warunkiem uiszczenia dodatkowych opłat lub na mocy innych bądź uzupełniających warunków. IBM zastrzega sobie prawo do decydowania, czy takie dodatkowe prawa zostaną przyznane Licencjobiorcy.
+
+Specyfikacje Programu znajdują się w zbiorczych punktach zawierających opisy i informacje techniczne w dokumentach "Aktualności produktowe" dotyczących Programu.
+
+Programy Wspierające
+
+Program jest licencjonowany w postaci pakietu wieloproduktowego, zawierającego Programy Wspierające określone poniżej. Licencjobiorca jest upoważniony do zainstalowania i używania takich Programów Wspierających jedynie w celu umożliwienia Licencjobiorcy używania Programu Głównego na mocy niniejszej Umowy i w zakresie ograniczeń nakładanych przez dokumenty Proof of Entitlement dla Programu (chyba że w innej części niniejszego dokumentu "Informacje Licencyjne" oferowane są szersze uprawnienia). Fraza "w celu umożliwienia Licencjobiorcy używania" obejmuje jedynie te zastosowania, które są niezbędne do licencjonowanego używania Programu Głównego lub innego Programu Wspierającego albo bezpośrednio związane z takim licencjonowanym używaniem. Programów Wspierających nie można wykorzystywać do jakichkolwiek innych celów. Licencjobiorca nie jest upoważniony do przenoszenia ani odsprzedaży Programów Wspierających oddzielnie od Programu Głównego. Do Programu Wspierającego mogą być dołączone warunki licencji. W takim przypadku warunki te mają zastosowanie do używania takiego Programu Wspierającego przez Licencjobiorcę. W przypadku sprzeczności między warunkami niniejszych Informacji licencyjnych a warunkami licencji Programu Wspierającego znaczenie rozstrzygające mają warunki niniejszych Informacji licencyjnych. Kiedy prawo Licencjobiorcy do korzystania z Programu wygaśnie lub zostanie mu wypowiedziane, Licencjobiorca musi zaprzestać korzystania z Programów Wspierających oraz zniszczyć lub niezwłocznie zwrócić wszystkie ich egzemplarze do strony, od której Licencjobiorca nabył Program. Jeśli Licencjobiorca pobrał Programy Wspierające, powinien skontaktować się ze stroną, od której nabył Program. Jeśli Licencjobiorca zamierza licencjonować Programy Wspierające w celu używania nieobjętego ograniczeniami wyszczególnionymi powyżej, powinien skontaktować się z przedstawicielem handlowym IBM lub z podmiotem, od którego nabył Program, w celu uzyskania odpowiedniej licencji.
+
+Poniżej wymieniono Programy Wspierające licencjonowane z Programem:
+- IBM Cognos Business Intelligence v10.2
+- IBM Master Data Management Reference Data Management Hub v10.1
+- IBM Conversion Workbench Migration Asset for SAP Applications v2.1
+- IBM Cognos Data Manager Connector for SAP R/3 v10.2
+
+Komponenty dozwolone
+
+Bez względu na jakiekolwiek postanowienie Umowy, Licencjobiorca jest upoważniony do używania jedynie następujących komponentów lub funkcji określonego Programu Wspierającego:
+- IBM Master Data Management Reference Data Management Hub (may only be used with IBM Conversion Workbench Migration Asset for SAP Applications)
+- IBM Cognos Business Intelligence (may only be used with IBM Conversion Workbench Migration Asset for SAP Applications)
+- Cognos Connection (of IBM Cognos Business Intelligence)
+- Framework Manager (of IBM Cognos Business Intelligence)
+- Report Studio (of IBM Cognos Business Intelligence)
+- Report Viewer (of IBM Cognos Business Intelligence)
+
+Ograniczenie do celów nieprodukcyjnych
+
+Jeśli Program jest oznaczony jako nieprzeznaczony do celów produkcyjnych, Program można instalować jedynie w ramach wewnętrznego środowiska programowania i testowania należącego do Licencjobiorcy, na potrzeby wewnętrznych czynności nieprodukcyjnych, a w szczególności testowania, dostrajania wydajności, diagnozowania usterek, wewnętrznych testów porównawczych, instalacji pomostowych, zapewniania jakości i/lub programowania używanych na potrzeby wewnętrzne dodatków lub rozszerzeń Programu z użyciem opublikowanych aplikacyjnych interfejsów programistycznych. Licencjobiorca nie jest upoważniony do używania jakiejkolwiek części Programu do żadnych innych celów, chyba że nabędzie odpowiednie upoważnienie do używania do celów produkcyjnych.
+
+Ograniczenia w używaniu na korzyść osoby trzeciej
+
+Używanie Programu lub dowolnych jego komponentów do świadczenia usług biura obsługi, usług serwerowych lub jakiegokolwiek rodzaju komercyjnych usług informatycznych na rzecz osób trzecich jest zabronione, chyba że zostało to uzgodnione z IBM na piśmie.
+
+Instalacja
+
+Instalacja to jednostka miary, według której licencjonowany jest Program. Instalacja to zainstalowany egzemplarz Programu na dysku fizycznym lub wirtualnym, który można uruchamiać na komputerze. Licencjobiorca musi nabyć uprawnienie dla każdej Instalacji Programu.
+
+L/N:  L-SBRN-9FN46Q
+D/N:  L-SBRN-9FN46Q
+P/N:  L-SBRN-9FN46Q 

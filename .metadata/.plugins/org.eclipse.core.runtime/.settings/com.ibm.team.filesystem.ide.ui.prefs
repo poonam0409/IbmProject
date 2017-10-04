@@ -1,0 +1,3 @@
+#Tue Jan 17 17:47:06 IST 2017
+previous_ignore_patterns=\#*\n*$\n*.BAK\n*.Z\n*.bak\n*.class\n*.contrib*\n*.dylib\n*.elc\n*.idx\n*.jar.args\n*.keep*\n*.ln\n*.log\n*.mbx\n*.merge*\n*.mkelem*\n*.o\n*.obj\n*.olb\n*.old\n*.orig\n*.rej\n*~\n,*\n.\#*\n.DS_Store\n.cmake.state\n.del-*\n.deployables\n.make.state\n.nse_depinfo\nCVS.adm\nRCS\nRCSLOG\nSCCS\n_$*\nclasses\ntemp.folder\n
+eclipse.preferences.version=1

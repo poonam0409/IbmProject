@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="使用 Rapid Generator for SAP 生成表抽取 DataStage 作业">
+   <intro>
+      <description>
+该备忘单向您说明如何创建逻辑数据模型以及如何抽取 SAP 逻辑表的元数据。
+         <br/>
+         <b>注：该备忘单假定您已完成备忘单“使用 Rapid Modeler for SAP 从 SAP 导入逻辑表”和“为作业生成准备逻辑数据模型”。
+确保完全按照指示输入在这些备忘单中使用的项目、模型等的名称，否则这里的“单击以执行”按钮可能会不起作用。但是，“在完成时单击”按钮将继续有效。
+         </b>
+      </description>
+   </intro>
+   <item
+         title="打开“数据”透视图">
+      <command
+            required="false"
+            serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=com.ibm.datatools.core.internal.ui.perspective)"/>         
+      <description>
+如果尚未处于“数据”透视图中，请在主菜单中选择<b>窗口</b> &gt; <b>打开透视图</b> &gt; <b>数据</b>。
+      </description>
+   </item>
+   <item dialog="true" 
+            title="对物理数据模型打开 Rapid Generator for SAP 向导">
+        <description>
+确保数据设计项目 <b>RMTestProject</b> 中存在 <b>RMTableModel.dbm</b> 文件。
+请记住，该文件是将逻辑模型 <b>RMTableModel.ldm</b> 转换为物理数据模型的结果。
+         <br/>右键单击 <b>RMTableModel.dbm</b>，然后选择 <b>Rapid Generator for SAP</b> &gt; <b>生成 DataStage 作业</b>。
+        </description>
+      <action required="false"
+			pluginId="com.ibm.is.sappack.gen.tools.jobgenerator"
+			class="com.ibm.is.sappack.gen.tools.jobgenerator.popup.actions.JobGeneratorCheatSheetAction"
+			param1="RMTestProject" param2="RMTableModel.dbm"/>              
+      </item>
+   <item
+         title="选择作业类型">
+      <description>
+在<b>选择作业类型</b>页面上选择 <b>ABAP 抽取作业</b>。
+       <br/>
+单击<b>下一步</b>。
+      </description>
+   </item>
+   <item
+         title="输入 Information Server 详细信息">
+      <description>
+输入 Information Server 安装的连接信息。
+域名通常类似于 <b>Servername:9080</b>。
+使用下拉框选择 DataStage 项目及该项目中的文件夹。
+输入字符串 <b>RGTableJob</b> 作为<b>作业名前缀</b>。
+        <br/>
+单击<b>下一步</b>。
+      </description>
+   </item>
+   <item
+         title="输入 ABAP 阶段详细信息">
+      <description>
+在 <b>ABAP 抽取选项</b>页面上，填写以下部分：</description>
+      <subitem
+            label="在“源选项”部分中，选择在 DataStage 服务器上定义的 SAP 连接以及您的凭证。">
+      </subitem>
+      <subitem
+            label="在“目标选项”部分中，选择 ODBC 连接器作为“阶段类型”。输入 ODBC 数据源的名称及其用户凭证。">
+      </subitem>
+      <subitem
+            label="在“RFC 传输方法”部分中，输入 SAP 网关和服务。这些通常是与 SAP 应用程序服务器相同的主机名，字符串“sapgw”后跟系统编号，例如，sapgw00。选择包含可用 RFC 目标列表的文件。该文件的格式如下：针对每个 RFC 目标包含一行格式 &lt;RFCDestinationName&gt;&lt;Blank&gt;&lt;RFCDestinationProgramID&gt;。如果您不知道这些信息，请与 SAP 系统管理员联系。在“最大流数”下拉框中选择 1。保留“创建 RFC 目标”未选中。">
+      </subitem>
+      <subitem
+            label="在“ABAP 程序选项”部分中，选中“在工作空间中保存 ABAP 程序”和“将程序上载至 SAP”。在下面选择要将 ABAP 程序上载到的 SAP 连接。">
+      </subitem>
+      <subitem
+            label="单击“验证 SAP 设置”按钮以验证您的设置。如果验证显示所有设置均正确，请单击“下一步”。">
+      </subitem>
+   </item>
+   <item
+         title="跳过“定义作业参数”页面">
+      <description>
+在<b>定义作业参数</b>页面上，保留所有设置。
+         <br/>
+单击<b>下一步</b>。
+      </description>
+   </item>
+   <item
+         title="跳过“定义列派生”页面">
+      <description>
+在<b>定义列派生</b>页面上，取消选中<b>使用定制派生</b>。
+         <br/>
+单击该页面上的“下一步”之后，作业生成过程将启动。
+         <br/>
+单击<b>下一步</b>。
+      </description>
+   </item>
+   <item
+         title="完成向导">
+      <description>
+在<b>摘要</b>页面上，复审指出已生成哪些作业的摘要。
+         <br/>
+如果要编译您的作业，请选中<b>启动 DataStage 多作业编译器</b>复选框。
+         <br/>
+单击<b>完成</b>。
+      </description>
+         </item>
+   <item
+         skip="true"
+         title="编译作业">
+      <description>
+在向导完成之后，将启动 DataStage 多作业编译器，其中选中了已生成的作业。完成向导以编译作业。
+      </description>
+   </item>
+   <item href="http://publib.boulder.ibm.com/infocenter/iisinfsv/v8r1/topic/com.ibm.swg.im.iis.productization.iisinfsv.overview.doc/topics/cisodsdirector.html"
+         title="运行作业">
+      <description>
+要运行作业，请打开 <b>DataStage Director</b>，选择刚生成的作业，然后选择<b>运行</b>。
+      </description>
+   </item>
+      </cheatsheet>

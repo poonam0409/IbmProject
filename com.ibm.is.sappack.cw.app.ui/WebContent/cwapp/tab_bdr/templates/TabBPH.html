@@ -1,0 +1,72 @@
+<div class="bdrTab">
+	<div data-dojo-type="idx.layout.BorderContainer" dojoAttachPoint="borderContainer" class="bdrBorderContainer"
+		data-dojo-props="design: 'sidebar', gutters:true">
+		<div data-dojo-type="dijit.layout.ContentPane" class="bdrNavContainer" data-dojo-props="region:'leading'">
+			<div data-dojo-type="idx.layout.BorderContainer" data-dojo-props="gutters:false">
+				<!-- The invisible container needed to separate the button bar from the tree -->
+				<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region:'top'" class="paddedContainer">
+					<div dojoType="idx.layout.ButtonBar" region="majorActions">
+						<div dojoType="dijit.form.DropDownButton" dojoAttachPoint="addDropDownButton">
+							<span>${msg.ADD}</span>
+							<div data-dojo-type="dijit.Menu">
+								<div data-dojo-type="dijit.MenuItem"
+								    dojoAttachPoint="addTopLevelProcessButton">${msg.BphButtonAddTopLevelProcess}</div>
+								<div style="display: none" data-dojo-type="dijit.MenuItem"
+								    dojoAttachPoint="addProcessButton">${msg.BphButtonAddProcess}</div>
+								<div style="display: none" data-dojo-type="dijit.MenuItem"
+									dojoAttachPoint="addProcessStepButton">${msg.BphButtonAddProcessStep}</div>
+								<div style="display: none" data-dojo-type="dijit.MenuItem"
+									dojoAttachPoint="addBusinessObjectButton">${msg.BphButtonAttachBusinessObject}</div>
+							</div>
+						</div>
+						<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="removeButton">${msg.BPHTAB_2}</div>
+						<div dojoType="dijit.form.DropDownButton" dojoAttachPoint="importButton">
+							<span>${msg.BPHTAB_3}</span>
+							<div data-dojo-type="dijit.Menu">
+								<div data-dojo-type="dijit.MenuItem" dojoAttachPoint="importFromCSVButton"
+									data-dojo-props="iconClass:'dijitEditorIcon dijitEditorIconCopy'">
+									${msg.BPHTAB_14}</div>
+								<div data-dojo-type="dijit.MenuItem" dojoAttachPoint="importFromSAPSolMgrFileButton"
+									data-dojo-props="iconClass:'dijitEditorIcon dijitEditorIconCopy'">
+									${msg.BPHTAB_15}</div>
+								</div>
+						</div>
+						<div dojoType="dijit.form.DropDownButton" dojoAttachPoint="exportDropDownButton">
+							<span> ${msg.BPHTAB_4} </span>
+							<div data-dojo-type="dijit.Menu">
+								<div data-dojo-type="dijit.MenuItem" dojoAttachPoint="exportToCSV"
+									data-dojo-props="iconClass:'dijitEditorIcon dijitEditorIconSave'">
+									${msg.BPHTAB_24}</div>
+								<div data-dojo-type="dijit.MenuItem" dojoAttachPoint="loadEverythingIntoCwdbButton"
+									data-dojo-props="iconClass:'dijitEditorIcon dijitEditorIconSave'">
+									${msg.BPHTAB_13}</div>
+								<div data-dojo-type="dijit.MenuItem" dojoAttachPoint="movToGTButton"
+									data-dojo-props="iconClass:'dijitEditorIcon dijitEditorIconSave'">
+									${msg.BPHTAB_7}</div>
+							</div>
+						</div>
+						<div dojoType="idx.form.Link" dojoAttachPoint="refreshAction" class="refreshLink">${msg.REFRESH}</div>
+					</div>
+				</div>
+				<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region:'top'" class="paddedContainerNoTop">
+					<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="copyButton">${msg.BPHTAB_5}</div>
+					<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="pasteButton">${msg.BPHTAB_6}</div>
+				</div>
+				<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region:'top'" class="paddedContainerNoTop">
+					<div dojoType="cwapp.main.SearchBox" dojoAttachPoint="filteringInput" placeHolder="${msg.FILTER}"
+						class="bdrTabFilteringInput"></div>
+				</div>
+
+				<div data-dojo-type="dijit.layout.ContentPane" class="bdrBphTreeContainer paddedContainerNoTop" data-dojo-props="region:'center'">
+					<div dojoAttachPoint="_tree" id="bphTree" class="bdrBphTree"></div>
+				</div>
+			</div>
+		</div>
+
+		<div dojoType="dijit.layout.ContentPane" class="bdrItemContainer" splitter="true" region="center">
+			<div id="detailsPanel"></div>
+			<div id="bphPlaceholderWidget"></div>
+		</div>
+	</div>
+	<div dojoType="cwapp.tab_bdr.bph.ExportToCwdbDialog" id="exportToCwdbDialog"></div>
+</div>

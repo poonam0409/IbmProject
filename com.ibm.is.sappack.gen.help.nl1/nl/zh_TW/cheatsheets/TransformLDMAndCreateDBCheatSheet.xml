@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="準備邏輯資料模型以產生工作">
+   <intro>
+      <description>
+         這個提要會顯示如何將邏輯資料模型轉換為要供 Rapid Generator for SAP 使用的實體資料模型。
+         它也將顯示如何從這個實體模型建立 DB。
+         
+         <br/>
+         <b>附註：在下列步驟中輸入專案、模型等名稱時，務必要與指出的名稱完全
+         相同，否則「按一下執行」按鈕可能無法運作。不過，「完成時
+         按一下」按鈕將繼續運作。
+         </b>
+      </description>
+   </intro>
+   <item
+         dialog="true"
+         href="/com.ibm.datatools.transform.ui.doc/topics/ctransform.html"
+         title="將邏輯模型轉換為實體模型">
+      <description>
+         導覽至您使用 Rapid Modeler for SAP 從 SAP 匯入 meta 資料時，所使用的邏輯資料模型。
+      </description>
+      <subitem
+            label="用滑鼠右鍵按一下邏輯資料模型，然後選取「轉換為實體資料模型」。">
+      </subitem>
+      <subitem
+            label="在「目標實體資料模型」頁面上，選取「建立新的模型」。按「下一步」。">
+      </subitem>
+      <subitem
+            label="在「實體資料模型檔案」頁面上，選取 DB2 作為目標資料庫。按「下一步」。">
+      </subitem>
+      <subitem
+            label="在「選項」頁面上，檢查設定，特別是綱目名稱。按「下一步」。">
+      </subitem>
+      <subitem
+            label="在「輸出」精靈頁面上，按一下「完成」">
+      </subitem>
+         </item>
+   <item
+         title="識別 DB2 資料庫">
+      <description>
+         識別位於系統視景某處且要用來保留 SAP 資料的 DB2 資料庫。
+         <br/> 
+         您將必須在 DataStage 伺服器機器上建立與這個資料庫的 ODBC 連線。
+         如何建立 ODBC 連線視作業系統而定。請洽詢您的系統管理者。
+      </description>
+   </item>
+   <item
+         dialog="true"
+         href="/com.ibm.datatools.connection.repository.ui.doc/topics/tcommon_connecting_wiz.html"
+         title="建立與資料庫的連線">
+      <description>
+         這個步驟可讓您在 InfoSphere Data Architect 中建立與資料庫的連線。
+         <br/>
+         如果您要執行先前在資料庫上手動建立的 DDL Script，則可以跳過這個步驟。
+      </description>
+      <subitem
+            label="在「資料來源瀏覽器」視圖中，用滑鼠右鍵按一下「資料庫連線 -&gt; 新建」。"
+            skip="true"> 新建。>
+      </subitem>
+      <subitem
+            label="輸入資料庫的連線資訊時，按一下「新建連線」精靈。"
+            skip="true">
+      </subitem>
+   </item>
+   <item
+         skip="true"
+         title="在 DataStage Server 上建立 ODBC 連線">
+      <description>
+         您必須在 DataStage Server 機器上建立與資料庫的 ODBC 連線，才能在 DataStage 工作中使用它。
+      </description>
+   </item>
+   <item
+         dialog="true"
+         href="/com.ibm.datatools.fe.ui.doc/topics/ruidll_saverun.html"
+         title="產生 DDL Script">
+      <description>
+         在「資料專案瀏覽器」中，導覽至前一個步驟中所建立的結果實體資料模型。按兩下 dbm 項目。用滑鼠右鍵按一下 dbm 檔案下的「資料庫」項目，然後選取「產生 DLL」。逐步執行「產生 DDL」精靈，以在「資料設計專案」中建立 .sql 檔案。
+      </description>
+      <subitem
+            label="在「資料專案瀏覽器」中，導覽至前一個步驟中所建立的結果實體資料模型，並按兩下它。">
+      </subitem>
+      <subitem
+            label="用滑鼠右鍵按一下 dbm 檔案下的「資料庫」項目，然後選取「產生 DLL」。">
+      </subitem>
+      <subitem
+            label="逐步執行「產生 DDL」精靈，以在「資料設計專案」中建立 .sql 檔案。
+">
+      </subitem>
+   </item>
+   <item
+         href="/com.ibm.datatools.server.ui.doc/topics/cdatabaseexplorer.html"
+         title="在資料庫上執行 DDL Script">
+      <description>
+         這個步驟顯示如何在前一個步驟中所建立的連線上執行 DDL Script。
+      </description>
+      <subitem
+            label="在「資料設計」專案中用滑鼠右鍵按一下 SQL Script 資料夾中的 .sql 檔案，然後選取「執行 SQL」。"
+            skip="true">
+      </subitem>
+      <subitem
+            label="選取前一個步驟中所建立的資料庫連線，並完成精靈。"
+            skip="true">
+      </subitem>
+   </item>
+      </cheatsheet>

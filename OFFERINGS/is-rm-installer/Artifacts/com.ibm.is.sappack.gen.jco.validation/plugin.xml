@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="com.ibm.cic.common.core.commonUserData">
+      <commonData
+            validationClass="com.ibm.is.sappack.gen.jco.validation.JCoPropertyValidator"
+            dataDefaultValue="%dataDefaultValue"
+            dataKey="hurz"
+            dataDes="%dataDescription">
+      </commonData>
+   </extension>
+
+</plugin>

@@ -1,0 +1,20 @@
+<div dojoType="cwapp.main.AddressableTabMenuLauncher" id="tabMenuLauncher" defaultWorkspaceTypeID="bdr">
+	<div id="bdrWorkspace" dojoType="idx.app.WorkspaceType"
+        mixinArgs="{workspaceTypeName: getI18nMessage('MAIN_9')}"
+        urlTemplate="cwapp/tab_bdr/TabWrapper.html"
+        workspaceArgs="{parseOnLoad: true}"
+        workspaceTypeID="bdr">
+	</div>
+	<div id="rdmWorkspace" dojoType="idx.app.WorkspaceType"
+        mixinArgs="{workspaceTypeName: getI18nMessage('MAIN_7')}"
+        urlTemplate="cwapp/tab_rdm/TabWrapper.html"
+        workspaceArgs="{parseOnLoad: true}"
+        workspaceTypeID="rdm">
+	</div>
+	<div id="configWorkspace" dojoType="idx.app.WorkspaceType"
+		mixinArgs="{workspaceTypeName: getI18nMessage('MAIN_8')}"
+   		urlTemplate="cwapp/tab_config/TabWrapper.html"
+		workspaceArgs="{parseOnLoad: true}"
+		workspaceTypeID="config">
+  	</div>
+</div>

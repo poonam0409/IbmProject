@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>ContentPane Test</title>
+	
+	<script type="text/javascript" src="../../../tests/dojoVersion.js"></script>
+
+	<script type="text/javascript">
+		dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+	
+    <style id="idxStyles" type="text/css">
+        @import "../../../themes/oneui/oneui.css";
+        @import "../../../themes/test.css";
+    </style>	
+
+	<style>
+		body {
+		    margin: 3em;
+		}		
+
+		.box {
+			position: relative;
+			background-color: white;
+			border: 1px solid #dddddd;
+			padding: 10px;
+			margin: 5px;
+		}
+	</style>
+
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+		dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");		
+	</script>
+	<!-- only needed for alternate theme testing: do NOT use in your code! -->
+
+
+</head>
+<body class="oneui">
+
+	<h1 class="testTitle">dijit.layout.ContentPane tests</h1>
+	
+
+		<h2></h2>
+
+		<div data-dojo-type="dijit.layout.ContentPane" class="box">
+			simple test
+		</div>	
+
+		<h2></h2>
+
+		<div data-dojo-type="dijit.layout.ContentPane" class="box">
+			some text (top-level container)
+
+			<div data-dojo-type="dijit.layout.ContentPane" class="box">
+
+				text in the inner container
+
+				<div data-dojo-type="dijit.layout.ContentPane" class="box">
+					<h1>This is a ContentPane</h1>
+				</div>
+
+				text in the inner container
+
+			</div>
+
+			some text (top-level container)
+		</div>
+	</body>
+</html>

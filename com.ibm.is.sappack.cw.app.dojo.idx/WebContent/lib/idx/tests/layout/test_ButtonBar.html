@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Test ButtonBar</title>
+	<script type="text/javascript" src="../dojoVersion.js"></script>
+
+	<script type="text/javascript">
+		dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+	</script>
+	
+	<style id="idxStyles" type="text/css">
+        @import "../../themes/oneui/oneui.css";
+        @import "../../themes/vienna/vienna.css";
+        @import "../../themes/claro/claro.css";
+        @import "../../resources/claro_idx.css";
+        @import "../../resources/vienna_idx.css";
+        @import "../../themes/test.css";
+	</style>
+		
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+		dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+
+	<script type="text/javascript" id="postDojo">
+		var modules=["doh",
+					 "doh.runner",
+					 "dijit.dijit", // optimize: load dijit layer
+					 "dijit/registry",
+					 "dijit.form.Button",
+					 "dijit.form.ComboButton",
+					 "dijit.form.DropDownButton",
+					 "dijit.Menu", // can't use idx.oneui.Menu in DOH test because no Dojo 1.6 support
+					 "dijit.MenuItem",
+					 "idx.layout.ButtonBar"];
+		function callback(modules) {
+			var ButtonBar = modules["idx/layout/ButtonBar"];
+			var dRegistry = modules["dijit/registry"] ? modules["dijit/registry"] : dijit;
+			var parser = modules["dojo/parser"];
+			var dDoh = modules["doh"] ? modules["doh"] : doh;
+			
+			dDoh.register("create", function(){				
+				bb = new ButtonBar({});
+				doh.t(bb != null);
+			});
+
+			dDoh.register("parse", function(){
+				parser.parse();
+				doh.t(dRegistry.byId("test_ButtonBar") != null);
+			});
+			
+			dDoh.run();
+		}
+		
+		dojoRequireModules(modules, null, currentDojoVersion.async, true, callback);		
+	</script>
+</head>
+<body>
+
+	<h1>ButtonBar Test</h1>
+	<p>
+	<div dojoType="idx.layout.ButtonBar" alignment="leading"  id="test_ButtonBar">
+		<div dojoType="dijit.form.DropDownButton" region="primary">
+		   <span>Primary 1</span>
+		    <div dojoType="dijit.Menu">
+		       <div dojoType="dijit.MenuItem">Item 1</div>
+		       <div dojoType="dijit.MenuItem">Item 2</div>
+		    </div>
+		</div>
+		<div dojoType="dijit.form.Button">Primary 2</div>
+		</div>
+	</p>
+</body>
+</html>

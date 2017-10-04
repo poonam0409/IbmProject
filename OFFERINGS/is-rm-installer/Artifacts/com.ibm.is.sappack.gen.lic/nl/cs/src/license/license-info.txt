@@ -1,0 +1,49 @@
+﻿LICENČNÍ INFORMACE
+
+Níže uvedené Programy jsou licencovány na základě uvedených podmínek, které platí navíc k podmínkám IBM Mezinárodní licenční smlouva pro programy (IBM F/N Z125-3301-14).
+
+Název Programu: IBM InfoSphere Information Server Pack for SAP Applications v7.1
+Číslo Programu: 5724-Q55
+
+Název Programu: IBM InfoSphere Information Server Pack for SAP Applications for Non-Production v7.1
+Číslo Programu: 5724-Q55
+
+Jak je popsáno v Mezinárodní licenční smlouvě IBM pro programy ("IPLA") a v tomto dokumentu Licenční informace, IBM uděluje Držiteli licence omezené právo k užívání Programu. Toto právo je omezeno na úroveň Oprávněného užívání, jako například na základě jednotek PVU (Processor Value Unit), jednotek VU (Value Unit) nebo jiné specifikované úrovně užívání, za kterou Držitel licence zaplatil, jak dokládá dokument o oprávnění (Proof of Entitlement). Užívání Držitelem licence může být omezeno rovněž na nějaký specifikovaný stroj nebo na užívání pouze jako Podpůrného programu nebo v souladu s jinými omezeními. Jelikož Držitel licence nezaplatil za celou ekonomickou hodnotu Programu, není povoleno žádné jiné užívání, ledaže by byly zaplaceny dodatečné poplatky. Kromě toho, jak je uvedeno ve smlouvě IPLA, není Držitel licence oprávněn užívat Program k poskytování komerčních služeb v oblasti IT jakékoli třetí straně nebo k poskytování komerčního hostingu nebo služeb v oblasti sdílení času, ani není oprávněn Program sublicencovat, půjčovat nebo pronajímat, ledaže by to bylo výslovně uvedeno v příslušných platných smlouvách, na jejichž základě získal Držitel licence oprávnění k užívání Programu. Držitel licence může mít na základě úhrady dodatečných poplatků nebo na základě odlišných či dodatečných podmínek dodatečná práva. IBM si vyhrazuje právo určit, zda bude mít Držitel licence k taková dodatečná práva k dispozici.
+
+Specifikace Programu naleznete ve souhrnných článcích Popis a Technické informace, které jsou uvedeny v Oznamovacích letácích Programu.
+
+Podpůrné programy
+
+Program je licencován jako multiprogramový balík zahrnující níže identifikované Podpůrné programy. Držitel licence je oprávněn nainstalovat a užívat tyto Podpůrné programy pouze k podpoře užívání Základního programu Držitelem licence v souladu s touto Smlouvou a v rámci omezení stanovených dokumentem o oprávnění (Proof of Entitlement), ledaže by na jiném místě v tomto dokumentu Licenční informace byl stanoven širší rozsah práv. Formulace "k podpoře užívání Držitelem licence" bude zahrnovat pouze takové způsoby užívání, které jsou nezbytné nebo jinak přímo souvisejí s licencovaným užíváním Základního programu nebo jiného Podpůrného programu. Podpůrné programy nesmí být užívány k žádnému jinému účelu. Držitel licence není oprávněn Podpůrné programy převádět nebo dále prodávat nezávisle na Základním programu. K Podpůrnému programu mohou být připojeny licenční podmínky. Tyto podmínky (pokud existují) platí pro užívání tohoto Podpůrného programu Držitelem licence. V případě rozporu podmínek mají přednost podmínky uvedené v tomto dokumentu Licenční informace před podmínkami Podpůrného programu. Jestliže oprávnění Držitele licence na užívání Programu skončí, je Držitel licence povinen přestat používat, zničit nebo bezodkladně vrátit všechny kopie Podpůrných programů smluvní straně, od níž získal Program. Jestliže Držitel licence stáhnul Podpůrné programy, je povinen kontaktovat smluvní stranu, od níž zakoupil Program. Jestliže chce Držitel licence Podpůrné programy licencovat pro jakékoli užívání přesahující výše uvedené limity, musí se obrátit za účelem pořízení příslušných licencí na Obchodního zástupce IBM nebo na smluvní stranu, od které Program získal.
+
+S Programem jsou licencovány následující Podpůrné programy:
+- IBM Cognos Business Intelligence v10.2
+- IBM Master Data Management Reference Data Management Hub v10.1
+- IBM Conversion Workbench Migration Asset for SAP Applications v2.1
+- IBM Cognos Data Manager Connector for SAP R/3 v10.2
+
+Povolené komponenty
+
+Bez ohledu na jiné ustanovení uvedené ve Smlouvě je Držitel licence oprávněn užívat pouze níže uvedené komponenty nebo funkce určeného Podpůrného programu:
+- IBM Master Data Management Reference Data Management Hub (may only be used with IBM Conversion Workbench Migration Asset for SAP Applications)
+- IBM Cognos Business Intelligence (may only be used with IBM Conversion Workbench Migration Asset for SAP Applications)
+- Cognos Connection (of IBM Cognos Business Intelligence)
+- Framework Manager (of IBM Cognos Business Intelligence)
+- Report Studio (of IBM Cognos Business Intelligence)
+- Report Viewer (of IBM Cognos Business Intelligence)
+
+Omezení pouze pro účely užívání v neproduktivním prostředí
+
+Je-li v názvu Programu uveden výraz "Non-Production", může být Program implementován pouze jako součást interního a testovacího prostředí Držitele licence, a to pro interní neproduktivní činnosti včetně - nikoliv však pouze - testování, ladění výkonu, diagnostikování poruch, interního benchmarkové testování, zkušebního provozu, činností v oblasti zajištění kvality a/nebo vývoje interně užívaných dodatků nebo rozšíření Programu prostřednictvím zveřejněných rozhraní API. Držitel licence není oprávněn používat kteroukoli část Programu k jakýmkoli jiným účelům, ledaže by si zakoupil příslušná oprávnění k produktivnímu užívání.
+
+Omezení užívání ve prospěch třetí strany
+
+Držitel licence není oprávněn užívat Program ani žádnou z jeho komponent k poskytování servisních kancelářských aplikací, hostingových služeb, ani služeb z oblasti komerčních informačních technologií třetím stranám, ani převádět Program na třetí stranu, ledaže si s IBM písemně sjednal jinak.
+
+Instalace
+
+Instalace je měrnou jednotkou, na jejímž základě může být Program licencován. Instalace je kopie Programu, která je nainstalována na fyzickém nebo virtuálním disku a je dostupná ke spouštění na počítači. Držitel licence je povinen opatřit si oprávnění pro každou Instalaci Programu.
+
+L/N:  L-SBRN-9FN46Q
+D/N:  L-SBRN-9FN46Q
+P/N:  L-SBRN-9FN46Q 

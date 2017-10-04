@@ -1,0 +1,78 @@
+<table style="width: 90%; border-style: solid; border-width: 1px; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px;">
+  <thead>
+    <tr>
+      <th style="vertical-align: top; text-align: left; height: 4em;">
+        This content is constructed by an example widget of type "Configurator".
+        This widget is instantiated on a page called "configure.html" which is 
+        referenced as the content for this workspace.
+        <br>
+        <button dojoType="dijit.form.Button" label="Button 1"></button>
+        &nbsp;
+        <button dojoType="dijit.form.Button" label="Button 2"></button>
+        &nbsp;
+
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table><tbody>
+      <tr>
+        <td style="text-align: right;">Config Parameter 1:</td>
+        <td style="text-align: left;">
+             <input dojoType="dijit.form.TextBox"></input>
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: right;">Config Parameter 2:</td>
+        <td style="text-align: left;">
+             <select dojoType="dijit.form.Select">
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+                <option value="4">Option 4</option>
+             </select>
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: right;">Config Parameter 3:</td>
+        <td style="text-align: left;">
+             <input dojoType="dijit.form.TimeTextBox"></input>
+        </td>
+      </tr>
+      </tbody></table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;">
+
+       <div dojoType="dijit.form.HorizontalSlider" value="50"
+            minimum="0" maximum="100" discreteValues="21" 
+            intermediateChanges="true" showButtons="false"
+            style="width: 90%;">
+
+         <ol dojoType="dijit.form.HorizontalRuleLabels" 
+             container="topDecoration" style="height: 1.5em;">
+           <li></li>
+           <li>10%</li>
+           <li>20%</li>
+           <li>30%</li>
+           <li>40%</li>
+           <li>50%</li>
+           <li>60%</li>
+           <li>70%</li>
+           <li>80%</li>
+           <li>90%</li>
+           <li></li>
+         </ol>
+         <div dojoType="dijit.form.HorizontalRule" container="bottomDecoration"
+              count="11" style="height: 5px;">
+         </div>
+       </div>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+

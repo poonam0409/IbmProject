@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en">
+<head>
+<title>Test _MaximizeHandler</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+<script type="text/javascript">
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/claro/claro.css", "idxStyles");
+</script>
+
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneui/oneui.css";
+@import "../../themes/vienna/vienna.css";
+@import "../../themes/test.css";
+</style>
+<script type="text/javascript">
+	var dojoConfig = currentDojoVersion.dojoConfig;
+</script>
+
+<script type="text/javascript">
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+</script>
+
+<script type="text/javascript">
+var maxMixin = null;
+
+function togglePane(id) {
+	var container = dojo.byId("container");
+	var node = dojo.byId(id);
+	var animation = (maxMixin.useAnimation ? 1 : 0);
+	if(maxMixin._maximizedItem == node) {
+		maxMixin.restore();
+	}else if(animation && maxMixin._maximizedItem){
+		maxMixin.restore();
+		setTimeout(function(){
+			maxMixin.maximize(node, container);
+		}, maxMixin.duration + 50);
+		animation++;
+	} else {
+		maxMixin.maximize(node, container);
+	}
+	if(animation){
+		var inputs = dojo.query("input");
+		dojo.forEach(inputs, function(input){
+			dojo.attr(input, "disabled", true);
+		});
+		setTimeout(function(){
+			dojo.forEach(inputs, function(input){
+				dojo.attr(input, "disabled", false);
+			});
+		}, (maxMixin.duration + 50) * animation); 
+	}
+}
+function toggleAnimation() {
+	var enabled = dojo.byId("useAnimationCheckBox").checked;
+	maxMixin.useAnimation = enabled;
+	dojo.byId("durationField").disabled = !enabled;
+}
+function setDuration() {
+	maxMixin.duration = dojo.byId("durationField").value;
+}
+</script>
+
+<script type="text/javascript" id="postDojo">
+var modules = [	"dijit._Widget",
+				"idx.widget._MaximizeMixin" ];
+
+function preParse(modules) {
+	var MaximizeMixin = modules["idx/widget/_MaximizeMixin"];
+	maxMixin = new MaximizeMixin();
+}
+function postParse() {
+	toggleAnimation();
+}
+dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+</script>
+
+<style type="text/css">
+#container {
+	margin: 8px;
+	padding: 5px;
+	height: 600px;
+	width: 600px;
+}
+#pane0 {
+	background-color: black;
+	color: white;
+	height: 30px;
+}
+#pane1 {
+	background-color: white;
+	border: solid 1px #eedddd;
+	width: 400px; height: 100px;
+}
+#pane2 {
+	background-color: #ccdddd;
+	width: 50%; height: 50%;
+	position: absolute;
+}
+#pane3 {
+	background-color: #eeddee;
+	position: absolute;
+	left: 150px; top: 350px;
+	width: 200px; height: 50px;
+}
+#pane4 {
+	background-color: #ffffdd;
+	border: solid 1px #ff0000;
+	position: absolute;
+	top: 10px; left: 10px; height: 30px; widows: 180px;
+	overflow: auto;
+}
+</style>
+<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 0">
+<a class="navigationLink" href="#maincontent">Skip to main content</a>
+<script type="text/javascript">applyThemeToBody()</script>
+<a name="maincontent"></a>
+<div style="padding: 15px;">
+	<input id="useAnimationCheckBox" type="checkbox" onclick="toggleAnimation();"/>
+	<label for="useAnimationCheckBox">Use Animation</label><br/>
+	<label for="durationField">Duration(ms): </label>
+	<input id="durationField" type="text" value="500" onchange="setDuration();"/><br/>
+	<input type="button" onclick="togglePane('pane0');" value="pane0"/>
+	<input type="button" onclick="togglePane('pane1');" value="pane1"/>
+	<input type="button" onclick="togglePane('pane2');" value="pane2"/>
+	<input type="button" onclick="togglePane('pane3');" value="pane3"/>
+	<input type="button" onclick="togglePane('pane4');" value="pane4"/>
+</div>
+<div id="container">
+	<div id="pane0">Contents of Pane 0 (High-Contrast)</div>
+	<div id="pane1" title="Pane 1">Contents of Pane 1 (normal)</div>
+	<div id="pane2" title="Pane 2">Contents of Pane 2</div>
+	<div id="pane3" title="Pane 3">Contents of Pane 3 (absolute position)</div>
+	<div style="margin: 20px; padding: 20px;">
+		<div style="position: relative;">
+			<div id="pane4">Contents of Pane 4 (nested relative)</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

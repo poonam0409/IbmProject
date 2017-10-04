@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<compositeCheatsheet name="Scenario end-to-end: Importazione di tabelle SAP e generazione di job di estrazione">
+   <taskGroup kind="sequence" name="Importazione di tabelle SAP e generazione di job di estrazione" skip="false">
+      <intro>
+         Questa pagina di aiuto guida l'utente in tutto il processo di importazione di tabelle logiche
+         da SAP in un modello di dati logico, trasformazione del modello di dati logico in un modello
+         di dati fisico, creazione di un database dal modello fisico e, infine, generazione di un job
+         DataStage che estrarrà la tabella SAP nel database creato.
+      </intro>
+      <onCompletion>
+         È stato creato un modello di dati logico contenente metadati SAP, un database in grado
+         di contenere dati SAP e job che possono estrarre dati da SAP in questo database.
+      </onCompletion>
+      <task kind="cheatsheet" name="Importazione tabelle logiche da SAP" skip="true">
+         <intro>
+            Questa attività guida l'utente nel processo di creazione di un modello di dati logico
+            e di importazione dei metadati di tabelle logiche SAP in questo modello.
+         </intro>
+         <param name="id" value="com.ibm.is.sappack.gen.help.cheatsheet.rm.tables">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Preparare il modello di dati logico per la generazione del job" skip="true">
+         <intro>
+            Questa attività guiderà l'utente nella preparazione del modello di dati logico creato precedentemente
+            per Rapid Generator for SAP. Le attività includono la trasformazione del modello in un modello di dati
+            fisico e la creazione del database del modello fisico.
+         </intro>
+         <param name="id" value="com.ibm.is.sappack.gen.help.cheatsheet.transform">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Generazione job con Rapid Generator for SAP" skip="true">
+         <intro>
+            Questa attività mostra come generare job dal modello fisico creato
+            in precedenza. Questi job utilizzeranno il database creato per la memorizzazione dei dati SAP.
+         </intro>
+         <param name="id" value="com.ibm.is.sappack.gen.help.cheatsheet.rg.tables">
+         </param>
+      </task>
+   </taskGroup>
+</compositeCheatsheet>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Licensed Materials - Property of IBM 5724-Q55 (c) Copyright IBM Corp. 2011, 2014
+     All Rights Reserved. US Government Users Restricted Rights - Use, duplication or disclosure restricted 
+     by GSA ADP Schedule Contract with IBM Corp.
+-->
+<com.ibm.ejs.models.base.bindings.applicationbnd:ApplicationBinding xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.ejs.models.base.bindings.applicationbnd="applicationbnd.xmi" xmi:id="ApplicationBinding_1162889316531">
+  <authorizationTable xmi:id="AuthorizationTable_1162889316594">
+    <authorizations xmi:id="RoleAssignment_ID">
+      <specialSubjects xmi:type="com.ibm.ejs.models.base.bindings.applicationbnd:AllAuthenticatedUsers" xmi:id="AllAuthenticatedUsers_ID" name="AllAuthenticatedUsers"/>
+      <role href="META-INF/application.xml#SecurityRole_IISAuthRole"/>
+    </authorizations>
+  </authorizationTable>
+  <application href="META-INF/application.xml#com.ibm.is.sappack.gen.server.EAR"/>
+</com.ibm.ejs.models.base.bindings.applicationbnd:ApplicationBinding>

@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<?resource-bundle ./CC_IDOC ?>
+
+<Sets schemaVersion="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ascentialsoftware.com ../CC_Common/XML/CC_Sets.xsd"
+	xmlns:asc="http://www.ascentialsoftware.com">
+
+
+	<!-- ========================================================= -->
+	<!-- ========= Stage properties ============================== -->
+	<!-- =========================================================  -->
+
+	<!--
+		connection (=stage) properties that are used by both IDoc stages
+	-->
+	<Set name="IDocConnectionProperties">
+		<!-- =============================================== -->
+		<!--
+			Stage properties used both at design time and runtime
+		-->
+
+		<Property name="USERNAME" label="CC_IDOC_SP_USERNAME"
+			description="CC_IDOC_SP_USERNAME" type="string" required="false"
+			hidden="false" maxLength="30" default="" />
+
+		<Property name="PASSWORD" label="CC_IDOC_SP_PASSWORD"
+			description="CC_IDOC_SP_PASSWORD" type="protectedstring" required="false"
+			hidden="false" maxLength="40" default="" />
+		<Property name="CLIENT" label="CC_IDOC_SP_CLIENT"
+			description="CC_IDOC_SP_CLIENT" type="string" required="false"
+			hidden="false" maxLength="30" default="" />
+		<Property name="IDOCTYP" label="CC_IDOC_SP_IDOCTYP"
+			description="CC_IDOC_SP_IDOCTYP" type="string" required="false"
+			hidden="false" maxLength="30" default="" />
+		<Property name="BASTYP" label="CC_IDOC_SP_BASTYP"
+			description="CC_IDOC_SP_BASTYP" type="string" required="false"
+			hidden="false" maxLength="30" default="" />
+		<Property name="LANGUAGE" label="CC_IDOC_SP_LANGUAGE"
+			description="CC_IDOC_SP_LANGUAGE" type="string" required="false"
+			hidden="false" maxLength="30" default="" />
+		<Property name="CONNECTIONNAME" label="CC_IDOC_SP_CONNECTIONNAME"
+			description="CC_IDOC_SP_CONNECTIONNAME" type="string" required="false"
+			hidden="false" maxLength="128" default="" />
+		<Property name="USEDEFAULTSAPLOGON" label="CC_IDOC_SP_USEDEFAULTSAPLOGON"
+			description="CC_IDOC_SP_USEDEFAULTSAPLOGON" type="string" required="false"
+			hidden="false" maxLength="60" default="" />
+		<Property name="USEOFFLINEPROCESSING" label="CC_IDOC_SP_USEOFFLINEPROCESSING"
+			description="CC_IDOC_SP_USEOFFLINEPROCESSING" type="string" required="false"
+			hidden="false" maxLength="30" default="" />
+		<Property name="ROUTERSTR" label="CC_IDOC_SP_ROUTERSTR"
+			description="CC_IDOC_SP_ROUTERSTR" type="string" required="false"
+			hidden="false" maxLength="255" default="" />
+
+		<!-- ============================================================ -->
+		<!--
+			Stage properties used by both IDoc stages at design time only
+		-->
+
+		<Property name="CONNECTIONNAMEDT" label="CC_IDOC_SP_CONNECTIONNAMEDT"
+			description="CC_IDOC_SP_CONNECTIONNAMEDT" type="string" required="false"
+			hidden="false" maxLength="128" default="" />
+		<Property name="DSSAPCONNECTIONDT" label="CC_IDOC_SP_DSSAPCONNECTIONDT"
+			description="CC_IDOC_SP_DSSAPCONNECTIONDT" type="string" required="false"
+			hidden="true" maxLength="65536" default="" />
+		<Property name="USESAPLOGONDT" label="CC_IDOC_SP_USESAPLOGONDT"
+			description="CC_IDOC_SP_USESAPLOGONDT" type="string" required="false"
+			hidden="false" maxLength="30" default="" />
+		<Property name="DSSAPCONNECTIONPARAMETERDT" label="CC_IDOC_SP_DSSAPCONNECTIONPARAMETERDT"
+			description="CC_IDOC_SP_DSSAPCONNECTIONPARAMETERDT" type="string"
+			required="false" hidden="false" maxLength="60" default="" />
+		<Property name="IDOCTYPE" label="CC_IDOC_SP_IDOCTYPE"
+			description="CC_IDOC_SP_IDOCTYPE" type="string" required="false"
+			hidden="true" maxLength="268435456" default="" />
+		<Property name="GWHOST" label="CC_IDOC_SP_GWHOST"
+			description="CC_IDOC_SP_GWHOST" type="string" required="false"
+			hidden="false" maxLength="30" default="" />
+		<Property name="SYSNBR" label="CC_IDOC_SP_SYSNBR"
+			description="CC_IDOC_SP_SYSNBR" type="string" required="false"
+			hidden="false" maxLength="30" default="" />
+		<Property name="MSGSVR" label="CC_IDOC_SP_MSGSVR"
+			description="CC_IDOC_SP_MSGSVR" type="string" required="false"
+			hidden="false" maxLength="30" default="" />
+		<Property name="SYSNAME" label="CC_IDOC_SP_SYSNAME"
+			description="CC_IDOC_SP_SYSNAME" type="string" required="false"
+			hidden="false" maxLength="30" default="" />
+		<Property name="GROUP" label="CC_IDOC_SP_GROUP" description="CC_IDOC_SP_GROUP"
+			type="string" required="false" hidden="false" maxLength="60" default="" />
+		<Property name="LOADBLN" label="CC_IDOC_SP_LOADBLN"
+			description="CC_IDOC_SP_LOADBLN" type="string" required="false"
+			hidden="false" maxLength="60" default="" />
+		<Property name="SAPUSERID" label="CC_IDOC_SP_SAPUSERID"
+			description="CC_IDOC_SP_SAPUSERID" type="string" required="false"
+			hidden="false" maxLength="511" default="" />
+		<Property name="SAPPASSWORD" label="CC_IDOC_SP_SAPPASSWORD"
+			description="CC_IDOC_SP_SAPPASSWORD" type="protectedstring" required="false"
+			hidden="false" maxLength="511" default="" />
+		<Property name="SAPCLIENTNUMBER" label="CC_IDOC_SP_SAPCLIENTNUMBER"
+			description="CC_IDOC_SP_SAPCLIENTNUMBER" type="string" required="false"
+			hidden="false" maxLength="511" default="" />
+		<Property name="SAPLANGUAGE" label="CC_IDOC_SP_SAPLANGUAGE"
+			description="CC_IDOC_SP_SAPLANGUAGE" type="string" required="false"
+			hidden="false" maxLength="511" default="" />
+		<Property name="DSSAPCONNECTION" label="CC_IDOC_SP_DSSAPCONNECTION"
+			description="CC_IDOC_SP_DSSAPCONNECTION" type="string" required="false"
+			hidden="true" maxLength="65536" default="" />
+		<Property name="DSSAPCONNECTIONPARAMETER" label="CC_IDOC_SP_DSSAPCONNECTIONPARAMETER"
+			description="CC_IDOC_SP_DSSAPCONNECTIONPARAMETER" type="string"
+			required="false" hidden="false" maxLength="60" default="" />
+		<Property name="PORT_VERSION" label="CC_IDOC_SP_PORT_VERSION"
+			description="CC_IDOC_SP_PORT_VERSION" type="string" required="false"
+			hidden="true" maxLength="30" default="" />
+		<Property name="IDOC_TYPE_VERSION" label="CC_IDOC_SP_IDOC_TYPE_VERSION"
+			description="CC_IDOC_SP_IDOC_TYPE_VERSION" type="string" required="false"
+			hidden="true" maxLength="60" default="" />
+		<Property name="OFFLINE_DESIGN" label="CC_IDOC_SP_OFFLINE_DESIGN"
+			description="CC_IDOC_SP_OFFLINE_DESIGN" type="string" required="false"
+			hidden="true" maxLength="4" default="" />
+	</Set>
+
+
+	<!-- Stage properties used by IDoc load -->
+	<Set name="IDocLoadConnectionProperties">
+		<!-- Stage properties used by IDoc load at design and run time -->
+		<Property name="MESTYP" label="CC_IDOC_LOAD_SP_MESTYP"
+			description="CC_IDOC_LOAD_SP_MESTYP" type="string" required="false"
+			hidden="false" maxLength="30" default="" />
+
+		<!-- ======================================================== -->
+		<!-- Stage properties used by IDoc load design time only -->
+		<Property name="MESSAGETYPE" label="CC_IDOC_LOAD_SP_MESSAGETYPE"
+			description="CC_IDOC_LOAD_SP_MESSAGETYPE" type="string" required="false"
+			hidden="false" maxLength="511" default="" />	
+	</Set>
+
+
+	<!-- Stage properties used by IDoc extract -->
+	<Set name="IDocExtractConnectionProperties">
+        <!--
+			Stage properties used by IDoc extract both at design and runtime
+		-->
+		<Property name="TESTMODE" label="CC_IDOC_EXTRACT_SP_TESTMODE"
+			description="CC_IDOC_EXTRACT_SP_TESTMODE" type="string" required="false"
+			hidden="false" maxLength="30" default="" />
+
+		<!-- ============================================================== -->
+		<!--
+			Stage properties used by IDoc extract design time only
+		-->
+		<!-- NONE -->
+	
+	</Set>
+
+
+	<!-- ========================================================= -->
+	<!-- ========= Link properties =============================== -->
+	<!-- =========================================================  -->
+
+	<!-- Usage (=link) properties used by both IDoc stages -->
+	<Set name="IDocUsageProperties">
+		<!-- ==================================================== -->
+		<!-- Common link properties used at design and runtime -->
+		<Property name="SEGTYP" label="CC_IDOC_LP_SEGTYP"
+			description="CC_IDOC_LP_SEGTYP" type="string" scope="link" required="false"
+			hidden="false" maxLength="60" default="" />
+
+		<!-- ===================================================== -->
+		<!--
+			Common link properties used at design time only
+		-->
+		<Property name="DESCRIPTION" label="CC_IDOC_LP_DESCRIPTION"
+			description="CC_IDOC_LP_DESCRIPTION" type="string" scope="link"
+			required="false" hidden="false" maxLength="2048" default="" />
+		<Property name="PORT_VERSION" label="CC_IDOC_LP_PORT_VERSION"
+			description="CC_IDOC_LP_PORT_VERSION" type="string" scope="link"
+			required="false" hidden="true" maxLength="30" default="" />
+		<Property name="IDOC_TYPE_VERSION" label="CC_IDOC_LP_IDOC_TYPE_VERSION"
+			description="CC_IDOC_LP_IDOC_TYPE_VERSION" type="string" scope="link"
+			required="false" hidden="true" maxLength="60" default="" />
+		<Property name="OBJECTTYPE" label="CC_IDOC_LP_OBJECTTYPE"
+			description="CC_IDOC_LP_OBJECTTYPE" type="string" scope="link"
+			required="false" hidden="true" maxLength="1024" default="" />
+		<Property name="OBJECTNAME" label="CC_IDOC_LP_OBJECTNAME"
+			description="CC_IDOC_LP_OBJECTNAME" type="string" scope="link"
+			required="false" hidden="true" maxLength="1024" default="" />
+		<Property name="RECORDTYP" label="CC_IDOC_LP_RECORDTYP"
+			description="CC_IDOC_LP_RECORDTYP" type="string" scope="link"
+			required="false" hidden="true" maxLength="1024" default="" />
+		<Property name="SEGNAM" label="CC_IDOC_LP_SEGNAM"
+			description="CC_IDOC_LP_SEGNAM" type="string" scope="link" required="false"
+			hidden="true" maxLength="1024" default="" />
+		<Property name="CONNECTION_NAME" label="CC_IDOC_LP_CONNECTION_NAME"
+			description="CC_IDOC_LP_CONNECTION_NAME" type="string" scope="link"
+			required="false" hidden="true" maxLength="1024" default="" />
+		<Property name="IDOC_TYPE_NAME" label="CC_IDOC_LP_IDOC_TYPE_NAME"
+			description="CC_IDOC_LP_IDOC_TYPE_NAME" type="string" scope="link"
+			required="false" hidden="true" maxLength="1024" default="" />
+
+		<!-- Link properties for the Metadata Workbench integration (DataLineage) -->
+		
+		<Property name="PublicDataSourceLocator" label="CC_IDOC_LP_PDS_LOCATOR"
+			description="CC_IDOC_LP_PDS_LOCATOR" type="string" scope="link" required="false"
+			hidden="true" maxLength="65536" default="" />
+		<Property name="PublicDataSourceFieldMap" label="CC_IDOC_LP_PDS_FIELDMAP"
+			description="CC_IDOC_LP_PDS_FIELDMAP" type="string" scope="link" required="false"
+			hidden="true" maxLength="250000" default="" />
+
+	</Set>
+
+
+	<!-- Link properties used by IDoc load -->
+	<Set name="IDocLoadUsageProperties">
+		<!--
+			Link properties used by IDoc load both at design and runtime
+		-->
+
+		<!--  load only, old schema -->
+		<Property name="FKEYCOLS" label="CC_IDOC_LOAD_LP_FKEYCOLS"
+			description="CC_IDOC_LOAD_LP_FKEYCOLS" type="string" scope="link"
+			required="false" hidden="false" maxLength="1024" default="" contexts="target" />
+		<!--  load only, old schema -->
+		<Property name="PKEYCOLS" label="CC_IDOC_LOAD_LP_PKEYCOLS"
+			description="CC_IDOC_LOAD_LP_PKEYCOLS" type="string" scope="link"
+			required="false" hidden="false" maxLength="1024" default="" contexts="target" />
+
+
+		<!-- ========================================================== -->
+		<!--
+			Link properties used by IDoc load design time only
+		-->
+		<Property name="IDOCCOMPONENTTOLOAD" label="CC_IDOC_LOAD_LP_IDOCCOMPONENTTOLOAD"
+			description="CC_IDOC_LOAD_LP_IDOCCOMPONENTTOLOAD" type="string"
+			scope="link" required="false" hidden="true" maxLength="1048576"
+			default="" contexts="target" />
+		<Property name="LOADFIELDLIST" label="CC_IDOC_LOAD_LP_LOADFIELDLIST"
+			description="CC_IDOC_LOAD_LP_LOADFIELDLIST" type="string" scope="link"
+			required="false" hidden="true" maxLength="1048576" default=""
+			contexts="target" />
+		<Property name="PARENTOBJECTTYPE" label="CC_IDOC_LOAD_LP_PARENTOBJECTTYPE"
+			description="CC_IDOC_LOAD_LP_PARENTOBJECTTYPE" type="string" scope="link"
+			required="false" hidden="true" maxLength="1024" default="" contexts="target" />
+		<Property name="PARENTOBJECTNAME" label="CC_IDOC_LOAD_LP_PARENTOBJECTNAME"
+			description="CC_IDOC_LOAD_LP_PARENTOBJECTNAME" type="string" scope="link"
+			required="false" hidden="true" maxLength="1024" default="" contexts="target" />
+		<Property name="PKEYCOUNT" label="CC_IDOC_LOAD_LP_PKEYCOUNT"
+			description="CC_IDOC_LOAD_LP_PKEYCOUNT" type="string" scope="link"
+			required="false" hidden="true" maxLength="1024" default="" contexts="target" />
+		<Property name="FKEYCOUNT" label="CC_IDOC_LOAD_LP_FKEYCOUNT"
+			description="CC_IDOC_LOAD_LP_FKEYCOUNT" type="string" scope="link"
+			required="false" hidden="true" maxLength="1024" default="" contexts="target" />
+	</Set>
+
+
+
+	<!-- Link properties used by IDoc extract -->
+	<Set name="IDocExtractUsageProperties">
+		<!--
+			Link properties used by IDoc extract both at design and runtime
+		-->
+		<Property name="IDOCCOMPONENTTOEXTRACT" label="CC_IDOC_EXTRACT_LP_IDOCCOMPONENTTOEXTRACT"
+			description="CC_IDOC_EXTRACT_LP_IDOCCOMPONENTTOEXTRACT" type="string"
+			scope="link" required="false" hidden="true" maxLength="1048576"
+			default="" contexts="source" />
+
+		<!-- ============================================================== -->
+		<!--
+			Link properties used by IDoc extract design time only
+		-->
+		<!-- none -->
+	</Set>
+
+
+</Sets>

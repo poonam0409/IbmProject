@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<asc:Connector xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.ascentialsoftware.com ../CC_Common/XML/CC_Connector.xsd"
+	xmlns:asc="http://www.ascentialsoftware.com" version="1.0"
+	schemaVersion="1.0">
+<Descriptor>
+<StageID>DeltaExtract</StageID>
+<DisplayName>#CC_DELTA_EXTRACT_DISPLAY_NAME#</DisplayName>
+<ShortDescription>#CC_DELTA_EXTRACT_SHORT_DESCRIPTION#</ShortDescription>
+<LongDescription>#CC_DELTA_EXTRACT_LONG_DESCRIPTION#</LongDescription>
+<Author>#CC_DELTA_EXTRACT_AUTHOR#</Author>
+<Vendor>#CC_DELTA_EXTRACT_VERSION#</Vendor>
+<Copyright>#CC_DELTA_EXTRACT_COPYRIGHT#</Copyright>
+<RepositoryLocation>#CC_DELTA_EXTRACT_REPOSITORY_LOCATION#</RepositoryLocation>
+<SupportedContexts>source</SupportedContexts>
+<SupportedInputLinks max="0" min="0"/>
+<SupportedOutputLinks max="1" min="1"/>
+<SupportedRejectLinks max="0" min="0"/>
+<StageOLEType>CCustomStage.DeltaExtract</StageOLEType>
+<HelpURL>
+	<Properties>#CC_DELTA_EXTRACT_HELP_URL#</Properties>
+</HelpURL>
+<Properties>
+      <Connection>
+         <Property name="CONNECTIONNAME" label="#CC_DELTA_EXTRACT_SAP_CONN_NAME#" description="#CC_DELTA_EXTRACT_SAP_CONN_NAME#" type="string" required="true" hidden="false" default=""/>
+         <Property type="string" required="false" name="USEDEFAULTSAPLOGON" label="#CC_DELTA_EXTRACT_SAP_USE_CONN_DEFAULTS#" 
+         		   hidden="false" description="#CC_DELTA_EXTRACT_SAP_USE_CONN_DEFAULTS#" default=""/>
+         <Property name="SAPUSERID" label="#CC_DELTA_EXTRACT_SAP_USERNAME#" description="#CC_DELTA_EXTRACT_SAP_USERNAME#" 
+                   type="string" required="false" hidden="false" default=""/>
+         <Property name="SAPPASSWORD" label="#CC_DELTA_EXTRACT_SAP_PASSWORD#" description="#CC_DELTA_EXTRACT_SAP_PASSWORD#"
+                   type="protectedstring" required="false" hidden="false" default=""/>
+		 <Property name="SAPCLIENTNUMBER" label="#CC_DELTA_EXTRACT_SAP_CLIENT#" description="#CC_DELTA_EXTRACT_SAP_CLIENT#" 
+                   type="string" required="false" hidden="false" default=""/>
+		<Property name="SAPLANGUAGE" label="#CC_DELTA_EXTRACT_SAP_LANG#" description="#CC_DELTA_EXTRACT_SAP_LANG#" 
+                   type="string" required="false" hidden="false" default=""/>
+	    <Property name="SAPDATASOURCENAME" label="#CC_DELTA_EXTRACT_DATA_SOURCE_NAME#" description="#CC_DELTA_EXTRACT_DATA_SOURCE_NAME#" type="string" required="true" hidden="false" default=""/>
+	    <Property name="SAPDATASOURCEDESCRIPTION" label="#CC_DELTA_EXTRACT_DATA_SOURCE_DESC#" description="#CC_DELTA_EXTRACT_DATA_SOURCE_DESC#" type="string" required="false" hidden="false" default=""/>
+		<Property name="SAPDATASOURCETYPE" label="#CC_DELTA_EXTRACT_DATA_SOURCE_TYPE#" description="#CC_DELTA_EXTRACT_DATA_SOURCE_TYPE#" type="string" required="true" hidden="false" default=""/>
+		<Property name="SAPDATAFETCHMODE" label="#CC_DELTA_EXTRACT_DATA_FETCH_MODE#" description="#CC_DELTA_EXTRACT_DATA_FETCH_MODE#"
+                   type="string" required="true" hidden="false" default="D"/>
+		<Property name="SAPDATAFILTERLIST" label="#CC_DELTA_EXTRACT_DATA_FILTER#" description="#CC_DELTA_EXTRACT_DATA_FILTER#"
+                   type="string" required="false" hidden="false" default=""/>
+        <Property name="DSSAPCONNECTION" label="#CC_DELTA_EXTRACT_DSSAPCONNECTION#" description="#CC_DELTA_EXTRACT_DSSAPCONNECTION#" required="false" type="string" hidden="true" default=""/>
+        <Property name="SAPHIERARCHYNAME" label="#CC_DELTA_EXTRACT_DATA_HIERARCHY_NAME#" description="#CC_DELTA_EXTRACT_DATA_HIERARCHY_NAME#" type="string" required="false" hidden="false" default=""/>
+        <Property name="SAPHIERARCHYCLASS" label="#CC_DELTA_EXTRACT_DATA_HIERARCHY_CLASS#" description="#CC_DELTA_EXTRACT_DATA_HIERARCHY_CLASS#" type="string" required="false" hidden="false" default=""/>
+        <Property name="SAPHIERARCHYVALIDFROM" label="#CC_DELTA_EXTRACT_DATA_HIERARCHY_VALIDFROM#" description="#CC_DELTA_EXTRACT_DATA_HIERARCHY_VALIDFROM#" type="string" required="false" hidden="false" default=""/>
+        <Property name="SAPHIERARCHYVALIDTO" label="#CC_DELTA_EXTRACT_DATA_HIERARCHY_VALIDTO#" description="#CC_DELTA_EXTRACT_DATA_HIERARCHY_VALIDTO#" type="string" required="false" hidden="false" default=""/>
+        <Property name="SAPHIERARCHYDATASRCNAME" label="#CC_DELTA_EXTRACT_DATA_HIERARCHY_OWNER_DATASRC#" description="#CC_DELTA_EXTRACT_DATA_HIERARCHY_OWNER_DATASRC#" type="string" required="false" hidden="false" default=""/>
+       </Connection>
+      <Usage>
+	  <Property name="UserClassName" default="com.ibm.is.sappack.deltaextractstage.exec.SapExtractorJavaClientStage" hidden="true" required="false"/>
+      <Property name="Java" type="category" required="false" scope="stage" label="Delta Extractor Jar file" description="Delta Extractor Jar file"/>
+      <Property name="ConnectorClasspath" type="string" scope="stage" hidden="true" default="$(DSHOME)/../DSComponents/bin/DeltaExtract.jar;$(DSHOME)/../DSComponents/bin/sapjco3.jar;(DSHOME)/../DSComponents/bin/sapidoc3.jar;$(DSHOME)/../../ASBServer/apps/lib/iis/20thirdparty/commons-io-2.4.jar"/>
+      <Property name="Classpath" type="string" required="false" scope="stage" default="$(DSHOME)/../DSComponents/bin/DeltaExtract.jar;$(DSHOME)/../DSComponents/bin/sapjco3.jar;(DSHOME)/../DSComponents/bin/sapidoc3.jar;$(DSHOME)/../../ASBServer/apps/lib/iis/20thirdparty/commons-io-2.4.jar"/>
+      </Usage>
+   </Properties>
+</Descriptor>
+</asc:Connector>

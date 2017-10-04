@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+ (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+ disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en">
+<head>
+<title>Test cells</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+<script type="text/javascript">
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/claro/claro.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dojo/dojox/grid/resources/claroGrid.css", "idxStyles");
+</script>
+
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneui/oneui.css";
+@import "../../themes/vienna/vienna.css";
+@import "../../themes/vienna/grid/viennaGrid.css";
+@import "../resources/claroCells.css";
+@import "../resources/viennaCells.css";
+@import "../../themes/test.css";
+
+.TextClass {
+	color: red;
+	font-weight: bold;
+	font-style: italic;
+}
+</style>
+<script type="text/javascript">
+	var dojoConfig = currentDojoVersion.dojoConfig;
+</script>
+
+<script type="text/javascript">
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+</script>
+
+<script type="text/javascript" id="postDojo">
+var modules = ["dojox.grid.DataGrid",
+               "idx.data.JsonStore",
+               "idx.grid.cells"];
+
+var store = null;
+var selectStore = null;
+
+function preParse(modules) {
+	var DataGrid  = modules["dojox/grid/DataGrid"];
+	var JsonStore = modules["idx/data/JsonStore"];
+	
+	store = new JsonStore({data: [
+		{checkBox: true, radioButton: true, select: "value1", multiSelect: ["value1","value2"], text: "Text 1", dateTime: 1000000000000}, 	
+		{checkBox: false, radioButton: false, select: "value2", multiSelect: ["value2","value3"], text: "", dateTime: 2000000000000}, 
+		{checkBox: true, radioBotton: false, select: "value3", multiSelect: ["value3","value4"], text: "Text 3", dateTime: 3000000000000},
+		{checkBox: false, radioButton: false, select: "value4", multiSelect: ["value4","value5"], text: "", dateTime: 4000000000000}, 
+		{checkBox: true, radioBotton: false, select: "value5", multiSelect: ["value5","value1"], text: "Text 5", dateTime: 5000000000000}
+	]});
+
+	selectStore = new JsonStore({data: [
+		{name: "Label 1", value: "value1"}, 
+		{name: "Label 2", value: "value2"}, 
+		{name: "Label 3", value: "value3"},
+		{name: "Label 4", value: "value4"},
+		{name: "Label 5", value: "value5"}
+		], identifier: "value", label: "name"});
+}
+
+dojoRequireModules(modules, null, currentDojoVersion.async, preParse);
+</script>
+
+<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 0;">
+<a class="navigationLink" href="#maincontent">Skip to main content</a>
+<script type="text/javascript">applyThemeToBody()</script>
+<a name="maincontent"></a>
+<table dojoType="dojox.grid.DataGrid" store="store" style="margin: 8px;">
+	<thead>
+		<tr>
+			<th cellType="idx.grid.cells.RowSelector" allCheckable="true" width="100px">Row Selector</th>
+			<th field="checkBox" cellType="idx.grid.cells.CheckBox" allCheckable="true" width="100px">Check Box</th>
+			<th field="radioButton" cellType="idx.grid.cells.RadioButton" width="100px">Radio Button</th>
+			<th field="select" cellType="idx.grid.cells.Select" store="selectStore" width="200px">Select</th>
+			<th field="multiSelect" cellType="idx.grid.cells.MultiSelect" store="selectStore" width="200px">Multi Select</th>
+			<th field="text" cellType="idx.grid.cells.Text" placeHolder="(No text)" width="100px">Text Place Holder</th>
+			<th field="dateTime" cellType="idx.grid.cells.DateTime" selector="date" width="100px">Date</th>
+			<th field="dateTime" cellType="idx.grid.cells.DateTime" selector="time" width="100px">Time</th>
+		</tr>
+	</thead>
+</table>
+</body>
+</html>

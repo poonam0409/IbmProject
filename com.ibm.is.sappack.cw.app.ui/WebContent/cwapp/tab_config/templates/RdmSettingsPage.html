@@ -1,0 +1,57 @@
+<div class="fullSizeContainer">
+	<div dojoType="idx.layout.BorderContainer" design="headline" dojoAttachPoint="borderContainer" gutters="false" class="tabContainer">
+		<div dojoType="dijit.layout.ContentPane" region="top" class="paddedContainer">
+			<div dojoType="idx.layout.ButtonBar" region="majorActions">
+				<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="revertButton">${msg.DISCARD_CHANGES}</div>
+				<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="saveButton">${msg.SAVE}</div>
+				<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="testConnectionButton"
+					region="secondary">${msg.RDMSETTINGSPG_11}</div>
+			</div>
+		</div>
+		<div dojoType="dijit.layout.ContentPane" region="center" class="contentPane paddedContainerNoTop dijitBorderContainer-child">
+			<form dojoType="dijit.form.Form" class="bigForm" style="padding-top: 0px;">
+				<span dojoType="dojo.data.ItemFileReadStore" jsId="sapLanguageStore" url="cwapp/data/sap_languages_spras.json"></span>
+
+				<div style="margin: 10px;">
+					<div class="bdrElementHeader">${msg.ConfigSettings_GeneralSettings}</div>
+
+					<div class="formElement">
+						<label for="rdmLanguage" class="formElementLabel_required">${msg.RDMSETTINGSPG_10}</label>
+						<select dojoType="dijit.form.FilteringSelect" tabindex="1" autocomplete="true" hasDownArrow="true"
+						id="rdmLanguage" dojoAttachPoint="rdmLanguageInput" searchAttr="name" store="sapLanguageStore">
+						</select>
+					</div>
+				</div>
+
+				<div style="margin: 10px;">
+					<div class="bdrElementHeader">${msg.ConfigSettings_RdmHubSettings}</div>
+
+					<div class="formElement">
+						<label for="rdmHost" class="formElementLabel_required">${msg.RDMSETTINGSPG_5}</label>
+						<input type="text" id="rdmHost" tabindex="2" dojoType="dijit.form.TextBox"
+							dojoAttachPoint="rdmHostInput" maxLength="63" trim="true" />
+					</div>
+
+					<div class="formElement">
+						<label for="rdmPort" class="formElementLabel_required">${msg.RDMSETTINGSPG_6}</label>
+						<input type="text" id="rdmPort" tabindex="3" dojoType="dijit.form.TextBox"
+							dojoAttachPoint="rdmPortInput" maxLength="5" trim="true" />
+					</div>
+
+					<div class="formElement">
+						<label for="rdmUser" class="formElementLabel_required">${msg.RDMSETTINGSPG_7}</label>
+						<input type="text" id="rdmUser" tabindex="4" dojoType="dijit.form.TextBox"
+						dojoAttachPoint="rdmUserInput" maxLength="63" trim="true" />
+					</div>
+
+					<div class="formElement">
+						<label for="rdmPassword">${msg.RDMSETTINGSPG_8}</label>
+						<input type="password" id="rdmPassword" tabindex="5" dojoType="dijit.form.TextBox"
+						autocomplete="off" dojoAttachPoint="rdmPasswordInput" maxLength="63" trim="true" />
+						<div class="formElementPasswordTip">${msg.PASSWORD_ONLY_SAVED_FOR_SESSION}</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

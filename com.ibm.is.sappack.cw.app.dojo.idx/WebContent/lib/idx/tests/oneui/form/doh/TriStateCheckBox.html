@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>idx.oneui.form.TriStateCheckBox DoH</title>
+
+		<script type="text/javascript" src="../../../dojoVersion.js"></script>
+		<script type="text/javascript">
+		dojoCSSImport("../../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		</script>
+		<style id="idxStyles" type="text/css">
+			@import "../../../../themes/oneui/idx/oneui/oneuiMain.css";
+			@import "../../../../themes/oneui/dijit/dijitMain.css";
+			@import "../../../../themes/test.css";
+		</style>
+		<script type="text/javascript" src="../../../commonTest.js"></script>
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+			dojoScriptImport("../../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+
+		<script type="text/javascript">
+			var modules = [
+				"idx.oneui.form.TriStateCheckBox",
+				"doh"]; 
+			var TriStateCheckBox,
+				ItemFileReadStore,
+				doh;
+			
+			function preParse(modules){
+				TriStateCheckBox = modules["idx/oneui/form/TriStateCheckBox"];
+				doh = modules["doh"];
+			}
+
+			function postParse(modules){
+				var testPerformance = /mode=benchmark/i.test(window.location.href);
+				if (!testPerformance) {
+					doh.register("parse", function(){
+						dojo.parser.parse();
+						doh.t(dijit.byId("cb1"));
+					});
+					
+					doh.register("setChecked", function(){
+						var widget = dijit.byId("cb1");
+						widget.set("checked", "mixed");
+						doh.t(widget.get("checked") === "mixed");
+						widget.set("checked", true);
+						doh.t(widget.get("checked") === true);
+					});
+					
+					doh.register("setValue", function(){
+						var widget = dijit.byId("cb1");
+						doh.t(widget.get("value") === "on");
+						widget.set("value", true);
+						doh.t(widget.get("checked") === true && widget.get("value") === "on");
+						widget.set("value", false);
+						doh.t(widget.get("checked") === false && widget.get("value") === false);
+						widget.set("value", "mixed");
+						doh.t(widget.get("checked") === "mixed" && widget.get("value") === "mixed");
+						widget.set("value", "foo");
+						doh.t(widget.get("checked") === true && widget.get("value") === "foo");
+					});
+					
+					doh.register("setStates/click", function(){
+						var widget = dijit.byId("cb1");
+						widget.set("states", ["mixed", true]);
+						doh.t(widget.get("checked") === true);
+						widget.click();
+						doh.t(widget.get("checked") === "mixed");
+						widget.click();
+						doh.t(widget.get("checked") === true);
+					});
+					
+					doh.register("reset", function(){
+						var widget = dijit.byId("cb1");
+						widget.reset();
+						doh.t(widget.get("checked") === false);
+						doh.t(widget.get("value") === false);
+						var states = widget.get("states");
+						var stateValues = widget.get("stateValues");
+						doh.t(states[0] === false && states[1] === "mixed" && states[2] === true);
+						doh.t(stateValues["False"] === false && stateValues["True"] === "on" && stateValues["Mixed"] === "mixed");
+					});
+				}else{
+					// Register performance testcases
+					var createWidget = function(div){
+						return new TriStateCheckBox({
+							label: "test TriStateCheckBox:"
+						}, div);
+					};
+					
+					doh.register("CreateTriStateCheckBox", [{
+						testType: "perf",
+						name: "Create TriStateCheckBox",
+						trialDuration: 100,
+						trialIterations: 30,
+						trialDelay: 100,
+						setUp: function(t){},
+						runTest: function(t){
+							var div = dojo.create("div", {}, dojo.body());
+							var widget = createWidget(div);
+						},
+						tearDown: function(t){
+							dojo.query("[widgetid*=idx_oneui_form_TriStateCheckBox]").forEach(function(domNode){
+								dijit.byNode(domNode).destroy(false);
+							})
+						}
+					}]);
+				}
+				doh.run();
+			}
+			
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+		</script>
+	</head>
+	<body class="oneui">
+		<h1 class="testTitle">idx.oneui.form.TriStateCheckBox DoH Test</h1>
+			<input id="cb1" data-dojo-id="cb1" data-dojo-type="idx.oneui.form.TriStateCheckBox" data-dojo-props='name:"cb1",
+				label:"TriStateCheckbox label", onClick:function(){ console.log("clicked cb1") }'/>
+	</body>
+</html>

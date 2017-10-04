@@ -1,0 +1,59 @@
+<div>
+    <div dojoAttachPoint="inputDialog" dojoType="dijit.Dialog" title="${msg.ExportToCwdb_DialogTitle}">
+        <div class="bdrExportToCwdbDialogContent">
+            <div dojoType="idx.layout.BorderContainer" dojoAttachPoint="borderContainer" class="ProgressDialog_borderContainer">
+                <div dojoType="dijit.layout.ContentPane" dojoAttachPoint="gridTitleContentPane" region="top"
+                    class="ProgressDialog_contentPane" style="vertical-align: middle">
+                    ${msg.WizardParameters_TargetSapSystem}
+                </div>
+                <div dojoType="dijit.layout.ContentPane" region="center" dojoAttachPoint="sapSystemGridParentContentPane">
+                    <table dojoType="dojox.grid.DataGrid" dojoAttachPoint="sapSystemsTable" class="noBorder">
+			            <thead>
+			                <tr>
+			                    <th width="auto"> </th>
+			                </tr>
+			            </thead>
+			        </table>
+                </div>
+                <div dojoType="dijit.layout.ContentPane" region="bottom" class="ProgressDialog_contentPane" dojoAttachPoint="paramsContentPane">
+				    <div class="extraBottomMargin">${msg.ExportToCwdb_ParametersHeader}</div>
+				    <form dojoType="dijit.form.Form" dojoAttachPoint="form">
+				        <div class="formElement">
+				            <label class="formElementLabel_required">${msg.ROLLOUT}${msg.COLON}</label>
+				            <input type="text" dojoType="dijit.form.ComboBox" tabIndex="1" placeHolder="${msg.CHOOSE_OR_TYPE_PLACEHOLDER}" autocomplete="true" hasDownArrow="true"
+                                dojoAttachPoint="rolloutInput" />
+				        </div>
+				        <div class="formElement">
+		                    <input dojoType="dijit.form.CheckBox" tabIndex="2" value="true" id="separateScopesCheckbox" dojoAttachPoint="separateScopesCheckbox"
+		                    	style="float: left; margin-left: 107px; margin-top: 3px;">
+		                    <label style="display: inline-block; width: 400px; text-align: left; padding-left:6px">${msg.ExportToCwdb_SeparateScopes}</label>
+		                </div>
+				    </form>
+                </div>
+            </div>
+        </div>  
+        <div class="dijitDialogPaneActionBar">
+            <div dojoType="dijit.form.Button" type="button" disabled="true" dojoAttachPoint="okButton">${msg.EXPORT}</div>
+            <div dojoType="dijit.form.Button" type="button" dojoAttachPoint="cancelButton">${msg.CANCEL}</div>
+        </div>
+    </div>
+    <div dojoAttachPoint="infoDialog" dojoType="dijit.Dialog" title="${msg.ExportToCwdb_DialogTitle}">
+        <div class="dialogContent">
+            <table cellspacing="10">
+                <tr>
+                    <td>
+                        <div dojoAttachPoint="icon">
+                        </div>
+                    </td>
+                    <td>
+                        <span dojoAttachPoint="message"></span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="dijitDialogPaneActionBar">
+            <div dojoType="dijit.form.Button" type="button" dojoAttachPoint="infoOkButton">${msg.ExportToCwdb_OverwriteButton}</div>
+            <div dojoType="dijit.form.Button" type="button" dojoAttachPoint="infoCancelButton">${msg.CANCEL}</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Relations</h1>
+Specify whether you also want to import primary- foreign key relations
+between tables.
+<h1>Check and text-tables</h1>
+<ul>
+	<li><b>"Import metadata for related check-tables":</b> Select this
+	option if you want the wizard to also import check tables that are
+	related to your business tables. (e.g. if your business table has a
+	field containing a country code, the wizard will also extract metadata
+	of the telated check table that does the mapping between country code
+	and the country's name). Generally a check table contains enumerated
+	values that are referenced to by business tables (like "gender",
+	"courtesy title", etc...), however there are also tables that hold
+	business data and are referenced to as check tables at the same time
+	(e.g. "customers")</li>
+	<li><b>"Import metadata for related text tables":</b> This option
+	is only available if you select the <b>"Import metadata for related
+	check-tables"</b> option. Text tables are tables that contain the
+	denotation of entities stored in a check table in different languages.
+	(e.g. if the check table stores the country code and the name of a
+	country, the related text table will contain the name of the country
+	translated to different languages)</li>
+</ul>
+
+</body>
+</html>

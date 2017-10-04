@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="com.ibm.is.sappack.gen.common.ui.mode" name="RMRGMode" schema="schema/com.ibm.is.sappack.gen.common.ui.mode.exsd"/>
+   <extension point="org.eclipse.ui.startup">
+     <startup class="com.ibm.is.sappack.gen.common.ui.Startup"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="com.ibm.is.sappack.gen.common.ui.preferences.AltJCoConfigPage"
+            id="com.ibm.is.sappack.gen.common.ui.prefpage"
+            name="%preferencePageName">
+      </page>
+      <page
+            category="com.ibm.is.sappack.gen.common.ui.prefpage"
+            class="com.ibm.is.sappack.gen.common.ui.preferences.AdvancedSettingsPreferencePage"
+            id="com.ibm.is.sappack.gen.common.ui.advSettingsPrefPage"
+            name="%advancedSettingsPrefPage">
+      </page>      
+      <page
+            category="com.ibm.is.sappack.gen.common.ui.prefpage"
+            class="com.ibm.is.sappack.gen.common.ui.preferences.TraceSettingsPreferencePage"
+            id="com.ibm.is.sappack.gen.common.ui.tracePrefPage"
+            name="%tracingPreferencePageName">
+      </page>
+      <!--
+      <page
+            category="com.ibm.is.sappack.gen.common.ui.prefpage"
+            class="com.ibm.is.sappack.gen.common.ui.preferences.ExtensionPreferencePage"
+            id="com.ibm.is.sappack.gen.common.ui.extPrefPage"
+            name="%extPrefPage">
+      </page>
+      -->      
+      <page
+            category="com.ibm.is.sappack.gen.common.ui.prefpage"
+            class="com.ibm.is.sappack.gen.common.ui.preferences.ModePreferencePage"
+            id="com.ibm.is.sappack.gen.common.ui.modePrefPage"
+            name="%modePrefPage">
+      </page>      
+      <page
+            category="com.ibm.is.sappack.gen.common.ui.prefpage"
+            class="com.ibm.iis.sappack.gen.common.ui.preferences.IISPreferencePage"
+            id="com.ibm.is.sappack.gen.tools.jobgenerator.prefpage"
+            name="%iisPreferencePageName">
+      </page>
+   </extension>
+   
+   
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.ibm.is.sappack.gen.common.ui.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="com.ibm.iis.sappack.gen.common.ui.newWizardCategory"
+            name="%newWizardCategory">
+      </category>
+   </extension>
+   
+   
+   
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="%topLevelMenu"
+               id="com.ibm.iis.sappack.gen.common.ui.menu">
+         </menu>
+      </menuContribution>
+      
+   </extension>
+
+  <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="java.lang.Object"
+            id="com.ibm.is.sappack.gen.common.ui.sappackpopupmenu">
+			<menu label="%popupMenuLabel"
+	               path="additions"
+	               id="com.ibm.is.sappack.gen.common.ui.popupmenu">
+	            <separator
+	                  name="group">
+	            </separator>
+	         </menu>
+	   </objectContribution>
+  </extension>
+	
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="com.ibm.iis.sappack.gen.common.ui.viewCategory"
+            name="%viewCategory">
+      </category>
+      
+      <view
+            category="com.ibm.iis.sappack.gen.common.ui.viewCategory"
+            class="com.ibm.iis.sappack.gen.common.ui.connections.ConnectionsView"
+            icon="icons/data_connection_SAP_new.png"
+            id="com.ibm.iis.sappack.gen.common.ui.connectionsView"
+            name="%connectionsView"
+            restorable="true">
+      </view>
+   </extension>
+   
+   <!-- SAP Pack Navigator view -->
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="true"
+            category="com.ibm.iis.sappack.gen.common.ui.viewCategory"
+            class="com.ibm.iis.sappack.gen.common.ui.navigator.SAPPackNavigator"
+            icon="icons/SAP_Application_16.png"
+            id="com.ibm.iis.sappack.gen.common.ui.sappacknavigator"
+            name="%sappacknavigator"
+            restorable="true">
+      </view>
+      
+   </extension>   
+   
+   <extension
+         point="org.eclipse.ui.navigator.viewer">
+      <viewer
+            viewerId="com.ibm.iis.sappack.gen.common.ui.sappacknavigator">
+      </viewer>
+      <viewerActionBinding 
+             viewerId="com.ibm.iis.sappack.gen.common.ui.sappacknavigator">
+        <includes>        	       
+          <actionExtension pattern="com.ibm.datatools.project.ui.*" />  
+          <actionExtension pattern="org.eclipse.ui.navigator.resources.*" />
+          <actionExtension pattern="org.eclipse.ui.navigator.*" />
+        </includes>
+      </viewerActionBinding>
+      <dragAssistant
+            class="org.eclipse.ui.navigator.resources.ResourceDragAdapterAssistant"
+            viewerId="com.ibm.iis.sappack.gen.common.ui.sappacknavigator">
+      </dragAssistant>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="com.ibm.datatools.core.internal.ui.perspective">
+         <view
+               id="com.ibm.iis.sappack.gen.common.ui.connectionsView"
+               minimized="false"
+               relationship="stack"
+               relative="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator">
+         </view>
+         <view
+               id="com.ibm.iis.sappack.gen.common.ui.sappacknavigator"
+               minimized="false"
+               relationship="stack"
+               relative="com.ibm.datatools.project.ui.projectExplorer">
+         </view>
+         <view
+               id="com.ibm.is.sappack.gen.tools.sap.dependencyView"
+               minimized="false"
+               relationship="stack"
+               relative="org.eclipse.ui.views.PropertySheet">
+         </view>
+         <view
+               id="org.eclipse.ui.views.ProblemView"
+               minimized="false"
+               relationship="stack"
+               relative="org.eclipse.ui.views.PropertySheet">
+         </view>
+         <view
+               id="org.eclipse.ui.views.ProgressView"
+               minimized="false"
+               relationship="stack"
+               relative="org.eclipse.ui.views.PropertySheet">
+         </view>
+      </perspectiveExtension>
+   </extension>   
+   
+   
+   
+</plugin>

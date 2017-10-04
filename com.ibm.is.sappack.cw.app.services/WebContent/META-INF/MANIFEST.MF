@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Name: com/ibm/is/sappack/cw/app/services
+Specification-Vendor: IBM Corporation
+Implementation-Vendor: IBM Corporation
+Implementation-URL: http://www.ibm.com/
+Built-By: @BUILD.BY@
+Implementation-Version: @PRODUCT.VERSION@
+Built-Date: @BUILD.DATE@
+Implementation-Title: com.ibm.is.sappack.cw.app.services
+Specification-Title: IS CW App Service Layer
+Specification-Version: 1.0

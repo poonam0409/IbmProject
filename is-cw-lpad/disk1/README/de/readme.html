@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en">
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<title>IBM InfoSphere Information Server Rapid Modeler and Rapid Generator for SAP Applications</title>
+</head>
+<body>
+<h2>Installation and Prerequisites</h2>
+The
+<em>IBM InfoSphere Information Server Packs for SAP Applications</em>
+consist of two components (see also <a href="overview.html#componentoverview">here</a>):
+<ol>
+    <li>Client: <br />
+    The client is an extension of the InfoSphere Data Architect and is
+    installed with its own launchpad using IBM Installation Manager.</li>
+    <li>Server:<br />
+    For the Rapid Generator it is required to install a server component
+    that performs the actual job generation. This server component is an
+    enterprise application (provided as an .EAR file) that is installed on
+    the WebSphere Application Server (WAS) of IBM Information Server. The
+    .EAR file can be installed with standard WAS means, e.g., through the
+    administrative console using a web browser.</li>
+</ol>
+
+<h3>Prerequisite products / components</h3>
+
+
+<h4>Client</h4>
+
+The Rapid Modeler / Rapid Generator Client is only supported on Windows
+platforms.
+<br />
+The following table shows all prerequisite products and components that
+have to available on the client machine.
+<table border="1">
+    <tbody>
+        <tr>
+            <td><b>Product</b></td>
+            <td><b>Version</b></td>
+            <td><b>Remarks</b></td>
+        </tr>
+        <tr>
+            <td>IBM InfoSphere Data Architect</td>
+            <td>7.5.2.2</td>
+            <td>Required</td>
+        </tr>
+
+        <tr>
+            <td>IBM Information Server Client</td>
+            <td>8.1.x</td>
+            <td>Not required for Rapid Modeler</td>
+        </tr>
+        <tr>
+            <td>IBM InfoSphere Information Server Packs for SAP R/3 Client</td>
+            <td>6.5.0.1</td>
+            <td>Not required for Rapid Modeler</td>
+        </tr>
+        <tr>
+            <td>Patch JR34708 for the IBM InfoSphere Information Server
+            Packs for SAP R/3 Client</td>
+            <td>6.5.0.1</td>
+            <td>Only required if you want to work with the generated jobs in
+            the DS Designer. Patch Available from IBM support.</td>
+        </tr>
+        <tr>
+            <td>SAP JCo 3 package</td>
+            <td>OLIXTBD</td>
+            <td>Download from SAP. The files sapjco3.jar and sapjco3.dll
+            need to be available in some directory.</td>
+        </tr>
+
+    </tbody>
+</table>
+
+<h4>Server</h4>
+Rapid Modeler does not require an Information Server installation. 
+<br/>
+The
+Rapid Generator is only supported for IBM Information Server on Windows
+and AIX (OLIXTBD).
+<br />
+<table border="1">
+    <tbody>
+        <tr>
+            <td><b>Product</b></td>
+            <td><b>Version</b></td>
+        </tr>
+
+        <tr>
+            <td>IBM Information Server</td>
+            <td>8.1.x</td>
+        </tr>
+        <tr>
+            <td>IBM InfoSphere Information Server Packs for SAP R/3 Server</td>
+            <td>6.5.0.1</td>
+        </tr>
+
+    </tbody>
+</table>
+
+
+<h3>Client install</h3>
+The client install installs the Rapid Modeler as well as the Rapid
+Generator client.
+<ol>
+    <li>Copy the installation package to the machine where IBM
+    InfoSphere Data Architect is installed.</li>
+    <li>Run the command <b>launchpad.exe</b> of the installation package</li>
+    <li>Click through the wizard and make sure that you use the same package group where
+    you installed InfoSphere Data Architect for the installation.</li>
+</ol>
+
+<h3>Server component install</h3>
+The server component install is only required for Rapid Generator.
+<br />There are a couple of ways to install the enterprise applications
+in WebSphere Application Server. One is through the administrative
+console using a web browser:
+<ol>
+    <li>Find out the port of the administrative console. Typically,
+    the following works: Open the Information Server Web Console and take a
+    look at the URL it points to. If this number is 9080 (default port) the
+    administrative console typically runs on port 9060. If it is 9081, the admin
+    console runs on 9061 and so on.</li>
+    <li>Point your web browser to
+    http://&lt;InformationServerDomainHost&gt;:9060/ibm/console.</li>
+    <li>Login using the Application Server administrator credentials.</li>
+    <li>Open the <em>Enterprise Applications</em> menu on the left.</li>
+    <li>Click on <em>Install</em></li>
+    <li>Click on <em>Browse</em> and select the <b>com.ibm.is.sappack.gen.server.ear</b> file of
+    the installation package</li>
+    <li>Walk through the wizard leaving all default settings</li>
+    <li>After the installation is installed save the master
+    configuration.</li>
+    <li>In the <em>Enterprise Applications</em> view browse to the
+    application. It should have a red cross next to it as a sign that the
+    application is not yet started.</li>
+    <li>Check the checkbox next to the application and click on <em>Start</em>.
+    A green arrow should now appear next to the application.</li>
+</ol>
+
+<p/>
+
+</body>
+</html>

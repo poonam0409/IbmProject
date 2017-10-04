@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<?metadata version='0.0.4'?>
+<su id='com.ibm.rational.cdi.uninstaller' version='1.0.4.20081006' iuCount='4'>
+  <selector id='main'/>
+  <iu id='UninstallerWin32IU' version='1.0.3.20080603' adapterId='native'>
+    <selectedByExpression>
+      <and>
+        <selectedBy id='main'/>
+        <selectedBy id='os' value='win32'/>
+      </and>
+    </selectedByExpression>
+    <adapterSpecificData>
+      <createFile file='uninstall/uninstall.xml' resolveString='true'>
+        <line>&lt;agent-input&gt;</line>
+        <line>&lt;uninstall&gt;</line>
+        <line>&lt;offering profile=&quot;${profileId}&quot;/&gt;</line>
+        <line>&lt;/uninstall&gt;</line>
+        <line>&lt;/agent-input&gt;</line>
+      </createFile>
+      <createFile file='uninstall/uninstall.bat' resolveString='true'>
+        <line>&quot;${canonicalLocation:${agent:agent.install.location}/IBMIM.exe}&quot; -input uninstall.xml</line>
+      </createFile>
+    </adapterSpecificData>
+  </iu>
+  <iu id='UninstallerLinuxIU' version='1.0.3.20080603' adapterId='native'>
+    <selectedByExpression>
+      <and>
+        <selectedBy id='main'/>
+        <selectedBy id='os' value='linux'/>
+      </and>
+    </selectedByExpression>
+    <adapterSpecificData>
+      <createFile file='uninstall/uninstall.xml' resolveString='true'>
+        <line>&lt;agent-input&gt;</line>
+        <line>&lt;uninstall&gt;</line>
+        <line>&lt;offering profile=&quot;${profileId}&quot;/&gt;</line>
+        <line>&lt;/uninstall&gt;</line>
+        <line>&lt;/agent-input&gt;</line>
+      </createFile>
+      <createFile file='uninstall/uninstall.sh' resolveString='true'>
+        <line>${canonicalLocation:${agent:agent.install.location}/IBMIM} -input uninstall.xml</line>
+      </createFile>
+      <perform duringPhases='install'>
+        <chmod perm='a+x' recursive='false'>
+          <file>${context:installLocation}/uninstall/uninstall.sh</file>
+        </chmod>
+      </perform>
+    </adapterSpecificData>
+  </iu>
+  <iu id='AddRemoveProgramIU' version='1.0.4.20080905' adapterId='nativeWin32'>
+    <selectedByExpression>
+      <and>
+        <selectedBy id='os' value='win32'/>
+        <selectedBy id='accessRights' value='admin'/>
+        <selectedBy id='main'/>
+      </and>
+    </selectedByExpression>
+    <adapterSpecificData>
+      <registry
+        name='HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\IM-${profileId}${beta}'
+        replace='true'>
+        <value
+          name='UninstallString'
+          value='&quot;${profile:cic.appDataLocation}\uninstall\uninstall.exe&quot; -input &quot;${canonicalLocation:${context:installLocation}/uninstall/uninstall.xml}&quot;'/>
+        <value
+          name='DisplayName'
+          value='${profileId}'/>
+        <value
+          name='NoModify'
+          value='1'
+          type='reg_dword'/>
+      </registry>
+    </adapterSpecificData>
+  </iu>
+  <iu id='AddRemoveProgramIU_opt' version='1.0.2.20081006' adapterId='nativeWin32'>
+    <selectedByExpression>
+      <and>
+        <selectedBy id='os' value='win32'/>
+        <selectedBy id='accessRights' value='nonAdmin'/>
+        <selectedBy id='main'/>
+      </and>
+    </selectedByExpression>
+    <adapterSpecificData>
+      <registry
+        name='HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\IM-${profileId}${beta}'
+        replace='true'>
+        <value
+          name='UninstallString'
+          value='&quot;${profile:cic.appDataLocation}\uninstall\userinst.exe&quot; -input &quot;${canonicalLocation:${context:installLocation}/uninstall/uninstall.xml}&quot;'/>
+        <value
+          name='DisplayName'
+          value='${profileId}'/>
+        <value
+          name='NoModify'
+          value='1'
+          type='reg_dword'/>
+      </registry>
+    </adapterSpecificData>
+  </iu>
+</su>

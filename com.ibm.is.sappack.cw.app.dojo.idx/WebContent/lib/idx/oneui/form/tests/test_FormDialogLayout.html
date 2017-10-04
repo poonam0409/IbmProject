@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>FormDialog Layout Test</title>
+		<style type="text/css">
+			@import "../../themes/oneui/oneui.css";
+			@import "../../../dijit/tests/css/dijitTests.css";
+			@import "../_pagefooter/_PageFooter.css";
+		</style>
+		<!-- required: dojo.js -->
+		<script type="text/javascript" src="../../../dojo/dojo.js" data-dojo-config="isDebug: true, parseOnLoad: true">
+		</script>
+		<!-- only needed for alternate theme testing: -->
+		<script type="text/javascript" src="../../../dijit/tests/_testCommon.js">
+		</script>
+		<script type="text/javascript">
+			
+			var widgetsOfForm2 = [];
+			
+			require([
+				"dojo/ready",
+				"dijit/_base/manager",
+				"dijit/form/Button",
+				"idx/oneui/form/FormDialog",
+				"idx/oneui/form/TextBox",
+				"idx/oneui/form/DateTextBox",
+				"idx/oneui/form/TimeTextBox",
+				"idx/oneui/form/CurrencyTextBox",
+				"idx/oneui/form/NumberSpinner",
+				"idx/oneui/form/Textarea",
+				"idx/oneui/form/Select",
+				"idx/oneui/tests/_pagefooter/_PageFooter"],
+			function(ready, manager, Button, FormDialog, TextBox, DateTextBox, TimeTextBox, 
+					CurrencyTextBox, NumberSpinner, Textarea, Select, _PageFooter){
+				
+				ready(function(){
+					// Declaration of Form 1 (layout by Columns)
+					var form1 = new FormDialog({
+						id: "form1",
+						heading: "Widgets layout by columns",
+						description: "This form contains composite widgets have been organized",
+						invalidMessage: "Something goes wrong",
+						labelAlignment: "horizontal",
+						
+						columns: [
+							{labelWidth: "100px", fieldWidth: "150px"},
+							{labelWidth: "110px", fieldWidth: "150px"}
+						]
+						
+					});
+						
+					var textbox = new TextBox({
+						label: "TextBox:",
+						hint: "write something here..."
+					});
+					var datetextbox = new DateTextBox({
+						label: "DateTextBox:",
+						hint: "input date here..."
+					});
+					var timetextbox = new TimeTextBox({
+						label: "TimeTextBox:",
+						hint: "input time here..."
+					});
+					var numberspinner = new NumberSpinner({
+						label: "NumberSpinner:",
+						hint: "input number here..."
+					});
+					var textarea = new Textarea({
+						label: "Textarea:",
+						value: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+					});
+					var currencytextbox = new CurrencyTextBox({
+						label: "CurrencyTextBox:",
+						value: "1000",
+						currency: "USD"
+					});
+					form1.addChild(textbox);
+					form1.addChild(datetextbox);
+					form1.addChild(timetextbox);
+					form1.addChild(textarea);
+					form1.addChild(numberspinner);
+					form1.addChild(currencytextbox);
+					form1.startup();
+					
+					
+					// Declaration of Form 2 (layout by Rows)
+					widgetsOfForm2[0] = new TextBox({
+						label: "TextBox:",
+						hint: "write something here..."
+					});
+					widgetsOfForm2[1] = new DateTextBox({
+						id: "dt",
+						label: "DateTextBox:",
+						hint: "input date here..."
+					});
+					widgetsOfForm2[2] = new TimeTextBox({
+						id: "tt",
+						label: "TimeTextBox:",
+						hint: "input time here..."
+					});
+					widgetsOfForm2[3] = new NumberSpinner({
+						label: "NumberSpinner:",
+						hint: "input number here..."
+					});
+					widgetsOfForm2[4] = new Textarea({
+						label: "Textarea:",
+						value: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+					});
+					widgetsOfForm2[5] = new CurrencyTextBox({
+						label: "CurrencyTextBox:",
+						value: "1000",
+						currency: "USD"
+					});
+					
+					var form2 = new FormDialog({
+						id: "form2",
+						heading: "Widgets layout by rows",
+						description: "This form contains composite widgets have been organized",
+						invalidMessage: "Something goes wrong",
+						labelAlignment: "vertical"
+					});
+					
+					form2.addChild(widgetsOfForm2[0], 0);
+					form2.addChild(widgetsOfForm2[1], 0);
+					form2.addChild(widgetsOfForm2[2], 0);
+					form2.addChild(widgetsOfForm2[3], 1);
+					form2.addChild(widgetsOfForm2[4], 2);
+					form2.addChild(widgetsOfForm2[5], 2);
+					form2.startup();
+					
+					
+					// Declaration of Form 3 (customized buttons)
+					var form3 = new FormDialog({
+						id: "form3",
+						heading: "Custom Buttons",
+						description: "This form contains user customized buttons",
+						invalidMessage: "Something goes wrong",
+						labelAlignment: "horizontal",
+						columns: [
+							{labelWidth: "100px", fieldWidth: "150px"},
+							{labelWidth: "110px", fieldWidth: "150px"}
+						]
+					});
+						
+					var textbox3 = new TextBox({
+						label: "TextBox:",
+						hint: "write something here..."
+					});
+					var datetextbox3 = new DateTextBox({
+						label: "DateTextBox:",
+						hint: "input date here..."
+					});
+					var timetextbox3 = new TimeTextBox({
+						label: "TimeTextBox:",
+						hint: "input time here..."
+					});
+					form3.addChild(textbox3);
+					form3.addChild(datetextbox3);
+					form3.addChild(timetextbox3);
+					form3.addActions([
+						{name: "CustomBtn", action: function(){alert("Custom Button Clicked!")}},
+						{name: "Cancel", action: function(){form3.hide();}}
+					]);
+					form3.startup();
+					
+					new _PageFooter();
+				});
+			});
+		</script>
+	</head>
+	<body class="oneui">
+		<h1 class="testTitle">Labels&Fields Alignment Test in FormDialog</h1>
+		<button data-dojo-type="dijit.form.Button" data-dojo-props='
+			label: "show form with widgets layout by columns",
+			onClick: function(){
+				dijit.byId("form1").show();
+			}
+		'></button>
+		<button data-dojo-type="dijit.form.Button" data-dojo-props='
+			label: "show form with widgets layout by rows",
+			onClick: function(){
+				dijit.byId("form2").show();
+			}
+		'></button>
+		<button data-dojo-type="dijit.form.Button" data-dojo-props='
+			label: "show form with customized buttons",
+			onClick: function(){
+				dijit.byId("form3").show();
+			}
+		'></button>
+	</body>
+</html>

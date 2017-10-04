@@ -1,0 +1,16 @@
+﻿PODATKI O LICENCIRANJU
+
+Licence za programe, navedene spodaj, se izdajajo v skladu z naslednjimi določbami in pogoji, in veljajo poleg tistih iz Mednarodna licenčna pogodba za program.
+
+Ime programa: IBM InfoSphere Information Server Pack for SAP Applications V 7.1
+Številka programa: 5724-Q55
+
+Ime programa: IBM InfoSphere Information Server Pack for SAP Applications for Non-Production Environments V 7.1
+Številka programa: 5724-Q55
+
+Namestitev
+
+Namestitev je merska enota, na podlagi katere je lahko licenciran program. Namestitev je nameščena kopija programa na fizični ali navidezni disk, ki je na voljo za izvajanje na računalniku. Imetnik licence mora pridobiti pooblastilo za vsako namestitev programa.
+
+D/N:  L-JCHN-8KES35
+P/N:  L-JCHN-8KES35 

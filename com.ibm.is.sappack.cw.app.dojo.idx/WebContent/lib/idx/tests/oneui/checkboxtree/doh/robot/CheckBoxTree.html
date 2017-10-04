@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>idx.oneui.CheckBoxTree DoH</title>
+
+		<script type="text/javascript" src="../../../../dojoVersion.js"></script>
+		<script type="text/javascript">
+		dojoCSSImport("../../../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		</script>
+		<style id="idxStyles" type="text/css">
+			@import "../../../../../themes/oneui/idx/oneui/oneuiMain.css";
+			@import "../../../../../themes/oneui/dijit/dijitMain.css";
+			@import "../../../../../themes/test.css";
+		</style>
+		<script type="text/javascript" src="../../../../commonTest.js"></script>
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+			dojoScriptImport("../../../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+
+		<script type="text/javascript">
+			var modules = [
+				"idx.oneui.CheckBoxTree",
+				"dojo.data.ItemFileWriteStore",
+				"dijit.tree.ForestStoreModel",
+				"doh",
+				"doh.robot"]; 
+			var CheckBoxTree,
+				ItemFileWriteStore,
+				ForestStoreModel,
+				doh,
+				robot;
+			
+			function preParse(modules){
+				CheckBoxTree = modules["idx/oneui/CheckBoxTree"];
+				ItemFileWriteStore = modules["dojo/data/ItemFileWriteStore"];
+				ForestStoreModel = modules["dijit/tree/ForestStoreModel"];
+				doh = modules["doh"];
+			}
+
+			function postParse(modules){
+				doh.robot.initRobot('../../../../oneui/tests/test_CheckBoxTree_External_DnD.html');
+				// Wait for data stores to finish loading before starting tests
+				doh.register("Wait for construct the tree", function(){
+					var d = new doh.Deferred();
+					setTimeout(d.getTestCallback(function(){
+						// Give the checkboxtree time to load, and the do checks that it
+						// loaded correctly
+						mytree = dijit.byId("mytree");
+						mytree2 = dijit.byId("mytree2");
+						doh.t(mytree);
+						doh.t(mytree2);
+						doh.t(mytree.rootNode, "root node exists");
+						doh.t(mytree2.rootNode, "root node exists");
+						doh.t(mytree.rootNode.isExpanded, "root node is expanded");
+						doh.t(mytree2.rootNode.isExpanded, "root node is expanded");
+
+						var children1 = mytree.rootNode.getChildren();
+						var children2 = mytree2.rootNode.getChildren();
+						doh.is(4, children1.length, "four children");
+						doh.is(2, children2.length, "two children");
+					}), 750);
+					return d;
+				});
+				
+				doh.register("Collapse node", {
+					name: "Collapse node",
+					timeout: 10000,
+					runTest: function(){
+						var d = new doh.Deferred();
+						var mytree = dijit.byId("mytree");
+						var node1 = mytree.getNodesByItem("OC")[0];
+						var node2 = mytree.getNodesByItem("EU")[0];
+						
+						doh.robot.mouseMoveAt(node1.expandoNode, 1000, 1);
+						doh.robot.mouseClick({left:true}, 500);
+
+						doh.robot.mouseMoveAt(node2.expandoNode, 1000, 1);
+						doh.robot.mouseClick({left:true}, 500);
+
+						doh.robot.sequence(d.getTestCallback(function(){
+							doh.t(!node1.isExpanded);
+							doh.t(!node2.isExpanded);
+						}), 1000);
+						return d;
+					}
+				});
+
+				doh.register("Expand node", {
+					name: "Expand node",
+					timeout: 10000,
+					runTest: function(){
+						var d = new doh.Deferred();
+						var mytree = dijit.byId("mytree");
+						var node1 = mytree.getNodesByItem("OC")[0];
+						var node2 = mytree.getNodesByItem("EU")[0];
+						
+						doh.robot.mouseMoveAt(node1.expandoNode, 1000, 1);
+						doh.robot.mouseClick({left:true}, 500);
+						
+						doh.robot.mouseMoveAt(node2.expandoNode, 1000, 1);
+						doh.robot.mouseClick({left:true}, 500);
+						
+						doh.robot.sequence(d.getTestCallback(function(){
+							doh.t(node1.isExpanded);
+							doh.t(node2.isExpanded);
+						}), 1000);
+						return d;
+					}
+				});
+				
+				doh.register("Toggle node", {
+					name: "Toggle node",
+					timeout: 10000,
+					runTest: function(){
+						var d = new doh.Deferred();
+						var mytree = dijit.byId("mytree");
+						var node1 = mytree.getNodesByItem("OC")[0];
+						var node2 = mytree.getNodesByItem("EU")[0];
+						var childrenNodes1 = node1.getChildren();
+						var childrenNodes2 = node2.getChildren();
+						
+						doh.robot.mouseMoveAt(node1.checkboxNode.domNode, 1000, 1);
+						doh.robot.mouseClick({left:true}, 500);
+						
+						doh.robot.mouseMoveAt(node2.checkboxNode.domNode, 1000, 1);
+						doh.robot.mouseClick({left:true}, 500);
+						
+						doh.robot.mouseMoveAt(childrenNodes1[0].checkboxNode.domNode, 1000, 1);
+						doh.robot.mouseClick({left:true}, 500);
+						
+						doh.robot.mouseMoveAt(childrenNodes2[0].checkboxNode.domNode, 1000, 1);
+						doh.robot.mouseClick({left:true}, 500);
+						
+						doh.robot.sequence(d.getTestCallback(function(){
+							doh.t(node1.checkboxNode.checked === false);
+							doh.t(node2.checkboxNode.checked === "mixed");
+							doh.t(childrenNodes1[0].checkboxNode.checked === false);
+							doh.t(childrenNodes2[0].checkboxNode.checked === false);
+						}), 1000);
+						return d;
+					}
+				});
+				doh.run();
+			}
+			
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+		</script>
+	</head>
+	<body class="oneui">
+		<div data-dojo-id="continentStore" data-dojo-type="dojo.data.ItemFileWriteStore" data-dojo-props='url:"../../../../../oneui/tests/_data/countries.json"'></div>
+		<div data-dojo-id="continentModel" data-dojo-type="dijit.tree.TreeStoreModel" data-dojo-props='store:continentStore, query:{id:"ROOT"},
+				rootId:"continentRoot", rootLabel:"Continents", childrenAttrs:["children"]'></div>
+	
+		<div data-dojo-id="continentStore2" data-dojo-type="dojo.data.ItemFileWriteStore" data-dojo-props='url:"../../../../../oneui/tests/_data/countries2.json"'></div>
+		<div data-dojo-id="continentModel2" data-dojo-type="dijit.tree.ForestStoreModel" data-dojo-props='store:continentStore2, query:{type:"continent"},
+				childrenAttrs:["children"]'></div>
+	
+	
+		<table style="margin:5px solid gray;width:100%;" >
+		<tr style="vertical-align: top;">
+			<td style="width: 50%;">
+				<h2>CheckBoxTree with dijit.tree.TreeStoreModel</h2>
+				<div id="mytree1" data-dojo-type="idx.oneui.CheckBoxTree" data-dojo-props='model:continentModel, autoExpand:true, openOnClick:true, onLoad:function(){ console.log("loaded mytree (first tree)"); }'>
+				</div>
+			</td>
+			<td style="width: 50%;">
+				<h2>CheckBoxTree with dijit.tree.ForestStoreModel</h2>
+				<div id="mytree2" data-dojo-type="idx.oneui.CheckBoxTree" data-dojo-props='model:continentModel2, autoExpand:true, showRoot:false, openOnClick:true, onLoad:function(){ console.log("loaded mytree (second tree)"); }'>
+				</div>
+			</td>
+		</tr>
+		</table>
+	</body>
+</html>

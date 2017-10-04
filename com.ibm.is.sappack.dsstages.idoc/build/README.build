@@ -1,0 +1,28 @@
+#
+# Licensed Material - Property of IBM
+#
+# 5724-Q55
+#
+# (c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+# 
+# US Government Users Restricted Rights - Use, duplication or disclosure
+# restricted by GSA ADP Schedule Contract with IBM Corp.
+#
+To build the CCF IDoc connector packages, simply run the build.xml file in here 
+from within Eclipse:
+Right click on build.xml -> Run As -> Ant Build
+
+This will create two jar files 
+CC_IDocload and CC_IDocextract with the stage IDs SAPIDocLoadConnector and SAPIDocExtractConnector, respectively,
+in the dist directory which can be deployed on IIS as follows:
+
+<IISServer>/DSComponents/bin/dscompinst -username <user> -password <password> -install -force CC_IDocload.jar
+
+
+
+Undeployment is done via the command 
+DO NOT USE THIS COMMAND!!! (-remove does not work properly and can mess up your system)
+<IISServer>/DSComponents/bin/dscompinst -username <user> -password <password> -remove SAPIDocLoadConnector
+
+Use the following command instead (this overwrites also the descriptor): 
+<IISServer>/DSComponents/bin/dscompinst -username <user> -password <password> -skipstagecheck -install -force CC_IDocload.jar

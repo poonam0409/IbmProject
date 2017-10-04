@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<?metadata version='0.0.4'?>
+<su id='com.ibm.is.sappack.conversion.workbench.config' version='1.1.0.qualifier'>
+  <information name='Conversion Workbench Configuration'/>
+  <selector id='main'/>
+  <iu id='com.ibm.is.sappack.configuration' version='999.999.999.410242592' adapterId='eclipse'>
+    <selectedBy id='main'/>
+    <adapterSpecificData>
+      <property
+        key='osgi.splashPath'
+        value='${fileUrl:${profile:cacheLocation}/plugins/com.ibm.rational.rsa.product}'/>
+      <property
+        key='osgi.splashPath'
+        value='${fileUrl:${profile:cacheLocation}/plugins/com.ibm.is.sappack.cw.branding},${fileUrl:${profile:cacheLocation}/plugins/com.ibm.is.sappack.cw.branding.nl1},${fileUrl:${profile:cacheLocation}/plugins/com.ibm.is.sappack.cw.branding.nl2a}'/>
+      <property key='osgi.bundles.defaultStartLevel' value='4'/>
+      <property
+        key='eclipse.product'
+        value='com.ibm.is.sappack.cw.branding.product'/>
+	  <property key='eof' value='eof'/>
+      <property key='osgi.launcherIni' value='conversion-workbench'/>
+    </adapterSpecificData>
+  </iu>
+</su>

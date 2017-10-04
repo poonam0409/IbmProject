@@ -1,0 +1,2 @@
+# trace setting
+com.ibm.is.sappack.cw.tools.sap/debug=true

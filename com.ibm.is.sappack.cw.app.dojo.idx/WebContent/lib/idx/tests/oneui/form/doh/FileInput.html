@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>oneui.form.FileInput DoH</title>
+		<style type="text/css">
+			@import "../../../themes/oneui/document.css";
+			@import "../../../../oneui/themes/oneui/oneui.css";
+			@import "../../../../dijit/tests/css/dijitTests.css";
+			
+		</style>
+		<!-- required: dojo.js -->
+		<script type="text/javascript" src="../../../../dojo/dojo.js" data-dojo-config="isDebug: true, parseOnLoad: false">
+		</script>
+		<script type="text/javascript" src="../../../../dijit/tests/_testCommon.js"></script>
+		<script type="text/javascript">
+			dojo.require("dijit.dijit"); // optimize: load dijit layer
+			dojo.require("dijit.form.Form");
+			dojo.require("oneui.form.FileInput");
+			dojo.require("doh.runner");
+			
+			dojo.ready(function(){
+
+				doh.register("parse", function(){
+					dojo.parser.parse();
+					doh.t(dijit.byId("fileinput"));
+				});
+	
+				doh.register("getValue & setValue",
+					function(){
+						var widget = dijit.byId("fileinput");
+						doh.f(widget.get("value"));
+						widget.set("value", "file1.txt");
+						doh.t(widget.get("value") == "file1.txt");
+					}
+				);
+				
+				doh.run();
+			});
+		</script>
+	</head>
+	<body class="oneui">
+		<h1 class="testTitle">DoH Test of oneui.form.FileInput</h1>
+		<input id="fileinput" data-dojo-type="oneui.form.FileInput" data-dojo-props='
+			hint: "Choose a file",
+			hintPosition: "inside",
+			label: "Choose a File:",
+			labelAlignment: "horizontal",
+			url: "../../dojox/form/resources/RecieveFile.php",
+			labelWidth: 100
+		'/>
+		
+	</body>
+</html>

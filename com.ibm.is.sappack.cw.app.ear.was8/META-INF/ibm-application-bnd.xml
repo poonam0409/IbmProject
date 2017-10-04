@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<application-bnd xmlns="http://websphere.ibm.com/xml/ns/javaee"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://websphere.ibm.com/xml/ns/javaee http://websphere.ibm.com/xml/ns/javaee/ibm-application-bnd_1_0.xsd"
+		version="1.0">
+		<security-role name="FunctionalDataAnalyst">
+			<group name="CW_FunctionalDataAnalyst" />
+		</security-role>
+		<security-role name="Administrator">
+			<group name="CW_Administrator" />
+		</security-role>
+		<security-role name="ReadOnly">
+			<group name="CW_ReadOnly" />
+		</security-role>
+		<security-role name="Everyone">
+			<special-subject type="EVERYONE" />
+		</security-role>
+<!-- 		
+		<security-role name="Configurator">
+			<group name="CW_Administrator" />
+		</security-role>
+ -->		
+</application-bnd>

@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<html>
+<!-- ***************************************************** {COPYRIGHT-TOP} ***
+* IBM Confidential
+*
+* Licensed Internal Code - Property of IBM
+*
+* Copyrights On Demand (COD)
+*
+* (C) Copyright IBM Corp. 2004, 2011  All Rights Reserved.
+********************************************************** {COPYRIGHT-END} -->
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<title>Copyrights On Demand &quot;Read Me&quot;</title>
+<link href="cod.css" rel="stylesheet" type="text/css">
+</head>
+
+<body lang=EN-US>
+   
+<table border="0" cellpadding="4" cellspacing="4" width="100%" > <tr> <td class="Box" colspan="1" valign="top"> <font size="+3">Read<br>Me</font> <td class="Box" colspan="4" align="center"> <a href="http://w3.ibm.com/connections/communities/service/html/communityview?communityUuid=ff89b7ae-dda7-462a-82c1-be74cb87b274"><img src="cod-logo.jpg" border="0"></a></td> <td class="Box" colspan="1" valign="top" ><p align="right"><b><small><u>Version</u></small></b><br>4.0.0b <p align="right"><b><u><small>Last Updated</small></u><br></b>06/24/2011 </td> </tr> </table>
+  
+  <table border="0" width="100%" cellspacing="6">
+    
+    <tr>
+      <td width="29%"></td>
+      <td width="1%"></td>
+      <td width="39%"></td>
+      <td width="1%"></td>
+      <td width="30%"></td>
+    </tr>
+    
+    <tr>
+      <td colspan="5">&nbsp;</td>
+    </tr>
+    
+    <tr>
+      <td height="34" class="Desc"><strong>Information in this document</strong></td>
+      <td>&nbsp;</td>
+      <td class="Desc"><strong>Related IBM Information</strong></td>
+      <td>&nbsp;</td>
+      <td class="Desc"><strong>COD Information</strong></td>
+    </tr>
+    
+    <tr>
+      <td valign="top" class="Cell"><a href="#intro">Introduction</a></td>
+      <td>&nbsp;</td>
+      <td class="Cell"><p>IBM Corporate Standard <a href="http://w3-06.ibm.com/jp/domino60/mkt/cmi4web8.nsf/f38024cf92ab644849256b7d00003858/80b440b64c60ebec492573be0030e1f3/$FILE/C-S%200-6045-002.pdf">C-S 0-6045-002</a></p>
+        <p><font size="-1">&quot;Proprietary Protection for IBM Materials (Including 
+          Copyright)&quot;</font></p></td>
+      <td>&nbsp;</td>
+      <td class="Cell">COD <a href="cod-ug.html">User's Guide</a></td>
+    </tr>
+    
+    <tr>
+      <td class="Cell"><a href="#v4.0.0">What's New in v4.0.0b?</a></td>
+      <td>&nbsp;</td>
+      <td class="Cell">Legal <a href="http://w3.ibm.com/articles/legal/copyright_main.html">information and guidance</a></td>
+      <td>&nbsp;</td>
+      <td class="Cell">Visit the <b>new</b> COD <a href="http://w3.ibm.com/connections/communities/service/html/communityview?communityUuid=ff89b7ae-dda7-462a-82c1-be74cb87b274">community</a>
+    </tr>
+    
+    <tr>
+      <td class="Cell">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td class="Cell">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td class="Cell">Visit the <i>legacy</i> COD <a href="http://w3.opensource.ibm.com/projects/cod">project</a>
+     </tr>
+ 
+  </table>
+  
+  <hr  class="Sep">
+  
+  <h1>Introduction<a name="intro"></a></h1>
+  
+  <p>The COD tool assists product teams in complying with the requirements
+  of IBM Corporate Standard C-S 0-6045-002. </p>
+  <p>It automatically updates a product's source parts with 
+    the appropriate copyright banners. Traditionally, this was put off until the 
+    end of the product development cycle and was then accomplished through a &quot;blitz&quot; 
+    of all parts. Perhaps home grown scripts were used to guess the location of 
+    banners based on text searches. More often than not, the approach was time 
+    consuming and/or error prone.</p>
+  <p>By using the Copyrights On Demand tool and making minor 
+    changes to business practice, a development team can effectively update banners
+    on server al hundreds of files in seconds rather than days.</p>
+  <p>COD is written in Java, so it can used on most development platforms. Over its lifetime, it 
+    has been developed and tested on various Windows and Linux platforms.</p>
+  
+  <h2>History</h2>
+  <ul>
+    <li>COD was originally developed by Joseph Firebaugh and Steve Diering to automatically 
+    process the thousands of source parts that make up the Tivoli Business System 
+    Manager (TBSM) product. 
+    <li>The <i>legacy</i> COD versions (v1.0 to v3.0) were driven by the desires 
+    of IBM and Tivoli product development teams who embraced COD as part
+    of their development process.
+    These versions were housed in the 
+    <a href="http://w3.opensource.ibm.com/projects/cod">IIOSB</a> Community Source repository.
+    <li>Starting with v4.0, COD has been hosted housed in the 
+      <a href="http://w3.ibm.com/connections/communities/service/html/communityview?communityUuid=ff89b7ae-dda7-462a-82c1-be74cb87b274">CSNext</a> Community Source repository.
+  </ul>
+  
+  <p><a href="#top">Top</a></p>
+  <div align="left">
+  <p></p>
+    
+<hr  class="Sep">
+<h1>What's New in v4.0.0b?</a> [06/24/2011]<a name="v4.0.0"></a></h1>
+   
+   <h3>Migration from IIOSB to CSNext</h3>
+    <ul compact>     
+      <li>The COD project was re-created in the CSNext infrastructure</li>
+      <li>All new development/enhancements will be performed from this location</li>
+    </ul>
+    
+   <h3>Shift to an Ant-centric Implementation</h3>
+    <ul compact>     
+      <li>These previously available functions have been removed:
+        <ol compact>   
+         <li>CLI interface</li>
+         <li>Swing UI interface</li>
+         <li>Maven support [since based on CLI support]</li>
+         <li>Eclipse plug-in</li>
+        </ol>
+      </li>
+      <li>All of these remain available from the <i>legacy</i> <a href="http://w3.opensource.ibm.com/projects/cod">project</a></li>
+    </ul>
+       
+   <h3><a href="cod-task.html">COD</a> Ant Task</h3>
+     <h4>New</h4>
+      <ul compact>     
+        <li>Added <b>cod.format</b> attribute to <b>product.properties</b> that 
+            allows the format of the updated copyright years to be controlled
+        </li>
+      </ul>
+      
+    <h4>Changes</h4>
+      <ul compact>     
+        <li>The summary statistics now accurately reflect the number of files
+            that would be updated when the <b>check</b> attribute is used</li>
+      </ul>    
+       
+   <h3><a href="rtc-changes-task.html">rtc-changes</a> Ant Task</h3>
+    <h4>New</h4>
+      <ul compact>     
+        <li>This task provides support for RTC based source repositories</li>
+        <li>The <b>COD</b> task can then use the <b>rtc-changes</b> task 
+            output file to define the files to be processed</li>
+	   </ul>
+
+<p><a href="#top">Top</a></p>
+
+<hr class="Sep"> <table width="100%" border="0" cellspacing="4" cellpadding="4"> <tr> <td valign="top"><img src="cod-small.png"></td> <td valign="top"> <div align="center"> <strong>COD: <a href="http://w3.ibm.com/connections/communities/service/html/communityview?communityUuid=ff89b7ae-dda7-462a-82c1-be74cb87b274">Copyrights On Demand</a></strong> <br> <font size="-1">Copyright &copy; 2004, 2011 IBM Corporation - All rights Reserved.</font> </div> </td> <td valign="top"><div align="right">v4.0.0b - 06/24/2011</div></td> </tr> </table>
+
+</body>
+</html>

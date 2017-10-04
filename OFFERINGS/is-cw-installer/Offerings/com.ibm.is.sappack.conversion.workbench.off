@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadata version='0.0.4'?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<offering assemblyId='com.ibm.is.sappack.conversion.workbench.main' assemblyVersion='1.1.0.qualifier' id='com.ibm.is.sappack.conversion.workbench' version='1.1.0.qualifier'>
+	<information name='%Offering.name' version='1.1.0'>
+	%Offering.description
+	</information>
+	<property name='offering.efdVersion' value='1.1.0.0'/>
+	<property name='vendor.name' value='IBM'/>
+	<property name='profileShare' value='true, com.ibm.sdp.eclipse.ide, com.ibm.rational.sdp70, com.ibm.rational.sdp75'/>
+	<property name='offering.dependencies.hint' value='%ConversionWorkbench.depenency.hint'/>
+	<property name='offering.service.repositories' value='@OFFERING_SERVICE_REPOSITORY@'/>
+	<!-- For extension offerings we are NOT overwriting default settings -->
+  <!--
+  <property name='default.profile' value='%FeatureGroup.root.name' />
+  <property name='default.commonlocation.linux' value='/opt/IBM/SDP70Shared' />
+  <property name='default.commonlocation.win32.vista' value='${specialFolder:PROGRAM_FILES}\IBM\SDP70Shared' />
+  <property name='default.commonlocation.solaris' value='/opt/IBM/SDP70Shared' />
+  <property name='default.commonlocation.win32' value='${specialFolder:PROGRAM_FILES}\IBM\SDP70Shared' />
+  <property name='default.user.commonlocation.win32' value='${defaultInstallRootLocation}\IBM\IBMIMShared'/>
+  <property name='default.user.commonlocation.win32.vista' value='${defaultInstallRootLocation}\IBM\IBMIMShared'/>
+  <property name='default.user.commonlocation.linux' value='${defaultInstallRootLocation}/IBM/IBMIMShared'/>
+  <property name='default.location.solaris' value='/opt/IBM/IS Conversion Workbench' />
+  <property name='default.location.win32' value='${specialFolder:PROGRAM_FILES}\IBM\IS Conversion Workbench' />
+  <property name='default.location.linux' value='/opt/IBM/IS Conversion Workbench' />
+  <property name='default.user.location.win32' value='${defaultInstallRootLocation}\IBM\IS Conversion Workbench'/>
+  <property name='default.user.location.win32.vista' value='${defaultInstallRootLocation}\IBM\IS Conversion Workbench'/>
+  <property name='default.user.location.linux' value='${defaultInstallRootLocation}/IBM/IS Conversion Workbench'/>
+  -->
+	<property name='localeLanguages' value='en, de, es, fr, it, ja, ko, pt_BR, zh, zh_TW'/>
+	<property name='maxInstallLocationPathLength.win32' value='54'/>
+	<property name='maxCacheLocationPathLength.win32' value='80'/>
+	<property name='maxInstallLocationPathLength.linux' value='1024'/>
+	<property name='maxCacheLocationPathLength.linux' value='1024'/>
+	<property name='packaged.jre.for.eclipse.ide' value='com.ibm.java.jdk'/>
+	<property name='release.date' value='2011-03-12'/>
+	<property name='minimum.eclipse.ide.platform.version' value='3.4.2'/>
+	<property name='supportedPlatforms' value='(|     (&amp; (os=linux) (| (arch=x86) (arch=x86_64)))     (&amp; (os=win32) (| (arch=x86) (arch=x86_64)))   )'/>
+	<property name='offering.RequiresAdmin' value='false'/>
+	<property name='warnVistaVirtualizationDirectories' value='false'/>
+	<property name='prereq.bundles.precheck' value='[1.3.2,1.3.3000):com.ibm.cic.agent.precheck.workitem21876'/>
+	<property name='support.multiple.profile.install' value='true'/>
+	<!-- <property name='offering.supports64bits' value='true'/> -->
+	<property name='agent.tolerance' value='1.3.0'/>
+	<property name='displayable.agent.tolerance' value='1.3.0'/>
+	<property name='im.tolerance' value='1.5.1000'/>
+	<property name='displayable.im.tolerance' value='1.5.1'/>
+	<property name='eclipseCompatibility' value='classic'/>
+	<!-- Beta only properties -->
+  <!-- 
+  <property name='beta.compatible' value='true' />
+  <property name='beta.installation.only' value='true' />
+  -->
+	<featureGroup kind='RequiredAndVisible'>
+		<information name='%FeatureGroup.root.name'>
+		%FeatureGroup.root.description
+		</information>
+		<selectedByBundle id='com.ibm.cic.check.agent13.update'/>
+		<feature id='conversion.workbench.core' kind='RequiredAndNotVisible' selectionId='main'>
+			<information name='%Feature.client.core.name'/>
+		</feature>
+		<!--
+    <feature id='jdk' selectionId='jdk' kind='RequiredAndNotVisible'>
+      <information name='%Feature.jdk.name'/>
+    </feature>
+    -->
+	</featureGroup>
+	<iu adapterId='eclipse' id='com.ibm.check.ibm.jre.20061024' version='999.999.999.-1151321693'>
+		<selectedBy id='InstallHandler'/>
+		<adapterSpecificData>
+			<artifact id='com.ibm.check.ibm.jre.20061024' type='plugin'/>
+			<agentBundle id='com.ibm.check.ibm.jre.20061024' version='1.0.1.20080131'/>
+		</adapterSpecificData>
+	</iu>
+	<iu adapterId='eclipse' id='com.ibm.cic.check.agent13.update' version='999.999.999.-1399730796'>
+		<selectedBy id='InstallHandler'/>
+		<adapterSpecificData>
+			<artifact id='com.ibm.cic.check.agent13.update' type='plugin'/>
+			<agentBundle id='com.ibm.cic.check.agent13.update' version='1.0.2'/>
+		</adapterSpecificData>
+	</iu>
+	<iu adapterId='eclipse' id='com.ibm.cic.agent.precheck.workitem21876' version='999.999.999.475405546'>
+		<selectedBy id='InstallHandler'/>
+		<adapterSpecificData>
+			<artifact downloadSize='3067' exploded='false' id='com.ibm.cic.agent.precheck.workitem21876' installSize='3067' type='plugin'/>
+			<agentBundle id='com.ibm.cic.agent.precheck.workitem21876' version='1.0.0'/>
+		</adapterSpecificData>
+	</iu>
+	<iu adapterId='eclipse' id='com.ibm.is.sappack.cw.launcher' version='999.999.999.-119020395'>
+		<selectedBy id='OfferingBranding'/>
+		<adapterSpecificData>
+			<artifact downloadSize='4786' exploded='false' installSize='4786' key='artifact:/plugin/com.ibm.is.sappack.cw.launcher/1.0.0.201202151341' type='plugin'/>
+			<agentBundle id='com.ibm.is.sappack.cw.launcher' version='1.0.0.201202151341'/>
+		</adapterSpecificData>
+	</iu>
+	<!--
+	<iu adapterId='eclipse' id='com.ibm.is.sappack.gen.jco.panel' version='999.999.999.-119020395'>
+		<selectedBy id='InstallWizardPages'/>
+		<adapterSpecificData>
+			<artifact downloadSize='70759' exploded='false' id='com.ibm.is.sappack.gen.jco.panel' type='plugin'/>
+			<agentBundle id='com.ibm.is.sappack.gen.jco.panel' version='1.0.0.201110112025'/>
+		</adapterSpecificData>
+	</iu>
+	<iu adapterId='eclipse' id='com.ibm.is.sappack.gen.jco.panel.win32' version='999.999.999.-119020395'>
+		<selectedBy id='InstallWizardPages'/>
+		<adapterSpecificData>
+			<artifact downloadSize='70759' exploded='true' id='com.ibm.is.sappack.gen.jco.panel.win32' type='plugin'/>
+			<agentBundle id='com.ibm.is.sappack.gen.jco.panel.win32' version='1.0.0.201110111854'/>
+		</adapterSpecificData>
+	</iu>
+	-->
+	<iu adapterId='eclipse' id='com.ibm.is.sappack.cw.lic' version='1.0.0.qualifier'>
+		<selectedByExpression>
+			<or>
+				<selectedBy id='OfferingLicense'/>
+				<selectedBy id='OfferingBranding'/>
+			</or>
+		</selectedByExpression>
+		<adapterSpecificData>
+			<artifact downloadSize='70759' exploded='false' id='com.ibm.is.sappack.cw.lic' type='plugin'/>
+			<agentBundle id='com.ibm.is.sappack.cw.lic' version='1.0.0.201202151548'/>
+		</adapterSpecificData>
+	</iu>
+	<!-- right now we do not use NL fragments for the license plug-in -->
+  <!--
+  <iu id='com.ibm.is.sappack.gen.lic.nl1' version='1.0.0.qualifier' adapterId='eclipse'>
+    <selectedByExpression>
+      <or>
+        <selectedBy id='OfferingLicense'/>
+        <selectedBy id='OfferingBranding'/>
+      </or>
+    </selectedByExpression>
+    <adapterSpecificData>
+      <artifact key='artifact:/plugin/com.ibm.is.sappack.gen.lic.nl1/1.0.0.201109141342' type='plugin' exploded='false' downloadSize='70759'/>
+      <agentBundle id='com.ibm.is.sappack.gen.lic.nl1' version='1.0.0.201109141342'/>
+    </adapterSpecificData>
+  </iu>
+  <iu id='com.ibm.is.sappack.gen.lic.nl2a' version='1.0.0.qualifier' adapterId='eclipse'>
+    <selectedByExpression>
+      <or>
+        <selectedBy id='OfferingLicense'/>
+        <selectedBy id='OfferingBranding'/>
+      </or>
+    </selectedByExpression>
+    <adapterSpecificData>
+      <artifact key='artifact:/plugin/com.ibm.is.sappack.gen.lic.nl2a/1.0.0.201109141342' type='plugin' exploded='false' downloadSize='70759'/>
+      <agentBundle id='com.ibm.is.sappack.gen.lic.nl2a' version='1.0.0.201109141342'/>
+    </adapterSpecificData>
+  </iu>
+  -->
+</offering>

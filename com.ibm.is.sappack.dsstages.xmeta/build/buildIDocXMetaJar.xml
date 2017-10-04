@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2013  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<!--
+ Description:
+
+ Ant build file for the IDoc XMeta jar file.
+ 
+ It's may be used for personal builds only. DO NOT COPY the resulted jar file 
+ on production systems.
+   
+ The file resides in the following location: <IISServer>/ASBNode/lib/java
+-->
+
+<project name="IDocXMetaLib" basedir="." default="all">
+
+    <property name="debug" value="on"/>
+	<property name="src" value="../src"/>
+	<property name="commonsrc" value="../../com.ibm.is.sappack.dsstages.common/src"/>
+	<property name="xmetacommonsrc" value="../../com.ibm.is.sappack.dsstages.xmeta.common/src"/>
+	<property name="xmetaV8src" value="../../com.ibm.is.sappack.dsstages.xmeta_v8/src"/>
+	<property name="xmetaV10src" value="../../com.ibm.is.sappack.dsstages.xmeta_v10/src"/>
+	<property name="build" value="./bin"/>
+	<property name="dist" value="./dist"/>
+	<property name="targetJAR" value="${dist}/dsr3idocmeta.jar"/>
+	<property name="extLibsJCO.dir" value="../../extLibsJCO"/>
+	<property name="extLibsIISClient.dir" value="../../extLibsIISClient85/ASBNode/client"/>
+    <property name="extLibsIISClient100.dir" value="../../extLibsIISClient100"/>
+	
+	<!-- *************** -->	
+	<!--   class paths   -->	
+	<!-- *************** -->	
+	<path id="classpathISClientV8">
+		<pathelement path="${build}" />
+		<fileset dir="${extLibsIISClient.dir}" >
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+	<path id="classpathISClientV10">
+		<pathelement path="${build}" />
+		<fileset dir="${extLibsIISClient100.dir}" >
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+	<path id="classpath">
+		<path refid="classpathISClientV8"/>
+		<pathelement path="${build}"/>
+		<pathelement location="${extLibsJCO.dir}/sapjco3.jar"/>
+	</path>
+
+	<!-- *********** -->	
+	<!--   targets   -->	
+	<!-- *********** -->	
+	<target name="all" depends="prepare, buildTarget, cleanup"/>
+	
+	<target name="cleanup">
+		<delete dir="${build}"/>
+		<delete dir="${dist}"/>
+	</target>
+
+	<target name="prepare" depends="cleanup">
+		<mkdir dir="${build}"/>
+		<mkdir dir="${dist}"/>
+	</target>
+	
+	<target name="buildTarget" description="build the target jar lib">
+		<javac sourcepath="" srcdir="${commonsrc}" destdir="${build}" classpathref="classpath" debug="${debug}">
+			<include name="com/ibm/is/sappack/dsstages/**/*.java"/>
+		</javac>
+		<javac sourcepath="" srcdir="${xmetacommonsrc}" destdir="${build}" classpathref="classpathISClientV8" debug="${debug}">
+			<include name="com/ibm/is/sappack/dsstages/**/*.java"/>
+		</javac>
+		<javac sourcepath="" srcdir="${xmetaV8src}" destdir="${build}" classpathref="classpathISClientV8" debug="${debug}">
+			<include name="com/ibm/is/sappack/dsstages/**/*.java"/>
+		</javac>
+		<javac sourcepath="" srcdir="${xmetaV10src}" destdir="${build}" classpathref="classpathISClientV10" debug="${debug}">
+			<include name="com/ibm/is/sappack/dsstages/**/*.java"/>
+		</javac>
+		<javac sourcepath="" srcdir="${src}" destdir="${build}" classpathref="classpath" debug="${debug}">
+			<include name="com/ibm/is/sappack/dsstages/**/*.java"/>
+		</javac>
+		<!-- copy META-INF file(s) -->
+		<copy todir="${build}/META-INF">
+			<fileset dir="${src}/META-INF" includes="**/*"/>
+		</copy>
+		<jar jarfile="${targetJAR}" basedir="${build}" manifest="${build}/META-INF/MANIFEST.MF">
+		</jar>
+	</target>
+</project>

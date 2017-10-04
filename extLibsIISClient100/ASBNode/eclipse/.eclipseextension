@@ -1,0 +1,4 @@
+name=IIS Client
+    id=com.ibm.iis.client
+    version=11.3.0.M18g
+    

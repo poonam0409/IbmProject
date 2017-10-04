@@ -1,0 +1,18 @@
+################################################################################
+# Copyright definitions for Java Properties (PROPERTIES) files
+#
+# Reference:  http://w3.hursley.ibm.com/java/docs/java6/api/java/util/Properties.html#load%28java.io.Reader%29
+################################################################################
+
+top-line=######################################################### {tag.top} ###
+text.1  =# {category.licensed}
+text.2  =# {licensed.rm}
+text.3  =# {product}
+text.4  =# 
+text.5  =# {copyright}  {all.rights}
+text.6  =# 
+text.7  =# {us.gov.1}
+text.8  =# {us.gov.2}
+end-line=######################################################### {tag.end} ###
+
+use-for =iss

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DeploymentDescriptor xmlns="http://www.ibm.com">
+  <DataStageSection xmlns="">
+    <ServerSection>
+      <DSServerComponent Name="%STAGETYPE-ID%" species="connector" StageDescStem="StageDsc">
+        <BOM>
+          <FileDesc FileType="dll" Platform="multi" installToDir="%INSTALLEDDIRECTORY%">Server/Shared/%JARFILE%</FileDesc>
+        </BOM>
+      </DSServerComponent>
+    </ServerSection>
+    <ClientSection/>
+  </DataStageSection>
+</DeploymentDescriptor>

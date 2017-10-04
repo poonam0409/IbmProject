@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2011" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2011" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Importing SAP metadata by using Rapid Modeler" />
+<meta name="abstract" content="You can use the InfoSphere Rapid Modeler for SAP wizard to import either the metadata from logical tables or IDoc types from SAP into a logical data model." />
+<meta name="description" content="You can use the InfoSphere Rapid Modeler for SAP wizard to import either the metadata from logical tables or IDoc types from SAP into a logical data model." />
+<meta name="DC.subject" content="SAP metadata, importing, Rapid Modeler, importing SAP metadata" />
+<meta name="keywords" content="SAP metadata, importing, Rapid Modeler, importing SAP metadata" />
+<meta name="DC.Relation" scheme="URI" content="../topics/c_gen_pack_sap_container.html" />
+<meta name="DC.Relation" scheme="URI" content="../topics/t_import_logical_tables_sap.html" />
+<meta name="DC.Relation" scheme="URI" content="../topics/t_import_idoc_types_sap.html" />
+<meta name="DC.Relation" scheme="URI" content="../topics/t_generate_ds_jobs_rapid_generator.html" />
+<meta name="DC.Relation" scheme="URI" content="../topics/c_prepare_ida_workspace.html" />
+<meta name="DC.Relation" scheme="URI" content="../topics/c_is_pack_sap_applications.html" />
+<meta name="DC.Relation" scheme="URI" content="http://publib.boulder.ibm.com/infocenter/idm/v2r2/index.jsp?topic=/com.ibm.datatools.logical.ui.doc/topics/tlogmodcr_wiz.html" />
+<meta name="DC.Relation" scheme="URI" content="http://publib.boulder.ibm.com/infocenter/idm/v2r2/index.jsp?topic=/com.ibm.datatools.logical.ui.doc/topics/tcrsubmodel.html" />
+<meta name="DC.Relation" scheme="URI" content="http://publib.boulder.ibm.com/infocenter/idm/v2r2/index.jsp?topic=/com.ibm.datatools.logical.ui.doc/topics/clogmod.html" />
+<meta name="DC.Relation" scheme="URI" content="http://publib.boulder.ibm.com/infocenter/idm/v2r2/index.jsp?topic=/com.ibm.datatools.logical.ui.doc/topics/cdommod.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="importingsapmetadatabyusingrapidmodeler" />
+<meta name="DC.Language" content="en-us" />
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+<link rel="Start" href="../topics/c_gen_pack_sap_container.html" />
+<title>Importing SAP metadata by using Rapid Modeler</title>
+<script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+<script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+<script type="text/javascript">
+var mDivision = "IM/IS";
+var mProductName = "IBM InfoSphere Information Server";
+var mProductVersion = "8.7.0";
+var mToList = "comments@us.ibm.com,cgauthie@us.ibm.com,burkharj@us.ibm.com,eldredge@us.ibm.com";
+var mNewWindow = false;
+var plugin_form = "com.ibm.srcf.doc";
+</script>
+
+</head>
+<body id="importingsapmetadatabyusingrapidmodeler"><a name="importingsapmetadatabyusingrapidmodeler"><!-- --></a>
+<div role="banner" id="runningheader" class="runningheader">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/IBM_IC_cue.gif" />
+<span class="hf-bold">IBM InfoSphere Information Server Pack for SAP Applications, Version 7.0</span><div id="runningheader-feedback" class="runningheader-feedback">
+<a href="javascript:ibm_id_form()"><span class="hf-bold">Feedback</span></a></div>
+<hr class="hf-hr" />
+</div>
+<!-- This headerarea file can be used for any topic placed in only one subdirectory,
+     not in the root directory of the plug-in. 
+     Template; ICCC Version 3.1, CBU Version 4.2, May 2011.
+--><!-- BEGIN NON-TRANSLATE SECTION --><div>
+   <!-- Additional meta information. -->
+   <meta name="dc.identifier" content="headerfile" />
+   <meta name="dc.rights" content="© Copyright IBM Corporation 2004, 2011" />
+   <!-- meta name="DC.Rights.Owner" content="For support, contact sharpt@us.ibm.com" -->
+   <meta name="feedback" content="" />
+   <meta name="ibm.country" content="US" />
+   <meta name="ibm.effective" scheme="W3CDTF" content="2011-04-27" />
+   <meta name="ibm.expires" scheme="W3CDTF" content="2012-04-27" />
+   <meta name="source" content="CBU map.infocenter transform from DITA" />
+   <!-- Common CSS -->
+   <link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+   <!-- topic_url.js for writing the topic URL in the footer. -->
+   <script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+   <!-- srcfv3.js and variable setup for the Feedback link. -->
+   <script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+   <script type="text/javascript">
+      var mDivision = "IM";
+      var mProductName = "IBM CBU Sample";
+      var mProductVersion = "4.2.0";
+      var mToList = "Notesgroupname";
+      var plugin_form = "com.ibm.srcf.doc"; 
+</script>
+   <noscript>
+      <style type="text/css"><!--.collapsecontent{display:block;}// -->
+      </style>
+   </noscript>
+</div><!-- END NON-TRANSLATE SECTION -->
+<h1 class="title topictitle1">Importing SAP metadata by using Rapid Modeler</h1>
+<div class="body taskbody"><p class="shortdesc">You can use the <span class="ph">InfoSphere™</span> Rapid
+Modeler for SAP wizard to import either the metadata from logical
+tables or IDoc types from SAP into a logical data model.</p>
+<div class="section prereq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Before you begin</h2></div><ul class="ul"><li class="li">A logical data model must exist in a data design project.</li>
+<li class="li">The workspace must be configured for use with <span class="ph">InfoSphere</span> Rapid
+Modeler. </li>
+</ul>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Right-click an existing <span class="ph uicontrol">Logical data model</span> 
+(LDM file), and select <span class="ph menucascade"><span class="ph uicontrol">Rapid Modeler for SAP</span> &gt; <span class="ph uicontrol">Import metadata from SAP.</span></span></span></li>
+<li class="li step stepexpand"><span class="ph cmd">Select an SAP system from <span class="ph uicontrol">Select SAP system </span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Choose the metadata to import.</span><ul class="ul choices"><li class="li choice">To import logical table metadata, complete the task, <a class="xref" href="t_import_logical_tables_sap.html#importinglogicaltablesfromsap" title="You can import metadata for SAP logical tables by using the Rapid Modeler for SAP metadata import wizard.">Importing logical tables from SAP</a>.</li>
+<li class="li choice">To import IDoc metadata, complete the task, <a class="xref" href="t_import_idoc_types_sap.html#importingidoctypesfromsap" title="You can use the InfoSphere Rapid Modeler for SAP metadata import wizard to import metadata for SAP IDoc types and segments.">Importing IDoc types from SAP</a>.</li>
+</ul>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">On the <span class="ph uicontrol">Review tables to be imported</span> page,
+ensure that only the tables that you want to import are shown, and
+then click <span class="ph uicontrol">Next</span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">On the <span class="ph uicontrol">Technical fields</span> page, define
+a set of attributes that are added to each entity that is created
+in the logical data model. For example, an attribute can be an ID
+of your source system or a number that represents a time stamp when
+the data was imported. </span></li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Next.</span></span></li>
+<li class="li step stepexpand"><span class="ph cmd">To use a package that is not the default for the logical
+data model, select the package of the logical data model you want
+to use.</span><ol type="a" class="ol substeps"><li class="li substep"><span class="ph cmd">Select <span class="ph uicontrol">Use a specific package</span> as
+the import destination option. The table shows all existing packages
+in the logical data model.</span></li>
+<li class="li substep"><span class="ph cmd">Click a package name to select it as the import destination. </span></li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Next</span> to start the import process.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Finish</span> to save the imported
+changes to your logical data model.</span></li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div>New entities are created in the logical data model. Also for
+each data element in SAP, an atomic domain is created with the same
+name.</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../topics/t_import_logical_tables_sap.html">Importing logical tables from SAP</a></strong><br />
+You can import metadata for SAP logical tables by using
+the Rapid Modeler for SAP metadata import wizard. </li>
+<li class="link ulchildlink"><strong><a href="../topics/t_import_idoc_types_sap.html">Importing IDoc types from SAP</a></strong><br />
+You can use the <span class="ph">IBM InfoSphere Data Architect</span> Rapid
+Modeler for SAP metadata import wizard to import metadata for SAP
+IDoc types and segments.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/c_gen_pack_sap_container.html" title="The IBM InfoSphere Information Server Pack for SAP Applications offers InfoSphere Data Architect tools for importing logical data models and generating InfoSphere DataStage jobs that use the imported metadata.">IBM InfoSphere Data Architect components for the Pack for SAP Applications</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>Related concepts</strong><br />
+<div><a class="link" href="../topics/c_prepare_ida_workspace.html" title="Before you use the InfoSphere Rapid Modeler and the InfoSphere Rapid Generator for SAP, you must prepare the InfoSphere Data Architect workspace.">Preparing the InfoSphere Data Architect workspace</a></div>
+<div><a class="link" href="../topics/c_is_pack_sap_applications.html" title="As part of almost any SAP project, you must identify, analyze, and document the data model of SAP. The data models are almost always customized and augmented, and the custom data models differ from the standard models. Importing data from and loading data into an SAP system requires knowledge of the external applications and the SAP interfaces. In enterprises, different teams are responsible for data integration and the SAP system. This division of responsibility leads to improvised integrations, for example, on the exchange of flat files.">Overview</a></div>
+<div><img src="../sout.gif" alt="" /><a class="link" href="http://publib.boulder.ibm.com/infocenter/idm/v2r2/index.jsp?topic=/com.ibm.datatools.logical.ui.doc/topics/clogmod.html" target="_blank">Logical Data Model</a></div>
+<div><img src="../sout.gif" alt="" /><a class="link" href="http://publib.boulder.ibm.com/infocenter/idm/v2r2/index.jsp?topic=/com.ibm.datatools.logical.ui.doc/topics/cdommod.html" target="_blank">Domain models</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong><br />
+<div><a class="link" href="../topics/t_generate_ds_jobs_rapid_generator.html" title="You can use the InfoSphere Rapid Generator for SAP wizard to generate ABAP extract, IDoc extract, and IDoc load jobs that extract or load data from and to an SAP system.">Generating InfoSphere DataStage jobs by using InfoSphere Rapid Generator for SAP</a></div>
+<div><img src="../sout.gif" alt="" /><a class="link" href="http://publib.boulder.ibm.com/infocenter/idm/v2r2/index.jsp?topic=/com.ibm.datatools.logical.ui.doc/topics/tlogmodcr_wiz.html" target="_blank">Creating a logical data model</a></div>
+<div><img src="../sout.gif" alt="" /><a class="link" href="http://publib.boulder.ibm.com/infocenter/idm/v2r2/index.jsp?topic=/com.ibm.datatools.logical.ui.doc/topics/tcrsubmodel.html" target="_blank">Creating a submodel from a package in a logical data model</a></div>
+</div>
+</div>
+<br />
+<div role="contentinfo" id="runningfooter" class="runningfooter">
+<hr class="hf-hr" />
+
+<p class="runningfooter">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/timestamp.gif" />
+Release date: 2011-10-01
+
+<span class="hf-block"><script language="javascript">write_topic_url();</script></span>
+
+<span class="hf-block"><img class="hf-icon" src="../../com.ibm.base.collateral.doc/images/pdf.gif" alt="" />
+PDF version of this information:
+<a href="http://www.ibm.com/support/docview.wss?uid=swg27008803"><span class="hf-bold">IBM InfoSphere Information Server Integration Guide for IBM InfoSphere Information Server Pack for SAP Applications</span></a>
+</span>
+</p>
+</div>
+</body>
+</html>

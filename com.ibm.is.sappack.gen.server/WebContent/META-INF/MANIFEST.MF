@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Class-Path: com.ibm.is.sappack.gen.common.jar com.ibm.is.s
+ appack.gen.server.jobgenerator.jar com.ibm.is.sappack.gen.server.data
+ stage.jar com.ibm.is.sappack.gen.server.common.jar com.ibm.is.sappack
+ .gen.server.datastage_v10.jar com.ibm.is.sappack.gen.server
+ .datastage_v8.jar DS4J.jar
+
+Name: com/ibm/is/sappack/gen/jobgenerator/servlets
+Specification-Vendor: IBM Corporation
+Implementation-Vendor: IBM Corporation
+Implementation-URL: http://www.ibm.com/
+Built-By: @BUILD.BY@
+Implementation-Version: @PRODUCT.VERSION@
+Built-Date: @BUILD.DATE@
+Implementation-Title: com.ibm.is.sappack.gen.jobgenerator.servlets
+Specification-Title: IS Jobgenerator Servlets
+Specification-Version: 1.0
+

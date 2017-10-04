@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>idx.oneui.Gridx.Sort DoH</title>
+
+		<script type="text/javascript" src="../../../dojoVersion.js"></script>
+		<script type="text/javascript">
+		dojoCSSImport("../../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		</script>
+		<style id="idxStyles" type="text/css">
+			@import "../../../../themes/oneui/idx/oneui/gridx/Gridx.css";
+			@import "../../../../themes/oneui/idx/oneui/oneuiMain.css";
+			@import "../../../../themes/oneui/dijit/dijitMain.css";
+			@import "../../../../themes/test.css";
+
+			#grid {
+				width: 800px;
+				height: 500px;
+				margin: 20px;
+			}
+
+		</style>
+		<script type="text/javascript" src="../../../commonTest.js"></script>
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+			dojoScriptImport("../../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+
+		<script type="text/javascript">
+			var modules = [
+				'idx.gridx.Grid',
+				'idx.gridx.core.model.cache.Async',
+				'idx.gridx.tests.support.data.MusicData',
+				'idx.gridx.tests.support.stores.Memory',
+				'idx.oneui.gridx.tests.support.modules',
+				"doh"]; 
+			var Grid,
+				Cache,
+				dataSource,
+				storeFactory,
+				mods,
+				doh;
+			
+			function preParse(modules){
+				Grid = modules['idx/gridx/Grid'];
+				Cache = modules['idx/gridx/core/model/cache/Async'];
+				dataSource = modules['idx/gridx/tests/support/data/MusicData'];
+				storeFactory = modules["idx/gridx/tests/support/stores/Memory"];
+				mods = modules["idx/oneui/gridx/tests/support/modules"];
+				doh = modules["doh"];
+
+				layout = dataSource.layouts[5];
+				store = storeFactory({
+					dataSource: dataSource,
+					size: 100
+				});
+				plugins = [
+					mods.Sort,
+					mods.VirtualVScroller
+				];
+			}
+
+			function postParse(modules){
+				doh.register("parse", function(){
+					dojo.parser.parse();
+					var d = new doh.Deferred();
+					setTimeout(d.getTestCallback(function(){
+						// Give the grid time to load, and the do checks that it
+						// loaded correctly
+						var grid = dijit.byId("grid");
+						doh.t(grid);
+						doh.t(grid.sort);
+						doh.t(grid.sort.sort);
+						doh.t(grid.column(0).sort);
+					}), 750);
+					return d;
+				});
+				
+				doh.register("Public API", [
+					{
+						name: "grid.sort.sort single",
+						runTest: function(){
+							var d = new doh.Deferred();
+							var grid = dijit.byId('grid');
+							grid.sort.sort([{
+								colId: 'id', 
+								descending: true
+							}]).then(function(){
+								try{
+									doh.is(100, grid.row(0).id);
+									doh.is(99, grid.row(1).id);
+									doh.is(98, grid.row(2).id);
+									doh.is(97, grid.row(3).id);
+									d.callback(true);
+								}catch(e){
+									d.errback(e);
+								}
+							}, function(e){
+								d.errback(e);
+							});
+							return d;
+						}
+					},
+					{
+						name: "grid.sort.sort multiple",
+						runTest: function(){
+							var d = new doh.Deferred();
+							var grid = dijit.byId('grid');
+							grid.sort.sort([{
+								colId: 'Genre'
+							}, {
+								colId: 'id',
+								descending: true
+							}]).then(function(){
+								try{
+									doh.is(96, grid.row(0).id);
+									doh.is(83, grid.row(1).id);
+									doh.is(64, grid.row(2).id);
+									doh.is(61, grid.row(3).id);
+									d.callback(true);
+								}catch(e){
+									d.errback(e);
+								}
+							}, function(e){
+								d.errback(e);
+							});
+							return d;
+						}
+					},
+					{
+						name: "grid.sort.isSorted",
+						runTest: function(){
+							var d = new doh.Deferred();
+							var grid = dijit.byId('grid');
+							grid.sort.sort([{
+								colId: 'id', 
+								descending: true
+							}]).then(function(){
+								try{
+									doh.t(grid.sort.isSorted('id'));
+									doh.t(!grid.sort.isSorted('Genre'));
+									doh.t(!grid.sort.isSorted('Artist'));
+									doh.t(!grid.sort.isSorted('Year'));
+									d.callback(true);
+								}catch(e){
+									d.errback(e);
+								}
+							}, function(e){
+								d.errback(e);
+							});
+							return d;
+						}
+					},
+					{
+						name: "grid.sort.clear",
+						runTest: function(){
+							var d = new doh.Deferred();
+							var grid = dijit.byId('grid');
+							grid.sort.sort([{
+								colId: 'id', 
+								descending: true
+							}]).then(function(){
+								try{
+									doh.t(grid.sort.isSorted('id'));
+									grid.sort.clear()
+									doh.t(!grid.sort.isSorted('id'));
+									d.callback(true);
+								}catch(e){
+									d.errback(e);
+								}
+							}, function(e){
+								d.errback(e);
+							});
+							return d;
+						}
+					},
+					{
+						name: "grid.sort.getSortData",
+						runTest: function(){
+							var d = new doh.Deferred();
+							var grid = dijit.byId('grid');
+							grid.sort.sort([{
+								colId: 'Genre'
+							}, {
+								colId: 'id',
+								descending: true
+							}]).then(function(){
+								try{
+									var data = grid.sort.getSortData();
+									doh.is(2, data.length);
+									doh.is('Genre', data[0].colId);
+									doh.is('Genre', data[0].attribute);
+									doh.t(!data[0].descending);
+									doh.is('id', data[1].colId);
+									doh.is('id', data[1].attribute);
+									doh.t(data[1].descending);
+
+									grid.sort.sort().then(function(){
+										try{
+											var data = grid.sort.getSortData();
+											doh.is(0, data.length);
+											d.callback(true);
+										}catch(e){
+											d.errback(e);
+										}
+									});
+								}catch(e){
+									d.errback(e);
+								}
+							}, function(e){
+								d.errback(e);
+							});
+							return d;
+						}
+					}
+				]);
+				doh.run();
+			}
+			
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+		</script>
+	</head>
+	<body class="oneui">
+		<div id='grid' data-dojo-type='idx.gridx.Grid' data-dojo-props='
+			cacheClass: Cache,
+			store: store,
+			structure: layout,
+			modules: plugins
+		'></div>
+	</body>
+</html>

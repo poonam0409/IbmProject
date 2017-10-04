@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="使用 Rapid Modeler for SAP 从 SAP 导入 IDoc 类型">
+   <intro>
+      <description>
+该备忘单向您说明如何创建逻辑数据模型以及如何抽取 SAP IDoc 类型的元数据。
+         <br/>
+         <b>注：确保完全按照指示在以下步骤中输入项目、模型等的名称，否则“单击以执行”按钮可能会不起作用。但是，“在完成时单击”按钮将继续有效。
+         </b>
+      </description>
+   </intro>
+   <item
+         title="打开“数据”透视图">
+      <command
+            required="false"
+            serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=com.ibm.datatools.core.internal.ui.perspective)"/>
+         
+      <description>
+如果尚未处于“数据”透视图中，请在主菜单中选择<b>窗口</b> &gt; <b>打开透视图</b> &gt; <b>数据</b>。
+      </description>
+   </item>
+   <item
+         title="创建数据设计项目">
+      <description>      
+在创建数据模型之前，需要有一个用于放置该数据模型的项目。
+在主工具栏中，单击<b>文件</b> &gt; <b>新建</b> &gt; <b>数据设计项目</b>。
+         <br/>
+在<b>项目名称</b>字段中输入 <b>RMTestProject</b>。
+         <br/>单击<b>完成</b>。
+      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.ui.newWizard(newWizardId=com.ibm.datatools.core.internal.ui.wizard.DatabaseCreationProjectWizard)"/>
+   </item>
+   <item
+         title="创建逻辑数据模型文件">
+      <description>      
+下一步是创建新的逻辑数据模型文件。再次在主工具栏中，单击<b>文件</b> &gt; <b>新建</b>  &gt; <b>逻辑数据模型</b>。
+         <br/>确保将<b>目标文件夹</b>设置为在上一步中创建的项目的名称，例如 <b>RMTestProject</b>
+         <br/>输入 <b>RMIDocModel</b> 作为文件名。
+         <br/>单击<b>完成</b>。
+      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.ui.newWizard(newWizardId=com.ibm.datatools.logical.ui.wizards.NewLogicalModelWizard)"/>
+
+   </item>
+   <item dialog="true" 
+            title="对逻辑模型打开 Rapid Modeler for SAP 向导">
+        <description>
+既然您已创建逻辑模型，即可将 SAP 元数据导入该模型。
+         <br/>
+在<b>数据项目资源管理器</b>视图（通常位于<b>数据</b>透视图的左上方）中，浏览至您在上一步中创建的逻辑数据模型（<b>RMTestProject</b> &gt; <b>数据模型</b> &gt; <b>RMIDocModel.ldm</b>）。
+         <br/>右键单击 <b>RMIDocModel.ldm</b>，然后选择 <b>Rapid Modeler for SAP</b> &gt; <b>抽取 SAP 元数据</b>。
+        </description>
+            <action required="false"
+			pluginId="com.ibm.is.sappack.gen.tools.sap"
+			class="com.ibm.is.sappack.gen.tools.sap.action.MetadataImportCheatSheetAction"
+			param1="RMTestProject" param2="RMIDocModel.ldm"/>            
+      </item>
+
+   <item
+         title="选择 SAP 系统">
+      <description>
+在第一个向导页面上，选择 SAP 系统连接或使用<b>编辑</b>以创建一个 SAP 系统连接。
+选择<b>浏览 SAP 以查找 IDoc</b> 选项。
+         <br/>单击<b>下一步</b>。
+      </description>
+   </item>
+   <item
+         title="搜索 IDoc">
+      <description>
+在<b>浏览 SAP 以查找 IDoc</b> 页面上，输入 IDoc 类型名称的模式，例如 <b>DEBMAS*</b>。
+         <br/>
+选择<b>基本类型</b>选项。
+         <br/>单击<b>搜索</b>。
+      </description>
+   </item>
+   <item
+         title="选择 IDoc 段">
+      <description>
+展开显示的 IDoc 段树中具有最大编号（例如，<b>DEBMAS06</b>）的“IDoc 类型”。
+         <br/>选择树中的一些段，例如，<b>E1KNA1M</b>、<b>E1KNVM</b> 和 <b>E1KNVB</b>。
+         <br/>单击<b>下一步</b>。
+      </description>
+   </item>
+   <item
+         title="配置导入选项">
+      <description>
+在“导入选项”页面上，选择以下选项：<br/>
+选择<b>创建用于 IDoc 抽取的模型</b>，<br/>
+取消选中<b>使所有段可空</b>，<br/>
+选择<b>允许对列使用所有类型</b>，<br/>
+取消选中<b>导入相关校验表的元数据</b>。
+         <br/>         
+单击<b>下一步</b>。
+      </description>
+   </item>
+   <item
+         title="复审表">
+      <description>
+在<b>复审要创建的表</b>页面上，复审要创建的表。
+         <br/>
+单击<b>下一步</b>。
+      </description>
+   </item>
+   <item
+         title="跳过技术字段">
+      <description>
+在<b>技术字段</b>页面上，取消选中<b>配置其他技术字段</b>。
+         <br/>
+单击<b>下一步</b>。
+      </description>
+   </item>
+   <item
+         title="跳过非缺省包">
+      <description>
+在 <b>TBD</b> 页面上，取消选中<b>使用包名称作为导入目标</b>。
+         <br/>
+在完成该页面之后，导入过程将启动。
+         <br/>
+单击<b>下一步</b>。
+      </description>
+   </item>
+   <item
+         title="完成向导">
+      <description>
+在 <b>TBD</b> 页面上，复审导入摘要。
+         <br/>
+单击<b>完成</b>。
+         
+      </description>
+      <onCompletion>恭喜您！您已将 IDoc 类型导入逻辑数据模型。</onCompletion>
+         </item>
+      </cheatsheet>

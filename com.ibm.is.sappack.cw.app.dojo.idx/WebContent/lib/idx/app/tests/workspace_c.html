@@ -1,0 +1,27 @@
+<script type="text/javascript">
+_container_.require("idx.app.TabMenuLauncher");
+_container_.require("idx.app.WorkspaceType");
+</script>
+<div style="padding: 20px;">
+<div style="width: 600px; height: 300px; margin: 0px; padding: 0px];" 
+	 dojoType="idx.app.TabMenuLauncher"
+	 defaultWorkspaceTypeID="WORKSPACE_A">
+
+ <div 	dojoType="idx.app.WorkspaceType" 
+	 	workspaceTypeID="WORKSPACE_A"
+        urlTemplate="./workspace_a.html"
+        workspaceTypeName="Workspace A"
+        workspaceArgs="{preload: false}"
+        ></div>
+        
+ <div 	dojoType="idx.app.WorkspaceType" 
+	 	workspaceTypeID="WORKSPACE_B"
+        urlTemplate="./workspace_b.html"
+        workspaceTypeName="Workspace B"
+        workspaceArgs="{preload: false}"
+        initialOpen="3"
+        maxOpen="0"
+        ></div>
+	
+</div>
+</div>

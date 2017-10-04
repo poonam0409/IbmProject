@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <title>Mega menu tests</title>
+		
+		<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+		<script type="text/javascript">
+			dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+		</script>
+
+        <style id="idxStyles" type="text/css">
+            @import "../../themes/oneui/oneui.css";
+            @import "../../themes/test.css";
+        </style>
+		
+        <style type="text/css">
+            h2 { padding: 40px 0px 0px 0px }
+			
+			.arbitraryMenuDialog {
+				margin: 10px;
+				border: 1px solid black; 
+                padding: 10px;
+                background: AliceBlue;
+            }
+			
+			.nb {
+                padding: 0px 5px;
+                color: darkorange;
+            }
+			
+			.testOptions {
+                border: 1px solid dimgray;
+                padding: 0px 5px 5px 5px;
+                background: gainsboro;
+            }
+			
+			.triggerElement,
+			.triggerButton {
+                padding: 10px;
+                background: peachpuff;
+				text-align: center;
+				font-size: 1.5em;
+				font-weight: 500;
+            }
+			
+			.triggerElement {
+				border: 1px solid black;
+			}
+			
+			.naTriggerElement {
+                padding: 10px;
+                background: papayawhip;
+				text-align: center;
+				border: 1px solid gray;
+				color: gray;
+				font-size: 1.5em;
+				font-weight: 100;
+			}
+			
+			.testDefaultValue {
+                font-weight: 600;
+            }
+			
+			#testpopup_trigger_elem_1_id {
+				display: inline-block;
+				margin: 0px 20px 0px 300px;
+			}
+			
+			.dj_ie7 #testpopup_trigger_elem_1_id {
+				display: inline;
+			}
+        </style>
+
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+			dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+
+		<script type="text/javascript" id="postDojo">
+			var modules = [
+				"idx.oneui.Menu",
+				"idx.oneui.MenuBar",
+				"idx.oneui.MenuDialog",
+				"idx.oneui.MenuHeading",
+				"dijit.MenuBar",
+				"dijit.PopupMenuBarItem",
+				"dijit.PopupMenuItem",
+				"dijit.MenuItem",
+				"dijit.registry",
+				"dijit.Tooltip",
+				"dojo.parser",
+				"dojo.ready"];
+				
+			var OneuiMenu,
+				OneuiMenuBar,
+				OneuiMenuDialog,
+				OneuiMenuHeading,
+				DijitMenubar,
+				DijitPopupMenuBarItem,
+				DijitPopupMenuItem,
+				DijitMenuItem,
+				registry,
+				Tooltip,
+				parser,
+				ready;
+				
+			function preParse(modules){
+				OneuiMenu = modules["idx/oneui/Menu"];
+				OneuiMenuBar = modules["idx/oneui/MenuBar"];
+				OneuiMenuDialog = modules["idx/oneui/MenuDialog"];
+				OneuiMenuHeading = modules["idx/oneui/MenuHeading"];
+				DijitMenubar = modules["dijit/MenuBar"];
+				DijitPopupMenuBarItem = modules["dijit/PopupMenuBarItem"];
+				DijitPopupMenuItem = modules["dijit/PopupMenuItem"];
+				DijitMenuItem = modules["dijit/MenuItem"];
+				registry = modules["dijit/registry"];
+				Tooltip = modules["dijit/Tooltip"];
+				parser = modules["dojo/parser"];
+				ready = modules["dojo/ready"];
+			}
+				
+			function postParse(modules){
+                    var testpopupmd = dijit.byId("testpopup_menudialog_id"),
+						bind = function(id, connector, around, position){
+		                    testpopupmd.bindDomNode(id, {
+		                        leftClickToOpen: around,
+		                        hoverToOpen: true,
+		                        popupPosition: [position],
+		                        useConnector: connector
+		                    });
+						}
+					
+                    bind("testpopup_trigger_elem_4_nnaa_id", false, false, "above-alt");
+                    bind("testpopup_trigger_elem_4_nnac_id", false, false, "above-centered");
+                    bind("testpopup_trigger_elem_4_nnar_id", false, false, "above");
+                    bind("testpopup_trigger_elem_4_nnld_id", false, false, "before");
+                    bind("testpopup_trigger_elem_4_nnrd_id", false, false, "after");
+                    bind("testpopup_trigger_elem_4_nnlc_id", false, false, "before-centered");
+                    bind("testpopup_trigger_elem_4_nnrc_id", false, false, "after-centered");
+                    bind("testpopup_trigger_elem_4_nnba_id", false, false, "below-alt");
+                    bind("testpopup_trigger_elem_4_nnbc_id", false, false, "below-centered");
+                    bind("testpopup_trigger_elem_4_nnbr_id", false, false, "below");
+					
+                    bind("testpopup_trigger_elem_4_ynaa_id", true, false, "above-alt");
+                    bind("testpopup_trigger_elem_4_ynac_id", true, false, "above-centered");
+                    bind("testpopup_trigger_elem_4_ynar_id", true, false, "above");
+                    bind("testpopup_trigger_elem_4_ynld_id", true, false, "before");
+                    bind("testpopup_trigger_elem_4_ynrd_id", true, false, "after");
+                    bind("testpopup_trigger_elem_4_ynlc_id", true, false, "before-centered");
+                    bind("testpopup_trigger_elem_4_ynrc_id", true, false, "after-centered");
+                    bind("testpopup_trigger_elem_4_ynba_id", true, false, "below-alt");
+                    bind("testpopup_trigger_elem_4_ynbc_id", true, false, "below-centered");
+                    bind("testpopup_trigger_elem_4_ynbr_id", true, false, "below");
+					
+                    bind("testpopup_trigger_elem_4_nyaa_id", false, true, "above-alt");
+                    bind("testpopup_trigger_elem_4_nyac_id", false, true, "above-centered");
+                    bind("testpopup_trigger_elem_4_nyar_id", false, true, "above");
+                    bind("testpopup_trigger_elem_4_nyld_id", false, true, "before");
+                    bind("testpopup_trigger_elem_4_nyrd_id", false, true, "after");
+                    bind("testpopup_trigger_elem_4_nylc_id", false, true, "before-centered");
+                    bind("testpopup_trigger_elem_4_nyrc_id", false, true, "after-centered");
+                    bind("testpopup_trigger_elem_4_nyba_id", false, true, "below-alt");
+                    bind("testpopup_trigger_elem_4_nybc_id", false, true, "below-centered");
+                    bind("testpopup_trigger_elem_4_nybr_id", false, true, "below");
+					
+                    bind("testpopup_trigger_elem_4_yyaa_id", true, true, "above-alt");
+                    bind("testpopup_trigger_elem_4_yyac_id", true, true, "above-centered");
+                    bind("testpopup_trigger_elem_4_yyar_id", true, true, "above");
+                    bind("testpopup_trigger_elem_4_yyld_id", true, true, "before");
+                    bind("testpopup_trigger_elem_4_yyrd_id", true, true, "after");
+                    bind("testpopup_trigger_elem_4_yylc_id", true, true, "before-centered");
+                    bind("testpopup_trigger_elem_4_yyrc_id", true, true, "after-centered");
+                    bind("testpopup_trigger_elem_4_yyba_id", true, true, "below-alt");
+                    bind("testpopup_trigger_elem_4_yybc_id", true, true, "below-centered");
+                    bind("testpopup_trigger_elem_4_yybr_id", true, true, "below");
+					
+                    dojo.byId("testpopup_leftClickToOpen_default").innerHTML = "" + testpopupmd.leftClickToOpen;
+                    dojo.byId("testpopup_hoverToOpen_default").innerHTML = "" + testpopupmd.hoverToOpen;
+                    dojo.byId("testpopup_popupPosition_default").innerHTML = "" + testpopupmd.popupPosition;
+                    dojo.byId("testpopup_useConnector_default").innerHTML = "" + testpopupmd.useConnector;
+			}
+			
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+            
+            function setLeftClickToOpen(menuDialog, select){
+                dijit.byId(menuDialog).set('leftClickToOpen', select.options[select.selectedIndex].value);
+            }
+            
+            function setHoverToOpen(menuDialog, select){
+                dijit.byId(menuDialog).set('hoverToOpen', select.options[select.selectedIndex].value);
+            }
+            
+            function setPopupPosition(menuDialog, select){
+                dijit.byId(menuDialog).set('popupPosition', select.options[select.selectedIndex].value.split(','));
+            }
+            
+            function setUseConnector(menuDialog, select){
+                dijit.byId(menuDialog).set('useConnector', select.options[select.selectedIndex].value);
+            }
+            
+            function manualOpen(menuDialog, around, autoclose){
+                var md = dijit.byId(menuDialog);
+                md.open({
+                    around: around
+                });
+                if(autoclose){
+                    setTimeout(function(){
+                        md.close();
+                    }, 5000);
+                }
+            }
+            
+            function resetTextInput(textInput){
+                var textInputDomNode = dojo.byId(textInput);
+                textInputDomNode.value = textInputDomNode.defaultValue;
+            }
+        </script>
+		
+		<script type="text/javascript" src="../../tests/commonTest.js"></script>
+    </head>
+    <body id="body_id"  style="width: 100%; height: 100%; margin: 0; padding: 0px;">
+		<a class="navigationLink" href="#maincontent">Skip to main content</a>
+		<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+	
+		<a name="maincontent"></a>
+		<div class="testMain">
+    	
+	        <h1 class="testTitle">One UI Mega menu tests</h1>
+			
+	        <h2>Test #1: One UI menu bar with various drop-down menus</h2>
+			
+	        <p>
+	            This menu bar tests the addition of menus and mega menus to One UI menu bars.
+	            <ul>
+	                <li>
+	                    Trigger-on-hover behaviour is the default
+	                </li>
+	            </ul>
+	        </p>
+			
+	        <div data-dojo-type="idx.oneui.MenuBar">
+	        	
+	            <div data-dojo-type="dijit.PopupMenuBarItem">
+	                <span>dijit.Menu</span>
+	                <div data-dojo-type="dijit.Menu">
+	                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Cut clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconCut'">Cut</div>
+	                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Copy clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconCopy'">Copy</div>
+	                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Paste clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconPaste'">Paste</div>
+	                </div>
+	            </div>
+	            
+				<div data-dojo-type="dijit.PopupMenuBarItem">
+	                <span>idx.oneui.Menu</span>
+	                <div data-dojo-type="idx.oneui.Menu">
+	                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Cut clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconCut'">Cut</div>
+	                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Copy clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconCopy'">Copy</div>
+	                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Paste clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconPaste'">Paste</div>
+	                </div>
+	            </div>
+	            
+				<div data-dojo-type="dijit.PopupMenuBarItem">
+	                <span>MenuDialog +static</span>
+	                <div data-dojo-type="idx.oneui.MenuDialog">
+	                    <div class="arbitraryMenuDialog">
+	                        <h3>Drop-down idx.oneui.MenuDialog</h3>
+	                        <p>
+	                            ...with static dialog content.
+	                        </p>
+	                    </div>
+	                </div>
+	            </div>
+	            
+				<div data-dojo-type="dijit.PopupMenuBarItem">
+	                <span>+interactive</span>
+	                <div data-dojo-type="idx.oneui.MenuDialog" reset="resetTextInput('testmbar_field1_id'); resetTextInput('testmbar_field2_id')">
+	                    <div class="arbitraryMenuDialog">
+	                        <h3>Drop-down idx.oneui.MenuDialog</h3>
+	                        <p>
+	                            ...with interactive dialog content.
+	                        </p>
+	                        <p>
+	                            Field #1 has hover help.
+	                        </p>
+							<p>
+	                        	Field #1: <input id="testmbar_field1_id" type="text" name="field1" value="Field #1 initial value" tabindex="2"/>(tabindex 2)
+	                        	<br/>
+	                        	Field #2: <input id="testmbar_field2_id" type="text" name="field2" value="Field #2 initial value" tabindex="1"/>(tabindex 1)
+	                        </p>
+	                        <button onclick="dijit.getEnclosingWidget(this).onExecute();" tabindex="3">Call onExecute()</button>
+	                        <button onclick="dijit.getEnclosingWidget(this).onCancel();" tabindex="4">Call onCancel()</button>
+	                        <div data-dojo-type="dijit.Tooltip" data-dojo-props="connectId:'testmbar_field1_id',position:['below']">
+	                            <p>
+	                                Hover help for field #1
+	                            </p>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	            
+				<div data-dojo-type="dijit.PopupMenuBarItem">
+	                <span>+connector</span>
+	                <div data-dojo-type="idx.oneui.MenuDialog" data-dojo-props="useConnector:true">
+	                    <div class="arbitraryMenuDialog">
+	                        <h3>Drop-down idx.oneui.MenuDialog</h3>
+	                        <p>
+	                            ...with static dialog content and a connector.
+	                        </p>
+	                    </div>
+	                </div>
+	            </div>
+	            
+				<div data-dojo-type="dijit.PopupMenuBarItem">
+	                <span>+menus</span>
+	                <div data-dojo-type="idx.oneui.MenuDialog" id="testmbar_cascade_l1mdlg">
+	                    <p style="padding:5px">
+	                        <a href="javascript:alert('Boo!');">Dummy focussable link</a>
+	                    </p>
+	                    <p class="nb">
+	                        The menu below should participate fully as a dropdown from the menu bar.
+	                    </p>
+	                    <div data-dojo-type="idx.oneui.Menu" id="testmbar_cascade_l1fmenu">
+	                        <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                        <div data-dojo-type="dijit.PopupMenuItem">
+	                            <span>idx.oneui.Menu</span>
+	                            <div data-dojo-type="idx.oneui.Menu">
+	                                <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                            </div>
+	                        </div>
+	                        <div data-dojo-type="dijit.PopupMenuItem">
+	                            <span>idx.oneui.MenuDialog +menus</span>
+	                            <div data-dojo-type="idx.oneui.MenuDialog" id="testmbar_cascade_l2mdlg">
+	                                <div data-dojo-type="idx.oneui.Menu" id="testmbar_cascade_l2fmenu">
+	                                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                    <div data-dojo-type="dijit.PopupMenuItem">
+	                                        <span>idx.oneui.Menu</span>
+	                                        <div data-dojo-type="idx.oneui.Menu" id="testmbar_cascade_l3menu">
+	                                            <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                            <div data-dojo-type="dijit.PopupMenuItem">
+	                                                <span>idx.oneui.Menu</span>
+	                                                <div data-dojo-type="idx.oneui.Menu" id="testmbar_cascade_l4menu">
+	                                                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                                    <div data-dojo-type="dijit.PopupMenuItem">
+	                                                        <span>idx.oneui.MenuDialog +menus</span>
+	                                                        <div data-dojo-type="idx.oneui.MenuDialog" id="testmbar_cascade_l5mdlg">
+	                                                            <p class="nb">
+	                                                                This entire chain of cascaded menus should participate fully as a dropdown from the menu bar.
+	                                                            </p>
+	                                                            <div data-dojo-type="idx.oneui.Menu" id="testmbar_cascade_l5fmenu">
+	                                                                <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                                                <div data-dojo-type="dijit.PopupMenuItem">
+	                                                                    <span>idx.oneui.Menu</span>
+	                                                                    <div data-dojo-type="idx.oneui.Menu" id="testmbar_cascade_l6menu">
+	                                                                        <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                                                        <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                                                        <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                                                    </div>
+	                                                                </div>
+	                                                                <div data-dojo-type="dijit.PopupMenuItem">
+	                                                                    <span>idx.oneui.MenuDialog +menu</span>
+	                                                                    <div data-dojo-type="idx.oneui.MenuDialog" id="testmbar_cascade_l6mdlg">
+	                                                                        <div data-dojo-type="idx.oneui.Menu" id="testmbar_cascade_l6fmenu">
+	                                                                            <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                                                            <div data-dojo-type="dijit.PopupMenuItem">
+	                                                                                <span>idx.oneui.Menu</span>
+	                                                                                <div data-dojo-type="idx.oneui.Menu" id="testmbar_cascade_l7menu">
+	                                                                                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                                                                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                                                                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                                                                </div>
+	                                                                            </div>
+	                                                                            <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                                                        </div>
+	                                                                    </div>
+	                                                                </div>
+	                                                                <div data-dojo-type="dijit.MenuItem">Menu item</div>
+	                                                            </div>
+	                                                        </div>
+	                                                    </div>
+	                                                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                                </div>
+	                                            </div>
+	                                            <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                        </div>
+	                                    </div>
+	                                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <div data-dojo-type="dijit.MenuItem">Menu item</div>
+	                    </div>
+	                </div>
+	            </div>
+	
+	        </div>
+			
+	        <p>
+	            This menu bar contains some degenerate and edge cases.
+	            <ul>
+	                <li>
+	                    Trigger-on-hover behaviour is the default
+	                </li>
+	            </ul>
+	        </p>
+			
+	        <div data-dojo-type="idx.oneui.MenuBar">
+	        	
+	            <div data-dojo-type="dijit.PopupMenuBarItem">
+	                <span>empty dijit.Menu</span>
+	                <div data-dojo-type="dijit.Menu">
+	                </div>
+	            </div>
+				
+	            <div data-dojo-type="dijit.PopupMenuBarItem">
+	                <span>empty idx.oneui.Menu</span>
+	                <div data-dojo-type="idx.oneui.Menu">
+	                </div>
+	            </div>
+				
+	            <div data-dojo-type="dijit.PopupMenuBarItem">
+	                <span>empty MenuDialog</span>
+	                <div data-dojo-type="idx.oneui.MenuDialog">
+	                </div>
+	            </div>
+	            
+				<div data-dojo-type="dijit.PopupMenuBarItem">
+	                <span>empty MenuDialog +connector</span>
+	                <div data-dojo-type="idx.oneui.MenuDialog" data-dojo-props="useConnector:true">
+	                </div>
+	            </div>
+	            
+				<div data-dojo-type="dijit.PopupMenuBarItem">
+	                <span>idx.oneui.MenuDialog +dijit.Menu</span>
+	                <div data-dojo-type="idx.oneui.MenuDialog">
+	                    <p style="padding:5px">
+	                        <a href="javascript:alert('Boo!');">Dummy focussable link</a>
+	                    </p>
+	                    <p class="nb">
+	                        The menu below will, by design, not participate as a dropdown from the menu bar.
+	                    </p>
+	                    <div data-dojo-type="dijit.Menu">
+	                        <div data-dojo-type="dijit.MenuItem" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconCut'">Cut</div>
+	                        <div data-dojo-type="dijit.MenuItem" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconCopy'">Copy</div>
+	                        <div data-dojo-type="dijit.MenuItem" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconPaste'">Paste</div>
+	                    </div>
+	                </div>
+	            </div>
+				
+	            <div data-dojo-type="dijit.PopupMenuBarItem">
+	                <span>idx.oneui.MenuDialog +idx.oneui.Menu[menuForDialog:false]</span>
+	                <div data-dojo-type="idx.oneui.MenuDialog">
+	                    <p style="padding:5px">
+	                        <a href="javascript:alert('Boo!');">Dummy focussable link</a>
+	                    </p>
+	                    <p class="nb">
+	                        The menu below will, by design, not participate as a dropdown from the menu bar.
+	                    </p>
+	                    <div data-dojo-type="idx.oneui.Menu" data-dojo-props="menuForDialog:false">
+	                        <div data-dojo-type="dijit.MenuItem">Menu item</div>
+	                        <div data-dojo-type="dijit.MenuItem">Menu item</div>
+	                        <div data-dojo-type="dijit.MenuItem">Menu item</div>
+	                    </div>
+	                </div>
+	            </div>
+	
+	        </div>
+			
+			
+	        <h2>Test #2: Flat One UI menu with various cascade menus</h2>
+			
+	        <p>
+	            Tests the ability to popup mega menus from 'flat' menus (e.g. left nav) or context menus
+	        </p>
+	        <ul>
+	            <li>
+	                Trigger on hover behavior is the default
+	            </li>
+	        </ul>
+			
+	        <div data-dojo-type="idx.oneui.Menu">
+	        	
+	            <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+				
+	            <div data-dojo-type="dijit.PopupMenuItem">
+	                <span>dijit.Menu</span>
+	                <div data-dojo-type="dijit.Menu">
+	                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                </div>
+	            </div>
+				
+	            <div data-dojo-type="dijit.PopupMenuItem">
+	                <span>idx.oneui.MenuDialog</span>
+	                <div data-dojo-type="idx.oneui.MenuDialog">
+	                    <div class="arbitraryMenuDialog">
+	                        <h3>Cascaded idx.oneui.MenuDialog</h3>
+	                        <p>
+	                            ...with arbitrary dialog content.
+	                        </p>
+	                    </div>
+	                </div>
+	            </div>
+				
+	            <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	        </div>
+			
+			
+	        <h2>Test #3: Popup idx.oneui.MenuDialog from arbitrary page elements</h2>
+			
+	        <p>
+	            Tests the ability to popup mega menus from arbitrary page elements.
+	        </p>
+	        <ul>
+	            <li>
+	                idx.oneui.MenuDialog is shared between both initiating elements
+	            </li>
+	            <li>
+	                Initial values for properties come from idx.oneui.MenuDialog
+	            </li>
+	        </ul>
+			
+	        <div id="testpopup_trigger_elem_1_id" class="triggerElement" style="width:280px; vertical-align:middle;">
+	            Initiating element #1 (div)
+	        </div>
+	        <button id="testpopup_trigger_elem_2_id" class="triggerButton" style="width:300px; vertical-align:middle;">
+	            Initiating element #2 (button)
+	        </button>
+	        <br />
+			<!-- IFrame below must have a name attribute set to work properly in all browsers. -->
+	        <iframe id="testpopup_trigger_elem_3_id" name="testpopup_trigger_elem_3_id" frameborder="0" style="width:400px;height:200px;margin: 10px 0px 0px 300px;" src="test_DummyIframeContent.html"></iframe>
+	        <br />
+	        <button onclick="dojo.byId('testpopup_trigger_elem_3_id').src='test_DummyIframeContent.html';">
+	            Reload iframe
+	        </button>
+	        <br />
+	        <button onclick="manualOpen('testpopup_menudialog_id', 'testpopup_trigger_elem_1_id', true);">
+	            Manual open
+	        </button>
+	        This button manually opens the MenuDialog on initiating element #1, and manually closes it after 10 seconds. 
+	        <div id="testpopup_menudialog_id" style="display:none" data-dojo-type="idx.oneui.MenuDialog" data-dojo-props="targetNodeIds:['testpopup_trigger_elem_1_id', 'testpopup_trigger_elem_2_id', 'testpopup_trigger_elem_3_id']">
+	            <div class="arbitraryMenuDialog">
+	                <h3>Popup idx.oneui.MenuDialog</h3>
+	                <p>
+	                    ...for initiating elements #1 and #2 (common)
+	                    <br/>
+	                    and the directional elements.
+	                </p>
+	                <button onclick="dijit.getEnclosingWidget(this).onExecute();" tabindex="3">Call onExecute()</button>
+	                <button onclick="dijit.getEnclosingWidget(this).onCancel();" tabindex="4">Call onCancel()</button>
+	            </div>
+	        </div>
+	        <div class="testOptions">
+	            <p>
+	                MenuDialog properties:
+	            </p>
+	            <label for="testpopup_leftClickToOpen">leftClickToOpen:</label>
+	            <select id="testpopup_leftClickToOpen" onchange="setLeftClickToOpen('testpopup_menudialog_id', this);" selectedIndex="-1">
+	                <option value="true">true</option>
+	                <option value="">false</option>
+	            </select>
+	            (initial value: <span id="testpopup_leftClickToOpen_default" class="testDefaultValue"></span>)
+	            <script type="text/javascript">
+	                dojo.byId("testpopup_leftClickToOpen").selectedIndex = "-1";
+	            </script>
+	            &nbsp;&nbsp;
+				
+	            <label for="testpopup_hoverToOpen">hoverToOpen:</label>
+	            <select id="testpopup_hoverToOpen" onchange="setHoverToOpen('testpopup_menudialog_id', this);">
+	                <option value="true">true</option>
+	                <option value="">false</option>
+	            </select>
+	            (initial value: <span id="testpopup_hoverToOpen_default" class="testDefaultValue"></span>)
+	            <script type="text/javascript">
+	                dojo.byId("testpopup_hoverToOpen").selectedIndex = "-1";
+	            </script>
+	            &nbsp;&nbsp;
+				
+	            <label for="testpopup_popupPosition">popupPosition:</label>
+	            <select id="testpopup_popupPosition" onchange="setPopupPosition('testpopup_menudialog_id', this);">
+	                <option value="before">before</option>
+	                <option value="after">after</option>
+	                <option value="above">above</option>
+	                <option value="above-alt">above-alt</option>
+	                <option value="below">below</option>
+	                <option value="below-alt">below-alt</option>
+	                <option value="after,before">after,before</option>
+	                <option value="below,above">below,above</option>
+	            </select>
+	            (initial value: <span id="testpopup_popupPosition_default" class="testDefaultValue"></span>)
+	            <script type="text/javascript">
+	                dojo.byId("testpopup_popupPosition").selectedIndex = "-1";
+	            </script>
+	            &nbsp;&nbsp;
+				
+	            <label for="testpopup_useConnector">useConnector:</label>
+	            <select id="testpopup_useConnector" onchange="setUseConnector('testpopup_menudialog_id', this);">
+	                <option value="true">true</option>
+	                <option value="">false</option>
+	            </select>
+	            (initial value: <span id="testpopup_useConnector_default" class="testDefaultValue"></span>)
+	            <script type="text/javascript">
+	                dojo.byId("testpopup_useConnector").selectedIndex = "-1";
+	            </script>
+	        </div>
+			
+	        <p>
+	            The following directional elements use the same dialog but fix all the display settings:
+	        </p>
+	        <table style="margin-left: 300px;"><tr><td>
+	            <table>
+	                <tr>
+	                    <td></td>
+	                    <td id="testpopup_trigger_elem_4_nnar_id" class="triggerElement">&#x21b1;</td>
+	                    <td id="testpopup_trigger_elem_4_nnac_id" class="triggerElement">&uarr;</td>
+	                    <td id="testpopup_trigger_elem_4_nnaa_id" class="triggerElement">&#x21b0;</td>
+	                    <td></td>
+	                </tr>
+	                <tr>
+	                    <td id="testpopup_trigger_elem_4_nnld_id" class="triggerElement">&#x2199;</td>
+	                    <td colspan="3" rowspan="3" align="center" valign="middle"><p>Positioned<br />at mouse</p><p>No<br/>connector</td>
+	                    <td id="testpopup_trigger_elem_4_nnrd_id" class="triggerElement">&#x2198;</td>
+	                </tr>
+	                <tr>
+	                    <td id="testpopup_trigger_elem_4_nnlc_id" class="triggerElement">&larr;</td>
+	                    <td id="testpopup_trigger_elem_4_nnrc_id" class="triggerElement">&rarr;</td>
+	                </tr>
+	                <tr>
+	                    <td class="naTriggerElement">&#x2196;</td>
+	                    <td class="naTriggerElement">&#x2197;</td>
+	                </tr>
+	                <tr>
+	                    <td></td>
+	                    <td id="testpopup_trigger_elem_4_nnbr_id" class="triggerElement">&#x21b3;</td>
+	                    <td id="testpopup_trigger_elem_4_nnbc_id" class="triggerElement">&darr;</td>
+	                    <td id="testpopup_trigger_elem_4_nnba_id" class="triggerElement">&#x21b2;</td>
+	                    <td></td>
+	                </tr>
+	            </table>
+	        </td><td width="50px"></td><td>
+	            <table>
+	                <tr>
+	                    <td></td>
+	                    <td id="testpopup_trigger_elem_4_ynar_id" class="triggerElement">&#x25e5;</td>
+	                    <td id="testpopup_trigger_elem_4_ynac_id" class="triggerElement">&#x25b2;</td>
+	                    <td id="testpopup_trigger_elem_4_ynaa_id" class="triggerElement">&#x25e4;</td>
+	                    <td></td>
+	                </tr>
+	                <tr>
+	                    <td id="testpopup_trigger_elem_4_ynld_id" class="triggerElement">&#x25e3;</td>
+	                    <td colspan="3" rowspan="3" align="center" valign="middle"><p>Positioned<br />at mouse</p><p>With a<br/>connector</td>
+	                    <td id="testpopup_trigger_elem_4_ynrd_id" class="triggerElement">&#x25e2;</td>
+	                </tr>
+	                <tr>
+	                    <td id="testpopup_trigger_elem_4_ynlc_id" class="triggerElement">&#x25c0;</td>
+	                    <td id="testpopup_trigger_elem_4_ynrc_id" class="triggerElement">&#x25b6;</td>
+	                </tr>
+	                <tr>
+	                    <td class="naTriggerElement">&#x25e4;</td>
+	                    <td class="naTriggerElement">&#x25e5;</td>
+	                </tr>
+	                <tr>
+	                    <td></td>
+	                    <td id="testpopup_trigger_elem_4_ynbr_id" class="triggerElement">&#x25e2;</td>
+	                    <td id="testpopup_trigger_elem_4_ynbc_id" class="triggerElement">&#x25bc;</td>
+	                    <td id="testpopup_trigger_elem_4_ynba_id" class="triggerElement">&#x25e3;</td>
+	                    <td></td>
+	                </tr>
+	            </table>
+	        </td><td width="50px"></td><td>
+	            <table>
+	                <tr>
+	                    <td></td>
+	                    <td id="testpopup_trigger_elem_4_nyar_id" class="triggerElement">&#x21b1;</td>
+	                    <td id="testpopup_trigger_elem_4_nyac_id" class="triggerElement">&uarr;</td>
+	                    <td id="testpopup_trigger_elem_4_nyaa_id" class="triggerElement">&#x21b0;</td>
+	                    <td></td>
+	                </tr>
+	                <tr>
+	                    <td id="testpopup_trigger_elem_4_nyld_id" class="triggerElement">&#x2199;</td>
+	                    <td colspan="3" rowspan="3" align="center" valign="middle"><p>Positioned<br />around box</p><p>No<br/>connector</td>
+	                    <td id="testpopup_trigger_elem_4_nyrd_id" class="triggerElement">&#x2198;</td>
+	                </tr>
+	                <tr>
+	                    <td id="testpopup_trigger_elem_4_nylc_id" class="triggerElement">&larr;</td>
+	                    <td id="testpopup_trigger_elem_4_nyrc_id" class="triggerElement">&rarr;</td>
+	                </tr>
+	                <tr>
+	                    <td class="naTriggerElement">&#x2196;</td>
+	                    <td class="naTriggerElement">&#x2197;</td>
+	                </tr>
+	                <tr>
+	                    <td></td>
+	                    <td id="testpopup_trigger_elem_4_nybr_id" class="triggerElement">&#x21b3;</td>
+	                    <td id="testpopup_trigger_elem_4_nybc_id" class="triggerElement">&darr;</td>
+	                    <td id="testpopup_trigger_elem_4_nyba_id" class="triggerElement">&#x21b2;</td>
+	                    <td></td>
+	                </tr>
+	            </table>
+	        </td><td width="50px"></td><td>
+	            <table>
+	                <tr>
+	                    <td></td>
+	                    <td id="testpopup_trigger_elem_4_yyar_id" class="triggerElement">&#x25e5;</td>
+	                    <td id="testpopup_trigger_elem_4_yyac_id" class="triggerElement">&#x25b2;</td>
+	                    <td id="testpopup_trigger_elem_4_yyaa_id" class="triggerElement">&#x25e4;</td>
+	                    <td></td>
+	                </tr>
+	                <tr>
+	                    <td id="testpopup_trigger_elem_4_yyld_id" class="triggerElement">&#x25e3;</td>
+	                    <td colspan="3" rowspan="3" align="center" valign="middle"><p>Positioned<br />around box</p><p>With a<br/>connector</td>
+	                    <td id="testpopup_trigger_elem_4_yyrd_id" class="triggerElement">&#x25e2;</td>
+	                </tr>
+	                <tr>
+	                    <td id="testpopup_trigger_elem_4_yylc_id" class="triggerElement">&#x25c0;</td>
+	                    <td id="testpopup_trigger_elem_4_yyrc_id" class="triggerElement">&#x25b6;</td>
+	                </tr>
+	                <tr>
+	                    <td class="naTriggerElement">&#x25e4;</td>
+	                    <td class="naTriggerElement">&#x25e5;</td>
+	                </tr>
+	                <tr>
+	                    <td></td>
+	                    <td id="testpopup_trigger_elem_4_yybr_id" class="triggerElement">&#x25e2;</td>
+	                    <td id="testpopup_trigger_elem_4_yybc_id" class="triggerElement">&#x25bc;</td>
+	                    <td id="testpopup_trigger_elem_4_yyba_id" class="triggerElement">&#x25e3;</td>
+	                    <td></td>
+	                </tr>
+	            </table>
+	        </td></tr></table>
+			
+					
+	        <h2>Test #4: Multi-column menu with headings</h2>
+			
+	        <p>
+	            Tests the operation of multi-column menus.
+	        </p>
+	        <ul>
+	            <li>
+	                Trigger on hover behavior is the default
+	            </li>
+	        </ul>
+			
+	        <div data-dojo-type="idx.oneui.MenuBar">
+	        	
+	            <div data-dojo-type="dijit.PopupMenuBarItem">
+	                <span>dijit.Menu</span>
+	                <div data-dojo-type="dijit.Menu">
+	                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Cut clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconCut'">Cut</div>
+	                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Copy clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconCopy'">Copy</div>
+	                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Paste clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconPaste'">Paste</div>
+	                </div>
+	            </div>
+				
+	            <div data-dojo-type="dijit.PopupMenuBarItem">
+	                <span>idx.oneui.MenuDialog + idx.oneui.Menu + menuForDialog:true</span>
+	                <div data-dojo-type="idx.oneui.MenuDialog">
+	                    <div id="testmenu_menu_id" data-dojo-type="idx.oneui.Menu">
+	                        <div id="testmenu_menu_heading_1" data-dojo-type="idx.oneui.MenuHeading" data-dojo-props="column:'0',label:'Column #0 (empty)'">Error - label property did not work.</div>
+	                        <div id="testmenu_menu_heading_2" data-dojo-type="idx.oneui.MenuHeading" data-dojo-props="column:'1'">Column #1 (cut, copy)</div>
+	                        <div id="testmenu_menu_heading_3" data-dojo-type="idx.oneui.MenuHeading" data-dojo-props="column:'2'">Column #2 (paste)</div>
+	                        <div id="testmenu_menu_item_1" data-dojo-type="dijit.MenuItem" data-dojo-props="column:'1'" onclick="alert('Cut clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconCut'">Cut</div>
+	                        <div id="testmenu_menu_item_2" data-dojo-type="dijit.MenuItem" data-dojo-props="column:'1'" onclick="alert('Copy clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconCopy'">Copy</div>
+	                        <div id="testmenu_menu_item_3" data-dojo-type="dijit.MenuItem" data-dojo-props="column:'2'" onclick="alert('Paste clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconPaste'">Paste</div>
+	                        <div id="testmenu_menu_heading_4" data-dojo-type="idx.oneui.MenuHeading" data-dojo-props="column:'3'">Column #3 (3 items)</div>
+	                        <div id="testmenu_menu_item_4" data-dojo-type="dijit.MenuItem" data-dojo-props="column:'3'" onclick="alert('Menu item clicked');">Menu item</div>
+	                        <div id="testmenu_menu_item_5" data-dojo-type="dijit.MenuItem" data-dojo-props="column:'3'" onclick="alert('Menu item clicked');">Menu item</div>
+	                        <div id="testmenu_menu_item_6" data-dojo-type="dijit.MenuItem" data-dojo-props="column:'3'" onclick="alert('Menu item clicked');">Menu item</div>
+	                    </div>
+	                </div>
+	            </div>
+				
+	            <div data-dojo-type="dijit.PopupMenuBarItem">
+	                <span>dijit.Menu</span>
+	                <div data-dojo-type="dijit.Menu">
+	                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Cut clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconCut'">Cut</div>
+	                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Copy clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconCopy'">Copy</div>
+	                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Paste clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconPaste'">Paste</div>
+	                </div>
+	            </div>
+				
+	        </div>
+			
+	        <br />
+	        <button onclick="dijit.byId('testmenu_menu_item_4').column='0';dijit.byId('testmenu_menu_id').refresh();">
+	            Move menu item
+	        </button>
+	        <br />
+	        <button onclick="dijit.byId('testmenu_menu_id').columnNodes[1].style.background='pink';">
+	            Colour column 2 of the menu
+	        </button>
+			
+			
+	        <h2>Test #5: Dijit menu bar with various drop-down menus</h2>
+			
+	        <p>
+	            This menu bar tests the addition of menus and mega menus to Dijit menu bars.
+	            <ul>
+	                <li>
+	                    Standard dijit.MenuBar
+	                </li>
+	                <li>
+	                    No trigger-on-hover behavior: menu bar needs to be activated by giving it focus
+	                </li>
+	            </ul>
+	        </p>
+			
+	        <div data-dojo-type="dijit.MenuBar">
+	        	
+	            <div data-dojo-type="dijit.PopupMenuBarItem">
+	                <span>dijit.Menu</span>
+	                <div data-dojo-type="dijit.Menu">
+	                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Cut clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconCut'">Cut</div>
+	                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Copy clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconCopy'">Copy</div>
+	                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Paste clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconPaste'">Paste</div>
+	                </div>
+	            </div>
+	            
+				<div data-dojo-type="dijit.PopupMenuBarItem">
+	                <span>idx.oneui.Menu</span>
+	                <div data-dojo-type="idx.oneui.Menu">
+	                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Cut clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconCut'">Cut</div>
+	                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Copy clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconCopy'">Copy</div>
+	                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Paste clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconPaste'">Paste</div>
+	                </div>
+	            </div>
+	            
+				<div data-dojo-type="dijit.PopupMenuBarItem">
+	                <span>MenuDialog +static</span>
+	                <div data-dojo-type="idx.oneui.MenuDialog">
+	                    <div class="arbitraryMenuDialog">
+	                        <h3>Drop-down idx.oneui.MenuDialog</h3>
+	                        <p>
+	                            ...with static dialog content.
+	                        </p>
+	                    </div>
+	                </div>
+	            </div>
+	            
+				<div data-dojo-type="dijit.PopupMenuBarItem">
+	                <span>+interactive</span>
+	                <div data-dojo-type="idx.oneui.MenuDialog" reset="resetTextInput('testdjmbar_field1_id'); resetTextInput('testdjmbar_field2_id')">
+	                    <div class="arbitraryMenuDialog">
+	                        <h3>Drop-down idx.oneui.MenuDialog</h3>
+	                        <p>
+	                            ...with interactive dialog content.
+	                        </p>
+	                        <p>
+	                            Field #1 has hover help.
+	                        </p>
+							<p>
+	                        	Field #1: <input id="testdjmbar_field1_id" type="text" name="field1" value="Field #1 initial value" tabindex="2"/>(tabindex 2)
+	                        	<br/>
+	                        	Field #2: <input id="testdjmbar_field2_id" type="text" name="field2" value="Field #2 initial value" tabindex="1"/>(tabindex 1)
+	                        </p>
+	                        <button onclick="dijit.getEnclosingWidget(this).onExecute();" tabindex="3">Call onExecute()</button>
+	                        <button onclick="dijit.getEnclosingWidget(this).onCancel();" tabindex="4">Call onCancel()</button>
+	                        <div data-dojo-type="dijit.Tooltip" data-dojo-props="connectId:'testdjmbar_field1_id',position:['below']">
+	                            <p>
+	                                Hover help for field #1
+	                            </p>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	            
+				<div data-dojo-type="dijit.PopupMenuBarItem">
+	                <span>+connector</span>
+	                <div data-dojo-type="idx.oneui.MenuDialog" data-dojo-props="useConnector:true">
+	                    <div class="arbitraryMenuDialog">
+	                        <h3>Drop-down idx.oneui.MenuDialog</h3>
+	                        <p>
+	                            ...with static dialog content and a connector.
+	                        </p>
+	                    </div>
+	                </div>
+	            </div>
+	            
+				<div data-dojo-type="dijit.PopupMenuBarItem">
+	                <span>+menus</span>
+	                <div data-dojo-type="idx.oneui.MenuDialog" id="testdjmbar_cascade_l1mdlg">
+	                    <p style="padding:5px">
+	                        <a href="javascript:alert('Boo!');">Dummy focussable link</a>
+	                    </p>
+	                    <p class="nb">
+	                        The menu below should participate fully as a dropdown from the menu bar.
+	                    </p>
+	                    <div data-dojo-type="idx.oneui.Menu" id="testdjmbar_cascade_l1fmenu">
+	                        <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                        <div data-dojo-type="dijit.PopupMenuItem">
+	                            <span>idx.oneui.Menu</span>
+	                            <div data-dojo-type="idx.oneui.Menu">
+	                                <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                            </div>
+	                        </div>
+	                        <div data-dojo-type="dijit.PopupMenuItem">
+	                            <span>idx.oneui.MenuDialog +menus</span>
+	                            <div data-dojo-type="idx.oneui.MenuDialog" id="testdjmbar_cascade_l2mdlg">
+	                                <div data-dojo-type="idx.oneui.Menu" id="testdjmbar_cascade_l2fmenu">
+	                                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                    <div data-dojo-type="dijit.PopupMenuItem">
+	                                        <span>idx.oneui.Menu</span>
+	                                        <div data-dojo-type="idx.oneui.Menu" id="testdjmbar_cascade_l3menu">
+	                                            <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                            <div data-dojo-type="dijit.PopupMenuItem">
+	                                                <span>idx.oneui.Menu</span>
+	                                                <div data-dojo-type="idx.oneui.Menu" id="testdjmbar_cascade_l4menu">
+	                                                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                                    <div data-dojo-type="dijit.PopupMenuItem">
+	                                                        <span>idx.oneui.MenuDialog +menus</span>
+	                                                        <div data-dojo-type="idx.oneui.MenuDialog" id="testdjmbar_cascade_l5mdlg">
+	                                                            <p class="nb">
+	                                                                This entire chain of cascaded menus should participate fully as a dropdown from the menu bar.
+	                                                            </p>
+	                                                            <div data-dojo-type="idx.oneui.Menu" id="testdjmbar_cascade_l5fmenu">
+	                                                                <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                                                <div data-dojo-type="dijit.PopupMenuItem">
+	                                                                    <span>idx.oneui.Menu</span>
+	                                                                    <div data-dojo-type="idx.oneui.Menu" id="testdjmbar_cascade_l6menu">
+	                                                                        <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                                                        <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                                                        <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                                                    </div>
+	                                                                </div>
+	                                                                <div data-dojo-type="dijit.PopupMenuItem">
+	                                                                    <span>idx.oneui.MenuDialog +menu</span>
+	                                                                    <div data-dojo-type="idx.oneui.MenuDialog" id="testdjmbar_cascade_l6mdlg">
+	                                                                        <div data-dojo-type="idx.oneui.Menu" id="testdjmbar_cascade_l6fmenu">
+	                                                                            <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                                                            <div data-dojo-type="dijit.PopupMenuItem">
+	                                                                                <span>idx.oneui.Menu</span>
+	                                                                                <div data-dojo-type="idx.oneui.Menu" id="testdjmbar_cascade_l7menu">
+	                                                                                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                                                                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                                                                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                                                                </div>
+	                                                                            </div>
+	                                                                            <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                                                        </div>
+	                                                                    </div>
+	                                                                </div>
+	                                                                <div data-dojo-type="dijit.MenuItem">Menu item</div>
+	                                                            </div>
+	                                                        </div>
+	                                                    </div>
+	                                                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                                </div>
+	                                            </div>
+	                                            <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                        </div>
+	                                    </div>
+	                                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <div data-dojo-type="dijit.MenuItem">Menu item</div>
+	                    </div>
+	                </div>
+	            </div>
+	
+	        </div>
+	
+	        <p>
+	            This menu bar contains some degenerate and edge cases.
+	            <ul>
+	                <li>
+	                    Standard dijit.MenuBar
+	                </li>
+	                <li>
+	                    No trigger-on-hover behavior: menu bar needs to be activated by giving it focus
+	                </li>
+	            </ul>
+	        </p>
+	
+	        <div data-dojo-type="dijit.MenuBar">
+	
+	            <div data-dojo-type="dijit.PopupMenuBarItem">
+	                <span>empty dijit.Menu</span>
+	                <div data-dojo-type="dijit.Menu">
+	                </div>
+	            </div>
+				
+	            <div data-dojo-type="dijit.PopupMenuBarItem">
+	                <span>empty idx.oneui.Menu</span>
+	                <div data-dojo-type="idx.oneui.Menu">
+	                </div>
+	            </div>
+				
+	            <div data-dojo-type="dijit.PopupMenuBarItem">
+	                <span>empty MenuDialog</span>
+	                <div data-dojo-type="idx.oneui.MenuDialog">
+	                </div>
+	            </div>
+	            
+				<div data-dojo-type="dijit.PopupMenuBarItem">
+	                <span>empty MenuDialog +connector</span>
+	                <div data-dojo-type="idx.oneui.MenuDialog" data-dojo-props="useConnector:true">
+	                </div>
+	            </div>
+	            
+				<div data-dojo-type="dijit.PopupMenuBarItem">
+	                <span>idx.oneui.MenuDialog +dijit.Menu</span>
+	                <div data-dojo-type="idx.oneui.MenuDialog">
+	                    <p style="padding:5px">
+	                        <a href="javascript:alert('Boo!');">Dummy focussable link</a>
+	                    </p>
+	                    <p class="nb">
+	                        The menu below will, by design, not participate as a dropdown from the menu bar.
+	                    </p>
+	                    <div data-dojo-type="dijit.Menu">
+	                        <div data-dojo-type="dijit.MenuItem" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconCut'">Cut</div>
+	                        <div data-dojo-type="dijit.MenuItem" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconCopy'">Copy</div>
+	                        <div data-dojo-type="dijit.MenuItem" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconPaste'">Paste</div>
+	                    </div>
+	                </div>
+	            </div>
+				
+	            <div data-dojo-type="dijit.PopupMenuBarItem">
+	                <span>idx.oneui.MenuDialog +idx.oneui.Menu[menuForDialog:false]</span>
+	                <div data-dojo-type="idx.oneui.MenuDialog">
+	                    <p style="padding:5px">
+	                        <a href="javascript:alert('Boo!');">Dummy focussable link</a>
+	                    </p>
+	                    <p class="nb">
+	                        The menu below will, by design, not participate as a dropdown from the menu bar.
+	                    </p>
+	                    <div data-dojo-type="idx.oneui.Menu" data-dojo-props="menuForDialog:false">
+	                        <div data-dojo-type="dijit.MenuItem">Menu item</div>
+	                        <div data-dojo-type="dijit.MenuItem">Menu item</div>
+	                        <div data-dojo-type="dijit.MenuItem">Menu item</div>
+	                    </div>
+	                </div>
+	            </div>
+	
+	        </div>
+	
+	
+	        <h2>Test #6: Flat dijit menu with various cascade menus</h2>
+	
+	        <p>
+	            Tests the ability to cascade mega menus from 'flat' menus (e.g. left nav) or context menus
+	        </p>
+	        <ul>
+	            <li>
+	                Vanilla dijit.Menu
+	            </li>
+	            <li>
+	                No trigger on hover behavior - menu needs to be activated by giving it focus
+	            </li>
+	        </ul>
+			
+	        <div data-dojo-type="dijit.Menu">
+	        	
+	            <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+				
+	            <div data-dojo-type="dijit.PopupMenuItem">
+	                <span>dijit.Menu</span>
+	                <div data-dojo-type="dijit.Menu">
+	                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                    <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+	                </div>
+	            </div>
+				
+	            <div data-dojo-type="dijit.PopupMenuItem">
+	                <span>idx.oneui.MenuDialog</span>
+	                <div data-dojo-type="idx.oneui.MenuDialog">
+	                    <div class="arbitraryMenuDialog">
+	                        <h3>Cascaded idx.oneui.MenuDialog</h3>
+	                        <p>
+	                            ...with arbitrary dialog content.
+	                        </p>
+	                    </div>
+	                </div>
+	            </div>
+				
+	            <div data-dojo-type="dijit.MenuItem" onclick="alert('Menu item clicked');">Menu item</div>
+				
+	        </div>
+		</div>
+    </body>
+</html>

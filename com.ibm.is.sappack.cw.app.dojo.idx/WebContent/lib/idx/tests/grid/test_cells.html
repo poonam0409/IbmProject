@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Test cells</title>
+	<script type="text/javascript" src="../dojoVersion.js"></script>
+
+	<script type="text/javascript">
+		dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+	</script>
+	
+    <style id="idxStyles" type="text/css">
+   	    @import "../../themes/oneui/oneui.css";
+   	    @import "../../themes/vienna/vienna.css";
+   	    @import "../../themes/claro/claro.css";
+   	    @import "../../resources/claro_idx.css";
+   	    @import "../../resources/vienna_idx.css";
+   	    @import "../../themes/test.css";
+    </style>
+		
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+		dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+
+	<script type="text/javascript" id="postDojo">
+		var modules=["doh",
+					 "doh.runner",
+					 "dijit.dijit", // optimize: load dijit layer
+					 "dijit/registry",
+					 "dojo/dom-construct",
+					 "dojo.data.ItemFileWriteStore",
+					 "dojox.grid.DataGrid",
+					 "idx.grid.cells"];
+
+		function postParse(modules) {
+			var ItemFileWriteStore = modules["dojo/data/ItemFileWriteStore"];
+			var cells = modules["idx/grid/cells"];
+			var dDoh = modules["doh"] ? modules["doh"] : doh;
+			var DataGrid = modules["dojox/grid/DataGrid"];
+			var domConstruct = modules["dojo/dom-construct"] ? modules["dojo/dom-construct"] : dojo;
+			var dWindow = modules["dojo/_base/window"] ? modules["dojo/_base/window"] : dojo;
+			
+			var store = new ItemFileWriteStore({data: {items: [
+			{checkBox: true, radioButton: true, select: "value1", multiSelect: ["value1","value2"], text: "Text 1", dateTime: 1000000000000}, 
+			{checkBox: false, radioButton: false, select: "value2", multiSelect: ["value2","value3"], text: "", dateTime: 2000000000000}, 
+			{checkBox: true, radioBotton: false, select: "value3", multiSelect: ["value3","value4"], text: "Text 3", dateTime: 3000000000000},
+			{checkBox: false, radioButton: false, select: "value4", multiSelect: ["value4","value5"], text: "", dateTime: 4000000000000}, 
+			{checkBox: true, radioBotton: false, select: "value5", multiSelect: ["value5","value1"], text: "Text 5", dateTime: 5000000000000}
+			]}});
+			
+			
+			var selectStore = new ItemFileWriteStore({data: {items: [
+				{name: "Label 1", value: "value1"}, 
+				{name: "Label 2", value: "value2"}, 
+				{name: "Label 3", value: "value3"},
+				{name: "Label 4", value: "value4"},
+				{name: "Label 5", value: "value5"}
+			], identifier: "value", label: "name"}});
+			
+			var structure = [
+				{field: "checkBox", type: cells.CheckBox},
+				{field: "radioButton", type: cells.RadioButton},
+				{field: "select", type: cells.Select, store: selectStore},
+				{field: "multiSelect", type: cells.MultiSelect, store: selectStore},
+				{field: "text", type: cells.Text},
+				{field: "dateTime", type: cells.DateTime}
+			];
+			dDoh.register("create", function(){
+				var dataGrid = new DataGrid({store: store, structure: structure});
+				domConstruct.place(dataGrid.domNode, dWindow.body());
+				dataGrid.startup();
+			});
+
+			dDoh.run();
+		}
+
+		dojoRequireModules(modules, null, currentDojoVersion.async, null, postParse);
+		
+	</script>
+</head>
+<body>
+</body>
+</html>

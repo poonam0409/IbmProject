@@ -1,0 +1,497 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html style="height: 100%; width: 100%; margin: 0px; padding: 0px;" lang="en">
+<head>
+<title>Test PropertyFormatter</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+<script type="text/javascript">
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/claro/claro.css", "idxStyles");
+</script>
+
+<style type="text/css" id="idxStyles">
+@import "../../themes/vienna/vienna.css";
+@import "../../themes/oneui/oneui.css";
+@import "../../resources/claro_idx.css";
+@import "../../resources/vienna_idx.css";
+@import "../../themes/test.css";
+</style>
+
+<script type="text/javascript">
+	var dojoConfig = currentDojoVersion.dojoConfig;
+</script>
+
+<script type="text/javascript">
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+</script>
+
+<script type="text/javascript" id="postDojo">
+var modules = ["dijit.form.Form",
+               "dijit.form.Textarea",
+               "dijit.form.TextBox",
+               "dijit.form.NumberTextBox",
+               "dijit.form.CheckBox",
+               "idx.form.DatePicker",
+               "idx.grid.PropertyFormatter",
+               "idx.grid.PropertyGrid",
+               "idx.widget.EditController"];
+
+dojoRequireModules(modules, null, currentDojoVersion.async);
+</script>
+<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 0px;">
+<a class="navigationLink" href="#maincontent">Skip to main content</a>
+<script type="text/javascript">applyThemeToBody()</script>
+
+<a name="maincontent"></a>
+
+<script type="text/javascript">  
+  	function myCustomFormatter() {
+  		var data = prpFmt.data; 
+  		return "From custom formatter!!! " +data.givenName+" "+data.surname+" (standing at "+data.height+"ft) makes $"+data.salary+" annually.";
+  	}
+
+	function myEditFunc(propName, data) {
+		alert("toEditFunc propName="+propName+" returning: "+data[propName] );
+		return data[propName];
+	}
+</script>
+
+<h1>Widget: idx.grid.PropertyFormatter</h1>
+<hr>
+<h1>PropertyFormatter (one property)&lrm;</h1>
+<p>
+<div dojoType="idx.grid.PropertyFormatter"
+     data="{city: 'Los Angeles', state: 'California', country: 'USA'}"
+     properties="city"></div>
+</p>
+
+<h1>PropertyFormatter (one property with inline editor)&lrm;</h1>
+<p>
+<div dojoType="idx.grid.PropertyFormatter"
+     data="{city: 'Los Angeles', state: 'California', country: 'USA'}"
+     properties="city">
+     <div dojoType="dijit.form.TextBox"></div>
+     </div>
+</p>
+
+<h1>PropertyFormatter (multiple properties)&lrm;</h1>
+<p>
+<div dojoType="idx.grid.PropertyFormatter"
+     data="{city: 'Los Angeles', state: 'California', country: 'USA'}"
+     properties="city,state,country"></div>
+</p>
+
+<h1>PropertyFormatter (multiple properties with inline editors)&lrm;</h1>
+<p>
+<div dojoType="idx.grid.PropertyFormatter"
+     data="{holiday: new Date(2012,7,4), city: 'Los Angeles', state: 'California', country: 'USA'}"
+     properties="holiday(dat),city,state,country"
+     format="Spend ${holiday} in ${city}, ${state} ${country}">
+     Spend <div name="holiday" dojoType="idx.form.DatePicker" intermediateChanges="true"></div> in <div name="city" dojoType="dijit.form.TextBox"></div>, 
+     <div name="state" dojoType="dijit.form.TextBox"></div> <div name="country" dojoType="dijit.form.TextBox"></div>
+     
+     </div>
+</p>
+
+
+<h1>PropertyFormatter (multiple properties with formatting)&lrm;</h1>
+<p>
+<div dojoType="idx.grid.PropertyFormatter"
+     data="{givenName: 'Joe', surname: 'Schmoe', age: 31, birthDate: new Date(1980,0,1)}"
+     properties="givenName,surname,age(int),birthDate(dat)" 
+     format="${givenName} ${surname} (${age} - born ${birthDate})"></div>
+</p>
+
+<h1>PropertyFormatter (multiple properties with formatting, using alternate template-friendly syntax)&lrm;</h1>
+<p>
+<div dojoType="idx.grid.PropertyFormatter"
+	 altSyntax="true"
+     data="{givenName: 'Joe', surname: 'Schmoe', age: 31, birthDate: new Date(1980,0,1)}"
+     properties="givenName,surname,age(int),birthDate(dat)" 
+     format="$[givenName] $[surname] ($[age] - born $[birthDate])"></div>
+</p>
+
+<h1>PropertyFormatter (same alternate template-friendly syntax w/altSyntax set to false so no formatting)&lrm;</h1>
+<p>
+<div dojoType="idx.grid.PropertyFormatter"
+	 altSyntax="false"
+     data="{givenName: 'Joe', surname: 'Schmoe', age: 31, birthDate: new Date(1980,0,1)}"
+     properties="givenName,surname,age(int),birthDate(dat)" 
+     format="$[givenName] $[surname] ($[age] - born $[birthDate])"></div>
+</p>
+
+<h1>PropertyFormatter (multiple properties, formatting, and custom format options)&lrm;</h1>
+<p>
+<div dojoType="idx.grid.PropertyFormatter"
+     data="{givenName: 'Joe', surname: 'Schmoe', salary: 65432.10, height: 6.153}"
+     properties="givenName,surname,salary(cur),height(dec)"
+     currencyFormatOptions="{type: 'currency', fractional: false}" 
+     decimalFormatOptions="{type: 'decimal', fractional: true, places: 1}"
+     format="${givenName} ${surname} (standing at ${height}ft) makes $${salary} annually."></div>
+</p>
+
+<h1>PropertyFormatter (custom format function test)&lrm;</h1>
+<p>
+<div dojoType="idx.grid.PropertyFormatter"
+	 jsId="prpFmt"
+     data="{givenName: 'Joe', surname: 'Schmoe', salary: 65432.10, height: 6.153}"
+     properties="givenName,surname,salary(cur),height(dec)"
+     currencyFormatOptions="{type: 'currency', fractional: false}" 
+     decimalFormatOptions="{type: 'decimal', fractional: true, places: 1}"
+     format="${givenName} ${surname} (standing at ${height}ft) makes $${salary} annually."
+     formatFunc="myCustomFormatter"></div>
+</p>
+
+<h1>PropertyFormatter (Invalid use of types, try bulk of property formatters on text string "Joe")&lrm;</h1>
+<p>
+	<div dojoType="idx.grid.PropertyFormatter"
+	     data="{n1: 'Joe', n2: new Date(), n3: new Date(), n4: new Date(),n5: 'Joe', n6: 'Joe', n7: 'Joe', n8: 'Joe' }"
+	     properties="n1(txt), n2(dat), n3(tim), n4(dtm), n5(dec), n6(int), n7(pct), n8(cur)"
+	     format="txt: ${n1} -- dat: ${n2} -- tim: ${n3} -- dtm: ${n4} -- dec: ${n5} -- int: ${n6} -- pct: ${n7} -- cur: ${n8}"
+	></div>
+</p> 
+
+<h1>PropertyFormatter (Test toEdit function - should pop-up alert)&lrm;</h1>
+<p>
+	<div dojoType="idx.grid.PropertyFormatter"
+     data="{givenName: 'Joe', surname: 'Schmoe', salary: 65432.10, height: 6.153}"
+     properties="givenName,surname,salary(cur),height(dec)"
+     currencyFormatOptions="{type: 'currency', fractional: false}" 
+     decimalFormatOptions="{type: 'decimal', fractional: true, places: 1}"
+     format="${givenName} ${surname} (standing at ${height}ft) makes $${salary} annually."
+	 toEditFunc="myEditFunc"
+	></div>
+</p>  
+ 
+<h1>PropertyFormatter (Date formatter on string '2011-08-22')&lrm;</h1>
+<p>
+	<div dojoType="idx.grid.PropertyFormatter"
+	     data="{n1: '2011-08-22' }"
+	     properties="n1(dat)"
+	     format="dat: ${n1}"
+	></div>
+</p>
+
+<h1>PropertyFormatter (dot notation)&lrm;</h1>
+<p>
+<div dojoType="idx.grid.PropertyFormatter"
+     data="{givenName: 'Joe', surname: 'Schmoe', address: {street: '101 Main Street', city: 'Los Angeles', state: 'California', country: 'USA'}}"
+     properties="givenName,surname,address.street,address.city,address.state"
+     format="${givenName} ${surname} living at ${address.street} in ${address.city}, ${address.state}"></div>
+</p>
+
+<h1>PropertyFormatter (array notation - first element)&lrm;</h1>
+<p>
+<div dojoType="idx.grid.PropertyFormatter"
+     data="{givenName: 'Joe', surname: 'Schmoe', phoneNumbers: [{type: 'home', number: '702-555-1212'}, {type: 'mobile', number:'415-555-1212'}]}"
+     properties="givenName,surname,phoneNumbers[0].type,phoneNumbers[0].number"
+     format="Call ${givenName} ${surname} at ${phoneNumbers[0].number} (${phoneNumbers[0].type})"></div>
+</p>
+
+<h1>PropertyFormatter (array notation - second element)&lrm;</h1>
+<p>
+<div dojoType="idx.grid.PropertyFormatter"
+     data="{givenName: 'Joe', surname: 'Schmoe', phoneNumbers: [{type: 'home', number: '702-555-1212'}, {type: 'mobile', number:'415-555-1212'}]}"
+     properties="givenName,surname,phoneNumbers[1].type,phoneNumbers[1].number"
+     format="Call ${givenName} ${surname} at ${phoneNumbers[1].number} (${phoneNumbers[1].type})"></div>
+</p>
+
+<h1>PropertyFormatter (array notation - last element)&lrm;</h1>
+<p>
+<div dojoType="idx.grid.PropertyFormatter"
+     data="{givenName: 'Joe', surname: 'Schmoe', phoneNumbers: [{type: 'home', number: '702-555-1212'}, {type: 'mobile', number:'415-555-1212'}]}"
+     properties="givenName,surname,phoneNumbers[-1].number,phoneNumbers[-1].type"
+     format="Call ${givenName} ${surname} at ${phoneNumbers[-1].number} (${phoneNumbers[-1].type})"></div>
+</p>
+
+<h1>PropertyFormatter (array notation - array of arrays)&lrm;</h1>
+<p>
+<div dojoType="idx.grid.PropertyFormatter"
+     data="{array: [ ['A','B','C' ], [1, 2, 3] ]}"
+     properties="array[0][1],array[1][2](int)"
+     format="Array[0][1] = ${array[0][1]} / Array[1][2] = ${array[1][2]}"></div>
+</p>
+
+<h1>PropertyFormatter (interactive)&lrm;</h1>
+Stand Alone Edit Controller: <div dojoType="idx.widget.EditController"></div>
+<p>
+<div dojoType="idx.grid.PropertyFormatter"
+     data="{givenName: 'Joe', surname: 'Schmoe', salary: 85432, weight: 212.20, birthDate: '1980-01-23', currentTime: 'now', address: {street: '101 Main St', city: 'Los Angeles', state: 'California'}, phoneNumbers: [{type: 'home', number: '702-555-1212'}, {type: 'mobile', number:'415-555-1212'}]}"
+     properties="givenName,surname,salary(cur),weight(dec),birthDate(dat),currentTime(dtm),address.street,address.city,address.state,phoneNumbers[0].number,phoneNumbers[0].type"
+     format="${givenName} ${surname}, weighing in at ${weight}lbs., makes $${salary} as of ${currentTime}.  He is living at ${address.street} in ${address.city}, ${address.state} and can be reached at ${phoneNumbers[0].number} (${phoneNumbers[0].type})"
+     readOnly="true" disabled="false">
+	Given Name: <div dojoType="dijit.form.TextBox" style="width: 10em;" name="givenName"></div>
+	Surname: <div dojoType="dijit.form.TextBox" style="width: 10em;" name="surname"></div>
+	Salary: <div dojoType="dijit.form.NumberTextBox" style="width: 10em;" intermediateChanges="true" name="salary"></div>
+	Birthdate: <div dojoType="idx.form.DatePicker" intermediateChanges="true" name="birthDate"></div>
+</div>
+</p>
+<p>
+<div dojoType="idx.grid.PropertyGrid" style="width: 400px;"
+	 properties="data,properties,format,readOnly,disabled,editController,dateFormatOptions,timeFormatOptions,dateTimeFormatOptions,decimalFormatOptions,integerFormatOptions,percentFormatOptions,currencyFormatOptions">
+    <script type="dojo/method">
+		var pf = idx.util.getSiblingWidget(
+			this, true, idx.grid.PropertyFormatter);
+		this.data = {
+			data: pf.data,
+			properties: pf.properties,
+			format: pf.format,
+			readOnly: pf.get("readOnly"),
+			disabled: pf.get("disabled"),
+			editController: pf.get("editController"),
+			dateFormatOptions: pf._getFormatOptions("date"),
+			timeFormatOptions: pf._getFormatOptions("time"),
+			dateTimeFormatOptions: pf._getFormatOptions("dateTime"),
+			decimalFormatOptions: pf._getFormatOptions("decimal"),
+			integerFormatOptions: pf._getFormatOptions("integer"),
+			percentFormatOptions: pf._getFormatOptions("percent"),
+			currencyFormatOptions: pf._getFormatOptions("currency")
+		};
+	</script> 
+	<div dojoType="idx.grid.PropertyFormatter" propertyName="data"
+	    properties="data">
+	    <script type="dojo/method" event="formatFunc" args="data">
+			return dojo.toJson(data.data,true);
+		</script>
+	    <script type="dojo/method" event="toEditFunc" args="prop,data">
+			return dojo.toJson(data.data,true);
+		</script>
+	    <script type="dojo/method" event="fromEditFunc" args="prop,val">
+			var data = dojo.fromJson(val);
+			return {data: data};
+		</script>
+	</div>
+	<div dojoType="idx.grid.PropertyFormatter" propertyName="properties"
+	     properties="properties">
+		<div dojoType="dijit.form.TextBox" style="width: 55em;"></div>
+		<script type="dojo/connect" event="onChange" args="data,formatter">
+			var pg = idx.util.getParentWidget(this, idx.grid.PropertyGrid);
+			var pf = idx.util.getSiblingWidget(pg, true, idx.grid.PropertyFormatter);
+			pf.set("properties", data.properties);
+		</script>
+	</div>
+	<div dojoType="idx.grid.PropertyFormatter" propertyName="format"
+	     properties="format">
+		<div dojoType="dijit.form.TextBox" style="width: 55em;"></div>
+		<script type="dojo/connect" event="onChange" args="data,formatter">
+			var pg = idx.util.getParentWidget(this, idx.grid.PropertyGrid);
+			var pf = idx.util.getSiblingWidget(pg, true, idx.grid.PropertyFormatter);
+			pf.set("format", data.format);
+		</script>
+	</div>
+	<div dojoType="idx.grid.PropertyFormatter" propertyName="readOnly"
+	     properties="readOnly">
+		<div dojoType="dijit.form.CheckBox"></div>
+		<script type="dojo/connect" event="onChange" args="data,formatter">
+			var pg = idx.util.getParentWidget(this, idx.grid.PropertyGrid);
+			var pf = idx.util.getSiblingWidget(pg, true, idx.grid.PropertyFormatter);
+			pf.set("readOnly", data.readOnly);
+		</script>
+	</div>
+	<div dojoType="idx.grid.PropertyFormatter" propertyName="disabled"
+	     properties="disabled">
+		<div dojoType="dijit.form.CheckBox"></div>
+		<script type="dojo/connect" event="onChange" args="data,formatter">
+			var pg = idx.util.getParentWidget(this, idx.grid.PropertyGrid);
+			var pf = idx.util.getSiblingWidget(pg, true, idx.grid.PropertyFormatter);
+			pf.set("disabled", data.disabled);
+		</script>
+	</div>
+	<div dojoType="idx.grid.PropertyFormatter" propertyName="editController"
+	     properties="editController">
+		Use Stand-Alone Edit Controller: <div dojoType="dijit.form.CheckBox">
+		<script type="dojo/connect" event="_getValueAttr">
+			if (! this.get("checked")) return null;
+			var pg = idx.util.getParentWidget(this, idx.grid.PropertyGrid);
+			var ec = idx.util.getSiblingWidget(pg, true, idx.widget.EditController);
+			return ec.get("id");
+		</script>		
+		</div>
+		<script type="dojo/connect" event="onChange" args="data,formatter">
+			var pg = idx.util.getParentWidget(this, idx.grid.PropertyGrid);
+			var pf = idx.util.getSiblingWidget(pg, true, idx.grid.PropertyFormatter);
+			pf.set("editController", data.editController);
+		</script>
+	</div>
+	<div dojoType="idx.grid.PropertyFormatter" propertyName="dateFormatOptions"
+	    properties="dateFormatOptions">
+	    <script type="dojo/method" event="formatFunc" args="data">
+			var val = data[this.propertyName];
+			if (! val) return null;
+			return dojo.toJson(val);
+		</script>
+	    <script type="dojo/method" event="toEditFunc" args="prop,data">
+			var val = data[this.propertyName];
+			if (! val) return null;
+			return dojo.toJson(val);
+		</script>
+	    <script type="dojo/method" event="fromEditFunc" args="prop,val">
+			var result = new Object();
+			result[this.propertyName] = dojo.fromJson(val);
+			return result;
+		</script>
+		<div dojoType="dijit.form.TextBox" style="width: 55em;"></div>
+		<script type="dojo/connect" event="onChange" args="data,formatter">
+			var pg = idx.util.getParentWidget(this, idx.grid.PropertyGrid);
+			var pf = idx.util.getSiblingWidget(pg, true, idx.grid.PropertyFormatter);
+			pf.set(this.propertyName, data[this.propertyName]);
+		</script>		
+	</div>
+	<div dojoType="idx.grid.PropertyFormatter" propertyName="timeFormatOptions"
+	    properties="timeFormatOptions">
+	    <script type="dojo/method" event="formatFunc" args="data">
+			var val = data[this.propertyName];
+			if (! val) return null;
+			return dojo.toJson(val);
+		</script>
+	    <script type="dojo/method" event="toEditFunc" args="prop,data">
+			var val = data[this.propertyName];
+			if (! val) return null;
+			return dojo.toJson(val);
+		</script>
+	    <script type="dojo/method" event="fromEditFunc" args="prop,val">
+			var result = new Object();
+			result[this.propertyName] = dojo.fromJson(val);
+			return result;
+		</script>
+		<div dojoType="dijit.form.TextBox" style="width: 55em;"></div>
+		<script type="dojo/connect" event="onChange" args="data,formatter">
+			var pg = idx.util.getParentWidget(this, idx.grid.PropertyGrid);
+			var pf = idx.util.getSiblingWidget(pg, true, idx.grid.PropertyFormatter);
+			pf.set(this.propertyName, data[this.propertyName]);
+		</script>		
+	</div>
+	<div dojoType="idx.grid.PropertyFormatter" propertyName="dateTimeFormatOptions"
+	    properties="dateTimeFormatOptions">
+	    <script type="dojo/method" event="formatFunc" args="data">
+			var val = data[this.propertyName];
+			if (! val) return null;
+			return dojo.toJson(val);
+		</script>
+	    <script type="dojo/method" event="toEditFunc" args="prop,data">
+			var val = data[this.propertyName];
+			if (! val) return null;
+			return dojo.toJson(val);
+		</script>
+	    <script type="dojo/method" event="fromEditFunc" args="prop,val">
+			var result = new Object();
+			result[this.propertyName] = dojo.fromJson(val);
+			return result;
+		</script>
+		<div dojoType="dijit.form.TextBox" style="width: 55em;"></div>
+		<script type="dojo/connect" event="onChange" args="data,formatter">
+			var pg = idx.util.getParentWidget(this, idx.grid.PropertyGrid);
+			var pf = idx.util.getSiblingWidget(pg, true, idx.grid.PropertyFormatter);
+			pf.set(this.propertyName, data[this.propertyName]);
+		</script>		
+	</div>
+	<div dojoType="idx.grid.PropertyFormatter" propertyName="decimalFormatOptions"
+	    properties="decimalFormatOptions">
+	    <script type="dojo/method" event="formatFunc" args="data">
+			var val = data[this.propertyName];
+			if (! val) return null;
+			return dojo.toJson(val);
+		</script>
+	    <script type="dojo/method" event="toEditFunc" args="prop,data">
+			var val = data[this.propertyName];
+			if (! val) return null;
+			return dojo.toJson(val);
+		</script>
+	    <script type="dojo/method" event="fromEditFunc" args="prop,val">
+			var result = new Object();
+			result[this.propertyName] = dojo.fromJson(val);
+			return result;
+		</script>
+		<div dojoType="dijit.form.TextBox" style="width: 55em;"></div>
+		<script type="dojo/connect" event="onChange" args="data,formatter">
+			var pg = idx.util.getParentWidget(this, idx.grid.PropertyGrid);
+			var pf = idx.util.getSiblingWidget(pg, true, idx.grid.PropertyFormatter);
+			pf.set(this.propertyName, data[this.propertyName]);
+		</script>		
+	</div>
+	<div dojoType="idx.grid.PropertyFormatter" propertyName="integerFormatOptions"
+	    properties="integerFormatOptions">
+	    <script type="dojo/method" event="formatFunc" args="data">
+			var val = data[this.propertyName];
+			if (! val) return null;
+			return dojo.toJson(val);
+		</script>
+	    <script type="dojo/method" event="toEditFunc" args="prop,data">
+			var val = data[this.propertyName];
+			if (! val) return null;
+			return dojo.toJson(val);
+		</script>
+	    <script type="dojo/method" event="fromEditFunc" args="prop,val">
+			var result = new Object();
+			result[this.propertyName] = dojo.fromJson(val);
+			return result;
+		</script>
+		<div dojoType="dijit.form.TextBox" style="width: 55em;"></div>
+		<script type="dojo/connect" event="onChange" args="data,formatter">
+			var pg = idx.util.getParentWidget(this, idx.grid.PropertyGrid);
+			var pf = idx.util.getSiblingWidget(pg, true, idx.grid.PropertyFormatter);
+			pf.set(this.propertyName, data[this.propertyName]);
+		</script>		
+	</div>
+	<div dojoType="idx.grid.PropertyFormatter" propertyName="currencyFormatOptions"
+	    properties="currencyFormatOptions">
+	    <script type="dojo/method" event="formatFunc" args="data">
+			var val = data[this.propertyName];
+			if (! val) return null;
+			return dojo.toJson(val);
+		</script>
+	    <script type="dojo/method" event="toEditFunc" args="prop,data">
+			var val = data[this.propertyName];
+			if (! val) return null;
+			return dojo.toJson(val);
+		</script>
+	    <script type="dojo/method" event="fromEditFunc" args="prop,val">
+			var result = new Object();
+			result[this.propertyName] = dojo.fromJson(val);
+			return result;
+		</script>
+		<div dojoType="dijit.form.TextBox" style="width: 55em;"></div>
+		<script type="dojo/connect" event="onChange" args="data,formatter">
+			var pg = idx.util.getParentWidget(this, idx.grid.PropertyGrid);
+			var pf = idx.util.getSiblingWidget(pg, true, idx.grid.PropertyFormatter);
+			pf.set(this.propertyName, data[this.propertyName]);
+		</script>		
+	</div>
+	<div dojoType="idx.grid.PropertyFormatter" propertyName="percentFormatOptions"
+	    properties="percentFormatOptions">
+	    <script type="dojo/method" event="formatFunc" args="data">
+			var val = data[this.propertyName];
+			if (! val) return null;
+			return dojo.toJson(val);
+		</script>
+	    <script type="dojo/method" event="toEditFunc" args="prop,data">
+			var val = data[this.propertyName];
+			if (! val) return null;
+			return dojo.toJson(val);
+		</script>
+	    <script type="dojo/method" event="fromEditFunc" args="prop,val">
+			var result = new Object();
+			result[this.propertyName] = dojo.fromJson(val);
+			return result;
+		</script>
+		<div dojoType="dijit.form.TextBox" style="width: 55em;"></div>
+		<script type="dojo/connect" event="onChange" args="data,formatter">
+			var pg = idx.util.getParentWidget(this, idx.grid.PropertyGrid);
+			var pf = idx.util.getSiblingWidget(pg, true, idx.grid.PropertyFormatter);
+			pf.set(this.propertyName, data[this.propertyName]);
+		</script>		
+	</div>
+	
+</div>
+
+</body>
+</html>

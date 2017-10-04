@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="COMPANY">IBM</entry>
+<entry key="AUTHOR">CW</entry>
+<entry key="CWPrefix.TableList">LFA1
+MARA
+MARC
+MARM
+T439G
+T604
+T604F
+T609G
+T610C
+T618G
+T618M
+TKKH1
+TPOOL
+TVKWZ
+TWMEG</entry>
+<entry key="ID">localrmcfg:1346331755269-778830103</entry>
+<entry key="PROP_KEY_MODE">RMRG_CW_MODE</entry>
+<entry key="PROP_TARGETDB_DBNAME">1</entry>
+<entry key="PROP_TARGETDB_MAXLENGTH">30</entry>
+<entry key="DOCUMENTATION">Rapid Modeler configuration for a STG area.</entry>
+<entry key="CWPrefix.checkTablesOptionIdx">0</entry>
+<entry key="VERSION">1.0</entry>
+</properties>

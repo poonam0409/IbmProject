@@ -1,0 +1,16 @@
+﻿LIZENZINFORMATION
+
+Für die Lizenzierung der nachfolgend aufgelisteten Programme gelten zusätzlich zu den 'Internationale Nutzungsbedingungen für Programmpakete' die folgenden Bedingungen.
+
+Programmname: IBM InfoSphere Information Server Pack for SAP Applications V 7.1
+Programmnummer: 5724-Q55
+
+Programmname: IBM InfoSphere Information Server Pack for SAP Applications for Non-Production Environments V 7.1
+Programmnummer: 5724-Q55
+
+Installation
+
+"Installation" ist eine Maßeinheit für die Lizenzierung des Programms. Eine Installation ist eine installierte Kopie des Programms auf einer physischen oder virtuellen Platte, die zur Ausführung auf einem Computer bereitgestellt wird. Der Lizenznehmer muss für jede Programminstallation eine Berechtigung erwerben.
+
+D/N:  L-JCHN-8KES35
+P/N:  L-JCHN-8KES35 

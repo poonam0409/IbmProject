@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><?pde version="3.6"?><target name="Running Platform">
+<locations>
+<location path="${eclipse_home}" type="Profile"/>
+</locations>
+<environment>
+<os>win32</os>
+<ws>win32</ws>
+<arch>x86</arch>
+<nl>en_IN</nl>
+</environment>
+<launcherArgs>
+<vmArgs>-Xms100m -Xmx1024m -Dosgi.requiredJavaVersion=1.5 -Dosgi.bundlefile.limit=100 -Xquickstart -Xgcpolicy:gencon -Xnolinenumbers -XX:MaxPermSize=128M -Xmnx64m -Xscmx96m -Dcom.ibm.ws.management.event.max_polling_interval=1000 -Djava.util.Arrays.useLegacyMergeSort=true</vmArgs>
+</launcherArgs>
+</target>

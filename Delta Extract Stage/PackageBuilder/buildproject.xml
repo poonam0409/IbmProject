@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Licensed Materials - Property of IBM
+ 
+(c) Copyright IBM Corp. 2015  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<!--
+ Description:
+
+ Build file to build the DataStage Delta Extract Stage
+
+-->
+<project basedir="." default="createjar" name="Delta Extract Stage">
+    <property environment="env"/>
+	<property name="build" value="../../Delta Extract Stage/bin"/>
+	<property name="src" value="../src"/>
+	<property name="commonsrc" value="../../Delta Extract Stage/src"/>
+	<property name="extLibsJCO" value="../../extLibsJCO"/>
+	<property name="extLibsIIS" value="../../extLibsIISServer113"/>
+	<property name="extLibs" value="../../extLibs"/>
+	<property name="extLibsCC" value="../../extLibsIISServer85"/>
+	<property name="package" value="../../Delta Extract Stage/PackageBuilder"/>
+	
+	<path id="classpath">
+			<pathelement path=".././bin"/>
+			<pathelement location="${extLibsJCO}/sapjco3.jar"/>
+			<pathelement location="${extLibsJCO}/sapidoc3.jar"/>
+		    <pathelement location="${extLibsIIS}/ccjava-api.jar"/>
+		    <pathelement location="${extLibs}/commons-io-2.4.jar"/>
+			<pathelement location="${extLibsCC}/DSComponents/bin/ccapi.jar"/>
+		</path>
+	
+	<!-- create output directories -->
+	<target name="create-dir" description="create directories" depends="cleanup">
+		<mkdir dir="${build}"/>
+	</target>
+
+	<!-- cleanup output directories -->
+	<target name="cleanup" description="delete output directories">
+		<delete dir="${build}"/>
+		<delete dir="${dist}"/>
+	</target>
+
+	<!-- build DeltaExtract.jar -->
+	<target name="build">
+		<!-- build Delta Extract Stage project -->
+		<javac sourcepath="" srcdir="${commonsrc}" destdir="${build}" classpathref="classpath" debug="${debug}" />
+		<!-- copy resource bundles -->
+		<copy todir="${build}">
+			<fileset dir="${commonsrc}" includes="**/*.properties"/>
+			<fileset dir="${commonsrc}" includes="**/*.xml"/>
+		</copy>
+	</target>
+	
+		
+	<!-- create jar file -->
+	<target name="createjar" description="createjar" depends="build" >
+		 <jar destfile="DeltaExtract.jar">
+	        <zipfileset dir="../bin">
+	             <include name="**/*.class" />
+	        	 <include name="**/*.properties" />
+	        	<include name="**/*.xml" />
+	        </zipfileset>
+	        </jar> 
+	 </target>
+	
+	<target name="triggerbuildxml" description="triggerbuildxml" depends="createjar" >
+			<ant antfile="build.xml" target="build">
+			<property file="sdk.properties"/>
+			</ant>
+			</target>
+	
+</project>

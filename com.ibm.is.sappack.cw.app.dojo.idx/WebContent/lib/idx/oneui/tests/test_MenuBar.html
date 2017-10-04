@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Menubar tests</title>
+
+	<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+	<script type="text/javascript">
+		dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+
+    <style id="idxStyles" type="text/css">
+        @import "../../themes/oneui/oneui.css";
+        @import "../../themes/test.css";
+    </style>
+
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+		dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+
+	<script type="text/javascript" id="postDojo">
+		var modules = [
+			"idx.oneui.MenuBar", 
+            "idx.oneui.Menu",
+            "dijit.PopupMenuBarItem",
+            "dijit.PopupMenuItem",
+            "dijit.MenuItem",
+			"dijit.form.Button"]; 
+			  
+		function setOpenOnHover(newvalue){
+			dijit.byId('menubar_1').set('openOnHover', newvalue);
+			dojo.byId('hto_status').innerHTML = newvalue ? "on" : "off";
+			dijit.byId('hto_on').setAttribute("disabled", newvalue);
+			dijit.byId('hto_off').setAttribute("disabled", !newvalue);
+		}
+
+		dojoRequireModules(modules, null, currentDojoVersion.async, null, null);
+    </script> 
+
+	<script type="text/javascript" src="../../tests/commonTest.js"></script>
+  </head>
+  <body id="body_id" style="width: 100%; height: 100%; margin: 0; padding: 0px;">
+	<a class="navigationLink" href="#maincontent">Skip to main content</a>
+	<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+
+	<a name="maincontent"></a>
+	<div class="testMain">
+
+	    <h1 class="testTitle">One UI Menubar widget tests</h1>
+	
+	    <h2>One UI menu bar with drop-down menus</h2>
+	    <p>Tests the enabling and disabling of the hover-to-open state.</p>
+		
+	    <div id="menubar_1" data-dojo-type="idx.oneui.MenuBar">
+	      <div data-dojo-type="dijit.MenuBarItem" onclick="alert('Item clicked');">Menu item</div>
+		  
+	      <div data-dojo-type="dijit.PopupMenuBarItem">
+	        <span>Drop-down One</span>
+	        <div data-dojo-type="idx.oneui.Menu">
+	          <div data-dojo-type="dijit.MenuItem" onclick="alert('Cut clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconCut'">Cut</div>
+	          <div data-dojo-type="dijit.MenuItem" onclick="alert('Copy clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconCopy'">Copy</div>
+	          <div data-dojo-type="dijit.MenuItem" onclick="alert('Paste clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconPaste'">Paste</div>
+	        </div>
+	      </div>
+		  
+	      <div data-dojo-type="dijit.PopupMenuBarItem">
+	        <span>Drop-down Two</span>
+	        <div data-dojo-type="idx.oneui.Menu">
+	          <div data-dojo-type="dijit.MenuItem" onclick="alert('Cut clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconCut'">Cut</div>
+	          <div data-dojo-type="dijit.MenuItem" onclick="alert('Copy clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconCopy'">Copy</div>
+	          <div data-dojo-type="dijit.MenuItem" onclick="alert('Paste clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconPaste'">Paste</div>
+	        </div>
+	      </div>
+		  
+	      <div data-dojo-type="dijit.PopupMenuBarItem">
+	        <span>Drop-down Three</span>
+	        <div data-dojo-type="idx.oneui.Menu">
+	          <div data-dojo-type="dijit.MenuItem" onclick="alert('Cut clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconCut'">Cut</div>
+	          <div data-dojo-type="dijit.MenuItem" onclick="alert('Copy clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconCopy'">Copy</div>
+	          <div data-dojo-type="dijit.MenuItem" onclick="alert('Paste clicked');" data-dojo-props="iconClass: 'dijitEditorIcon dijitEditorIconPaste'">Paste</div>
+	        </div>
+	      </div>
+	
+	    </div>
+		
+		<p>Current state of hover-to-open: <b><span id="hto_status">on</span></b></p>
+	    
+	    <p>
+			<button id="hto_on" disabled="disabled" data-dojo-type="dijit.form.Button" onclick="setOpenOnHover(true);">Activate hover-to-open</button>    
+			<button id="hto_off" data-dojo-type="dijit.form.Button" onclick="setOpenOnHover(false);">Deactivate hover-to-open</button>
+		</p>
+	</div>
+  </body>
+</html>

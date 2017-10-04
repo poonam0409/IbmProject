@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>Button Widget Demo</title>
+		
+		<script type="text/javascript" src="../../../tests/dojoVersion.js"></script>
+		<script type="text/javascript">
+			dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+			dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+		</script>
+		
+        <style id="idxStyles" type="text/css">
+			@import "../../../themes/oneui/oneui.css";
+			@import "../../tests/_pagefooter/_PageFooter.css";
+            @import "../../../themes/test.css";
+			.box {
+				display: block;
+			}
+			BUTTON, INPUT,
+			.box .dijit {
+				margin-right: 20px;
+				vertical-align: middle;
+			}
+        </style>
+	
+		<!-- required: dojo.js -->
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+		</script>
+
+		<script type="text/javascript">
+			dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+	
+		<script type="text/javascript" id="postDojo">
+			/*
+			require([
+				"dojo/ready",
+				"dijit/_base/manager",
+				"idx/oneui/Menu",
+				"dijit/MenuItem",
+				"dijit/PopupMenuItem",
+				"dijit/MenuSeparator",
+				"dijit/form/Button",
+				"dijit/form/DropDownButton",
+				"dijit/form/ComboButton",
+				"dijit/form/ToggleButton",
+				"idx/oneui/tests/_pagefooter/_PageFooter"],
+			function(ready, manager, Menu, MenuItem, PopupMenuItem, MenuSeparator, Button, DropDownButton, ComboButton, ToggleButton, _PageFooter){
+				ready(function(){
+					var progBtn = new Button({
+						label: "Programmatic Button",
+						baseClass: "dijitButton idxSpecialButton"
+					}, "progBtn");
+					new _PageFooter();
+				});
+			});
+			*/
+			var modules = [
+				"idx.oneui.Menu",
+				"dijit.MenuItem",
+				"dijit.PopupMenuItem",
+				"dijit.MenuSeparator",
+				"dijit.form.Button",
+				"dijit.form.DropDownButton",
+				"dijit.form.ComboButton",
+				"dijit.form.ToggleButton",
+				"idx.oneui.tests._pagefooter._PageFooter"
+			]; 
+			var Menu, MenuItem, PopupMenuItem, MenuSeparator, 
+				Button, DropDownButton, ComboButton, ToggleButton, _PageFooter;
+			
+			function preParse(modules){
+				Menu 			= modules["idx/oneui/Menu"];
+				MenuItem  		= modules["dijit/MenuItem"];
+				PopupMenuItem   = modules["dijit/PopupMenuItem"];
+				MenuSeparator 	= modules["dijit/MenuSeparator"];
+				Button 	 		= modules["dijit/form/Button"];
+				DropDownButton  = modules["dijit/form/DropDownButton"];
+				ComboButton 	= modules["dijit/form/ComboButton"];
+				ToggleButton  	= modules["dijit/form/ToggleButton"];
+				_PageFooter   	= modules["idx/oneui/tests/_pagefooter/_PageFooter"];
+			}
+			function postParse() {
+				var progBtn = new Button({
+					label: "Programmatic Button",
+					baseClass: "dijitButton idxSpecialButton"
+				}, "progBtn");
+				new _PageFooter();
+			}
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+
+		</script>
+		<script type="text/javascript" src="../../../tests/commonTest.js"></script>
+	</head>
+	<body class="oneui" style="width: 100%; height: 100%; margin: 0; padding: 0;">
+		<a class="navigationLink" href="#maincontent">Skip to main content</a>
+		<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+		<a name="maincontent"></a>
+		
+		<div class="testMain">
+			<h1 class="testTitle">OneUI Button Test</h1>
+			
+			<h2>Buttons</h2>
+			<p class="box">
+				<button data-dojo-type="dijit.form.Button" data-dojo-props='onClick:function(){ console.log("clicked simple"); }, value:"Primary"'>
+					Primary
+				</button>
+				<button disabled data-dojo-type="dijit.form.Button" data-dojo-props='onClick:function(){ console.log("clicked simple"); }, value:"Primary"'>
+					Primary Disabled
+				</button>
+				<button data-dojo-type="dijit.form.Button" data-dojo-props='baseClass:"dijitButton idxButtonCompact", onClick:function(){ console.log("clicked simple"); }, value:"Primary"'>
+					Compact
+				</button>
+				<br/><br/>
+				<button data-dojo-type="dijit.form.Button" data-dojo-props='baseClass:"dijitButton idxSecondaryButton", onClick:function(){ console.log("clicked simple"); }, value:"Secondary"'>
+					Secondary 
+				</button>
+				<button disabled data-dojo-type="dijit.form.Button" data-dojo-props='baseClass:"dijitButton idxSecondaryButton", onClick:function(){ console.log("clicked simple"); }, value:"Secondary"'>
+					Secondary Disabled
+				</button>
+				<button data-dojo-type="dijit.form.Button" data-dojo-props='baseClass:"dijitButton idxSecondaryButton idxButtonCompact", onClick:function(){ console.log("clicked simple"); }, value:"Secondary"'>
+					Compact
+				</button>
+				<br/><br/>
+				<button data-dojo-type="dijit.form.Button" data-dojo-props='baseClass:"dijitButton idxSpecialButton", onClick:function(){ console.log("clicked simple"); }, value:"Special"'>
+					Special
+				</button>
+				<button disabled data-dojo-type="dijit.form.Button" data-dojo-props='baseClass:"dijitButton idxSpecialButton", onClick:function(){ console.log("clicked simple"); }, value:"Special"'>
+					Special Disabled
+				</button>
+				<button data-dojo-type="dijit.form.Button" data-dojo-props='baseClass:"dijitButton idxSpecialButton idxButtonCompact", onClick:function(){ console.log("clicked simple"); }, value:"Special"'>
+					Compact
+				</button>
+				<div id="progBtn"></div>
+			</p>
+			<h2>Combo Buttons</h2>
+			<p class="box">
+				<button title="creative title 1" data-dojo-type="dijit.form.ComboButton" data-dojo-props='optionsTitle:"save options", onClick:function(){ console.log("clicked combo save") }'>
+					<span>Combo Button</span>
+					<span data-dojo-type="idx.oneui.Menu">
+						<span data-dojo-type="dijit.MenuItem"  data-dojo-props='iconClass:"dijitEditorIcon dijitEditorIconSave",
+							onClick:function(){ console.log("not actually saving anything, just a test!"); }'>Create blank</span>
+						<span data-dojo-type="dijit.MenuItem"
+							data-dojo-props='onClick:function(){ console.log("not actually saving anything, just a test!"); }'>Create from template</span>
+					</span>
+				</button>
+				<button title="creative title 2" data-dojo-type="dijit.form.ComboButton" data-dojo-props='dropDownPosition:["above"], optionsTitle:"save options", onClick:function(){ console.log("clicked combo save") }'>
+					<span>Combo Button</span>
+					<span data-dojo-type="idx.oneui.Menu">
+						<span data-dojo-type="dijit.MenuItem"  data-dojo-props='iconClass:"dijitEditorIcon dijitEditorIconSave",
+							onClick:function(){ console.log("not actually saving anything, just a test!"); }'>Create blank</span>
+						<span data-dojo-type="dijit.MenuItem"
+							data-dojo-props='onClick:function(){ console.log("not actually saving anything, just a test!"); }'>Create from template</span>
+					</span>
+				</button>
+				<button title="creative title 3" data-dojo-type="dijit.form.ComboButton" data-dojo-props='dropDownPosition:["before"], optionsTitle:"save options", onClick:function(){ console.log("clicked combo save") }'>
+					<span>Combo Button</span>
+					<span data-dojo-type="idx.oneui.Menu">
+						<span data-dojo-type="dijit.MenuItem"  data-dojo-props='iconClass:"dijitEditorIcon dijitEditorIconSave",
+							onClick:function(){ console.log("not actually saving anything, just a test!"); }'>Create blank</span>
+						<span data-dojo-type="dijit.MenuItem"
+							data-dojo-props='onClick:function(){ console.log("not actually saving anything, just a test!"); }'>Create from template</span>
+					</span>
+				</button>
+				<button title="creative title 4" data-dojo-type="dijit.form.ComboButton" data-dojo-props='dropDownPosition:["after"], optionsTitle:"save options", onClick:function(){ console.log("clicked combo save") }'>
+					<span>Combo Button</span>
+					<span data-dojo-type="idx.oneui.Menu">
+						<span data-dojo-type="dijit.MenuItem"  data-dojo-props='iconClass:"dijitEditorIcon dijitEditorIconSave",
+							onClick:function(){ console.log("not actually saving anything, just a test!"); }'>Create blank</span>
+						<span data-dojo-type="dijit.MenuItem"
+							data-dojo-props='onClick:function(){ console.log("not actually saving anything, just a test!"); }'>Create from template</span>
+					</span>
+				</button>
+				<button title="creative title 5" disabled data-dojo-type="dijit.form.ComboButton" data-dojo-props='optionsTitle:"save options", onClick:function(){ console.log("clicked combo save") }'>
+					<span>Combo Button Disabled</span>
+					<span data-dojo-type="idx.oneui.Menu">
+						<span data-dojo-type="dijit.MenuItem"  data-dojo-props='iconClass:"dijitEditorIcon dijitEditorIconSave",
+							onClick:function(){ console.log("not actually saving anything, just a test!"); }'>Create blank</span>
+						<span data-dojo-type="dijit.MenuItem"
+							data-dojo-props='onClick:function(){ console.log("not actually saving anything, just a test!"); }'>Create from template</span>
+					</span>
+				</button>
+				<br/>
+				<button title="creative title 6" data-dojo-type="dijit.form.ComboButton" data-dojo-props='baseClass:"dijitComboButton idxButtonCompact", optionsTitle:"save options", onClick:function(){ console.log("clicked combo save") }'>
+					<span>Combo Button Compact</span>
+					<span data-dojo-type="idx.oneui.Menu">
+						<span data-dojo-type="dijit.MenuItem"  data-dojo-props='iconClass:"dijitEditorIcon dijitEditorIconSave",
+							onClick:function(){ console.log("not actually saving anything, just a test!"); }'>Create blank</span>
+						<span data-dojo-type="dijit.MenuItem"
+							data-dojo-props='onClick:function(){ console.log("not actually saving anything, just a test!"); }'>Create from template</span>
+					</span>
+				</button>
+			</p>
+			<h2>DropDown Buttons</h2>
+			<p class="box">
+				<button title="edit title 1" value="Edit" data-dojo-type="dijit.form.DropDownButton" data-dojo-props=''>
+					<span>DropDown</span>
+					<span data-dojo-type="idx.oneui.Menu" >
+						<span data-dojo-type="dijit.MenuItem" data-dojo-props='iconClass:"dijitEditorIcon dijitEditorIconCut",
+							onClick:function(){ console.log("not actually cutting anything, just a test!"); }'>Cut</span>
+						<span data-dojo-type="dijit.MenuItem" data-dojo-props='iconClass:"dijitEditorIcon dijitEditorIconCopy",
+							onClick:function(){ console.log("not actually copying anything, just a test!"); }'>Copy</span>
+						<span data-dojo-type="dijit.MenuItem" data-dojo-props='iconClass:"dijitEditorIcon dijitEditorIconPaste",
+							onClick:function(){ console.log("not actually pasting anything, just a test!"); }'>Paste</span>
+						<span data-dojo-type="dijit.MenuSeparator"></span>
+						<span data-dojo-type="dijit.PopupMenuItem">
+							<span>Submenu</span>
+							<span data-dojo-type="idx.oneui.Menu" >
+								<span data-dojo-type="dijit.MenuItem" data-dojo-props='onClick:function(){ console.log("Submenu 1!"); }'>Submenu Item One</span>
+								<span data-dojo-type="dijit.MenuItem" data-dojo-props='onClick:function(){ console.log("Submenu 2!"); }'>Submenu Item Two</span>
+								<span data-dojo-type="dijit.PopupMenuItem">
+									<span>Deeper Submenu</span>
+									<span data-dojo-type="idx.oneui.Menu" >
+										<span data-dojo-type="dijit.MenuItem" data-dojo-props='onClick:function(){ console.log("Sub-submenu 1!"); }'>Sub-sub-menu Item One</span>
+										<span data-dojo-type="dijit.MenuItem" data-dojo-props='onClick:function(){ console.log("Sub-submenu 2!"); }'>Sub-sub-menu Item Two</span>
+									</span>
+								</span>
+							</span>
+						</span>
+					</span>
+				</button>
+				<button title="edit title 2" value="Edit" data-dojo-type="dijit.form.DropDownButton" data-dojo-props='dropDownPosition:["above"]'>
+					<span>DropDown</span>
+					<span data-dojo-type="idx.oneui.Menu" >
+						<span data-dojo-type="dijit.MenuItem" data-dojo-props='iconClass:"dijitEditorIcon dijitEditorIconCut",
+							onClick:function(){ console.log("not actually cutting anything, just a test!"); }'>Cut</span>
+						<span data-dojo-type="dijit.MenuItem" data-dojo-props='iconClass:"dijitEditorIcon dijitEditorIconCopy",
+							onClick:function(){ console.log("not actually copying anything, just a test!"); }'>Copy</span>
+						<span data-dojo-type="dijit.MenuItem" data-dojo-props='iconClass:"dijitEditorIcon dijitEditorIconPaste",
+							onClick:function(){ console.log("not actually pasting anything, just a test!"); }'>Paste</span>
+						<span data-dojo-type="dijit.MenuSeparator"></span>
+						<span data-dojo-type="dijit.PopupMenuItem">
+							<span>Submenu</span>
+							<span data-dojo-type="idx.oneui.Menu" >
+								<span data-dojo-type="dijit.MenuItem" data-dojo-props='onClick:function(){ console.log("Submenu 1!"); }'>Submenu Item One</span>
+								<span data-dojo-type="dijit.MenuItem" data-dojo-props='onClick:function(){ console.log("Submenu 2!"); }'>Submenu Item Two</span>
+								<span data-dojo-type="dijit.PopupMenuItem">
+									<span>Deeper Submenu</span>
+									<span data-dojo-type="idx.oneui.Menu" >
+										<span data-dojo-type="dijit.MenuItem" data-dojo-props='onClick:function(){ console.log("Sub-submenu 1!"); }'>Sub-sub-menu Item One</span>
+										<span data-dojo-type="dijit.MenuItem" data-dojo-props='onClick:function(){ console.log("Sub-submenu 2!"); }'>Sub-sub-menu Item Two</span>
+									</span>
+								</span>
+							</span>
+						</span>
+					</span>
+				</button>
+				<button title="edit title 3" value="Edit" data-dojo-type="dijit.form.DropDownButton" data-dojo-props='dropDownPosition:["before"]'>
+					<span>DropDown</span>
+					<span data-dojo-type="idx.oneui.Menu" >
+						<span data-dojo-type="dijit.MenuItem" data-dojo-props='iconClass:"dijitEditorIcon dijitEditorIconCut",
+							onClick:function(){ console.log("not actually cutting anything, just a test!"); }'>Cut</span>
+						<span data-dojo-type="dijit.MenuItem" data-dojo-props='iconClass:"dijitEditorIcon dijitEditorIconCopy",
+							onClick:function(){ console.log("not actually copying anything, just a test!"); }'>Copy</span>
+						<span data-dojo-type="dijit.MenuItem" data-dojo-props='iconClass:"dijitEditorIcon dijitEditorIconPaste",
+							onClick:function(){ console.log("not actually pasting anything, just a test!"); }'>Paste</span>
+						<span data-dojo-type="dijit.MenuSeparator"></span>
+						<span data-dojo-type="dijit.PopupMenuItem">
+							<span>Submenu</span>
+							<span data-dojo-type="idx.oneui.Menu" >
+								<span data-dojo-type="dijit.MenuItem" data-dojo-props='onClick:function(){ console.log("Submenu 1!"); }'>Submenu Item One</span>
+								<span data-dojo-type="dijit.MenuItem" data-dojo-props='onClick:function(){ console.log("Submenu 2!"); }'>Submenu Item Two</span>
+								<span data-dojo-type="dijit.PopupMenuItem">
+									<span>Deeper Submenu</span>
+									<span data-dojo-type="idx.oneui.Menu" >
+										<span data-dojo-type="dijit.MenuItem" data-dojo-props='onClick:function(){ console.log("Sub-submenu 1!"); }'>Sub-sub-menu Item One</span>
+										<span data-dojo-type="dijit.MenuItem" data-dojo-props='onClick:function(){ console.log("Sub-submenu 2!"); }'>Sub-sub-menu Item Two</span>
+									</span>
+								</span>
+							</span>
+						</span>
+					</span>
+				</button>
+				<button title="edit title 4" value="Edit" data-dojo-type="dijit.form.DropDownButton" data-dojo-props='dropDownPosition:["after"]'>
+					<span>DropDown</span>
+					<span data-dojo-type="idx.oneui.Menu" >
+						<span data-dojo-type="dijit.MenuItem" data-dojo-props='iconClass:"dijitEditorIcon dijitEditorIconCut",
+							onClick:function(){ console.log("not actually cutting anything, just a test!"); }'>Cut</span>
+						<span data-dojo-type="dijit.MenuItem" data-dojo-props='iconClass:"dijitEditorIcon dijitEditorIconCopy",
+							onClick:function(){ console.log("not actually copying anything, just a test!"); }'>Copy</span>
+						<span data-dojo-type="dijit.MenuItem" data-dojo-props='iconClass:"dijitEditorIcon dijitEditorIconPaste",
+							onClick:function(){ console.log("not actually pasting anything, just a test!"); }'>Paste</span>
+						<span data-dojo-type="dijit.MenuSeparator"></span>
+						<span data-dojo-type="dijit.PopupMenuItem">
+							<span>Submenu</span>
+							<span data-dojo-type="idx.oneui.Menu" >
+								<span data-dojo-type="dijit.MenuItem" data-dojo-props='onClick:function(){ console.log("Submenu 1!"); }'>Submenu Item One</span>
+								<span data-dojo-type="dijit.MenuItem" data-dojo-props='onClick:function(){ console.log("Submenu 2!"); }'>Submenu Item Two</span>
+								<span data-dojo-type="dijit.PopupMenuItem">
+									<span>Deeper Submenu</span>
+									<span data-dojo-type="idx.oneui.Menu" >
+										<span data-dojo-type="dijit.MenuItem" data-dojo-props='onClick:function(){ console.log("Sub-submenu 1!"); }'>Sub-sub-menu Item One</span>
+										<span data-dojo-type="dijit.MenuItem" data-dojo-props='onClick:function(){ console.log("Sub-submenu 2!"); }'>Sub-sub-menu Item Two</span>
+									</span>
+								</span>
+							</span>
+						</span>
+					</span>
+				</button>
+				<button title="edit title 5" value="Edit" disabled data-dojo-type="dijit.form.DropDownButton" data-dojo-props=''>
+					<span>DropDown Disabled</span>
+					<span data-dojo-type="idx.oneui.Menu" >
+						<span data-dojo-type="dijit.MenuItem" data-dojo-props='iconClass:"dijitEditorIcon dijitEditorIconCut",
+							onClick:function(){ console.log("not actually cutting anything, just a test!"); }'>Cut</span>
+						<span data-dojo-type="dijit.MenuItem" data-dojo-props='iconClass:"dijitEditorIcon dijitEditorIconCopy",
+							onClick:function(){ console.log("not actually copying anything, just a test!"); }'>Copy</span>
+						<span data-dojo-type="dijit.MenuItem" data-dojo-props='iconClass:"dijitEditorIcon dijitEditorIconPaste",
+							onClick:function(){ console.log("not actually pasting anything, just a test!"); }'>Paste</span>
+						<span data-dojo-type="dijit.MenuSeparator"></span>
+						<span data-dojo-type="dijit.PopupMenuItem">
+							<span>Submenu</span>
+							<span data-dojo-type="idx.oneui.Menu" >
+								<span data-dojo-type="dijit.MenuItem" data-dojo-props='onClick:function(){ console.log("Submenu 1!"); }'>Submenu Item One</span>
+								<span data-dojo-type="dijit.MenuItem" data-dojo-props='onClick:function(){ console.log("Submenu 2!"); }'>Submenu Item Two</span>
+								<span data-dojo-type="dijit.PopupMenuItem">
+									<span>Deeper Submenu</span>
+									<span data-dojo-type="idx.oneui.Menu" >
+										<span data-dojo-type="dijit.MenuItem" data-dojo-props='onClick:function(){ console.log("Sub-submenu 1!"); }'>Sub-sub-menu Item One</span>
+										<span data-dojo-type="dijit.MenuItem" data-dojo-props='onClick:function(){ console.log("Sub-submenu 2!"); }'>Sub-sub-menu Item Two</span>
+									</span>
+								</span>
+							</span>
+						</span>
+					</span>
+				</button>
+				<br/>
+				<button title="edit title 6" value="Edit" data-dojo-type="dijit.form.DropDownButton" data-dojo-props='baseClass:"dijitDropDownButton idxButtonCompact"'>
+					<span>DropDown Compact</span>
+					<span data-dojo-type="idx.oneui.Menu" >
+						<span data-dojo-type="dijit.MenuItem" data-dojo-props='iconClass:"dijitEditorIcon dijitEditorIconCut",
+							onClick:function(){ console.log("not actually cutting anything, just a test!"); }'>Cut</span>
+						<span data-dojo-type="dijit.MenuItem" data-dojo-props='iconClass:"dijitEditorIcon dijitEditorIconCopy",
+							onClick:function(){ console.log("not actually copying anything, just a test!"); }'>Copy</span>
+						<span data-dojo-type="dijit.MenuItem" data-dojo-props='iconClass:"dijitEditorIcon dijitEditorIconPaste",
+							onClick:function(){ console.log("not actually pasting anything, just a test!"); }'>Paste</span>
+						<span data-dojo-type="dijit.MenuSeparator"></span>
+						<span data-dojo-type="dijit.PopupMenuItem">
+							<span>Submenu</span>
+							<span data-dojo-type="idx.oneui.Menu" >
+								<span data-dojo-type="dijit.MenuItem" data-dojo-props='onClick:function(){ console.log("Submenu 1!"); }'>Submenu Item One</span>
+								<span data-dojo-type="dijit.MenuItem" data-dojo-props='onClick:function(){ console.log("Submenu 2!"); }'>Submenu Item Two</span>
+								<span data-dojo-type="dijit.PopupMenuItem">
+									<span>Deeper Submenu</span>
+									<span data-dojo-type="idx.oneui.Menu" >
+										<span data-dojo-type="dijit.MenuItem" data-dojo-props='onClick:function(){ console.log("Sub-submenu 1!"); }'>Sub-sub-menu Item One</span>
+										<span data-dojo-type="dijit.MenuItem" data-dojo-props='onClick:function(){ console.log("Sub-submenu 2!"); }'>Sub-sub-menu Item Two</span>
+									</span>
+								</span>
+							</span>
+						</span>
+					</span>
+				</button>
+			</p>
+			<h2>Toggle buttons</h2>
+			<p>The button CSS as well as the icon CSS can change on toggle </p>
+			<div class="box">
+				<button checked data-dojo-type="dijit.form.ToggleButton" data-dojo-props='
+					onChange:function(val){
+						console.log("toggled button checked="+val);
+						this.set("label", val ? "toggle on state" : "toggle off state");
+					}, iconClass:"dijitCheckBoxIcon"'>
+					Toggle on state
+				</button>
+				<button disabled data-dojo-type="dijit.form.ToggleButton"
+					data-dojo-props='onChange:function(val){ console.log("toggled button checked="+val); }, iconClass:"dijitCheckBoxIcon"'>
+					Toggle me
+				</button>
+				<button data-dojo-type="dijit.form.ToggleButton"
+					data-dojo-props='onChange:function(val){ console.log("toggled button checked="+val); }, iconClass:"dijitRadioIcon"'>
+					Toggle me
+				</button>
+				<br/>
+				<button checked data-dojo-type="dijit.form.ToggleButton" data-dojo-props='
+					baseClass:"dijitToggleButton idxButtonCompact", 
+					onChange:function(val){
+						console.log("toggled button checked="+val);
+						this.set("label", val ? "Compact on" : "Compact off");
+					}, iconClass:"dijitCheckBoxIcon"'>
+					Compact on
+				</button>
+			</div>
+		</div>
+	</body>
+</html>

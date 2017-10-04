@@ -1,0 +1,27 @@
+#CC_DELTA_EXTRACT_DISPLAY_NAME#           = Delta Extract
+#CC_DELTA_EXTRACT_SHORT_DESCRIPTION#      = Conector de Estágio da Extração Delta
+#CC_DELTA_EXTRACT_LONG_DESCRIPTION#       = Conector para extrair dados delta de sistemas SAP usando Extratores BW
+#CC_DELTA_EXTRACT_AUTHOR#                 = IBM Corporation
+#CC_DELTA_EXTRACT_VERSION#                = IBM Corporation
+#CC_DELTA_EXTRACT_COPYRIGHT#              = Licensed Materials - Property of IBM (C) Copyright IBM Corp. 2015 Todos os Direitos Reservados.
+#CC_DELTA_EXTRACT_REPOSITORY_LOCATION# 	  = \Tipos de Estágio\Paralela\Packs
+#CC_DELTA_EXTRACT_HELP_URL#               =
+#CC_DELTA_EXTRACT_SAP_CONN_NAME#		  = Nome de Conexão SAP
+#CC_DELTA_EXTRACT_SAP_USERNAME#			  = Nome do Usuário do SAP
+#CC_DELTA_EXTRACT_SAP_PASSWORD#			  = Senha do SAP
+#CC_DELTA_EXTRACT_SAP_CLIENT#			  = Número do Cliente SAP
+#CC_DELTA_EXTRACT_SAP_LANG#				  = Idioma
+#CC_DELTA_EXTRACT_DATA_SOURCE_NAME#		  = Nome da Origem de Dados
+#CC_DELTA_EXTRACT_DATA_SOURCE_TYPE#		  = Tipo de Origem de Dados
+#CC_DELTA_EXTRACT_DATA_FETCH_MODE#		  = Modo de Busca de Dados
+#CC_DELTA_EXTRACT_DATA_FILTER#			  = Filtros de Dados
+#CC_DELTA_EXTRACT_SAP_USE_CONN_DEFAULTS#  = Usar Padrões de Conexão SAP
+#CC_DELTA_EXTRACT_DATA_SOURCE_DESC#		  = Descrição da Origem de Dados
+#CC_DELTA_EXTRACT_DATA_HIERARCHY_NAME#	  = Nome da Hierarquia
+#CC_DELTA_EXTRACT_DATA_HIERARCHY_CLASS#	  = Classe da Hierarquia
+#CC_DELTA_EXTRACT_DATA_HIERARCHY_VALIDFROM#	  = Hierarquia Válida a Partir de
+#CC_DELTA_EXTRACT_DATA_HIERARCHY_VALIDTO#	  = Hierarquia Válida ATÉ
+#CC_DELTA_EXTRACT_DATA_HIERARCHY_OWNER_DATASRC#	  = Nome da Origem de Dados do Proprietário da Hierarquia
+#CC_DELTA_EXTRACT_DSSAPCONNECTION# 				  = Conexão com o Aplicativo SAP ERP
+
+

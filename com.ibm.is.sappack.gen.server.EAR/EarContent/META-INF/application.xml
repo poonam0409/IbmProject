@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Licensed Materials - Property of IBM 5724-Q55 (c) Copyright IBM Corp. 2011, 2014
+     All Rights Reserved. US Government Users Restricted Rights - Use, duplication or disclosure restricted 
+     by GSA ADP Schedule Contract with IBM Corp.
+-->
+<application id="com.ibm.is.sappack.gen.server.EAR" version="1.4"
+	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/application_1_4.xsd">
+	<display-name>com.ibm.is.sappack.gen.server.EAR</display-name>
+	<module id="WebModule_1405495062285">
+		<web>
+			<web-uri>com.ibm.is.sappack.gen.server.war</web-uri>
+			<context-root>cwrapidgenerator</context-root>
+		</web>
+	</module>
+	<security-role id="SecurityRole_IISAuthRole">
+		<role-name>IISAuthRole</role-name>
+	</security-role>
+</application>

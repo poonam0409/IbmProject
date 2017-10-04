@@ -1,0 +1,10 @@
+# Other Trademark and Copyright acknowledgements
+
+(a)  Wily Technology:  Portions of the source code in the java.lang.instrument.Instrumentation component are  Copyright 2003 Wily Technology, Inc.  
+  
+(b)  Eastman Kodak:    Portions of this Program are Copyright Eastman Kodak Company 1992  
+  
+(c)  Lucida fonts:   Lucida is a registered trademark or trademark of Bigelow & Holmes in the U.S. and other countries.  
+  
+(d)  JPEG:   This product is based in part on the work of the Independent JPEG group.  
+

@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Main-Class: com.ibm.is.sappack.dsstages.prereq.PrereqCheck
+Class-Path: 
+
+Name: com/ibm/is/sappack/dsstages/prereq
+Specification-Title: SAP RFC SDK Prereq Check
+Specification-Vendor: IBM Corporation
+Specification-Version: 1.0
+Implementation-Title: com.ibm.is.sappack.dsstages.prereq
+Implementation-Version: @PRODUCT.VERSION@
+Implementation-Vendor: IBM Corporation
+Implementation-URL: http://www.ibm.com/
+Built-By: @BUILD.BY@
+Built-Date: @BUILD.DATE@

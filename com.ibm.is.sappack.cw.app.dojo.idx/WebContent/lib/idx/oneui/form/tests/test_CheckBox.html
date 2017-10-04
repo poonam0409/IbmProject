@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>idx.oneui.form.CheckBox Test</title>
+	
+	<script type="text/javascript" src="../../../tests/dojoVersion.js"></script>
+	<script type="text/javascript">
+		dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+	
+	<style id="idxStyles" type="text/css">
+		@import "../../../themes/oneui/oneui.css";
+		@import "../../../themes/test.css";
+		@import "../../tests/_pagefooter/_PageFooter.css";
+	</style>
+	
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+	</script>
+
+	<script type="text/javascript">
+		dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+
+	<script type="text/javascript" id="postDojo">
+		var modules = [
+			"idx.oneui.form.CheckBox",
+			"dijit.form.Button",
+			"dijit.form.Form",
+			"idx.oneui.tests._pagefooter._PageFooter"]; 
+		var _PageFooter = null;
+		function preParse(modules){
+			_PageFooter = modules["idx/oneui/tests/_pagefooter/_PageFooter"];
+			new _PageFooter();
+		}
+		function postParse(modules){
+		}
+		dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+	</script>
+
+	<script type="text/javascript" src="../../../tests/commonTest.js"></script>
+</head>
+
+<body style="width: 100%; height: 100%; margin: 0; padding: 0px;">
+	<a class="navigationLink" href="#maincontent">Skip to main content</a>
+	<script type="text/javascript">applyThemeToBody("oneui");</script>
+	<a name="maincontent"></a>
+	<div class="testMain">
+		<h1 class="testTitle">idx.oneui.form.CheckBox Test</h1>
+		<h2>CheckBox Normal</h2>
+		<input id="cb1" data-dojo-type="idx.oneui.form.CheckBox"
+				data-dojo-props='name:"cb1",
+				label: "Unchecked "
+		'>
+		</input>
+		<input id="cb2" data-dojo-type="idx.oneui.form.CheckBox"
+				data-dojo-props='name:"cb2",
+				checked: true,
+				label: "Checked"
+		'>
+		</input>
+		<br/>
+		
+		<h2>CheckBox Disabled</h2>
+		<input id="cb3" data-dojo-type="idx.oneui.form.CheckBox"
+				data-dojo-props='name:"cb3",
+				label: "Unchecked Disabled",
+				disabled: true
+		'>
+		</input>
+		<input id="cb4" data-dojo-type="idx.oneui.form.CheckBox"
+				data-dojo-props='name:"cb4",
+				checked: true,
+				label: "Checked Disabled",
+				disabled: true
+		'>
+		</input>
+		<br/>
+		
+		<h2>CheckBox ReadOnly</h2>
+		<input id="cb5" data-dojo-type="idx.oneui.form.CheckBox"
+				data-dojo-props='name:"cb5",
+				label: "Unchecked ReadOnly",
+				readOnly: true
+		'>
+		</input>
+		<input id="cb6" data-dojo-type="idx.oneui.form.CheckBox"
+				data-dojo-props='name:"cb6",
+				checked: true,
+				label: "Checked ReadOnly",
+				readOnly: true
+		'>
+		</input>
+		<br/>
+		<div id="node"></div>
+	</div>
+</body>
+</html>

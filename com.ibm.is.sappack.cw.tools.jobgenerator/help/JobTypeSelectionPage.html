@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h3>Select Job Type</h3>
+The list allows for selecting from the job types available for the current model file. Subsequent  wizard pages will allow you to further configure the job generation according to your selection.
+<ul>
+    <li><b>ABAP Extract Job:</b> An extract job is generated for those entities in the model that represent SAP logical tables. The appropriate objects are stored into a relational database through ODBC.</li>
+	<li><b>IDOC Extract Job:</b> An extract job is generated for those entities in the model that belong to an SAP IDoc Type. Although an IDoc has a hierarchical data structure, the extracted objects are stored into a relational database via ODBC.</li>
+	<li><b>IDOC Load Job:</b> This option generates a job which reads  IDocs from a relational database, reconstructs its  hierarchical structure and sends them  to SAP.</li>
+	<li><b>Move Job:</b> A move job is generated for all entities in the model. It simply copies the appropriate objects between two ODBC datasources.</li>
+	<li><b>MIH Load Job:</b> A MIH load job.</li>
+	<li><b>MIH IDOC Load Job:</b> A MIH IDoc load job.</li>
+	
+</ul>
+</body>
+</html>

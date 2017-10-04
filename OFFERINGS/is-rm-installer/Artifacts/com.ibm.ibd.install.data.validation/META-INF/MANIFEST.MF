@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Install Custompanel
+Bundle-SymbolicName: com.ibm.ibd.install.data.validation;singleton:=true
+Bundle-Version: 2.0.1.201109061013
+Bundle-ClassPath: com.ibm.ibd.install.data.validation_2.0.1.201109061013
+Bundle-Vendor: IBM
+Export-Package: com.ibm.ibd.install
+Require-Bundle: com.ibm.cic.agent.ui,
+ com.ibm.cic.agent.core,
+ com.ibm.cic.common.core,
+ org.eclipse.ui.forms,
+ org.eclipse.swt,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: J2SE-1.5

@@ -1,0 +1,43 @@
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<store>
+    <entry>
+        <host>bldfarm3.svl.ibm.com</host>
+        <port>80</port>
+        <scheme>basic</scheme>
+        <realm>IDA Build Results (IBM Intranet ID)</realm>
+        <proxy>false</proxy>
+        <username>daniel.haischt@de.ibm.com</username>
+        <password>***</password>
+        <persist>false</persist>
+    </entry>
+    <entry>
+        <host>constellation.ratl.swg.usma.ibm.com</host>
+        <port>443</port>
+        <scheme>basic</scheme>
+        <realm>Constellation Build Results (IBM Intranet ID)</realm>
+        <proxy>false</proxy>
+        <username>daniel.haischt@de.ibm.com</username>
+        <password>***</password>
+        <persist>false</persist>
+    </entry>
+    <!--  default entry -->
+    <entry>
+        <host>*</host>
+        <port>-1</port>
+        <scheme>basic</scheme>
+        <realm>*</realm>
+        <proxy>false</proxy>
+        <username>daniel.haischt@de.ibm.com</username>
+        <password>***</password>
+        <persist>true</persist>
+    </entry>
+</store>

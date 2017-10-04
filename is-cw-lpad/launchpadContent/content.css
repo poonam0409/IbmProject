@@ -1,0 +1,131 @@
+/*
+Licensed Material - Property of IBM
+
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+ 
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+*/
+
+ol {
+	display: block;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	list-style-type: decimal;
+}
+
+ul {
+	display: block;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	list-style-type: disc;
+	list-style-image: url('./images/bullet.gif');
+}
+
+li {
+	margin-bottom: 5px;
+}
+
+dl {
+	display: block;
+	margin-top: 0px;
+}
+
+img {
+	vertical-align: middle;
+}
+
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12pt;
+	font-style: normal;
+	background-color: #FFFFFF;
+	margin: 5px 8px 5px 8px;
+}
+
+* html body {
+	font-size: 12px;
+}
+
+html>body {
+	font-size: 12px;
+}
+
+p {
+	display: block;
+	margin-top: 5px;
+	margin-right: 0px;
+	margin-bottom: 16px;
+	margin-left: 0px;
+}
+
+h1 {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 20pt;
+	font-style: normal;
+	font-weight: bold;
+	background: url('images/grayBackground.jpg');
+	background-repeat: no-repeat;
+	background-position: top <%= bidiString("right","left") %>;
+	padding: 4px 10px;
+}
+
+* html h1 {
+	font-size: 14pt;
+	width: 100%;
+	background-repeat: repeat;
+}
+
+html > * h1 {
+	font-size: 14pt;
+	background-repeat: repeat;
+}
+
+.number {
+	font-family: Helvetica, Arial, sans-serif;
+    font-size: 14pt;
+    font-style: normal;
+    font-weight: bold;
+    color: ffffff;
+    border: medium solid black;
+    border-width: 4;
+    background-color: 707070;
+    padding: 0px 5px;
+    margin-left: -10px;
+    margin-right: 10px;
+    <%= bidiString('display: none;',' ') %>
+}
+
+.mainHeader {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 28pt;
+	font-style: normal;
+	font-weight: bold;
+}
+
+* html .mainHeader {
+	font-size: 20pt;
+}
+
+html > * .mainHeader {
+	font-size: 20pt;
+}
+
+#step1{
+	padding: <%= bidiString('0 56px 0 0','0 0 0 56px'); %>;
+	background: url('./images/SoftwareAccess.gif') no-repeat <%= bidiString('right','left') %> top;
+}
+#step2{
+	padding: <%= bidiString('0 57px 0 0','0 0 0 57px'); %>;
+	background: url('./images/Prereqs.gif') no-repeat <%= bidiString('right','left') %> top;
+}
+#step4{
+	padding: <%= bidiString('0 51px 0 0','0 0 0 51px'); %>;
+	background: url('./images/DocsAccess.gif') no-repeat <%= bidiString('right','left') %> top;
+}
+#step5{
+	padding: <%= bidiString('0 50px 0 0','0 0 0 50px'); %>;
+	background: url('./images/Install.gif') no-repeat <%= bidiString('right','left') %> top;
+}

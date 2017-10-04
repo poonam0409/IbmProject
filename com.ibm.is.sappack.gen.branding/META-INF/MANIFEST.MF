@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: com.ibm.is.sappack.gen.branding;singleton:=true
+Bundle-Version: 8.0.0.qualifier
+Bundle-Localization: plugin
+Bundle-Activator: com.ibm.is.sappack.gen.branding.BrandingUIPlugin
+Bundle-Vendor: %providerName
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.ui.intro,
+ org.eclipse.ui.intro.universal,
+ org.eclipse.core.resources,
+ com.ibm.is.sappack.gen.common.ui
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy

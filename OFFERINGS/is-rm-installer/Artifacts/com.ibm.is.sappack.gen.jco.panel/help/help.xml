@@ -1,0 +1,5 @@
+<contexts>
+	<context id="cw_help_test">
+		<topic href="help/test.html" label="CW Installer - Test Help Page (JCo Panel)"/>
+	</context>
+</contexts>

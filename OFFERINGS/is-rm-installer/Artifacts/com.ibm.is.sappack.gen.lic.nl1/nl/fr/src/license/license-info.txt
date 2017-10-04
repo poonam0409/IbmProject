@@ -1,0 +1,156 @@
+﻿INFORMATIONS SUR LA LICENCE
+
+Les dispositions suivantes s'ajoutent à celles contenues dans le document Conditions Internationales d'Utilisation de Logiciels IBM, pour l'utilisation des Logiciels indiqués ci-dessous.
+
+Nom du Logiciel : IBM Administration Client for Application Support Facility V1.0
+Référence du Logiciel : 5655-U83
+Autorisation d'utilisation sur un ordinateur familial ou portable autre que la machine principale : Le Logiciel peut être installé sur la machine principale et sur une autre machine, sous réserve qu'il ne soit pas utilisé sur les deux machines en même temps.
+
+Droits d'utilisation restreinte des Autres Logiciels IBM
+
+Si Vous avez acquis une licence de ce Logiciel dans le cadre d'un autre Logiciel IBM (le "Logiciel Principal") qui répertorie ce Logiciel dans la section "Autres Logiciels IBM", Vous avez reçu ce Logiciel uniquement en support du Logiciel Principal et Vos droits d'utilisation de ce Logiciel sont limités par la licence du Logiciel Principal. Veuillez prendre contact avec Votre ingénieur commercial IBM si Vous souhaitez acquérir une licence distincte de ce Logiciel non limitée par les dispositions de licence du Logiciel Principal.
+
+Composants Exclus
+
+Les dispositions du présent paragraphe s'appliquent, sauf si elles sont considérées comme non valables ou inapplicables dans le cadre de la loi en vigueur régissant la présente licence. Les composants répertoriés ci-dessous sont des "Composants Exclus". Sauf disposition contraire énoncée dans le Contrat ou dans tout autre contrat conclu entre Vous et IBM : 
+(a) les fournisseurs tiers des Composants Exclus (les "Fournisseurs") fournissent ces composants SANS AUCUNE GARANTIE D'AUCUNE SORTE et ces Fournisseurs NE FOURNISSENT AUCUNE GARANTIE EXPLICITE OU IMPLICITE, Y COMPRIS, ET DE FAÇON NON LIMITATIVE, AUCUNE GARANTIE DE NON-CONTREFAÇON OU DE NON-INTERFÉRENCE, ET AUCUNE GARANTIE OU CONDITION IMPLICITE D'APTITUDE À L'EXÉCUTION D'UN TRAVAIL DONNÉ EN CE QUI CONCERNE LES COMPOSANTS EXCLUS ; 
+(b) les Fournisseurs ne pourront en aucun cas être tenus responsables pour toute demande d'indemnisation ou pour tout dommage direct et indirect, accessoire, particulier, à titre d'exemple, à caractère répressif (notamment perte de bénéfices, de revenus, d'économies escomptées, d'activité commerciale) ou tout autre dommage lié aux Composants Exclus ; et
+(c) IBM et les Fournisseurs ne pourront être tenus responsables envers Vous ni ne Vous indemniseront pour toute réclamation relative aux Composants Exclus.
+
+Nonobstant ces exclusions, en Allemagne et en Autriche, la garantie et la responsabilité d'IBM en ce qui concerne les Composants Exclus sont régies uniquement par les dispositions respectives applicables à l'Allemagne et à l'Autriche dans les contrats de licence IBM.
+
+Les avertissements et les informations importantes qu'IBM est tenue de Vous communiquer concernant les Composants Exclus, y compris les instructions relatives à l'obtention du Code Source de certains Composants Exclus, figurent dans le fichier NOTICES joint au Logiciel.
+
+Votre utilisation des Composants Exclus est régie par les dispositions du Contrat et non par celles du fichier NOTICES. Les dispositions contenues dans le Contrat sont présentées par IBM et par aucune autre partie. Les mises à jour ou correctifs ultérieurs du Logiciel pourront contenir des Composants Exclus supplémentaires. Ces Composants Exclus supplémentaires, ainsi que les avertissements et les informations y afférent, le cas échéant, seront répertoriés dans un autre fichier NOTICES joint à la mise à jour ou au correctif du Logiciel.
+
+Les composants suivants sont les Composants Exclus : 
+Apache Bean Scripting Framework (BSF) V2.4
+Apache Commons-BeanUtils V1.7.0
+Apache Commons-Collections V3.2
+Apache Commons-Configuration V1.1
+Apache Commons-DBCP v1.2.1
+Apache Commons-JXPath V1.2
+Apache Commons-Lang V2.3
+Apache Commons-Logging V1.1
+Apache Commons-Pool V1.3
+Apache Log4j V1.2.14
+Apache XMLBeans V2.3.0
+Apache XML4J V4.5.1
+Apache XSLT4J V2.7.8
+Eclipse Platform Classes:
+*com.ibm.lpex.alef.LpexTextViewer.java
+*com.ibm.lpex.alef.LpexTextViewerHoverManager.java
+*com.ibm.lpex.alef.LpexAnnotationBarHoverManager.java
+*com.ibm.lpex.alef.LpexAnnotationRulerColumn.java
+*com.ibm.lpex.alef.LpexChangeRulerColumn.java
+*com.ibm.lpex.alef.LpexSourceViewer.java
+*com.ibm.lpex.alef.LpexVerticalRuler.java
+*com.ibm.lpex.alef.DefaultEncodingSupport.java
+*com.ibm.lpex.alef.LpexTextEditor.java
+*com.ibm.lpex.alef.LpexAbstractDecoratedTextEditor.java
+*com.ibm.lpex.alef.LpexAbstractTextEditor.java
+*com.ibm.lpex.alef.EditorStatusLine.java
+*com.ibm.lpex.alef.LpexStatusTextEditor.java
+*package com.ibm.lpex.alef.contentassist.
+IBM Dojo Toolkit (IDT) V0.4
+IBM Dojo Toolkit (IDT) V1.0.x
+IBM Eclipse Help System (IEHS) V3.1.2
+IBM Eclipse Help System Installer (IEHSI) V3.1.2
+IBM Eclipse Help System (IEHS) for WAS 6.x V3.0.1
+IBM Eclipse SDK (IES) V3.2.2
+International Component for Unicode (ICU4J) V3.4
+LPEX V3.2.x
+
+Environnement Opérationnel Spécifié
+
+Les spécifications du Logiciel et les informations relatives à l'Environnement Opérationnel Spécifié se trouvent dans la documentation fournie avec le Logiciel, le cas échéant, par exemple, un fichier "README" ou dans tout autre document d'information, tel qu'une lettre d'annonce. Vous reconnaissez que ladite documentation et que le contenu d'autres Logiciels puissent n'être rédigés qu'en anglais.
+
+Dispositions spécifiques au Logiciel
+
+AUTORISATION D'UTILISATION
+
+Si Vous possédez un contrat de Maintenance Logiciel iSeries ou d'Abonnement Logiciels en vigueur pour WebSphere Development Studio for iSeries, Vous êtes habilité à recevoir ce Logiciel et Vous êtes autorisé à l'installer en vue de développer des applications i5/OS conformément à Votre autorisation d'utilisation du Logiciel WebSphere Development Studio for iSeries.
+
+COMPOSANT IBM WEBFACING TOOL
+
+Le Logiciel inclut une version uniquement de développement du produit IBM WebFacing Tool. Pour déployer des applications WebFacing créées avec le produit IBM WebFacing Tool, Vous devez acheter la licence appropriée du Logiciel IBM WebFacing Deployment Tool for WebSphere Development Studio version 7.0 (numéro de programme : 5724-N52).
+
+IBM WEBSPHERE HOST ACCESS TRANSFORMATION SERVICES (HATS) TOOLKIT VERSION 7.0
+
+Le Logiciel inclut une version uniquement de développement du produit HATS Toolkit. Pour déployer des applications HATS créées avec le produit HATS Toolkit, Vous devez acheter la licence appropriée du Logiciel IBM WebFacing Deployment Tool for WebSphere Development Studio version 7.0 (numéro de programme : 5724-N52).
+
+COOPERATIVE DEVELOPMENT ENVIRONMENT AND VISUALAGE RPG (CODE and VARPG)
+
+CODE and VARPG est un composant de ce Logiciel qui est fourni sur un CD-ROM distinct. En installant et en utilisant le composant CODE and VARPG, Vous acceptez les dispositions de la licence d'utilisation de CODE and VARPG, qui figure sur ce CD-ROM distinct.
+
+COMPOSANTS DE DB2
+
+Composants de DB2 Connect : Le Logiciel comprend des composants de la technologie DB2 Connect. Vous êtes autorisé à installer et à utiliser un exemplaire de ces composants, uniquement dans le cadre de Votre utilisation autorisée du Logiciel, aux fins de développement d'applications et de modélisation d'objets de données gérés par DB2 for z/OS et DB2 for iSeries. Vous n'êtes autorisé à utiliser la technologie DB2 Connect fournie avec le Logiciel à aucune autre fin. Vous n'êtes pas autorisé à utiliser la technologie DB2 Connect pour fournir la connectivité pour toute autre application que le Logiciel lui-même. Si une telle connectivité est requise, une licence appropriée de DB2 Connect doit être acquise.
+
+L'utilisation des composants de DB2 Connect est soumise aux dispositions de la licence d'utilisation jointe à ces composants, auxquelles s'ajoutent les restrictions énoncées dans le présent Contrat. Vous n'êtes pas autorisé à utiliser les composants de DB2 Connect à toute autre fin. Pour toute utilisation non autorisée par la présente licence, prenez contact avec Votre revendeur de DB2 afin d'acquérir une licence du Logiciel DB2 UDB.
+
+IBM WEBSPHERE APPLICATION SERVER 
+
+WEBSPHERE APPLICATION SERVER : Le Logiciel est fourni avec plusieurs exemplaires de WebSphere Application Server, y compris des exemplaires de WebSphere Application Server inclus dans l'"environnement de test" du Logiciel. Vous êtes autorisé à installer chaque composant de ces exemplaires de WebSphere Application Server sur la même machine que les autres composants du Logiciel, afin qu'il soit utilisé par un seul développeur à des fins de "test unitaire", lequel sera limité au test du code écrit ou généré par ce développeur dans le but de confirmer que ce code fonctionne correctement. Vous n'êtes pas autorisé à utiliser des exemplaires des composants de WebSphere Application Server, installés et utilisés selon les dispositions de l'Autorisation d'Utilisation du Logiciel pour Test Unitaire, en vue des objectifs suivants : test d'applications sur des serveurs distincts de la machine du développeur, simulation des charges de production ou test de l'évolutivité de code, d'application ou de système. Les composants WebSphere Application Server ne peuvent pas être utilisés à des fins de production. 
+
+CODE SOURCE : Certains composants du Logiciel WebSphere Application Server peuvent être fournis sous forme de Code Source. Sauf mention contraire dans le présent Contrat, le Service de Logiciel est uniquement fourni pour les versions, non modifiées et en code binaire, des composants fournis avec l'exemplaire du Logiciel WebSphere Application Server, et non pour le Code Source de ces composants ou pour toute modification de ces composants que Vous pourriez créer.
+
+TECHNOLOGIE J2C
+
+Ce Logiciel inclut des connecteurs J2C. Les dispositions suivantes s'appliquent :
+
+IMS :
+Le Logiciel contient les versions JCA 1.0 et 1.5 du composant IMS TM Resource Adapter (également dénommé IMS Connector for Java). Vous êtes autorisé à utiliser ces adaptateurs de ressources exclusivement à des fins d'écriture ou de génération de code. Néanmoins, pour tout code écrit ou généré avec le Logiciel dans le cadre d'un test, Vous devez disposer d'au moins une licence valable pour IMS version 9. Vous n'êtes pas autorisé à utiliser les adaptateurs de ressource IMS TM Resource Adapter fournis dans le Logiciel à des fins de production. Si Vous souhaitez les utiliser à des fins de production, consultez le site Internet d'IMS Connector for Java à l'adresse www.ibm.com/ims.
+
+JCA :
+Les adaptateurs de ressource de l'architecture J2EE Connector fournis avec le Logiciel et inclus dans le fichier nommé "cicseci.rar", et les classes client Java fournies avec le Logiciel et incluses dans le fichier nommé "ctgclient.jar" peuvent être librement distribués par les utilisateurs détenteurs d'une licence du Logiciel. Les utilisateurs détenteurs de licence qui choisissent de distribuer leurs classes client devront assurer le support technique et la maintenance des classes distribuées. IBM autorise cette distribution sous réserve que les utilisateurs détenteurs d'une licence du Logiciel s'assurent que : 
+
+(i) le format d'origine d'aucun fichier "JAR" ou "RAR" ne soit modifié ; 
+(ii) aucun fichier "JAR" ou "RAR" ne soit utilisé dans un environnement autre qu'un environnement Java pris en charge par le Logiciel ; et 
+(iii) toutes les communications s'effectuent vers une passerelle CICS Transaction Gateway ayant un niveau d'édition identique ou supérieur à la version du fichier "ctgclient.jar" ou "RAR".
+
+JRPC DEVELOPMENT KIT
+
+Les dispositions suivantes concernent certains droits et restrictions associés à l'inclusion du Composant JRPC Development Kit dans le Logiciel. En installant le Logiciel, Vous acceptez de facto les dispositions suivantes :
+
+Le Logiciel n'est pas conçu pour une utilisation dans les systèmes de navigation ou de communication aériens, les systèmes de contrôle du trafic aérien, ni pour la conception, la construction, l'exploitation ou la maintenance d'installations nucléaires. Le détenteur de licence s'engage à ne pas utiliser le Logiciel à de telles fins.
+
+TECHNOLOGIE J2C : Composant du Compilateur COBOL
+
+Votre exemplaire du Logiciel inclut des connecteurs J2C, qui comprennent IBM WebSphere Studio COBOL for Windows (un composant du Compilateur COBOL). Les composants du Compilateur COBOL contenus dans le Logiciel sont destinés à être exclusivement utilisés par les composants internes dudit Logiciel aux fins d'importation des métadonnées afférentes aux structures de données COBOL. Vous n'êtes pas autorisé à utiliser ce code à des fins de production. 
+
+TECHNOLOGIE J2C : Composant du Compilateur PL/I
+
+Votre exemplaire du Logiciel inclut des connecteurs J2C, qui comprennent IBM WebSphere Studio PL/I for Windows (un composant du Compilateur PL/I). Les composants du Compilateur PL/I contenus dans le Logiciel sont destinés à être exclusivement utilisés par les composants internes dudit Logiciel aux fins d'importation des métadonnées afférentes aux structures de données PL/I. Vous n'êtes pas autorisé à utiliser ce code à des fins de production.
+
+CODE MICROSOFT
+
+Le Logiciel contient certains logiciels redistribuables de Microsoft Corporation. Outre les autres dispositions énoncées dans le présent Contrat de Licence, Vous n'êtes pas autorisé à faire de l'ingénierie inverse, décompiler ou désassembler ces logiciels, sauf si la loi Vous y autorise expressément nonobstant toute interdiction contractuelle.
+
+Vous n'êtes pas autorisé à divulguer les résultats des tests de performance du logiciel Microsoft .Net Framework à un tiers sans avoir obtenu l'accord écrit préalable de Microsoft.
+
+DANS LES LIMITES AUTORISÉES PAR LE DROIT APPLICABLE, MICROSOFT ET SES FOURNISSEURS NE POURRONT EN AUCUN CAS ÊTRE TENUS RESPONSABLES POUR TOUT DOMMAGE DIRECT, INDIRECT OU SPÉCIAL (Y COMPRIS, SANS QUE CELA SOIT LIMITATIF, LA PERTE DE BÉNÉFICES, DE DONNÉES CONFIDENTIELLES OU AUTRES, LA PERTE D'ACTIVITÉ COMMERCIALE, LES DOMMAGES CORPORELS, LE NON-RESPECT DE LA CONFIDENTIALITÉ, LE NON-RESPECT DE CONDITIONS D'USAGES RAISONNABLES OU DE BONNE FOI, LA NÉGLIGENCE, ET TOUTE AUTRE PERTE FINANCIÈRE OU AUTRE PERTE DE QUELQUE NATURE QUE CE SOIT) RÉSULTANT DE OU LIÉ DE QUELQUE FAÇON QUE CE SOIT À L'UTILISATION OU L'IMPOSSIBILITÉ D'UTILISER LE LOGICIEL, À L'OFFRE OU L'IMPOSSIBILITÉ DE FOURNIR LE SUPPORT OU D'AUTRES SERVICES, DES INFORMATIONS, DES LOGICIELS ET LES ÉLÉMENTS ASSOCIÉS VIA LE LOGICIEL, OU DÉCOULANT DE QUELQUE AUTRE MANIÈRE DE L'UTILISATION DU LOGICIEL, MÊME EN CAS DE FAUTE (Y COMPRIS DE NÉGLIGENCE), DÉCLARATION INEXACTE, RESPONSABILITÉ STRICTE, RUPTURE DE CONTRAT OU RUPTURE DE GARANTIE DE MICROSOFT OU D'UN DE SES FOURNISSEURS, ET CE MÊME SI MICROSOFT ET SES FOURNISSEURS ONT ÉTÉ INFORMÉS DE LA POSSIBILITÉ DE TELS DOMMAGES.
+
+NONOBSTANT LES DOMMAGES QUE VOUS POURRIEZ SUBIR POUR QUELQUE RAISON QUE CE SOIT (Y COMPRIS, SANS QUE CELA SOIT LIMITATIF, TOUS LES DOMMAGES RÉFÉRENCÉS DANS LE PRÉSENT DOCUMENT ET TOUS LES DOMMAGES DIRECTS OU D'ORDRE GÉNÉRAL MENTIONNÉS DANS LE CONTRAT OU DANS TOUT AUTRE DOCUMENT), L'ENTIÈRE RESPONSABILITÉ DE MICROSOFT ET DE SES FOURNISSEURS AU TITRE DES OBLIGATIONS DU CONTRAT DE LICENCE ET VOTRE RÉPARATION EXCLUSIVE À CE MÊME TITRE SERONT LIMITÉES AU MONTANT DU DOMMAGE RÉEL LE PLUS ÉLEVÉ LIÉ AUX LOGICIELS, DANS LES LIMITES DU MONTANT QUE VOUS AVEZ RÉELLEMENT VERSÉ POUR LES LOGICIELS OU DE 5,00 DOLLARS US. LES SUSDITES LIMITATIONS, EXCLUSIONS ET CLAUSES DE PROTECTION S'APPLIQUENT DANS LES LIMITES AUTORISÉES PAR LA LÉGISLATION EN VIGUEUR, MÊME SI UN DES RECOURS N'ATTEINT PAS SON PRINCIPAL OBJECTIF.
+
+GALERIE D'EXEMPLES
+
+Le Logiciel peut contenir des exemples de Code Source ou de logiciels, qui illustrent les techniques de programmation. Ces exemples se trouvent dans la Galerie d'exemples. Vous êtes autorisé à copier, modifier et distribuer ces exemples, ou leurs modifications, sous quelque forme que ce soit, en interne au sein de Votre Entreprise ou en tant que partie intégrante de Votre application ou de la documentation associée. Ces exemples n'ont pas été testés dans toutes les conditions et ils Vous sont fournis par IBM sans obligation de support de quelque sorte que ce soit. IBM FOURNIT CES EXEMPLES "EN L'ÉTAT", SOUS RÉSERVE DE GARANTIES LÉGALES QUI NE PEUVENT ÊTRE EXCLUES. IBM NE FOURNIT AUCUNE GARANTIE EXPLICITE OU IMPLICITE, Y COMPRIS, ET DE FAÇON NON LIMITATIVE, EN MATIÈRE DE NON-CONTREFAÇON, ET AUCUNE GARANTIE OU CONDITION IMPLICITE D'APTITUDE À L'EXÉCUTION D'UN TRAVAIL DONNÉ EN CE QUI CONCERNE CES EXEMPLES OU LE SUPPORT TECHNIQUE, LE CAS ÉCHÉANT. Vous vous engagez à indemniser IBM ou les tiers qui fournissent des produits IBM (les "Tiers") contre toute réclamation de tout tiers résultant de ou liée à l'utilisation, la modification ou la distribution de ces exemples avec Votre application. Vous ne pouvez pas utiliser le même nom de chemin d'accès que celui des fichiers et/ou modules d'origine. Vous ne devez ni modifier, ni supprimer les informations relatives aux droits d'auteur figurant dans les Exemples.
+
+MISE À JOUR DES COMPOSANTS COMMUNS
+
+Certains composants du Logiciel sont appelés composants communs par IBM et peuvent être utilisés par plusieurs logiciels IBM. Par le présent Contrat, Vous reconnaissez que l'installation du Logiciel, des mises à jour futures du Logiciel ou d'autres Logiciels IBM utilisant lesdits composants communs peut entraîner une mise à jour des composants communs au sein de plusieurs Logiciels IBM.
+
+SERVICES WEB
+
+Le Logiciel contient des exemples dans le répertoire eclipse\plugins\com.ibm.etools.webservice.samples*.jar ("Exemples Apache Axis") qui rassemblent les composants générés par Apache Axis ou qui peuvent Vous permettre de générer des composants Apache Axis. IBM ne fournit aucun support pour les Exemples Apache Axis, ni pour les composants Apache Axis que Vous pourriez être amené à générer.
+
+LPEX
+
+IBM a apporté certaines modifications au Code Eclipse du composant LPEX, auxquelles il est fait référence en tant que "Classes de la Plateforme Eclipse". Les Classes de la Plateforme Eclipse n'ont pas été mises à la disposition de The Eclipse Foundation car elles sont spécifiques à ce Logiciel et à son composant LPEX. Le Code Source des Classes de la Plate-forme Eclipse peut être obtenu auprès d'IBM sur simple demande adressée par courrier électronique à stori@ca.ibm.com.
+
+
+
+
+D/N:  L-TDEN-7CHHUL
+P/N:  L-TDEN-7CHHUL 

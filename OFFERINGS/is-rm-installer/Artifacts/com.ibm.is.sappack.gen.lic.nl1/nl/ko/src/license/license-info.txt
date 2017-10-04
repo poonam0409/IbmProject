@@ -1,0 +1,154 @@
+﻿라이센스 정보
+
+아래에 나열된 프로그램은 프로그램 라이센스 계약(IPLA) 외에 다음 조건에 의거하여 라이센스가 부여됩니다.
+
+프로그램 이름: IBM Administration Client for Application Support Facility V1.0
+프로그램 번호: 5655-U83
+가정용/휴대용 컴퓨터에 대한 사용 권한: 본 프로그램이 주 기계 및 다른 기계에서 동시에 사용 중이 아닌 경우, 본 프로그램은 주 기계 및 다른 기계 모두에 저장될 수 있습니다.
+
+기타 IBM 프로그램에 대한 제한 사용(Limited Use) 권리
+
+본 프로그램을 "기타 IBM 프로그램" 항목에 포함시키는 다른 IBM 프로그램("주 프로그램")의 일부로 본 프로그램을취득한 경우, 귀하는 주 프로그램을 지원하기 위해서만 본 프로그램을 제공받게 되며 본 프로그램을 사용할 수 있는 귀하의 권한은 주 프로그램의 라이센스에 의해 제한됩니다. 주 프로그램의 라이센스 조항에 의해 제한되지 않는 본 프로그램의 별도 라이센스를 취득하기 위해서는 IBM 판매 담당자에게 문의하십시오.
+
+제외 구성요소
+
+본 조항의 규정은 본 라이센스에 적용되는 법률에 준해서 유효하지 않거나 시행이 불가능할 경우에는 적용되지 않습니다. 아래 명시된 구성요소는 "제외 구성요소"에 해당합니다. 본 IBM 계약 또는 귀하와 IBM 간의 기타 모든 계약의 조건에도 불구하고, 제외 구성요소에는 다음 조건이 적용됩니다.
+(a) 이러한 제외 구성요소의 제3자 공급자는 구성요소를 어떠한 종류의 보증 없이 제공하며, 제외 구성요소에 대한 소유권, 타인의 권리 비침해에 대한 보증 및 상품성 및 특정 목적에의 적합성에 대한 묵시적 보증과 조건을 포함하여(단, 이에 한하지 않음) 명시적이거나 묵시적인 일체의 보증 및 조건을 제공하지 않습니다.
+(b) 공급자는 어떠한 경우에도 제외 구성요소와 관련하여 기대했던 이익 및 비용 절감이 실현되지 못함으로 인해 발생한 손해, 데이터 분실로 인한 손해를 포함하여, 직접 손해, 간접 손해, 부수적 손해, 특별 손해, 징벌적 손해 또는 결과적 손해에 대해 일체 책임을 지지 않습니다.
+(c) IBM과 공급자는 제외 구성요소와 관련된 어떠한 배상 청구에 대해서도 귀하에 대해 책임을 지거나 귀하를 방어하거나 면책하지 않습니다.
+
+이러한 제외사항에도 불구하고, 독일과 오스트리아의 경우에는 제외 구성요소에 대한 IBM의 보증 및 책임과 관련하여 IBM 라이센스 계약 조항 중 독일과 오스트리아에 적용할 수 있는 개별 조항만 적용합니다.
+
+제외 구성요소(특정 제외 구성요소의 코드 원본 취득에 관한 지침 포함)와 관련하여 IBM이 귀하에게 알려야 할 주의사항 및 중요한 정보는 본 프로그램의 NOTICES 파일에서 확인할 수 있습니다.
+
+제외 구성요소의 사용에 대해서는 본 계약의 조항을 적용하며 NOTICES 파일에 포함된 조항이 적용되지 않습니다. 본 IBM 계약의 조항은 IBM이 제공하는 것이며 제3자가 제공하는 것이 아닙니다. 향후 프로그램의 업데이트나 수정팩에는 제외 구성요소가 추가될 수 있습니다. 이와 같이 추가된 제외 구성요소, 관련 주의사항 및 정보(해당하는 경우)는 본 프로그램의 업데이트나 수정팩에 들어 있는 다른 NOTICES 파일에 명시됩니다.
+
+다음은 제외 구성요소입니다.
+Apache Bean Scripting Framework (BSF) V2.4
+Apache Commons-BeanUtils V1.7.0
+Apache Commons-Collections V3.2
+Apache Commons-Configuration V1.1
+Apache Commons-DBCP v1.2.1
+Apache Commons-JXPath V1.2
+Apache Commons-Lang V2.3
+Apache Commons-Logging V1.1
+Apache Commons-Pool V1.3
+Apache Log4j V1.2.14
+Apache XMLBeans V2.3.0
+Apache XML4J V4.5.1
+Apache XSLT4J V2.7.8
+Eclipse Platform Classes:
+*com.ibm.lpex.alef.LpexTextViewer.java
+*com.ibm.lpex.alef.LpexTextViewerHoverManager.java
+*com.ibm.lpex.alef.LpexAnnotationBarHoverManager.java
+*com.ibm.lpex.alef.LpexAnnotationRulerColumn.java
+*com.ibm.lpex.alef.LpexChangeRulerColumn.java
+*com.ibm.lpex.alef.LpexSourceViewer.java
+*com.ibm.lpex.alef.LpexVerticalRuler.java
+*com.ibm.lpex.alef.DefaultEncodingSupport.java
+*com.ibm.lpex.alef.LpexTextEditor.java
+*com.ibm.lpex.alef.LpexAbstractDecoratedTextEditor.java
+*com.ibm.lpex.alef.LpexAbstractTextEditor.java
+*com.ibm.lpex.alef.EditorStatusLine.java
+*com.ibm.lpex.alef.LpexStatusTextEditor.java
+*package com.ibm.lpex.alef.contentassist.
+IBM Dojo Toolkit (IDT) V0.4
+IBM Dojo Toolkit (IDT) V1.0.x
+IBM Eclipse Help System (IEHS) V3.1.2
+IBM Eclipse Help System Installer (IEHSI) V3.1.2
+IBM Eclipse Help System (IEHS) for WAS 6.x V3.0.1
+IBM Eclipse SDK (IES) V3.2.2
+International Component for Unicode (ICU4J) V3.4
+LPEX V3.2.x
+
+명시된 운영 환경 
+
+본 프로그램의 명세 및 명시된 운영 환경 정보는 본 프로그램에 동봉된 문서(예: Read Me 파일)나 IBM의 기타 정보 문서(예: 발표 문서)에서 확인할 수 있습니다. 귀하는 해당 문서 및 기타 프로그램 컨텐트가 영어로만 제공될 수 있다는 것에 동의합니다.
+
+프로그램 고유 조항
+
+권한 
+
+현재 WebSphere Development Studio for iSeries에 대한 iSeries SW 유지보수 또는 S/W 등록 계약을 체결하고 있는 경우, 귀하는 본 프로그램을 제공받을 수 있으며 WebSphere Development Studio for iSeries 권한에서 설명한 바와 같이 i5/OS 응용프로그램을 개발할 목적으로 본 프로그램을 설치할 수 있습니다. 
+
+IBM WEBFACING TOOL 구성요소 
+
+본 프로그램에는 IBM WebFacing Tool의 개발 전용 버전이 포함됩니다. IBM WebFacing Tool로 빌드한 WebFacing 응용프로그램을 전개하기 위해서는 IBM WebFacing Deployment Tool for WebSphere Development Studio V7.0, 5724-N52의 필요한 라이센스를 구입해야 합니다. 
+
+IBM WEBSPHERE HOST ACCESS TRANSFORMATION SERVICES (HATS) TOOLKIT 버전 7.0 
+
+본 프로그램에는 HATS Toolkit의 개발 전용 버전이 포함됩니다. HATS Toolkit으로 빌드한 HATS 응용프로그램을 전개하기 위해서는 IBM WebFacing Deployment Tool for WebSphere Development Studio V7.0, 5724-N52의 필요한 라이센스를 구입해야 합니다. 
+
+COOPERATIVE DEVELOPMENT ENVIRONMENT AND VISUALAGE RPG(CODE and VARPG) 
+
+CODE and VARPG는 본 프로그램의 구성요소 중 하나이며 별도의 CD-ROM에 포함되어 있습니다. CODE and VARPG 구성요소를 설치하고 사용함으로써, 귀하는 별도의 CD-ROM에 포함된 CODE and VARPG에 대한 라이센스의 조건을 승인하게 됩니다. 
+
+DB2 구성요소 
+
+DB2 Connect 구성요소: 본 프로그램에는 DB2 Connect 기술의 일부가 포함되어 있습니다. 귀하는 응용프로그램을 개발하거나 DB2 for z/OS 및 DB2 for iSeries에 의해 관리되는 데이터 오브젝트를 모델링할 목적으로 라이센스를 취득한 본 프로그램과 함께 이들 구성요소의 사본 한 부를 설치하고 사용할 수 있습니다. 기타 다른 용도를 위해서는 본 프로그램에서 제공한 DB2 Connect 기술을 사용할 수 없습니다. 본 프로그램 이외의 다른 응용프로그램에 연결하는 데는 DB2 Connect 기술을 사용할 수 없습니다. 다른 응용프로그램에 대한 연결이 필요한 경우에는 적절한 DB2 Connect 라이센스를 별도로 구입해야 합니다. 
+
+귀하가 DB2 Connect 구성요소를 사용하는 경우 DB2 Connect 구성요소에 동봉되는 라이센스 계약의 조건이 적용됩니다(본 라이센스에서 달리 명시하는 경우는 제외). 기타 다른 목적으로는 DB2 Connect 구성요소를 사용할 수 없습니다. 본 라이센스 계약의 범위를 넘어서 해당 구성요소를 사용하고자 하는 경우에는 DB2 리셀러에 문의하여 정식 DB2 Connect 라이센스를 취득해야 합니다. 
+
+IBM WEBSPHERE APPLICATION SERVER 
+
+WEBSPHERE APPLICATION SERVER: 본 프로그램에는 본 프로그램의 "유닛 테스트 환경"에 포함된 WebSphere Application Server 사본을 포함하여 WebSphere Application Server 사본이 여러 개 동봉됩니다. 귀하는 코드가 설계된 대로 작동된다는 것을 확인하기 위해 한 명의 개발자가 작성하였거나 개발한 코드만을 테스트할 수 있는 "유닛 테스트"를 목적으로, 이 개발자가 사용할 수 있도록 본 프로그램의 나머지(유닛 테스트 환경에 있지 않는 모든 WSSD)가 설치된 기계에 WebSphere Application Server의 각 사본을 설치할 수 있습니다. 귀하는 유닛 테스트 라이센스 증서에 의거하여 설치 및 사용된 WebSphere Application Server 구성요소의 사본을 개발자의 기계가 아닌 서버에 있는 응용프로그램을 테스트하거나 실제 업무 워크로드를 모의 실험하기 위한 목적으로 사용하거나, 코드, 응용프로그램 또는 시스템의 확장성(scalability)을 테스트하기 위한 목적으로 사용할 수 없습니다. 실제 업무용으로는 WebSphere Application Server 구성요소를 사용할 수 없습니다. 
+
+소스 코드: WebSphere Application Server의 일부 구성요소는 소스 코드 형식으로 제공될 수 있습니다. 본 계약의 상반되는 어떠한 조항에도 불구하고, 프로그램 서비스는 WebSphere Application Server 패키지에 포함된 이러한 일부 구성요소의 수정되지 않은 2진 코드 버전에 대해서만 제공되며, 귀하가 작성한 구성요소의 수정본이나 이들 구성요소의 소스 코드에 대해서는 제공되지 않습니다. 
+
+J2C 기술 
+
+본 프로그램에는 J2C 커넥터 기술이 포함되어 있습니다. 다음 정보가 적용됩니다. 
+
+IMS: 
+본 프로그램에는 IMS TM Resource Adapter(IMS Connector for Java라고도 함)의 개별적인 JCA 1.0 및 JCA 1.5 버전이 포함됩니다. 귀하는 코드를 작성하거나 생성하기 위한 용도로만 이들 자원 어댑터 기능을 사용할 수 있습니다. 단, 본 프로그램으로 작성 또는 생성한 모든 코드에 대해 유닛 테스트를 수행하려면 귀하는 IMS V9에 대한 최소 한 부의 유효한 라이센스를 취득해야 합니다. 실제 업무 용도로는 본 프로그램에서 제공한 IMS TM Resource Adapter를 사용할 수 없습니다. 실제 업무 용도로 IMS TM Resource Adapter를 사용하려면 Java용 IMS Connector 웹 사이트(www.ibm.com/ims)를 참조하십시오.
+
+JCA: 
+본 프로그램의 라이센스를 취득한 사용자는 본 프로그램과 함께 'cicseci. rar' 파일에 패키지로 구성된 JCA(J2EE Connector Architecture) 자원 어댑터 및 'ctgclient.jar' 파일에 패키지로 구성된 Java 클라이언트 클래스를 자유롭게 배포할 수 있습니다. 이들 클라이언트 클래스를 배포하는 라이센스 사용자는 해당 클래스를 지원하고 유지보수할 책임이 있습니다. IBM은 본 프로그램의 라이센스 사용자가 다음 사항을 확인하는 경우에 한해 해당 배포하는 행위에 대하여 동의합니다. 
+
+(i) 'JAR' 또는 'RAR' 파일의 원본 양식을 수정하지 않습니다. 
+(ii) 'JAR' 또는 'RAR' 파일은 본 프로그램에서 지원하는 Java 환경 외에서는 사용하지 않습니다. 
+(iii) 모든 통신은 'ctgclient.jar' 또는 'RAR' 파일 버전 이상의 릴리스 수준에서 CICS Transaction Gateway로 수행됩니다. 
+
+JRPC DEVELOPMENT KIT 
+
+다음 특정 권리 및 제한사항은 본 프로그램에 포함된 JRPC Development Kit 구성요소에 적용됩니다. 본 프로그램을 설치함으로써, 귀하는 다음 조건에 동의하게 됩니다. 
+
+프로그램은 항공기의 온라인 제어, 항공 교통, 항공기 운행 또는 항공기 통신에 사용되거나 핵 시설의 설계, 건축, 운영 또는 유지보수에 사용되도록 설계되거나 의도되지 않았습니다. 라이센스 사용자는 이러한 용도로 본 프로그램을 사용하지 않을 것을 보증합니다. 
+
+J2C 기술: COBOL 컴파일러 구성요소 
+
+본 프로그램의 사본에는 Windows용 IBM WebSphere Studio COBOL이 포함된 J2C 커넥터 기술(COBOL 컴파일러 구성요소)이 포함되어 있습니다. 본 프로그램에 들어 있는 COBOL 컴파일러 구성요소는 COBOL 데이터 구조의 메타데이터를 가져오기 위한 용도로 프로그램의 내부 구성요소에 의해서만 사용될 수 있습니다. 귀하는 이 코드를 실제 업무용으로 사용할 수 없습니다. 
+
+J2C 기술: PL/I 컴파일러 구성요소 
+
+본 프로그램의 사본에는 Windows용 IBM WebSphere Studio PL/I이 포함된 J2C 커넥터 기술(PL/I 컴파일러 구성요소)이 포함되어 있습니다. 본 프로그램에 들어 있는 PL/I 컴파일러 구성요소는 PL/I 데이터 구조의 메타데이터를 가져오기 위한 용도로 프로그램의 내부 구성요소에 의해서만 사용될 수 있습니다. 귀하는 이 코드를 실제 업무용으로 사용할 수 없습니다. 
+
+MICROSOFT 코드 
+
+본 프로그램에는 Microsoft Corporation의 일부 재배포 가능 소프트웨어가 포함되어 있습니다. 본 라이센스 계약에서 언급된 기타 조건에 추가하여, 귀하는 이러한 소프트웨어를 리버스 엔지니어하거나 디컴파일하거나 해체할 수 없습니다(단, 이러한 제한사항에도 불구하고 해당 법률에서 명시적으로 허가하는 경우만은 제외).
+
+귀하는 Microsoft의 사전 서면 승인 없이 Microsoft .Net Framework에 대한 벤치마크 테스트 결과를 제3자에게 공개할 수 없습니다. 
+
+해당 법률에 의해 허용되는 최대한의 범위에서 Microsoft나 Microsoft 공급자는, 소프트웨어를 사용하거나 사용하지 못함으로 인한 손해, 소프트웨어를 통한 지원, 기타 서비스, 정보, 소프트웨어 및 관련 컨텐트를 제공하거나 제공하지 못함으로 인한 손해 또는 그 외에 달리 소프트웨어를 사용함으로 인한 손해 즉, 특수 손해, 부수 손해, 징벌적 손해, 간접 손해 또는 결과적 손해(기대했던 이익이 실현되지 못함으로 발생한 손해, 사업 중단에 관한 기밀 또는 기타 정보의 손실, 신체 상해, 개인정보 손실, 신용 또는 합리적 관리 등 의무 비준수로 인한 손해, 과실에 의한 손해, 금전적 또는 기타 형태의 손해 포함, 단 이에 한하지 않음)에 대하여 이러한 손해가 Microsoft나 모든 공급자의 과실, 불법행위(부주의 포함), 부실 표시, 무과실 책임, 계약 또는 보증을 위반함으로 발생하였거나 이러한 손해의 발생 가능성을 통보받았다고 할지라도 어떠한 책임도 지지 않습니다. 
+
+어떠한 이유로든 귀하에게 발생한 손해(본 계약에서 언급한 모든 손해 및 계약상 또는 기타 직접적 또는 통상 손해 포함, 단 이에 한하지 않음)에 대해서는 본 라이센스 계약의 조항에 의거하여 귀하가 실제로 지출한 비용을 한도로 귀하에게 발생한 소프트웨어와의 상당한 인과관계가 인정되는 실손해와 미화 $5.00 중 많은 금액을 한도로 MICROSOFT 또는 그 공급자에게 책임이 있으며 이것이 귀하의 유일한 구제수단입니다. 위의 제한사항, 제외사항 및 면책사항은 구제조치가 적용되지 않는 경우라 하더라도 해당 법률에 의해 허용되는 최대한의 범위로 적용합니다. 
+
+샘플 갤러리 
+
+본 프로그램에는 프로그래밍 기술을 예시해 주는 샘플 소스 코드 또는 프로그램이 들어 있습니다. 이들 샘플은 샘플 갤러리에 있습니다. 귀하는 이러한 샘플이나 샘플 수정본을 어떠한 형식으로든지 내부적으로 또는 귀하의 응용프로그램이나 관련 문서의 일부로서 복사, 수정 및 배포할 수 있습니다. 이러한 샘플은 모든 조건 하에서 테스트된 것은 아니며, 아무런 지원 없이 IBM에 의해 귀하에게 제공됩니다. IBM은 본 샘플을 "현상태대로" 제공하나 강행 법규에 의해 규정된 보증은 적용됩니다. IBM은 이들 샘플이나 기술 지원에 대해 상품성, 특정 목적에의 적합성 및 타인의 권리 비침해에 대한 묵시적 보증이나 조건을 포함하여 명시적이거나 묵시적인 일체의 보증이나 조건을 제공하지 않습니다. 귀하가 귀하의 응용프로그램과 함께 이들 샘플을 사용, 수정 또는 배포함으로써 발생하는 제3자 배상 청구에 대해 IBM 또는 IBM 제품을 제공하는 제3자(이하 "제3자")는 책임이 없습니다. 귀하는 원본 파일이나 모듈과 동일한 경로 이름을 사용할 수 없습니다. 귀하는 샘플에 포함된 저작권 정보를 변경하거나 삭제할 수 없습니다. 
+
+공통 구성요소 갱신 
+
+본 프로그램의 특정 일부는 여러 IBM 프로그램에서 공유할 수 있는 공통 구성요소로서 IBM에 의해 내부적으로 지정되어 있습니다. 귀하는 본 프로그램, 본 프로그램의 추후 업데이트 또는 이러한 공통 구성요소를 사용하는 기타 IBM 프로그램을 설치하는 경우 여러 IBM 프로그램을 통해 공통 구성요소가 갱신될 수 있다는 점을 인정하고 동의합니다. 
+
+웹 서비스 
+
+본 프로그램에는 Apache Axis 구성요소를 생성할 수 있거나 Apache Axis에 의해 생성된 구성요소가 들어 있는 샘플("Apache Axis 예제")이 elipse₩plugins₩com.ibm.etools.webservice.samples*.jar 디렉토리에 포함되어 있습니다. IBM은 Apache Axis 예제 및 귀하가 생성하는 Apache Axis 구성요소에 대해 어떠한 지원도 제공하지 않습니다. 
+
+LPEX 
+
+IBM은 LPEX 구성요소용 Eclipse 코드를 일부 수정했으며, 이러한 수정본을 "Eclipse Platform Classes"라고 합니다. Eclipse Platform Classes는 본 프로그램 및 LPEX 구성요소에만 해당되므로 Eclipse Foundation에 다시 귀속되지 않습니다. Eclipse Platform Classes의 소스 코드는 IBM에 전자 우편(stori@ca.ibm.com)으로 요청하여 제공받을 수 있습니다. 
+
+
+D/N:  L-TDEN-7CHHUL
+P/N:  L-TDEN-7CHHUL 

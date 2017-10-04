@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2011" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2011" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="SAP システムとモデルを調整する" />
+<meta name="abstract" content="論理データ・モデルに SAP メタデータをインポートした後、そのメタデータは、インポート時点における SAP システムのスナップショットを表します。新規モデルに対して IBM InfoSphere Data Architect Rapid Modeler for SAP のメタデータ・インポート・ウィザードを再実行することによって、モデルを再抽出または調整したい場合があります。新規モデルが作成された後は、InfoSphere Data Architect を使用して、元の論理データ・モデルと新規論理データ・モデルを比較できます。メタデータの再抽出では、すべてのチェック・テーブルとテキスト・テーブルが再収集されます。" />
+<meta name="description" content="論理データ・モデルに SAP メタデータをインポートした後、そのメタデータは、インポート時点における SAP システムのスナップショットを表します。新規モデルに対して IBM InfoSphere Data Architect Rapid Modeler for SAP のメタデータ・インポート・ウィザードを再実行することによって、モデルを再抽出または調整したい場合があります。新規モデルが作成された後は、InfoSphere Data Architect を使用して、元の論理データ・モデルと新規論理データ・モデルを比較できます。メタデータの再抽出では、すべてのチェック・テーブルとテキスト・テーブルが再収集されます。" />
+<meta name="DC.subject" content="SAP システム, モデルの調整" />
+<meta name="keywords" content="SAP システム, モデルの調整" />
+<meta name="DC.Relation" scheme="URI" content="../topics/c_gen_pack_sap_container.html" />
+<meta name="DC.Relation" scheme="URI" content="../topics/c_prepare_ida_workspace.html" />
+<meta name="DC.Relation" scheme="URI" content="../topics/t_import_metadata_rapid_modeler.html" />
+<meta name="DC.Relation" scheme="URI" content="../topics/c_is_pack_sap_applications.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="reconcilingyourmodelwithansapsystem" />
+<meta name="DC.Language" content="ja-jp" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+<link rel="Start" href="../topics/c_gen_pack_sap_container.html" />
+<title>SAP システムとモデルを調整する</title>
+<script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+<script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+<script type="text/javascript">
+var mDivision = "IM/IS";
+var mProductName = "IBM InfoSphere Information Server";
+var mProductVersion = "8.7.0";
+var mToList = "comments@us.ibm.com,cgauthie@us.ibm.com,burkharj@us.ibm.com,eldredge@us.ibm.com,pattere@us.ibm.com";
+var mNewWindow = false;
+var plugin_form = "com.ibm.srcf.doc";
+</script>
+
+</head>
+<body id="reconcilingyourmodelwithansapsystem"><a name="reconcilingyourmodelwithansapsystem"><!-- --></a>
+<div role="banner" id="runningheader" class="runningheader">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/IBM_IC_cue.gif" />
+<span class="hf-bold">IBM InfoSphere Information Server Pack for SAP Applications、バージョン 7.0</span><div id="runningheader-feedback" class="runningheader-feedback">
+<a href="javascript:ibm_id_form()"><span class="hf-bold">フィードバック</span></a></div>
+<hr class="hf-hr" />
+</div>
+<!-- This headerarea file can be used for any topic placed in only one subdirectory,
+     not in the root directory of the plug-in. 
+     Template; ICCC Version 3.1, CBU Version 4.2, May 2011.
+--><!-- BEGIN NON-TRANSLATE SECTION --><div>
+   <!-- Additional meta information. -->
+   <meta name="dc.identifier" content="headerfile" />
+   <meta name="dc.rights" content="© Copyright IBM Corporation 2004, 2011" />
+   <!-- meta name="DC.Rights.Owner" content="For support, contact sharpt@us.ibm.com" -->
+   <meta name="feedback" content="" />
+   <meta name="ibm.country" content="US" />
+   <meta name="ibm.effective" scheme="W3CDTF" content="2011-04-27" />
+   <meta name="ibm.expires" scheme="W3CDTF" content="2012-04-27" />
+   <meta name="source" content="CBU map.infocenter transform from DITA" />
+   <!-- Common CSS -->
+   <link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+   <!-- topic_url.js for writing the topic URL in the footer. -->
+   <script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+   <!-- srcfv3.js and variable setup for the Feedback link. -->
+   <script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+   <script type="text/javascript">
+      var mDivision = "IM";
+      var mProductName = "IBM CBU Sample";
+      var mProductVersion = "4.2.0";
+      var mToList = "Notesgroupname";
+      var plugin_form = "com.ibm.srcf.doc"; 
+</script>
+   <noscript>
+      <style type="text/css"><!--.collapsecontent{display:block;}// -->
+      </style>
+   </noscript>
+</div><!-- END NON-TRANSLATE SECTION -->
+<h1 class="title topictitle1">SAP システムとモデルを調整する</h1>
+<div class="body taskbody"><p class="shortdesc">論理データ・モデルに SAP メタデータをインポートした後、そのメタデータは、インポート時点における SAP システムのスナップショットを表します。新規モデルに対して <span class="ph">IBM® InfoSphere™ Data Architect</span> Rapid Modeler for SAP のメタデータ・インポート・ウィザードを再実行することによって、モデルを再抽出または調整したい場合があります。新規モデルが作成された後は、<span class="ph">InfoSphere Data Architect</span> を使用して、元の論理データ・モデルと新規論理データ・モデルを比較できます。メタデータの再抽出では、すべてのチェック・テーブルとテキスト・テーブルが再収集されます。</p>
+<div class="section prereq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">始める前に</h2></div><span class="ph">IBM InfoSphere Data Architect</span> Rapid Modeler を使用して SAP メタデータが論理データ・モデルにインポートされたことを確認します。</div>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">このタスクについて</h2></div>メタデータの調整が便利なシナリオのいくつかは、次のとおりです。<ul class="ul"><li class="li">論理データ・モデルと、同じ SAP システム内のモデルとを比較して、モデルが変更されたか確認します。例えば、新規バージョンにアップグレードした後や開発サイクルの終了時後に、モデルが変更される可能性があります。</li>
+<li class="li">SAP システム同士を比較します。例えば、テスト・システムとそれに対応する実動システム間や 2 つの別々の SAP システム間で、相違が検出される場合があります。</li>
+</ul>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">手順</h2></div><ol class="ol steps"><li class="li step"><span class="ph cmd">SAP メタデータを含んでいる論理データ・モデル (<span class="ph filepath">.ldm</span> ファイル) を右クリックし、<span class="ph menucascade"><span class="ph uicontrol">「Rapid Modeler for SAP」</span> &gt; <span class="ph uicontrol">「メタデータを新規モデルに再抽出」</span></span>を選択します。</span></li>
+<li class="li step"><span class="ph cmd"><span class="ph uicontrol">「前に実行したインポーター」</span>ページで、<span class="ph">IBM InfoSphere Data Architect</span> Rapid Modeler for SAP で実行した前のインポート実行を選択し、<span class="ph uicontrol">「次へ」</span>をクリックします。</span></li>
+<li class="li step"><span class="ph cmd">作成する新規論理データ・モデルの名前を入力します。<span class="ph filepath">.ldm</span> ファイル拡張子は付けません。</span></li>
+<li class="li step"><span class="ph cmd">メタデータを再インポートする元の SAP システムを選択します。</span></li>
+<li class="li step"><span class="ph cmd"><span class="ph uicontrol">「再抽出の開始」</span>をクリックします。</span></li>
+<li class="li step"><span class="ph cmd"><span class="ph uicontrol">「OK」</span>をクリックします。</span> 元のインポートのオプションを含む <span class="ph">IBM InfoSphere Data Architect</span> Rapid Modeler for SAP インポート・ウィザードが開始します。</li>
+<li class="li step"><span class="ph cmd">2 つの論理データ・モデルを比較するには、モデルを右クリックし、<span class="ph menucascade"><span class="ph uicontrol">「比較」</span> &gt; <span class="ph uicontrol">「相互比較」</span></span>を選択します。</span></li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">タスクの結果</h2></div>新規論理データ・モデルが作成されました。このモデルには再調整された SAP メタデータが含まれます。</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="../topics/c_gen_pack_sap_container.html" title="IBM InfoSphere Information Server Pack for SAP Applications は、論理データ・モデルをインポートし、インポートされたメタデータを使用する InfoSphere DataStage ジョブを生成するための、InfoSphere Data Architect ツールを提供します。">Pack for SAP Applications 用の IBM InfoSphere Data Architect コンポーネント</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連概念</strong><br />
+<div><a class="link" href="../topics/c_prepare_ida_workspace.html" title="IBM InfoSphere Data Architect Rapid Modeler for SAP および IBM InfoSphere Rapid Generator for SAP を使用する前に、InfoSphere Data Architect ワークスペースを準備しておく必要があります。">InfoSphere Data Architect ワークスペースの準備</a></div>
+<div><a class="link" href="../topics/c_is_pack_sap_applications.html" title="ほとんどすべての SAP プロジェクトの一部として、SAP のデータ・モデルを識別し、分析し、文書化する必要があります。これらのデータ・モデルはほとんどの場合、カスタマイズされ、補完されているので、カスタム・データ・モデルは標準モデルとは異なっています。SAP システムからデータを抽出したり、SAP システムにデータをロードしたりするには、外部アプリケーションと SAP インターフェースに関する知識が必要です。企業内では一般に、異なるチームがデータ統合と SAP システムをそれぞれ担当します。この責任の分割の結果、(例えば、フラット・ファイルの交換に) 一時の間に合わせで統合が実行されることになります。">概要</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong><br />
+<div><a class="link" href="../topics/t_import_metadata_rapid_modeler.html" title="IBM InfoSphere Data Architect Rapid Modeler for SAP ウィザードを使用して、論理テーブルからのメタデータか、SAP からの IDoc タイプを論理データ・モデルにインポートすることができます。">Rapid Modeler を使用した SAP メタデータのインポート</a></div>
+</div>
+</div>
+<br />
+<div role="contentinfo" id="runningfooter" class="runningfooter">
+<hr class="hf-hr" />
+
+<p class="runningfooter">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/timestamp.gif" />
+リリース日付: 2011-10-01
+
+<span class="hf-block"><script language="javascript">write_topic_url();</script></span>
+
+<span class="hf-block"><img class="hf-icon" src="../../com.ibm.base.collateral.doc/images/pdf.gif" alt="" />
+この資料の PDF 版:
+<a href="http://www.ibm.com/support/docview.wss?uid=swg27008803http://www.ibm.com/support/docview.wss?uid=swg27008803"><span class="hf-bold">IBM InfoSphere Information Server Integration Guide for IBM InfoSphere Information Server Pack for SAP Applications</span></a>
+</span>
+</p>
+</div>
+</body>
+</html>

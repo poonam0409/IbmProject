@@ -1,0 +1,16 @@
+﻿INFORMATIONS SUR LA LICENCE
+
+Les dispositions suivantes s'ajoutent à celles contenues dans le document Conditions Internationales d'Utilisation de Logiciel (IPLA), pour l'utilisation des Logiciels indiqués ci-dessous.
+
+Nom du Logiciel : IBM InfoSphere Information Server Pack for SAP Applications V 7.1
+Référence du Logiciel : 5724-Q55
+
+Nom du Logiciel : IBM InfoSphere Information Server Pack for SAP Applications for Non-Production Environments V 7.1
+Référence du Logiciel : 5724-Q55
+
+Installation
+
+Le terme "Installation" désigne une unité de mesure par laquelle le Logiciel peut être concédé sous licence. Une Installation désigne un exemplaire du Logiciel installé sur un disque physique ou virtuel et mis à disposition pour être exécuté sur un ordinateur. Le Détenteur de la Licence doit acquérir une Autorisation d'Utilisation pour chaque Installation du Logiciel.
+
+D/N:  L-JCHN-8KES35
+P/N:  L-JCHN-8KES35 

@@ -1,0 +1,10 @@
+#Tue Jun 28 18:36:36 IST 2016
+remoteHelpICEnabled=true,true,true,false
+remoteHelpOn=true
+remoteHelpHost=pic.dhe.ibm.com,publib.boulder.ibm.com,www.ibm.com,127.0.0.1
+remoteHelpPath=/infocenter/dataarch/v8r5,/infocenter/rsahelp/v8r5,/support/knowledgecenter/SSYMRC_5.0.2,/help
+remoteHelpName=InfoSphere Data Architect,Rational Software Architect,Rational solution for Collaborative Lifecycle Management,Local
+remoteHelpPort=80,80,80,63650
+remoteHelpProtocol=http,http,http,http
+remoteHelpPreferred=true
+eclipse.preferences.version=1

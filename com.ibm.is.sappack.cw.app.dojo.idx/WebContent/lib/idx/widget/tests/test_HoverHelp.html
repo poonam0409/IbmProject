@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en">
+<head>
+<title>Test Hover Help</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+<script type="text/javascript">
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/claro/claro.css", "idxStyles");
+</script>
+
+<style type="text/css" id="idxStyles">
+@import "../../themes/test.css";
+@import "../../themes/vienna/vienna.css";
+@import "../../themes/oneui/oneui.css";
+@import "../../resources/claro_idx.css";
+@import "../../resources/vienna_idx.css";
+</style>
+
+<script type="text/javascript">
+	var dojoConfig = currentDojoVersion.dojoConfig;
+</script>
+
+<script type="text/javascript">
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+</script>
+
+<script type="text/javascript" id="postDojo">
+var modules = [ "dijit.form.Textarea",
+				"dijit.form.TextBox",
+				"dijit.form.CheckBox",
+				"idx.util",
+				"idx.widget.HoverHelp" ];
+				
+dojoRequireModules(modules, null, currentDojoVersion.async);
+</script>
+<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+
+<body style="width: 100%; height: 100%; margin: 0; padding: 0">
+<a class="navigationLink" href="#maincontent">Skip to main content</a>
+<script type="text/javascript">applyThemeToBody()</script>
+<a name="maincontent"></a>
+<div style="margin: 8px;">
+	<div dojoType="idx.widget.HoverHelp" jsId="hoverHelp"></div>
+</div>
+
+<table>
+<tr><td style="text-align: right;font-weight: bold;white-space: nowrap;">Message:</td><td><div dojoType="dijit.form.TextBox">
+	<script type="dojo/connect" event="onChange">
+		hoverHelp.set("message", this.value);
+	</script>
+</div></td><td style="font-size: 80%;"><i>A short message providing information on the associated item.  Takes precedence over message from resources.</i></td></tr>
+<tr><td style="text-align: right;font-weight: bold;white-space: nowrap;">Title:</td><td><div dojoType="dijit.form.TextBox">
+	<script type="dojo/connect" event="onChange">
+		hoverHelp.set("title", this.value);
+	</script>
+</div></td><td style="font-size: 80%;"><i>The title is displayed by most browsers when hovering over the button and used for accessibility.</i></td></tr>
+<tr><td style="text-align: right;font-weight: bold;white-space: nowrap;">Href:</td><td><div dojoType="dijit.form.TextBox">
+	<script type="dojo/connect" event="onChange">
+		hoverHelp.set("href", this.value);
+	</script>
+</div></td><td style="font-size: 80%;"><i>Usually specified as a relative link to find more information on the associated item.  Takes precedence over href from resources.</i></td></tr>
+<tr><td style="text-align: right;font-weight: bold;white-space: nowrap;">Base Href:</td><td><div dojoType="dijit.form.TextBox">
+	<script type="dojo/connect" event="onChange">
+		hoverHelp.set("baseHref", this.value);
+	</script>
+</div></td><td style="font-size: 80%;"><i>The "baseHref" usually comes from resources and is a global setting.  It used as a prefix to the "href".</i></td></tr>
+<tr><td style="text-align: right;font-weight: bold;white-space: nowrap;">Topic ID:</td><td><div dojoType="dijit.form.TextBox">
+	<script type="dojo/connect" event="onChange">
+		hoverHelp.set("topicID", this.value);
+	</script>
+</div></td><td style="font-size: 80%;"><i>Specify this to lookup message and/or href in resources.</i></td></tr>
+<tr><td style="text-align: right;font-weight: bold;white-space: nowrap;">Message Key Prefix:</td><td><div dojoType="dijit.form.TextBox" value="topic_">
+	<script type="dojo/connect" event="onChange">
+		hoverHelp.set("messageKeyPrefix", this.value);
+	</script>
+</div></td><td style="font-size: 80%;"><i>Prefix used with "topicID" to build the key for looking up the message in resources.</i></td></tr>
+<tr><td style="text-align: right;font-weight: bold;white-space: nowrap;">Message Key Suffix:</td><td><div dojoType="dijit.form.TextBox" value="_message">
+	<script type="dojo/connect" event="onChange">
+		hoverHelp.set("messageKeySuffix", this.value);
+	</script>
+</div></td><td style="font-size: 80%;"><i>Suffix used with "topicID" to build the key for looking up the message in resources.</i></td></tr>
+<tr><td style="text-align: right;font-weight: bold;white-space: nowrap;">Href Key Prefix:</td><td><div dojoType="dijit.form.TextBox" value="topic_">
+	<script type="dojo/connect" event="onChange">
+		hoverHelp.set("hrefKeyPrefix", this.value);
+	</script>
+</div></td><td style="font-size: 80%;"><i>Prefix used with "topicID" to build the key for looking up the href in resources.</i></td></tr>
+<tr><td style="text-align: right;font-weight: bold;white-space: nowrap;">Href Key Suffix:</td><td><div dojoType="dijit.form.TextBox" value="_href">
+	<script type="dojo/connect" event="onChange">
+		hoverHelp.set("hrefKeySuffix", this.value);
+	</script>
+</div></td><td style="font-size: 80%;"><i>Suffix used with "topicID" to build the key for looking up the href in resources.</i></td></tr>
+<tr><td style="text-align: right;font-weight: bold;white-space: nowrap;">Disabled:</td><td><div dojoType="dijit.form.CheckBox">
+	<script type="dojo/connect" event="onChange">
+		hoverHelp.set("disabled", this.get("checked"));
+	</script>
+</div></td><td style="font-size: 80%;"><i>Disables the hover help widget.</i></td></tr>
+<tr><td style="text-align: right;font-weight: bold;white-space: nowrap;">Click to Open:</td><td><div dojoType="dijit.form.CheckBox">
+	<script type="dojo/connect" event="onChange">
+		hoverHelp.set("clickToOpen", this.get("checked"));
+	</script>
+</div></td><td style="font-size: 80%;"><i>Check this to force click-to-open behavior.</i></td></tr>
+<tr><td style="vertical-align: top; text-align: right;font-weight: bold;white-space: nowrap;">Resources:</td><td style="vertical-align: top;"><div style="width: 30em;" dojoType="dijit.form.Textarea">{ }
+    <script type="dojo/connect" event="onChange">
+		hoverHelp.set("resources", dojo.fromJson(this.value));
+	</script>
+</div></td><td style="font-size: 80%;">Example:<pre style="background-color:#AAAAAA;">
+{
+  topic_userInfo_given_name_message: "The user's given name.",
+  topic_userInfo_given_name_href: "/infocenter/myproduct/userinfo#givenName",
+  defaultHrefLabel: "Learn more....",
+  defaultTitle: "Click or display help",
+  defaultMessage: "[No Help Available]",
+  baseHref: "http://publib.boulder.ibm.com"
+}
+</pre></td></tr>
+</table>
+
+</body>
+</html>

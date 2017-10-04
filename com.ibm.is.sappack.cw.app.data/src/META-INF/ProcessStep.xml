@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="2.0"
+    xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd ">
+    <named-query name="ProcessStep.retrieveProcessStepById">
+        <query>
+            SELECT
+                ps
+            FROM
+                PROCESSSTEP ps
+                LEFT JOIN FETCH ps.parentProcess
+                LEFT JOIN FETCH ps.usedBusinessObjects
+                LEFT JOIN FETCH ps.transactions
+                LEFT JOIN FETCH ps.allowed
+                LEFT JOIN FETCH ps.usages 
+            WHERE
+                ps.processStepId = :processStepId
+        </query>
+    </named-query>
+<!--
+Removed because of JPA bug when setting the IN clause parameter list
+<named-query name="ProcessStep.getAllForSecurityNames">
+        <query>
+            SELECT DISTINCT
+                ps
+            FROM
+                PROCESSSTEP ps
+            JOIN ps.allowed AS a
+            WHERE
+            	a.securityName IN (:userOrGroupNames)
+        </query>
+</named-query>
+-->
+    <named-query name="ProcessStep.getAllForSecurityId">
+        <query>
+            SELECT DISTINCT
+                ps
+            FROM
+                PROCESSSTEP ps
+            JOIN ps.allowed AS a
+            WHERE
+                a.uniqueId = :uniqueId
+        </query>
+    </named-query>
+    <named-query name="ProcessStep.getAll">
+        <query>
+            SELECT
+                ps
+            FROM
+                PROCESSSTEP ps
+        </query>
+    </named-query>
+</entity-mappings>

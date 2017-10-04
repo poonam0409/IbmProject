@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+ (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+ disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en">
+<head>
+<title>Test JsonStore</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+<script type="text/javascript">
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/claro/claro.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dojox/grid/resources/claroGrid.css", "idxStyles");
+</script>
+
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneui/oneui.css";
+@import "../../themes/vienna/vienna.css";
+@import "../../themes/vienna/grid/viennaGrid.css";
+@import "../../themes/test.css";
+</style>
+
+<script type="text/javascript">
+	var dojoConfig = currentDojoVersion.dojoConfig;
+</script>
+
+<script type="text/javascript">
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+</script>
+
+<script type="text/javascript" id="postDojo">
+var modules = ["dojo/_base/connect",  	// using "/" means module is only included for 1.7
+			   "dojo/json",				// using "/" means module is only included for 1.7 
+			   "dijit.form.Button",
+			   "dijit.form.TextBox",
+			   "dojox.grid.DataGrid",
+               "idx.data.JsonStore"];
+
+var store1 = null;
+var store2 = null;
+
+function preParse(modules) {
+	var JsonStore = modules["idx/data/JsonStore"];
+	store1 = new JsonStore({identifier: "name", label: "value", items: "nameValues", data: {
+		nameValues: [
+			{name: "name1", value: "value1"}, 
+			{name: "name2", value: "value2"}, 
+			{name: "name3", value: "value3"}
+		]
+	}});
+	store2 = new JsonStore({data: [
+		{name: "name1", value: "value1"}, 
+		{name: "name2", value: "value2"}, 
+		{name: "name3", value: "value3"}
+	]});	
+}
+
+function postParse(modules) {
+	var dConnect    = modules["dojo/_base/connect"];
+	var dJson		= modules["dojo/json"];
+	
+	var connect  = (dConnect) ? dConnect.connect : dojo.connect;
+	var fromJson = (dJson) ? dJson.parse : dojo.fromJson;
+	var toJson   = (dJson) ? dJson.stringify : dojo.toJson;
+	
+	connect(getDataButton, "onClick", function(){
+		var data = store2.getData();
+		var value = toJson(data);
+		getDataBox.set("value", value);
+	});
+	connect(setDataButton, "onClick", function(){
+		var value = setDataBox.get("value");
+		var data = fromJson(value);
+		store2.setData(data);
+		grid2.render();
+	});
+	var data = [
+		{name: "name4", value: "value4"}, 
+		{name: "name5", value: "value5"}, 
+		{name: "name6", value: "value6"}
+	];
+	setDataBox.set("value", toJson(data));
+}
+
+dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+</script>
+
+
+</script>
+<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 0;">
+<a class="navigationLink" href="#maincontent">Skip to main content</a>
+<script type="text/javascript">applyThemeToBody()</script>
+<a name="maincontent"></a>
+<table dojoType="dojox.grid.DataGrid" jsId="grid1" store="store1" style="margin: 8px;">
+	<thead>
+		<tr>
+			<th field="name">Name</th>
+			<th field="value">Value</th>
+		</tr>
+	</thead>
+</table>
+<table dojoType="dojox.grid.DataGrid" jsId="grid2" store="store2" style="margin: 8px;">
+	<thead>
+		<tr>
+			<th field="name">Name</th>
+			<th field="value">Value</th>
+		</tr>
+	</thead>
+</table>
+<div style="margin: 8px;">
+	<button dojoType="dijit.form.Button" jsId="getDataButton">Get Data</button>
+	<input dojoType="dijit.form.TextBox" jsId="getDataBox" style="width: 400px;"/>
+</div>
+<div style="margin: 8px;">
+	<button dojoType="dijit.form.Button" jsId="setDataButton">Set Data</button>
+	<input dojoType="dijit.form.TextBox" jsId="setDataBox" style="width: 400px;"/>
+</div>
+</body>
+</html>

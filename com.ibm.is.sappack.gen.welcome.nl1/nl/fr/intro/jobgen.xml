@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2014  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<introContent>
+  	<extensionContent id="comibmissappackgenwelcome-introExtension" style="css/sample.css" name="IBM InfoSphere Information Server Packs" path="overview/@">
+        <group style-id="content-group" id="rapidModeler-introLink-group">
+       		<link label="IBM InfoSphere Data Architect components for Pack for SAP Applications product overview" url="http://org.eclipse.ui.intro/showHelpTopic?id=/com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc/nl/en/contents/topics/c_is_pack_sap_applications.html" id="comibmissappackgenwelcome-overview" style-id="content-link">
+          		<text>Bienvenue dans la version 8.0.0.1 d'IBM InfoSphere Data Architect components for Pack for SAP Applications. Cette nouvelle offre résulte de l'intégration nouvelle génération de SAP et InfoSphere Information Server. Grâce à un tout nouvel ensemble d'outils, les données SAP de votre entreprise bénéficient d'une intégration simple et rapide à l'aide de métadonnées.</text>
+       		</link>
+       		<link label="Introduction to Rapid Modeler for SAP Applications" url="http://org.eclipse.ui.intro/showHelpTopic?id=/com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc/nl/en/contents/topics/c_intro_rapid_modeler.html" id="comibmissappackgenwelcome-rm" style-id="content-link">
+          		<text>Cet outil vous permet de parcourir et de sélectionner des métadonnées SAP à importer dans
+	un modèle de données logique créé à l'aide d'InfoSphere Data Architect. Une fois les métadonnées importées, vous pouvez créer des diagrammes et ajouter des commentaires et des
+	annotations pour mieux les comprendre.</text>
+       		</link>
+          <link label="Introduction to Rapid Generator for SAP Applications" url="http://org.eclipse.ui.intro/showHelpTopic?id=/com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc/nl/en/contents/topics/c_intro_rapid_generator.html" id="comibmissappackgenwelcome-rg" style-id="content-link">
+              <text>Une fois que vous avez importé les métadonnées SAP avec Rapid Modeler for SAP Applications, ce
+	composant vous permet de générer les travaux d'InfoSphere DataStage. Ces travaux, à leur	tour, extraient
+ou chargent les données réelles dans/depuis une base de données relationnelle ou des fichiers à plat.</text>
+          </link>
+        </group>
+  	</extensionContent>
+</introContent>

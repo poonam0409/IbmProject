@@ -1,0 +1,38 @@
+
+
+<project name="sappackanttasks" basedir="." default="all">
+
+	<property name="builddir" value="./comp" />
+	<property name="srcdir" value="../antsrc" />
+	<property name="rmplugindir" value="../../com.ibm.is.sappack.gen.tools.sap" />
+	<property name="rgplugindir" value="../../com.ibm.is.sappack.gen.tools.jobgenerator" />
+	<property name="jarfile" value="${builddir}/rmrganttasks.jar" />
+
+	<path id="classpath">
+		<pathelement path="${rmplugindir}/bin"/>
+		<pathelement path="${rgplugindir}/bin"/>
+	</path>
+
+	<target name="prepare">
+		<delete dir="${builddir}" />
+	</target>
+
+	<target name="create-dir" description="create directories">
+		<mkdir dir="${builddir}" />
+	</target>
+	
+	<target name="compile">
+		<javac srcdir="${srcdir}" destdir="${builddir}" classpathref="classpath"/>
+	</target>
+	
+	<target name="jar">
+		<jar destfile="${jarfile}" basedir="${builddir}"/>
+	</target>
+	
+	<target name="copyjar">
+		<copy file="${jarfile}" todir="../rmrgantlib"/>
+	</target>
+	
+	<target name="all" depends="prepare,create-dir,compile,jar,copyjar"/>
+	
+</project>

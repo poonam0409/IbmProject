@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_5.xsd" version="5">
+	<display-name>com.ibm.is.sappack.cw.app.ui.ear</display-name>
+	<module id="Module_1332837799772">
+		<web>
+			<web-uri>com.ibm.is.sappack.cw.app.ui.war</web-uri>
+			<context-root>ibm/iis/cw/CWApp</context-root>
+		</web>
+	</module>
+	<module id="Module_1332837799774">
+		<web>
+			<web-uri>DojoRuntime.war</web-uri>
+			<context-root>DojoRuntime</context-root>
+		</web>
+	</module>
+	<module id="Module_1344495459890">
+		<web>
+			<web-uri>com.ibm.is.sappack.cw.app.services.war</web-uri>
+			<context-root>com.ibm.is.sappack.cw.app.services</context-root>
+		</web>
+	</module>
+	<security-role>
+		<role-name>FunctionalDataAnalyst</role-name>
+	</security-role>
+	<security-role>
+		<role-name>Administrator</role-name>
+	</security-role>
+	<security-role>
+		<role-name>ReadOnly</role-name>
+	</security-role>
+	<security-role>
+		<role-name>Everyone</role-name>
+	</security-role>
+<!-- 	
+	<security-role>
+		<role-name>Configurator</role-name>
+	</security-role>
+-->
+</application>

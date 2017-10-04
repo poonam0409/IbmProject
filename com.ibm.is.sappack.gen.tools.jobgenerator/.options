@@ -1,0 +1,2 @@
+# trace setting
+com.ibm.is.sappack.gen.tools.jobgenerator/debug=true

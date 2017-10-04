@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="cshelp" />
+<meta name="DC.Title" content="Import options" />
+<meta name="abstract" content="You can specify the SAP table, IDoc and check table options in this page." />
+<meta name="Description" content="You can specify the SAP table, IDoc and check table options in this page." />
+<meta name="DC.Coverage" content="Import options" />
+<meta name="DC.Date" scheme="iso8601" content="2013-02-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="importoptions" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+<title>Import options</title>
+<script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+<script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+<script type="text/javascript">
+var mDivision = "IM/IS";
+var mProductName = "IBM InfoSphere Information Server";
+var mProductVersion = "9.1.0";
+var mToList = "comments@us.ibm.com,cgauthie@us.ibm.com,burkharj@us.ibm.com,eldredge@us.ibm.com";
+var mNewWindow = false;
+var plugin_form = "com.ibm.srcf.doc";
+</script>
+
+<script type="text/javascript" src="../tutorials.js"> </script></head>
+<body role="main" id="importoptions">
+<div role="banner" id="runningheader" class="runningheader">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/IBM_IC_cue.gif" />
+<span class="hf-bold">IBM InfoSphere Data Architect components for Pack for SAP Applications, Version 8.0.0.1</span><div id="runningheader-feedback" class="runningheader-feedback">
+<a href="javascript:ibm_id_form()"><span class="hf-bold">Feedback</span></a></div>
+<hr class="hf-hr" />
+</div>
+<!-- This header area file can be used for any topic placed in only one subdirectory,
+     not in the root directory of the plug-in. 
+     Template; ICCC Version 3.1, CBU Version 4.2, May 2011.
+--><!-- BEGIN NON-TRANSLATE SECTION --><div>
+   <!-- Additional meta information. -->
+   <meta name="dc.identifier" content="headerfile" />
+   <meta name="dc.rights" content="© Copyright IBM Corporation 2011, 2014" />
+   <!-- meta name="DC.Rights.Owner" content="For support, contact sharpt@us.ibm.com" -->
+   <meta name="feedback" content="" />
+   <meta name="ibm.country" content="US" />
+   <meta name="source" content="CBU map.infocenter transform from DITA" />
+   <!-- Common CSS -->
+   <link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+   <!-- topic_url.js for writing the topic URL in the footer. -->
+   <script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+   <!-- srcfv3.js and variable setup for the Feedback link. -->
+   <script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+   <script type="text/javascript">
+      var mDivision = "IM";
+      var mProductName = "IBM InfoSphere Information Server";
+      var mProductVersion = "multiple";
+      var mToList = "comments@us.ibm.com";
+      var plugin_form = "com.ibm.srcf.doc"; 
+   </script>
+   <noscript>
+      <style type="text/css"><!--.collapsecontent{display:block;}// -->
+      </style>
+   </noscript>
+</div>
+<!-- END NON-TRANSLATE SECTION -->
+<h1 class="title topictitle1">Import options</h1>
+<div class="body csbody">
+  <p class="shortdesc">In the Import Options page you can specify the SAP table and IDoc options.</p>
+  <dl class="dl">
+    <dt class="dt dlterm">Table options</dt>
+    <dd>
+      <dl class="dl">
+        <dt class="dt dlterm">Check and text tables</dt>
+        <dd class="dd">Select options how to import metadata for both check tables and text tables.
+          <dl class="dl">
+            <dt class="dt dlterm">Import metadata for related check tables</dt>
+            <dd class="dd">Select the option to import metadata for check tables.
+              <dl class="dl">
+                <dt class="dt dlterm">Collect check tables recursively</dt>
+                <dd class="dd">Select the option to import all metadata of check tables that are used by check
+                               tables. If this option is not selected the metadata of check tables of only retrieved SAP tables are imported.</dd>
+                <dt class="dt dlterm">Import metadata for related text tables</dt>
+                <dd class="dd">Select the option to additionally import the corresponding text tables for check tables. For example,
+                               for the check table containing the valid country code such as US, the corresponding text table contains
+                               the country names United States.</dd>
+                <dt class="dt dlterm">Check table blacklist</dt>
+                <dd class="dd">You can specify a list of check tables to be excluded when SAP objects are imported. The
+                               list must contain one table name in each line, and each table must be separated by a
+                               carriage return.</dd>
+              </dl>
+            </dd>
+          </dl>
+        </dd>
+      </dl>
+      <dl class="dl">
+        <dt class="dt dlterm">Relations</dt>
+        <dd class="dd">Select the option to import the relationship between the retrieved SAP tables.
+          <dl class="dl">
+            <dt class="dt dlterm">Enforce</dt>
+            <dd class="dd">Select the option to enforce the relations between SAP tables.</dd>
+          </dl>
+        </dd>
+      </dl>
+    </dd>
+    <dt class="dt dlterm">IDoc options</dt>
+    <dd>
+      <dl class="dl">
+        <dt class="dt dlterm">IDoc Segment Fields</dt>
+        <dd>
+          <dl class="dl">
+            <dt class="dt dlterm">Make all segments fields nullable</dt>
+            <dd class="dd">Select the option if you want to allow the columns to be nullable.</dd>
+            <dt class="dt dlterm">Allow all types for columns</dt>
+            <dd class="dd">Specify if you want to allow all data types for columns.</dd>
+            <dt class="dt dlterm">Use VARCHAR only</dt>
+            <dd class="dd">Specify if you want to allow only VARCHAR for all columns.</dd>
+            <dt class="dt dlterm">Length factor</dt>
+            <dd class="dd">Specify a length factor for the VARCHAR columns</dd>
+          </dl>
+        </dd>
+        <dt class="dt dlterm">Check tables</dt>
+        <dd class="dd">Select options to import metadata for both check tables and text tables.
+          <dl class="dl">
+            <dt class="dt dlterm">Import metadata for related check tables</dt>
+            <dd class="dd">Select the option to import metadata for check tables.
+            <dt class="dt dlterm">Import metadata for related text tables</dt>
+            <dd class="dd">Select the option to import metadata for text tables.</dd>
+            <dt class="dt dlterm">Check table blacklist</dt>
+            <dd class="dd">You can specify a list of check tables to be excluded when SAP objects are imported. The
+                           list must contain one table name for each line, and each table must be separated by a
+                           carriage return.</dd>
+            </dd>
+          </dl>
+        </dd>
+      </dl>
+    </dd>
+  </dl>
+</div>
+<div class="related-links"></div>
+<br />
+<div role="contentinfo" id="runningfooter" class="runningfooter">
+<hr class="hf-hr" />
+
+<p class="runningfooter">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/timestamp.gif" />
+Last updated: 2014-04-30
+</p>
+</div>
+</body>
+</html>

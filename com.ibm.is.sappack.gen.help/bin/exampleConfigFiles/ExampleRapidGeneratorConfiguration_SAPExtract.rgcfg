@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="PARAMETER_PROPERTY_NAMES">CONN_NAME#SAP_USER</entry>
+<entry key="RGCFG_TYPE">SAP_EXTRACT</entry>
+<entry key="ID">1341745296359-1064820886</entry>
+<entry key="PROP_KEY_MODE">RMRG_CW_MODE</entry>
+<entry key="PARAMETER_PFX_1">SAPUser#SAPUser#String##</entry>
+<entry key="CONN_NAME">#SAPConn#</entry>
+<entry key="PARAMETER_PFX_0">SAPConn#SAPConn#String##</entry>
+<entry key="DOCUMENTATION">This is an example for an Rapid generator configuration for SAP extraction jobs.</entry>
+<entry key="SAP_USER"></entry>
+<entry key="PARAMETER_NUM">1</entry>
+</properties>

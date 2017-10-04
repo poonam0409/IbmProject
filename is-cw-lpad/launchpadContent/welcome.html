@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<HTML LANG="en">
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+
+<!-- Licensed Materials - Property of IBM
+     5648-F10 (C) Copyright International Business Machines Corp. 2007
+     All Rights Reserved
+     US Government Users Restricted Rights - Use, duplication or disclosure
+     restricted by GSA ADP Schedule Contract with IBM Corp. -->
+
+</head>
+
+<script src="../jscp.js" language="javascript">
+<%@ include file="global.head" %>
+<% loadCSSfiles(DEFAULTCSS, "content.css"); %>
+
+<body>
+	<span class="mainHeader"><%= property('guideTitle') %></span><br>
+	<em><%= property('intro') %></em><br>
+	<em><%= property('sentence4') %></em><img src="./images/pdf_16.gif">&nbsp;<a href="javascript:void 0" name="quickstart" onclick="viewPage('disk1', findFileInPaths('disk1', ['quickstart/' + top.LOCALE, 'quickstart/' + '<%= property('fallBackLocale') %>'], '<%= property('quickstartPDFFileName') %>'))"><%= property('item3') %></a>
+
+	<h1 class="noNumber"><%= property('overview') %></h1>
+	<p>
+		<%= property('sentence1') %>
+	</p>
+	<p><%= property('sentence5') %>
+		<br>
+		<img src="./images/productTour_16.gif">&nbsp;<a href="javascript:void 0" name="tour" onclick="runProgram('disk1',command('tour'), BACKGROUND, VISIBLE, this)"><%= property('item4') %></a>
+	</p>
+
+	<h1 class="noNumber"><%= property('more') %></h1>
+	<p><%= property('sentence3') %>
+		<br>
+		<img src="./images/extwebsite_16.gif">&nbsp;<a href="javascript:void 0" onclick="viewPage(NO_DISKID, '<%= property('url1') %>')"><%=property('item1')%></a>
+		<br>
+		<img src="./images/extwebsite_16.gif">&nbsp;<a href="javascript:void 0" onclick="viewPage(NO_DISKID, '<%= property('url1') %>')"><%=property('item2')%></a>
+	</p>
+
+	<hr>
+	<p class="copyright"><%= property('copyright') %></p>
+</script>
+
+</body>
+</html>

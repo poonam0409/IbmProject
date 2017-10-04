@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>idx.oneui.CheckBoxTree DoH</title>
+
+		<script type="text/javascript" src="../../../dojoVersion.js"></script>
+		<script type="text/javascript">
+		dojoCSSImport("../../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		</script>
+		<style id="idxStyles" type="text/css">
+			@import "../../../../themes/oneui/idx/oneui/oneuiMain.css";
+			@import "../../../../themes/oneui/dijit/dijitMain.css";
+			@import "../../../../themes/test.css";
+		</style>
+		<script type="text/javascript" src="../../../commonTest.js"></script>
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+			dojoScriptImport("../../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+
+		<script type="text/javascript">
+			var modules = [
+				"idx.oneui.CheckBoxTree",
+				"dojo.data.ItemFileWriteStore",
+				"dijit.tree.ForestStoreModel",
+				"doh"]; 
+			var CheckBoxTree,
+				ItemFileWriteStore,
+				ForestStoreModel,
+				doh;
+			
+			function preParse(modules){
+				CheckBoxTree = modules["idx/oneui/CheckBoxTree"];
+				ItemFileWriteStore = modules["dojo/data/ItemFileWriteStore"];
+				ForestStoreModel = modules["dijit/tree/ForestStoreModel"];
+				doh = modules["doh"];
+			}
+
+			function postParse(modules){
+				doh.register("parse", function(){
+					dojo.parser.parse();
+					var d = new doh.Deferred();
+					setTimeout(d.getTestCallback(function(){
+						// Give the checkboxtree time to load, and the do checks that it
+						// loaded correctly
+						checkboxtree1 = dijit.byId("mytree1");
+						checkboxtree2 = dijit.byId("mytree2");
+						doh.t(checkboxtree1);
+						doh.t(checkboxtree2);
+						doh.t(checkboxtree1.rootNode, "root node exists");
+						doh.t(checkboxtree2.rootNode, "root node exists");
+						doh.t(checkboxtree1.rootNode.isExpanded, "root node is expanded");
+						doh.t(checkboxtree2.rootNode.isExpanded, "root node is expanded");
+
+						var children1 = checkboxtree1.rootNode.getChildren();
+						var children2 = checkboxtree2.rootNode.getChildren();
+						doh.is(4, children1.length, "four children");
+						doh.is(2, children2.length, "two children");
+					}), 750);
+					return d;
+				});
+				
+				doh.register("Public API", [
+					{
+						name: "getNodesByItem",
+						timeout: 5000,
+						runTest: function(){
+							var d = new doh.Deferred();
+							var nodes = checkboxtree1.getNodesByItem("OC");
+							testNode = nodes[0];
+							doh.t(testNode);
+							doh.t(testNode.label === "Oceania");
+							checkboxtree1.model.fetchItemByIdentity({
+								identity: "OC",
+								onItem: function(item){
+									d.callback(checkboxtree1.getNodesByItem(item)[0] === testNode);
+								}
+							});
+							return d;
+						}
+					}, 
+					{
+						name: "_CheckBoxTreeNode.collapse",
+						runTest: function(){
+							var d = new doh.Deferred();
+							testNode.collapse();
+							setTimeout(d.getTestCallback(function(){
+								doh.t(!testNode.isExpanded);
+							}), 210);
+							return d;
+						}
+					},
+					{
+						name: "_CheckBoxTreeNode.expand",
+						runTest: function(){
+							var d = new doh.Deferred();
+							testNode.expand();
+							setTimeout(d.getTestCallback(function(){
+								doh.t(testNode.isExpanded);
+							}), 210);
+							return d;
+						}
+					},
+					{
+						name: " toggleNode",
+						runTest: function(){
+							var d = new doh.Deferred();
+							var node = checkboxtree1.getNodesByItem("EU")[0];
+							var childrenNodes = node.getChildren();
+							doh.t(node);
+							doh.t(node.label === "Europe");
+							doh.t(node.checkboxNode.checked === false);
+							checkboxtree1.toggleNode("EU");
+							doh.t(node.checkboxNode.checked === true);
+							for(var i = 0; i < childrenNodes.length; i++){
+								doh.t(childrenNodes[i].checkboxNode.checked === true, childrenNodes[i].label + " checked");
+							}
+							checkboxtree1.toggleNode(childrenNodes[1]);
+							doh.t(childrenNodes[1].checkboxNode.checked === false);
+							doh.t(node.checkboxNode.checked === "mixed");
+							checkboxtree1.toggleNode(node, false);
+							doh.t(node.checkboxNode.checked === false);
+							for(var i = 0; i < childrenNodes.length; i++){
+								doh.t(childrenNodes[i].checkboxNode.checked === false, childrenNodes[i].label + " unchecked");
+							}
+							checkboxtree1.toggleNode(node, "mixed");
+							doh.t(node.checkboxNode.checked === "mixed");
+							for(var i = 0; i < childrenNodes.length; i++){
+								if(i != 1){
+									doh.t(childrenNodes[i].checkboxNode.checked === true, childrenNodes[i].label + " checked");
+								}else{
+									doh.t(childrenNodes[i].checkboxNode.checked === false, childrenNodes[i].label + " unchecked");
+								}
+							}
+						}
+					}
+				]);
+				doh.run();
+			}
+			
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+		</script>
+	</head>
+	<body class="oneui">
+		<div data-dojo-id="continentStore" data-dojo-type="dojo.data.ItemFileWriteStore" data-dojo-props='url:"../../../../oneui/tests/_data/countries.json"'></div>
+		<div data-dojo-id="continentModel" data-dojo-type="dijit.tree.TreeStoreModel" data-dojo-props='store:continentStore, query:{id:"ROOT"},
+				rootId:"continentRoot", rootLabel:"Continents", childrenAttrs:["children"]'></div>
+	
+		<div data-dojo-id="continentStore2" data-dojo-type="dojo.data.ItemFileWriteStore" data-dojo-props='url:"../../../../oneui/tests/_data/countries2.json"'></div>
+		<div data-dojo-id="continentModel2" data-dojo-type="dijit.tree.ForestStoreModel" data-dojo-props='store:continentStore2, query:{type:"continent"},
+				childrenAttrs:["children"]'></div>
+	
+	
+		<table style="margin:5px solid gray;width:100%;" >
+		<tr style="vertical-align: top;">
+			<td style="width: 50%;">
+				<h2>CheckBoxTree with dijit.tree.TreeStoreModel</h2>
+				<div id="mytree1" data-dojo-type="idx.oneui.CheckBoxTree" data-dojo-props='model:continentModel, autoExpand:true, openOnClick:true, onLoad:function(){ console.log("loaded mytree (first tree)"); }'>
+				</div>
+			</td>
+			<td style="width: 50%;">
+				<h2>CheckBoxTree with dijit.tree.ForestStoreModel</h2>
+				<div id="mytree2" data-dojo-type="idx.oneui.CheckBoxTree" data-dojo-props='model:continentModel2, autoExpand:true, showRoot:false, openOnClick:true, onLoad:function(){ console.log("loaded mytree (second tree)"); }'>
+				</div>
+			</td>
+		</tr>
+		</table>
+	</body>
+</html>

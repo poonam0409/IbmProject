@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>idx.oneui.messaging.SingleMessage Test</title>
+
+	<script type="text/javascript" src="../../../tests/dojoVersion.js"></script>
+	<script type="text/javascript">
+		dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+	</script>
+	
+	<style id="idxStyles" type="text/css">
+		@import "../../../themes/oneui/oneui.css";
+		@import "../../../themes/test.css";
+		@import "../../tests/_pagefooter/_PageFooter.css";
+	</style>
+	
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+	</script>
+
+	<script type="text/javascript">
+		dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+
+	<script type="text/javascript" id="postDojo">
+		var modules = [
+			"idx.oneui.messaging.SingleMessage",
+			"dojo.on",
+			"dijit.form.Button",
+			"dijit.layout.BorderContainer",
+			"dijit.layout.ContentPane",
+			"idx.oneui.tests._pagefooter._PageFooter"]; 
+		var _PageFooter = null;
+		var dojoOn = null;
+		var autoWidthMessage = null;
+		function preParse(modules){
+			_PageFooter = modules["idx/oneui/tests/_pagefooter/_PageFooter"];
+			dojoOn = modules["dojo/on"];
+			new _PageFooter();
+		}
+		function postParse(modules){
+			autoWidthMessage = dijit.byId('autoWidthMessage');
+			dojoOn(window, 'resize', function(){
+				autoWidthMessage.resize();
+			});
+		}
+		dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+
+	</script>
+	<script type="text/javascript" src="../../../tests/commonTest.js"></script>
+</head>
+
+<body style="width: 100%; height: 100%; margin: 0; padding: 0px;">
+	<a class="navigationLink" href="#maincontent">Skip to main content</a>
+	<script type="text/javascript">applyThemeToBody("oneui");</script>
+	<a name="maincontent"></a>
+	<div class="testMain" id="main">
+		<h1 class="testTitle">idx.oneui.messaging.SingleMessage Test</h1>
+		<h2>Message types - Error</h2>
+		<div data-dojo-type="idx.oneui.messaging.SingleMessage" data-dojo-props="type: 'error', title: 'Error message with short timestamp',
+			dateFormat:{selector: 'time', timePattern: 'hh:mm a'}, messageId: 'CAT123456', messageNumber: 7, style: 'width: 970px;', description: 'Here is the detail message description, it can be configured via setting the \'description\' parameter of a SingleMessage widget. By default the message description is the same as the message title.'"></div>
+		<div data-dojo-type="idx.oneui.messaging.SingleMessage" data-dojo-props="type: 'error', title: 'Error message with long timestamp',
+			dateFormat:{datePattern: 'dd MMMM y &nbsp', timePattern: 'hh:mm a'}, messageId: 'CAT123456', messageNumber: 7, style: 'width: 970px;', description: 'Here is the detail message description, it can be configured via setting the \'description\' parameter of a SingleMessage widget. By default the message description is the same as the message title.'"></div>
+		<div data-dojo-type="idx.oneui.messaging.SingleMessage" data-dojo-props="type: 'error', title: 'Error message without View All link', showAction: false,
+			dateFormat:{datePattern: 'dd MMMM y &nbsp', timePattern: 'hh:mm a'}, messageId: 'CAT123456', messageNumber: 7, style: 'width: 970px;', description: 'Here is the detail message description, it can be configured via setting the \'description\' parameter of a SingleMessage widget. By default the message description is the same as the message title.'"></div>
+		<div data-dojo-type="idx.oneui.messaging.SingleMessage" data-dojo-props="type: 'error', title: 'Error message with long long long long long long long long long long long long long long long long long long long long long long long',
+			dateFormat:{datePattern: 'dd MMMM y &nbsp', timePattern: 'hh:mm a'}, messageId: 'CAT123456', messageNumber: 7, style: 'width: 970px;', description: 'Here is the detail message description, it can be configured via setting the \'description\' parameter of a SingleMessage widget. By default the message description is the same as the message title.'"></div>
+		
+		<h2>Message types - Warning</h2>
+		<div data-dojo-type="idx.oneui.messaging.SingleMessage" data-dojo-props="type: 'warning', title: 'Warning message with short timestamp',
+			dateFormat:{selector: 'time', timePattern: 'hh:mm a'}, messageId: 'CAT123456', messageNumber: 7, style: 'width: 970px;', description: 'Here is the detail message description, it can be configured via setting the \'description\' parameter of a SingleMessage widget. By default the message description is the same as the message title.'"></div>
+		<div data-dojo-type="idx.oneui.messaging.SingleMessage" data-dojo-props="type: 'warning', title: 'Warning message with long timestamp',
+			dateFormat:{datePattern: 'dd MMMM y &nbsp', timePattern: 'hh:mm a'}, messageId: 'CAT123456', messageNumber: 7, style: 'width: 970px;', description: 'Here is the detail message description, it can be configured via setting the \'description\' parameter of a SingleMessage widget. By default the message description is the same as the message title.'"></div>
+		<div data-dojo-type="idx.oneui.messaging.SingleMessage" data-dojo-props="type: 'warning', title: 'Warning message without View All link', showAction: false,
+			dateFormat:{datePattern: 'dd MMMM y &nbsp', timePattern: 'hh:mm a'}, messageId: 'CAT123456', messageNumber: 7, style: 'width: 970px;', description: 'Here is the detail message description, it can be configured via setting the \'description\' parameter of a SingleMessage widget. By default the message description is the same as the message title.'"></div>
+		<div data-dojo-type="idx.oneui.messaging.SingleMessage" data-dojo-props="type: 'warning', title: 'Warning message with long long long long long long long long long long long long long long long long long long long long long long long',
+			dateFormat:{datePattern: 'dd MMMM y &nbsp', timePattern: 'hh:mm a'}, messageId: 'CAT123456', messageNumber: 7, style: 'width: 970px;', description: 'Here is the detail message description, it can be configured via setting the \'description\' parameter of a SingleMessage widget. By default the message description is the same as the message title.'"></div>
+			
+		<h2>Message types - Success</h2>
+		<div data-dojo-type="idx.oneui.messaging.SingleMessage" data-dojo-props="type: 'success', title: 'Success message without ID',
+			dateFormat:{selector: 'time', timePattern: 'hh:mm a'}, messageId: 'CAT123456', showId: false, messageNumber: 7, style: 'width: 970px;', description: 'Here is the detail message description, it can be configured via setting the \'description\' parameter of a SingleMessage widget. By default the message description is the same as the message title.'"></div>
+		<div data-dojo-type="idx.oneui.messaging.SingleMessage" data-dojo-props="type: 'success', title: 'Success message with short timestamp',
+			dateFormat:{selector: 'time', timePattern: 'hh:mm a'}, messageId: 'CAT123456', messageNumber: 7, style: 'width: 970px;', description: 'Here is the detail message description, it can be configured via setting the \'description\' parameter of a SingleMessage widget. By default the message description is the same as the message title.'"></div>
+		<div data-dojo-type="idx.oneui.messaging.SingleMessage" data-dojo-props="type: 'success', title: 'Success message with long timestamp',
+			dateFormat:{datePattern: 'dd MMMM y &nbsp', timePattern: 'hh:mm a'}, messageId: 'CAT123456', messageNumber: 7, style: 'width: 970px;', description: 'Here is the detail message description, it can be configured via setting the \'description\' parameter of a SingleMessage widget. By default the message description is the same as the message title.'"></div>
+		<div data-dojo-type="idx.oneui.messaging.SingleMessage" data-dojo-props="type: 'success', title: 'Success message without View All link', showAction: false,
+			dateFormat:{datePattern: 'dd MMMM y &nbsp', timePattern: 'hh:mm a'}, messageId: 'CAT123456', messageNumber: 7, style: 'width: 970px;', description: 'Here is the detail message description, it can be configured via setting the \'description\' parameter of a SingleMessage widget. By default the message description is the same as the message title.'"></div>
+		<div data-dojo-type="idx.oneui.messaging.SingleMessage" data-dojo-props="type: 'success', title: 'Success message with long long long long long long long long long long long long long long long long long long long long long long long',
+			dateFormat:{datePattern: 'dd MMMM y &nbsp', timePattern: 'hh:mm a'}, messageId: 'CAT123456', messageNumber: 7, style: 'width: 970px;', description: 'Here is the detail message description, it can be configured via setting the \'description\' parameter of a SingleMessage widget. By default the message description is the same as the message title.'"></div>
+		
+		<h2>Message types - Information</h2>
+		<div data-dojo-type="idx.oneui.messaging.SingleMessage" data-dojo-props="type: 'information', title: 'Information message without ID',
+			dateFormat:{selector: 'time', timePattern: 'hh:mm a'}, messageId: 'CAT123456', showId: false, messageNumber: 7, style: 'width: 970px;', description: 'Here is the detail message description, it can be configured via setting the \'description\' parameter of a SingleMessage widget. By default the message description is the same as the message title.'"></div>
+		<div data-dojo-type="idx.oneui.messaging.SingleMessage" data-dojo-props="type: 'information', title: 'Information message with short timestamp',
+			dateFormat:{selector: 'time', timePattern: 'hh:mm a'}, messageId: 'CAT123456', messageNumber: 7, style: 'width: 970px;', description: 'Here is the detail message description, it can be configured via setting the \'description\' parameter of a SingleMessage widget. By default the message description is the same as the message title.'"></div>
+		<div data-dojo-type="idx.oneui.messaging.SingleMessage" data-dojo-props="type: 'information', title: 'Information message with long timestamp',
+			dateFormat:{datePattern: 'dd MMMM y &nbsp', timePattern: 'hh:mm a'}, messageId: 'CAT123456', messageNumber: 7, style: 'width: 970px;', description: 'Here is the detail message description, it can be configured via setting the \'description\' parameter of a SingleMessage widget. By default the message description is the same as the message title.'"></div>
+		<div data-dojo-type="idx.oneui.messaging.SingleMessage" data-dojo-props="type: 'information', title: 'Information message without View All link', showAction: false,
+			dateFormat:{datePattern: 'dd MMMM y &nbsp', timePattern: 'hh:mm a'}, messageId: 'CAT123456', messageNumber: 7, style: 'width: 970px;', description: 'Here is the detail message description, it can be configured via setting the \'description\' parameter of a SingleMessage widget. By default the message description is the same as the message title.'"></div>
+		<div data-dojo-type="idx.oneui.messaging.SingleMessage" data-dojo-props="type: 'information', title: 'Information message with long long long long long long long long long long long long long long long long long long long long long long long',
+			dateFormat:{datePattern: 'dd MMMM y &nbsp', timePattern: 'hh:mm a'}, messageId: 'CAT123456', messageNumber: 7, style: 'width: 970px;', description: 'Here is the detail message description, it can be configured via setting the \'description\' parameter of a SingleMessage widget. By default the message description is the same as the message title.'"></div>
+		
+		<h2>Alert types</h2>
+		<div data-dojo-type="idx.oneui.messaging.SingleMessage" data-dojo-props="type: 'critical', title: 'Processor is running at full capacity. You must shut down some processes or they will be stopped by the system.',
+			dateFormat:{selector: 'time', timePattern: 'hh:mm a'}, messageId: 'CAT123456', messageNumber: 7, style: 'width: 970px;'"></div>
+		<div data-dojo-type="idx.oneui.messaging.SingleMessage" data-dojo-props="type: 'warning', title: 'Processor is within 10% of the specified threshhold.  You might want to review the running processes or adjust the threshhold.',
+			dateFormat:{selector: 'time', timePattern: 'hh:mm a'}, messageId: 'CAT123456', messageNumber: 7, style: 'width: 970px;'"></div>
+		<div data-dojo-type="idx.oneui.messaging.SingleMessage" data-dojo-props="type: 'attention', title: 'One or more key servers are using the default password rather than something more secure.',
+			dateFormat:{selector: 'time', timePattern: 'hh:mm a'}, messageId: 'CAT123456', messageNumber: 7, style: 'width: 970px;'"></div>
+		<div data-dojo-type="idx.oneui.messaging.SingleMessage" data-dojo-props="type: 'compliance', title: '13,378 processes are currently running.',
+			dateFormat:{selector: 'time', timePattern: 'hh:mm a'}, messageId: 'CAT123456', showId: false, messageNumber: 7, style: 'width: 970px;'"></div>
+		
+		<h2>SingleMessage with relative width.</h2>
+		<div data-dojo-type="idx.oneui.messaging.SingleMessage" data-dojo-props="id: 'autoWidthMessage', type: 'error', title: 'Error message with relative width.',
+			dateFormat:{selector: 'time', timePattern: 'hh:mm a'}, messageId: 'CAT123456', messageNumber: 7, style: 'width: 90%;', description: 'Here is the detail message description, it can be configured via setting the \'description\' parameter of a SingleMessage widget. By default the message description is the same as the message title.'"></div>
+		
+		<h2>SingleMessage inside resizable container.</h2>
+		The message title will be truncated automatically when the container resizes.
+		<div id="border1" data-dojo-type="dijit.layout.BorderContainer"
+			data-dojo-props='style:"width: 970px; height: 400px;"'>
+			<div role="banner" data-dojo-type="dijit.layout.ContentPane" data-dojo-props='id:"border1-top", region:"top", style:"height: 50px;", splitter:false'>
+				Header (fixed size)
+			</div>
+			<div role="main" data-dojo-type="dijit.layout.ContentPane" data-dojo-props='id:"border1-center", region:"center"'>
+				Main area
+				<div data-dojo-type="idx.oneui.messaging.SingleMessage" data-dojo-props="type: 'error', style: 'margin-left: 0; margin-right: 0;', title: 'Error message with short timestamp long long long long long long long long long long long long long long long long long long long long long long long',
+				dateFormat:{selector: 'time', timePattern: 'hh:mm a'}, messageNumber: 7, messageId: 'CAT123456', description: 'Here is the detail message description, it can be configured via setting the \'description\' parameter of a SingleMessage widget. By default the message description is the same as the message title.'"></div>
+			</div>
+			<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props='id:"border1-right", region:"right", style:"width: 100px;", minSize:150, maxSize:350, splitter:true'>
+				Right column
+			</div>
+			<div role="contentinfo" data-dojo-type="dijit.layout.ContentPane" data-dojo-props='id:"border1-bottom", region:"bottom", style:"height: 50px;", splitter:false'>
+				Footer (fixed size)
+			</div>
+		</div>
+		
+		<h2>Stacked SingleMessages.</h2>
+		<div class="idxMessageStack"
+			><div data-dojo-type="idx.oneui.messaging.SingleMessage" data-dojo-props="type: 'error', title: 'The client cannot connect to the server customdocs.usaca.ibm.com. Data that you were sending to the server has',
+				dateFormat:{selector: 'time', timePattern: 'hh:mm a'}, messageId: 'CAT123456', messageNumber: 7, style: 'width: 970px;', description: 'Here is the detail message description, it can be configured via setting the \'description\' parameter of a SingleMessage widget. By default the message description is the same as the message title.'"></div
+			><div data-dojo-type="idx.oneui.messaging.SingleMessage" data-dojo-props="type: 'warning', title: 'This page might contain a virus. Ensure your virus protection is up to date and run a scan immediately',
+				dateFormat:{selector: 'time', timePattern: 'hh:mm a'}, messageId: 'CAT123456', messageNumber: 7, style: 'width: 970px;', description: 'Here is the detail message description, it can be configured via setting the \'description\' parameter of a SingleMessage widget. By default the message description is the same as the message title.'"></div
+			><div data-dojo-type="idx.oneui.messaging.SingleMessage" data-dojo-props="type: 'success', title: 'The filter was removed successfully',
+				dateFormat:{datePattern: 'dd MMMM y &nbsp', timePattern: 'hh:mm a'}, showId: false, messageNumber: 7, messageId: 'CAT123456', style: 'width: 970px;', description: 'Here is the detail message description, it can be configured via setting the \'description\' parameter of a SingleMessage widget. By default the message description is the same as the message title.'"></div
+		></div>
+		
+		<div id="node"></div>
+	</div>
+</body>
+</html>

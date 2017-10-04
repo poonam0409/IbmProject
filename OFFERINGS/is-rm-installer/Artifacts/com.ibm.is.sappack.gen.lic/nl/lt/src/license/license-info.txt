@@ -1,0 +1,49 @@
+﻿LICENCIJOS INFORMACIJA
+
+Toliau nurodytos Programos licencijuojamos pagal šias ir IBM Tarptautinė programos licencinė sutartis sąlygas (IBM formos numeris Z125-3301-14).
+
+Programos pavadinimas: IBM InfoSphere Information Server Pack for SAP Applications v7.1
+Programos numeris: 5724-Q55
+
+Programos pavadinimas: IBM InfoSphere Information Server Pack for SAP Applications for Non-Production v7.1
+Programos numeris: 5724-Q55
+
+Kaip nurodyta Tarptautinėje programos licencinėje sutartyje (IPLA) ir šioje Licencijos informacijoje, IBM suteikia licenciatui ribotą teisę naudoti Programą. Ši teisė apsiriboja Įgaliotojo naudojimo lygiu, pvz., Procesoriaus vertės vieneto (PVV), Vertės vieneto (VV) ar kitu nurodytu naudojimo lygiu, apmokamu Licenciato ir nurodytu Teisių suteikimo dokumente. Licenciato naudojimas taip pat gali būti apribotas tik nurodytame kompiuteryje ar tik kaip Pagalbinės programos, ar taikant kitus apribojimus. Kai Licenciatas nėra sumokėjęs už visą Programos ekonominę vertę, joks kitas naudojimas neleidžiamas nemokant papildomų mokesčių. Be to, kaip nurodyta IPLA, Licenciatas neturi teisės naudoti Programos komercinėms IT paslaugoms teikti jokiai trečiajai šaliai, taip pat teikti komercinę išteklių nuomą ar laiko paskirstą, teikti antrinę Programos licenciją ar ją nuomoti, jei tai nėra aiškiai nurodyta taikomose sutartyse, pagal kurias Licenciatas įgyja teisę naudoti Programą. Licenciatas gali naudotis papildomomis teisėmis sumokėjęs papildomą mokestį ar pagal kitas papildomas sąlygas. IBM pasilieka teisę nuspręsti, ar Licenciatas galės pasinaudoti tokiomis papildomomis teisėmis.
+
+Programos specifikacijas galima rasti Programos pranešimų bendruosiuose Aprašo ir techninės informacijos skyriuose.
+
+Pagalbinės programos
+
+Programa yra licencijuojama kaip kelių produktų paketas ir apima toliau nurodytas Pagalbines programas. Licenciatas įgaliotas diegti ir naudoti tokias Pagalbines programas tik Licenciato Pagrindinės programos naudojimui palaikyti pagal šią Sutartį, kaip nurodyta Programos Teisių suteikimo dokumente (nebent šiame Licencijos informacijos dokumente yra suteiktos platesnės teisės). Frazė „palaikyti Licenciato naudojimą“ apima tik tą naudojimą, kuris reikalingas ar kitaip tiesiogiai susijęs su Pagrindinės ar kitos Pagalbinės Programos licencijuotu naudojimu. Pagalbinių programų negalima naudoti jokiam kitam tikslui. Licenciatas nėra įgaliotas perduoti arba perparduoti Pagalbinių programų atskirai nuo Pagrindinės Programos. Pagalbinė programa gali būti pateikiama su licencijos sąlygomis ir šios sąlygos, jei tokių yra, taikomos Pagalbinę programą naudojančiam Licenciatui. Įvykus ginčui šiame Licencijos informacijos dokumente pateiktos sąlygos pakeičia Pagalbinės programos sąlygas. Kai Licenciato teisė naudoti Programą baigiasi arba nutraukiama, Licenciatas privalo nutraukti naudojimą, sunaikinti arba nedelsdamas grąžinti visas Pagalbinių Programų kopijas šaliai, iš kurios Licenciatas įsigijo Programą. Jeigu Licenciatas Pagalbines Programas atsisiuntė, jis turi susisiekti su šalimi, iš kurios Licenciatas įsigijo Programą. Jei Licenciatas nori licencijuoti Pagalbines programas naudoti ilgiau, nei nurodyta anksčiau, norėdami gauti atitinkamą licenciją, kreipkitės į IBM pardavimo atstovą arba šalį, iš kurios Licenciatas įsigijo Programą.
+
+Toliau išvardytos kartu su Programa licencijuotos Pagalbinės programos:
+- IBM Cognos Business Intelligence v10.2
+- IBM Master Data Management Reference Data Management Hub v10.1
+- IBM Conversion Workbench Migration Asset for SAP Applications v2.1
+- IBM Cognos Data Manager Connector for SAP R/3 v10.2
+
+Leidžiami komponentai
+
+Nepaisant jokių šios Sutarties nuostatų, Licenciatas gali naudoti tik šiuos nustatytos Pagalbinės Programos komponentus arba funkcijas:
+- IBM Master Data Management Reference Data Management Hub (may only be used with IBM Conversion Workbench Migration Asset for SAP Applications)
+- IBM Cognos Business Intelligence (may only be used with IBM Conversion Workbench Migration Asset for SAP Applications)
+- Cognos Connection (of IBM Cognos Business Intelligence)
+- Framework Manager (of IBM Cognos Business Intelligence)
+- Report Studio (of IBM Cognos Business Intelligence)
+- Report Viewer (of IBM Cognos Business Intelligence)
+
+Ne gamybos apribojimas
+
+Jei Programa pažymėta kaip „Ne gamybos“, Programą galima diegti tik kaip Licenciato vidinės kūrimo ir tikrinimo aplinkos dalį vidiniams ne gamybos veiksmams atlikti, įskaitant, bet neapsiribojant, tikrinimą, veikimo reguliavimą, trikčių diagnozavimą, vidinį kontrolinį testą, parengimą, kokybės užtikrinimo veiksmus ir (arba) viduje naudojamų Programos priedų ar plėtinių kūrimą naudojant paskelbtas taikomųjų programų programavimo sąsajas. Licenciatas neturi teisės naudoti bet kurios Programos dalies bet kokiais kitais tikslais, jei nėra įsigijęs atitinkamų gamybos teisių.
+
+Naudojimo trečiosios šalies naudai apribojimai
+
+Licenciatas negali naudoti Programos arba bet kurio jos komponento teikdamas paslaugų teikimo, išteklių nuomos arba bet kokias kitas komercinės informacijos technologijų paslaugas trečiosioms šalims, taip pat negali perduoti Programos trečiajai šaliai, nebent turi raštišką IBM sutikimą.
+
+Įdiegtis
+
+Įdiegtis yra matavimo vienetas, kuriuo remiantis gali būti licencijuojama ši Programa. Įdiegtis – tai fiziniame arba virtualiajame diske įdiegta Programos kopija, kurią galima vykdyti kompiuteryje. Licenciatas privalo įsigyti teises kiekvienai Programos Įdiegčiai.
+
+L/N:  L-SBRN-9FN46Q
+D/N:  L-SBRN-9FN46Q
+P/N:  L-SBRN-9FN46Q 

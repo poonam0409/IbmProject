@@ -1,0 +1,27 @@
+#CC_DELTA_EXTRACT_DISPLAY_NAME#           = 델타 추출
+#CC_DELTA_EXTRACT_SHORT_DESCRIPTION#      = 델타 추출 스테이지 커넥터
+#CC_DELTA_EXTRACT_LONG_DESCRIPTION#       = BW Extractor를 사용하여 SAP 시스템에서 델타 데이터를 추출하기 위한 커넥터
+#CC_DELTA_EXTRACT_AUTHOR#                 = IBM Corporation
+#CC_DELTA_EXTRACT_VERSION#                = IBM Corporation
+#CC_DELTA_EXTRACT_COPYRIGHT#              = Licensed Materials - Property of IBM (C) Copyright IBM Corp. 2015 All Rights Reserved.
+#CC_DELTA_EXTRACT_REPOSITORY_LOCATION# 	  = \스테이지 유형\병렬\Packs
+#CC_DELTA_EXTRACT_HELP_URL#               =
+#CC_DELTA_EXTRACT_SAP_CONN_NAME#		  = SAP 연결 이름
+#CC_DELTA_EXTRACT_SAP_USERNAME#			  = SAP 사용자 이름
+#CC_DELTA_EXTRACT_SAP_PASSWORD#			  = SAP 비밀번호
+#CC_DELTA_EXTRACT_SAP_CLIENT#			  = SAP 클라이언트 번호
+#CC_DELTA_EXTRACT_SAP_LANG#				  = 언어
+#CC_DELTA_EXTRACT_DATA_SOURCE_NAME#		  = 데이터 소스 이름
+#CC_DELTA_EXTRACT_DATA_SOURCE_TYPE#		  = 데이터 소스 유형
+#CC_DELTA_EXTRACT_DATA_FETCH_MODE#		  = 데이터 페치 모드
+#CC_DELTA_EXTRACT_DATA_FILTER#			  = 데이터 필터
+#CC_DELTA_EXTRACT_SAP_USE_CONN_DEFAULTS#  = SAP 연결 기본값 사용
+#CC_DELTA_EXTRACT_DATA_SOURCE_DESC#		  = 데이터 소스 설명
+#CC_DELTA_EXTRACT_DATA_HIERARCHY_NAME#	  = 계층 구조 이름
+#CC_DELTA_EXTRACT_DATA_HIERARCHY_CLASS#	  = 계층 구조 0Class
+#CC_DELTA_EXTRACT_DATA_HIERARCHY_VALIDFROM#	  = 계층 구조 유효 시작일
+#CC_DELTA_EXTRACT_DATA_HIERARCHY_VALIDTO#	  = 계층 구조 유효 종료일
+#CC_DELTA_EXTRACT_DATA_HIERARCHY_OWNER_DATASRC#	  = 계층 구조 소유자 데이터 소스 이름
+#CC_DELTA_EXTRACT_DSSAPCONNECTION# 				  = SAP ERP 애플리케이션에 연결 
+
+

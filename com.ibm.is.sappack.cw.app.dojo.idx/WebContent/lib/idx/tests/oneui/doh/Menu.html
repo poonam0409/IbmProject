@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>oneui.Menu DOH Test</title>
+		
+		<script type="text/javascript" src="../../dojoVersion.js"></script>
+
+		<script type="text/javascript">
+			dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		</script>
+	
+	    <style id="idxStyles" type="text/css">
+    	    @import "../../../themes/oneui/oneui.css";
+        	@import "../../../themes/test.css";
+	    </style>
+		
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+			dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+
+		<script type="text/javascript" id="postDojo">
+			var modules = [
+				"doh", 
+				"idx.oneui.MenuBar", 
+				"idx.oneui.Menu", 
+				"dijit.PopupMenuBarItem", 
+				"dijit.dijit",
+				"dojo.dom",
+				"dojo.dom-construct", 
+				"dojo.parser",
+				"dojo.query",
+				"dojo._base.window",
+				"dojo.ready"]; 
+
+			var doh, 
+				MenuBar, 
+				Menu, 
+				PopupMenuBarItem, 
+				dijit, 
+				dom,
+				domc,
+				parser,
+				query,
+				win,
+				ready;
+					
+			function preParse(modules){
+				doh = modules["doh"];
+				MenuBar = modules["idx/oneui/MenuBar"];
+				Menu = modules["idx/oneui/Menu"]; 
+				PopupMenuBarItem = modules["dijit.PopupMenuBarItem"]; 
+				dijit = modules["dijit/dijit"]; 
+				dom = modules["dojo/dom"];
+				domc = modules["dojo/dom-construct"];
+				parser = modules["dojo/parser"];
+				query = modules["dojo/query"];
+				win = modules["dojo/_base/window"];
+				ready = modules["dojo/ready"];
+			}
+				
+			function postParse(modules){
+				var testPerformance = /mode=benchmark/i.test(window.location.href);
+				if(!testPerformance){
+					// Register API tests.
+					doh.register("MenuAPI", [
+						{
+							name: "parse", 
+							runTest: function(t){
+								parser.parse();
+								doh.t(dijit.byId("menu_bar_1"));
+								doh.t(dijit.byId("menu_1"));
+							}
+						},
+				        {
+				            name: "ColumnNodes",
+				            runTest: function(t){
+								var menu = dijit.byId("menu_1");
+								var columnNodes = menu.columnNodes;
+								doh.t(columnNodes.length === 2);
+								doh.f(columnNodes[0] === columnNodes[1]);
+								doh.t(dom.isDescendant(columnNodes[0], menu.domNode));
+								doh.t(dom.isDescendant(columnNodes[1], menu.domNode));
+								doh.t(dom.isDescendant(dijit.byId("menu_item_1").domNode, columnNodes[0]));
+								doh.t(dom.isDescendant(dijit.byId("menu_item_2").domNode, columnNodes[1]));
+				            }
+				        },
+				        {
+				            name: "SetMenuForDialog",
+				            runTest: function(t){
+								var m = dijit.byId("menu_1");
+								testBooleanProperty(m, "menuForDialog", true);
+				            }
+				        },
+				        {
+				            name: "SetOpenOnHover",
+				            runTest: function(t){
+								var m = dijit.byId("menu_1");
+								testBooleanProperty(m, "openOnHover", true);
+				            }
+				        }
+				    ]);      
+				}else{
+					// Register performance tests
+					doh.register("MenuPerformance", [
+						{
+							testType: "perf",
+							name: "Create Menu",
+							trialDuration: 100,
+							trialIterations: 20,
+							trialDelay: 100,
+							setUp: function(t){
+								parser.parse();
+							},
+							runTest: function(t){
+								var div = domc.create("div", {}, win.body())
+								var menu = new Menu({}, div);
+							},
+							tearDown: function(t){
+								query("[widgetid*=oneui_Menu]").forEach(function(m){
+									dijit.byNode(m).destroyRecursive(false);
+								});
+							}
+						}
+					]);
+				}
+
+				doh.run();
+			}
+
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+
+			function testBooleanProperty(obj, propertyName, defaultValue){
+				// Test a boolean widget property has the correct default value
+				// (optional) and can be set true/false.
+				if(defaultValue != undefined)
+					doh.t(obj[propertyName] === defaultValue);  // Default value.
+				obj.set(propertyName, false);
+				doh.t(obj[propertyName] === false);
+				obj.set(propertyName, true);
+				doh.t(obj[propertyName] === true);
+			}
+					
+		</script>
+
+		<script type="text/javascript" src="../../commonTest.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+		<h1 class="testTitle">DOH Test of idx.oneui.Menu</h1>
+	    <div id="menu_bar_1" data-dojo-type="idx.oneui.MenuBar">
+			<div data-dojo-type="dijit.PopupMenuBarItem">
+				<span>idx.oneui.Menu</span>
+				<div id="menu_1" data-dojo-type="idx.oneui.Menu">
+					<div id="menu_item_1" data-dojo-type="dijit.MenuItem" data-dojo-props="column:'0'">Menu item #1</div>
+					<div id="menu_item_2" data-dojo-type="dijit.MenuItem" data-dojo-props="column:'1'">Menu item #2</div>
+				</div>
+			</div>
+	    </div>
+	</body>
+</html>

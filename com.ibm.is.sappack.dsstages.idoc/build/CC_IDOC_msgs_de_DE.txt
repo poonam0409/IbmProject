@@ -1,0 +1,227 @@
+////////////////////////////////////////////////////////////////////////////////
+// IBM Confidential                                                            
+//                                                                             
+// OCO Source Materials                                                        
+//                                                                             
+// 5724-Q55                                                                 
+//                                                                             
+// (C) Copyright IBM Corporation 2009, 2014                                              
+//                                                                             
+// The source code for this program is not published or otherwise              
+// divested of its trade secrets, irrespective of what has been                
+// deposited with the U.S. Copyright Office.                                     
+//////////////////////////////////////////////////////////////////////////////// 
+// Maintenance log - insert most recent change descriptions at top 
+//
+// Date....  WorkItem WHO     Description........................................
+//
+// 03/20/2011   95535 osuhre  Initial creation
+// 01/08/2013  156132 hschoen All messages moved from sapstagesmessages.properties
+// 04/09/2014  199326 hschoen Message 'CC_IDOC_ConfigFileEmpty' added
+////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////
+//
+// Correct encoding for this file and translations: UTF-8
+//
+//////////////////////////////////////////////////////////
+
+CC_IDOC_msgs_de_DE:table
+{
+// new        
+   // descriptor messages
+   // load
+	CC_IDOC_LOAD_STAGE_DISPLAY_NAME:string {"Connector-Stage für das Laden von IDocs"}
+	CC_IDOC_LOAD_SHORT_DESC:string {"Stage für das Laden von IDocs in SAP"} 
+	CC_IDOC_LOAD_LONG_DESC:string {"Stage für das parallele Laden von IDocs in SAP"} 
+        
+   // extract
+	CC_IDOC_EXTRACT_STAGE_DISPLAY_NAME:string {"Connector-Stage für das Extrahieren von IDocs"}
+	CC_IDOC_EXTRACT_SHORT_DESC:string {"Stage für die Verarbeitung von IDocs, die von SAP empfangen wurden"} 
+	CC_IDOC_EXTRACT_LONG_DESC:string {"Stage für die Verarbeitung von IDocs, die zuvor von SAP über den IDoc-Listener-Service empfangen wurden."} 
+           
+   // common
+    CC_IDOC_PX_REPOSITORY_LOCATION:string {"\\\\Stagetypen\\\\Parallel\\\\Packs"}
+ 
+   /////////////////////////////////
+   // Stage properties
+   
+   // common stage properties 
+        CC_IDOC_SP_DESTINATION:string {"     Ziel"}
+	CC_IDOC_SP_USERNAME:string {"     Benutzername"} 
+	CC_IDOC_SP_JOBNAME:string {"Jobname"} 
+	CC_IDOC_SP_FILENAME:string {"Dateiname"} 
+	CC_IDOC_SP_PASSWORD:string {"Kennwort"} 
+	CC_IDOC_SP_CLIENT:string {"Client"} 
+	CC_IDOC_SP_IDOCTYP:string {"IDoc-Typname"} 
+	CC_IDOC_SP_BASTYP:string {"Basistypname"} 
+	CC_IDOC_SP_LANGUAGE:string {"Sprache"} 
+	CC_IDOC_SP_CONNECTIONNAME:string {"Verbindungsname"} 
+	CC_IDOC_SP_USEDEFAULTSAPLOGON:string {"SAP-Standardanmeldung?"} 
+	CC_IDOC_SP_USEOFFLINEPROCESSING:string {"Dateibasierte IDoc-Verarbeitung aktivieren?"} 
+	CC_IDOC_SP_ROUTERSTR:string {"Routerzeichenfolge"} 
+	CC_IDOC_SP_PLUGVSN:string {"Plug-in-Version"} 
+        // design time only properties
+	CC_IDOC_SP_CONNECTIONNAMEDT:string {"Verbindungsname für Entwicklungszeit"} 
+	CC_IDOC_SP_DSSAPCONNECTIONDT:string {"Verbindung für Entwicklungszeit"} 
+	CC_IDOC_SP_USESAPLOGONDT:string {"Diese Verbindung für die Entwicklungszeit verwenden?"} 
+	CC_IDOC_SP_DSSAPCONNECTIONPARAMETERDT:string {"Verbindungsparametername für Entwicklungszeit"} 
+	CC_IDOC_SP_IDOCTYPE:string {"IDoc-Typinformationen"} 
+	CC_IDOC_SP_GWHOST:string {"Gateway-Host"} 
+	CC_IDOC_SP_SYSNBR:string {"Systemnummer"} 
+	CC_IDOC_SP_MSGSVR:string {"Nachrichtenserver"} 
+	CC_IDOC_SP_SYSNAME:string {"System-ID"} 
+	CC_IDOC_SP_GROUP:string {"Gruppe"} 
+	CC_IDOC_SP_LOADBLN:string {"Lastausgleich"} 
+	CC_IDOC_SP_SAPUSERID:string {"Angepasste SAP-Benutzer-ID"} 
+	CC_IDOC_SP_SAPPASSWORD:string {"Angepasstes SAP-Kennwort"} 
+	CC_IDOC_SP_SAPCLIENTNUMBER:string {"Angepasste SAP-Clientnummer"} 
+	CC_IDOC_SP_SAPLANGUAGE:string {"Angepasste SAP-Sprache"} 
+	CC_IDOC_SP_DSSAPCONNECTION:string {"DSSAPCONNECTION"}
+	CC_IDOC_SP_DSSAPCONNECTIONPARAMETER:string {"Verbindungsparametername"}                 
+	CC_IDOC_SP_PORT_VERSION:string {"PORT_VERSION"} 
+	CC_IDOC_SP_IDOC_TYPE_VERSION:string {"IDOC_TYPE_VERSION"}
+	CC_IDOC_SP_OFFLINE_DESIGN:string {"Offline-Entwurf"}
+
+    // load stage properties
+    CC_IDOC_LOAD_SP_MESSAGETYPE:string {"IDoc-Nachrichtentyp (serialisiert)"}        
+    CC_IDOC_LOAD_SP_MESTYP:string {"IDoc-Nachrichtentyp"}        
+
+    // extract stage properties
+	CC_IDOC_EXTRACT_SP_IDOC_EXTRACT_LIST:string {"IDoc-Extraktionsliste"}
+	CC_IDOC_EXTRACT_SP_MANUAL_BATCH_SIZE:string {"Größe des menuellen Batchs"}
+	CC_IDOC_EXTRACT_SP_TESTMODE:string {"Testmodus"} 
+
+
+    ////////////////////////////////////////
+    // Link properties
+    
+    // commmon link properties
+	CC_IDOC_LP_SEGTYP:string {"Segmenttypname"} 
+      // design time only link properties
+	CC_IDOC_LP_DESCRIPTION:string {"Beschreibung"} 
+	CC_IDOC_LP_PORT_VERSION:string {"PORT_VERSION"} 
+	CC_IDOC_LP_IDOC_TYPE_VERSION:string {"IDOC_TYPE_VERSION"} 
+	CC_IDOC_LP_OBJECTTYPE:string {"OBJECTTYPE"} 
+	CC_IDOC_LP_OBJECTNAME:string {"OBJECTNAME"} 
+	CC_IDOC_LP_RECORDTYP:string {"RECORDTYP"} 
+	CC_IDOC_LP_SEGNAM:string {"SEGNAM"} 
+	CC_IDOC_LP_CONNECTION_NAME:string {"CONNECTION_NAME"} 
+	CC_IDOC_LP_IDOC_TYPE_NAME:string {"IDOC_TYPE_NAME"} 
+	  // Link properties for the Metadata Workbench integration (DataLineage)
+	CC_IDOC_LP_PDS_LOCATOR:string {"Querverweis auf öffentliche Datenquelle"}
+	CC_IDOC_LP_PDS_FIELDMAP:string {"Feldzuordnung für öffentliche Datenquelle"}
+    
+    // load link properties
+	CC_IDOC_LOAD_LP_FKEYCOLS:string {"Fremdschlüssel"} 
+	CC_IDOC_LOAD_LP_PKEYCOLS:string {"Primärschlüssel"} 
+      // design time only load link properties
+	CC_IDOC_LOAD_LP_IDOCCOMPONENTTOLOAD:string {"IDOCCOMPONENTTOLOAD"} 
+	CC_IDOC_LOAD_LP_LOADFIELDLIST:string {"LOADFIELDLIST"} 
+	CC_IDOC_LOAD_LP_PARENTOBJECTTYPE:string {"PARENTOBJECTTYPE"} 
+	CC_IDOC_LOAD_LP_PARENTOBJECTNAME:string {"PARENTOBJECTNAME"} 
+	CC_IDOC_LOAD_LP_PKEYCOUNT:string {"PKEYCOUNT"} 
+	CC_IDOC_LOAD_LP_FKEYCOUNT:string {"FKEYCOUNT"} 
+      
+    // extract link properties
+	CC_IDOC_EXTRACT_LP_IDOCCOMPONENTTOEXTRACT:string {"Zu extrahierende IDoc-Komponente"} 	
+	CC_IDOC_EXTRACT_LP_EXTRACTFIELDLIST:string {"Extraktionsfeldliste"} 	
+            
+	CC_COMMON_PRPDSC_JAVA_CATEGORY:string {"CC_COMMON_PRPDSC_JAVA_CATEGORY"}
+	CC_COMMON_PRPLBL_JAVA_CATEGORY:string {"CC_COMMON_PRPLBL_JAVA_CATEGORY"}
+	CC_COMMON_PRPLBL_JAVA_CLASSPATH:string {"CC_COMMON_PRPLBL_JAVA_CLASSPATH"}
+	CC_COMMON_PRPDSC_JAVA_CLASSPATH:string {"CC_COMMON_PRPDSC_JAVA_CLASSPATH"}
+	CC_COMMON_PRPDSC_JAVA_JVM_OPTIONS:string {"CC_COMMON_PRPDSC_JAVA_JVM_OPTIONS"}
+	CC_COMMON_PRPLBL_JAVA_JVM_OPTIONS:string {"CC_COMMON_PRPLBL_JAVA_JVM_OPTIONS"}
+
+	// --> moved from file 'sapstagesmessages.properties'
+	CC_IDOC_VersionInfo:string {"Versionsinformation: {0}"}
+	CC_IDOC_SAPUser:string {"SAP-Benutzer"}
+	CC_IDOC_SAPPassword:string {"SAP-Kennwort"}
+	CC_IDOC_SAPClientId:string {"SAP-Client-ID"}
+	CC_IDOC_SAPLangue:string {"SAP-Sprache"}
+
+	CC_IDOC_CommonUnexpectedException:string {"Eine unerwartete Ausnahmebedingung ist aufgetreten: {0}"}
+	CC_IDOC_UnexpectedSAPException:string {"Bei der Kommunikation mit SAP ist eine unerwartete Ausnahmebedingung aufgetreten: {0}"}
+	CC_IDOC_ConfigFileNotFound:string {"Die Konfigurationsdatei '{0}' konnte auf dem Server nicht gefunden werden."}
+	CC_IDOC_ConfigFileWrongFormat:string {"Die Konfigurationsdatei '{0}' hat ein falsches Format."}
+    CC_IDOC_ConfigFileEmpty:string {"Die Konfigurationsdatei '{0}' ist leer."}
+	CC_IDOC_ExceptionWhileCreatingConnection:string {"Beim Herstellen der Verbindung zu SAP ist eine unerwartete Ausnahmebedingung aufgetreten: {0}"}
+	CC_IDOC_DSSAPConnectionNotFound:string {"Die Verbindung '{0}' konnte nicht gefunden werden."}
+	CC_IDOC_DSSAPHOMENotSet:string {"Die Umgebungsvariable DSSAPHOME ist nicht festgelegt."}
+	CC_IDOC_EnvVarNotPositiveNumeric:string {"Die Umgebungsvariable '{0}' muss einen positiven numerischen Wert haben, hat aber den Wert '{1}'."}
+	CC_IDOC_TypeNotFoundInSAP:string {"Der IDoc-Typ '{0}' konnte in SAP nicht gefunden werden."}
+	CC_IDOC_BasicIDocTypeNotFoundInSAP:string {"Der grundlegende IDoc-Typ '{0}' konnte in SAP nicht gefunden werden."}
+	CC_IDOC_ExtensionIDocTypeNotFoundInSAP:string {"Der IDoc-Erweiterungstyp '{0}' konnte in SAP nicht gefunden werden."}
+
+	CC_IDOC_JCOClassNotFound:string {"Die SAP JCo-Klassen konnten nicht gefunden werden. Stellen Sie sicher, dass sich die Datei sapjco3.jar im Klassenpfad befindet."}
+	CC_IDOC_JCODLLNotFound:string {"Die native SAP JCo-Bibliothek konnte nicht gefunden werden. Stellen Sie sicher, dass die native Bibliothek sapjco3 vorhanden ist."}
+	CC_IDOC_JCoCheckSuccessful:string {"SAP JCo-Bibliotheken gefunden"}
+
+	CC_IDOC_ControlRecordDescription:string {"IDoc-Steuersatz"}
+	CC_IDOC_TypeMetadataFileNotFound:string {"Die Metadatendatei für den IDoc-Typ {0} ist auf dem Server nicht vorhanden."}
+	CC_IDOC_TypeMetadataFileWriteError:string {"Fehler beim Schreiben der IDoc-Metadatendatei {0}"}
+	CC_IDOC_TypeMetadataFileReadError:string {"Fehler beim Lesen der IDoc-Metadatendatei {0}"}
+	CC_IDOC_TypeMetadataFileFormatError:string {"Die IDoc-Metadatendatei {0} hat ein falsches Format."}
+	CC_IDOC_TypeMetadataFileRetrievalFailed:string {"Das Abrufen von IDoc-Metadaten aus der IDoc-Metadatendatei war nicht erfolgreich. Die IDoc-Metadaten werden stattdessen aus SAP abgerufen."}
+	CC_IDOC_TypeMetadataDirectoryError:string {"Das übergeordnete Verzeichnis für die IDoc-Metadatendatei {0} konnte nicht erstellt werden."}
+	CC_IDOC_TypeMetadataSAPRetrieval:string {"Metadaten für den IDoc-Typ {0} von SAP werden abgerufen"}
+	CC_IDOC_TypeMetadataFileRetrieval:string {"Metadaten für den IDoc-Typ {0} werden aus der IDoc-Metadatendatei {1} abgerufen"}
+	CC_IDOC_TypeMetadataSegmentTypeNotFound:string {"Der Segmenttyp '{0}' konnte im IDoc-Typ '{1}' nicht gefunden werden."}
+
+	CC_IDOC_IncorrectProgramLogic:string {"Ein interner Fehler ist aufgetreten: fehlerhafte Programmlogik."}
+	CC_IDOC_ClientIDNotNumeric:string {"Die Clientnummer muss numerisch sein"}
+	CC_IDOC_NodeNumberMessage:string {"Aktuelle Knotennummer ist {0} von {1}"}
+
+	CC_IDOC_ReadingIDocTypeWithRelease:string {"Der IDoc-Typ '{0}' wurde für die Stage konfiguriert. Das Release ist '{1}'."}
+	CC_IDOC_InitializingConnection:string {"Die Verbindung zum SAP-System wird wie in Verbindung '{0}' definiert initialisiert"}
+	CC_IDOC_PropertyNotFound:string {"Die erforderliche Stage-Eigenschaft '{0}' wurde nicht gefunden."}
+	CC_IDOC_SEGTYPNotFound:string {"Kein IDoc-Segmenttyp ausgewählt"}
+	CC_IDOC_IDOCTYPNotFound:string {"Kein IDoc-Typ ausgewählt"}
+
+	CC_IDOC_SegmentIsOrphan:string {"Das Segment mit Segmentnummer '{0}' in IDoc '{1}' verfügt über kein übergeordnetes Segment."}
+	CC_IDOC_SegmentHasParentInDifferentIDoc:string {"Das Segment mit Segmentnummer '{0}' in IDoc '{1}' verfügt über ein übergeordnetes Segment mit der Nummer '{2}', das einem anderen IDoc zugeordnet ist."}
+	CC_IDOC_NoSegmentsForIDoc:string {"Das IDoc mit der Nummer '{0}' enthält keine gültigen Segmente."}
+	CC_IDOC_WrongSegmentMetadata:string {"Das Segment mit der Nummer '{0}' in IDoc '{1}' verfügt über ein übergeordnetes Segment des Typs '{2}' (sollte aber '{3}' sein)."}
+	CC_IDOC_SegmentAlreadySeen:string {"Das Segment mit der Nummer '{0}' und der übergeordneten Nummer '{1}' in IDoc '{2}' wurde bereits eingefügt. Neue Segmentdaten werden ignoriert."}
+	CC_IDOC_FieldTruncation:string {"Feld {0} von IDoc {1} wurde abgeschnitten."}
+	
+	CC_IDOC_RFMDoesNotExist:string {"Fernes Funktionsmodul '{0}' ist auf dem SAP-System '{1}' nicht vorhanden."}
+	CC_IDOC_TableParamsListIsNull:string {"Die Tabellenparameterliste für IDOC_INBOUND_ASYNCHRONOUS ist null"}
+	CC_IDOC_TypeNotConfigured:string {"IDoc-Typ '{0}' ist nicht für die Verbindung konfiguriert."}
+	CC_IDOC_AdminFieldNotFound:string {"Das technische Feld '{0}' konnte nicht im Link gefunden werden."}
+	CC_IDOC_ErrorCreatingDirectory:string {"Das Verzeichnis {0} oder eines seiner übergeordneten Verzeichnisse konnte nicht erstellt werden."}
+	CC_IDOC_AllSegmentDataCollected:string {"Alle Segmentdaten wurden erfasst, die Übertragung an SAP wird gestartet"}
+	CC_IDOC_FieldNotOnLink:string {"Das IDoc-Feld '{0}' ist auf dem Link nicht vorhanden."}
+	CC_IDOC_IncorrectPartitioningType:string {"Beim Erfassen und Überprüfen von IDoc-Segmenten wurden Probleme festgestellt. Eine mögliche Ursache dieser Probleme ist die Auswahl eines ungeeigneten Partitionierungstyps für die Eingabelinks für die Stage 'IDoc Load'. Überprüfen Sie Ihre Konfiguration."}
+	CC_IDOC_StartingSegmentCollection:string {"IDoc-Segmente werden erfasst"}
+	CC_IDOC_FileReadException:string {"Beim Lesen der IDoc-Datei ist eine Ausnahmebedingung aufgetreten."}
+	CC_IDOC_ClassFoundInJar:string {"Die Klasse '{0}' wurde in der JAR-Datei '{1}' gefunden."}
+
+	CC_IDOC_InvalidSAPLogonDetailsInConnection:string {"In der Verbindung wurden ungültige oder leere SAP-Anmeldedaten bereitgestellt: {0}"}
+	CC_IDOC_InvalidSAPLogonDetailsInStage:string {"In der Stage wurden ungültige oder leere SAP-Anmeldedaten bereitgestellt: {0}"}
+	CC_IDOC_UnknownSAPEncoding:string {"JAVA kann die Codierung des SAP-Systems nicht bearbeiten."}
+	
+	CC_IDOC_EXTRACT_JobStart:string {"Beginn des IDoc-Extraktionsjobs: {0}"}
+	CC_IDOC_EXTRACT_BookmarkFileInitError:string {"Die IDoc-Lesezeichendatei {0} konnte nicht ordnungsgemäß initialisiert werden."}
+	CC_IDOC_EXTRACT_BookmarkFileWriteError:string {"Fehler beim Schreiben der IDoc-Lesezeichendatei {0}"}
+	CC_IDOC_EXTRACT_BookmarkFileReadError:string {"Fehler beim Lesen der IDoc-Lesezeichendatei {0}"}
+	CC_IDOC_EXTRACT_BookmarkFileSetupFailed:string {"Das Einrichten der IDoc-Lesezeichendatei ist fehlgeschlagen: {0}"}
+	CC_IDOC_EXTRACT_BookmarkFileUpdateFailed:string {"Das Aktualisieren der IDoc-Lesezeichendatei ist fehlgeschlagen: {0}"}
+	CC_IDOC_EXTRACT_IDocFileReadError:string {"Fehler beim Lesen der IDoc-Datei {0}"}
+	CC_IDOC_EXTRACT_IDocFileExtractSegmentData:string {"Fehler beim Extrahieren von Segmentdaten aus der IDoc-Datei {0}"}
+	CC_IDOC_EXTRACT_SegmentDataTooShort:string {"Abweichung zwischen IDoc-Metadaten und Segmentdatenlänge. Segmentdaten sind zu kurz: {0},{1},{2}"}
+	CC_IDOC_EXTRACT_NumberOfFiles:string {"{0} IDoc-Dateien werden verarbeitet..."}
+	
+	CC_IDOC_LOAD_UnexpectedException:string {"Beim Laden von IDocs ist eine unerwartete Ausnahmebedingung aufgetreten: {0}"}
+	CC_IDOC_LOAD_Summary:string {"Zusammenfassung: {0} IDocs wurden in {1} Transaktionen zu SAP gesendet"}
+	CC_IDOC_LOAD_TransactionOpen:string {"In Transaktion {1} werden {0} IDocs an SAP gesendet..."}
+	CC_IDOC_LOAD_TransactionClose:string {"{0} IDocs wurden in Transaktion Nr. {1} an SAP gesendet"}
+	CC_IDOC_LOAD_JobStart:string {"Beginn des IDoc-Ladejobs: {0}"}
+	CC_IDOC_LOAD_ValidationError:string {"Die IDoc-Prüfung ist fehlgeschlagen: {0}, {1}"}
+	CC_IDOC_LOAD_SimulationModeOn:string {"Der IDoc-Ladesimulationsmodus ist aktiviert, IDocs werden nicht an SAP gesendet."}
+	CC_IDOC_LOAD_FileSummary:string {"Zusammenfassung: {0} IDocs wurden in {1} Transaktionen auf Knoten {2} auf Platte gespeichert."}
+	CC_IDOC_LOAD_FilesToBeDeleted:string {"Alle vorhandenen IDoc-Ladedateien in {0} werden gelöscht."}
+	CC_IDOC_LOAD_FilesNamingConflict:string {"Vorhandene IDoc-Ladedateien in {0} werden nicht gelöscht, was zu einem Dateibenennungskonflikt führen kann."}
+	CC_IDOC_LOAD_FileWriteError:string {"Fehler beim Schreiben der IDoc-Datei {0}"}
+}

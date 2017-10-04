@@ -1,0 +1,37 @@
+<div>
+	<div dojoAttachPoint="bphImportDialog" dojoType="dijit.Dialog">
+		<div class="dialogContent">
+			<table cellspacing="10">
+				<tr>
+					<td>
+						<div dojoAttachPoint="importDialogImage" class="ImageBrowse_48">
+						</div>
+					</td>
+					<td>
+						<div dojoAttachPoint="importDialogMessage" class="BphImportDialog_messageContent">
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div dojoType="dijit.layout.ContentPane" region="right" dojoAttachPoint="sapViewRadio" style="display: none;">
+					<input type="radio" data-dojo-type="dijit/form/RadioButton" disabled="false" dojoAttachPoint="mergeSapView" checked="true" name="sapView"/>
+					<label>${msg.ImportTypeDialog_10}</label> 
+					</br>
+					<input type="radio" data-dojo-type="dijit/form/RadioButton" disabled="false" dojoAttachPoint="overwriteSapView" checked="false" name="sapView"/>
+					<label>${msg.ImportTypeDialog_9}</label>
+		</div>	
+		<div class="dijitDialogPaneActionBar" dojoAttachPoint="buttonsBar">
+			<div dojoType="dojox.form.Uploader"
+				name="uploadedfile"
+				multiple="false"
+				type="file"
+				force=""
+				label="${msg.BPHIMPORTDIALOG_1}"
+				dojoAttachPoint="browseButton">
+			</div>
+			<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="okButton" style="display: none;">${msg.OK}</div>
+			<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="cancelButton">${msg.CANCEL}</div>
+		</div>
+	</div>
+</div>

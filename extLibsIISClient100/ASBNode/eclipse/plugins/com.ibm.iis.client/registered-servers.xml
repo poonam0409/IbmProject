@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE registered-servers>
+<registered-servers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="registeredServers.xsd">
+  <asb-node name="KILMISTER"
+            display-name="KILMISTER"
+            location="C:\IBM\InformationServer\ASBNode"
+            install-date="Friday, May 23, 2014 12:07:21 PM CEST" >
+    <asb-application name="ASBAgent"
+              display-name="ASB Agent"
+              type="MDSVR"
+              install-date="Friday, May 23, 2014 12:07:25 PM CEST"
+              version="8.5" />
+    <asb-application name="DSServer"
+              display-name="DataStage Server"
+              type="DSQSSVR"
+              install-date="Friday, May 23, 2014 12:14:01 PM CEST"
+              version="11.3.0.0" >
+      <config-property name="shareUserRegistry"
+                display-name="Use a shared user registry for IBM InfoSphere Information Server and the IBM InfoSphere Information Server engine."
+                value="false" />
+      <config-property name="stageDetails"
+                display-name="Stage Details"
+                value="#******************************************************************************** 
+# 
+# Datastage ASB Hawk Licensing Stage Details List 
+# 
+# Module %M% Version %I%  Date %D% 
+# 
+# Licensed Materials - Property of IBM 
+# 5724-Q36 
+# (C) Copyright IBM Corp. 2006, 2011 
+# 
+# (c) Copyright 2006 IBM Corp. - All Rights Reserved 
+# This is unpublished proprietary source code of IBM Corp. 
+# The copyright notice above does not evidence any actual or intended 
+# publication of such source code. 
+# 
+#****************************************************************************** 
+# 
+# Maintenance log - insert most recent change descriptions at top 
+# 
+#   Date.... RequestID WHO Description..................................... 
+#   06/21/11   100299  LA  Removed info for WAVES stage type as this has been retired 
+#   04/18/11    94787  RRD Removed the confidentiality statement 
+#   08/20/10 00224674  LA  XMLPack3 stages excluded from QA-only 
+#   03/15/10 00201856  HL  Added QS SQA stage 
+#   11/25/08 00135998  LA  Exclude from QS-only: all Pivot stages, Checksum 
+#                          and DB2Z 
+# Date.... GTAR#  WHO Description......................................... 
+#  09/17/07 123582 MJS New QS only requirements 
+#  05/25/07 119387 DW  Enable for QS-only - PxColumnGenerator, PxExternalFilter, 
+#        PxColumnExport, PxColumnImport, PxMakeVect 
+#  09/18/06 100685 DW  First list update 
+#  08/16/06 100685 DW  Created 
+# 
+# We only identify StageTypes that are restricted, others will be unrestricted i.e Plugins 
+# At some point we could allow wildcards or patterns, but this list may be used  
+# from DS Server as well DS Client 
+# 
+# Only put a StageType in one section 
+# 
+# DS = 1, QS = 2, Both = 3 
+# 
+# 
+# QS Only = QS or Both = not for DS Only 
+# ====================================== 
+#  
+# Parallel\Data Quality (9) 
+Investigate,MatchFrequency,MNS,QSLegacy=2|3 
+ReferenceMatch,SQA,Standardize,Survive,UnduplicateMatch=2|3 
+# 
+# 
+# DS Only = DS or Both = not for QS Only 
+# ====================================== 
+# 
+# I am listing these non-PX canvas stages, even though QualityStage is only available 
+# on the Parallel canvas. 
+# 
+# Server\DB (23-24) 
+CODBCStage,CUDT6Stage,CUniDataStage,CUvStage=1|3 
+BCPLoad,ORABULK,DRS,DSDB2,INFBLK10,InfmxCLI,IQBulk12,MSOLEDB=1|3 
+ORAOCI8,ORAOCI9,ORAOCIBL,rdbload,SQLBLK7,STP,SYBASEOC=1|3 
+TDMLoad,Terabulk,Teradata,UDBLoad,XPSLoad=1|3 
+ 
+# 
+# Server\File (4) 
+CHashedFileStage,CSeqFileStage,Folder,CFF=1|3 
+ 
+# 
+# Server\Processing (10-12) 
+AGGREGATOR,Command,DstxMap,ftp,MERGE=1|3 
+Pivot,RowMerger,RowSplitter,sort=1|3 
+CCollector,CInterProcess,CPartitioner=1|3 
+ 
+# 
+# Server\Realtime (3-7) 
+RTIInput,RTIOutput,MQSeries=1|3 
+XMLInput,XMLOutput,XMLTransformer=1|3 
+XMLStage=1|3 
+ 
+# 
+# Mainframe\DB (5) 
+CIMSStage,CRelationalStage,CTeradataExportStage,CTeradataLoadStage,CTeradataRelationalStage=1|3 
+ 
+# 
+# Mainframe\File (7) 
+CComplexFFStage,CDB2LRFFStage,CDelimFFStage=1|3 
+CExternalSourceStage,CExternalTargetStage,CFixedWidthFFStage,CMultiFormatFFStage=1|3 
+ 
+# 
+# Mainframe\Processing(8) 
+CAggregatorStage,CBusinessRuleStage,CExtRoutineStage,CFTPStage=1|3 
+CJoinStage,CLookupStage,CMFLinkCollectorStage,CSortStage=1|3 
+ 
+# 
+# the following PX Stages are recorded as not being required for QS, but that may change 
+# 
+# debug stages 
+PxColumnGenerator,PxRowGenerator,PxWriteRangeMap=1|3 
+# special stages 
+PxParSASDataSet,PxSAS,PxSCD=1|3 
+# plugins 
+DstxMapPX,PivotPX,ftpPX=1|3 
+# processing stages 
+PxChangeApply,PxChangeCapture,PxCompare,PxCompress=1|3 
+PxDecode,PxDifference,PxEncode,PxExpand,PxMerge=1|3 
+PxPivot,PxChecksum=1|3 
+# restructure stages 
+PxMakeSubRec,PxPromoteSubRec,PxSplitSubRec=1|3 
+# database stages 
+PxDB2Z=1|3 
+# realtime stages 
+XMLStagePX=1|3 
+# 
+# Anything else is QS or DS or Both i.e. All - unrestricted 
+# ========================================================= 
+# 
+# All\Processing (1) 
+# CTransformer 
+# 
+# Parallel\DB (14-26) 
+# Parallel\Development/Debug (7) 
+# Parallel\File (8) 
+# Parallel\Processing (27-30) 
+# Parallel\Real Time (4-6) 
+# Parallel\Restructure (8) 
+# 
+# Sequence (12) 
+# 
+" />
+      <config-property name="dsrpcPort"
+                display-name="dsrpc Port"
+                value="31538" />
+    </asb-application>
+  </asb-node>
+  <asb-server name="KILMISTER.boeblingen.de.ibm.com"
+              host-name="KILMISTER.boeblingen.de.ibm.com"
+              port="9443"
+              is-primary-server="true" />
+</registered-servers>

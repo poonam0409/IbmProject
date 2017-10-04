@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--© Copyright IBM Corporation 2011-->
+<?eclipse version="3.0"?><plugin id="com.ibm.base.collateral.doc" name="不可翻译的基本信息中心间接材料" provider-name="IBM"
+        version="3.1.0"/>

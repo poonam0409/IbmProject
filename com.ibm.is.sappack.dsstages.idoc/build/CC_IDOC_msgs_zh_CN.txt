@@ -1,0 +1,227 @@
+////////////////////////////////////////////////////////////////////////////////
+// IBM Confidential                                                            
+//                                                                             
+// OCO Source Materials                                                        
+//                                                                             
+// 5724-Q55                                                                 
+//                                                                             
+// (C) Copyright IBM Corporation 2009, 2014                                              
+//                                                                             
+// The source code for this program is not published or otherwise              
+// divested of its trade secrets, irrespective of what has been                
+// deposited with the U.S. Copyright Office.                                     
+//////////////////////////////////////////////////////////////////////////////// 
+// Maintenance log - insert most recent change descriptions at top 
+//
+// Date....  WorkItem WHO     Description........................................
+//
+// 03/20/2011   95535 osuhre  Initial creation
+// 01/08/2013  156132 hschoen All messages moved from sapstagesmessages.properties
+// 04/09/2014  199326 hschoen Message 'CC_IDOC_ConfigFileEmpty' added
+////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////
+//
+// Correct encoding for this file and translations: UTF-8
+//
+//////////////////////////////////////////////////////////
+
+CC_IDOC_msgs_zh_CN:table
+{
+// new        
+   // descriptor messages
+   // load
+	CC_IDOC_LOAD_STAGE_DISPLAY_NAME:string {"IDoc Load Connector 阶段"}
+	CC_IDOC_LOAD_SHORT_DESC:string {"将 IDoc 装入到 SAP 的阶段"} 
+	CC_IDOC_LOAD_LONG_DESC:string {"以并行方式将 IDoc 装入到 SAP 的阶段"} 
+        
+   // extract
+	CC_IDOC_EXTRACT_STAGE_DISPLAY_NAME:string {"IDoc Extract Connector 阶段"}
+	CC_IDOC_EXTRACT_SHORT_DESC:string {"处理从 SAP 接收的 IDoc 的阶段"} 
+	CC_IDOC_EXTRACT_LONG_DESC:string {"通过 IDoc 侦听器服务处理先前从 SAP 接收的 IDoc 的阶段。"} 
+           
+   // common
+    CC_IDOC_PX_REPOSITORY_LOCATION:string {"\\\\阶段类型\\\\并行\\\\Packs"}
+ 
+   /////////////////////////////////
+   // Stage properties
+   
+   // common stage properties 
+        CC_IDOC_SP_DESTINATION:string {"目标"}
+	CC_IDOC_SP_USERNAME:string {"用户名"} 
+	CC_IDOC_SP_JOBNAME:string {"作业名"} 
+	CC_IDOC_SP_FILENAME:string {"文件名"} 
+	CC_IDOC_SP_PASSWORD:string {"密码"} 
+	CC_IDOC_SP_CLIENT:string {"客户机"} 
+	CC_IDOC_SP_IDOCTYP:string {"IDoc 类型名称"} 
+	CC_IDOC_SP_BASTYP:string {"基本类型名称"} 
+	CC_IDOC_SP_LANGUAGE:string {"语言"} 
+	CC_IDOC_SP_CONNECTIONNAME:string {"连接名称"} 
+	CC_IDOC_SP_USEDEFAULTSAPLOGON:string {"缺省 SAP 登录？"} 
+	CC_IDOC_SP_USEOFFLINEPROCESSING:string {"是否启用基于文件的 IDoc 处理？"} 
+	CC_IDOC_SP_ROUTERSTR:string {"路由器字符串"} 
+	CC_IDOC_SP_PLUGVSN:string {"Plug-in 版本"} 
+        // design time only properties
+	CC_IDOC_SP_CONNECTIONNAMEDT:string {"设计时连接名称"} 
+	CC_IDOC_SP_DSSAPCONNECTIONDT:string {"设计时连接"} 
+	CC_IDOC_SP_USESAPLOGONDT:string {"是否在设计时使用此连接？"} 
+	CC_IDOC_SP_DSSAPCONNECTIONPARAMETERDT:string {"设计时连接参数名"} 
+	CC_IDOC_SP_IDOCTYPE:string {"IDoc 类型信息"} 
+	CC_IDOC_SP_GWHOST:string {"网关主机"} 
+	CC_IDOC_SP_SYSNBR:string {"系统编号"} 
+	CC_IDOC_SP_MSGSVR:string {"消息服务器"} 
+	CC_IDOC_SP_SYSNAME:string {"系统标识"} 
+	CC_IDOC_SP_GROUP:string {"组"} 
+	CC_IDOC_SP_LOADBLN:string {"负载均衡"} 
+	CC_IDOC_SP_SAPUSERID:string {"定制 SAP 用户标识"} 
+	CC_IDOC_SP_SAPPASSWORD:string {"定制 SAP 密码"} 
+	CC_IDOC_SP_SAPCLIENTNUMBER:string {"定制 SAP 客户机编号"} 
+	CC_IDOC_SP_SAPLANGUAGE:string {"定制 SAP 语言"} 
+	CC_IDOC_SP_DSSAPCONNECTION:string {"DSSAPCONNECTION"}
+	CC_IDOC_SP_DSSAPCONNECTIONPARAMETER:string {"连接参数名"}                 
+	CC_IDOC_SP_PORT_VERSION:string {"PORT_VERSION"} 
+	CC_IDOC_SP_IDOC_TYPE_VERSION:string {"IDOC_TYPE_VERSION"}
+	CC_IDOC_SP_OFFLINE_DESIGN:string {"脱机设计"}
+
+    // load stage properties
+    CC_IDOC_LOAD_SP_MESSAGETYPE:string {"IDoc 消息类型（已序列化）"}        
+    CC_IDOC_LOAD_SP_MESTYP:string {"IDoc 消息类型"}        
+
+    // extract stage properties
+	CC_IDOC_EXTRACT_SP_IDOC_EXTRACT_LIST:string {"IDOC 抽取列表"}
+	CC_IDOC_EXTRACT_SP_MANUAL_BATCH_SIZE:string {"手动批处理大小"}
+	CC_IDOC_EXTRACT_SP_TESTMODE:string {"测试方式"} 
+
+
+    ////////////////////////////////////////
+    // Link properties
+    
+    // commmon link properties
+	CC_IDOC_LP_SEGTYP:string {"段类型名称"} 
+      // design time only link properties
+	CC_IDOC_LP_DESCRIPTION:string {"描述"} 
+	CC_IDOC_LP_PORT_VERSION:string {"PORT_VERSION"} 
+	CC_IDOC_LP_IDOC_TYPE_VERSION:string {"IDOC_TYPE_VERSION"} 
+	CC_IDOC_LP_OBJECTTYPE:string {"OBJECTTYPE"} 
+	CC_IDOC_LP_OBJECTNAME:string {"OBJECTNAME"} 
+	CC_IDOC_LP_RECORDTYP:string {"RECORDTYP"} 
+	CC_IDOC_LP_SEGNAM:string {"SEGNAM"} 
+	CC_IDOC_LP_CONNECTION_NAME:string {"CONNECTION_NAME"} 
+	CC_IDOC_LP_IDOC_TYPE_NAME:string {"IDOC_TYPE_NAME"} 
+	  // Link properties for the Metadata Workbench integration (DataLineage)
+	CC_IDOC_LP_PDS_LOCATOR:string {"公共数据源定位器"}
+	CC_IDOC_LP_PDS_FIELDMAP:string {"公共数据源字段映射"}
+    
+    // load link properties
+	CC_IDOC_LOAD_LP_FKEYCOLS:string {"外键"} 
+	CC_IDOC_LOAD_LP_PKEYCOLS:string {"主键"} 
+      // design time only load link properties
+	CC_IDOC_LOAD_LP_IDOCCOMPONENTTOLOAD:string {"IDOCCOMPONENTTOLOAD"} 
+	CC_IDOC_LOAD_LP_LOADFIELDLIST:string {"LOADFIELDLIST"} 
+	CC_IDOC_LOAD_LP_PARENTOBJECTTYPE:string {"PARENTOBJECTTYPE"} 
+	CC_IDOC_LOAD_LP_PARENTOBJECTNAME:string {"PARENTOBJECTNAME"} 
+	CC_IDOC_LOAD_LP_PKEYCOUNT:string {"PKEYCOUNT"} 
+	CC_IDOC_LOAD_LP_FKEYCOUNT:string {"FKEYCOUNT"} 
+      
+    // extract link properties
+	CC_IDOC_EXTRACT_LP_IDOCCOMPONENTTOEXTRACT:string {"要抽取的 IDoc 组件"} 	
+	CC_IDOC_EXTRACT_LP_EXTRACTFIELDLIST:string {"抽取字段列表"} 	
+            
+	CC_COMMON_PRPDSC_JAVA_CATEGORY:string {"CC_COMMON_PRPDSC_JAVA_CATEGORY"}
+	CC_COMMON_PRPLBL_JAVA_CATEGORY:string {"CC_COMMON_PRPLBL_JAVA_CATEGORY"}
+	CC_COMMON_PRPLBL_JAVA_CLASSPATH:string {"CC_COMMON_PRPLBL_JAVA_CLASSPATH"}
+	CC_COMMON_PRPDSC_JAVA_CLASSPATH:string {"CC_COMMON_PRPDSC_JAVA_CLASSPATH"}
+	CC_COMMON_PRPDSC_JAVA_JVM_OPTIONS:string {"CC_COMMON_PRPDSC_JAVA_JVM_OPTIONS"}
+	CC_COMMON_PRPLBL_JAVA_JVM_OPTIONS:string {"CC_COMMON_PRPLBL_JAVA_JVM_OPTIONS"}
+
+	// --> moved from file 'sapstagesmessages.properties'
+	CC_IDOC_VersionInfo:string {"版本信息：{0}"}
+	CC_IDOC_SAPUser:string {"SAP 用户"}
+	CC_IDOC_SAPPassword:string {"SAP 密码"}
+	CC_IDOC_SAPClientId:string {"SAP 客户机标识"}
+	CC_IDOC_SAPLangue:string {"SAP 语言"}
+
+	CC_IDOC_CommonUnexpectedException:string {"发生意外异常：{0}"}
+	CC_IDOC_UnexpectedSAPException:string {"与 SAP 通信时发生意外异常：{0}"}
+	CC_IDOC_ConfigFileNotFound:string {"在服务器上找不到配置文件“{0}”。"}
+	CC_IDOC_ConfigFileWrongFormat:string {"配置文件“{0}”的格式错误。"}
+    CC_IDOC_ConfigFileEmpty:string {"配置文件“{0}”为空。"}
+	CC_IDOC_ExceptionWhileCreatingConnection:string {"创建与 SAP 的连接时发生意外异常：{0}"}
+	CC_IDOC_DSSAPConnectionNotFound:string {"找不到连接“{0}”。"}
+	CC_IDOC_DSSAPHOMENotSet:string {"未设置环境变量 DSSAPHOME。"}
+	CC_IDOC_EnvVarNotPositiveNumeric:string {"要求环境变量“{0}”包含正数值，但是实际值为“{1}”"}
+	CC_IDOC_TypeNotFoundInSAP:string {"在 SAP 中找不到 IDoc 类型“{0}”。"}
+	CC_IDOC_BasicIDocTypeNotFoundInSAP:string {"在 SAP 中找不到基本 IDoc 类型“{0}”。"}
+	CC_IDOC_ExtensionIDocTypeNotFoundInSAP:string {"在 SAP 中找不到扩展 IDoc 类型“{0}”。"}
+
+	CC_IDOC_JCOClassNotFound:string {"找不到 SAP JCo 类。请确保 sapjco3.jar 位于类路径中。"}
+	CC_IDOC_JCODLLNotFound:string {"找不到 SAP JCo 本机库。请确保 sapjco3 本机库存在。"}
+	CC_IDOC_JCoCheckSuccessful:string {"找到了 SAP JCo 库"}
+
+	CC_IDOC_ControlRecordDescription:string {"IDoc 控制记录"}
+	CC_IDOC_TypeMetadataFileNotFound:string {"IDoc 类型 {0} 的元数据文件在服务器上不存在。"}
+	CC_IDOC_TypeMetadataFileWriteError:string {"写入 IDoc 元数据文件 {0} 时出错"}
+	CC_IDOC_TypeMetadataFileReadError:string {"读取 IDoc 元数据文件 {0} 时出错"}
+	CC_IDOC_TypeMetadataFileFormatError:string {"IDoc 元数据文件 {0} 的格式不正确。"}
+	CC_IDOC_TypeMetadataFileRetrievalFailed:string {"从 IDoc 元数据文件检索 IDoc 元数据失败。正在改为从 SAP 获取 IDoc 元数据信息。"}
+	CC_IDOC_TypeMetadataDirectoryError:string {"无法创建 IDoc 元数据文件 {0} 的父目录。"}
+	CC_IDOC_TypeMetadataSAPRetrieval:string {"正在从 SAP 检索 IDoc 类型 {0} 的元数据"}
+	CC_IDOC_TypeMetadataFileRetrieval:string {"正在从 IDoc 元数据文件 {1} 检索 IDoc 类型 {0} 的元数据"}
+	CC_IDOC_TypeMetadataSegmentTypeNotFound:string {"在 IDoc 类型“{1}”中找不到段类型“{0}”。"}
+
+	CC_IDOC_IncorrectProgramLogic:string {"发生内部错误：程序逻辑不正确。"}
+	CC_IDOC_ClientIDNotNumeric:string {"客户机编号必须为数字"}
+	CC_IDOC_NodeNumberMessage:string {"当前节点编号为 {0}（共 {1}）"}
+
+	CC_IDOC_ReadingIDocTypeWithRelease:string {"为阶段配置了 IDoc 类型“{0}”。发行版为“{1}”"}
+	CC_IDOC_InitializingConnection:string {"正在按照连接“{0}”中所定义的方式来初始化与 SAP 系统的连接"}
+	CC_IDOC_PropertyNotFound:string {"找不到必需的阶段属性“{0}”"}
+	CC_IDOC_SEGTYPNotFound:string {"未选择任何 IDoc 段类型"}
+	CC_IDOC_IDOCTYPNotFound:string {"未选择任何 IDoc 类型"}
+
+	CC_IDOC_SegmentIsOrphan:string {"IDoc“{1}”中段编号为“{0}”的段没有父代。"}
+	CC_IDOC_SegmentHasParentInDifferentIDoc:string {"IDoc“{1}”中段编号为“{0}”的段具有父段编号“{2}”，该段编号与不同的 IDoc 相关联。"}
+	CC_IDOC_NoSegmentsForIDoc:string {"编号为“{0}”的 IDoc 未包含任何有效段。"}
+	CC_IDOC_WrongSegmentMetadata:string {"IDoc“{1}”中编号为“{0}”的段具有类型为“{2}”的父段（应该为“{3}”）。"}
+	CC_IDOC_SegmentAlreadySeen:string {"已插入 IDoc“{2}”中编号为“{0}”且父编号为“{1}”的段。将忽略新段数据。"}
+	CC_IDOC_FieldTruncation:string {"已截断 IDoc {1} 的字段 {0}。"}
+	
+	CC_IDOC_RFMDoesNotExist:string {"远程功能模块“{0}”在 SAP 系统“{1}”上不存在"}
+	CC_IDOC_TableParamsListIsNull:string {"IDOC_INBOUND_ASYNCHRONOUS 的表参数列表为空"}
+	CC_IDOC_TypeNotConfigured:string {"没有为连接配置 IDoc 类型“{0}”"}
+	CC_IDOC_AdminFieldNotFound:string {"在链接上找不到技术字段“{0}”。"}
+	CC_IDOC_ErrorCreatingDirectory:string {"无法创建目录 {0} 或者其某个父目录。"}
+	CC_IDOC_AllSegmentDataCollected:string {"已收集了所有段数据，正在开始将这些数据发送到 SAP"}
+	CC_IDOC_FieldNotOnLink:string {"段“{1}”中的 IDoc 字段“{0}”在链接上不存在。"}
+	CC_IDOC_IncorrectPartitioningType:string {"检测到 IDoc 段收集和验证期间发生问题。发生这些问题的原因可能是针对 IDoc Load 阶段输入链接选择了不适当的分区类型。请相应检查您的配置。"}
+	CC_IDOC_StartingSegmentCollection:string {"正在收集 IDoc 段"}
+	CC_IDOC_FileReadException:string {"读取 IDoc 文件时发生异常。"}
+	CC_IDOC_ClassFoundInJar:string {"在 JAR 文件“{1}”中找到了类“{0}”"}
+
+	CC_IDOC_InvalidSAPLogonDetailsInConnection:string {"在连接中提供了无效或者空的 SAP 登录详细信息：{0}"}
+	CC_IDOC_InvalidSAPLogonDetailsInStage:string {"在阶段中提供了无效或者空的 SAP 登录详细信息：{0}"}
+	CC_IDOC_UnknownSAPEncoding:string {"JAVA 无法处理 SAP 系统的编码。"}
+	
+	CC_IDOC_EXTRACT_JobStart:string {"IDoc 抽取作业于 {0} 启动"}
+	CC_IDOC_EXTRACT_BookmarkFileInitError:string {"无法正确初始化 IDoc 书签文件 {0}。"}
+	CC_IDOC_EXTRACT_BookmarkFileWriteError:string {"写入 IDoc 书签文件 {0} 时出错"}
+	CC_IDOC_EXTRACT_BookmarkFileReadError:string {"读取 IDoc 书签文件 {0} 时出错"}
+	CC_IDOC_EXTRACT_BookmarkFileSetupFailed:string {"设置 IDoc 书签文件失败：{0}"}
+	CC_IDOC_EXTRACT_BookmarkFileUpdateFailed:string {"更新 IDoc 书签文件失败：{0}"}
+	CC_IDOC_EXTRACT_IDocFileReadError:string {"读取 IDoc 文件 {0} 时出错"}
+	CC_IDOC_EXTRACT_IDocFileExtractSegmentData:string {"从 IDoc 文件 {0} 抽取段数据时出错"}
+	CC_IDOC_EXTRACT_SegmentDataTooShort:string {"IDoc 元数据和段数据的长度不匹配。段数据过短：{0},{1},{2}"}
+	CC_IDOC_EXTRACT_NumberOfFiles:string {"正在处理 {0} 个 IDoc 文件..."}
+	
+	CC_IDOC_LOAD_UnexpectedException:string {"装入 IDoc 时发生意外异常：{0}"}
+	CC_IDOC_LOAD_Summary:string {"摘要：在 {1} 个事务中 {0} 个 IDoc 已发送到 SAP"}
+	CC_IDOC_LOAD_TransactionOpen:string {"正在编号为 {1} 的事务中将 {0} 个 IDoc 发送到 SAP..."}
+	CC_IDOC_LOAD_TransactionClose:string {"编号为 {1} 的事务中 {0} 个 IDoc 已发送到 SAP"}
+	CC_IDOC_LOAD_JobStart:string {"IDoc 装入作业于 {0} 启动"}
+	CC_IDOC_LOAD_ValidationError:string {"IDoc 验证失败：{0}，{1}"}
+	CC_IDOC_LOAD_SimulationModeOn:string {"IDoc 装入模拟方式已开启，IDoc 将不会发送到 SAP。"}
+	CC_IDOC_LOAD_FileSummary:string {"摘要：在节点 {2} 上的 {1} 个事务中 {0} 个 IDoc 已存储到磁盘"}
+	CC_IDOC_LOAD_FilesToBeDeleted:string {"将删除 {0} 中所有现有的 IDoc 装入文件"}
+	CC_IDOC_LOAD_FilesNamingConflict:string {"不会删除 {0} 中的现有 IDoc 装入文件，这可能会导致文件命名冲突。"}
+	CC_IDOC_LOAD_FileWriteError:string {"写入 IDoc 文件 {0} 时出错"}
+}

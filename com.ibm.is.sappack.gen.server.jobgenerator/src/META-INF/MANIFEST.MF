@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Class-Path: 
+
+Name: com/ibm/is/sappack/gen/server/jobgenerator
+Specification-Title: IS Jobgenerator Server Code
+Specification-Vendor: IBM Corporation
+Specification-Version: 1.0
+Implementation-Title: com.ibm.is.sappack.gen.server.jobgenerator
+Implementation-Version: @PRODUCT.VERSION@
+Implementation-Vendor: IBM Corporation
+Implementation-URL: http://www.ibm.com/
+Built-By: @BUILD.BY@
+Built-Date: @BUILD.DATE@

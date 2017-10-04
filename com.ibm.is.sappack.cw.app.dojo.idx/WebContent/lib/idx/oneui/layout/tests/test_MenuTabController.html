@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+	<title>MenuTabController demo</title>
+	
+	<script type="text/javascript" src="../../../tests/dojoVersion.js"></script>
+
+	<script type="text/javascript">
+		dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+	
+    <style id="idxStyles" type="text/css">
+        @import "../../../themes/oneui/oneui.css";
+        @import "../../../themes/test.css";
+    </style>
+
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+		dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+	
+	<script type="text/javascript" id="postDojo">
+		var modules = [
+			"dijit.layout.TabContainer",
+			"idx.oneui.Menu",
+			"dijit.MenuItem",
+			"idx.oneui.layout.MenuTabController",
+			"dijit.layout.ContentPane"];
+			
+		dojoRequireModules(modules, null, currentDojoVersion.async);
+	
+	</script>	
+</head>
+<body class="oneui">
+
+	<div data-dojo-type="idx.oneui.Menu" id="thirdtabmenu" style="display: none;">
+		<div data-dojo-type="dijit.MenuItem" onClick="alert('third tab menu item 1 clicked')">Item 1</div>
+		<div data-dojo-type="dijit.MenuItem" onClick="alert('third tab menu item 2 clicked')">Item 2</div>
+		<div data-dojo-type="dijit.MenuItem" onClick="alert('third tab menu item 3 clicked')">Item 3</div>
+    </div>
+
+	<div data-dojo-type="idx.oneui.Menu" id="fourthtabmenu" style="display: none;">
+		<div data-dojo-type="dijit.MenuItem" onClick="alert('third tab menu item 1 clicked')">Item 1</div>
+		<div data-dojo-type="dijit.MenuItem" onClick="alert('third tab menu item 2 clicked')">Item 2</div>
+		<div data-dojo-type="dijit.MenuItem" onClick="alert('third tab menu item 3 clicked')">Item 3</div>
+    </div>
+
+	<div data-dojo-type="dijit.layout.TabContainer" data-dojo-props='controllerWidget: "idx.oneui.layout.MenuTabController", style: "width: 100%; height: 10em;"'>
+		<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props='title: "First tab"'>
+			<h1>Hello, I am the first page</h1>
+			<p>This page is not closable, and does not have a popup menu associated with it.</p>
+		</div>
+		<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props='title: "Second tab", closable: true'>
+			<h1>Hello, I am the second page</h1>
+			<p>This page is closable, but does not have a popup menu associated with it.</p>
+		</div>
+		<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props='title: "Third tab", popup: "thirdtabmenu"'>
+			<h1>Hello, I am the third page</h1>
+			<p>This page is not closable, but does  have a popup menu associated with it.</p>
+		</div>
+		<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props='title: "Fourth tab", closable: true, popup: "fourthtabmenu"'>
+			<h1>Hello, I am the fourth page</h1>
+			<p>This page is closable, and also has a popup menu associated with it.</p>
+		</div>
+	</div>
+
+</body>
+</html>

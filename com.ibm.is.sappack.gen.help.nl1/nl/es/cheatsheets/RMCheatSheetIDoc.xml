@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="Importación de tipos de IDoc desde SAP utilizando Rapid Modeler for SAP">
+   <intro>
+      <description>
+         Esta hoja de apuntes muestra cómo crear un modelo de datos lógico y cómo extraer metadatos para un tipo de IDoc SAP.
+         <br/>
+         <b>NOTA: asegúrese de que los nombres de proyectos, modelos, etc. en los
+         siguiente pasos sean exactos como se indica, de lo contrario es posible que los
+         botones "Pulsar para realizar" no funcionen. 
+         Sin embargo, los botones "Pulsar al finalizar" seguirán funcionando.
+         </b>
+      </description>
+   </intro>
+   <item
+         title="Abrir la perspectiva de Datos">
+      <command
+            required="false"
+            serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=com.ibm.datatools.core.internal.ui.perspective)"/>
+         
+      <description>
+         Si todavía no está en la perspectiva de Datos, en el menú principal seleccione <b>Ventana</b> &gt; <b>Abrir perspectiva</b> &gt; <b>Datos</b>.
+      </description>
+   </item>
+   <item
+         title="Crear un proyecto de diseño de datos">
+      <description>      
+         Antes de crear un modelo de datos, necesitamos un proyecto para incluirlo en él. 
+         En la barra de herramientas principal, pulse <b>Archivo</b> &gt; <b>Nuevo</b> &gt; <b>Proyecto de diseño de datos</b>. 
+         <br/>
+         Especifique <b>RMTestProject</b> en el campo <b>Nombre del proyecto</b>.
+         <br/>Pulse <b>Finalizar</b>.
+      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.ui.newWizard(newWizardId=com.ibm.datatools.core.internal.ui.wizard.DatabaseCreationProjectWizard)"/>
+   </item>
+   <item
+         title="Crear un archivo de modelo de datos lógico">
+      <description>      
+         Es paso siguiente es para crear un archivo de modelo de datos lógico nuevo. De nuevo en la barra de herramientas principal, pulse <b>Archivo</b> &gt; <b>Nuevo</b>  &gt; <b>Modelo de datos lógico</b>. 
+         <br/>Asegúrese de que la <b>Carpeta de destino</b> está establecida en el nombre del proyecto creado en el paso anterior; por ejemplo, <b>RMTestProject</b>
+         <br/>Especifique <b>RMIDocModel</b> como nombre de archivo.
+         <br/>Pulse <b>Finalizar</b>.
+      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.ui.newWizard(newWizardId=com.ibm.datatools.logical.ui.wizards.NewLogicalModelWizard)"/>
+
+   </item>
+   <item dialog="true" 
+            title="Abrir el asistente de Rapid Modeler for SAP en el modelo lógico">
+        <description>
+         Una vez creado el modelo lógico está preparado para importar metadatos de SAP a este modelo.
+
+         <br/>
+         En la vista <b>Explorador de proyecto de datos</b> (normalmente en la esquina
+         superior izquierda de la perspectiva de <b>Datos</b>), vaya hasta el modelo de
+         datos lógico que ha creado en el paso anterior
+         (<b>RMTestProject</b> &gt; <b>Modelos de datos</b> &gt; <b>RMIDocModel.ldm</b>).
+         <br/>Pulse con el botón derecho del ratón en <b>RMIDocModel.ldm</b> y
+         seleccione <b>Rapid Modeler for SAP</b> &gt; <b>Extraer metadatos de SAP</b>.
+        </description>
+            <action required="false"
+			pluginId="com.ibm.is.sappack.gen.tools.sap"
+			class="com.ibm.is.sappack.gen.tools.sap.action.MetadataImportCheatSheetAction"
+			param1="RMTestProject" param2="RMIDocModel.ldm"/>            
+      </item>
+
+   <item
+         title="Seleccionar sistema SAP">
+      <description>
+         En la primera página del asistente, seleccione una conexión de sistema SAP o utilice <b>Editar</b> para crear una. 
+         Seleccione la opción <b>Examinar SAP para IDocs</b>.
+         <br/>Pulse <b>Siguiente</b>.
+      </description>
+   </item>
+   <item
+         title="Buscar IDocs">
+      <description>
+         En la página <b>Examinar SAP para IDocs</b>, especifique un patrón para un nombre de tipo de IDoc; por ejemplo <b>DEBMAS*</b>.
+         <br/>
+         Seleccione la opción <b>Tipo básico</b>.
+         <br/>Pulse <b>Buscar</b>.
+      </description>
+   </item>
+   <item
+         title="Seleccionar segmentos de IDoc">
+      <description>
+         Expanda el Tipo de IDoc con el número más alto (por ej. <b>DEBMAS06</b>) en el árbol de segmentos de IDoc mostrado. 
+         <br/>Seleccione algunos segmentos del árbol; por ej., <b>E1KNA1M</b>, <b>E1KNVM</b> y <b>E1KNVB</b>. 
+         <br/>Pulse <b>Siguiente</b>.
+      </description>
+   </item>
+   <item
+         title="Configurar opciones de importación">
+      <description>
+         En la página Opciones de importación, seleccione las siguientes opciones:
+<br/>
+         Seleccione <b>Crear modelo para extracción de IDoc</b>,
+         <br/>
+         Deseleccione <b>Hacer que todos los segmentos tengan posibilidades de nulos</b>,
+         <br/>
+         Seleccione <b>Permitir todos los tipos para columnas</b>,
+         <br/>
+         Deseleccione <b>Importar metadatos para tablas de comprobación relacionadas</b>.
+         <br/>         
+Pulse <b>Siguiente</b>.
+      </description>
+   </item>
+   <item
+         title="Revisar tablas">
+      <description>
+         En la página <b>Revisar las tablas que se van a crear</b>, revise las tablas que se van crear.
+         <br/>
+         Pulse <b>Siguiente</b>.
+      </description>
+   </item>
+   <item
+         title="Omitir campos técnicos">
+      <description>
+         En la página <b>Campos técnicos</b>, deseleccione <b>Configurar campos técnicos adicionales</b>.
+         <br/>
+         Pulse <b>Siguiente</b>.
+      </description>
+   </item>
+   <item
+         title="Omitir paquete no predeterminado">
+      <description>
+         En la página <b>TBD</b>, deseleccione <b>Usar un nombre de paquete como destino de importación</b>.
+         <br/>
+         Cuando se complete esta página, se iniciará el proceso de importación.
+         <br/>
+         Pulse <b>Siguiente</b>.
+      </description>
+   </item>
+   <item
+         title="Finalizar el asistente">
+      <description>
+         En la página <b>TBD</b>, revise el resumen de importación.
+         <br/>
+Pulse <b>Finalizar</b>.
+         
+      </description>
+      <onCompletion>¡Felicidades! Ha importado el tipo de IDoc al modelo de datos lógico.</onCompletion>
+         </item>
+      </cheatsheet>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2011, 2014  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="com.ibm.is.sappack.gen.common.ui.mode">
+      <rmrgmode
+            modeDescription="%modellingModeDescription"
+            modeID="RMRG_MODELLING_MODE"
+            modeName="%modellingModeName"
+            modeOptions="com.ibm.is.sappack.gen.common.ui.ModellingModeOptions">
+      </rmrgmode>
+   </extension>
+
+   <extension
+         id="com.ibm.is.sappack.gen.tools.sap.reports.popup1"
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            id="com.ibm.is.sappack.gen.tools.sap.reports.objectContribution1"
+            nameFilter="*.ldm"
+            objectClass="org.eclipse.core.resources.IFile">
+            <!--
+         <menu
+               id="com.ibm.is.sappack.gen.tools.sap.reports.menu1"
+               label="%reportMenuLabel"
+               path="additions">
+            <groupMarker
+                  name="groupMarker1">
+            </groupMarker>
+         </menu>
+         -->
+         <action
+               class="com.ibm.is.sappack.gen.tools.sap.reports.AppendIncludeStructureReportAction"
+               enablesFor="+"
+               id="com.ibm.is.sappack.gen.tools.sap.reports.action1"
+               label="%appendIncludeStructureAction"
+               menubarPath="com.ibm.is.sappack.gen.common.ui.popupmenu/group">
+         </action>
+      </objectContribution>
+      </extension>
+
+</plugin>

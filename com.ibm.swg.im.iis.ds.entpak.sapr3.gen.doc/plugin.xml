@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--© Copyright IBM Corporation 2011-->
+<?eclipse version="3.0"?><plugin id="com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc" name="sap r3 gen"
+        provider-name="IBM"
+        version="8.0.0">
+   <extension point="org.eclipse.help.toc">
+      <toc file="%sapr3genfile" primary="true"/>
+   </extension>
+   <extension point="org.eclipse.help.index">
+      <index file="%iisdhsgen300_bldindexfile"/>
+   </extension>
+   <extension point="org.eclipse.core.runtime.products"/>
+</plugin>

@@ -1,0 +1,5 @@
+The source code for this package is available from [Mozilla.org][1] under the terms and conditions of the [Mozilla Public License 1.1][2].
+
+   [1]: http://www.mozilla.org
+   [2]: mpl-v11.html
+

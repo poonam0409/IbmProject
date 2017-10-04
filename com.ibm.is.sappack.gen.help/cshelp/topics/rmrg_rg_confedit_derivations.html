@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="cshelp" />
+<meta name="DC.Title" content="Derivations" />
+<meta name="abstract" content="You can derive expressions to apply to all columns of a particular type. These expressions are defined in Transformer stages of the jobs that are generated. To reference the input argument of the transformer, specify $1. For example, you can specify, TrimLeadingTrailing($1) or NullToEmpty($1)." />
+<meta name="Description" content="You can derive expressions to apply to all columns of a particular type. These expressions are defined in Transformer stages of the jobs that are generated. To reference the input argument of the transformer, specify $1. For example, you can specify, TrimLeadingTrailing($1) or NullToEmpty($1)." />
+<meta name="DC.Date" scheme="iso8601" content="2014-04-30" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="derivations" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+<title>Derivations</title>
+<script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+<script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+<script type="text/javascript">
+var mDivision = "IM/IS";
+var mProductName = "IBM InfoSphere Information Server";
+var mProductVersion = "9.1.0";
+var mToList = "comments@us.ibm.com,cgauthie@us.ibm.com,burkharj@us.ibm.com,eldredge@us.ibm.com";
+var mNewWindow = false;
+var plugin_form = "com.ibm.srcf.doc";
+</script>
+
+<script type="text/javascript" src="../tutorials.js"> </script></head>
+<body role="main" id="derivations">
+<div role="banner" id="runningheader" class="runningheader">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/IBM_IC_cue.gif" />
+<span class="hf-bold">IBM InfoSphere Information Server Pack for SAP Applications, Version 8.0.0.1</span><div id="runningheader-feedback" class="runningheader-feedback">
+<a href="javascript:ibm_id_form()"><span class="hf-bold">Feedback</span></a></div>
+<hr class="hf-hr" />
+</div>
+<!-- This headerarea file can be used for any topic placed in only one subdirectory,
+     not in the root directory of the plug-in. 
+     Template; ICCC Version 3.1, CBU Version 4.2, May 2011.
+--><!-- BEGIN NON-TRANSLATE SECTION --><div>
+   <!-- Additional meta information. -->
+   <meta name="dc.identifier" content="headerfile" />
+   <meta name="dc.rights" content="© Copyright IBM Corporation 2011, 2014" />
+   <!-- meta name="DC.Rights.Owner" content="For support, contact sharpt@us.ibm.com" -->
+   <meta name="feedback" content="" />
+   <meta name="ibm.country" content="US" />
+   <meta name="source" content="CBU map.infocenter transform from DITA" />
+   <!-- Common CSS -->
+   <link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+   <!-- topic_url.js for writing the topic URL in the footer. -->
+   <script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+   <!-- srcfv3.js and variable setup for the Feedback link. -->
+   <script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+   <script type="text/javascript">
+      var mDivision = "IM";
+      var mProductName = "IBM InfoSphere Information Server";
+      var mProductVersion = "multiple";
+      var mToList = "comments@us.ibm.com";
+      var plugin_form = "com.ibm.srcf.doc"; 
+   </script>
+   <noscript>
+      <style type="text/css"><!--.collapsecontent{display:block;}// -->
+      </style>
+   </noscript>
+</div><!-- END NON-TRANSLATE SECTION -->
+<h1 class="title topictitle1">Custom derivations</h1>
+<div class="body csbody">
+  <p class="shortdesc">You can derive expressions to apply to all columns of a particular type. These expressions are
+                       defined in Transformer stages of the jobs that are generated.
+  </p>
+  <dl class="dl">
+    <dt class="dt dlterm">Use Custom Derivations</dt>
+    <dd class="dd">Select to assign an expression for each <span class="ph">InfoSphere® DataStage®</span> data type. You can assign
+                   only one mapping per data type. To reference the input argument of the transformer, specify $1.<br/>
+                   For example, you can specify, TrimLeadingTrailing($1) or NullToEmpty($1).
+<!--  
+                    You can use the special term $1 to refer to the input column within the expressions.
+-->                    
+    </dd>
+    <dt class="dt dlterm">Derivation exceptions</dt>
+    <dd class="dd">Define exceptions to the data type mappings defined in the <span class="ph uicontrol">Use Custom Derivations</span>
+                   field. You can define a derivation exception for columns of a specific table. Specify one derivation exception for each
+                   line in the following format:
+      <pre class="pre codeblock"><code>
+<b><var class="keyword varname">TableName</var>.<var class="keyword varname">ColumnName</var>=<var class="keyword varname">Expression</var></b>
+
+Examples:
+<b>T000.MANDT=TrimLeadingTrailing($1)</b>
+<b>T000.MTEXT=$1</b>
+ --
+      </code></pre>
+    </dd>
+  </dl>
+</div>
+<div class="related-links"></div>
+<br />
+<div role="contentinfo" id="runningfooter" class="runningfooter">
+<hr class="hf-hr" />
+
+<p class="runningfooter">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/timestamp.gif" />
+Last updated: 2014-04-30
+</p>
+</div>
+</body>
+</html>

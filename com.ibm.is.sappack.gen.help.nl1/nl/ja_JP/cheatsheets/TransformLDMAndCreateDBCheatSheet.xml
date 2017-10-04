@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="ジョブ生成のために論理データ・モデルを準備">
+   <intro>
+      <description>
+この虎の巻では、論理データ・モデルを、Rapid Generator for SAP で使用する物理データ・モデルに変換する方法について説明します。また、この物理モデルから DB を作成する方法についても説明します。         
+         <br/>
+         <b>注: 以下のステップでは、指示通りに正確にプロジェクト、モデルなどの名前を入力してください。正確に入力しないと、「実行のためにクリックする」ボタンが作動しない場合があります。ただし、「完了時にクリックする」ボタンは引き続き作動します。         </b>
+      </description>
+   </intro>
+   <item
+         dialog="true"
+         href="/com.ibm.datatools.transform.ui.doc/topics/ctransform.html"
+         title="論理モデルを物理モデルに変換">
+      <description>
+Rapid Modeler for SAP を使用して SAP からメタデータをインポートするために使用した論理データ・モデルに移動します。      </description>
+      <subitem
+            label="論理データ・モデルを右クリックし、「物理データ・モデルに変換」を選択します。">
+      </subitem>
+      <subitem
+            label="「ターゲット物理データ・モデル」ページで「新規モデルの作成」を選択します。「次へ」をクリックします。">
+      </subitem>
+      <subitem
+            label="「物理データ・モデル・ファイル」ページで、ターゲット・データベースとして DB2 を選択します。「次へ」をクリックします。">
+      </subitem>
+      <subitem
+            label="「オプション」ページで、設定 (特にスキーマ名) を確認します。「次へ」をクリックします。">
+      </subitem>
+      <subitem
+            label="「出力」ウィザード・ページで「完了」をクリックします。">
+      </subitem>
+         </item>
+   <item
+         title="DB2 データベースの識別">
+      <description>
+システム・ランドスケープ内のいずれかの場所にある、SAP データを保持するために使用する DB2 データベースを識別します。         <br/> 
+DataStage サーバー・マシンで、このデータベースへの ODBC 接続を作成する必要があります。ODBC 接続の作成方法は、オペレーティング・システムにより異なります。システム管理者にお問い合わせください。      </description>
+   </item>
+   <item
+         dialog="true"
+         href="/com.ibm.datatools.connection.repository.ui.doc/topics/tcommon_connecting_wiz.html"
+         title="データベースへの接続を作成">
+      <description>
+このステップでは、InfoSphere Data Architect でデータベースへの接続を作成します。         <br/>
+前に作成した DDL スクリプトをデータベースに対し手動で実行する場合は、このステップはスキップしてかまいません。      </description>
+      <subitem
+            label="「データ・ソース・エクスプローラー」ビューで、「データベース接続」-&gt;「新規」を右クリックします。"
+            skip="true"> 新規>
+      </subitem>
+      <subitem
+            label="「新規接続」ウィザードをクリック操作で移動し、データベースの接続情報を入力します。"
+            skip="true">
+      </subitem>
+   </item>
+   <item
+         skip="true"
+         title="DataStage サーバーで ODBC 接続を作成">
+      <description>
+DataStage サーバー・マシンで、データベースへの ODBC 接続を作成して、そのデータベースを DataStage ジョブで使用できるようにする必要があります。      </description>
+   </item>
+   <item
+         dialog="true"
+         href="/com.ibm.datatools.fe.ui.doc/topics/ruidll_saverun.html"
+         title="DDL スクリプトの生成">
+      <description>
+データ・プロジェクト・エクスプローラーで、前のステップで作成した物理データ・モデルに移動します。dbm エントリーをダブルクリックします。dbm ファイルの下のデータベース・エントリーを右クリックし、「DDL の生成」を選択します。「DDL の生成」ウィザードをウォークスルーして、データ・デザイン・プロジェクトで .sql ファイルを作成します。      </description>
+      <subitem
+            label="データ・プロジェクト・エクスプローラーで、前のステップで作成した物理データ・モデルに移動し、それをダブルクリックします。">
+      </subitem>
+      <subitem
+            label="dbm ファイルの下のデータベース・エントリーを右クリックし、「DDL の生成」を選択します。">
+      </subitem>
+      <subitem
+            label="「DDL の生成」ウィザードをウォークスルーして、データ・デザイン・プロジェクトで .sql ファイルを作成します。">
+      </subitem>
+   </item>
+   <item
+         href="/com.ibm.datatools.server.ui.doc/topics/cdatabaseexplorer.html"
+         title="データベースに対し DDL スクリプトを実行">
+      <description>
+このステップでは、前のステップで作成した接続に対し DDL スクリプトを実行する方法について説明します。      </description>
+      <subitem
+            label="データ・デザイン・プロジェクトの SQL スクリプト・フォルダー内にある .sql ファイルを右クリックし、「SQL の実行」を選択します。"
+            skip="true">
+      </subitem>
+      <subitem
+            label="前のステップで作成したデータベース接続を選択し、ウィザードを完了します。"
+            skip="true">
+      </subitem>
+   </item>
+      </cheatsheet>

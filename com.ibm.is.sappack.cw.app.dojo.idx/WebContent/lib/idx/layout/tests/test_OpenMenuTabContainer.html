@@ -1,0 +1,216 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html style="height: 100%; width: 100%; margin: 0px; padding: 0px;" lang="en">
+<head>
+<title>Test Open Menu Tab Container</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+<script type="text/javascript">
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/claro/claro.css", "idxStyles");
+</script>
+
+<style type="text/css" id="idxStyles">
+@import "../../themes/test.css";
+@import "../../themes/vienna/vienna.css";
+@import "../../themes/oneui/oneui.css";
+@import "../../resources/claro_idx.css";
+@import "../../resources/vienna_idx.css";
+</style>
+
+<script type="text/javascript">
+	var dojoConfig = currentDojoVersion.dojoConfig;
+</script>
+
+<script type="text/javascript">
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+</script>
+
+<script type="text/javascript" id="postDojo">
+var modules = [ "dojo.parser",
+				"dijit.layout.ContentPane",
+				"dijit.layout.TabContainer",
+				"idx.layout.OpenMenuTabContainer" ];
+
+dojoRequireModules(modules, null, currentDojoVersion.async);				
+</script>
+<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+
+<body style="width: 100%; height: 100%; margin: 0; padding: 0px;">
+
+<a class="navigationLink" href="#maincontent">Skip to main content</a>
+<script type="text/javascript">applyThemeToBody()</script>
+<a name="maincontent"></a>
+
+
+ 	<p><i>
+ 	Note: Examples 1-6 show use of the OpenMenuTabContainer with various options and containers, 
+    and a final example of the default Dojo TabContainer with useMenu and overflow scrolling is shown.
+ 	</i></p>
+ 
+	<!--  *************************************************************************************** -->
+	<h1 tabindex="0">Example 1: Tab Menu Open Button IN AppFrame-like Container with styling.</h1>
+	<p>OpenMenuTabContainer with classes: idxAppFrameBody idxTabMenu idxTabMenuLauncher idxConsoleLayoutTabs and id='suiteadmin'.</p>
+
+    <div dojoType="dijit.layout.ContentPane" style="width: 500px; height: 100px; background-color: gray;"> 	
+       <div class="idxAppFrame idxAppFrameCenter idxTabMenuLauncher" dojoType="dijit.layout.ContentPane"> 	
+	      <div class="idxAppFrameBody idxTabMenu idxTabMenuLauncher idxConsoleLayoutTabs" dojoType="idx.layout.OpenMenuTabContainer" id="suiteadmin">
+				<div dojoType="dijit.layout.ContentPane" title="Tab-1">
+			    	1 tab stuff here
+			    </div>		
+			    <div dojoType="dijit.layout.ContentPane" title="Tab-2">  
+			    	2 tab stuff here		
+			    </div>		
+			    <div dojoType="dijit.layout.ContentPane" title="Tab-3">
+			    	3 tab stuff here    		
+			    </div>	
+			   	<div dojoType="dijit.layout.ContentPane" title="Tab-4">
+			    	4 tab stuff here    		
+			    </div>	
+			   	<div dojoType="dijit.layout.ContentPane" title="Tab-5">
+			    	5 tab stuff here    		
+			    </div>	
+	      </div>   <!--  end tab container  -->
+       </div>
+    </div>
+   
+
+
+	<!--  *************************************************************************************** -->
+	<h1 tabindex="1">Example 2: Tab Menu Open Button with styling but NO AppFrame-like Container.</h1>
+	<p>OpenMenuTabContainer with classes: idxTabMenu, idxTabMenuLauncher, and idxConsoleLayoutTabs
+	 and default numInit of 3.</p>
+
+    <div class="idxTabMenuLauncher" dojoType="dijit.layout.ContentPane" splitter="true" style="width:400px; height: 100px; background-color: gray;">
+
+	   <div dojoType="idx.layout.OpenMenuTabContainer" class="idxTabMenu idxConsoleLayoutTabs">
+				<div dojoType="dijit.layout.ContentPane" title="Tab-1">
+			    	1 tab stuff here
+			    </div>		
+			    <div dojoType="dijit.layout.ContentPane" title="Tab-2">  
+			    	2 tab stuff here		
+			    </div>		
+			    <div dojoType="dijit.layout.ContentPane" title="Tab-3">
+			    	3 tab stuff here    		
+			    </div>	
+			   	<div dojoType="dijit.layout.ContentPane" title="Tab-4">
+			    	4 tab stuff here    		
+			    </div>	
+			   	<div dojoType="dijit.layout.ContentPane" title="Tab-5">
+			    	5 tab stuff here    		
+			    </div>	
+	   </div>   <!--  end tab container  -->
+	</div> 
+
+
+	<!--  *************************************************************************************** -->
+	<h1 tabindex="2">Example 3: Tab Menu Open Button with NO AppFrame-like Container and increased number of initial open tabs.</h1>
+	<p>OpenMenuTabContainer with classes: idxTabMenu and overrides numInit of 4.</p>
+
+    <div class="idxTabMenuLauncher" dojoType="dijit.layout.ContentPane" splitter="true" style="width:400px; height: 100px;">
+	   <div dojoType="idx.layout.OpenMenuTabContainer" class="idxTabMenu" numInit="4"   >
+				<div dojoType="dijit.layout.ContentPane" title="Tab-1">
+			    	1 tab stuff here
+			    </div>		
+			    <div dojoType="dijit.layout.ContentPane" title="Tab-2">  
+			    	2 tab stuff here		
+			    </div>		
+			    <div dojoType="dijit.layout.ContentPane" title="Tab-3">
+			    	3 tab stuff here    		
+			    </div>	
+			   	<div dojoType="dijit.layout.ContentPane" title="Tab-4">
+			    	4 tab stuff here    		
+			    </div>	
+			   	<div dojoType="dijit.layout.ContentPane" title="Tab-5">
+			    	5 tab stuff here    		
+			    </div>	
+	   </div>   <!--  end tab container  -->
+    </div>
+
+	<!--  *************************************************************************************** -->
+	<h1 tabindex="3">Example 4: Tab Menu Open Button with only default Dojo tab styling and attempt to set numInit to invalid value.</h1>
+	<p>OpenMenuTabContainer with special styling or container. OpenMenu will just be arrow and numInit=1 which is overridden and set to 3. </p>
+
+    <div dojoType="dijit.layout.ContentPane" splitter="true" style="width:400px; height: 100px;">
+	<div dojoType="idx.layout.OpenMenuTabContainer" numinit="1"  >
+				<div dojoType="dijit.layout.ContentPane" title="Tab-1">
+			    	1 tab stuff here
+			    </div>		
+			    <div dojoType="dijit.layout.ContentPane" title="Tab-2">  
+			    	2 tab stuff here		
+			    </div>		
+			    <div dojoType="dijit.layout.ContentPane" title="Tab-3">
+			    	3 tab stuff here    		
+			    </div>	
+			   	<div dojoType="dijit.layout.ContentPane" title="Tab-4">
+			    	4 tab stuff here    		
+			    </div>	
+			   	<div dojoType="dijit.layout.ContentPane" title="Tab-5">
+			    	5 tab stuff here    		
+			    </div>	
+	</div>   <!--  end tab container  -->
+
+    </div>
+
+	<!--  *************************************************************************************** -->
+	<h1 tabindex="4">Example 5: Tab Menu Open Button with useMenu false, so no open button seen.</h1>
+	<p>OpenMenuTabContainer with useMenu false. </p>
+
+    <div dojoType="dijit.layout.ContentPane" splitter="true" style="width:400px; height: 100px;">
+	<div dojoType="idx.layout.OpenMenuTabContainer"  useMenu="false"   >
+				<div dojoType="dijit.layout.ContentPane" title="Tab-1">
+			    	1 tab stuff here
+			    </div>		
+			    <div dojoType="dijit.layout.ContentPane" title="Tab-2">  
+			    	2 tab stuff here		
+			    </div>		
+			    <div dojoType="dijit.layout.ContentPane" title="Tab-3">
+			    	3 tab stuff here    		
+			    </div>	
+			   	<div dojoType="dijit.layout.ContentPane" title="Tab-4">
+			    	4 tab stuff here    		
+			    </div>	
+			   	<div dojoType="dijit.layout.ContentPane" title="Tab-5">
+			    	5 tab stuff here    		
+			    </div>	
+	</div>   <!--  end tab container  -->
+	
+   </div>
+
+	<!--  *************************************************************************************** -->
+	<h1 tabindex="5">Example 6: Default DOJO Tab Container.</h1>
+	<p>Default DOJO TabContainer with Scrolling and Overflow Menu</p>	
+
+    <div dojoType="dijit.layout.ContentPane" splitter="true" style="width:200px; height: 100px;">
+		<div class="primary" dojoType="dijit.layout.TabContainer">
+				<div dojoType="dijit.layout.ContentPane" title="Tab-1">
+			    	1 tab stuff here
+			    </div>		
+			    <div dojoType="dijit.layout.ContentPane" title="Tab-2">  
+			    	2 tab stuff here		
+			    </div>		
+			    <div dojoType="dijit.layout.ContentPane" title="Tab-3">
+			    	3 tab stuff here    		
+			    </div>	
+			   	<div dojoType="dijit.layout.ContentPane" title="Tab-4">
+			    	4 tab stuff here    		
+			    </div>	
+			   	<div dojoType="dijit.layout.ContentPane" title="Tab-5">
+			    	5 tab stuff here    		
+			    </div>	
+		</div>   <!--  end tab container  -->
+	</div>
+
+</div>
+
+
+</body>
+
+</html>

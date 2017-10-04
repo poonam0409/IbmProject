@@ -1,0 +1,56 @@
+### Jazz Ignore 0
+# The property core.ignore specifies a list of file patterns that will be
+# ignored in this directory. 
+#
+# The value of core.ignore.recursive will be ignored.
+#
+# Ignored files and folders will not be committed, but may be modified during
+# accept or update.
+# Ignore properties should contain a space separated list of filename patterns.
+# Each pattern is case sensitive and surrounded by braces ('{' and '}'). 
+# "*" matches zero or more characters, and "?" matches single characters. 
+#
+#   e.g: {*.sh} {\.*}    ignores shell scripts and hidden files
+
+# NOTE: modifying ignore files will not change the ignore status of derived 
+# resources.
+
+core.ignore.recursive= 
+
+core.ignore= \
+	{8MB-Test.dbm} \
+	{AANewFile.xml} \
+	{ConfigSampe.xml} \
+	{ConfigSample2.xml} \
+	{Copy of MARA_SATURN2.dbm} \
+	{DEBMAS06_LOAD_BOCASAPIDES5.dbm} \
+	{DEBMAS_5segs_load.dbm} \
+	{HansxTest.dbm} \
+	{LOAD_MATMAS05_ALG0_SCHEMA.dbm} \
+	{LOAD_PRELOAD.dbm} \
+	{LOAD_PRELOAD.smaller.dbm} \
+	{MARA_SATURN2.dbm} \
+	{StandaloneTestClient.java} \
+	{ZOSTableTypes.dbm} \
+	{aaa.dbm} \
+	{ccjtc.xml} \
+	{ccjtc_en_US.xml} \
+	{codetablesTest(1).dbm} \
+	{codetablesTest.dbm} \
+	{debmas06Neu.dbm} \
+	{debmas06NeuFewSegments.dbm} \
+	{debmas06NeuM005Small.dbm} \
+	{debmas06NeuM005SmallTVK1_9.dbm} \
+	{debmas06NeuM005_3Cols.dbm} \
+	{debmas06NeuM005_3ColsSmall.dbm} \
+	{debmas06Neu_TVK0.dbm} \
+	{debmas06_(some Segments - with_CTs).dbm} \
+	{debmas06_(with_CTs).dbm} \
+	{debmas06_(with_CTs).dbm_} \
+	{debmas06_(with_CTs).dbmx} \
+	{debmas06_1_Segment_(with_CTs).dbm} \
+	{debmas06_1_file_(with_CTs).dbm} \
+	{debmas06_extract_2.dbm} \
+	{hansx.dbm} \
+	{kna1l.dbm} \
+	{matmas2.dbm} 

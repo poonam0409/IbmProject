@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<?eclipse version="3.0"?>
+<plugin  name= "%pluginName"
+         id="com.ibm.swg.im.iis.common.ic.doc"
+         version = "8.0.0.qualifier"
+         provider-name = "%providerName"
+>
+  <extension 
+    id="helpProduct" 
+    point="org.eclipse.core.runtime.products">
+    <product 
+      name="%name" 
+      application="" />
+  </extension>      
+  <extension point="org.eclipse.help.toc">
+    <toc file="iiypcmic_ddecimal.xml" primary="false" />
+  </extension>
+  
+  <extension point="org.eclipse.help.index">
+    <index file="iiypccmict00_bldindex.xml"/>
+  </extension>
+
+  </plugin>

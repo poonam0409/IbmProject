@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en">
+<head>
+<title>Test DockContainer</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+<script type="text/javascript">
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/claro/claro.css", "idxStyles");
+</script>
+
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneui/oneui.css";
+@import "../../themes/vienna/vienna.css";
+@import "../../resources/claro_idx.css";
+@import "../../resources/vienna_idx.css";
+@import "../../themes/test.css";
+
+HTML, BODY {
+	height: 100%;
+}
+
+</style>
+<script type="text/javascript">
+	var dojoConfig = currentDojoVersion.dojoConfig;
+</script>
+
+<script type="text/javascript">
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+</script>
+ 
+<script type="text/javascript" id="postDojo">
+var modules = ["idx.layout.DockContainer"];
+
+dojoRequireModules(modules, null, currentDojoVersion.async);
+</script>
+<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 0px;">
+<a class="navigationLink" href="#maincontent">Skip to main content</a>
+<script type="text/javascript">applyThemeToBody()</script>
+<a name="maincontent"></a>
+<div dojoType="idx.layout.DockContainer" style="height: 100%;" topicId="dock1">
+	<div dojoType="idx.layout.DockTabContainer" region="top" splitter="true" style="height: 80px;"></div>
+	<div dojoType="idx.layout.DockContentPane" region="left" style="width: 200px;" splitter="true">
+		<div dojoType="idx.layout.DockPane" topicId="dock1" title="Dockable Pane 1">dockPane 1</div>
+	</div>
+	<div dojoType="idx.layout.DockPane" topicId="dock1" title="Dockable Pane 2" dockArea="float" style="width: 200px;">dockPane 2</div>
+	<div dojoType="idx.layout.DockPane" topicId="dock1" title="Dockable Pane 7" dockArea="float">
+		<div style="width: 300px; height: 600px;">big content</div>
+	</div>
+	<div dojoType="idx.layout.DockPane" topicId="dock1" title="Dockable Pane 8" dockArea="float" class="pane8">pane8</div>
+	<div dojoType="idx.layout.DockContentPane" region="right" doLayout="false" splitter="true">
+		<div dojoType="idx.layout.DockPane" dockArea="right" topicId="dock1" title="Dockable Pane 3">dockPane 3</div>
+		<div dojoType="idx.layout.DockPane" dockArea="right" topicId="dock1" title="Dockable Pane 4">dockPane 4</div>
+		<div dojoType="idx.layout.DockPane" dockArea="right" topicId="dock1" title="Dockable Pane 5">dockPane 5</div>
+		<div dojoType="idx.layout.DockPane" scrollOpacity="true" dockArea="right" topicId="dock1" title="Dockable Pane 6">dockPane 6</div>
+	</div>
+	<div dojoType="idx.layout.DockContentPane" region="center">content</div>
+</div>
+</body>
+</html>

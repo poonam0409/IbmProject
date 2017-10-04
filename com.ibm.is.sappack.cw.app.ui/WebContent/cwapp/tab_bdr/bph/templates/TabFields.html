@@ -1,0 +1,65 @@
+<div dojoType="dijit.layout.ContentPane" class="bdrTab">
+	<div dojoType="idx.layout.BorderContainer" dojoAttachPoint="borderContainer" gutters="false" class="fullSizeContainer">
+		<div dojoType="dijit.layout.ContentPane" region="top" style="height: 65%;">
+			<div dojoType="idx.layout.BorderContainer" dojoAttachPoint="borderContainerInner1" gutters="false"
+				class="fullSizeContainer">
+				<div dojoType="dijit.layout.ContentPane" region="top">
+					<div dojoAttachPoint="buttonBar" class="idxButtonBar TabFields_buttonBar">
+						<div class="idxButtonBarLeading idxButtonBarPrimary">
+							<button dojoType="dijit.form.Button" type="button" dojoAttachPoint="addButton">${msg.ADD}</button>
+							<button dojoType="dijit.form.Button" type="button" dojoAttachPoint="removeButton" disabled="true">${msg.BPHTAB_2}</button>
+							<button dojoType="dijit.form.Button" type="button" dojoAttachPoint="gotoTableButton">${msg.TABLESFIELDPAGE_22}</button>
+							<div dojoAttachPoint="buttonBarSeparator1" class="idxButtonBarSeparator"></div>							
+							<div data-dojo-type="dijit/form/ComboButton" dojoAttachPoint="setRequiredButton">
+   	 							<span>${msg.TABLESFIELDPAGE_SET_IS_REQUIRED}</span>
+    							<div data-dojo-type="dijit/DropDownMenu" dojoAttachPoint="dropDownMenuRequired">
+    								
+    							</div>
+							</div>
+							<div data-dojo-type="dijit/form/ComboButton" dojoAttachPoint="setScopeButton">
+   	 							<span>${msg.TABLESFIELDPAGE_SET_SCOPE}</span>
+    							<div data-dojo-type="dijit/DropDownMenu" dojoAttachPoint="dropDownMenuScope">
+    								
+    							</div>
+							</div>
+						</div>
+						<div dojoAttachPoint="buttonBarSeparator3" class="idxButtonBarSeparator" style="display: '';"></div>
+						<div dojoType="dijit.form.DropDownButton" dojoAttachPoint="fieldDataGridDropDown" >
+								<span>${msg.BPHTABLESTAB_16}</span>
+								<div data-dojo-type="dijit.Menu">
+								</div>
+							</div>
+						<button dojoType="dijit.form.Button" type="button" dojoAttachPoint="applyFilterButton">${msg.BPHTABLESTAB_17}</button>
+						<div dojoAttachPoint="buttonBarSeparator2" class="idxButtonBarSeparator" style="display: none;"></div>
+						<div dojoAttachPoint="secondaryButtonBarRegion" class="idxButtonBarTrailing idxButtonBarSecondary">
+							<div dojoType="dijit.form.DropDownButton" dojoAttachPoint="importFieldsFromSapButton" disabled="true">
+								<span>${msg.TABLESFIELDPAGE_1}</span>
+								<div data-dojo-type="dijit.Menu">
+								</div>
+							</div>
+						</div>
+						<div dojoType="cwapp.main.SearchBox" placeHolder="${msg.BPHTABLESTAB_7}" dojoAttachPoint="fieldDataGridFilter"
+							class="TabField_filterDiv"></div>
+					</div>
+				</div>
+				<div dojoType="dijit.layout.ContentPane" region="center" class="fullSizePaddedContainer gridUnderButtonBar">
+					<div dojoAttachPoint="fieldDataGridDiv" class="contentPane"></div>
+				</div>
+			</div>
+		</div>
+		<div dojoType="dijit.layout.ContentPane" region="bottom" style="height: 35%;">
+			<div dojoType="idx.layout.BorderContainer" dojoAttachPoint="borderContainerInner2" gutters="false"
+				class="fullSizeContainer">
+				<div dojoType="dijit.layout.ContentPane" region="top" class="bdrElementHeader">${msg.BPHTABLESTAB_12}</div>
+				<div dojoType="dijit.layout.ContentPane" region="center" dojoAttachPoint="bottomGrid"
+					class="fullSizePaddedContainer gridUnderButtonBar">
+					<div dojoAttachPoint="usageDataGridDiv" class="contentPane"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div dojoType="idx.widget.SimpleIconDialog" title="${msg.BPHTABLESTAB_8}" dojoAttachPoint="fieldImportProgressDialog"
+		showActionBar="false" iconClass="idxSignIcon dijitContentPaneLoading" text="${msg.BPHTABLESTAB_9}"
+		class="TabFields_fieldImportProgressDialog" style="display: none;"></div>
+	<div dojoType="cwapp.tab_bdr.bph.AddFieldDialog" dojoAttachPoint="addFieldDialog" style="display: none;"></div>
+</div>

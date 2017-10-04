@@ -1,0 +1,25 @@
+<div dojoType="dijit.layout.ContentPane" class="fullSizePaddedContainer" region="body">
+	<div dojoType="idx.layout.BorderContainer" dojoAttachPoint="borderContainer" class="fullSizeContainer">
+		<div dojoType="dijit.layout.ContentPane" region="top" dojoAttachPoint="sapSystemHeader" class="ReferenceDataLoadWizardPage_contentPane">
+		</div>
+		<div dojoType="dijit.layout.ContentPane" region="center">
+			<table dojoType="dojox.grid.DataGrid"
+				rowSelector="false"
+				selectionMode="none"
+				clickable="false"
+				dojoAttachPoint="referenceDataSummaryGrid"
+				class="dataGrid">
+				<thead>
+					<tr>
+						<th field="tableStatus" width="12px" formatter="_displayColumnImage">&nbsp;</th>
+						<th field="name" width="20%">${msg.TABLE}</th>
+						<th field="tableType" width="18%" formatter="_formatReferenceTableType">${msg.TYPE}</th>
+						<th field="description" width="28%">${msg.DESCRIPTION}</th>
+						<th get="_this._displayTextTableName" width="20%">${msg.REFRNCDATAIMPSUMPG_6}</th>
+						<th get="_this._displayTranscodingTableName" width="20%">${msg.REFRNCDATAIMPSUMPG_10}</th>
+					<tr>
+				</thead>
+			</table>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,37 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: DataStage Job Image Generator Plug-in
+Bundle-SymbolicName: com.ibm.datastage.ui.imagegenerator
+Bundle-Version: 11.3.0.0
+Bundle-Vendor: IBM
+Bundle-ClassPath: .,
+ ../../../lib/java/ant.jar,
+ ../../../lib/java/datastage_common_lang.jar,
+ ../../../lib/java/datastage_common.jar,
+ ../../../lib/java/datastage_g11n.jar,
+ ../../../lib/java/datastage_ui_lang.jar,
+ ../../../lib/java/datastage_ui.jar,
+ ../../../lib/java/DataStageX_api_gen_ecore.jar,
+ ../../../lib/java/EditServ_api_gen_ecore.jar,
+ ../../../lib/java/log4j-1.2.17.jar,
+ ../../../lib/java/datastage_java_logger.jar,
+ ../../../isf-admin-client.jar,
+ ../../../lib/java/datastage-jobimaging-client.jar, 
+ ../../../lib/java/datastage-jobimaging-common.jar,
+ ../../../lib/java/datastage-jobimaging-common_lang.jar
+Eclipse-RegisterBuddy: com.ibm.iis.client
+Eclipse-BuddyPolicy: registered 
+Eclipse-LazyStart: true
+Export-Package: DataStageX,
+ DataStageX.impl,
+ com.ibm.datastage.ui.canvas,
+ com.ibm.datastage.ui.canvas.model,
+ com.ibm.datastage.ui.canvas.rendering,
+ com.ibm.datastage.ui.canvas.summaryinfo,
+ com.ibm.datastage.ui.utility,
+ com.ibm.datastage.jobimaging.service
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.sdo,
+ com.ibm.iis.ismodels; visibility:=reexport,
+ com.ibm.iis.client; visibility:=reexport
+ 

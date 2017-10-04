@@ -1,0 +1,329 @@
+//---------------------------------------------------------------------------  
+// IBM Confidential                                                            
+//                                                                             
+// OCO Source Materials                                                        
+//                                                                             
+// 5724-Q55                                                                 
+//                                                                             
+// (C) Copyright IBM Corporation 2009, 2014                                              
+//                                                                             
+// The source code for this program is not published or otherwise              
+// divested of its trade secrets, irrespective of what has been                
+// deposited with the U.S. Copyright Office.                                     
+//---------------------------------------------------------------------------  
+//-*-************************************************************************  
+//                                                                             
+// IBM InfoSphere Information Server Packs for SAP Applications 
+//                                                                             
+// Module Name : com.ibm.is.sappack.dsstages.common.impl
+//                                                                             
+//*************************-END OF SPECIFICATIONS-***************************
+package com.ibm.is.sappack.dsstages.common.impl;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import com.ibm.is.sappack.dsstages.common.CCFResource;
+import com.ibm.is.sappack.dsstages.common.Constants;
+import com.ibm.is.sappack.dsstages.common.DSSAPConnection;
+import com.ibm.is.sappack.dsstages.common.IDocTypeConfiguration;
+import com.ibm.is.sappack.dsstages.common.RuntimeConfiguration;
+import com.ibm.is.sappack.dsstages.common.SapSystem;
+import com.ibm.is.sappack.dsstages.common.StageLogger;
+import com.ibm.is.sappack.dsstages.common.Utilities;
+import com.sap.conn.jco.JCoDestination;
+import com.sap.conn.jco.JCoException;
+
+public class DSSAPConnectionImpl implements DSSAPConnection {
+
+	final static String CLASSNAME = DSSAPConnectionImpl.class.getName();
+
+	private SapSystem sapSystem;
+	private List<IDocTypeConfiguration> idocTypeConfigurations;
+	private Logger logger;
+
+
+	static String copyright() {
+		return com.ibm.is.sappack.dsstages.common.impl.Copyright.IBM_COPYRIGHT_SHORT;
+	}
+
+	
+	public DSSAPConnectionImpl() {
+		this.logger = StageLogger.getLogger();
+	}
+
+	public List<IDocTypeConfiguration> getIDocTypeConfigurations() {
+		return this.idocTypeConfigurations;
+	}
+
+
+	public SapSystem getSapSystem() {
+		return this.sapSystem;
+	}
+
+	public void initialize(String dsSAPConnectionName) throws IOException {
+		final String METHODNAME = "initialize()"; //$NON-NLS-1$
+		this.logger.entering(CLASSNAME, METHODNAME);
+		logger.log(Level.FINER, "inside initialize DSsapConnectionImpl {0}", dsSAPConnectionName);
+		String dssaphome = RuntimeConfiguration.getRuntimeConfiguration().getDSSAPHOME();
+		if (dssaphome == null) {
+			String msgKey = "CC_IDOC_DSSAPHOMENotSet"; //$NON-NLS-1$
+			
+			this.logger.log(Level.SEVERE, msgKey);
+			throw new RuntimeException(CCFResource.getCCFMessage(msgKey));
+		}
+		String dsSAPConnectionsDirectory = dssaphome + File.separator + Constants.CONFIG_FOLDER_DSSAPCONNECTIONS;
+
+		// 1. read SAP system from DSSAPConnections.config
+		readDSSAPConnectionsConfigFile(dsSAPConnectionName, dsSAPConnectionsDirectory);
+
+		String connDir = dsSAPConnectionsDirectory + File.separator + dsSAPConnectionName;
+
+		// 2. reading IDoc config files
+		readIDocConfigurations(connDir);
+		this.logger.exiting(CLASSNAME, METHODNAME);
+	}
+
+	@SuppressWarnings("unchecked")
+   private void readIDocConfigurations(String connDir) throws IOException {
+		logger.log(Level.FINER, "connDir {0}", connDir); //$NON-NLS-1$
+		
+		final String METHODNAME = "readIDocConfigurations(String connDir)"; //$NON-NLS-1$
+		this.logger.entering(CLASSNAME, METHODNAME, connDir);
+		this.idocTypeConfigurations = new ArrayList<IDocTypeConfiguration>();
+		String idocLoadConfigFileString = connDir + File.separator + Constants.CONFIG_FILE_IDOC_LOAD;
+		logger.log(Level.FINER, "idocLoadConfigFileString {0}", idocLoadConfigFileString); //$NON-NLS-1$
+		
+		ConfigFile idocLoadConfigFile = new ConfigFile(idocLoadConfigFileString);
+		List<Object> idocLoadConfig = idocLoadConfigFile.getConfiguration();
+		logger.log(Level.FINER, "idocLoadConfig {0}", idocLoadConfig); //$NON-NLS-1$
+		
+
+		// find DSSAPConnections/CONNNAME/IDocTypes/IDocTypes.config file
+		String idocTypesFolder = connDir + File.separator + Constants.CONFIG_FOLDER_IDOC_TYPES;
+		logger.log(Level.FINER, "idocTypesFolder {0}", idocTypesFolder); //$NON-NLS-1$
+		
+		File idocTypesFile = new File(idocTypesFolder + File.separator + Constants.CONFIG_FILE_IDOC_TYPES);
+		logger.log(Level.FINER, "idocTypesFile {0}", idocTypesFile); //$NON-NLS-1$
+		
+		if (!idocTypesFile.exists()) {
+			logger.fine("IDocTypes.config file not found, nothing to do"); //$NON-NLS-1$
+			logger.exiting(CLASSNAME, METHODNAME);
+			return;
+		}
+
+		ConfigFile idocTypesConfigFile = new ConfigFile(idocTypesFile);
+		List<Object> idocTypesConfig = idocTypesConfigFile.getConfiguration();
+		logger.log(Level.FINER, "idocTypesConfig {0}", idocTypesConfig.toString()); //$NON-NLS-1$
+		
+		List<Object> idocTypesConfigList = (List<Object>) ConfigFile.findInList(idocTypesConfig, Constants.CONFIG_FILE_IDOC_TYPES_PROPERTY_DSIDOCTYPES);
+		logger.log(Level.FINER, "idocLoadConfig {0}", idocTypesConfigList.toArray()); //$NON-NLS-1$
+		
+		for (Object o : idocTypesConfigList) {
+			List<Object> idocTypeConfig = (List<Object>) o;
+			logger.log(Level.FINER, "idocTypeConfig {0}", idocTypeConfig.toString()); //$NON-NLS-1$
+			
+			String idocTypeName = (String) ConfigFile.findInList(idocTypeConfig, Constants.CONFIG_FILE_IDOC_TYPES_PROPERTY_NAME);
+
+			logger.log(Level.FINER, "Found configured IDoc: {0}", idocTypeName); //$NON-NLS-1$
+			IDocTypeConfigurationImpl itc = new IDocTypeConfigurationImpl();
+			itc.idocTypeName = idocTypeName;
+
+			String idocTypeNameAsFile = convertIDocTypeNameToFileName(idocTypeName);
+			logger.log(Level.FINER, "idocTypeNameAsFile{0}", idocTypeNameAsFile); //$NON-NLS-1$
+			
+			IDocLoadConfigurationImpl ilc = new IDocLoadConfigurationImpl();
+			ilc.connectionPartnerNumber = (String) ConfigFile.findInList(idocLoadConfig, Constants.CONFIG_FILE_IDOC_LOAD_PROPERTY_ILOADPARTNERNUMBER);
+			logger.log(Level.FINER, "idocTypeNameAsFile{0}", idocTypeNameAsFile); //$NON-NLS-1$
+			
+			ilc.sapPartnerNumber = (String) ConfigFile.findInList(idocLoadConfig, Constants.CONFIG_FILE_IDOC_LOAD_PROPERTY_ILOADDESTPARTNERNUMBER);
+			logger.log(Level.FINER, "sapPartnerNumber{0}", ilc.sapPartnerNumber); //$NON-NLS-1$
+			
+			ilc.loadDataDirectory = (String) ConfigFile.findInList(idocLoadConfig, Constants.CONFIG_FILE_IDOC_LOAD_PROPERTY_ILOADDIR);
+			logger.log(Level.FINER, "ilc.loadDataDirectory{0}", ilc.loadDataDirectory); //$NON-NLS-1$
+			
+			ilc.fileBasedLoadDirectory = idocTypesFolder + File.separator + idocTypeNameAsFile;
+			logger.log(Level.FINER, "ilc.fileBasedLoadDirectory{0}", ilc.fileBasedLoadDirectory); //$NON-NLS-1$
+			
+			itc.loadConfig = ilc;
+			logger.log(Level.FINER, "itc.loadConfig{0}", ilc); //$NON-NLS-1$
+			
+			IDocExtractConfigurationImpl iec = new IDocExtractConfigurationImpl();
+			String useDefaultPath = (String) ConfigFile.findInList(idocTypeConfig, Constants.CONFIG_FILE_IDOC_TYPES_PROPERTY_USE_DEFAULT_PATH); 
+			logger.log(Level.FINER, "useDefaultPath{0}", useDefaultPath); //$NON-NLS-1$
+			
+			String idocExtractDir = idocTypesFolder + File.separator + convertIDocTypeNameToFileName(idocTypeName);
+			logger.log(Level.FINER, "idocExtractDir{0}", idocExtractDir); //$NON-NLS-1$
+			
+			if (Constants.CONFIG_FILE_PROPERTY_VALUE_FALSE.equals(useDefaultPath)) {
+				
+				idocExtractDir = (String) ConfigFile.findInList(idocTypeConfig, Constants.CONFIG_FILE_IDOC_TYPES_PROPERTY_IDOC_FILES_PATH); 
+				logger.log(Level.FINER, " inside idocExtractDir{0}", idocExtractDir); //$NON-NLS-1$
+				
+			}
+			
+			// now try to find DEBMAS06/DEBMAS06.config for the release number
+			String idocTypeConfigFileFolder = idocTypesFolder;
+			logger.log(Level.FINER, "  idocTypeConfigFileFolder{0}", idocTypeConfigFileFolder); //$NON-NLS-1$
+			
+			if (Constants.CONFIG_FILE_PROPERTY_VALUE_FALSE.equals(useDefaultPath)){
+				idocTypeConfigFileFolder = idocExtractDir;
+				logger.log(Level.FINER, "   inside if  idocTypeConfigFileFolder{0}", idocTypeConfigFileFolder); //$NON-NLS-1$
+				
+			}else {
+				idocTypeConfigFileFolder = idocTypeConfigFileFolder + File.separator + idocTypeNameAsFile;
+				logger.log(Level.FINER, "   inside else idocTypeConfigFileFolder{0}", idocTypeConfigFileFolder); //$NON-NLS-1$
+				
+			}
+			File specificIDocTypeConfigFile = new File(idocTypeConfigFileFolder + File.separator + idocTypeNameAsFile + ".config"); //$NON-NLS-1$
+			logger.log(Level.FINER, "   inside specificIDocTypeConfigFile{0}", specificIDocTypeConfigFile); //$NON-NLS-1$
+			if (!specificIDocTypeConfigFile.exists()) {
+				this.logger.log(Level.WARNING, "CC_IDOC_ConfigFileNotFound", new Object[] { specificIDocTypeConfigFile.getAbsolutePath() } ); //$NON-NLS-1$
+			} else {
+				ConfigFile specificIDocTypeConfig = new ConfigFile(specificIDocTypeConfigFile);
+				String release = (String) ConfigFile.findInList(specificIDocTypeConfig.getConfiguration(), Constants.CONFIG_FILE_IDOC_TYPE_PROPERTY_R3VERSION);
+				itc.release = release;
+			}
+			
+			iec.idocExtractDir = idocExtractDir;
+			itc.extractConfig = iec;
+			
+			this.idocTypeConfigurations.add(itc);
+		}
+		logger.exiting(CLASSNAME, METHODNAME);
+	}
+
+	public static String convertIDocTypeNameToFileName(String idocTypeName) {
+		return Utilities.idocType2FileName(idocTypeName);
+	}
+
+	@SuppressWarnings("unchecked")
+   private void readDSSAPConnectionsConfigFile(String dsSAPConnectionName, String dsSAPConnectionsDirectory) throws IOException {
+		final String METHODNAME = "readDSSAPConnectionsConfigFile(String dsSAPConnectionName, String dsSAPConnectionsDirectory, Map<String, String> stageProperties)"; //$NON-NLS-1$
+		this.logger.entering(CLASSNAME, METHODNAME);
+		String wrongFileFormatMsg = CCFResource.getCCFMessage("CC_IDOC_ConfigFileWrongFormat", Constants.CONFIG_FILE_DSSAPCONNECTIONS); //$NON-NLS-1$
+
+		String dsSAPConnectionsFile = dsSAPConnectionsDirectory + File.separator + Constants.CONFIG_FILE_DSSAPCONNECTIONS;
+		logger.log(Level.FINE, "Parsing config file: {0}", dsSAPConnectionsFile); //$NON-NLS-1$
+		ConfigFile dsSAPConnectionsConfig = new ConfigFile(dsSAPConnectionsFile);
+		List<Object> l = dsSAPConnectionsConfig.getConfiguration();
+		
+		if (l == null || l.size() == 0) {
+			String msgId = "CC_IDOC_ConfigFileEmpty"; //$NON-NLS-1$
+			logger.log(Level.SEVERE, "configuration file '" + Constants.CONFIG_FILE_DSSAPCONNECTIONS + "' is empty.");
+			throw new IOException(CCFResource.getCCFMessage(msgId, Constants.CONFIG_FILE_DSSAPCONNECTIONS));
+		}
+		logger.log(Level.FINER, "number of connections found: " + l.size()); //$NON-NLS-1$
+
+		Iterator<Object> it = ((List<Object>) ConfigFile.findInList(l, Constants.CONFIG_FILE_DSSAPCONNECTIONS_PROPERTY_DSSAPCONNECTIONS)).iterator();
+		while (it.hasNext()) {
+			List<Object> connectionProperties = (List<Object>) it.next();
+			String name = (String) ConfigFile.findInList(connectionProperties, Constants.CONFIG_FILE_IDOC_TYPES_PROPERTY_NAME);
+			logger.log(Level.FINER, "Found SAP connection: {0}", name); //$NON-NLS-1$
+			if (name.equals(dsSAPConnectionName)) {
+				logger.log(Level.FINER, "Reading properties of connection: {0}", name); //$NON-NLS-1$
+				sapSystem = new SapSystem(dsSAPConnectionName);
+
+				String useLoadBalancedConnection = (String) ConfigFile.findInList(connectionProperties, Constants.CONFIG_FILE_DSSAPCONNECTIONS_PROPERTY_USELOADBALANCING);
+				logger.log(Level.FINER, "  Use load balancing: {0}", useLoadBalancedConnection); //$NON-NLS-1$
+				if (useLoadBalancedConnection.equalsIgnoreCase("TRUE")) {
+					
+					String sapMessServer = (String) ConfigFile.findInList(connectionProperties, Constants.CONFIG_FILE_DSSAPCONNECTIONS_PROPERTY_SAPMESSERVER);
+					sapSystem.setMsgServer(sapMessServer);
+					logger.log(Level.FINER, "  SAP message server: {0}", sapMessServer); //$NON-NLS-1$
+
+					String group = (String) ConfigFile.findInList(connectionProperties, Constants.CONFIG_FILE_DSSAPCONNECTIONS_PROPERTY_SAPGROUP);
+					sapSystem.setGroupName(group);
+					logger.log(Level.FINER, "  SAP message server group: {0}", group); //$NON-NLS-1$
+
+					String msgsvrRouterString = (String) ConfigFile.findInList(connectionProperties, Constants.CONFIG_FILE_DSSAPCONNECTIONS_PROPERTY_MSGSVRROUTERSTRING);
+					sapSystem.setRouterString(msgsvrRouterString);
+					logger.log(Level.FINER, "  SAP message server router string: {0}", msgsvrRouterString); //$NON-NLS-1$
+
+					String sapSysId = (String) ConfigFile.findInList(connectionProperties, Constants.CONFIG_FILE_DSSAPCONNECTIONS_PROPERTY_SAPSYSID);
+					logger.log(Level.FINER, "  SAP system ID: {0}", sapSysId); //$NON-NLS-1$
+					sapSystem.setSystemId(sapSysId);
+
+					sapSystem.setMessageServerSystem(true);
+				} else {
+					String sapAppServer = (String) ConfigFile.findInList(connectionProperties, Constants.CONFIG_FILE_DSSAPCONNECTIONS_PROPERTY_SAPAPPSERVER);
+					logger.log(Level.FINER, "  SAP App server: {0}", sapAppServer); //$NON-NLS-1$
+					sapSystem.setAppServer(sapAppServer);
+
+					String sapRouterString = (String) ConfigFile.findInList(connectionProperties, Constants.CONFIG_FILE_DSSAPCONNECTIONS_PROPERTY_SAPROUTERSTRING);
+					logger.log(Level.FINER, "  SAP App server router string: {0}", sapRouterString); //$NON-NLS-1$
+					sapSystem.setRouterString(sapRouterString);
+
+					String sapSysNum = (String) ConfigFile.findInList(connectionProperties, Constants.CONFIG_FILE_DSSAPCONNECTIONS_PROPERTY_SAPSYSNUM);
+					logger.log(Level.FINER, "  SAP system number: {0}", sapSysNum); //$NON-NLS-1$
+					sapSystem.setSystemNumber(sapSysNum);
+					
+					sapSystem.setMessageServerSystem(false);
+				}
+
+				String defaultUserName = (String) ConfigFile.findInList(connectionProperties, Constants.CONFIG_FILE_DSSAPCONNECTIONS_PROPERTY_DEFAULTUSERNAME);
+				logger.log(Level.FINER, "  default User: {0}", defaultUserName); //$NON-NLS-1$
+				sapSystem.setUserName(defaultUserName);
+
+				String defaultClient = (String) ConfigFile.findInList(connectionProperties, Constants.CONFIG_FILE_DSSAPCONNECTIONS_PROPERTY_DEFAULTCLIENT);
+				logger.log(Level.FINER, "  Default client: {0}", defaultClient); //$NON-NLS-1$
+				int clientNum = 0;
+				if (!defaultClient.trim().isEmpty()) {
+					try {
+						clientNum = NumberFormat.getNumberInstance().parse(defaultClient).intValue();
+					} catch (ParseException e) {
+						logger.log(Level.SEVERE, "CC_IDOC_ConfigFileWrongFormat", new Object[] { Constants.CONFIG_FILE_DSSAPCONNECTIONS }); //$NON-NLS-1$
+						throw new IOException(wrongFileFormatMsg);
+					}
+				}
+				sapSystem.setClientId(clientNum);
+
+				String defaultPassword = (String) ConfigFile.findInList(connectionProperties, Constants.CONFIG_FILE_DSSAPCONNECTIONS_PROPERTY_DEFAULTPASSWORD);
+				logger.log(Level.FINER, "  default password (encrypted): {0}", defaultPassword); //$NON-NLS-1$
+				String password = Utilities.convertConfigFilePW(defaultPassword);
+				sapSystem.setPassword(password);
+
+				String defaultLanguage = (String) ConfigFile.findInList(connectionProperties, Constants.CONFIG_FILE_DSSAPCONNECTIONS_PROPERTY_DEFAULTLANGUAGE);
+				logger.log(Level.FINER, "  default language): {0}", defaultLanguage); //$NON-NLS-1$
+				sapSystem.setLanguage(defaultLanguage);
+
+				break;
+			}
+		}
+		if (sapSystem == null) {
+			String msgId = "CC_IDOC_DSSAPConnectionNotFound"; //$NON-NLS-1$
+			logger.log(Level.SEVERE, msgId, dsSAPConnectionName);
+			throw new IOException(CCFResource.getCCFMessage(msgId, dsSAPConnectionName));
+		}
+
+		this.logger.exiting(CLASSNAME, METHODNAME);
+	}
+
+	public JCoDestination createJCODestinationWithConnectionDefaults() throws JCoException {
+		final String METHODNAME = "createJCODestinationWithConnectionDefaults"; //$NON-NLS-1$
+		this.logger.entering(CLASSNAME, METHODNAME);
+		JCoDestination result = RfcDestinationDataProvider.getDestination(sapSystem);
+		this.logger.exiting(CLASSNAME, METHODNAME);
+		return result;
+	}
+
+	@SuppressWarnings("nls")
+	public static void main(String[] args) {
+		try {
+			System.out.println("Parsing connection");
+			DSSAPConnectionImpl conn = new DSSAPConnectionImpl();
+			conn.initialize("BOCASAPERP5");
+			System.out.println("Connection parsed: " + conn);
+		} catch (Throwable t) {
+			t.printStackTrace();
+		}
+	}
+
+}

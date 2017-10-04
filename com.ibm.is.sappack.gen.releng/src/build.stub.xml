@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+**************************************************************************
+
+IBM InfoSphere Information Server Packs for SAP Applications
+
+Module Name : build.master.xml
+
+*************************-END OF SPECIFICATIONS-**************************
+-->
+<project name="com.ibm.is.sappack.gen.releng.build.stub" default="dist" basedir=".">
+    <description>
+      This is only a stub XML file serving as an initial entry point to the real SAP Pack
+      build infrastructure. The SAP Pack build files based on Apache Ant are located in the
+      stream "SAPPack_Releng (component: Releng)" and will be retrieved using arbitrary 
+      Apache Ant tasks.
+    </description>
+    
+    <!-- ===================================== -->
+    <!-- = Include The Ant-Contrib Functions = -->
+    <!-- ===================================== -->
+    <!--
+       |
+       | Note: To get this to work you need to add ant-contrib-1.0b3.jar to the
+       |       Ant -lib path aka your classpath that is acompanying your Ant build.
+       |
+    -->
+    <taskdef resource="net/sf/antcontrib/antcontrib.properties" />
+    <!-- Copyright on Demand (COD) task definitions -->
+    <taskdef  resource="taskdef.properties" />
+    <!-- Cobertura task definitions -->
+    <taskdef resource="tasks.properties" />
+  
+    <taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
+      <!-- This sonar Ant task library can also be put in the ${ANT_HOME\}/lib directory-->
+      <!-- In such case this classpath node is no more mandatory -->
+    </taskdef>
+  
+    <!-- import Jazz-specific Ant targets which should be called during the build cycle -->
+    <if>
+      <isset property="buildResultUUID" />
+      <then>
+        <import file="${basedir}/build.common.jazz.xml" />
+        <echo message="Running inside a Jazz Build Engine process. Unique identifier for the build result: ${buildResultUUID}" />
+        <echo message="JBE User: ${jbe.uid}" />
+        <echo message="JBE Password File Location: ${jbe.password.file}" />
+      </then>
+      <else>
+        <import file="${basedir}/build.common.jazz.dummy.xml" />
+        <echo message="Not running inside a Jazz Build Engine process." />
+      </else>
+    </if>
+  
+    <!-- init Jazz-specific Ant macros -->
+    <target name="init.jazz" depends="init.jazz.common" if="buildResultUUID">
+      <testJazzMacros message="Master Build Script" />
+    </target>
+    
+    <target name="init.releng" depends="init.jazz">
+      <!-- checkout releng component from releng stream to a temp location -->
+      <checkoutRelengProject relengWorkspace="${relengWorkspace}" toDir="${java.io.tmpdir}/${buildLabel}" />
+      <!-- 
+         |
+         | Copy over just checked out files into ${basedir} where ${basedir}
+         | resolves to: com.ibm.is.sappack.gen.releng/src
+         |
+      -->
+      <copy todir="${basedir}">
+        <fileset dir="${java.io.tmpdir}/${buildLabel}/com.ibm.is.sappack.gen.releng/src/main/resources/ant/">
+          <include name="**/*.xml"/>
+          <include name="**/*.properties"/>
+          <include name="**/*.php"/>
+          <include name="**/*.template.txt"/>
+        </fileset>
+      </copy>
+      <!-- copy dependencies into place as well -->
+      <!-- <mkdir dir="${basedir}/../lib" /> -->
+      <copy todir="${basedir}/../lib" overwrite="true">
+        <fileset dir="${java.io.tmpdir}/${buildLabel}/com.ibm.is.sappack.gen.releng/lib">
+          <include name="**/*.jar"/>
+        </fileset>
+      </copy>
+    </target>
+  
+    <target name="dist" depends="init.releng">
+      <sequential>
+        <!-- delete the temporary checkout to save disk space -->
+        <delete dir="${java.io.tmpdir}/${buildLabel}/com.ibm.is.sappack.gen.releng" />
+        <!-- kick-off the actual build cycle based on the just copied files -->
+        <ant inheritAll="true" antfile="${basedir}/build.master.xml">
+          <property name="foobar.property" value="foobar.property.value"/>
+        </ant>
+      </sequential>
+    </target>
+  
+    <target name="pruneBuildArea" depends="init.releng">
+      <!-- delete the temporary checkout to save disk space -->
+      <delete dir="${java.io.tmpdir}/${buildLabel}/com.ibm.is.sappack.gen.releng" />
+      <!-- kick-off the actual build cycle based on the just copied files -->
+      <ant inheritAll="true" antfile="${basedir}/build.master.xml" target="pruneBuildArea">
+        <property name="foobar.property" value="foobar.property.value"/>
+      </ant>
+    </target>
+</project>

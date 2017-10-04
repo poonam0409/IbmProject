@@ -1,0 +1,12 @@
+#Mon Nov 26 13:32:19 CET 2012
+vals/com.ibm.xtt.xsl.core.xsl/groups=0107include0107fileext03xslF0107exclude00
+override=true
+USER_MANUAL_PREFERENCE=enabledManualValidatorListcom.ibm.etools.j2ee.migration.classpath.J2EEClasspathValidator;org.eclipse.jst.j2ee.internal.classpathdep.ClasspathDependencyValidator;org.eclipse.wst.wsi.ui.internal.WSIMessageValidator;com.ibm.jee.sdo.jdbc.ui.validators.JDBCMediatorConnectionFileValidator;com.ibm.ast.ws.ext.validator.WsExtValidator;
+suspend=false
+vals/com.ibm.etools.webtools.json.core.json/groups=0107include02111contentType136org.eclipse.wst.jsdt.core.jsonSourceT07fileext04jsonF0107exclude00
+eclipse.preferences.version=1
+vf.version=3
+DELEGATES_PREFERENCE=delegateValidatorList
+vals/org.eclipse.wst.jsdt.web.core.JsBatchValidator/groups=0107include01113projectNature134org.eclipse.wst.jsdt.core.jsNature0107include11007fileext04htmlF07fileext05xhtmlF07fileext03htmF07fileext04htplF07fileext03jspF07fileext03jsfF07fileext03jsvF07fileext04jtplF111contentType136org.eclipse.wst.html.core.htmlsourceT111contentType134org.eclipse.jst.jsp.core.jspsourceT0107exclude00
+USER_PREFERENCE=overrideGlobalPreferencestruedisableAllValidationfalseversion1.2.204.v201109220700
+USER_BUILD_PREFERENCE=enabledBuildValidatorListcom.ibm.etools.j2ee.migration.classpath.J2EEClasspathValidator;org.eclipse.jst.j2ee.internal.classpathdep.ClasspathDependencyValidator;org.eclipse.wst.wsi.ui.internal.WSIMessageValidator;com.ibm.jee.sdo.jdbc.ui.validators.JDBCMediatorConnectionFileValidator;com.ibm.ast.ws.ext.validator.WsExtValidator;

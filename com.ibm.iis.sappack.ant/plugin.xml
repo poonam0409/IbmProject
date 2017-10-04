@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+  <extension id="rapidmodelerid" 
+         point="org.eclipse.ant.core.antTasks">
+         
+         <antTask name="rapidModeler"
+              library="rmrgantlib/rmrganttasks.jar" 
+                class="com.ibm.iis.sappack.ant.RapidModelerTask" 
+                headless="true" eclipseRuntime="true"/> 
+
+         <antTask name="rapidGenerator"
+              library="rmrgantlib/rmrganttasks.jar" 
+                class="com.ibm.iis.sappack.ant.RapidGeneratorTask" 
+                headless="true" eclipseRuntime="true"/> 
+                
+   </extension>
+
+<!--
+  <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="org.eclipse.ui.Examples/com.ibm.is.sappack.gen.help.examplecategory"
+            class="com.ibm.iis.sappack.ant.examples.NewAntFileExamplesWizard"
+            id="com.ibm.iis.sappack.ant.example"
+            name="%exampleAntFileWizard"
+            project="false">
+      </wizard>
+  </extension>
+  -->
+</plugin>

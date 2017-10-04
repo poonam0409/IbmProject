@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="2.0"
+    xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd ">
+    <named-query name="FieldUsage.getAll">
+        <query>
+            SELECT
+                fu
+            FROM
+                FIELDUSAGE fu
+        </query>
+    </named-query>
+    <named-query name="FieldUsage.getAllForTableUsage">
+        <query>
+            SELECT
+                fu
+            FROM
+                FIELDUSAGE fu
+            WHERE
+            	fu.tableUsage.tableUsageId = :tableUsageId
+        </query>
+    </named-query>
+    <named-query name="FieldUsage.getById">
+        <query>
+            SELECT
+                fu
+            FROM
+                FIELDUSAGE fu
+            WHERE
+            	fu.fieldUsageId = :fieldUsageId
+        </query>
+    </named-query>
+    <named-query name="FieldUsage.getDistinctSapViewsForTableUsage">
+        <query>
+            SELECT
+               distinct f.sapView
+            FROM
+                 FIELD f,FIELDUSAGE fu
+            WHERE
+            	f.fieldId =fu.field.fieldId and
+            	fu.tableUsage.tableUsageId = :tableUsageId
+           </query>
+    </named-query>
+</entity-mappings>

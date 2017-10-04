@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: com.ibm.iis.sappack.ant;singleton:=true
+Bundle-Version: 8.0.0.qualifier
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.ant.core,
+ com.ibm.is.sappack.gen.tools.sap,
+ org.apache.ant,
+ com.ibm.is.sappack.gen.tools.jobgenerator,
+ com.ibm.is.sappack.gen.help,
+ org.eclipse.core.resources
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="cshelp" />
+<meta name="DC.Title" content="ABAP program settings" />
+<meta name="abstract" content="Use this page to configure the ABAP program settings for the programs to generate for the IBM InfoSphere DataStage ABAP extract jobs." />
+<meta name="Description" content="Use this page to configure the ABAP program settings for the programs to generate for the IBM InfoSphere DataStage ABAP extract jobs." />
+<meta name="DC.Coverage" content="ABAP Program Settings Page" />
+<meta name="DC.Date" scheme="iso8601" content="2014-02-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="configuringabapprogramsettings" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+<title>ABAP program settings</title>
+<script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+<script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+<script type="text/javascript">
+var mDivision = "IM/IS";
+var mProductName = "IBM InfoSphere Information Server";
+var mProductVersion = "9.1.0";
+var mToList = "comments@us.ibm.com,cgauthie@us.ibm.com,burkharj@us.ibm.com,eldredge@us.ibm.com";
+var mNewWindow = false;
+var plugin_form = "com.ibm.srcf.doc";
+</script>
+
+<script type="text/javascript" src="../tutorials.js"> </script></head>
+<body role="main" id="configuringabapprogramsettings">
+<div role="banner" id="runningheader" class="runningheader">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/IBM_IC_cue.gif" />
+<span class="hf-bold">IBM InfoSphere Information Server Pack for SAP Applications, Version 8.0.0.1</span><div id="runningheader-feedback" class="runningheader-feedback">
+<a href="javascript:ibm_id_form()"><span class="hf-bold">Feedback</span></a></div>
+<hr class="hf-hr" />
+</div>
+<!-- This headerarea file can be used for any topic placed in only one subdirectory,
+     not in the root directory of the plug-in. 
+     Template; ICCC Version 3.1, CBU Version 4.2, May 2011.
+--><!-- BEGIN NON-TRANSLATE SECTION --><div>
+   <!-- Additional meta information. -->
+   <meta name="dc.identifier" content="headerfile" />
+   <meta name="dc.rights" content="© Copyright IBM Corporation 2004, 2014" />
+   <!-- meta name="DC.Rights.Owner" content="For support, contact sharpt@us.ibm.com" -->
+   <meta name="feedback" content="" />
+   <meta name="ibm.country" content="US" />
+   <meta name="source" content="CBU map.infocenter transform from DITA" />
+   <!-- Common CSS -->
+   <link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+   <!-- topic_url.js for writing the topic URL in the footer. -->
+   <script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+   <!-- srcfv3.js and variable setup for the Feedback link. -->
+   <script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+   <script type="text/javascript">
+      var mDivision = "IM";
+      var mProductName = "IBM InfoSphere Information Server";
+      var mProductVersion = "multiple";
+      var mToList = "comments@us.ibm.com";
+      var plugin_form = "com.ibm.srcf.doc"; 
+   </script>
+   <noscript>
+      <style type="text/css"><!--.collapsecontent{display:block;}// -->
+      </style>
+   </noscript>
+</div><!-- END NON-TRANSLATE SECTION -->
+<h1 class="title topictitle1">ABAP program options</h1>
+<div class="body csbody">
+  <p class="shortdesc">Use this page to configure the ABAP program settings for programs to generate the
+                       <span class="ph">IBM® InfoSphere® DataStage®</span> ABAP extract jobs.</p>
+  <dl class="dl">
+    <dt class="dt dlterm">ABAP upload options</dt>
+    <dd>
+      <dl class="dl">
+        <dt class="dt dlterm">Save the ABAP programs in workspace</dt>
+        <dd class="dd">Select the checkbox to save all ABAP programs in a compressed file named <span class="ph filepath">
+                       <var class="keyword varname">ModelName</var>.zip</span> in the current data design project.
+                       You can use the file to create ABAP programs manually.
+                       <br/><br/>To upload the ABAP program later, right-click the compressed file and click
+                       <span class="ph menucascade"><span class="ph uicontrol">InfoSphere for SAP</span> &gt; <span class="ph uicontrol">Upload
+                       archived ABAP programs</span></span>.
+        </dd>
+        <dt class="dt dlterm">Upload ABAP programs to SAP</dt>
+        <dd class="dd">Select the checkbox to upload programs automatically to SAP after the job is generated.</dd>
+        <dt class="dt dlterm">SAP connection</dt>
+        <dd class="dd">Specify the SAP connection to which you need to upload the ABAP program.</dd>
+      </dl>
+    </dd>
+    <dt class="dt dlterm">CTS settings</dt>
+    <dd>
+      <dl class="dl">
+        <dt class="dt dlterm">Use CTS for ABAP upload</dt>
+        <dd class="dd">Select the checkbox to upload the ABAP programs with a Change and Transport System (CTS) request.
+                       <br/>You must also select a package and a valid Change and Transport System request for the package.</dd>
+        <dt class="dt dlterm">Package</dt>
+        <dd class="dd">Select a package.</dd>
+        <dt class="dt dlterm">CTS Request Name</dt>
+        <dd class="dd">Select a Change and Transport System request for the package. The selected package is then
+                       retrieved from the specified SAP system.</dd>
+      </dl>
+    </dd>
+  </dl>
+</div>
+<div class="related-links"></div>
+<br />
+<div role="contentinfo" id="runningfooter" class="runningfooter">
+<hr class="hf-hr" />
+
+<p class="runningfooter">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/timestamp.gif" />
+Last updated: 2014-04-30
+</p>
+</div>
+</body>
+</html>

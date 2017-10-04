@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2012  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="Using the new SAP Packs views">
+   <intro>
+      <description>
+         This cheat sheet shows you how to use the new views introduced with this version of Rapid Modeler.
+         These views will help you to organize your workspace and to analyze which metadata 
+         was imported how.
+      </description>
+   </intro>
+   <item
+         skip="true"
+         title="The SAP Packs Navigator">
+         
+      <description>
+      The SAP Packs Navigator presents a view on your workspace that focuses on the artifacts needed
+      for Rapid Modeler and Rapid Generator.
+      It shows all Data Design projects at the toplevel and newly introduced categories beneath them
+      which, in turn, will contain the respective workspace objects.
+      These categories are:
+      <br/>
+      - <b>Data models</b> with subcategories <b>Logical data models</b> and <b>Physical data models</b>.
+      <br/>
+      - <b>Rapid Modeler</b> with subcategories <b>Rapid Modeler configurations</b> and <b>SAP Object list</b>.
+      The latter has, in turn, subcategories <b>ABAP Table Lists</b> and <b>IDoc Segment Lists</b>.
+      <br/>
+      <br/>
+       
+      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.ui.views.showView(org.eclipse.ui.views.showView.viewId=com.ibm.iis.sappack.gen.common.ui.sappacknavigator)"/>   
+   </item>
+   <item skip="true" 
+         title="The SAP Import History View">
+      <description>
+      <b>Note: This feature is experimental and might be subject to change at any time.</b>
+      <br/>
+      <br/>
+      The SAP Import History View shows you which objects you have used for metadata import 
+      at any previous point in time. For instance, for a given logical data model, it can show you
+      which metadata import runs were performed on this model. Or it can show you which ABAP Table List
+      was used for which imports into which models. Another example is that it can show you which 
+      SAP connection was used for which imports.
+      <br/>
+  
+      It works as follows: 
+      <br/>
+      - Right-click on the object you are interested in in any applicable
+      view (e.g. SAP Packs Navigator, Data Project Explorer, SAP Connections).
+      <br/>
+      - Select <b>InfoSphere Pack for SAP -> Show in SAP Import History View</b>.
+      <br/>
+      - The view will open and a tree structure will show the dependencies.
+      <br/>
+      - Use the <b>Up</b> and <b>Down</b> buttons to see upward or downward dependencies, respectively.
+      <br/>
+      - If you are interested in another object in the dependency tree, right-click on it and select
+      <b>Focus On '...'</b>
+         </description>
+      <command
+            required="false"
+            serialization="org.eclipse.ui.views.showView(org.eclipse.ui.views.showView.viewId=com.ibm.is.sappack.gen.tools.sap.dependencyView)"/>   
+
+   </item>
+</cheatsheet>

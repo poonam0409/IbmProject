@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="fr-fr" xml:lang="fr-fr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="copyright" content="(C) Copyright IBM Corporation 2006" />
+<meta name="DC.rights.owner" content="(C) Copyright IBM Corporation 2006" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Astuces et conseils pour le modèle Express QuickStart" />
+<meta name="abstract" content="Le modèle Express QuickStart vous fournit un point de départ pour la création d'un guide de démarrage rapide à utiliser avec les produits Express." />
+<meta name="description" content="Le modèle Express QuickStart vous fournit un point de départ pour la création d'un guide de démarrage rapide à utiliser avec les produits Express." />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="hintsandtips" />
+<meta name="DC.Language" content="fr-fr" />
+<!-- All rights reserved. Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="stylesheet" type="text/css" href="../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../swg_info_common.css" />
+<title>Astuces et conseils pour le modèle Express QuickStart</title>
+</head>
+<body id="hintsandtips"><a name="hintsandtips"><!-- --></a>
+<h1 class="topictitle1">Astuces et conseils pour le modèle Express QuickStart</h1>
+<div><p>Le modèle Express QuickStart vous fournit un point de départ pour la création de guides de démarrage rapide à utiliser avec les produits Express.</p>
+<p> Ce modèle contient du code que vous pouvez utiliser pour lancer le programme
+d'installation d'un produit, afficher une documentation et fournir un contenu localisé.</p>
+<p>Remarques à propos du modèle Express QuickStart :</p>
+<ul><li>launchpadContent/global.properties définit toutes les commandes et programmes.</li>
+<li>disk1, dans la page Disposition du disque, comprend des modèles d'application.
+Pour ajouter des applications ou des programmes d'installation personnalisés, définissez
+l'application dans launchpadContent\global.properties ,en suivant les exemples des
+exemples d'application. Importez les applications sur le disque approprié dans le projet
+à l'aide des commandes de l'onglet de disposition du disque.</li>
+<li>Tous les fichiers HTML utilisent la même feuille de style nommée content.css, qui se
+trouve dans le répertoire launchpadContent.</li>
+</ul>
+<p>Le modèle Express QuickStart contient les pages suivantes :</p>
+<ul><li><strong>Bienvenue</strong> - La page de bienvenue offre généralement une
+présentation du produit et une explication des fonctions du guide de démarrage rapide.  Elle doit
+être concise, mais proposer cependant à l'utilisateur des options permettant de rechercher
+des informations supplémentaires sur le produit en offrant un lien vers le site Web du
+produit qui est affiché dans une nouvelle fenêtre de navigateur. La page de bienvenue
+comprend un code permettant d'afficher un site Web externe dans un navigateur.  Utilisez
+la fonction <samp class="codeph">viewPage()</samp> pour afficher les nouvelles
+fenêtres au lieu de la fonction JavaScript <samp class="codeph">window.open()</samp> car
+cette dernière peut être bloquée par une fonction de blocage des fenêtres en incrustation.</li>
+La page de bienvenue contient aussi un code permettant d'afficher un PDF et d'exécuter une application.
+<li><strong>Accès à votre logiciel</strong> - La page d'accès à votre logiciel comprend
+les contenus du produit et un lien vers le document à télécharger.</li>
+<li><strong>Evaluer votre configuration matérielle et système</strong> - Cette page fournitles informations à propos des exigences systèmes, fournissant un lien vers le document des exigences systèmes détaillées.
+Cette page comprend du code permettant d'afficher un site Web externe dans un navigateur.</li>
+<li><strong>Vérifier l'architecture de base et les étapes d'installation</strong> - Cette page fournit
+un diagramme de l'architecture de base du produit référencé.</li>
+<li><strong>Accès à votre documentation</strong> - Le contenu d'Accès à votre documentation
+fournit des informations sur la façon, pour un utilisateur, d'accèder à la documentation inclue dans le produit.
+Cette page comprend du code permettant d'afficher des pages HTML locales et externes dans un navigateur.</li>
+<li><strong>Installer le produit</strong> - La page d'installation du produit fournit
+généralement une commande permettant de lancer l'installation du produit. La page d'installation contient un code permettant de lancer l'installation du produit.</li>
+<li><strong>Quitter</strong> - Le lien Quitter du menu de navigation permet de sortir du guide de démarrage rapide.</li>
+</ul>
+</div>
+</body>
+</html>

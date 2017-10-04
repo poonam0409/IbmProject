@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>idx.oneui.form.SingleMessage DoH</title>
+
+		<script type="text/javascript" src="../../../dojoVersion.js"></script>
+		<script type="text/javascript">
+		dojoCSSImport("../../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		</script>
+		<style id="idxStyles" type="text/css">
+			@import "../../../../themes/oneui/idx/oneui/oneuiMain.css";
+			@import "../../../../themes/oneui/dijit/dijitMain.css";
+			@import "../../../../themes/test.css";
+		</style>
+		<script type="text/javascript" src="../../../commonTest.js"></script>
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+			dojoScriptImport("../../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+		
+		<script type="text/javascript" id="postDojo">
+			var modules = [
+				"idx.oneui.messaging.SingleMessage",
+				"doh"]; 
+			var SingleMessage, 
+				doh;
+			function preParse(modules){
+				SingleMessage = modules["idx/oneui/messaging/SingleMessage"];
+				doh = modules["doh"];
+			}
+			function postParse(modules){
+				var testPerformance = /mode=benchmark/i.test(window.location.href);
+				
+				if(!testPerformance){
+
+				}else{
+					// Register performance testcases
+					var createWidget = function(div){
+						return new oneui.messaging.SingleMessage({
+							type: 'error',
+							title: 'Error message title',
+							dateFormat: {
+											datePattern: 'dd MMMM y',
+											timePattern: 'HH:mm a'
+										},
+							messageId: 'CAT123456',
+							messageNumber: 7,
+							style: 'width: 970px;'
+						}, div);
+					};
+					
+					doh.register("CreateSingleMessage", [{
+						testType: "perf",
+						name: "Create SingleMessage",
+						trialDuration: 100,
+						trialIterations: 30,
+						trialDelay: 100,
+						setUp: function(t){},
+						runTest: function(t){
+							var div = dojo.create("div", {}, dojo.body());
+							var modalDlg = createWidget(div);
+						},
+						tearDown: function(t){
+							dojo.query("[widgetid*=oneui_messaging_SingleMessage]").forEach(function(dlg){
+								dijit.byNode(dlg).destroy(false);
+							})
+						}
+					}]);
+				}
+				doh.run();
+			}
+
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+		</script>
+	</head>
+	<body class="oneui">
+		<h1 class="testTitle">DoH Test of SingleMessage</h1>
+	</body>
+</html>

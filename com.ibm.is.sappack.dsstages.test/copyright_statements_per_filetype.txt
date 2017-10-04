@@ -1,0 +1,170 @@
+--------------------------------------------------------------------------------------------------
+html/xml:
+
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+
+--------------------------------------------------------------------------------------------------
+properties/ini/sh:
+
+#
+# Licensed Material - Property of IBM
+#
+# 5724-Q55
+#
+# (c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+# 
+# US Government Users Restricted Rights - Use, duplication or disclosure
+# restricted by GSA ADP Schedule Contract with IBM Corp.
+#
+
+--------------------------------------------------------------------------------------------------
+bat/cmd:
+
+rem
+rem Licensed Material - Property of IBM
+rem
+rem 5724-Q55
+rem
+rem (c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+rem 
+rem US Government Users Restricted Rights - Use, duplication or disclosure
+rem restricted by GSA ADP Schedule Contract with IBM Corp.
+rem
+
+--------------------------------------------------------------------------------------------------
+java:
+
+//---------------------------------------------------------------------------  
+// IBM Confidential                                                            
+//                                                                             
+// OCO Source Materials                                                        
+//                                                                             
+// 5724-Q55                                                                 
+//                                                                             
+// (C) Copyright IBM Corporation 2009, 2011                                              
+//                                                                             
+// The source code for this program is not published or otherwise              
+// divested of its trade secrets, irrespective of what has been                
+// deposited with the U.S. Copyright Office.                                     
+//---------------------------------------------------------------------------  
+//-*-************************************************************************  
+//                                                                             
+// IBM InfoSphere Information Server Packs for SAP Applications 
+//                                                                             
+// Module Name : com.ibm.is.sappack.ctrmt
+//                                                                             
+//*************************-END OF SPECIFICATIONS-***************************
+
+--------------------------------------------------------------------------------------------------
+Copyright.java:
+
+public class Copyright {
+
+	  static final String IBM_COPYRIGHT =
+		  "\n\nLicensed Materials - Property of IBM\n" +
+		  "Package: com.ibm.is.sappack.ctrmt\n" +
+		  "5724-Q55\n" +
+		  "(c) Copyright IBM Corp. 2011 All Rights Reserved.\n" +
+		  "US Government Users Restricted Rights - Use, duplication or\n" +
+		  "disclosure restricted by GSA ADP Schedule Contract with IBM Corp.\n\n";
+	  static final String IBM_COPYRIGHT_SHORT =
+		  "\n\n(c) Copyright IBM Corp. 2011\n\n";
+}
+
+static String copyright() {
+	return com.ibm.is.sappack.dsstages.common.Copyright.IBM_COPYRIGHT_SHORT;
+}
+
+static final String IBM_COPYRIGHT_SHORT = Copyright.IBM_COPYRIGHT_SHORT;
+
+--------------------------------------------------------------------------------------------------
+txt/js:
+
+////////////////////////////////////////////////////////////////////////////////
+// IBM Confidential                                                            
+//                                                                             
+// OCO Source Materials                                                        
+//                                                                             
+// 5724-Q55                                                                 
+//                                                                             
+// (C) Copyright IBM Corporation 2009, 2011                                              
+//                                                                             
+// The source code for this program is not published or otherwise              
+// divested of its trade secrets, irrespective of what has been                
+// deposited with the U.S. Copyright Office.                                     
+////////////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------------------------------
+abap/transports templates:
+
+*
+* Licensed Material - Property of IBM
+*
+* 5724-Q55
+*
+* (c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+* 
+* US Government Users Restricted Rights - Use, duplication or disclosure
+* restricted by GSA ADP Schedule Contract with IBM Corp.
+*
+
+--------------------------------------------------------------------------------------------------
+css:
+
+/*
+Licensed Material - Property of IBM
+
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+ 
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+*/
+
+--------------------------------------------------------------------------------------------------
+inf:
+
+;
+; Licensed Material - Property of IBM
+;
+; 5724-Q55
+;
+; (c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+; 
+; US Government Users Restricted Rights - Use, duplication or disclosure
+; restricted by GSA ADP Schedule Contract with IBM Corp.
+;
+
+--------------------------------------------------------------------------------------------------
+c*/h*:
+
+//---------------------------------------------------------------------------  
+// IBM Confidential                                                            
+//                                                                             
+// OCO Source Materials                                                        
+//                                                                             
+// 5724-Q55                                                                 
+//                                                                             
+// (C) Copyright IBM Corporation 2009, 2011                                              
+//                                                                             
+// The source code for this program is not published or otherwise              
+// divested of its trade secrets, irrespective of what has been                
+// deposited with the U.S. Copyright Office.                                     
+//---------------------------------------------------------------------------  
+//-*-************************************************************************  
+//                                                                             
+// IBM InfoSphere Information Server Packs for SAP Applications 
+//                                                                             
+// Module Name : SAPVersion.h
+//                                                                             
+//*************************-END OF SPECIFICATIONS-***************************

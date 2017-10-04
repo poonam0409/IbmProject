@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<?metadata version='0.0.4'?>
+<su id='com.ibm.is.sappack.gen.branding.id' version='8.0.0.qualifier'>
+  <selector id='main'/>
+  <iu id='com.ibm.is.sappack.gen.branding.id.set' version='8.0.0.qualifier' adapterId='eclipse'>
+    <selectedBy id='main'/>
+    <adapterSpecificData>
+      <property
+        key='eclipse.product'
+        value='com.ibm.is.sappack.gen.branding.product'/>
+    </adapterSpecificData>
+  </iu>
+</su>

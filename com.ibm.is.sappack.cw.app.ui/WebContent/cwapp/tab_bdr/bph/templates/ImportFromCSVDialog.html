@@ -1,0 +1,49 @@
+<div>
+<div dojoAttachPoint="importDialog" dojoType="dijit.Dialog" title="${msg.ImportTypeDialog_7}">
+
+	<div class="dialogContent"  style="height: 130px;">
+	
+		<div dojoType="dijit.layout.BorderContainer" style="width: 100%;">
+			<span>${msg.ImportTypeDialog_1}
+			<br></br>
+			</span>
+		</div>
+		
+		<div dojoType="dijit.layout.BorderContainer" gutters="false" style="width:100%; height:100%; margin:0">
+			
+			<div dojoType="dijit.layout.BorderContainer" region="top" gutters="false" style="width:100%; height:40%; margin:0; padding-left:0px; padding-right:0px;">
+				<div dojoType="dijit.layout.ContentPane" region="left" style="width:60%">
+					<input id="g1c2" type="radio" data-dojo-type="dijit/form/RadioButton" dojoAttachPoint="importBDRCheckbox" checked="true" name="radioGroup1"/>
+					<label for="g1c2">${msg.ImportTypeDialog_3}</label>
+					</br>
+					<input id="g1c1" "type="radio" data-dojo-type="dijit/form/RadioButton" checked="false" dojoAttachPoint="importTableMetadataCheckbox" name="radioGroup1"/>
+					<label for="g1c1">${msg.ImportTypeDialog_2}</label>
+				</div>
+				<div dojoType="dijit.layout.ContentPane" region="right" style="width:40%">
+					<input id="g2c4" type="checkbox" data-dojo-type="dijit/form/CheckBox" dojoAttachPoint="overrideCheckbox" checked="true"/>
+					<label id="l4" for="g2c4">${msg.ImportTypeDialog_8}</label>
+				</div>
+			</div>
+		
+			<div dojoType="dijit.layout.BorderContainer" region="bottom" gutters="false" style="width:100%; height:60%; margin:0; padding-left:0px; padding-right:0px;">
+				<div dojoType="dijit.layout.ContentPane" region="left" style="width:100%">
+					<input id="g2c1" type="radio" data-dojo-type="dijit/form/RadioButton" dojoAttachPoint="complBDRCheckbox" checked="true" name="radioGroup2"/>
+					<label id="l1" for="g2c1">${msg.ImportTypeDialog_4}</label>
+					</br>
+					<input id="g2c2" type="radio" data-dojo-type="dijit/form/RadioButton" dojoAttachPoint="processAndStepsCheckbox" checked="false" name="radioGroup2"/>
+					<label id="l2" for="g2c2">${msg.ImportTypeDialog_5}</label>
+					</br>
+					<input id="g2c3" type="radio" data-dojo-type="dijit/form/RadioButton" dojoAttachPoint="bOsWithTablesCheckbox" checked="false" name="radioGroup2"/>
+					<label id="l3" for="g2c3">${msg.ImportTypeDialog_6}</label>
+				</div>
+			</div>
+
+		</div> 
+    </div>
+   
+    <div class="dijitDialogPaneActionBar">
+       	<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="importButton">${msg.IMPORT}</div>
+		<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="cancelButton">${msg.CANCEL}</div>
+	</div>
+</div>
+</div>

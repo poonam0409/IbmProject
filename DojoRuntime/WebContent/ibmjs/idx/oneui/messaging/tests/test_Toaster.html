@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <title>idx.oneui.messaging.Toaster tests</title>
+		
+        <script type="text/javascript" src="../../../tests/dojoVersion.js"></script>
+		<script type="text/javascript">
+			dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+			dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+		</script>
+		<style id="idxStyles" type="text/css">
+			@import "../../../themes/oneui/oneui.css";
+			@import "../../../themes/test.css";
+		</style>
+		
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+		</script>
+		<script type="text/javascript">
+			dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+		<script type="text/javascript" id="postDojo">
+			var modules = ["idx.oneui.messaging.Toaster", "dojo.date.locale"];
+			var types = ["success", "error", "warning", "info"];
+			var msgs = [
+				'A message prepared in the mind reaches a mind; a message prepared in a life reaches a life. <span class="attrib">Bill Gothard</span>',
+				'After I\'d preached a message on Sunday night, I\'d print it up. <span class="attrib">Tim LaHaye</span>',
+				'Additionally, borrowing a page from U.S. foreign policy, I decided to send a message to a government that was becoming increasingly hostile. <span class="attrib">Timothy McVeigh</span>',
+				'But otherwise, music is about a beat and a message. <span class="attrib">Casey Kasem</span>',
+				'As we read along the genetic message do we find a base which is a member of two or more codons? It now seems fairly certain that codons do not overlap. <span class="attrib">Francis Crick</span>',
+				'Don\'t blame the messenger because the message is unpleasant. <span class="attrib">Kenneth Starr</span>',
+				'Every child comes with the message that God is not yet discouraged of man. <span class="attrib">Rabindranath Tagore</span>',
+				'Every happening, great and small, is a parable whereby God speaks to us, and the art of life is to get the message. <span class="attrib">Malcolm Muggeridge</span>',
+				'For the most part, that message hasn\'t changed a lot over the years &mdash; love is still love, and heartbreak is still heartbreak. <span class="attrib">Casey Kasum</span>',
+				'Good fiction must be entertaining, but what makes fiction special - and True - is that the realness of a novel allows it to carry a larger message. <span class="attrib">Jerry B. Jenkins</span>',
+				'Gospel artists are messengers; they are vessels of a message. <span class="attrib">Boris Kodjoe</span>',
+				'He is in a gunfight right now. I\'m gonna have to take a message. <span class="attrib">Erika Eleniak</span>',
+				'Humour is a great vehicle for getting a message across. If you get too serious, you could die of starch. <span class="attrib">Cyndi Lauper</span>',
+				'I always do book signings with the same blue pen. That way, if I add a personalised message to a book I\'ve already signed, it\'ll be in the same colour as my signature. <span class="attrib">John Grisham</span>',
+				'I am more willing to come out when I get my message from my commander. <span class="attrib">David Koresh</span>',
+				'I believe that education is all about being excited about something. Seeing passion and enthusiasm helps push an educational message. <span class="attrib">Steve Irwin</span>',
+				'I believe that our message of rebuilding America is one that will resonate with the American people. <span class="attrib">Carol Moseley Braun</span>',
+				'I didn\'t worry about it because I kind of felt I left a good message and memory with the people in terms of my work, and I always felt with a good record, I could always come back. <span class="attrib">Tina Turner</span>',
+				'I do not think that condemning people who murder and killing them necessarily sends out the right message. <span class="attrib">Charlize Theron</span>',
+				'I don\'t have any message in the music. Music will be fine as long as you take care of yourself. <span class="attrib">John McLaughlin</span>',
+				'I have a message for the young kids. Life is about obstacles, endeavors in life are not to be overlooked. <span class="attrib">Wade Boggs</span>',
+				'I have an answering machine in my car. It says, I\'m home now. But leave a message and I\'ll call when I\'m out. <span class="attrib">Steven Wright</span>',
+				'I have no ghost writers. I personally write every message and every piece of published mail. <span class="attrib">David Wilkerson</span>',
+				'I have no message. <span class="attrib">Zinedine Zidane</span>',
+				'I like films to have something inside, I don\'t mean a message, I mean something from the soul. <span class="attrib">Dario Argento</span>',
+				'I resent the idea that people would blame the messenger for the message, rather than looking at the content of the message itself. <span class="attrib">Anita Hill</span>',
+				'I think film is a very powerful advocate and message carrier. <span class="attrib">Estelle Morris</span>',
+				'I think my books talk about kids learning to like and respect themselves and each other. You can\'t write a message book; you just tell the best story you know how to tell. <span class="attrib">Paula Danziger</span>',
+				'I want people who believe in my message and where I am on issues to support me. <span class="attrib">Carol Moseley Braun</span>',
+				'I want to reach as many people as possible with the message of music, of wonderful opera. <span class="attrib">Luciano Pavarotti</span>',
+				'I\'d like us to deliver a little message to all the men still out there who think it\'s the \'50s, and coming home simply means watching television with a beer. <span class="attrib">Patricia Richardson</span>',
+				'I\'m always uneasy with messages. I think if there is a message, it\'s about taking control of your life. Not becoming a victim. Be true to yourself. In essence it\'s about love in the drug culture. <span class="attrib">Neil Tennant</span>',
+				'I\'m looking forward to influencing others in a positive way. My message is you can do anything if you just put your mind to it. <span class="attrib">Justin Bieber</span>',
+				'I\'m not really sure what social message my art carries, if any. And I don\'t really want it to carry one. I\'m not interested in the subject matter to try to teach society anything, or to try to better our world in any way. <span class="attrib">Roy Lichtenstein</span>',
+				'I\'m not sure a candidate ever feels his message is getting out. <span class="attrib">Scott McCallum</span>',
+				'I\'m sort of the comic relief after a hard day at work. My message is that it\'s OK to relax. <span class="attrib">Larry King</span>',
+				'I\'ve been very fortunate to be able to use my series as a platform to show a good message for the kids. <span class="attrib">Chuck Norris</span>',
+				'I\'ve never had a message for anyone in my entire life. Except maybe to give out my room number. <span class="attrib">Bon Scott</span>',
+				'I\'ve probably saved thousands of peoples\' lives with my educational message on snake bites, how to get in around venomous anything. <span class="attrib">Steve Irwin</span>',
+				'If our message reaches the kitchen tables, we are in good shape. <span class="attrib">Tim Scott</span>',
+				'If the beat gets to the audience, and the message touches them, you\'ve got a hit. <span class="attrib">Casey Kasem</span>',
+				'If the sight of the blue skies fills you with joy, if the simplest things of nature have a message that you understand, rejoice, for your soul is alive. <span class="attrib">Eleanora Duse</span>',
+				'If you want a love message to be heard, it has got to be sent out. To keep a lamp burning, we have to keep putting oil in it. <span class="attrib">Mother Teresa</span>',
+				'If you want to send a message, try Western Union. <span class="attrib">Frank Capra</span>',
+				'A poem conveys not a message so much as the provenance of a message, an advent of sense. <span class="attrib">Thomas Harrison</span>'
+			]; 
+            function preParse(modules){
+                message = function(){
+                    var whichmsg = Math.floor(Math.random() * msgs.length),
+						whichtype = Math.floor(Math.random() * types.length);
+					
+                    return {
+						type: types[whichtype],
+                        content: msgs[whichmsg],
+						timestamp: dojo.date.locale.format(new Date(), {selector: "time", formatLength: "short"})
+                    }
+                }
+                addMessage = function(){
+                    dijit.byId("toaster").add(message());
+                }
+            }
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse);
+		</script>
+		<script type="text/javascript" src="../../../tests/commonTest.js"></script>
+    </head>
+    <body id="body_id" style="width: 100%; height: 100%; margin: 0; padding: 0px;">
+        <a class="navigationLink" href="#maincontent">Skip to main content</a>
+        <script type="text/javascript">
+            applyThemeToBody("oneui");
+        </script>
+        <a name="maincontent"></a>
+        <div class="testMain" id="main">
+            <h1 class="testTitle">idx One UI Toaster tests</h1>
+            <p>
+                <button onclick="addMessage();">
+                    Add a message
+                </button>
+            </p>
+            <div id="toaster" data-dojo-type="idx.oneui.messaging.Toaster">
+            </div>
+        </div>
+    </body>
+</html>

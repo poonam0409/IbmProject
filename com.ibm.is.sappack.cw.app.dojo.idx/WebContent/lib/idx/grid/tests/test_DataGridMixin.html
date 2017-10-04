@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+ (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+ disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en">
+<head>
+<title>Test _DataGridMixin</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+<script type="text/javascript">
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/claro/claro.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dojox/grid/resources/claroGrid.css", "idxStyles");
+</script>
+
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneui/oneui.css";
+@import "../../themes/vienna/vienna.css";
+@import "../../themes/vienna/grid/viennaGrid.css";
+@import "../../themes/test.css";
+</style>
+<script type="text/javascript">
+	var dojoConfig = currentDojoVersion.dojoConfig;
+</script>
+
+<script type="text/javascript">
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+</script>
+ 
+<script type="text/javascript" id="postDojo">
+var modules = [
+		"dojo._base.declare",
+		"dojo/_base/connect", // include for asynchronous only
+		"dijit.form.Button",
+		"dijit.form.TextBox",
+		"dojox.grid.DataGrid",
+		"idx.data.JsonStore",
+		"idx.grid._DataGridMixin"];
+		
+store = null;
+var MyDataGrid = null;
+
+function preParse(modules) {
+	console.log("Performing pre-parse");
+	
+	var declare			= modules["dojo/_base/declare"];
+	var DataGrid 		= modules["dojox/grid/DataGrid"];
+	var DataGridMixin 	= modules["idx/grid/_DataGridMixin"];
+	var JsonStore		= modules["idx/data/JsonStore"];
+	
+	store= new JsonStore({data: [
+		{name: "name1", value: "value1"}, 
+		{name: "name2", value: "value2"}, 
+		{name: "name3", value: "value3"},
+		{name: "name4", value: "value4"},
+		{name: "name5", value: "value5"}
+	], identifier: "value", label: "name"});
+	
+	MyDataGrid = declare("MyDataGrid", [DataGrid,DataGridMixin], {});
+	MyDataGrid.markupFactory = DataGrid.markupFactory;
+}
+
+function postParse(modules) {
+	console.log("Performing post-parse");
+	var connect = modules["dojo/_base/connect"] ? modules["dojo/_base/connect"].connect : dojo.connect;
+	
+	connect(moveUpButton, "onClick", function(){
+		grid.moveUpSelectedRows();
+	});
+	connect(moveDownButton, "onClick", function(){
+		grid.moveDownSelectedRows();
+	});
+	connect(selectByNameButton, "onClick", function(){
+		grid.selection.clear();
+		var value = selectByNameBox.get("value");
+		grid.selectByAttribute("name", value);
+	});
+
+}
+
+dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+
+</script>
+<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 0;">
+<a class="navigationLink" href="#maincontent">Skip to main content</a>
+<script type="text/javascript">applyThemeToBody()</script>
+<a name="maincontent"></a>
+<div style="margin: 8px;">
+	<button dojoType="dijit.form.Button" jsId="moveUpButton">Move Up</button>
+	<button dojoType="dijit.form.Button" jsId="moveDownButton">Move Down</button>
+	<button dojoType="dijit.form.Button" jsId="selectByNameButton">Select By Name</button>
+	<input dojoType="dijit.form.TextBox" jsId="selectByNameBox"/>
+</div>
+<table dojoType="MyDataGrid" jsId="grid" store="store" style="height: 200px; width: 400px; margin: 8px;">
+	<thead>
+		<tr>
+			<th field="name" width="50%">Name</th>
+			<th field="value" width="50%">Value</th>
+		</tr>
+	</thead>
+</table>
+</body>
+</html>

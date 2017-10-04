@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-es" xml:lang="es-es">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2011" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2011" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="cshelp" />
+<meta name="DC.Title" content="Opciones de ABAP Extract" />
+<meta name="abstract" content="Utilice esta página para configurar las opciones de ABAP Extract en el diseño de generación del trabajo." />
+<meta name="description" content="Utilice esta página para configurar las opciones de ABAP Extract en el diseño de generación del trabajo." />
+<meta name="DC.Coverage" content="Opciones de ABAP Extract" />
+<meta name="DC.Relation" scheme="URI" content="../topics/rapidgenforsap_container.html" />
+<meta name="DC.Relation" scheme="URI" content="../../com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc/topics/t_configure_job_abap_extract.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="abapextractoptions" />
+<meta name="DC.Language" content="es-es" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+<link rel="Start" href="../topics/rapidgenforsap_container.html" />
+<title>Opciones de ABAP Extract</title>
+<script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+<script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+<script type="text/javascript">
+var mDivision = "IM/IS";
+var mProductName = "IBM InfoSphere Information Server";
+var mProductVersion = "8.7.0";
+var mToList = "comments@us.ibm.com,cgauthie@us.ibm.com,burkharj@us.ibm.com,eldredge@us.ibm.com,pattere@us.ibm.com";
+var mNewWindow = false;
+var plugin_form = "com.ibm.srcf.doc";
+</script>
+
+</head>
+<body id="abapextractoptions"><a name="abapextractoptions"><!-- --></a>
+<div role="banner" id="runningheader" class="runningheader">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/IBM_IC_cue.gif" />
+<span class="hf-bold">IBM InfoSphere Information Server Pack for SAP Applications, Versión 7.0</span><div id="runningheader-feedback" class="runningheader-feedback">
+<a href="javascript:ibm_id_form()"><span class="hf-bold">Comentarios</span></a></div>
+<hr class="hf-hr" />
+</div>
+<!-- This headerarea file can be used for any topic placed in only one subdirectory,
+     not in the root directory of the plug-in. 
+     Template; ICCC Version 3.1, CBU Version 4.2, May 2011.
+--><div>
+   <!-- Additional meta information. -->
+   <meta name="dc.identifier" content="headerfile" />
+   <meta name="dc.rights" content="© Copyright IBM Corporation 2004, 2011" />
+   <!-- meta name="DC.Rights.Owner" content="For support, contact sharpt@us.ibm.com" -->
+   <meta name="feedback" content="" />
+   <meta name="ibm.country" content="US" />
+   <meta name="ibm.effective" scheme="W3CDTF" content="2011-04-27" />
+   <meta name="ibm.expires" scheme="W3CDTF" content="2012-04-27" />
+   <meta name="source" content="CBU map.infocenter transform from DITA" />
+   <!-- Common CSS -->
+   <link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+   <!-- topic_url.js for writing the topic URL in the footer. -->
+   <script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+   <!-- srcfv3.js and variable setup for the Feedback link. -->
+   <script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+   <script type="text/javascript">
+      var mDivision = "IM";
+      var mProductName = "IBM CBU Sample";
+      var mProductVersion = "4.2.0";
+      var mToList = "Notesgroupname";
+      var plugin_form = "com.ibm.srcf.doc"; 
+</script>
+   <noscript>
+      <style type="text/css"><!--.collapsecontent{display:block;}// -->
+      </style>
+   </noscript>
+</div>
+<h1 class="title topictitle1">Opciones de ABAP Extract</h1>
+<div class="body csbody"><p class="shortdesc">Utilice esta página para configurar las opciones de ABAP Extract en el diseño de generación del trabajo. </p>
+<div class="note note"><span class="notetitle">Nota:</span> Puede utilizar los parámetros de trabajo de <span class="ph">InfoSphere DataStage</span> para los campos de texto si escribe el texto entre símbolos "#". Los conjuntos de parámetros vienen indicados con la sintaxis "#" <span class="keyword parmname parmname">#ParameterSetName.ParameterName#.</span> Para obtener más información sobre los parámetros y los conjuntos de parámetros, consulte <span class="ph">IBM® InfoSphere DataStage and QualityStage Designer
+Client Guide</span></div>
+<dl class="dl"><dt class="dthd"><strong>Opciones de origen</strong></dt>
+<dt class="dt dlterm">Conexión de SAP de DataStage</dt>
+<dd class="dd">Nombre de la conexión de SAP configurada en DataStage.</dd>
+<dt class="dt dlterm">Usuario de SAP</dt>
+<dd class="dd">ID del usuario de SAP que se va a utilizar cuando se conecte a SAP. </dd>
+<dt class="dt dlterm">Contraseña de usuario de SAP</dt>
+<dd class="dd">Contraseña del usuario de SAP.</dd>
+<dt class="dt dlterm">Número de cliente del usuario de SAP</dt>
+<dd class="dd">Número de cliente del usuario de SAP.</dd>
+<dt class="dt dlterm">Idioma del usuario de SAP</dt>
+<dd class="dd">Idioma del usuario de SAP.</dd>
+</dl>
+<dl class="dl"><dt class="dthd"><strong>Opciones de destino</strong></dt>
+<dt class="dt dlterm">Tipo de etapa</dt>
+<dd class="dd">Tipo de etapas generadas como destino de las tablas lógicas de SAP. Por ejemplo, Conector ODBC o Archivo secuencial. </dd>
+<dt class="dt dlterm">Conector ODBC</dt>
+<dd class="dd">Especifique las siguientes opciones para el conector ODBC: <dl class="dl"><dt class="dt dlterm">Origen de datos ODBC</dt>
+<dd class="dd">El objeto extraído de SAP se almacena en la tabla de origen de datos ODBC configurada. </dd>
+<dt class="dt dlterm">Usuario de ODBC</dt>
+<dd class="dd">Sobrescribe el usuario en la configuración del origen de datos. Este campo es opcional.</dd>
+<dt class="dt dlterm">Contraseña de ODBC</dt>
+<dd class="dd">Sobrescribe la contraseña en la configuración del origen de datos. Este campo es opcional.</dd>
+<dt class="dt dlterm">Seleccionar la acción de tabla</dt>
+<dd class="dd">Puede seleccionar las acciones de tabla <span class="keyword parmname parmname">APPEND</span> o <span class="keyword parmname parmname">TRUNCATE</span>. Para obtener más información, consulte la documentación de la etapa Conector ODBC.</dd>
+</dl>
+</dd>
+<dt class="dt dlterm">Archivo secuencial</dt>
+<dd class="dd">Especifique una de estas opciones para la etapa Archivo secuencial: <dl class="dl"><dt class="dt dlterm">Prefijo de nombre de archivo</dt>
+<dd class="dd">Prefijo de todos los archivos utilizados para almacenar la salida. </dd>
+<dt class="dt dlterm">Modalidad de actualización de archivos</dt>
+<dd class="dd">Puede seleccionar <span class="keyword parmname parmname">APPEND</span>, <span class="keyword parmname parmname">CREATE
+(Error si existe)</span> o <span class="keyword parmname parmname">OVERWRITE</span>. Para obtener más información, consulte la documentación de la etapa Archivo secuencial. </dd>
+<dt class="dt dlterm">La primera línea son nombres de columna</dt>
+<dd class="dd">Seleccione si desea que la primera línea del archivo secuencial contenga los nombres de columna</dd>
+</dl>
+</dd>
+<dt class="dt dlterm">Opciones del método de transferencia RFC</dt>
+<dd class="dd">Especifique las opciones del método de transferencia RFC: <dl class="dl"><dt class="dt dlterm">Sistema principal de pasarela de SAP</dt>
+<dd class="dd">Nombre de sistema principal de la pasarela de SAP que ofrece servicios para comunicarse con el servidor SAP.</dd>
+<dt class="dt dlterm">Servicio de pasarela de SAP</dt>
+<dd class="dd">Nombre del servicio de pasarela. </dd>
+<dt class="dt dlterm">Destinos de RFC</dt>
+<dd class="dd">Un archivo de texto simple donde cada línea está formada por dos entradas separadas por un espacio en blanco. La primera entrada es el nombre del destino de RFC configurado en el sistema SAP. La segunda entrada es el ID de programa correspondiente del destino de RFC. </dd>
+<dt class="dt dlterm">Núm. máximo de flujos en un trabajo</dt>
+<dd class="dd">Los trabajos de ABAP Extract pueden generarse con varias etapas ABAP para reducir así el número de trabajos. No obstante, en un trabajo de ABAP Extract, cada etapa ABAP requiere la configuración de un destino de RFC exclusivo en SAP. Por lo tanto, el número máximo de etapas ABAP está limitado por el número de destinos de RFC proporcionados. También define el número máximo de flujos por trabajo o de instancias de etapa ABAP con un solo trabajo de <span class="ph">IBM InfoSphere DataStage</span>, limitado por el número de destinos de RFC proporcionados. </dd>
+<dt class="dt dlterm">Crear destino de RFC automáticamente</dt>
+<dd class="dd">Seleccione esta opción si el trabajo de <span class="ph">IBM InfoSphere DataStage</span> va a crear el destino de RFC en el tiempo de ejecución. </dd>
+<dt class="dt dlterm">Suprimir destino de RFC si es necesario</dt>
+<dd class="dd">Seleccione esta opción para permitir la supresión del destino de RFC si es necesario. </dd>
+<dt class="dt dlterm">Validar valores de SAP</dt>
+<dd class="dd">Pulse este botón para validar los valores de la conexión de SAP. </dd>
+</dl>
+ </dd>
+</dl>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Tema principal:</strong> <a class="link" href="../topics/rapidgenforsap_container.html" title="Puede generar trabajos de InfoSphere DataStage con los metadatos de SAP importados utilizando IBM InfoSphere Rapid Modeler for SAP Applications. Estos trabajos de InfoSphere DataStage extraen o cargan los datos reales de los objetos SAP descritos por los metadatos que se han importado hacia o desde archivos sin formato o una base de datos relacional.">IBM InfoSphere Rapid Generator for SAP Applications</a></div>
+</div>
+<div class="reltasks"><strong>Tareas relacionadas</strong><br />
+<div><a class="link" href="../../com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc/topics/t_configure_job_abap_extract.html" title="Realice la siguiente tarea para configurar los trabajos de ABAP Extract en el asistente de Rapid Generator for SAP.">Configuración de la generación de trabajos para los trabajos de ABAP Extract</a></div>
+</div>
+</div>
+<br />
+<div role="contentinfo" id="runningfooter" class="runningfooter">
+<hr class="hf-hr" />
+
+<p class="runningfooter">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/timestamp.gif" />
+Fecha de publicación: 2011-10-01
+
+<span class="hf-block"><script language="javascript">write_topic_url();</script></span>
+</p>
+</div>
+</body>
+</html>

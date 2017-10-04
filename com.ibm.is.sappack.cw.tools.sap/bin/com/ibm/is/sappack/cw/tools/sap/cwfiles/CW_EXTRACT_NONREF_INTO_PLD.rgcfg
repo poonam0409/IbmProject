@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="PROP_MAX_FLOWS_RFC">1</entry>
+<entry key="DBPage.odbcAlternateSchema">#p_PLD_Schema#</entry>
+<entry key="PARAMETER_PFX_9">CW_SAP_Target.ps_GWHost#CW_SAP_Target.ps_GWHost#String##</entry>
+<entry key="PARAMETER_PFX_8">CW_SAP_Target.ps_Lang#CW_SAP_Target.ps_Lang#String##</entry>
+<entry key="PARAMETER_PFX_7">CW_SAP_Target.ps_Client#CW_SAP_Target.ps_Client#String##</entry>
+<entry key="PARAMETER_PFX_6">CW_SAP_Target.ps_Pass#CW_SAP_Target.ps_Pass#Encrypted##</entry>
+<entry key="PARAMETER_PFX_5">CW_SAP_Target.ps_User#CW_SAP_Target.ps_User#String##</entry>
+<entry key="PARAMETER_PFX_4">CW_SAP_Target.ps_Conn#CW_SAP_Target.ps_Conn#String##</entry>
+<entry key="PARAMETER_PFX_3">p_PLD_Schema#p_PLD_Schema#String##</entry>
+<entry key="PARAMETER_PFX_2">CW_DB.ps_Pass#CW_DB.ps_Pass#Encrypted##</entry>
+<entry key="DBPage.target.odbcCodePageSelection">1</entry>
+<entry key="PARAMETER_PFX_1">CW_DB.ps_User#CW_DB.ps_User#String##</entry>
+<entry key="PROP_KEY_MODE">RMRG_CW_MODE</entry>
+<entry key="PARAMETER_PFX_0">CW_DB.ps_Conn#CW_DB.ps_Conn#String##</entry>
+<entry key="DBPage.target.odbcUserText">#CW_DB.ps_User#</entry>
+<entry key="JobDescriptionPage.editorText">(C) COPYRIGHT International Business Machines Corp. 2009, 2012
+All Rights Reserved
+Licensed Materials - Property of IBM
+ 
+US Government Users Restricted Rights - Use, duplication or
+disclosure restricted by GSA ADP Schedule Contract with IBM Corp.</entry>
+<entry key="JobDescriptionPage.descEnabled">true</entry>
+<entry key="VERSION">1.0</entry>
+<entry key="PROP_CREATE_RFC_DEST_AUTOMATICALLY">true</entry>
+<entry key="PARAMETER_NUM">11</entry>
+<entry key="DERIVATION_MAPPING_VarChar">IF ISNULL ($1) or Len(Trim($1))=0 THEN &apos; &apos; ELSE Trim($1)</entry>
+<entry key="DBPage.persistenceTypesCombo">0</entry>
+<entry key="DBPage.tableActionsCombo">0</entry>
+<entry key="ID">1346402093066124493057</entry>
+<entry key="DBPage.odbcPasswordText">#CW_DB.ps_Pass#</entry>
+<entry key="USE_CUSTOM_DERIVATIONS">true</entry>
+<entry key="DBPage.odbcDataSourceText">#CW_DB.ps_Conn#</entry>
+<entry key="DOCUMENTATION">Rapid Generator configuration for jobs that extract data from non-reference tables of an SAP source system and store it in the PLD area.</entry>
+<entry key="PROP_DYNAMIC_RFC_PREFIX">Z_ICW_</entry>
+<entry key="SAP_LANGUAGE">#CW_SAP_Target.ps_Lang#</entry>
+<entry key="DBPage.odbcUserText">#CW_DB.ps_User#</entry>
+<entry key="DBPage.target.odbcUseAlternateSchema">true</entry>
+<entry key="PROP_RFC_NAME_DYN_OR_STATIC">1</entry>
+<entry key="SAP_GATEWAYSERVICE">#CW_SAP_Target.ps_GWService#</entry>
+<entry key="PARAMETER_PROPERTY_NAMES">CONN_NAME#SAP_USER#SAP_PASSWORD#SAP_CLIENT#SAP_LANGUAGE#DBPage.odbcDataSourceText#DBPage.odbcUserText#DBPage.odbcPasswordText#DBPage.odbcAlternateSchema#SAP_GATEWAYHOST#SAP_GATEWAYSERVICE#DBPage.target.odbcDataSourceText#DBPage.target.odbcUserText#DBPage.target.odbcPasswordText#DBPage.target.odbcAlternateSchema</entry>
+<entry key="RGCFG_TYPE">SAP_EXTRACT</entry>
+<entry key="DBPage.target.odbcAlternateSchema">#p_PLD_Schema#</entry>
+<entry key="DBPage.target.odbcPasswordText">#CW_DB.ps_Pass#</entry>
+<entry key="DBPage.odbcCodePageSelection">1</entry>
+<entry key="PROP_DELETE_RFC_DEST_IF_EXIST">true</entry>
+<entry key="AUTHOR">CW</entry>
+<entry key="COMPANY">IBM</entry>
+<entry key="SAP_PASSWORD">#CW_SAP_Target.ps_Pass#</entry>
+<entry key="SAP_CLIENT">#CW_SAP_Target.ps_Client#</entry>
+<entry key="CONN_NAME">#CW_SAP_Target.ps_Conn#</entry>
+<entry key="PROP_RFC_DEST_TEXT"></entry>
+<entry key="DBPage.odbcUseAlternateSchema">true</entry>
+<entry key="SAP_USER">#CW_SAP_Target.ps_User#</entry>
+<entry key="PARAMETER_PFX_10">CW_SAP_Target.ps_GWService#CW_SAP_Target.ps_GWService#String##</entry>
+<entry key="DBPage.target.odbcDataSourceText">#CW_DB.ps_Conn#</entry>
+<entry key="SAP_GATEWAYHOST">#CW_SAP_Target.ps_GWHost#</entry>
+</properties>

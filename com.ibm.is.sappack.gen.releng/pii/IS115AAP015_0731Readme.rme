@@ -1,0 +1,390 @@
+TPMS: ISv115
+Product and Release: Information Server v11.5
+Information Unit: SAP Connectivity
+Shipment Name: PII Shipment 07/31/2015
+Package Type: ZIP
+Package Name: IS115AAP015_PII_07312015
+Charge ID: IS115AAP015
+SEND Date (yyyy-mm-dd): 2015-07-31
+
+Translation Coordinator: Rick Spagna
+Lotus Notes: Rick Spagna/Boca Raton/IBM
+Internet: spagna@us.ibm.com
+Telephone: 1-720-395-0063
+
+Author:
+	Name:		Danendra Bhatnagar
+	Email:		danendra.bhatnagar@bcone.com
+
+Sender:
+	Name:		Sergej Schuetz
+	Email:		sergej@de.ibm.com
+
+Contact Point:
+	Name:		Rick Spagna
+	Email:		spagna@us.ibm.com
+	Notes Short:
+	Alternate:
+
+=========================================================
+
+Previous IU for Information Server 11.3: IS113AAP015
+
+=========================================================
+This package contains:
+
+	C++ .rc files
+	.rs message files
+	.properties files
+	.txt files
+    .xml files
+
+Has this deliverable been previously translated?
+
+    Yes
+
+Input Formats provided:
+
+    File Type   Markup Type                 Markup
+    ---------   -----------                 ------
+    .rc         WIN-RC                      XLATEWIN
+    .rs         EQUAL                       IBMAEQUA
+    .properties JAVA2-PRB                   IBMNJDK2
+    .txt        STRINGS                     EQFDQUOT
+    .xml        XML-10                      IBMXUXML
+    .rinl       STRINGS                     EQFADQUO
+
+Output Formats:
+
+    File Type   Markup
+    ---------   -----------
+    .rc         Same as input formats
+    .rs         Same as input formats
+    .properties Same as input formats
+    .txt        EQFUDQUO
+    .xml        Same as input formats
+    .rinl       same as input formats
+
+Files have all been run through CHKPII
+
+PLEASE NOTE: The following Markup Type and Markups for the following 2 files:    	  
+
+File Type													Markup Type				Markup
+---------   												-----------             ------
+RTC\IS-RM-LPAD\LAUNCHPADCONTENT\EN\global.properties		LCHPAD-PRB				IBMNCLPD
+RTC\IS-RM-LPAD\LAUNCHPADCONTENT\EN\navigation.properties	LCHPAD-PRB				IBMNCLPD
+
+=========================================================
+SPECIAL INSTRUCTIONS SECTION:
+
+* Instructions for special terms can be found in the accompanying file: IS115AAP015_0731DoNotTranslate.rme
+* The order of parameter placeholders (%s, %d, %f, {0}, etc.) must be preserved. If this is not possible please contact the author.
+* Anywhere that a quote is escaped (\" or \') it should be left as-is.
+* Any other escaped characters (\n, \t, \r) are used for formatting purposes only
+* In the StageDsc.xml files, only translate the content of these tags:
+   <DisplayName>
+   <ShortVersion>
+   <LongVersion>
+   <RepositoryLocation>
+   <Property>
+   
+   In the <Property> tags, only translate these XML attributes:
+   label
+   description
+* The .rinl file contains lines of the form
+{SOME_ID, "some English text"},
+Only translate the part in parentheses "some English text"    
+    
+* Instructions on returning the translated files:
+  a) encoding:
+     1. .rc / .rs
+     1252	for English, French, German, Italian, Spanish and Brazilian Portuguese
+     932	for Japanese
+     949	for Korean
+     950	for Chinese (Traditional)
+     936	for Chinese (Simplified)
+
+     .rc files should be ANSI encoded.
+     
+     2. .properties files
+     If possible, encoding should be ISO-8859-1 with characters outside of the range being encoded as \u1234 (UTF-16 code point)
+     If this is not possible: please use UTF-8
+     
+     3. XML files:
+        UTF-8
+     
+     4. .txt files: 
+        UTF-8
+
+     5. .rinl
+     1252	for English, French, German, Italian, Spanish and Brazilian Portuguese
+     932	for Japanese
+     949	for Korean
+     950	for Chinese (Traditional)
+     936	for Chinese (Simplified)
+
+  b) Renaming of files and directories:
+     
+     1. *.rc,
+        *.rs:
+        - Please rename subdirectories /enu/ to your locale name
+          (de_DE, es_ES, fr_FR, it_IT, ja_JP, ko_KR, pt_BR, zh_CN, zh_TW).
+        - Please rename files by replacing ‘enu’ with your locale
+          (_de_DE, _es_ES, _fr_FR, _it_IT, _ja_JP, _ko_KR, _pt_BR, _zh_CN, _zh_TW).
+
+     2. *.rinl,
+        *.txt:
+        Rename by replacing the locale, e.g. CC_IDOC_msgs_pt_BR.txt
+          
+     3. *.properties,
+        com.ibm.is.sappack.gen.help\cheatsheets\*.xml:
+        Rename by adding your locale to the base file name, e.g. file_de_DE.properties
+     
+     4. StageDsc.xml, jobgen.xml
+        Please create a subdirectory named after your locale
+
+  c) The following strings should be translated equally:
+File: rtc\\com.ibm.is.sappack.dsstages.idoc\build\DeltaExtract_en.txt, 
+       string key: CC_DELTA_EXTRACT_REPOSITORY_LOCATION
+         
+File: rtc\\Delta Extract Stage\PackageBuilder\CC_IDOC_msgs_en_US.txt, 
+       string key: CC_IDOC_PX_REPOSITORY_LOCATION
+       
+File: rtc\Classic_Stages\HawkPackages\R3\abappack\META-INF\en\StageDsc.xml
+        String in the tag PxCapabilities/RepositoryLocation
+        <PxCapabilities>
+            <RepositoryLocation>\Stage Types\Parallel\Packs</RepositoryLocation>
+            ...                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        </PxCapabilities>
+File: rtc\Classic_Stages\HawkPackages\R3\bapipack\META-INF\en\StageDsc.xml
+        String in the tag PxCapabilities/RepositoryLocation
+        <PxCapabilities>
+            <RepositoryLocation>\Stage Types\Parallel\Packs</RepositoryLocation>
+            ...                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        </PxCapabilities>
+
+* The following strings should be translated equally:
+File: rtc\Classic_Stages\HawkPackages\R3\abappack\META-INF\en\StageDsc.xml
+        String in the tag SeCapabilities/RepositoryLocation
+        <SeCapabilities>
+            <RepositoryLocation>\Stage Types\Server\Packs</RepositoryLocation>
+         ...                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+        </SeCapabilities>
+File: rtc\Classic_Stages\HawkPackages\R3\bapipack\META-INF\en\StageDsc.xml
+        String in the tag SeCapabilities/RepositoryLocation
+        <SeCapabilities>
+            <RepositoryLocation>\Stage Types\Server\Packs</RepositoryLocation>
+         ...                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+        </SeCapabilities>
+
+=========================================================
+FILES TO BE TRANSLATED SECTION:
+
++---installer
+|       ISPackForSAP.properties
+|       ISPackForSAPClient.properties
+|       ISPackForSAPServer.properties
+|       ISPackForSAPServices.properties
+|       
+\---rtc
+    +---Classic_Stages
+    |   +---dssapadmin
+    |   |   \---resources
+    |   |       \---enu
+    |   |               dsidocutlenu.rc
+    |   |               
+    |   +---dssapsup
+    |   |   \---resources
+    |   |       \---enu
+    |   |               dssapsupenu.rc
+    |   |               
+    |   +---HawkPackages
+    |   |   \---R3
+    |   |       +---abappack
+    |   |       |   \---META-INF
+    |   |       |       \---en
+    |   |       |               StageDsc.xml
+    |   |       |               
+    |   |       \---bapipack
+    |   |           \---META-INF
+    |   |               \---en
+    |   |                       StageDsc.xml
+    |   |                       
+    |   \---R3_STAGES
+    |       +---ABAP_EXTRACT
+    |       |   +---sapdss
+    |       |   |       dsftpenu.rs
+    |       |   |       
+    |       |   \---sapgui
+    |       |       \---resources
+    |       |           \---enu
+    |       |                   sapgui.rc
+    |       |                   
+    |       +---BAPI
+    |       |   +---dsbapigui
+    |       |   |   \---resources
+    |       |   |       \---enu
+    |       |   |               dsbapiguienu.rc
+    |       |   |               
+    |       |   \---dsruntime
+    |       |           dsr3bapienu.rs
+    |       |           
+    |       +---DeltaExtract
+    |       |   \---dsdeltaextractgui
+    |       |       \---resources
+    |       |           \---enu
+    |       |                   dsdeltaextractguienu.rc
+    |       |                   
+    |       \---IDOC
+    |           +---dsidocgui
+    |           |   \---resources
+    |           |       \---enu
+    |           |               dsidocguienu.rc
+    |           |               
+    |           +---dsidocsvr
+    |           |       dsidocsvr_messages_en.rinl
+    |           |       
+    |           \---iloadgui
+    |               \---resources
+    |                   \---enu
+    |                           iloadguienu.rc
+    |                           
+    +---com.ibm.is.3rdparty.sap.jco
+    |       plugin.properties
+    |       
+    +---com.ibm.is.sappack.dsstages.idoc
+    |   \---build
+    |           CC_IDOC_msgs_en_US.txt
+    |           
+    +---com.ibm.is.sappack.dsstages.idoc.listener
+    |   \---src
+    |       \---com
+    |           \---ibm
+    |               \---is
+    |                   \---sappack
+    |                       \---dsstages
+    |                           \---idoc
+    |                               \---listener
+    |                                   \---util
+    |                                           idocservermessages.properties
+    |                                           
+    +---com.ibm.is.sappack.dsstages.prereqcheck
+    |   \---src
+    |       \---main
+    |           \---resources
+    |               \---com
+    |                   \---ibm
+    |                       \---is
+    |                           \---sappack
+    |                               \---dsstages
+    |                                   \---prereq
+    |                                           prereqcheckmessages.properties
+    |                                           
+    +---com.ibm.is.sappack.gen.branding
+    |       about.properties
+    |       plugin.properties
+    |       plugin_customization.properties
+    |       
+    +---com.ibm.is.sappack.gen.common
+    |   |   plugin.properties
+    |   |   
+    |   \---src
+    |       \---com
+    |           \---ibm
+    |               \---is
+    |                   \---sappack
+    |                       \---gen
+    |                           \---common
+    |                               \---util
+    |                                       ServerMessages.properties
+    |                                       
+    +---com.ibm.is.sappack.gen.common.feature
+    |       feature.properties
+    |       
+    +---com.ibm.is.sappack.gen.common.ui
+    |   |   plugin.properties
+    |   |   
+    |   \---src
+    |       \---com
+    |           \---ibm
+    |               \---is
+    |                   \---sappack
+    |                       \---gen
+    |                           \---common
+    |                               \---ui
+    |                                       rmrgmessages.properties
+    |                                       
+    +---com.ibm.is.sappack.gen.help
+    |   |   plugin.properties
+    |   |   
+    |   \---cheatsheets
+    |           CompleteRGCheatSheet.xml
+    |           CompleteRMCheatSheet.xml
+    |           ConfigRGCheatSheetTable.xml
+    |           ConfigRMCheatSheetTable.xml
+    |           ConnectionsCheatSheet.xml
+    |           CreateRGConfCheatSheet.xml
+    |           CreateRMConfCheatSheet.xml
+    |           CreateTableSOCCheatSheet.xml
+    |           RGCheatSheetIDoc.xml
+    |           RGCheatSheetTable.xml
+    |           RMCheatSheetIDoc.xml
+    |           RMCheatSheetTable.xml
+    |           RMRGCheatSheet.xml
+    |           RMViewsCheatSheet.xml
+    |           TransformLDMAndCreateDBCheatSheet.xml
+    |           
+    +---com.ibm.is.sappack.gen.plugins.feature
+    |       feature.properties
+    |       
+    +---com.ibm.is.sappack.gen.tools.jobgenerator
+    |       plugin.properties
+    |       
+    +---com.ibm.is.sappack.gen.tools.jobgenerator.product
+    |       plugin.properties
+    |       
+    +---com.ibm.is.sappack.gen.tools.metadata.feature
+    |       feature.properties
+    |       
+    +---com.ibm.is.sappack.gen.tools.metadata.test.feature
+    |       feature.properties
+    |       
+    +---com.ibm.is.sappack.gen.tools.modelling
+    |       plugin.properties
+    |       
+    +---com.ibm.is.sappack.gen.tools.sap
+    |       plugin.properties
+    |       
+    +---com.ibm.is.sappack.gen.tools.sap.product
+    |       plugin.properties
+    |       
+    +---com.ibm.is.sappack.gen.welcome
+    |   |   plugin.properties
+    |   |   
+    |   \---intro
+    |           jobgen.xml
+    |           
+    +---com.ibm.is.sappack.packv8.branding
+    |       plugin.properties
+    |       
+    +---Delta Extract Stage
+    |   +---PackageBuilder
+    |   |       DeltaExtract_en.txt
+    |   |       
+    |   \---src
+    |       \---com
+    |           \---ibm
+    |               \---is
+    |                   \---sappack
+    |                       \---deltaextractstage
+    |                           \---resources
+    |                                   _DsSapDeltaExtractor_en_US.properties
+    |                                   
+    \---is-rm-lpad
+        \---launchpadContent
+            \---en
+                    global.properties
+                    navigation.properties
+                    StepInstall.properties
+                    welcome.properties
+                    

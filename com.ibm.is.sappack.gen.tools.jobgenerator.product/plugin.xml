@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<?eclipse version="3.4"?>
+<plugin>
+<!--
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IFile"
+            id="com.ibm.is.sappack.gen.tools.jobgenerator"
+            nameFilter="*.dbm">
+			<menu label="%menuLabel"
+	               path="additions"
+	               id="com.ibm.is.sappack.gen.tools">
+	            <separator
+	                  name="group1">
+	            </separator>
+	         </menu>                        
+
+         <action
+               label="%jobGeneratorActionFromConfig"
+               class="com.ibm.is.sappack.gen.tools.jobgenerator.product.JobGeneratorActionProxyFromConfig"
+	           menubarPath="com.ibm.is.sappack.gen.tools/group1"               
+               enablesFor="1"               
+               id="com.ibm.is.sappack.gen.tools.jobgenerator.launchFromConfigAction">
+         </action>
+                        
+         <action
+               label="%jobGeneratorAction"
+               class="com.ibm.is.sappack.gen.tools.jobgenerator.product.JobGeneratorActionProxy"
+	           menubarPath="com.ibm.is.sappack.gen.tools/group1"               
+               enablesFor="1"               
+               id="com.ibm.is.sappack.gen.tools.jobgenerator.newAction">
+         </action>
+      </objectContribution>
+   </extension>
+   -->
+   <!--
+   <extension
+         point="com.ibm.is.sappack.gen.common.ui.mode">
+      <rmrgmode
+            modeID="RMRMG_DEFAULT_MODE"
+            rgAction="com.ibm.is.sappack.gen.tools.jobgenerator.popup.actions.JobGeneratorAction">
+      </rmrgmode>
+   </extension>
+-->
+</plugin>

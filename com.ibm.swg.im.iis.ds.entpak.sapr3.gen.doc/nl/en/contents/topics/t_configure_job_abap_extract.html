@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Configuring job generation for ABAP extract jobs" />
+<meta name="abstract" content="You can use the InfoSphere Rapid Generator for SAP wizard to generate InfoSphere DataStage jobs that extract ABAP data from an SAP system. Every IBM® InfoSphere™ DataStage® job using the RFC data transfer method must be configured to use a unique RFC destination. You can run only one ABAP extract job at a time as ABAP stage using the same RFC destination cannot run concurrently." />
+<meta name="description" content="You can use the InfoSphere Rapid Generator for SAP wizard to generate InfoSphere DataStage jobs that extract ABAP data from an SAP system. Every IBM® InfoSphere™ DataStage® job using the RFC data transfer method must be configured to use a unique RFC destination. You can run only one ABAP extract job at a time as ABAP stage using the same RFC destination cannot run concurrently." />
+<meta name="DC.subject" content="ABAP extract, configuring job generation, Job generation, configuring for ABAP extract jobs" />
+<meta name="keywords" content="ABAP extract, configuring job generation, Job generation, configuring for ABAP extract jobs" />
+<meta name="DC.Relation" scheme="URI" content="../topics/t_generate_ds_jobs_rapid_generator.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="configuringjobgenerationforabapextractjobs" />
+<meta name="DC.Language" content="en-us" />
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+<link rel="Start" href="../topics/t_generate_ds_jobs_rapid_generator.html" />
+<title>Configuring job generation for ABAP extract jobs</title>
+<script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+<script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+<script type="text/javascript">
+var mDivision = "IM/IS";
+var mProductName = "IBM InfoSphere Information Server";
+var mProductVersion = "9.1.2";
+var mToList = "comments@us.ibm.com,cgauthie@us.ibm.com,burkharj@us.ibm.com,eldredge@us.ibm.com";
+var mNewWindow = false;
+var plugin_form = "com.ibm.srcf.doc";
+</script>
+
+</head>
+<body id="configuringjobgenerationforabapextractjobs"><a name="configuringjobgenerationforabapextractjobs"><!-- --></a>
+<div role="banner" id="runningheader" class="runningheader">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/IBM_IC_cue.gif" />
+<span class="hf-bold">IBM InfoSphere Information Server Pack for SAP Applications, Version 8.0</span><div id="runningheader-feedback" class="runningheader-feedback">
+<a href="javascript:ibm_id_form()"><span class="hf-bold">Feedback</span></a></div>
+<hr class="hf-hr" />
+</div>
+<!-- This headerarea file can be used for any topic placed in only one subdirectory,
+     not in the root directory of the plug-in. 
+     Template; ICCC Version 3.1, CBU Version 4.2, May 2011.
+--><!-- BEGIN NON-TRANSLATE SECTION --><div>
+   <!-- Additional meta information. -->
+   <meta name="dc.identifier" content="headerfile" />
+   <meta name="dc.rights" content="© Copyright IBM Corporation 2004, 2011" />
+   <!-- meta name="DC.Rights.Owner" content="For support, contact sharpt@us.ibm.com" -->
+   <meta name="feedback" content="" />
+   <meta name="ibm.country" content="US" />
+   <meta name="ibm.effective" scheme="W3CDTF" content="2011-04-27" />
+   <meta name="ibm.expires" scheme="W3CDTF" content="2012-04-27" />
+   <meta name="source" content="CBU map.infocenter transform from DITA" />
+   <!-- Common CSS -->
+   <link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+   <!-- topic_url.js for writing the topic URL in the footer. -->
+   <script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+   <!-- srcfv3.js and variable setup for the Feedback link. -->
+   <script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+   <script type="text/javascript">
+      var mDivision = "IM";
+      var mProductName = "IBM CBU Sample";
+      var mProductVersion = "4.2.0";
+      var mToList = "Notesgroupname";
+      var plugin_form = "com.ibm.srcf.doc"; 
+</script>
+   <noscript>
+      <style type="text/css"><!--.collapsecontent{display:block;}// -->
+      </style>
+   </noscript>
+</div><!-- END NON-TRANSLATE SECTION -->
+<h1 class="title topictitle1">Configuring job generation for ABAP extract jobs</h1>
+<div class="body taskbody"><p class="shortdesc">You can use the InfoSphere™ Rapid Generator
+for SAP Applications wizard to generate <span class="ph">InfoSphere DataStage®</span> jobs
+that extract ABAP data from an SAP system. Every IBM® InfoSphere™
+DataStage® job using the RFC data transfer method must be configured
+to use a unique RFC destination. You can run only one ABAP extract
+job at a time as ABAP stage using the same RFC destination cannot
+run concurrently.</p>
+<div class="section prereq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Before you begin</h2></div><ul class="ul"><li class="li">Configure your workspace for use with <span class="ph">InfoSphere</span> Rapid
+Modeler for SAP and InfoSphere Rapid Generator
+for SAP.</li>
+<li class="li">Configure the <span class="ph">InfoSphere DataStage</span> environment
+must be configured correctly.</li>
+<li class="li">Import SAP metadata into a logical data model, and transform the
+logical data model into a physical data model.</li>
+</ul>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step"><span class="ph cmd">Right-click the <span class="ph uicontrol">Physical data model </span> (<span class="ph filepath">.dbm</span> file),
+and select <span class="ph menucascade"><span class="ph uicontrol">Rapid Generator for SAP</span> &gt; <span class="ph uicontrol">Generate DataStage jobs.</span></span></span></li>
+<li class="li step"><span class="ph cmd">On the <span class="keyword wintitle">Select Job Type</span> page, select <span class="ph uicontrol">ABAP
+Extract</span>.</span></li>
+<li class="li step"><span class="ph cmd">On the <span class="ph uicontrol">Information Server Details</span> page,
+enter the connection information to your <span class="ph">InfoSphere Information Server</span> installation
+and provide a prefix for all the jobs that are created when the wizard
+is run.</span> Make sure that the connection details are the same
+as the ones entered when using the <span class="ph">InfoSphere Information Server</span> client
+applications such as the <span class="ph">InfoSphere DataStage and QualityStage™ Designer</span> client.</li>
+<li class="li step"><span class="ph cmd">Click <span class="ph uicontrol">Next</span> to validate the connection
+details.</span></li>
+<li class="li step"><span class="ph cmd">In <span class="ph uicontrol">Source options</span>, specify details
+about the SAP system from which you want to extract logical tables.</span></li>
+<li class="li step"><span class="ph cmd">In <span class="ph uicontrol">Target options</span>, configure stages
+generated as the target of the SAP logical tables.</span></li>
+<li class="li step"><span class="ph cmd">On <span class="ph uicontrol">ABAP extract options</span>, specify
+how the ABAP extract jobs are created.</span></li>
+<li class="li step"><span class="ph cmd">Click <span class="ph uicontrol">Validate SAP settings</span> to validate
+all SAP-related settings on this page. The validation result is displayed
+in a new window.</span> Continue with the task, Generating <span class="ph">InfoSphere DataStage</span> jobs
+by using Rapid Generator.</li>
+<li class="li step"><span class="ph cmd">On the <span class="ph uicontrol">ABAP program setting</span> page,
+specify the ABAP programs to use in the ABAP stage. </span></li>
+<li class="li step"><span class="ph cmd">On the <span class="keyword wintitle">Define Job Parameters </span> page,
+ensure that the job parameters are correct and that each parameter
+set that you referenced exists in the project. </span></li>
+<li class="li step"><span class="ph cmd">On the <span class="ph uicontrol">Define column derivations</span> page,
+you can optionally define an    expression<span class="ph uicontrol">DataStage Transformer</span> for
+each <span class="ph">InfoSphere DataStage</span> type.
+These expressions are entered in Transformer stages of the generated
+jobs. You can cross-reference the input argument of the transformer
+with $1.  Some examples are: TrimLeadingTrailing($1) or NullToEmpty($1).
+ </span></li>
+<li class="li step"><span class="ph cmd">Click <span class="ph uicontrol">Next</span> to start the job generation
+process. This process cannot be canceled. </span></li>
+<li class="li step"><span class="ph cmd">Click <span class="ph uicontrol">Finish</span>. </span></li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div>Jobs are generated on the <span class="ph">InfoSphere DataStage</span> server.
+If the <span class="ph">Designer client</span> is
+open, click <span class="ph menucascade"><span class="ph uicontrol">Repository</span> &gt; <span class="ph uicontrol">Refresh</span></span> to view the generated jobs.</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/t_generate_ds_jobs_rapid_generator.html" title="You can use the InfoSphere Rapid Generator for SAP wizard to generate ABAP extract, IDoc extract, and IDoc load jobs that extract or load data from and to an SAP system.">Generating InfoSphere DataStage jobs by using InfoSphere Rapid Generator for SAP</a></div>
+</div>
+</div>
+<br />
+<div role="contentinfo" id="runningfooter" class="runningfooter">
+<hr class="hf-hr" />
+
+<p class="runningfooter">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/timestamp.gif" />
+Release date: 2014-07-01
+
+<span class="hf-block"><script language="javascript">write_topic_url();</script></span>
+
+<span class="hf-block"><img class="hf-icon" src="../../com.ibm.base.collateral.doc/images/pdf.gif" alt="" />
+PDF version of this information:
+<a href="http://www.ibm.com/support/docview.wss?uid=swg27008803"><span class="hf-bold">IBM InfoSphere Information Server Integration Guide for IBM InfoSphere Information Server Pack for SAP Applications</span></a>
+</span>
+</p>
+</div>
+</body>
+</html>

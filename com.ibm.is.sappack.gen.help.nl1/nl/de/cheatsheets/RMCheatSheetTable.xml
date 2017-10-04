@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="Logische Tabellen aus SAP mit Rapid Modeler for SAP importieren">
+   <intro>
+      <description>
+Dieses Cheat-Sheet zeigt, wie Sie ein logisches Datenmodell erstellen und Metadaten für einen logische SAP-Tabelle extrahieren.
+         <br/>
+         <b>HINWEIS: Achten Sie darauf, die Namen von Projekten, Modellen usw. in den folgenden Schritten genau wie angegeben einzugeben, da die Schaltflächen zum Starten der Ausführung andernfalls möglicherweise nicht funktionieren. Allerdings funktionieren die Schaltflächen "Bei Abschluss klicken" weiterhin.
+         </b>
+      </description>
+   </intro>
+   <item
+         title="Datenperspektive öffnen">
+      <command
+            required="false"
+            serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=com.ibm.datatools.core.internal.ui.perspective)"/>
+         
+      <description>
+Wählen Sie im Hauptmenü <b>Fenster</b> &gt; <b>Perspektive öffnen</b> &gt; <b>Daten</b> aus, wenn die Datenperspektive noch nicht geöffnet ist.
+      </description>
+   </item>
+   <item
+         title="Datenentwurfsprojekt erstellen">
+      <description>      
+Vor der Erstellung eines Datenmodells wird ein Projekt benötigt, in das das Datenmodell gestellt werden kann. Klicken Sie in der Hauptsymbolleiste auf <b>Datei</b> &gt; <b>Neu</b> &gt; <b>Datenentwurfsprojekt</b>. 
+         <br/>
+Geben Sie <b>RMTestProject</b> in das Feld <b>Projektname</b> ein.
+         <br/>Klicken Sie auf <b>Fertigstellen</b>.
+      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.ui.newWizard(newWizardId=com.ibm.datatools.core.internal.ui.wizard.DatabaseCreationProjectWizard)"/>
+   </item>
+   <item
+         title="Datei für logisches Datenmodell erstellen">
+      <description>      
+Der nächste Schritt ist die Erstellung einer neuen Datei für ein logisches Datenmodell. Klicken Sie in der Hauptsymbolleiste auf <b>Datei</b> &gt; <b>Neu</b>  &gt; <b>Logisches Datenmodell</b>. 
+         <br/>Stellen Sie sicher, dass der Name des vorigen Schritt erstellten Projekts, beispielsweise <b>RMTestProject</b>, als Zielordner angegeben ist.
+         <br/>Geben Sie <b>RMTableModel</b> als Dateiname ein.
+         <br/>Klicken Sie auf <b>Fertigstellen</b>.
+      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.ui.newWizard(newWizardId=com.ibm.datatools.logical.ui.wizards.NewLogicalModelWizard)"/>
+
+   </item>
+   <item dialog="true" 
+            title="Assistenten 'Rapid Modeler for SAP' für logisches Modell öffnen">
+        <description>
+Nachdem Sie das logische Modell erstellt haben, können Sie SAP-Metadaten in dieses Modell importieren. 
+         <br/>
+Durchsuchen Sie die Ansicht <b>Data Project Explorer</b> (normalerweise oben links in der Datenperspektive) nach dem logischen Datenmodell, das Sie im vorherigen Schritt erstellt haben (<b>RMTestProject</b> &gt; <b>Datenmodelle</b> &gt; <b>RMTableModel.ldm</b>).
+         <br/>Klicken Sie mit der rechten Maustaste auf <b>RMTableModel.ldm</b> und wählen Sie <b>Rapid Modeler for SAP</b> &gt; <b>SAP-Metadaten extrahieren</b> aus.
+        </description>
+            <action required="false"
+			pluginId="com.ibm.is.sappack.gen.tools.sap"
+			class="com.ibm.is.sappack.gen.tools.sap.action.MetadataImportCheatSheetAction"
+			param1="RMTestProject" param2="RMTableModel.ldm"/>            
+      </item>
+   <item
+         title="SAP-System auswählen">
+      <description>
+Wählen Sie auf der ersten Seite des Assistenten eine SAP-Systemverbindung aus oder erstellen Sie eine durch Klicken auf <b>Bearbeiten</b>. 
+Wählen Sie die Option <b>SAP nach Tabellen durchsuchen</b> aus.
+         <br/>Klicken Sie auf <b>Weiter</b>.
+      </description>
+   </item>
+   <item
+         title="Nach Tabellen durchsuchen">
+      <description>
+Geben Sie auf der Seite <b>SAP nach Tabellen durchsuchen</b> die Abfrage <b>KN*1</b> in das Textfeld ein und klicken Sie auf <b>Suchen</b>.
+      </description>
+   </item>
+   <item
+         title="Tabellen auswählen">
+      <description>
+Wählen Sie in der Tabelle auf der linken Seite (<b>Gefundene Tabellen</b>) eine Tabelle aus, z. B. <b>KNA1</b>. 
+Klicken Sie auf <b>Tabellen hinzufügen</b>. Die Tabelle sollte jetzt auf der rechte Seite angezeigt werden (<b>Ausgewählte Tabellen</b>).
+         <br/>
+Klicken Sie auf <b>Weiter</b>.
+      </description>
+   </item>
+   <item
+         title="Importoptionen konfigurieren">
+      <description>
+Inaktivieren Sie <b>Metadaten für zugehörige Prüftabellen importieren</b> auf der Seite <b>Tabellenimportoptionen</b>.
+         <br/>
+Klicken Sie auf <b>Weiter</b>.
+      </description>
+   </item>
+   <item
+         title="Tabellen prüfen">
+      <description>
+Überprüfen Sie auf der Seite <b>Zu importierende Tabellen prüfen</b> die zu erstellenden Tabellen.
+         <br/>
+Klicken Sie auf <b>Weiter</b>.
+      </description>
+   </item>
+   <item
+         title="Technische Felder überspringen">
+      <description>
+Inaktivieren Sie <b>Weitere technische Felder konfigurieren</b> auf der Seite <b>Technische Felder</b>.
+         <br/>
+Klicken Sie auf <b>Weiter</b>.
+      </description>
+   </item>
+   <item
+         title="Vom Standard abweichende Pakete überspringen">
+      <description>
+Inaktivieren Sie <b>###130Use a specific package as an import destination</b> auf der Seite <b>Zu importierendes Paket auswählen</b>.
+         <br/>
+Wenn Sie auf <b>Weiter</b> klicken, wird der Importprozess gestartet.
+         <br/>
+Klicken Sie auf <b>Weiter</b>.
+      </description>
+   </item>
+   <item
+         title="Assistenten beenden">
+      <description>
+Überprüfen Sie auf der Seite <b>Import - Zusammenfassung</b> die Importzusammenfassung.
+         <br/>
+Klicken Sie auf <b>Fertig stellen</b>, um das importierte Modell in Ihrem logischen Datenmodell zu speichern.
+         
+      </description>
+      <onCompletion>Herzlichen Glückwunsch! Sie haben eine logische Tabelle aus SAP in Ihr logisches Datenmodell importiert.
+      </onCompletion>
+         </item>
+      </cheatsheet>

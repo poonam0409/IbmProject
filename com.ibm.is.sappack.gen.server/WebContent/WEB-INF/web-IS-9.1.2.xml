@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Licensed Materials - Property of IBM 5724-Q55 (c) Copyright IBM Corp. 
+	2011, 2014 All Rights Reserved. US Government Users Restricted Rights - Use, 
+	duplication or disclosure restricted by GSA ADP Schedule Contract with IBM 
+	Corp. -->
+<web-app id="WebApp_ID" version="2.4"
+	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>com.ibm.is.sappack.gen.server</display-name>
+	<servlet>
+		<description></description>
+		<display-name>JobGenerator</display-name>
+		<servlet-name>JobGenerator</servlet-name>
+		<servlet-class>com.ibm.is.sappack.gen.jobgenerator.servlets.JobGeneratorServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>JobGenerator</servlet-name>
+		<url-pattern>/JobGenerator</url-pattern>
+	</servlet-mapping>
+	<mime-mapping>
+		<extension>.dbm</extension>
+		<mime-type>application/xml</mime-type>
+	</mime-mapping>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+<!-- not required for IIS 9.x
+	<filter>
+		<filter-name>ISFSessionServletFilter</filter-name>
+		<filter-class>com.ibm.iis.isf.security.SessionServletFilter</filter-class>
+		<init-param>
+			<param-name>errorPage</param-name>
+			<param-value>/ErrorServlet</param-value>
+		</init-param>
+		<init-param>
+			<param-name>useErrorForward</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>isErrorPageAbsolutePath</param-name>
+			<param-value>false</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>ISFSessionServletFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+-->
+
+	<security-role>
+		<description>IIS Access Role</description>
+		<role-name>IISAuthRole</role-name>
+	</security-role>
+
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Restricted</web-resource-name>
+			<description>Declarative security tests</description>
+			<url-pattern>/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>IISAuthRole</role-name>
+		</auth-constraint>
+
+<!-- not required for IIS 9.x		
+		<user-data-constraint>
+			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+		</user-data-constraint>
+-->		
+	</security-constraint>
+
+	<login-config>
+		<auth-method>BASIC</auth-method>
+		<realm-name>IBM Information Server</realm-name>
+	</login-config>
+</web-app>

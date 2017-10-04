@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  <extension point="com.ibm.cic.agent.ui.launcher">
+     <launcher id="com.ibm.is.sappack.conversion.workbench.install.launcher">
+        <platform
+              os="win32"
+              path="${context:installLocation}\eclipse.exe -product com.ibm.is.sappack.cw.branding.product"
+              workingDirectory="${context:installLocation}"/>
+     </launcher>
+     <launcherOfferingBinding
+           label="%Offering.name"
+           launcherId="com.ibm.is.sappack.conversion.workbench.install.launcher"
+           offeringId="com.ibm.is.sappack.conversion.workbench"
+           offeringVersion="[1.0.0,2.0.0)"/>
+  </extension>
+</plugin>

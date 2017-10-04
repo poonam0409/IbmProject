@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<?metadata version='0.0.4'?>
+<su id='com.ibm.is.sappack.rapid.modeler.shortcuts' version='8.0.0.qualifier'>
+  <selector id='main'/>
+  <iu id='com.ibm.is.sappack.rapid.modeler.win32.shortcuts' version='8.0.0.qualifier' adapterId='nativeWin32'>
+    <selectedByExpression>
+      <and>
+        <selectedBy id='os' value='win32'/>
+        <selectedBy id='main'/>
+        <!-- <selectedBy id='isBeta' value='true' /> -->
+      </and>
+    </selectedByExpression>
+    <adapterSpecificData>
+      <zip
+        id='com.ibm.is.sappack.rapid.modeler.icons'
+        destination='${context:installLocation}/rapid-modeler/startmenu' downloadSize='12151' installSize='43630'/>
+      <zip
+        id='client.nlproperties.shortcuts'
+        destination='${context:installLocation}/rapid-modeler/startmenu' downloadSize='6236' installSize='8310'/>
+      <desktopIcon_win32
+        folder='${NLProperty:${context:installLocation}\rapid-modeler\startmenu\nl\client-shortcuts,RapidModeler.startup.folder}/${NLProperty:${context:installLocation}\rapid-modeler\startmenu\nl\client-shortcuts,RapidModeler.startup.subfolder}${beta}'
+        name='${NLProperty:${context:installLocation}\rapid-modeler\startmenu\nl\client-shortcuts,RapidModeler.startup.name}${beta}'
+        workingDirectory='${eclipseIdeLocation}'
+        command='${eclipseIdeLocation}/eclipse.exe'
+        arguments='-product com.ibm.is.sappack.gen.branding.product -name rapid-modeler'
+        iconPath='${context:installLocation}/rapid-modeler/startmenu/is-rm.ico'
+        context='ALL_USER'
+        description='${NLProperty:${context:installLocation}\rapid-modeler\startmenu\nl\client-shortcuts,RapidModeler.startup.description}'/>
+    </adapterSpecificData>
+  </iu>
+  <!--
+  <iu id='com.ibm.is.sappack.rapid.modeler.isa.win32.shortcuts' version='1.0.0.qualifier' adapterId='nativeWin32'>
+	<property name='order.dependencies' value='com.ibm.is.sappack.rapid.modeler.win32.shortcuts'/>
+    <selectedByExpression>
+      <and>
+        <selectedBy id='os' value='win32'/>
+        <selectedBy id='main'/>
+        < ! - - <selectedBy id='isBeta' value='true' /> - - >
+      </and>
+    </selectedByExpression>
+    <adapterSpecificData>
+      <desktopIcon_win32
+        folder='${NLProperty:${context:installLocation}\rapid-modeler\startmenu\nl\client-shortcuts,RapidModeler.startup.folder}/${NLProperty:${context:installLocation}\rapid-modeler\startmenu\nl\client-shortcuts,RapidModeler.startup.subfolder}${beta}'
+        name='IBM Support Assistant${beta}'
+        workingDirectory=''
+        command='http://www.ibm.com/software/support/isa/'
+        arguments=''
+        iconPath=''
+        context='ALL_USER'
+        description='IBM Suport Assistant'/>
+    </adapterSpecificData>
+  </iu>
+  -->
+  <!--
+  <iu id='com.ibm.is.sappack.rapid.modeler.setupguide.win32.shortcuts' version='1.0.0.qualifier' adapterId='nativeWin32'>
+    <property name='order.dependencies' value='com.ibm.is.sappack.rapid.modeler.win32.shortcuts'/>		
+    <selectedByExpression>
+      <and>
+        <selectedBy id='os' value='win32'/>
+        <selectedBy id='main'/>
+        < ! - - <selectedBy id='isBeta' value='true' /> - - >
+      </and>
+    </selectedByExpression>
+    <adapterSpecificData>
+      <desktopIcon_win32
+        folder='${NLProperty:${context:installLocation}\rapid-modeler\startmenu\nl\client-shortcuts,RapidModeler.startup.folder}/${NLProperty:${context:installLocation}\rapid-modeler\startmenu\nl\client-shortcuts,RapidModeler.startup.subfolder}${beta}'
+        name='Setupguide${beta}'
+        workingDirectory='${profile:installLocation}/rapid-modeler'
+        command='${profile:installLocation}/rapid-modeler/setupguide/index.html'
+        arguments=''
+        iconPath=''
+        context='ALL_USER'
+        description='Setup and Configuration Guide'/>
+    </adapterSpecificData>
+  </iu>
+  -->
+  <iu id='com.ibm.is.sappack.rapid.modeler.license.win32.shortcuts' version='1.0.0.qualifier' adapterId='nativeWin32'>
+	<property name='order.dependencies' value='com.ibm.is.sappack.rapid.modeler.win32.shortcuts'/>
+    <selectedByExpression>
+      <and>
+        <selectedBy id='os' value='win32'/>
+        <selectedBy id='main'/>
+      </and>
+    </selectedByExpression>
+    <adapterSpecificData>
+      <desktopIcon_win32
+        folder='${NLProperty:${context:installLocation}\rapid-modeler\startmenu\nl\client-shortcuts,RapidModeler.startup.folder}/${NLProperty:${context:installLocation}\rapid-modeler\startmenu\nl\client-shortcuts,RapidModeler.startup.subfolder}${beta}'
+        name='License Text${beta}'
+        workingDirectory='${profile:installLocation}/rapid-modeler'
+        command='${profile:installLocation}/rapid-modeler/license.html'
+        arguments=''
+        iconPath=''
+        context='ALL_USER'
+        description='License Text'/>
+    </adapterSpecificData>
+  </iu>
+  <iu id='com.ibm.is.sappack.rapid.modeler.license.info.win32.shortcuts' version='1.0.0.qualifier' adapterId='nativeWin32'>
+    <property name='order.dependencies' value='com.ibm.is.sappack.rapid.modeler.win32.shortcuts'/>
+    <selectedByExpression>
+      <and>
+        <selectedBy id='os' value='win32'/>
+        <selectedBy id='main'/>
+      </and>
+    </selectedByExpression>
+    <adapterSpecificData>
+      <desktopIcon_win32
+        folder='${NLProperty:${context:installLocation}\rapid-modeler\startmenu\nl\client-shortcuts,RapidModeler.startup.folder}/${NLProperty:${context:installLocation}\rapid-modeler\startmenu\nl\client-shortcuts,RapidModeler.startup.subfolder}${beta}'
+        name='License Information${beta}'
+        workingDirectory='${profile:installLocation}/rapid-modeler'
+        command='${profile:installLocation}/rapid-modeler/license-info.html'
+        arguments=''
+        iconPath=''
+        context='ALL_USER'
+        description='License Information'/>
+    </adapterSpecificData>
+  </iu>
+  <iu id='com.ibm.is.sappack.rapid.modeler.linux.shortcuts' version='1.0.0.qualifier' adapterId='nativeLinux'>
+    <selectedByExpression>
+      <and>
+        <selectedBy id='os' value='linux'/>
+        <selectedBy id='main'/>
+      </and>
+    </selectedByExpression>
+    <adapterSpecificData>
+      <zip
+        id='com.ibm.is.sappack.rapid.modeler.icons'
+        destination='${context:installLocation}/rapid-modeler/startmenu' downloadSize='12151' installSize='43630'/>
+      <zip
+        id='client.nlproperties.shortcuts'
+        destination='${context:installLocation}/rapid-modeler/startmenu' downloadSize='6236' installSize='8310'/>
+      <desktopIcon_linux
+        folder='${NLProperty:${context:installLocation}/rapid-modeler/startmenu/nl/client-shortcuts,RapidModeler.startup.folder}/${NLProperty:${context:installLocation}/rapid-modeler/startmenu/nl/client-shortcuts,RapidModeler.startup.subfolder}${beta}'
+        name='${NLProperty:${context:installLocation}/rapid-modeler/startmenu/nl/client-shortcuts,RapidModeler.startup.name}${beta}'
+        workingDirectory='${eclipseIdeLocation}'
+        command='${eclipseIdeLocation}/eclipse'
+        arguments='-product com.ibm.is.sappack.gen.branding.product -name rapid-modeler'
+        iconPath='${context:installLocation}/rapid-modeler/startmenu/is-rm.xpm'
+        context='ALL_USER'
+        categories='Application;Development;X-Red-Hat-Base;X-SuSE-Core-Development'
+        description='${NLProperty:${context:installLocation}/rapid-modeler/startmenu/nl/client-shortcuts,RapidModeler.startup.description}'
+        desktopFile=''/>
+    </adapterSpecificData>
+  </iu>
+</su>

@@ -1,0 +1,116 @@
+<!--******************************************************************************
+ * Licensed Materials - Property of IBM
+ * (c) Copyright IBM Corporation 2009. All Rights Reserved.
+ * 
+ * Note to U.S. Government Users Restricted Rights:
+ * Use, duplication or disclosure restricted by GSA ADP Schedule
+ * Contract with IBM Corp. 
+ *******************************************************************************-->
+<!--
+
+This is a sample Ant script that you can use to resolve Rational Asset manager artifact links in an Eclipse project. 
+
+Typically, this script is used in a headless build process, in which source code is extracted
+from a source control management system and the extracted projects has links to artifacts in Rational Asset Manager.    
+In the Eclipse workbench, the Rational Asset Manager client plug-ins process these links automatically.
+ 
+Prerequisites:
+
+1.	This script uses Rational Asset Manager Ant tasks.
+	When you run this Ant script, you must download the ramclient.zip file, extract it to a folder, and include that 
+	folder on the ant lib path. 	
+	The ramclient.zip file contains a set of .jar and Ant script files. You can download the file from the Extensions 
+	page of any deployed Rational Asset Manager server instance.  
+	To access the file directly, use this URL: 
+		http://<host, e.g., localhost>:<port, e.g., 9080>/ram/ramclient.zip
+
+2.	This script also uses the ANT-CONTRIB (http://ant-contrib.sourceforge.net/) task utilities.
+	Place the ant-contrib-XXX.jar file on the lib path as well. 		
+		
+3.	Properties:
+		build.dir is the directory path into which all Eclipse projects were extracted, typically from an SCM system.		 
+		ram.url is the URL for the Rational Asset Manager Web services. To find this URL, on the Extensions page of Rational Asset Manager, see the Repository location. 
+		ram.user.id is the user ID to use when you log in to the Rational Asset Manager server.
+		ram.user.passwd is the password to use when you log in to the Rational Asset Manager server.
+		ram.download.result.file is optional file path. If you set this property, the "ram.downloadlist" property is created. This property contains a list of the downloaded assets, each of which are separated with semicolons (;). For example, GUID,version,artifact,artifact;GUID,version,artifact,artifact,artifact.
+		                          
+
+    
+
+-->
+<project name="downloadLinkedArtifacts" default="downloadArtifacts" xmlns:ram="antlib:com.ibm.ram.ant">
+	
+	<!-- Initialize the ANT-CONTRIB package. -->
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
+	
+	<target name="deleteResultFile" if="ram.download.result.file" description="Delete an older file, if one already exists">
+		<delete file="${ram.download.result.file}" failonerror="false"/>		
+	</target>
+	
+	<target name="preReq" description="Verify required properties are set" depends="deleteResultFile">
+		<fail message="[build.dir] property is not set" unless="build.dir"/>
+		<fail message="[ram.user.id] property is not set" unless="ram.user.id"/>
+		<fail message="[ram.user.passwd] property is not set" unless="ram.user.passwd"/>
+		<fail message="[ram.url] property is not set" unless="ram.url"/>
+		
+		<echo message="RAM Server: uid=${ram.user.id}, url=${ram.url}"/>
+		
+		<ram:server id="ramServer" username="${ram.user.id}" password="${ram.user.passwd}" url="${ram.url}" />
+	</target>	
+	
+	<!-- 
+		Each directory, or project, in $build.dir is searched for Rational Asset Manager artifact links. 		
+	-->
+	<target name="downloadArtifacts" depends="preReq" description="For each project, download RAM artifacts">
+		<echo message="Projects Root Directory: ${build.dir}"/>		
+		<foreach target="processProject" param="projectPath" inheritall="yes" inheritrefs="true">
+	      <path>
+	      	<dirset dir="${build.dir}">
+	      		<include name="*"/>
+	      		<type  type="dir"/>
+	      	</dirset>
+	      </path>
+		</foreach>
+	</target>
+	
+	
+	<!-- 
+		To call a Rational Asset Manager task to resolve the links in the projects, and download the 
+		artifacts from the Rational Asset Manager server. 		
+	-->
+	<target name="processProject" description="Download artifact links, if RAM links are available">
+		<echo message="Downloading artifact for: ${projectPath}"/>	
+		
+		<ram:download eclipseproject="${projectPath}" server="ramServer" downloadlist="download" failonerror="false"/>
+		<antcall target="updateResultFile" inheritall="true"/>					
+	</target>
+
+	<!-- 
+		Update the result properties file.
+		You can reuse this file in the build process to reflect which assets or artifacts the build is based on. 
+		For example, if you publish a build in a Rational Asset Manager server, consider creating a relationship 
+		from the published build to the assets that the build was dependent on. 		
+	-->
+
+	<target name="updateResultFile" if="ram.download.result.file" description="Append result file, if one is given">
+		<if>
+			<not>	
+				<!-- The ram:download task sets the download.  -->
+				<equals arg1="${download}" arg2="$${download}"/>
+			</not>
+			<then>				
+				<condition property="seperator" value=";">
+					<available file="${ram.download.result.file}"/>
+				</condition>
+				<condition property="seperator" value="">
+					<not>
+						<available file="${ram.download.result.file}"/>
+					</not>
+				</condition>				
+				<propertyfile file="${ram.download.result.file}">
+					<entry  key="ram.downloadlist" default=""  operation="+" value="${seperator}${download}"/>
+				</propertyfile>
+			</then>
+		</if>
+	</target>
+</project>

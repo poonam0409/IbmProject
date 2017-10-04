@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt-br" xml:lang="pt-br">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="copyright" content="(C) Copyright IBM Corporation 2006" />
+<meta name="DC.rights.owner" content="(C) Copyright IBM Corporation 2006" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Sugestões e Dicas para o Modelo de Início Rápido do Express" />
+<meta name="abstract" content="O Modelo de Início Rápido do Express fornece um ponto inicial para criação de um guia de início rápido que pode ser utilizado com produtos da marca Express." />
+<meta name="description" content="O Modelo de Início Rápido do Express fornece um ponto inicial para criação de um guia de início rápido que pode ser utilizado com produtos da marca Express." />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="hintsandtips" />
+<meta name="DC.Language" content="pt-br" />
+<!-- All rights reserved. Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="stylesheet" type="text/css" href="../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../swg_info_common.css" />
+<title>Sugestões e Dicas para o Modelo de Início Rápido do Express</title>
+</head>
+<body id="hintsandtips"><a name="hintsandtips"><!-- --></a>
+<h1 class="topictitle1">Sugestões e Dicas para o Modelo de Início Rápido do Express</h1>
+<div><p>O Modelo de Início Rápido do Express fornece um ponto inicial para
+criação de guias de início rápido que podem ser utilizados com produtos da marca Express.</p>
+<p> Este modelo possui um código que pode ser utilizado para iniciar uma instalação do produto, exibir a documentação e fornecer o conteúdo localizado.</p>
+<p>Pontos a serem observados sobre o Modelo de Início Rápido do Express:</p>
+<ul><li>launchpadContent/global.properties define tudo sobre os comandos e os programas.</li>
+<li>O disco1 na página Layout do Disco inclui aplicativos de amostra.
+Para incluir programas ou aplicativos de instalação customizados, defina o aplicativo
+em launchpadContent\global.properties, seguindo os exemplos para os aplicativos de
+amostra). Importe os aplicativos no disco apropriado do projeto,
+utilizando os controles localizados na guia de layout do disco.</li>
+<li>Todos os arquivos HTML utilizam a mesma folha de estilo chamada content.css, que reside
+no diretório launchpadContent.</li>
+</ul>
+<p>O Modelo de Início Rápido do Express contém as seguintes páginas:</p>
+<ul><li><strong>Bem-vindo</strong> - Geralmente, a página de boas-vindas fornece uma
+visão geral do produto e uma explicação dos recursos do guia de início rápido.  A página de boas-vindas
+deve ser concisa, porém deve conter as opções do usuário para localização de informações adicionais
+sobre o produto, apresentando um link para o Web site do produto que é exibido em uma nova
+janela do navegador. A página de boas-vindas possui código para exibir um Web site externo
+em um navegador.  Utilize a função <samp class="codeph">viewPage()</samp> para exibir novas janelas, em vez de <samp class="codeph">window.open()</samp> do JavaScript, porque <samp class="codeph">window.open() </samp>
+tem grandes chances de ser bloqueado por um bloqueador de pop-up.</li>
+A página de boas-vindas também apresenta um código para visualizar um PDF e executar um aplicativo.
+<li><strong>Acesse o Software</strong> - Geralmente, a página de acesso ao software compreende
+os conteúdos do produto e um link para o documento de download.</li>
+<li><strong>Avalie a Configuração de Sistema e Hardware</strong> - Geralmente, esta página fornece informações
+sobre os requisitos do sistema, fornecendo um link para o documento de requisitos do sistema detalhado.
+Esta página apresenta um código para construir um Web site externo em um navegador.</li>
+<li><strong>Revise a arquitetura de base e as etapas da instalação</strong> - Geralmente, esta página
+fornece um diagrama da arquitetura de base do produto apresentado.</li>
+<li><strong>Acesse a Documentação</strong> - Geralmente, o conteúdo de acesso a documentação
+fornece informações sobre como um usuário pode acessar a documentação incluída com o produto.
+Esta página apresenta um código para construir páginas de HTML local e externa em um navegador.</li>
+<li><strong>Instale o Produto</strong> - Geralmente, a página de instalação do produto fornece um controle
+para iniciar a instalação de um produto. A página de instalação apresenta código para iniciar a instalação de um produto.</li>
+<li><strong>Sair</strong> - O link de saída no menu de navegação fecha o guia de início rápido.</li>
+</ul>
+</div>
+</body>
+</html>

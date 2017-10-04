@@ -1,0 +1,176 @@
+<p>
+For testing "refresh", the current date & time is: <span id="testTitlePaneConfigDate"></span>
+</p>
+<script type="text/javascript"> 
+var elem = document.getElementById("testTitlePaneConfigDate");
+elem.innerHTML="" + (new Date());
+</script>
+
+<p>
+	     	This TitlePane can be configured using the following fields:
+	     	<table>
+	     	<tr><th><b>Title:</b></th><td><div dojoType="dijit.form.TextBox" style="width: 20em;" intermediateChanges="true">
+	     	<script type="dojo/connect" event="startup">
+				var title = idx.util.getParentWidget(this).get("title");
+				var text  = null;
+				if (title instanceof dijit._Widget) {
+					text = title.get("label");
+					if (! idx.string.nullTrim(text)) {
+						title = null;
+					}
+					this._ignoreOnChange = true;
+				} else if (typeof(title) != "string") {
+					text = title.innerHTML;
+					this._ignoreOnChange = true;
+				} else {
+					text = title;
+				}
+				if (text) {
+					if (this.value != text) this._ignoreOnChange = true;
+					this.set("value", text);
+				}
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+				if (this._ignoreOnChange) {
+					this._ignoreOnChange = false;
+					return;
+				}
+				var textBox  = this;
+				var selectBox = idx.util.getSiblingWidget(this, false, dijit.form.Select);
+
+				var titleType = selectBox.get("value");
+				var text = textBox.get("value");
+				var title = text;
+				switch (titleType) {
+					case "widget":
+						title = new idx.form.Link({label: text, onClick: function(e) {
+							alert("This is a idx.form.Link widget as the title!"); 
+							dojo.stopEvent(e);
+							}});
+					break;
+					case "node":
+						title = dojo.create("b");
+						title.innerHTML = text;
+					break;
+					default:
+						title = text;
+				}
+				idx.util.getParentWidget(this).set("title", title);
+			</script></div>&nbsp;<select dojoType="dijit.form.Select" label="Title Type">
+					<option value="text" selected>As Text</option>
+					<option value="node">As HTML DOM Node</option>
+					<option value="widget">As Widget</option>
+					<script type="dojo/connect" event="startup">
+						var currentValue = null;
+						var title = idx.util.getParentWidget(this).get("title");
+						if (title instanceof dijit._Widget) {
+							currentValue = "widget";
+						} else if (typeof(title) == "string") {
+							currentValue = "text";
+						} else {
+							currentValue = "node";
+						}
+						if (currentValue) {
+							if (this.value != currentValue) this._ignoreOnChange = true;
+							this.set("value", currentValue);
+						}
+					</script>
+					<script type="dojo/connect" event="onChange">
+						if (this._ignoreOnChange) {
+							this._ignoreOnChange = false;
+							return;
+						}
+						idx.util.getSiblingWidget(this, true, dijit.form.TextBox).onChange();
+					</script>
+					</select>
+	     	</td></tr>
+	     	<tr><th><b>Help URL:</b></th><td><div dojoType="dijit.form.TextBox" style="width: 20em;" intermediateChanges="true">
+	     	<script type="dojo/connect" event="startup">
+				this.set("value", idx.util.getParentWidget(this).get("helpURL"));
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+				idx.util.getParentWidget(this).set("helpURL", this.get("value"));
+			</script></div>
+	     	</td></tr>
+	     	<tr><th><b>Default Action Display Mode:</b></th><td><select dojoType="dijit.form.Select">
+	     		<option value="">Use Default for Toolbar Buttons ("")</option>
+	     		<option value="iconOnly">Icon Only ("iconOnly")</option>
+	     		<option value="labelOnly">Label Only ("labelOnly")</option>
+	     		<option value="iconAndLabel">Icon and Label ("iconAndLabel")</option>
+	     		
+	     	<script type="dojo/connect" event="startup">
+				this.set("value", idx.util.getParentWidget(this).get("defaultActionDisplay"));
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+				idx.util.getParentWidget(this).set("defaultActionDisplay", this.get("value"));
+			</script></select>
+	     	</td></tr>
+	     	<tr><th><b>Closable:</b></th><td><div dojoType="dijit.form.CheckBox" intermediateChanges="true">
+	     	<script type="dojo/connect" event="startup">
+				this.set("checked", idx.util.getParentWidget(this).get("closable"));
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+				idx.util.getParentWidget(this).set("closable", this.get("checked"));
+			</script></div><i>-- Activates/deactivates default "close" button</i>
+	     	</td></tr>
+	     	<tr><th><b>Refreshable:</b></th><td><div dojoType="dijit.form.CheckBox" intermediateChanges="true">
+	     	<script type="dojo/connect" event="startup">
+				this.set("checked", idx.util.getParentWidget(this).get("refreshable"));
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+				idx.util.getParentWidget(this).set("refreshable", this.get("checked"));
+			</script></div><i>-- Activates/deactivates default "refresh" button</i>
+	     	</td></tr>
+	     	<tr><th><b>Resizable:</b></th><td><div dojoType="dijit.form.CheckBox" intermediateChanges="true">
+	     	<script type="dojo/connect" event="startup">
+				this.set("checked", idx.util.getParentWidget(this).get("resizable"));
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+				idx.util.getParentWidget(this).set("resizable", this.get("checked"));
+			</script></div><i>-- Activates/deactivates default "maxRestore" button</i>
+	     	</td></tr>	     	
+	     	<tr><th><b>Auto-Hide Actions:</b></th><td><div dojoType="dijit.form.CheckBox" intermediateChanges="true" checked>
+	     	<script type="dojo/connect" event="startup">
+				this.set("checked", idx.util.getParentWidget(this).get("autoHideActions"));
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+				idx.util.getParentWidget(this).set("autoHideActions", this.get("checked"));
+			</script></div><i>-- Activates/deactivates automatic hidding of actions until hover</i>
+	     	</td></tr>
+	     	<tr><th><b>Collapsible:</b></th><td><div dojoType="dijit.form.CheckBox" intermediateChanges="true" checked>
+	     	<script type="dojo/connect" event="startup">
+				this.set("checked", idx.util.getParentWidget(this).get("collapsible"));
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+				idx.util.getParentWidget(this).set("collapsible", this.get("checked"));
+			</script></div><i>-- Activates/deactivates "collapse" control and function</i>
+	     	</td></tr>
+	     	<tr><th><b>Toggleable:</b></th><td><div dojoType="dijit.form.CheckBox" intermediateChanges="true" checked>
+	     	<script type="dojo/connect" event="startup">
+				this.set("checked", idx.util.getParentWidget(this).get("toggleable"));
+			</script>	     	
+	     	<script type="dojo/connect" event="onChange">
+				idx.util.getParentWidget(this).set("toggleable", this.get("checked"));
+			</script></div><i>-- Activates/deactivates default "collapse" function only</i>
+	     	</td></tr>
+	     	<tr><th><b>Add Custom Link:</b></th><td><div dojoType="dijit.form.TextBox" style="width: 20em;">
+	     	<script type="dojo/connect" event="onChange">
+				var label = this.get("value");
+				this.set("value", "");
+				var linkWidget = new idx.form.Link({label: label, region: "titleActions"});
+				dojo.style(linkWidget.domNode, {marginRight: "2px", marginLeft: "2px"});				
+				idx.util.getParentWidget(this).addChild(linkWidget);
+			</script></div>
+	     	</td></tr>
+	     	<tr><th><b>Remove Custom Links:</b></th><td><div dojoType="dijit.form.Button" label="Remove Links">
+	     	<script type="dojo/connect" event="onClick">
+				var parent   = idx.util.getParentWidget(this);
+				var children = parent.getTitleActionChildren();
+				for (var index = 0; index < children.length; index++) {
+					var child = children[index];
+					if (child instanceof idx.form.Link) parent.removeChild(child);
+				}
+			</script></div>
+	     	</td></tr>
+	     	</table>
+</p>

@@ -1,0 +1,281 @@
+////////////////////////////////////////////////////////////////////////////////
+// IBM Confidential                                                            
+//                                                                             
+// OCO Source Materials                                                        
+//                                                                             
+// 5724-Q55                                                                 
+//                                                                             
+// (C) Copyright IBM Corporation 2009, 2014                                              
+//                                                                             
+// The source code for this program is not published or otherwise              
+// divested of its trade secrets, irrespective of what has been                
+// deposited with the U.S. Copyright Office.                                     
+////////////////////////////////////////////////////////////////////////////////
+Names of internal programs/routines - do NOT translate wherever they occur:
+
+AMPs
+ANSI
+API
+APT_CLOBBER_OUTPUT
+APT_DB2DBDFT
+APT_DB2LOADER_TIMEOUT
+APT_DB2ZLOAD_ALLOCTYPE
+APT_DB2ZLOAD_BYTESPERTRACK
+APT_DB2ZLOAD_MAXBLOCKSIZE
+APT_DB2ZLOAD_TRACKSPERCYL
+APT_DBNAME
+APT_RUN_DB2ZLOAD_SEQUENTIALLY
+bInitialized
+CC_PropertyTree
+cliConnect
+Connector Access Service
+CREATE TABLE
+CPIC
+
+DATABLOCKSIZE
+DataGram
+DataSetDef
+DATE
+DB2Debug
+DB2Error
+DB2Get
+DB2Info
+DB2INSTANCE
+DB2NODE
+DB2Warning
+DB2Z
+dboptions
+DDL
+describeOperator
+Direct Connect Method
+DML
+dmshowtableinfo
+dmsrcdatastore
+dmstartnetchangemirror
+dmsub
+dmtgtdatastore
+DROP TABLE
+DSN
+DTS_Message
+EOW
+FALLBACK
+FREESPACE
+GetNext
+GFEquality
+GFPrint
+ICU
+initializeFromArgs
+KeySplit
+LOB
+MFF
+MQADMIN
+MQCHCOM
+MQCICS
+MQCMD1
+MQCMD2
+MQDEAD
+MQEVENT
+MQHDIST
+MQHMDE
+MQHREF
+MQHRF
+MQHRF2
+MQHWIH
+MQI
+MQIMS
+MQIMSVS
+MQMD
+MQNONE
+MQPCF
+MQSTR
+MQTRIG
+MQXMIT
+Multiple or Multiple Record
+MVS
+Orchestrate
+ORCHESTRATE
+ODBC
+pid
+postFinalRunLocally
+postRun
+ppid
+preRun
+preRunSegment
+RDBMS
+recordtype
+reportInputAttachment
+reportOutputAttachment
+resetForNextUnit
+runLocally
+
+
+SELECT
+SET or MULTISET
+Single or Single Record
+sourcetable
+SQL
+SQL Builder
+SQLAllocHandle
+SQLBindCol
+SQLBindParameter
+SQLBuilder
+SQLCODE
+SQLDescribeCol
+SQLDisconnect
+SQLError
+SQLExecDirect
+SQLExecute
+SQLFetch
+SQLFreeHandle
+SQLFreeStmt
+SQLGetInfo
+SQLNumResultCols
+SQLPrepare
+SQLSetConnectAttr
+SQLSetStmtAttr
+SQLSetStmtAttr
+SQLTables
+SQLTransact
+SQLSTATE
+Stage
+Teradata Director Program ID
+TIME
+TIMESTAMP
+Transaction Isolation Level
+USS
+WHERE
+
+
+Names of files/directories - do NOT translate wherever they occur:
+
+DataStage
+
+
+Names of products - do NOT translate wherever they occur:
+
+DataMirror
+DataMirrorCDC
+DataMirror Transformation Server
+DataMirror Transformation Server Management Console
+DataStage
+DB2
+DB2 Connector
+DB2 for z/OS
+DB2 UDB
+DB2 UDB API
+DB2CLI
+DB2Z
+DB2ZREAD
+Distributed Transaction
+IBM
+IBM Corp.
+IBM DB2 UDB
+IBM InfoSphere DB2 Connector
+IBM InfoSphere MQ Connector
+IBM InfoSphere ODBC Connector
+IBM InfoSphere Teradata Connector
+IBM WebSphere DB2 Connector
+IBM WebSphere MQ Connector
+IBM WebSphere ODBC Connector
+IBM WebSphere Teradata Connector
+InfoSphere
+Information Server
+MQ
+ODBC
+ODBC Connector
+Oracle
+SAX Parser
+Teradata Connector
+WebSphere MQ
+WebSphere MQ Connector
+XA
+zOSFile
+IBM InfoSphere Pack for SAP Applications
+IBM InfoSphere Information Server Pack for SAP Applications
+IBM InfoSphere Conversion Workbench for SAP Applications
+IBM InfoSphere Rapid Modeler for SAP Applications
+IBM InfoSphere Rapid Generator for SAP Applications
+IBM InfoSphere Data Architect
+Rapid Modeler for SAP
+Rapid Generator for SAP
+Conversion Workbench
+SAP Pack 
+SAP 
+SAP R/3
+SAP ERP
+
+
+Names of operating systems etc. - do NOT translate wherever they occur:
+
+OS
+z/OS
+
+
+Internal names of data types - some of these (e.g. Date, Time) may occur in 
+other contexts, if the word is capitalised, it is probably not meant to be 
+translated - please ask if unsure:
+
+CorrelId
+GroupId
+IANA
+idoc
+Char
+LongNVarchar
+LongVarBinary
+LongVarchar
+meta
+mrm
+Msg
+MsgFlags
+MsgId
+MsgSeqNumber
+MsgType
+OriginalLength
+PutApplName
+PutApplType
+PutDate
+PutTime
+ReplyToQ
+ReplyToQMgr
+SQLTables
+StrucId
+UserIdentifier
+VarChar
+xml
+xmlns
+
+
+The following terms should not be translated when they occur in the context 
+of stages. Some of these may occur as part of a sentence (e.g. 
+Command, Sort), if the word is capitalized, it is probably not meant to be 
+translated - please ask if unsure:
+
+DB2
+DB2 Connector
+IBM WebSphere DB2 Connector
+IBM WebSphere ODBC Connector
+IBM WebSphere Teradata Connector
+ODBC
+ODBC Connector
+Teradata
+Teradata Call-Level Interface
+Teradata Director Program ID
+Teradata Enterprise stage
+XA
+IDoc Load Connector
+IDoc Extract Connector
+
+
+
+The following terms are SAP terms and should not be translated - please ask if unsure:
+IDoc
+BAPI
+ABAP
+SAP
+RFC
+CPIC
+CPI-C
+Delta
+
+
+

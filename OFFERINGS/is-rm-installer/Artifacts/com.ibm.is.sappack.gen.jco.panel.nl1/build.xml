@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<project default="PackageAll" name="PluginBuild">
+    <tstamp/>
+	<property name="dest.plugins.dir" value="../../../com.ibm.is.sappack.rtl.client.tier.offering/Artifacts/plugins/" />
+	<property name="service.tier.plugins.dir" value="../../../com.ibm.is.sappack.rtl.service.tier.offering/Artifacts/plugins/" />
+    <property name="src.metadata.dir" value="." />
+    <property name="plugin.name.prefix" value="com.ibm.is.sappack.gen.jco.panel.nl1" />
+    <property name="file.name.version" value="1.0.0" />
+    <property name="im.install.dir" value="/opt/IBM/InstallationManager" />
+    <property name="version.qualifier" value="${DSTAMP}${TSTAMP}"/>
+    <property name="offeringPNLplugin" value="${plugin.name.prefix}_${file.name.version}.${version.qualifier}" />
+  <property name="offeringPNLpluginNL1" value="${plugin.name.prefix}.nl1_${file.name.version}.${version.qualifier}" />
+  <property name="offeringPNLpluginNL2a" value="${plugin.name.prefix}.nl2a_${file.name.version}.${version.qualifier}" />
+  
+  <target name="package.plugin">
+      <manifest file="META-INF/MANIFEST.MF" mode="update">
+        <attribute name="Bundle-Version" value="${file.name.version}.${version.qualifier}"/>
+      </manifest>
+    
+      <jar destfile="${dest.plugins.dir}${offeringPNLplugin}.jar"
+           manifest="META-INF/MANIFEST.MF"
+           update="true"
+           basedir=".">
+        <fileset dir="." includes="plugin.*" />
+      	<fileset dir="." includes="nl/**/*" />
+      </jar>
+  	
+	  <!-- because this is a common plug-in we need to distribute it to any offering that consumes it -->
+	  <copy file="${dest.plugins.dir}${offeringPNLplugin}.jar" todir="${service.tier.plugins.dir}"/>
+    
+  </target>
+
+    <!-- Build Target repository -->
+    <target name="build.plugin" depends="clean.plugin">
+      <mkdir dir="bin" />
+        <javac srcdir="src"
+               destdir="bin"
+               includes="**/*"
+               optimize="on"
+               failonerror="true"
+               listfiles="yes"
+               source="1.5"
+               target="1.5"
+               encoding="UTF-8">
+         
+          <classpath>
+            <pathelement path="${classpath}"/>
+            <fileset dir="${im.install.dir}/eclipse/plugins">
+              <include name="**/*.jar"/>
+            </fileset>
+          </classpath>
+        </javac>
+    </target>
+
+    <!-- Clean Target repository -->
+    <target name="clean.plugin" depends="">
+        <echo message="Deleting: ${dest.plugins.dir}${plugin.name.prefix}_${file.name.version}.*.jar"/>
+        <delete dir="bin" />
+        <delete dir="${dest.plugins.dir}">
+            <include name="${plugin.name.prefix}_${file.name.version}.*.jar" />
+          <include name="${plugin.name.prefix}.nl1_${file.name.version}.*.jar" />
+            <include name="${plugin.name.prefix}.nl2a_${file.name.version}.*.jar" />
+        </delete>
+    </target>
+
+  <target name="PackageAll" depends="BuildAll, package.plugin" />
+    <target name="BuildAll" depends="CleanAll" />
+    <target name="CleanAll" depends="clean.plugin" />
+</project>

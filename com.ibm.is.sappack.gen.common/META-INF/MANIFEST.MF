@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: com.ibm.is.sappack.gen.common;singleton:=true
+Bundle-Version: 8.0.0.qualifier
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: com.ibm.is.sappack.gen.common,
+ com.ibm.is.sappack.gen.common.request,
+ com.ibm.is.sappack.gen.common.trace,
+ com.ibm.is.sappack.gen.common.util
+Require-Bundle: com.ibm.iis.client;bundle-version="11.3.0";resolution:=optional

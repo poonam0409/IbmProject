@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>oneui.form.TextBox DoH</title>
+		
+		<script type="text/javascript" src="../../../dojoVersion.js"></script>
+		<script type="text/javascript">
+			dojoCSSImport("../../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+			dojoCSSImport("../../../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+		</script>
+		
+		<style id="idxStyles" type="text/css">
+			@import "../../../../themes/oneui/dijit/document.css";
+	        @import "../../../../themes/oneui/dijit/dijitMain.css";
+			@import "../../../../themes/oneui/idx/oneui/oneuiMain.css";
+	        @import "../../../../themes/test.css";
+		</style>
+		
+		<!-- required: dojo.js -->
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+		</script>
+		<script type="text/javascript">
+			dojoScriptImport("../../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+		
+		<script type="text/javascript" id="postDojo">
+			var modules = [
+				"doh", 
+				"dijit.form.Form",
+				"idx.oneui.form.TextBox",
+				"idx.oneui.form.Textarea"
+			]; 
+			var doh, Form, DateTextBox, TimeTextBox;
+			
+			function preParse(modules){
+				doh 			= modules["doh"];
+				Form  			= modules["dijit/form/Form"];
+				DateTextBox   	= modules["idx/oneui/form/DateTextBox"];
+				TimeTextBox 	= modules["idx/oneui/form/TimeTextBox"];
+			}
+			
+			function postParse() {
+				var testPerformance = /mode=benchmark/i.test(window.location.href);
+				if(!testPerformance){
+					// Register API tests.
+					doh.register("parse", function(){
+						dojo.parser.parse();
+						doh.t(dijit.byId("textbox"));
+						doh.t(dijit.byId("textarea"));
+					});
+		
+					doh.register("getValue & setValue",
+						function(){
+							var widget = dijit.byId("textbox");
+							doh.f(widget.get("value"));
+							widget.set("value", "test string");
+							doh.t(widget.get("value") == "test string");
+							
+							var widget2 = dijit.byId("textarea");
+							doh.f(widget2.get("value"));
+							widget2.set("value", "test string");
+							doh.t(widget2.get("value") == "test string");
+						}
+					);
+				}else{
+					// Register performance tests
+				}
+				doh.run();
+			}
+			
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+			
+		</script>
+		<script type="text/javascript" src="../../../commonTest.js"></script>
+	</head>
+	<body class="oneui" style="width: 100%; height: 100%; margin: 0; padding: 0;">
+		<a class="navigationLink" href="#maincontent">Skip to main content</a>
+		<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+		<a name="maincontent"></a>
+		
+		<div class="testMain">
+			<h1 class="testTitle">DoH Test of oneui.form.TextBox and oneui.form.TextArea</h1>
+			<input id="textbox" data-dojo-type="idx.oneui.form.TextBox" data-dojo-props='
+				hint: "Input address",
+				hintPosition: "inside",
+				label: "Address:",
+				labelAlignment: "horizontal",
+				labelWidth: 100
+			'/>
+				
+			<textarea data-dojo-type="idx.oneui.form.Textarea" id="textarea" data-dojo-props='
+				rows: 2,
+				cols: 20,
+				trim: true,
+				hint: "Input text",
+				hintPosition: "inside",
+				label: "Textarea:",
+				labelAlignment: "horizontal",
+				labelWidth: 100
+			'>
+			</textarea>
+		</div>
+	</body>
+</html>

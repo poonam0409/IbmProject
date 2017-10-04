@@ -1,0 +1,18 @@
+# Apache xml-commons xml-apis 
+
+This product includes software developed by IBM Corporation ([http://www.ibm.com][1])   
+ and the Apache Software Foundation ([http://www.apache.org/][2]).  
+  
+Portions of this software were originally based on the following:  
+
+
+  * software copyright (c) 1999, IBM Corporation., [http://www.ibm.com][3].
+  * software copyright (c) 1999, Sun Microsystems., [http://www.sun.com][4].
+  * software copyright (c) 2000 World Wide Web Consortium, [http://www.w3.org.][5]
+
+   [1]: http://www.ibm.com/
+   [2]: http://www.apache.org/
+   [3]: http://www.ibm.com
+   [4]: http://www.sun.com
+   [5]: http://www.w3.org
+

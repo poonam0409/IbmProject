@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--© Copyright IBM Corporation 2011-->
+<?eclipse version="3.0"?><plugin id="com.ibm.base.collateral.doc"
+        name="Collateral plugin"
+        provider-name="IBM"
+        version="8.7.0">
+</plugin>

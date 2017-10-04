@@ -1,0 +1,6 @@
+0=8.0.0
+1=@version.qualifier@
+2=@build.number@
+3=@model.version@
+4=@client.server.version@
+5=@about.marker.id@

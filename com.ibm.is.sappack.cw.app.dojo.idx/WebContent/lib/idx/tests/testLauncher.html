@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+    <head>
+    <title>IDX Test Launcher</title>
+    <script type="text/javascript" src="dojoVersion.js"></script>
+    <script type="text/javascript">
+    function addDojoVersions() {
+    	for (dojoVer in dojoVersions) {
+            if (dojoVersions.hasOwnProperty(dojoVer)) {
+                var o = document.createElement("option");
+                o.value = dojoVer;
+                o.innerHTML = dojoVer;
+                document.getElementById("versions").options.add(o);
+            } 
+        }
+    	
+    	updateUrls();
+    }
+    
+    function runTests() {
+    	window.top.location.href = _getRunTestsUrl();
+    }
+    
+    function updateUrls() {
+    	document.getElementById("runTestsUrl").innerHTML = _getRunTestsUrl();
+    	document.getElementById("dohRunnerUrl").innerHTML = _getDOHRunnerUrl();
+    }
+    
+    function _getRunTestsUrl() {
+    	return window.top.location.protocol + "//" + window.top.location.host + "/idxToolkit/" +
+    	    "ibmjs/idx/tests/runTests.html?dojo=" + dojoVersions[document.getElementById("versions").value].code;
+    }
+    
+    function _getDOHRunnerUrl() {
+    	var pathAndCode = document.getElementById("versions").value.split(",");
+    	return window.top.location.protocol + "//" + window.top.location.host + "/idxToolkit/" + 
+                dojoVersions[document.getElementById("versions").value].path + 
+                "/util/doh/runner.html?testModule" +
+    			"=idx.tests.module&registerModulePath=idx,../../ibmjs/idx&dojo=" + 
+    			dojoVersions[document.getElementById("versions").value].code;
+    }
+    </script>
+    </head>
+    <body onload="addDojoVersions()">
+        <label for="dojoVersionSelector">Choose Dojo Version:</label>
+        <select id="versions" onchange="updateUrls()"></select>
+        <br />
+        <br />
+            <label for="runTestsUrl">runTests.html URL:</label><br />
+            <span id="runTestsUrl"></span>  
+            <br />  
+            <br />
+            <label for="dohRunnerUrl">Redirects to DOHRunner URL:</label><br />
+            <span id="dohRunnerUrl"></span>
+        <br />
+        <br />
+        <input type="button" name="Run" value="Run" onclick="runTests()"/>
+    </body>
+</HTML>

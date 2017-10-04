@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="Importing IDoc types from SAP using Rapid Modeler for SAP">
+   <intro>
+      <description>
+         This cheat sheet shows you how to create a logical data model and how to import metadata for an SAP IDoc type.
+         <br/>
+         <b>NOTE: Be sure to enter the names of projects, models, etc. in the following steps exactly as
+         indicated otherwise the "Click to perform" buttons might not work. 
+         However, the "Click when complete" buttons will continue to work.
+         </b>
+      </description>
+   </intro>
+   <item
+         title="Open the Data perspective">
+      <command
+            required="false"
+            serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=com.ibm.datatools.core.internal.ui.perspective)"/>
+         
+      <description>
+         If you&apos;re not already in the Data perspective, in the main menu select <b>Window</b> &gt; <b>Open Perspective</b> &gt; <b>Data</b>.
+      </description>
+   </item>
+   <item
+         title="Create a Data Design project">
+      <description>      
+         Before creating a data model, we need a project to put it in. 
+         In the main toolbar, click on <b>File</b> &gt; <b>New</b> &gt; <b>Data Design Project</b>. 
+         <br/>
+         Enter <b>RMTestProject</b> in the <b>Project name</b> field.
+         <br/>Click <b>Finish</b>.
+      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.ui.newWizard(newWizardId=com.ibm.datatools.core.internal.ui.wizard.DatabaseCreationProjectWizard)"/>
+   </item>
+   <item
+         title="Create a logical data model file">
+      <description>      
+         The next step is to create a new logical data model file. In the main toolbar again, click on <b>File</b> &gt; <b>New</b>  &gt; <b>Logical Data Model</b>. 
+         <br/>Make sure that the <b>Destination folder</b> is set to the name of the project created in the previous step, i.e., <b>RMTestProject</b>
+         <br/>Enter <b>RMIDocModel</b> as the file name.
+         <br/>Click <b>Finish</b>.
+      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.ui.newWizard(newWizardId=com.ibm.datatools.logical.ui.wizards.NewLogicalModelWizard)"/>
+
+   </item>
+   <item dialog="true" 
+            title="Open the Rapid Modeler for SAP wizard on the logical model">
+        <description>
+         Now that you have created your logical model you are ready to import SAP metadata into this model. 
+         <br/>
+         In the <b>Data Project Explorer</b> view (typically on the upper left of the <b>Data</b> perspective) browse
+         to the logical data model you have created in the previous step 
+         (<b>RMTestProject</b> &gt; <b>Data Models</b> &gt; <b>RMIDocModel.ldm</b>).
+         <br/>Right-click on <b>RMIDocModel.ldm</b> and 
+         select <b>Rapid Modeler for SAP</b> &gt; <b>Import SAP metadata</b>.
+        </description>
+            <action required="false"
+			pluginId="com.ibm.is.sappack.gen.tools.sap"
+			class="com.ibm.is.sappack.gen.tools.sap.action.MetadataImportCheatSheetAction"
+			param1="RMTestProject" param2="RMIDocModel.ldm"/>            
+      </item>
+
+   <item
+         title="Select SAP system">
+      <description>
+         On the first wizard page select an SAP system connection or use <b>Edit</b> to create one. 
+         Select the <b>Browse SAP for IDocs</b> option.
+         <br/>Click <b>Next</b>.
+      </description>
+   </item>
+   <item
+         title="Search for IDocs">
+      <description>
+         On the <b>Browse SAP for IDocs</b> page enter a pattern for an IDoc type name, e.g. <b>DEBMAS*</b>.
+         <br/>
+         Select the <b>Basic type</b> option.
+         <br/>Click <b>Search</b>.
+      </description>
+   </item>
+   <item
+         title="Select IDoc segments">
+      <description>
+         Expand the IDoc Type with the highest number (e.g. <b>DEBMAS06</b>) in the appearing IDoc segment tree. 
+         <br/>Select some segments in the tree, e.g., <b>E1KNA1M</b>, <b>E1KNVM</b>, and <b>E1KNVB</b>. 
+         <br/>Click <b>Next</b>.
+      </description>
+   </item>
+   <item
+         title="Configure Import options">
+      <description>
+         On the Import options page, select the following options:
+         <br/>
+         Uncheck <b>Make all segment fields nullable</b>,
+         <br/>
+         Select <b>Allow all types for columns</b>,
+         <br/>
+         Uncheck <b>Import metadata for related check tables</b>.
+         <br/>         
+Click <b>Next</b>.
+      </description>
+   </item>
+   <item
+         title="Review tables">
+      <description>
+         On the <b>Review tables to be imported</b> page, review the tables to be imported.
+         <br/>
+         Click <b>Next</b>.
+      </description>
+   </item>
+   <item
+         title="Skip technical fields">
+      <description>
+         On the <b>Technical fields</b> page, uncheck <b>Configure additional technical fields</b>.
+         <br/>
+         Click <b>Next</b>.
+      </description>
+   </item>
+   <item
+         title="Skip non-default package">
+      <description>
+         On the <b>Select package for import</b> page, uncheck <b>Use a package name as an import destination</b>.
+         <br/>
+         After this page is done, the import process will start.
+         <br/>
+         Click <b>Next</b>.
+      </description>
+   </item>
+   <item
+         title="Finish the wizard">
+      <description>
+         On the <b>Import Summary</b> page, review the import summary.
+         <br/>
+         Click <b>Finish</b>.
+         
+      </description>
+      <onCompletion>Congratulations! You have imported the IDoc type into your logical data model.</onCompletion>
+         </item>
+      </cheatsheet>

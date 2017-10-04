@@ -1,0 +1,118 @@
+#######################################################################
+#
+# Conversion Workbench Application installation configuration file
+#
+# Enter property values here before running the installer script.
+#
+#######################################################################
+
+# Location of the CWApp EAR file (Windows path separator: \\, UNIX/Linux: /)
+earFile = C:\\cw4sap\\com.ibm.is.cw.service-tier.cwapp.wasXX_X.X.X.XX_XXX.ear
+
+# WebSphere administrator credentials
+adminName = wasadmin
+adminPassword = password
+
+##### CW Database #####################################################
+
+# Database type (valid values: oracle, db2)
+databaseType = db2
+
+# JDBC provider name (if the name already exists, the existing provider will be used)
+jdbcProviderName = DB2 Universal JDBC Driver Provider (XA)
+
+# JDBC driver class path (Windows path separator: \\, UNIX/Linux: /)
+jdbcDriverClassPath = C:\\Program Files (x86)\\IBM\\SQLLIB\\java
+
+# Data store helper class (select one depending on the database type)
+# Valid values:
+# com.ibm.websphere.rsadapter.DB2UniversalDataStoreHelper
+# com.ibm.websphere.rsadapter.Oracle10gDataStoreHelper
+# com.ibm.websphere.rsadapter.Oracle11gDataStoreHelper
+datastoreHelperClass = com.ibm.websphere.rsadapter.DB2UniversalDataStoreHelper
+
+# DB2 only: Database properties
+cwDatabaseName = CWDB
+cwDatabaseServer = localhost
+cwDatabasePort = 50000
+
+# Oracle only: Database URL
+cwDatabaseUrl = jdbc:oracle:thin:@hostname:1523:hostname
+
+# Database credentials
+dbUser = db2admin
+dbPassword = password
+
+##### RDM Hub SSL signer certificate ##################################
+# Required if using the RDM Hub integration.
+# If the RDM Hub integration is not used, leave the values blank.
+# Otherwise, enter the host where RDM Hub is running and the SSL port.
+# The certificate will be retrieved automatically.
+
+rdmHubHost = localhost
+rdmHubSSLPort = 9443
+
+##### Users to be created #############################################
+# The following users will be created in the default WAS user directory
+# and assigned the administrator and FDA roles, respectively.
+
+# CW Admin
+cwAdminUid = cwadmin
+cwAdminPassword = cwadmin
+
+# Functional Data Analyst
+fdaUid = cwuser
+fdaPassword = cwuser
+
+# Read Only
+readOnlyUid = cwROuser
+readOnlyPassword = cwROuser
+
+
+#######################################################################
+#######################################################################
+# Advanced settings, should not be edited
+
+# Application display name (as defined in the application)
+applicationDisplayName = com.ibm.is.sappack.cw.app.ui.ear
+
+# CW DB Datasource Name
+cwDatasourceName = CWDB
+
+# CW DB Datasource JNDI Name
+cwDatasourceJndiName = jdbc/CWDB
+
+# CWApp DB Datasource Name
+cwAppDatasourceName = CWAPPDB
+
+# CWApp DB Datasource JNDI Name
+cwAppDatasourceJndiName = jdbc/CWAPPDB
+
+# DB authentication alias
+authAlias = CWDBUser
+
+# Service integration bus name
+serviceIntegrationBus = CWAppBus
+
+# Java Messaging Service (JMS) Name 
+sibjmsName = CWAppPublish
+
+# JMS JNDI Name 
+sibjmsJndiName = jms/CWAPPPUBLISH
+
+# JMS Bus Name 
+sibjmsBusName = CWAppBus
+
+# RDM Hub certificate alias
+sslSignerCertificateAlias = RDMHub
+
+# Users and groups
+adminGroupUid = CW_Administrator
+fdaGroupUid =  CW_FunctionalDataAnalyst
+readOnlyGroupUid = CW_ReadOnly
+cwAdminLastname = cwadmin
+cwAdminFirstname = cwadmin
+fdaLastname = cwuser
+fdaFirstname = cwuser
+readOnlyLastname = readOnly
+readOnlyFirstname = readOnly

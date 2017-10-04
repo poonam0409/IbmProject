@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<HTML LANG="en">
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+
+<!-- Licensed Materials - Property of IBM
+     5648-F10 (C) Copyright International Business Machines Corp. 2007
+     All Rights Reserved
+     US Government Users Restricted Rights - Use, duplication or disclosure
+     restricted by GSA ADP Schedule Contract with IBM Corp. -->
+
+</head>
+
+<script src="../jscp.js" language="javascript">
+<%@ include file="global.head" %>
+<% loadCSSfiles(DEFAULTCSS, "content.css"); %>
+
+<body>
+	<h1><%= browserString('<span class="number">5</span>'); %><%= property('title') %></h1>
+
+	<div id="step5">
+		<%= property('sentence0') %>
+		<ol>
+			<li><%= property('sentence1') %> <%= property('sentence2') %></li>
+			<li>
+				<%= property('sentence3') %>
+				<ul> 
+					<li><img src="./images/launchInstall_16.gif">&nbsp;<a href="javascript:void 0" onclick="runProgram(null,command('installGeneratorAsAdmin'), BACKGROUND, VISIBLE, this)"><%= property('item3') %></a> 
+					<br><%= property('description3') %>
+					<br>
+					</li>
+					<li>
+						<%= property('item4') %>
+						<br><%= property('description4') %>
+						<br>
+					</li>
+					<li>
+						<%= property('item5') %>
+						<br><%= property('description5') %>
+						<br>
+					</li>
+					<li>
+						<%= property('item6') %>
+						<br><%= property('description6') %>
+						<br>
+					</li> 
+				</ul>
+			</li>
+			<li>
+				<%= property('sentence4') %>
+			</li>
+		</ol>
+	</div>
+</body>
+</script>
+</html>

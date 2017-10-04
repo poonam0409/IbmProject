@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="Rapid Generator for SAP를 사용하여 IDoc 추출 DataStage 작업 생성">
+   <intro>
+      <description>
+         이 치트 시트에서는 논리 데이터 모델을 작성하는 방법과 SAP IDoc 유형에 대한 메타데이터를 추출하는 방법을 보여 줍니다.
+         <br/>
+         <b>참고: 이 치트 시트에서는 사용자가 "Rapid Modeler for SAP를
+         사용하여 SAP에서 IDoc 유형 가져오기" 및 "작업 생성을 위해
+         논리 데이터 모델 준비" 치트 시트를 완료했다고 가정합니다.
+         표시된 대로 정확하게 이러한 치트 시트에서 프로젝트, 모델 등의
+         이름을 입력하십시오. 그렇지 않으면 "수행하기" 단추가 작동하지
+         않을 수 있습니다. 하지만 "완료 시 클릭" 단추는 계속 작동합니다.
+         </b>
+      </description>
+   </intro>
+   <item
+         title="데이터 퍼스펙티브 열기">
+      <command
+            required="false"
+            serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=com.ibm.datatools.core.internal.ui.perspective)"/>         
+      <description>
+         아직 데이터 퍼스펙티브에 있지 않은 경우에는 기본 메뉴에서 <b>창</b> &gt; <b>퍼스펙티브 열기</b> &gt; <b>데이터</b>를 선택하십시오.
+      </description>
+   </item>
+   <item dialog="true" 
+            title="실제 데이터 모델에서 Rapid Generator for SAP 마법사 열기">
+        <description>
+        <b>RMIDocModel.dbm</b> 파일이 데이터 디자인 프로젝트 <b>RMTestProject</b>에 있는지 확인하십시오.
+        이 파일은 논리 모델 <b>RMIDocModel.ldm</b>을 실제 데이터 모델로
+        변환한 결과라는 것을 기억하십시오.
+         <br/><b>RMIDocModel.dbm</b>을 마우스 오른쪽 단추로 클릭한 후
+         <b>Rapid Generator for SAP</b> &gt; <b>DataStage 작업 생성</b>을 선택하십시오.
+        </description>
+      <action required="false"
+			pluginId="com.ibm.is.sappack.gen.tools.jobgenerator"
+			class="com.ibm.is.sappack.gen.tools.jobgenerator.popup.actions.JobGeneratorCheatSheetAction"
+			param1="RMTestProject" param2="RMIDocModel.dbm"/>              
+      </item>
+   <item
+         title="작업 유형 선택">
+      <description>
+       <b>작업 유형 선택</b> 페이지에서 <b>IDoc 추출 작업</b>을 선택하십시오.
+       <br/>
+       <b>다음</b>을 클릭하십시오.
+      </description>
+   </item>
+   <item
+         title="Information Server 세부사항 입력">
+      <description>
+        연결 정보를 Information Server 설치에 입력하십시오.
+        도메인 이름의 모양은 일반적으로 <b>Servername:9080</b>입니다.
+        드롭 다운 상자를 사용하여 DataStage 프로젝트와 해당 프로젝트
+        내의 폴더를 선택하십시오. <b>RGIDocJob</b> 문자열을 <b>작업
+        이름 접두부</b>로 입력하십시오.
+        <br/>
+        <b>다음</b>을 클릭하십시오. 
+      </description>
+   </item>
+   <item
+         title="IDoc 추출 옵션 입력">
+      <description>
+         <b>IDoc 추출 옵션</b> 페이지에서 다음과 같은 섹션을 채우십시오. </description>
+      <subitem
+            label="소스 옵션 섹션에서 DataStage 서버에 정의된 SAP 연결을 선택하십시오. '연결 기본값 겹쳐쓰기'는 선택 취소된 상태로 두십시오. ">
+      </subitem>
+      <subitem
+            label="대상 옵션 섹션에서 ODBC 커넥터를 스테이지 유형으로 선택하십시오. ODBC 데이터 소스의 이름과 해당 사용자 신임을 입력하십시오. '추가'를 테이블 조치로 선택하십시오. ">
+      </subitem>
+      <subitem
+            label="다음을 클릭하십시오. ">
+      </subitem>
+   </item>
+   <item
+         title="작업 매개변수 정의 페이지 건너뛰기">
+      <description>
+        <b>작업 매개변수 정의</b> 페이지에서 모든 설정을 그대로 두십시오.
+         <br/>
+        <b>다음</b>을 클릭하십시오.       </description>
+   </item>
+   <item
+         title="열 파생 정의 페이지 건너뛰기">
+      <description>
+        <b>열 파생 정의</b> 페이지에서 <b>사용자 정의 파생 사용</b>을 선택 취소하십시오.
+         <br/>
+         이 페이지에서 다음을 클릭하면 작업 생성 프로세스가 시작됩니다.
+         <br/>
+         <b>다음</b>을 클릭하십시오.       </description>
+   </item>
+   <item
+         title="마법사 완료">
+      <description>
+         <b>요약</b> 페이지에서 생성된 작업을 표시하는 요약을 검토하십시오.
+         <br/>
+         작업을 컴파일하려면 <b>DataStage 다중 작업 컴파일러 실행</b> 선택란을 체크하십시오.
+         <br/>
+         <b>완료</b>를 클릭하십시오. 
+      </description>
+         </item>
+   <item
+         skip="true"
+         title="작업 컴파일">
+      <description>
+        마법사가 완료되면 생성된 작업이 선택된 상태로 DataStage 다중 작업 컴파일러가
+        실행됩니다. 마법사를 실행하여 작업을 컴파일하십시오.
+      </description>
+   </item>
+   <item href="http://publib.boulder.ibm.com/infocenter/iisinfsv/v8r1/topic/com.ibm.swg.im.iis.productization.iisinfsv.overview.doc/topics/cisodsdirector.html"
+         title="작업 실행">
+      <description>
+      작업을 실행하려면 <b>DataStage 디렉터</b>를 열고 방금 생성한
+      작업을 선택한 후 <b>실행</b>을 선택하십시오.
+      </description>
+   </item>
+      </cheatsheet>

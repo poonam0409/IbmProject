@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Test JsonStore</title>
+		<script type="text/javascript" src="../dojoVersion.js"></script>
+
+		<script type="text/javascript">
+			dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		</script>
+	
+	    <style id="idxStyles" type="text/css">
+    	    @import "../../../themes/oneui/oneui.css";
+    	    @import "../../../themes/vienna/vienna.css";
+    	    @import "../../../themes/claro/claro.css";
+    	    @import "../../../resources/claro_idx.css";
+    	    @import "../../../resources/vienna_idx.css";
+    	    @import "../../../themes/test.css";
+	    </style>
+		
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+			dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+
+		<script type="text/javascript" id="postDojo">
+		var modules=["doh",
+					 "doh.runner",
+					 "dijit.dijit", // optimize: load dijit layer
+					 "dojo/json",
+					 "idx.data.JsonStore"];
+
+		function postParse(modules) {
+			var myDoh = modules["doh"] ? modules["doh"] : doh;		
+			var JsonStore = modules["idx/data/JsonStore"];
+			var dJson = modules["dojo/json"] ? modules["dojo/json"] : {stringify: dojo.toJson};
+			
+			var jsonStore;
+
+			var data1 = [
+				{name: "name1", value: "value1"}, 
+				{name: "name2", value: "value2"}, 
+				{name: "name3", value: "value3"}
+			];
+			var data2 = [
+				{name: "name4", value: "value4"}, 
+				{name: "name5", value: "value5"}, 
+				{name: "name6", value: "value6"}
+			];
+			
+			myDoh.register("create", function(){
+				var json = dJson.stringify(data1);
+				jsonStore = new JsonStore({data: data1});
+				jsonStore.fetch({});
+				myDoh.t(jsonStore != null);
+				myDoh.t(dJson.stringify(jsonStore.getData()) == json);
+			});
+
+			myDoh.register("setData", function(){
+				var json = dJson.stringify(data2);
+				jsonStore.setData(data2);
+				jsonStore.fetch({});
+				myDoh.t(dJson.stringify(jsonStore.getData()) == json);
+			});
+
+			myDoh.run();
+		}
+		dojoRequireModules(modules, null, currentDojoVersion.async, null, postParse);
+	</script>
+</head>
+<body>
+</body>
+</html>

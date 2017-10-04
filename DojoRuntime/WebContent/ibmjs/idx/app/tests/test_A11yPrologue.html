@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html style="height: 100%; width: 100%; margin: 0px; padding: 0px;" lang="en">
+<head>
+<title>Test A11yPrologue</title>
+
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+<script type="text/javascript">
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/claro/claro.css", "idxStyles");
+</script>
+
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneui/oneui.css";
+@import "../../themes/vienna/vienna.css";
+@import "../../resources/claro_idx.css";
+@import "../../resources/vienna_idx.css";
+@import "../../themes/test.css";
+</style>
+
+<script type="text/javascript">
+	var dojoConfig = currentDojoVersion.dojoConfig;
+</script>
+
+<script type="text/javascript">
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+</script>
+ 
+<script type="text/javascript" id="postDojo">
+var modules = ["idx.app.A11yPrologue",
+			   "idx.ext",
+			   "idx.a11y",
+			   "idx.util",
+			   "idx.string",
+			   "dijit.form.CheckBox",
+               "dijit.form.Button",
+               "dijit.form.TextBox",
+			   "dijit.layout.ContentPane"];
+			   
+dojoRequireModules(modules, null, currentDojoVersion.async);
+</script>
+<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 8px;">
+<script type="text/javascript">applyThemeToBody()</script>
+<div dojoType="idx.app.A11yPrologue"></div>
+
+<br><br>
+<div dojoType="dijit.layout.ContentPane" style="background-color: #DDDDDD; width: 95%;">
+Mock Banner Area
+<br><br>
+<label for="visible">Make Visible:</label><div dojoType="dijit.form.CheckBox" name="visible">
+<script type="dojo/connect" event="onClick">
+var checked = this.get("checked");
+if (checked) {
+	var widget = idx.util.getChildWidget(dojo.body(), false, idx.app.A11yPrologue);
+	dojo.style(widget.domNode, {position: "static", left: "0px", top: "0px"});
+} else {
+	var widget = idx.util.getChildWidget(dojo.body(), false, idx.app.A11yPrologue);
+	dojo.style(widget.domNode, {position: "", left: "", top: ""});
+}
+</script>
+</div>
+<br><br>
+<div style="display: inline;" dojoType="dijit.form.Button" label="Register Banner Area">
+<script type="dojo/connect" event="onClick" args="e">
+if (this._registeredNode) {
+	idx.a11y.unregisterBannerArea(this._registeredNode);
+	this._registeredNode = null;
+	this.set("label", "Register Banner Area");
+} else {
+	var parent = idx.util.getParentWidget(this, dijit.layout.ContentPane);
+	idx.a11y.registerBannerArea(parent.domNode);
+	this._registeredNode = parent.domNode;
+	this.set("label", "Unregister Banner Area");
+}
+if (e) dojo.stopEvent(e);
+</script>
+</div>
+&nbsp;&nbsp;
+<div style="display: inline;" dojoType="dijit.form.Button" label="Register Checkbox Shortcut with Access Key">
+<script type="dojo/connect" event="onClick" args="e">
+if (this._shortcutID) {
+	idx.a11y.unregisterShortcut(this._shortcutID);
+	this._shortcutID = null;
+	this.set("label", "Register Checkbox Shortcut with Access Key");
+} else {
+	var sibling = idx.util.getSiblingWidget(this, true, dijit.form.CheckBox);
+	this._shortcutID = idx.a11y.registerShortcut(sibling.domNode, "Visbility Checkbox", "2");
+	this.set("label", "Unregister Checkbox Shortcut");
+}
+if (e) dojo.stopEvent(e);
+</script>
+</div>
+</div>
+
+<br>
+<div dojoType="dijit.layout.ContentPane" style="background-color: #DDDDDD; width: 95%;">
+Mock Navigation Area
+<br><br>
+<label for="externalURL">External URL:</label><div dojoType="dijit.form.TextBox" name="externalURL" intermediateChanges="true" style="width: 40em;">
+<script type="dojo/connect" event="onChange">
+var value = idx.string.nullTrim(this.get("value"));
+var sib1 = idx.util.getSiblingWidget(this, false, dijit.form.Button);
+var sib2 = idx.util.getSiblingWidget(sib1, false, dijit.form.Button);
+sib1.set("disabled", (value == null));
+sib2.set("disabled", (value == null));
+</script>
+</div>
+<br><br>
+<div style="display: inline;" dojoType="dijit.form.Button" label="Register External Link with Access Key" disabled="true">
+<script type="dojo/connect" event="onClick" args="e">
+if (this._shortcutID) {
+	idx.a11y.unregisterShortcut(this._shortcutID);
+	this._shortcutID = null;
+	this.set("label", "Register External Link with Access Key");
+} else {
+	var sibling = idx.util.getSiblingWidget(this, true, dijit.form.TextBox);
+	var value = sibling.get("value");
+	this._shortcutID = idx.a11y.registerShortcut(value, "External Page (" + value + ")", "4");
+	this.set("label", "Unregister (4): " + value);
+}
+if (e) dojo.stopEvent(e);
+</script>
+</div>
+&nbsp;&nbsp;
+<div style="display: inline;" dojoType="dijit.form.Button" label="Register External Link w/o Access Key" disabled="true">
+<script type="dojo/connect" event="onClick" args="e">
+if (this._shortcutID) {
+	idx.a11y.unregisterShortcut(this._shortcutID);
+	this._shortcutID = null;
+	this.set("label", "Register External Link w/o Access Key");
+} else {
+	var sibling = idx.util.getSiblingWidget(this, true, dijit.form.TextBox);
+	var value = sibling.get("value");
+	this._shortcutID = idx.a11y.registerShortcut(value, "External Page (" + value + ")");
+	this.set("label", "Unregister: " + value);
+}
+if (e) dojo.stopEvent(e);
+</script>
+</div>
+<br><br>
+<div dojoType="dijit.form.Button" label="Register Navigation Area">
+<script type="dojo/connect" event="onClick" args="e">
+if (this._registeredNode) {
+	idx.a11y.unregisterNavigationArea(this._registeredNode);
+	this._registeredNode = null;
+	this.set("label", "Register Navigation Area");
+} else {
+	var parent = idx.util.getParentWidget(this, dijit.layout.ContentPane);
+	idx.a11y.registerNavigationArea(parent.domNode);
+	this._registeredNode = parent.domNode;
+	this.set("label", "Unregister Navigation Area");
+}
+if (e) dojo.stopEvent(e);
+</script>
+</div>
+&nbsp;&nbsp;
+<div style="display: inline;" dojoType="dijit.form.Button" label="Register External URL Field Shortcut w/o Access Key">
+<script type="dojo/connect" event="onClick" args="e">
+if (this._shortcutID) {
+	idx.a11y.unregisterShortcut(this._shortcutID);
+	this._shortcutID = null;
+	this.set("label", "Register External URL Field Shortcut w/o Access Key");
+} else {
+	var sibling = idx.util.getSiblingWidget(this, true, dijit.form.TextBox);
+	this._shortcutID = idx.a11y.registerShortcut(sibling.domNode, "External URL Field");
+	this.set("label", "Unregister External URL Field");
+}
+if (e) dojo.stopEvent(e);
+</script>
+</div>
+
+</div>
+<br>
+<div dojoType="dijit.layout.ContentPane" style="background-color: #DDDDDD; width: 95%;">
+Mock Main Content Area
+<br><br>
+<label for="a11yStatement">Accesibility Statement URL:</label><div dojoType="dijit.form.TextBox" name="a11yStatement" style="width: 40em;" intermediateChanges="true" accessKey="3">
+<script type="dojo/connect" event="onChange">
+idx.a11y.setA11yStatementURL(this.get("value"));
+</script>
+</div>
+<br><br>
+<div dojoType="dijit.form.Button" label="Register Main Area">
+<script type="dojo/connect" event="onClick" args="e">
+if (this._registeredNode) {
+	idx.a11y.unregisterMainArea(this._registeredNode);
+	this._registeredNode = null;
+	this.set("label", "Register Main Area");
+} else {
+	var parent = idx.util.getParentWidget(this, dijit.layout.ContentPane);
+	idx.a11y.registerMainArea(parent.domNode);
+	this._registeredNode = parent.domNode;
+	this.set("label", "Unregister Main Area");
+}
+if (e) dojo.stopEvent(e);
+</script>
+</div>
+&nbsp;&nbsp;
+<div style="display: inline;" dojoType="dijit.form.Button" label="Register Text Field Shortcut">
+<script type="dojo/connect" event="onClick" args="e">
+if (this._shortcutID) {
+	idx.a11y.unregisterShortcut(this._shortcutID);
+	this._shortcutID = null;
+	this.set("label", "Register Text Field Shortcut");
+} else {
+	var sibling = idx.util.getSiblingWidget(this, true, dijit.form.TextBox);
+	this._shortcutID = idx.a11y.registerShortcut(sibling.domNode, "Accessibility Statement URL Field", "3");
+	this.set("label", "Unregister Text Field Shortcut");
+}
+if (e) dojo.stopEvent(e);
+</script>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>HoverCard Widget Tests</title>
+
+	<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+	<script type="text/javascript">
+		dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+
+    <style id="idxStyles" type="text/css">
+        @import "../../themes/oneui/oneui.css";
+        @import "../../themes/test.css";
+		@import "http://localhost:59449/stwebapi/main.css";
+    </style>
+    
+    <style type="text/css">
+      .placeHolderIcon {
+      	background-image: url("../../themes/oneui/idx/oneui/images/hoverActionIconPlaceholder.png");
+      	background-repeat: no-repeat;
+      	height: 16px;
+      	text-align: center;
+      	width: 16px;
+      }
+    </style>
+    
+    <script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+	</script>
+	
+	<script type="text/javascript">
+		dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+	
+	<script type="text/javascript" id="postDojo">
+		var modules = [
+			"dijit.form.Button", 
+			"dijit.form.TextBox", 				
+			"dijit.layout.ContentPane",
+			"idx.oneui.HoverCard", 
+			"idx.widget.PersonCard",
+			"idx.oneui._Preview"
+			],
+		testValue = {
+			photo: "../../resources/blank.gif",
+			fn: "Full Name",
+			title: "Title",
+			adr: {
+				work: {
+					locality: "Locality",
+					region: "Region",
+					country_name: "Country"
+				}
+			},
+			tel: {
+				work: "Work Phone"
+			},
+			email: {
+				internet: "E-mail"
+			}
+		},
+		fClick = null;
+
+		function preParse(){
+			fClick = function(){
+				alert(this.label + " clicked!");
+			}
+		}
+		function postParse(modules) {
+//			var PersonCard = modules["idx/widget/PersonCard"];
+//			var dom = modules["dojo/dom"] ? modules["dojo/dom"] : dojo;
+//			var popup = modules["dijit/popup"] || dijit.popup;
+//			
+//			var personCard2 = PersonCard({query: {email: "ksetzer@us.ibm.com"},
+//				url: "https://w3-connections.ibm.com/profiles/json/profile.do", jsonp: "callback",
+//				spec: ["photo","fn","title","org","adr.work","tel.work","email.internet","sametime.awareness"]},
+//				dom.byId("personCard2"));
+//		
+//			var personCard3 = PersonCard({query: {email: "bwmorris@us.ibm.com"},
+//				url: "https://w3-connections.ibm.com/profiles/json/profile.do", jsonp: "callback",
+//				spec: ["photo","fn","title","org","adr.work","tel.work","email.internet","sametime.awareness"],
+//				style: "background-color: #FFFFFF;"});
+//			var node = dom.byId("personCard3");
+//			node.onmouseover = function(event){
+//				popup.open({popup: personCard3, around: node});
+//			};
+//			node.onmouseout = function(event){
+//				popup.close(personCard3);
+//			};
+		}
+		dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+	</script>
+
+<script type="text/javascript" src="../../tests/commonTest.js"></script>
+<script type="text/javascript" src="http://localhost:59449/stwebapi/getStatus.js"></script>
+	
+</head>
+<body class="oneui" style="padding:15px">
+<a class="navigationLink" href="#maincontent">Skip to main content</a> <script type="text/javascript">applyThemeToBody("oneui");</script>
+
+<a name="maincontent"></a>
+
+	<h1 class="testTitle">idx.oneui.HoverCard test</h1>
+	
+<h2>Example 1:</h2>
+	<ul>
+		<li>500ms show delay</li>
+		
+		<li>Draggable from "grippy bar"</li>
+	</ul>
+	
+	
+	<br />
+
+<div style="display: inline;">
+		
+		<!--Preview content of HoverCard-->
+		<div data-dojo-type="idx.oneui._Preview" data-dojo-props='
+			id: "previewL",
+			title: "Preview Card title",
+			image: "../../themes/oneui/idx/oneui/images/objectImagePlaceholder90px.png",
+			content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et purus lorem, eu semper massa. Phasellus rutrum, dui non ultrices convallis, nunc nunc dignissim neque, elementum imperdiet sapien massa ut risus<br /><br />"
+		'>
+		</div>
+		<div data-dojo-type="idx.oneui._Preview" data-dojo-props='
+			id: "previewS",
+			title: "Preview Card title",
+			image: "../../themes/oneui/idx/oneui/images/objectImagePlaceholder90px.png",
+			content: "Lorem ipsum dolor sit amet."
+		'>
+		</div>
+		<div data-dojo-type="idx.oneui._Preview" data-dojo-props='
+			id: "previewWithoutImg",
+			title: "Preview Card title",
+			content: "Lorem ipsum dolor sit amet. "
+		'>
+		</div>
+		<!--Inline content of HoverCard footer-->
+		<!--<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props='
+			id: "inlineAction"
+		'>
+			<label for="input1">Inline action Input field:</label>
+			<input data-dojo-type="dijit.form.TextBox"></input>
+			<button data-dojo-type="dijit.form.Button">Submit</button>
+		</div>-->
+		<!--Declaration of HoverCard 1-->
+		<div id="one_hc" data-dojo-type="idx.oneui.HoverCard" 
+			data-dojo-props='
+				target:"one", 
+				moreActions:[
+					{label: "Item 1", onClick: fClick},
+					{label: "Item 2", onClick: fClick},
+					{label: "Item 3", onClick: fClick}
+				],
+				actions: [
+					{iconClass: "placeHolderIcon", onClick: fClick, text:""},
+					{iconClass: "placeHolderIcon", onClick: fClick, text:""},
+					{iconClass: "placeHolderIcon", onClick: fClick, text:""}
+				],
+				content: "previewL"
+			'>
+		</div>
+		<!--Declaration of HoverCard 2-->
+		<div id="two_hc" data-dojo-type="idx.oneui.HoverCard" 
+			data-dojo-props='
+				target:"two", 
+				moreActions:[
+					{label: "Item 1", onClick: fClick},
+					{label: "Item 2", onClick: fClick},
+					{label: "Item 3", onClick: fClick}
+				],
+				actions: [
+					{iconClass: "placeHolderIcon", onClick: fClick, text:""},
+					{iconClass: "placeHolderIcon", onClick: fClick, text:""},
+					{iconClass: "placeHolderIcon", onClick: fClick, text:""}
+				],
+				content: "previewS"
+			'>
+		</div>
+		<!--Declaration of HoverCard 3-->
+		<div id="three_hc" data-dojo-type="idx.oneui.HoverCard" 
+			data-dojo-props='
+				target:"three", 
+				moreActions:[
+					{label: "Item 1", onClick: fClick},
+					{label: "Item 2", onClick: fClick},
+					{label: "Item 3", onClick: fClick}
+				],
+				actions: [
+					{iconClass: "placeHolderIcon", onClick: fClick, text:""},
+					{iconClass: "placeHolderIcon", onClick: fClick, text:""},
+					{iconClass: "placeHolderIcon", onClick: fClick, text:""}
+				],
+				content: "previewWithoutImg"
+			'>
+		</div>
+		<a id="one" href="#bogus" onmouseover="idx.oneui.HoverCard.defaultPosition=['after-centered', 'before-centered']">Preview card with max width of 600px (hover here)</a>
+		<br/><br/><br/><br/>
+		<a id="two" href="#bogus" onmouseover="idx.oneui.HoverCard.defaultPosition=['after-centered', 'before-centered']">Preview card with min width of 360px (hover here)</a>
+		<br/><br/><br/><br/>
+		<a id="three" href="#bogus" onmouseover="idx.oneui.HoverCard.defaultPosition=['after-centered', 'before-centered']">No-image Preview card with min width of 250px (hover here)</a>
+
+	</div>
+	
+	
+	<br />
+	<br />
+	<br />
+	<br />
+	
+	<h2>Example 2:</h2>
+
+	<br />
+
+	<div style="display: inline;">
+		<a id="four" href="#bogus" onmouseover="idx.oneui.HoverCard.defaultPosition=['after-centered', 'before-centered']">Person card normal (hover here)</a>
+		<div dojoType="idx.widget.PersonCard" id="personInfo" query="{email: 'bcaceres@us.ibm.com'}"
+		url="https://w3-connections.ibm.com/profiles/json/profile.do" jsonp="callback"
+		spec="photo,fn,title,org,adr.work,tel.work,email.internet,sametime.awareness"
+		placeHolder="Sametime is not available on your client."></div>
+		
+		<div id="four_hc" data-dojo-type="idx.oneui.HoverCard" 
+			data-dojo-props='
+			target:"four", 
+			content:"personInfo"
+			'>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DeploymentDescriptor xmlns="http://www.ibm.com">
+  <DataStageSection xmlns="">
+    <ServerSection>
+      <DSServerComponent Name="%STAGETYPE-ID%" species="connector" StageDescStem="StageDsc">
+        <BOM>
+          <FileDesc FileType="dll" Platform="multi" installToDir="%INSTALLEDDIRECTORY%">Server/Shared/%JARFILE%</FileDesc>
+          <FileDesc FileType="largeBitmap" Platform="multi" StageTypeName="%STAGETYPE-ID%PX">Bitmaps/%STAGETYPE-ID%PX.bmp</FileDesc>
+          <FileDesc FileType="smallBitmap" Platform="multi" StageTypeName="%STAGETYPE-ID%PX">Bitmaps/%STAGETYPE-ID%PXs.bmp</FileDesc>
+        </BOM>
+      </DSServerComponent>
+    </ServerSection>
+    <ClientSection/>
+  </DataStageSection>
+</DeploymentDescriptor>

@@ -1,0 +1,15 @@
+################################################################################
+# Copyright definitions for Java source (JAVA) files
+################################################################################
+
+top-line=/******************************************************** {tag.top} ***
+text.1  =* {security.conf}
+text.2  =* {category.oco}
+text.3  =* {product}
+text.4  =*
+text.5  =* {copyright}  {all.rights}
+text.6  =*
+text.7  =* {oco.trade.secret.1}
+text.8  =* {oco.trade.secret.2}
+text.9  =* {oco.trade.secret.3}
+end-line=********************************************************* {tag.end} **/

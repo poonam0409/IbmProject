@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.cheatsheets.cheatSheetContent">
+      <category
+            id="com.ibm.is.sappack.gen.help.cheatsheetcategory"
+            name="%cheatsheetCategory">
+      </category>
+      <category
+            id="com.ibm.is.sappack.gen.help.cheatsheetcategorye2e"
+            name="%cheatsheetCategoryE2E"
+            parentCategory="com.ibm.is.sappack.gen.help.cheatsheetcategory">
+      </category>
+      
+      <category
+            id="com.ibm.is.sappack.gen.help.cheatsheetcategory.singletasks"
+            name="%cheatsheetCategorySingleTasks"
+            parentCategory="com.ibm.is.sappack.gen.help.cheatsheetcategory">
+      </category>
+     
+     <!-- RM -->
+      <cheatsheet
+            category="com.ibm.is.sappack.gen.help.cheatsheetcategory/com.ibm.is.sappack.gen.help.cheatsheetcategory.singletasks"
+            composite="false"
+            contentFile="%ConnectionsCheatSheetTablexml"
+            id="com.ibm.is.sappack.gen.help.cheatsheet.connections"
+            name="%connectionsCheatSheet">
+      </cheatsheet>
+      <cheatsheet
+            category="com.ibm.is.sappack.gen.help.cheatsheetcategory/com.ibm.is.sappack.gen.help.cheatsheetcategory.singletasks"
+            composite="false"
+            contentFile="%CreateTableSOCCheatSheetTablexml"
+            id="com.ibm.is.sappack.gen.help.cheatsheet.tablelist"
+            name="%tableListCheatSheet">
+      </cheatsheet>
+      <cheatsheet
+            category="com.ibm.is.sappack.gen.help.cheatsheetcategory/com.ibm.is.sappack.gen.help.cheatsheetcategory.singletasks"
+            composite="false"
+            contentFile="%CreateRMConfCheatSheetTablexml"
+            id="com.ibm.is.sappack.gen.help.cheatsheet.rmconf"
+            name="%rmconfCheatSheet">
+      </cheatsheet>
+
+      <cheatsheet
+            category="com.ibm.is.sappack.gen.help.cheatsheetcategory/com.ibm.is.sappack.gen.help.cheatsheetcategory.singletasks"
+            composite="false"
+            contentFile="%RMWizardCheatSheetTablexml"
+            id="com.ibm.is.sappack.gen.help.cheatsheet.rmconf"
+            name="%rmWizardCheatSheet">
+      </cheatsheet>
+     
+      <cheatsheet
+            category="com.ibm.is.sappack.gen.help.cheatsheetcategory/com.ibm.is.sappack.gen.help.cheatsheetcategorye2e"
+            composite="true"
+            contentFile="%CompleteRMCheatSheetxml"
+            id="com.ibm.is.sappack.gen.help.cheatsheet.completerm"
+            name="%completeRMCS">
+      </cheatsheet>
+
+      <cheatsheet
+            category="com.ibm.is.sappack.gen.help.cheatsheetcategory/com.ibm.is.sappack.gen.help.cheatsheetcategory.singletasks"        
+            composite="false"
+            contentFile="%RMRGViewsCheatSheetxml"
+            id="com.ibm.is.sappack.gen.help.cheatsheet.newviews"
+            name="%rmrgviewsCheatSheet">
+      </cheatsheet>
+
+     <!-- RG -->
+      <cheatsheet
+            category="com.ibm.is.sappack.gen.help.cheatsheetcategory/com.ibm.is.sappack.gen.help.cheatsheetcategory.singletasks"        
+            composite="false"
+            contentFile="%TransformLDMAndCreateDBCheatSheetxml"
+            id="com.ibm.is.sappack.gen.help.cheatsheet.transform"
+            name="%transformCSName">
+      </cheatsheet>
+      <cheatsheet
+            category="com.ibm.is.sappack.gen.help.cheatsheetcategory/com.ibm.is.sappack.gen.help.cheatsheetcategory.singletasks"        
+            composite="false"
+            contentFile="%CreateRGConfCheatSheetxml"
+            id="com.ibm.is.sappack.gen.help.cheatsheet.createRGConf"
+            name="%createRGConfCheatSheet">
+      </cheatsheet>
+
+      <cheatsheet
+            category="com.ibm.is.sappack.gen.help.cheatsheetcategory/com.ibm.is.sappack.gen.help.cheatsheetcategory.singletasks"        
+            composite="false"
+            contentFile="%ConfigRGCheatSheetxml"
+            id="com.ibm.is.sappack.gen.help.cheatsheet.configRG"
+            name="%configRGCheatSheet">
+      </cheatsheet>
+
+      <cheatsheet
+            category="com.ibm.is.sappack.gen.help.cheatsheetcategory/com.ibm.is.sappack.gen.help.cheatsheetcategorye2e"
+            composite="true"
+            contentFile="%CompleteRGCheatSheetxml"
+            id="com.ibm.is.sappack.gen.help.cheatsheet.completerg"
+            name="%completeRGCheatSheet">
+      </cheatsheet>
+
+      
+      <!--
+      <cheatsheet
+            category="com.ibm.is.sappack.gen.help.cheatsheetcategory"
+            composite="false"
+            contentFile="%RMCheatSheetTablexml"
+            id="com.ibm.is.sappack.gen.help.cheatsheet.rm.tables"
+            name="%rmTableCSName">
+      </cheatsheet>
+      <cheatsheet
+            category="com.ibm.is.sappack.gen.help.cheatsheetcategory"
+            composite="false"
+            contentFile="%RMCheatSheetIDocxml"
+            id="com.ibm.is.sappack.gen.help.cheatsheet.rm.idoc"
+            name="%rmIDocCSName">
+      </cheatsheet>
+      <cheatsheet
+            category="com.ibm.is.sappack.gen.help.cheatsheetcategory"
+            composite="false"
+            contentFile="%RGCheatSheetTablexml"
+            id="com.ibm.is.sappack.gen.help.cheatsheet.rg.tables"
+            name="%rgTableCSName">
+      </cheatsheet>
+      <cheatsheet
+            category="com.ibm.is.sappack.gen.help.cheatsheetcategory"
+            composite="false"
+            contentFile="%RGCheatSheetIDocxml"
+            id="com.ibm.is.sappack.gen.help.cheatsheet.rg.idoc"
+            name="%rgIDocCSName">
+      </cheatsheet>
+      <cheatsheet
+            category="com.ibm.is.sappack.gen.help.cheatsheetcategory"
+            composite="true"
+            contentFile="%RMRGCheatSheetxml"
+            id="com.ibm.is.sappack.gen.help.cheatsheet.e2e.tables"
+            name="%e2eTableCSName">
+      </cheatsheet>
+      -->
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="com.ibm.is.sappack.gen.help.examplecategory"
+            name="%exampleCategory"
+            parentCategory="org.eclipse.ui.Examples">
+      </category>
+      
+      <wizard
+            category="org.eclipse.ui.Examples/com.ibm.is.sappack.gen.help.examplecategory"
+            class="com.ibm.is.sappack.gen.help.ExampleTableListWizard"
+            icon="icons/Rapid_modeler.ico"
+            id="com.ibm.is.sappack.gen.help.exampletablelists"
+            name="%exampleTableLists"
+            project="false">
+      </wizard>
+    
+   </extension>   
+   
+  
+   <extension
+         point="org.eclipse.help.toc">
+      <toc
+            file="%icHelpTOCFile"
+            primary="true">
+      </toc>
+   </extension>   
+
+
+ <extension
+         point="org.eclipse.help.contexts">
+         <contexts
+            file="%csHelpContextFile">
+         </contexts>         
+   </extension>
+
+</plugin>

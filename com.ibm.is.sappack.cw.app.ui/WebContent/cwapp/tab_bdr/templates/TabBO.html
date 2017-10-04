@@ -1,0 +1,37 @@
+<div class="bdrTab">
+    <div dojoType="idx.layout.BorderContainer" dojoAttachPoint="borderContainer" class="bdrBorderContainer"
+        design="sidebar" gutters="true" liveSplitters="true">
+        <div dojoType="dijit.layout.ContentPane" class="bdrNavContainer" region="leading">
+            <div data-dojo-type="idx.layout.BorderContainer" data-dojo-props="gutters:false">
+                <div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region:'top'" class="paddedContainer">
+					<div dojoType="idx.layout.ButtonBar" region="majorActions">
+						<div dojoType="dijit.form.DropDownButton" type="button"	dojoAttachPoint="addButton">
+							<span> ${msg.ADD} </span>
+							<div dojoType="dijit.Menu">
+								<div dojoType="dijit.MenuItem" dojoAttachPoint="addBusinessObjectButton">${msg.BphButtonAddBusinessObject}</div>
+								<div dojoType="dijit.MenuItem" dojoAttachPoint="attachTableToBOButton" style="display: none;">${msg.BphButtonAttachTables}</div>
+							</div>
+						</div>
+						<div dojoType="dijit.form.Button" type="button"	dojoAttachPoint="removeButton" disabled="true">${msg.BPHTAB_2}</div>
+						<div dojoType="dijit.form.DropDownButton" dojoAttachPoint="importFromSapButton" disabled="true">
+								<span>${msg.FIELDSIMPORTBUTTON}</span>
+								<div data-dojo-type="dijit.Menu">
+								</div>
+						</div>
+					</div>
+				</div>
+			    <div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region:'top'" class="paddedContainerNoTop">
+			        <div dojoType="cwapp.main.SearchBox" dojoAttachPoint="filteringInput" placeHolder="${msg.FILTER}" class="bdrTabFilteringInput"></div>
+			    </div>
+			    <div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region:'center'" class="paddedContainerNoTop">
+			        <div dojoAttachPoint="treeDiv" class="bdrBoTree"></div>
+			    </div>
+			</div>
+		</div>
+	
+	    <div dojoType="dijit.layout.ContentPane" class="bdrItemContainer" splitter="true" region="center">
+			<div id="boDetailsPanel"></div>
+			<div id="boBphPlaceholderWidget"></div>
+	    </div>
+    </div>
+</div>

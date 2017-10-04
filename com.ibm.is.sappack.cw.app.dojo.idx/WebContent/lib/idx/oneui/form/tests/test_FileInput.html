@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Composite Fields</title>
+
+	<style type="text/css">
+		@import "../../../oneui/themes/oneui/oneui.css";
+		@import "../../../dijit/tests/css/dijitTests.css";
+		@import "../_pagefooter/_PageFooter.css";
+		
+		.apiRef{
+			vertical-align: middle;
+			padding-top: 2px;
+		}
+		.apiRefDiv{
+			vertical-align: top;
+			display: inline;
+			position: absolute;
+			left: 500px;
+		}
+	</style>
+	<!-- required: dojo.js -->
+	<script type="text/javascript" src="../../../dojo/dojo.js"
+		data-dojo-config="async: true, parseOnLoad: true, isDebug: true"></script>
+	<script type="text/javascript" src="../../../dijit/tests/_testCommon.js"></script>
+
+	<script type="text/javascript">
+		require([
+			"dojo/ready",
+			"dijit/_base/manager",
+			"idx/oneui/form/FileInput",
+			"idx/oneui/tests/_pagefooter/_PageFooter"],
+		function(ready, manager, FileInput, _PageFooter){
+			ready(function(){
+				new _PageFooter();
+			});
+		});
+		
+	</script>
+	<body class="oneui">
+		<input id="fileinput" data-dojo-type="oneui.form.FileInput" data-dojo-props='
+			hint: "no bigger than 20MB.",
+			hintPosition: "inside",
+			label: "Choose a File:",
+			labelAlignment: "horizontal",
+			url: "../../dojox/form/resources/RecieveFile.php",
+			labelWidth: 170
+		'/>
+		<div class="apiRefDiv">
+			<span class="apiRef">
+				<a target="_blank" href="http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/FileInput.js">API reference</a>
+			</span>
+		</div>
+		<br/>
+	</body>
+</html>

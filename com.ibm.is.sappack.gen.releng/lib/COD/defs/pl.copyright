@@ -1,0 +1,21 @@
+################################################################################
+# Copyright definitions for Perl Script (PL) files
+#
+# Reference:  http://www.tizag.com/perlT/perlsyntax.php
+################################################################################
+
+top-line=######################################################### {tag.top} ###
+text.1  =# {category.licensed}
+text.2  =# {licensed.rm}
+text.3  =# {product}
+text.4  =# 
+text.5  =# {copyright}  {all.rights}
+text.6  =# 
+text.7  =# {us.gov.1}
+text.8  =# {us.gov.2}
+end-line=######################################################### {tag.end} ###
+
+head.1  =#!/bin/perl
+head.2  =#!/usr/bin/perl
+
+use-for =pm

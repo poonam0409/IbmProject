@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<project default="BuildAll" name="CDIBuild">
+    <tstamp/>
+    <property name="dest.artifact.dir" value="./output" />
+    <property name="dest.metadata.dir" value="./output" />
+
+    <property name="version.qualifier" value="${DSTAMP}_${TSTAMP}"/>
+	<!-- pointer to the PDE build staging area. The referenced directory should contain the -->
+	<!-- exploded admin client directory containing the plugin and features directory.      -->
+	<property name="pdeStage" value="C:/projects/asf-admin-client/admin-client/eclipse" />
+	<!-- pointer to where the CIC metadata repository for the admin client should be genrated -->
+    <property name="acCICRepo" value="C:/projects/asf-admin-client/cic-repo/rel3/ac-rel3_${version.qualifier}" />
+	<!-- pointer to where the CIC metadata repository for the admin client IM offering should be genrated -->
+    <property name="offeringRepo" value="C:/projects/asf-admin-client/im-repo/rel3/ac-rel3_${version.qualifier}" />
+	<!-- pointer to the exported launchpad repository -->
+	<property name="launchpadRepo" value="C:/ac-lpad/disk1" />
+
+	<!-- several properties that are defining what exactly should be generated -->
+	<property name="dont.want.linux.artifacts" value="true" />
+	
+	<!--
+	  |
+	  | Zipped binary of the installation manager
+	  |
+	-->
+	<property name="im.full.version.number" value="1.3.4001.20100405_1150" />
+	<property name="im.root.dir" value="C:/projects/workspaces/admin-client-installer/3rd-party-dependencies/im-1.3.4" />
+	<property name="im.win32.zip.file" value="${im.root.dir}/agent.installer.win32.win32.x86_${im.full.version.number}.zip" />
+	<property name="im.linux.zip.file" value="${im.root.dir}/agent.installer.linux.gtk.x86_${im.full.version.number}.zip" />
+	
+	<target name="explode-im.com.ibm.doc.installer.admin.client"
+	        depends="explode-im.win32.com.ibm.doc.installer.admin.client, explode-im.linux.com.ibm.doc.installer.admin.client"
+			description="5) Extracts the installation manager binaries from the corresponding ZIP file" />
+			
+	<target name="explode-im.win32.com.ibm.doc.installer.admin.client"
+            depends="launchpad.com.ibm.doc.installer.admin.client"
+			description="5a) Extracts the installation manager binaries from the corresponding ZIP file"
+			unless="dont.want.win32.artifacts">
+		<unzip src="${im.win32.zip.file}" dest="${launchpadRepo}/win32" />
+    </target>
+	
+	<target name="explode-im.linux.com.ibm.doc.installer.admin.client"
+	        depends="launchpad.com.ibm.doc.installer.admin.client"
+			description="5b) Extracts the installation manager binaries from the corresponding ZIP file"
+			unless="dont.want.linux.artifacts">
+		<unzip src="${im.linux.zip.file}" dest="${launchpadRepo}/linux" />
+    </target>
+	
+	<!-- Takes the exploded admin client ZIP file resulting from a PDE build run and -->
+	<!-- turns it into a CIC metadata repo which then can be consumed by the package -->
+	<!-- developer. Note: It's just a CIC metadata repo that does not contain an IM  -->
+	<!-- installable offering.                                                       -->
+	<target name="generate.com.ibm.doc.installer.admin.client"
+		    description="1) Takes the PDE build output and generates a CIC metdata repo">
+		<echo message="Creating: ${acCICRepo}"/>
+		<mkdir dir="${acCICRepo}"/>
+		
+		<cic.createMetadata eclipsesite="${pdeStage}"
+			                dest="${acCICRepo}" />
+	</target>
+
+    <!-- Copy target repository to offering repository  -->
+    <target name="copy.com.ibm.doc.installer.admin.client" depends="build.com.ibm.doc.installer.admin.client" >
+        <echo message="Creating: ${offeringRepo}"/>
+        <mkdir dir="${offeringRepo}"/>
+
+        <echo message="Copying: ${dest.artifact.dir}"/>
+        <echo message="     to: ${offeringRepo}"/>
+        <copy todir="${offeringRepo}">
+            <fileset dir="${dest.artifact.dir}"
+                     includes="**/**" />
+        </copy>
+    </target>
+	
+	<target name="launchpad.com.ibm.doc.installer.admin.client"
+	        depends="install.com.ibm.doc.installer.admin.client"
+	        description="4) Populates the launchpad stub directory">
+        <cic.createOfferingDisks
+            destDir="${launchpadRepo}/im-repo"
+            diskType="ISO_9660_MODE_1"
+            diskCapacity="782616000"
+            >
+            <dirrepository file="${offeringRepo}" />
+            <offering id="com.ibm.doc.admin.client" tolerance="[0.0.0,0.0.0]" />
+        </cic.createOfferingDisks>		
+	</target>
+	
+	<target name="install.com.ibm.doc.installer.admin.client"
+		    depends="copy.com.ibm.doc.installer.admin.client"
+		    description="3) Tries to install/uninstall the offering sillently">
+		<echo message="Sillently installing offering via response file..." />
+	    <cic.responseFile file="./response.xml" acceptlicenses="true" rebootlater="true">
+	    	<preference value="C:/Program Files/IBM/SDPShared" name="com.ibm.cic.common.core.preferences.eclipseCache"/>
+	    	<preference value="30" name="com.ibm.cic.common.core.preferences.connectTimeout"/>
+	    	<preference value="30" name="com.ibm.cic.common.core.preferences.readTimeout"/>
+	    	<preference value="0" name="com.ibm.cic.common.core.preferences.downloadAutoRetryCount"/>
+	    	<preference value="true" name="offering.service.repositories.areUsed"/>
+	    	<preference value="false" name="com.ibm.cic.common.core.preferences.ssl.nonsecureMode"/>
+	    	<preference value="false" name="com.ibm.cic.common.core.preferences.http.disablePreemptiveAuthentication"/>
+	    	<preference value="true" name="com.ibm.cic.common.core.preferences.preserveDownloadedArtifacts"/>
+	    	<preference value="false" name="PassportAdvantageIsEnabled"/>
+	    	<preference value="false" name="com.ibm.cic.common.core.preferences.searchForUpdates"/>
+	        <repository location="${offeringRepo}"/>
+	        <install packageid="com.ibm.doc.admin.client" mode="default" profileid="IBM Admin Client for ASF" installlocation="/users1/optsapbd/IBM/IDA7.5.2">
+	        	<profiledata name='eclipseLocation' value='C:/Program Files/IBM/IBM Admin Client for ASF'/>
+	        	<profiledata name='cic.selector.nl' value='en'/>
+	        	<profiledata name='user.help.option' value='remote'/>
+	        	<profiledata name='user.help.url' value=''/>
+	        </install>
+	        <uninstall packageid="com.ibm.doc.admin.client" profileid="IBM Admin Client for ASF"/>
+	    </cic.responseFile>
+		<cic.launchIm responsefile="./response.xml" imdir="C:/Program Files/IBM/Installation Manager" logfile="log.txt" failOnError="true"/>
+        <mail mailhost="relay.de.ibm.com" mailport="25" subject="[INFO] ${version.qualifier} admin client build is complete">
+          <from address="noreply@xserv.boeblingen.de.ibm.com"/>
+          <replyto address="noreply@xserv.boeblingen.de.ibm.com"/>
+          <to address="daniel.haischt@de.ibm.com"/>
+          <message>
+The ${version.qualifier} nightly build has completed. The IBM Installation Manager CIC metadata repository can be accessed through the following URL:
+            
+http://ccboptimsap1.princeton.usnj.ibm.com/repo/optim/designersap/220dev/opt220_${version.qualifier}
+          
+This is an automated email message provided by Engineering Operations to kick-off the formal QA process.
+          </message>
+        </mail>
+	</target>
+
+    <!-- Build Target repository to be consumed by the IBM Installation Manager. -->
+    <target name="build.com.ibm.doc.installer.admin.client"
+    	    depends="clean.com.ibm.doc.installer.admin.client"
+    	    description="2) Build CIC metadata repository to be consumed by the IBM Installation Manager.">
+        <echo message="Building: ${dest.metadata.dir}"/>
+        <cic.authStore authFile="${user.home}/store.xml"/> 
+        <cic.build imtarget="1.3" reportfile="./report.xml">
+            <suppliersfile file="suppliers.properties"/>
+            <!-- include all of the metadata files in my project, except for the output location -->
+            <metadata path="./" recursive="true">
+                <exclude path="./output" />
+            </metadata>
+            <artifact path="./" recursive="true"/>
+            <output artifactDestination="${dest.artifact.dir}" copyArtifacts="false" metadataDestination="${dest.metadata.dir}">
+                <offering id="com.ibm.doc.admin.client" tolerance="[0.0.0,0.0.0]"/>
+            </output>
+        </cic.build>
+    </target>
+
+    <!-- Clean Target repository -->
+    <target name="clean.com.ibm.doc.installer.admin.client" depends="">
+        <echo message="Deleting: ${dest.metadata.dir}"/>
+        <delete dir="${dest.metadata.dir}">
+            <include name="**/*.asy" />
+            <include name="**/*.off" />
+            <include name="**/com.ibm.doc.*.shu" />
+            <include name="**/atoc.xml" />
+            <include name="**/*.xml" />
+            <include name="repository.config" />
+            <include name="repository.xml" />
+            <include name="**/com.ibm.doc.*.jar" />
+            <include name="**/*.zip" />
+            <exclude name="**/build.xml" />
+        </delete>
+    </target>
+
+    <target name="BuildAll" depends="CleanAll, CopyAll, InstallAll, LaunchpadAll, CopyIMAll" />
+	<target name="InstallAll" depends="install.com.ibm.doc.installer.admin.client" />
+	<target name="LaunchpadAll" depends="launchpad.com.ibm.doc.installer.admin.client" />
+	<target name="CopyIMAll" depends="explode-im.com.ibm.doc.installer.admin.client" />
+    <target name="CopyAll"  depends="copy.com.ibm.doc.installer.admin.client" />
+    <target name="CleanAll" depends="clean.com.ibm.doc.installer.admin.client" />
+</project>

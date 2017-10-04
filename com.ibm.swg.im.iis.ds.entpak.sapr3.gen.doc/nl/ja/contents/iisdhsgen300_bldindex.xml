@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<index>
+  <entry keyword="InfoSphere Pack for SAP Applications">
+    <topic href="topics/c_is_pack_sap_applications.html#ibminfospherepackforsapapplications" title="概要"/>
+  </entry>
+  <entry keyword="SAP メタデータの理解">
+    <topic href="topics/c_is_pack_sap_applications.html#ibminfospherepackforsapapplications" title="概要"/>
+  </entry>
+  <entry keyword="InfoSphere Data Architect">
+    <topic href="topics/c_is_pack_sap_applications.html#ibminfospherepackforsapapplications" title="概要"/>
+    <topic href="topics/c_intro_rapid_modeler.html#introductiontoibminfosphererapidmodelerforsapapplications" title="IBM InfoSphere Data Architect Rapid Modeler for SAP Applications の概要"/>
+    <topic href="topics/c_intro_rapid_generator.html#introductiontoibminfosphererapidgeneratorforsapapplications" title="IBM InfoSphere Rapid Generator for SAP Applications の概要"/>
+    <topic href="topics/c_installation_prerequisites.html#installationprerequisites" title="前提条件"/>
+    <topic href="topics/c_install_ida_components.html#installingtheinfospheredataarchitectcomponents" title="IBM InfoSphere Data Architect コンポーネントのインストール"/>
+    <topic href="topics/c_prepare_ida_workspace.html#preparingtheinfospheredataarchitectworkspace" title="InfoSphere Data Architect ワークスペースの準備"/>
+  </entry>
+  <entry keyword="製品の使用">
+    <topic href="topics/c_is_pack_sap_applications.html#ibminfospherepackforsapapplications" title="概要"/>
+  </entry>
+  <entry keyword="SAP データ・モデル">
+    <topic href="topics/c_is_pack_sap_applications.html#ibminfospherepackforsapapplications" title="概要"/>
+  </entry>
+  <entry keyword="理解">
+    <topic href="topics/c_is_pack_sap_applications.html#ibminfospherepackforsapapplications" title="概要"/>
+  </entry>
+  <entry keyword="SAP システム">
+    <topic href="topics/c_is_pack_sap_applications.html#ibminfospherepackforsapapplications" title="概要"/>
+    <topic href="topics/t_reconcile_model_sap_system.html#reconcilingyourmodelwithansapsystem" title="SAP システムとモデルを調整する"/>
+    <topic href="topics/t_create_connection_sap_system.html#creatingaconnectiontothesapsystem" title="SAP システムへの接続の作成"/>
+  </entry>
+  <entry keyword="統合とマイグレーション">
+    <topic href="topics/c_is_pack_sap_applications.html#ibminfospherepackforsapapplications" title="概要"/>
+  </entry>
+  <entry keyword="ETL プロジェクト">
+    <topic href="topics/c_is_pack_sap_applications.html#ibminfospherepackforsapapplications" title="概要"/>
+  </entry>
+  <entry keyword="変更管理の促進">
+    <topic href="topics/c_is_pack_sap_applications.html#ibminfospherepackforsapapplications" title="概要"/>
+  </entry>
+  <entry keyword="ジョブのオーサリング">
+    <topic href="topics/c_is_pack_sap_applications.html#ibminfospherepackforsapapplications" title="概要"/>
+  </entry>
+  <entry keyword="DataStage">
+    <topic href="topics/c_is_pack_sap_applications.html#ibminfospherepackforsapapplications" title="概要"/>
+  </entry>
+  <entry keyword="Rapid Modeler の概要">
+    <topic href="topics/c_intro_rapid_modeler.html#introductiontoibminfosphererapidmodelerforsapapplications" title="IBM InfoSphere Data Architect Rapid Modeler for SAP Applications の概要"/>
+  </entry>
+  <entry keyword="論理テーブル">
+    <topic href="topics/c_intro_rapid_modeler.html#introductiontoibminfosphererapidmodelerforsapapplications" title="IBM InfoSphere Data Architect Rapid Modeler for SAP Applications の概要"/>
+    <topic href="topics/t_import_logical_tables_sap.html#importinglogicaltablesfromsap" title="SAP から論理テーブルをインポート"/>
+  </entry>
+  <entry keyword="IDoc">
+    <topic href="topics/c_intro_rapid_modeler.html#introductiontoibminfosphererapidmodelerforsapapplications" title="IBM InfoSphere Data Architect Rapid Modeler for SAP Applications の概要"/>
+  </entry>
+  <entry keyword="Rapid Generator の概要">
+    <topic href="topics/c_intro_rapid_generator.html#introductiontoibminfosphererapidgeneratorforsapapplications" title="IBM InfoSphere Rapid Generator for SAP Applications の概要"/>
+  </entry>
+  <entry keyword="ABAP Extract ジョブ">
+    <topic href="topics/c_intro_rapid_generator.html#introductiontoibminfosphererapidgeneratorforsapapplications" title="IBM InfoSphere Rapid Generator for SAP Applications の概要"/>
+  </entry>
+  <entry keyword="IDoc Extract ジョブ">
+    <topic href="topics/c_intro_rapid_generator.html#introductiontoibminfosphererapidgeneratorforsapapplications" title="IBM InfoSphere Rapid Generator for SAP Applications の概要"/>
+  </entry>
+  <entry keyword="IDoc Load ジョブ">
+    <topic href="topics/c_intro_rapid_generator.html#introductiontoibminfosphererapidgeneratorforsapapplications" title="IBM InfoSphere Rapid Generator for SAP Applications の概要"/>
+    <topic href="topics/t_configure_job_idoc_load.html#configuringjobgenerationforidocloadjobs" title="IDoc Load ジョブのジョブ生成の構成"/>
+  </entry>
+  <entry keyword="前提条件">
+    <topic href="topics/c_installation_prerequisites.html#installationprerequisites" title="前提条件"/>
+    <topic href="topics/c_prepare_sap_environment.html#preparingthesapenvironment" title="SAP 環境の前提条件"/>
+  </entry>
+  <entry keyword="インストール">
+    <topic href="topics/c_installation_prerequisites.html#installationprerequisites" title="前提条件"/>
+    <topic href="topics/c_install_ida_components.html#installingtheinfospheredataarchitectcomponents" title="IBM InfoSphere Data Architect コンポーネントのインストール"/>
+    <topic href="topics/t_install_client.html#installingtheclient" title="クライアントのインストール"/>
+    <topic href="topics/t_install_server_component.html#installingtheservercomponent" title="サーバー・コンポーネントのインストール"/>
+  </entry>
+  <entry keyword="クライアント・インストール">
+    <topic href="topics/c_installation_prerequisites.html#installationprerequisites" title="前提条件"/>
+  </entry>
+  <entry keyword="サーバー・インストール">
+    <topic href="topics/c_installation_prerequisites.html#installationprerequisites" title="前提条件"/>
+  </entry>
+  <entry keyword="サポートされるデータベース">
+    <topic href="topics/c_installation_prerequisites.html#installationprerequisites" title="前提条件"/>
+  </entry>
+  <entry keyword="コンポーネント">
+    <topic href="topics/c_install_ida_components.html#installingtheinfospheredataarchitectcomponents" title="IBM InfoSphere Data Architect コンポーネントのインストール"/>
+  </entry>
+  <entry keyword="クライアント">
+    <topic href="topics/c_install_ida_components.html#installingtheinfospheredataarchitectcomponents" title="IBM InfoSphere Data Architect コンポーネントのインストール"/>
+    <topic href="topics/t_install_client.html#installingtheclient" title="クライアントのインストール"/>
+  </entry>
+  <entry keyword="サーバー・コンポーネント">
+    <topic href="topics/c_install_ida_components.html#installingtheinfospheredataarchitectcomponents" title="IBM InfoSphere Data Architect コンポーネントのインストール"/>
+    <topic href="topics/t_install_server_component.html#installingtheservercomponent" title="サーバー・コンポーネントのインストール"/>
+  </entry>
+  <entry keyword="Rapid Modeler">
+    <topic href="topics/t_install_client.html#installingtheclient" title="クライアントのインストール"/>
+    <topic href="topics/t_import_metadata_rapid_modeler.html#importingsapmetadatabyusingrapidmodeler" title="Rapid Modeler を使用した SAP メタデータのインポート"/>
+    <entry keyword="概要">
+      <topic href="topics/c_component_overview.html#overviewofthecomponents" title="コンポーネントの概要"/>
+    </entry>
+  </entry>
+  <entry keyword="Rapid Generator">
+    <topic href="topics/t_install_client.html#installingtheclient" title="クライアントのインストール"/>
+    <topic href="topics/t_install_server_component.html#installingtheservercomponent" title="サーバー・コンポーネントのインストール"/>
+    <topic href="topics/t_prepare_ds_environment_rapid_generator.html#t_prepare_ds_environment_rapid_generator" title="Rapid Generator for SAP 用の IBM InfoSphere DataStage 環境の構成"/>
+    <topic href="topics/t_generate_ds_jobs_rapid_generator.html#generatinginfospheredatastagejobsbyusingrapidgenerator" title="IBM InfoSphere Rapid Generator for SAP を使用した InfoSphere DataStage ジョブの生成"/>
+    <topic href="topics/t_configure_job_idoc_load.html#configuringjobgenerationforidocloadjobs" title="IDoc Load ジョブのジョブ生成の構成"/>
+    <topic href="topics/t_create_connection_sap_system.html#creatingaconnectiontothesapsystem" title="SAP システムへの接続の作成"/>
+    <entry keyword="概要">
+      <topic href="topics/c_component_overview.html#overviewofthecomponents" title="コンポーネントの概要"/>
+    </entry>
+  </entry>
+  <entry keyword="IBM InfoSphere DataStage">
+    <topic href="topics/t_prepare_ds_environment_rapid_generator.html#t_prepare_ds_environment_rapid_generator" title="Rapid Generator for SAP 用の IBM InfoSphere DataStage 環境の構成"/>
+  </entry>
+  <entry keyword="環境の準備">
+    <topic href="topics/t_prepare_ds_environment_rapid_generator.html#t_prepare_ds_environment_rapid_generator" title="Rapid Generator for SAP 用の IBM InfoSphere DataStage 環境の構成"/>
+  </entry>
+  <entry keyword="ジョブの生成">
+    <topic href="topics/t_prepare_ds_environment_rapid_generator.html#t_prepare_ds_environment_rapid_generator" title="Rapid Generator for SAP 用の IBM InfoSphere DataStage 環境の構成"/>
+  </entry>
+  <entry keyword="DataStage プロジェクト">
+    <topic href="topics/t_prepare_ds_environment_rapid_generator.html#t_prepare_ds_environment_rapid_generator" title="Rapid Generator for SAP 用の IBM InfoSphere DataStage 環境の構成"/>
+    <topic href="topics/t_create_ds_projects_generated_jobs.html#creatingadedicateddatastageprojectforgeneratedjobs" title="生成したジョブのための専用 InfoSphere DataStage プロジェクトの作成"/>
+  </entry>
+  <entry keyword="作成">
+    <topic href="topics/t_prepare_ds_environment_rapid_generator.html#t_prepare_ds_environment_rapid_generator" title="Rapid Generator for SAP 用の IBM InfoSphere DataStage 環境の構成"/>
+    <topic href="topics/t_create_ds_projects_generated_jobs.html#creatingadedicateddatastageprojectforgeneratedjobs" title="生成したジョブのための専用 InfoSphere DataStage プロジェクトの作成"/>
+  </entry>
+  <entry keyword="生成されたジョブ">
+    <topic href="topics/t_prepare_ds_environment_rapid_generator.html#t_prepare_ds_environment_rapid_generator" title="Rapid Generator for SAP 用の IBM InfoSphere DataStage 環境の構成"/>
+    <topic href="topics/t_create_ds_projects_generated_jobs.html#creatingadedicateddatastageprojectforgeneratedjobs" title="生成したジョブのための専用 InfoSphere DataStage プロジェクトの作成"/>
+  </entry>
+  <entry keyword="専用 DataStage プロジェクトの作成">
+    <topic href="topics/t_prepare_ds_environment_rapid_generator.html#t_prepare_ds_environment_rapid_generator" title="Rapid Generator for SAP 用の IBM InfoSphere DataStage 環境の構成"/>
+    <topic href="topics/t_create_ds_projects_generated_jobs.html#creatingadedicateddatastageprojectforgeneratedjobs" title="生成したジョブのための専用 InfoSphere DataStage プロジェクトの作成"/>
+  </entry>
+  <entry keyword="ワークスペースの準備">
+    <topic href="topics/c_prepare_ida_workspace.html#preparingtheinfospheredataarchitectworkspace" title="InfoSphere Data Architect ワークスペースの準備"/>
+  </entry>
+  <entry keyword="SAP JCo コネクター">
+    <topic href="topics/c_prepare_ida_workspace.html#preparingtheinfospheredataarchitectworkspace" title="InfoSphere Data Architect ワークスペースの準備"/>
+    <topic href="topics/t_configure_jco_connector.html#configuringthesapjcoconnector" title="SAP JCo コネクターの構成"/>
+  </entry>
+  <entry keyword="構成">
+    <topic href="topics/c_prepare_ida_workspace.html#preparingtheinfospheredataarchitectworkspace" title="InfoSphere Data Architect ワークスペースの準備"/>
+    <topic href="topics/t_configure_jco_connector.html#configuringthesapjcoconnector" title="SAP JCo コネクターの構成"/>
+    <topic href="topics/t_configure_is_client.html#configuringtheinformationserverclient" title="InfoSphere Information Server クライアントの構成"/>
+  </entry>
+  <entry keyword="Information Server クライアント">
+    <topic href="topics/c_prepare_ida_workspace.html#preparingtheinfospheredataarchitectworkspace" title="InfoSphere Data Architect ワークスペースの準備"/>
+    <topic href="topics/t_configure_is_client.html#configuringtheinformationserverclient" title="InfoSphere Information Server クライアントの構成"/>
+  </entry>
+  <entry keyword="SAP メタデータ">
+    <topic href="topics/t_import_metadata_rapid_modeler.html#importingsapmetadatabyusingrapidmodeler" title="Rapid Modeler を使用した SAP メタデータのインポート"/>
+  </entry>
+  <entry keyword="インポート">
+    <topic href="topics/t_import_metadata_rapid_modeler.html#importingsapmetadatabyusingrapidmodeler" title="Rapid Modeler を使用した SAP メタデータのインポート"/>
+  </entry>
+  <entry keyword="SAP メタデータのインポート">
+    <topic href="topics/t_import_metadata_rapid_modeler.html#importingsapmetadatabyusingrapidmodeler" title="Rapid Modeler を使用した SAP メタデータのインポート"/>
+  </entry>
+  <entry keyword="SAP からのインポート">
+    <topic href="topics/t_import_logical_tables_sap.html#importinglogicaltablesfromsap" title="SAP から論理テーブルをインポート"/>
+    <topic href="topics/t_import_idoc_types_sap.html#importingidoctypesfromsap" title="SAP からの IDoc タイプのインポート"/>
+  </entry>
+  <entry keyword="SAP モデル">
+    <topic href="topics/t_import_logical_tables_sap.html#importinglogicaltablesfromsap" title="SAP から論理テーブルをインポート"/>
+  </entry>
+  <entry keyword="選択、事前定義モデル">
+    <topic href="topics/t_import_logical_tables_sap.html#importinglogicaltablesfromsap" title="SAP から論理テーブルをインポート"/>
+  </entry>
+  <entry keyword="SAP">
+    <topic href="topics/t_import_logical_tables_sap.html#importinglogicaltablesfromsap" title="SAP から論理テーブルをインポート"/>
+  </entry>
+  <entry keyword="テーブルの参照">
+    <topic href="topics/t_import_logical_tables_sap.html#importinglogicaltablesfromsap" title="SAP から論理テーブルをインポート"/>
+  </entry>
+  <entry keyword="テーブル">
+    <topic href="topics/t_import_logical_tables_sap.html#importinglogicaltablesfromsap" title="SAP から論理テーブルをインポート"/>
+  </entry>
+  <entry keyword="テーブルを手動で指定">
+    <topic href="topics/t_import_logical_tables_sap.html#importinglogicaltablesfromsap" title="SAP から論理テーブルをインポート"/>
+  </entry>
+  <entry keyword="IDoc タイプ">
+    <topic href="topics/t_import_idoc_types_sap.html#importingidoctypesfromsap" title="SAP からの IDoc タイプのインポート"/>
+  </entry>
+  <entry keyword="生成、InfoSphere DataStage ジョブ">
+    <topic href="topics/t_generate_ds_jobs_rapid_generator.html#generatinginfospheredatastagejobsbyusingrapidgenerator" title="IBM InfoSphere Rapid Generator for SAP を使用した InfoSphere DataStage ジョブの生成"/>
+  </entry>
+  <entry keyword="InfoSphere DataStage ジョブ">
+    <topic href="topics/t_generate_ds_jobs_rapid_generator.html#generatinginfospheredatastagejobsbyusingrapidgenerator" title="IBM InfoSphere Rapid Generator for SAP を使用した InfoSphere DataStage ジョブの生成"/>
+  </entry>
+  <entry keyword="Rapid Generator を使用した">
+    <topic href="topics/t_generate_ds_jobs_rapid_generator.html#generatinginfospheredatastagejobsbyusingrapidgenerator" title="IBM InfoSphere Rapid Generator for SAP を使用した InfoSphere DataStage ジョブの生成"/>
+  </entry>
+  <entry keyword="ABAP Extract">
+    <topic href="topics/t_configure_job_abap_extract.html#configuringjobgenerationforabapextractjobs" title="ABAP Extract ジョブのジョブ生成の構成"/>
+  </entry>
+  <entry keyword="構成、ジョブ生成の">
+    <topic href="topics/t_configure_job_abap_extract.html#configuringjobgenerationforabapextractjobs" title="ABAP Extract ジョブのジョブ生成の構成"/>
+    <topic href="topics/t_configure_job_idoc_extract.html#configuringjobgenerationforidocextractjob" title="IDoc Extract ジョブのジョブ生成の構成"/>
+    <topic href="topics/t_configure_job_idoc_load.html#configuringjobgenerationforidocloadjobs" title="IDoc Load ジョブのジョブ生成の構成"/>
+  </entry>
+  <entry keyword="ジョブ生成">
+    <topic href="topics/t_configure_job_abap_extract.html#configuringjobgenerationforabapextractjobs" title="ABAP Extract ジョブのジョブ生成の構成"/>
+  </entry>
+  <entry keyword="構成、ABAP Extract ジョブ">
+    <topic href="topics/t_configure_job_abap_extract.html#configuringjobgenerationforabapextractjobs" title="ABAP Extract ジョブのジョブ生成の構成"/>
+  </entry>
+  <entry keyword="IDoc Extract">
+    <topic href="topics/t_configure_job_idoc_extract.html#configuringjobgenerationforidocextractjob" title="IDoc Extract ジョブのジョブ生成の構成"/>
+  </entry>
+  <entry keyword="抽出ジョブ">
+    <topic href="topics/t_configure_job_idoc_extract.html#configuringjobgenerationforidocextractjob" title="IDoc Extract ジョブのジョブ生成の構成"/>
+  </entry>
+  <entry keyword="構成、IDoc のジョブ生成の">
+    <topic href="topics/t_configure_job_idoc_extract.html#configuringjobgenerationforidocextractjob" title="IDoc Extract ジョブのジョブ生成の構成"/>
+  </entry>
+  <entry keyword="構成、IDoc Load ジョブ">
+    <topic href="topics/t_configure_job_idoc_load.html#configuringjobgenerationforidocloadjobs" title="IDoc Load ジョブのジョブ生成の構成"/>
+  </entry>
+  <entry keyword="モデルの調整">
+    <topic href="topics/t_reconcile_model_sap_system.html#reconcilingyourmodelwithansapsystem" title="SAP システムとモデルを調整する"/>
+  </entry>
+  <entry keyword="既知の問題">
+    <topic href="topics/c_troubleshooting.html#troubleshooting" title="トラブルシューティング"/>
+  </entry>
+  <entry keyword="トラブルシューティング">
+    <topic href="topics/c_troubleshooting.html#troubleshooting" title="トラブルシューティング"/>
+  </entry>
+  <entry keyword="情報リソース">
+    <topic href="topics/c_getting_help.html#gettinghelp" title="ヘルプの入手"/>
+  </entry>
+  <entry keyword="入手、ヘルプ">
+    <topic href="topics/c_getting_help.html#gettinghelp" title="ヘルプの入手"/>
+  </entry>
+  <entry keyword="ヘルプ・トピック">
+    <topic href="topics/c_getting_help.html#gettinghelp" title="ヘルプの入手"/>
+  </entry>
+  <entry keyword="インフォメーション・センター">
+    <topic href="topics/c_getting_help.html#gettinghelp" title="ヘルプの入手"/>
+  </entry>
+  <entry keyword="コンテキスト・センシティブ・ヘルプ">
+    <topic href="topics/c_getting_help.html#gettinghelp" title="ヘルプの入手"/>
+  </entry>
+  <entry keyword="情報">
+    <topic href="topics/c_getting_help.html#gettinghelp" title="ヘルプの入手"/>
+  </entry>
+  <entry keyword="虎の巻">
+    <topic href="topics/c_getting_help.html#gettinghelp" title="ヘルプの入手"/>
+  </entry>
+  <entry keyword="例">
+    <topic href="topics/c_getting_help.html#gettinghelp" title="ヘルプの入手"/>
+  </entry>
+  <entry keyword="リソース">
+    <topic href="topics/c_getting_help.html#gettinghelp" title="ヘルプの入手"/>
+  </entry>
+  <entry keyword="SAP コンポーネント">
+    <entry keyword="概要">
+      <topic href="topics/c_component_overview.html#overviewofthecomponents" title="コンポーネントの概要"/>
+    </entry>
+  </entry>
+  <entry keyword="SAP 環境">
+    <topic href="topics/c_prepare_sap_environment.html#preparingthesapenvironment" title="SAP 環境の前提条件"/>
+  </entry>
+  <entry keyword="準備">
+    <topic href="topics/c_prepare_sap_environment.html#preparingthesapenvironment" title="SAP 環境の前提条件"/>
+  </entry>
+  <entry keyword="接続の作成">
+    <topic href="topics/t_create_connection_sap_system.html#creatingaconnectiontothesapsystem" title="SAP システムへの接続の作成"/>
+  </entry>
+  <entry keyword="SAP システムへの接続">
+    <topic href="topics/t_create_connection_sap_system.html#creatingaconnectiontothesapsystem" title="SAP システムへの接続の作成"/>
+  </entry>
+</index>

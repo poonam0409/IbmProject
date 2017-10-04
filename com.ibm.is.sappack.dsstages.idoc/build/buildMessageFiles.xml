@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<!--
+ Description:
+
+ Ant build file for the IDOC Load common connector messages.
+ 
+ This build is typically run after receiving new translation files. The output
+ are resource bundle classes (Bunlde_CC_IDOCLOAD*.java) and resource files
+ (CC_IDOCLOAD*.res). The output is also checked into source control.
+
+-->
+
+<project name="IDOC Load Connector properties" basedir="." default="all">
+
+	<property name="extLibs" value="../../extLibsIISServer85"/>
+	<property name="icu-jar" value="${extLibs}/DSComponents/bin/icu4j_3_2.jar"/>
+	<property name="icu-bin" value="${extLibs}/icu/win32/icu/bin"/>
+	<property name="genid-jar" value="${extLibs}/genid/genid.jar"/>
+
+	<path id="classpath">
+		<pathelement path="./bin"/>
+		<pathelement location="${extLibs}/DSComponents/bin/icu4j_3_2.jar"/>
+		<pathelement location="${extLibs}/DSComponents/bin/ccapi.jar"/>
+		<pathelement location="${extLibs}/genid/genid.jar"/>
+		<pathelement location="${extLibs}/genld/genld.jar"/>
+	</path>
+
+	<target name="donothing"/>
+	
+    <target name="all" depends="create-desc-ant, clean"/>
+
+	<target name="clean">
+		<delete>
+			<fileset dir="." includes="CC_IDOC_ids_root.txt *.res *.class *.java *.xml" excludes="ccidoc*.xml CC_SAPCommonProperties.xml build*.xml"/>
+	<!--		<fileset dir="." includes="*.res *.class *.java *.xml" excludes="ccidoc*.xml CC_SAPCommonProperties.xml build*.xml"/> -->
+		</delete>
+	</target>
+
+	<target name="create-dir" description="create directories">
+	</target>
+
+	
+	<target name="create-desc-ant">
+       <java fork="true" classname="genid" classpath="${genid-jar};${icu-jar}">
+			<arg line="CC_IDOC_msgs_en_US.txt CC_IDOC_ids_root.txt"/>
+       </java>
+
+		<exec executable="${icu-bin}/genrb" > <arg line=" -d . -s . -e UTF-8 CC_IDOC_msgs_en_US.txt"/> </exec>
+		<exec executable="${icu-bin}/genrb" > <arg line=" -d . -s . CC_IDOC_ids_root.txt"/>          </exec>
+		<exec executable="${icu-bin}/genrb" > <arg line=" -d . -s . -e UTF-8 CC_IDOC_msgs_de_DE.txt"/> </exec>
+		<exec executable="${icu-bin}/genrb" > <arg line=" -d . -s . -e UTF-8 CC_IDOC_msgs_es_ES.txt"/> </exec>			
+		<exec executable="${icu-bin}/genrb" > <arg line=" -d . -s . -e UTF-8 CC_IDOC_msgs_fr_FR.txt"/> </exec>
+		<exec executable="${icu-bin}/genrb" > <arg line=" -d . -s . -e UTF-8 CC_IDOC_msgs_it_IT.txt"/> </exec>
+		<exec executable="${icu-bin}/genrb" > <arg line=" -d . -s . -e UTF-8 CC_IDOC_msgs_pt_BR.txt"/> </exec>
+		<exec executable="${icu-bin}/genrb" > <arg line=" -d . -s . -e UTF-8 CC_IDOC_msgs_ja_JP.txt"/> </exec>
+		<exec executable="${icu-bin}/genrb" > <arg line=" -d . -s . -e UTF-8 CC_IDOC_msgs_ko_KR.txt"/> </exec>
+		<exec executable="${icu-bin}/genrb" > <arg line=" -d . -s . -e UTF-8 CC_IDOC_msgs_zh_CN.txt"/> </exec>
+		<exec executable="${icu-bin}/genrb" > <arg line=" -d . -s . -e UTF-8 CC_IDOC_msgs_zh_TW.txt"/> </exec>
+
+		<exec executable="${icu-bin}/genrb" > <arg line=" -j -e UTF-8 -b Bundle CC_IDOC_msgs_en_US.txt"/> </exec>
+		<exec executable="${icu-bin}/genrb" > <arg line=" -j -e UTF-8 -b Bundle CC_IDOC_msgs_de_DE.txt"/> </exec>
+		<exec executable="${icu-bin}/genrb" > <arg line=" -j -e UTF-8 -b Bundle CC_IDOC_msgs_es_ES.txt"/> </exec>
+		<exec executable="${icu-bin}/genrb" > <arg line=" -j -e UTF-8 -b Bundle CC_IDOC_msgs_fr_FR.txt"/> </exec>
+		<exec executable="${icu-bin}/genrb" > <arg line=" -j -e UTF-8 -b Bundle CC_IDOC_msgs_it_IT.txt"/> </exec>
+		<exec executable="${icu-bin}/genrb" > <arg line=" -j -e UTF-8 -b Bundle CC_IDOC_msgs_pt_BR.txt"/> </exec>
+		<exec executable="${icu-bin}/genrb" > <arg line=" -j -e UTF-8 -b Bundle CC_IDOC_msgs_ja_JP.txt"/> </exec>
+		<exec executable="${icu-bin}/genrb" > <arg line=" -j -e UTF-8 -b Bundle CC_IDOC_msgs_ko_KR.txt"/> </exec>
+		<exec executable="${icu-bin}/genrb" > <arg line=" -j -e UTF-8 -b Bundle CC_IDOC_msgs_zh_CN.txt"/> </exec>
+		<exec executable="${icu-bin}/genrb" > <arg line=" -j -e UTF-8 -b Bundle CC_IDOC_msgs_zh_TW.txt"/> </exec>
+
+		
+		<copy file="CC_IDOC_msgs_en_US.res" toFile="CC_IDOC_msgs_root.res"/>
+
+        <copy todir="ccresourcefiles">
+            <fileset dir="." includes="*.java"/>
+            <fileset dir="." includes="*.res"/>
+            <fileset dir="." includes="CC_IDOC_ids_root.txt"/>
+        	
+        </copy>
+		
+	</target>
+
+</project>

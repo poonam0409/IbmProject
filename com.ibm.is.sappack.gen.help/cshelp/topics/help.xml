@@ -1,0 +1,168 @@
+<contexts>
+	<!-- ************* -->
+	<!-- 'New' wizards -->
+	<!-- ************* -->
+	<!-- RM New Config wizard (SAPPack) -->
+    <context id="rmwizard_new_rmconf">
+		<topic href="cshelp/topics/rmrg_rm_new_config_file.html" label="New Rapid Modeler Configuration"/>
+	</context>
+	
+	<!-- RG New Config wizard (SAPPack) -->
+    <context id="rgwizard_new_rgconf">
+		<topic href="cshelp/topics/rmrg_rg_new_config_file.html" label="New Rapid Generator Configuration"/>
+	</context>
+
+	<!-- New ABAP Table List wizard (SAPPack) -->
+	<context id="rmwizard_new_abap_table_list">
+		<topic href="cshelp/topics/rmrg_rm_new_abap_table_list.html" label="New Table List"/>
+	</context>
+
+	<!-- New IDoc List wizard (SAPPack) -->
+	<context id="rmwizard_new_idoc_segment_list">
+		<topic href="cshelp/topics/rmrg_rm_new_idoc_segmentlist.html" label="New IDoc Segment List"/>
+	</context>
+
+    
+    <!-- **************** -->
+    <!-- Editor page help -->
+    <!-- **************** -->
+    <!-- ABAP Table list editor (SAPPack)-->
+	<context id="table_list_editor">
+		<topic href="cshelp/topics/rmrg_rm_abap_tablelist_editor.html" label="Table List Editor"/>
+	</context>
+
+    <!-- IDoc segment list editor (SAPPack) -->
+	<context id="idocsegment_list_editor">
+		<topic href="cshelp/topics/rmrg_rm_idoc_segment_editor.html" label="IDoc Segment List Editor"/>
+	</context>
+	
+	<!-- RM config editor (SAPPack) -->
+	<context id="rmconfeditor_general_sappack">
+		<topic href="cshelp/topics/rmrg_rm_confedit_general.html" label="Rapid Modeler Configuration Editor"/>
+	</context>
+    <context id="rmconfeditor_import_options_sappack">
+		<topic href="cshelp/topics/rmrg_rm_confedit_import_options.html" label="Import options"/>
+	</context>
+	<context id="rmconfeditor_dbtype_sappack">
+		<topic href="cshelp/topics/rmrg_rm_confedit_database_type.html" label="Database type"/>
+	</context>
+	<context id="rmconfeditor_techfields_sappack">
+		<topic href="cshelp/topics/rmrg_rm_confedit_technical_fields.html" label="Technical fields"/>
+	</context>
+	<context id="rmconfeditor_package_sappack">
+		<topic href="cshelp/topics/rmrg_rm_confeditor_package.html" label="Table package"/>
+	</context>
+	<context id="rmconfeditor_ct_package_sappack">
+		<topic href="cshelp/topics/rmrg_rm_confeditor_CT_package.html" label="Check table package"/>
+	</context>
+	
+	<!-- RM config editor (CW) -->
+    <context id="rmconfeditor_import_options_cw">
+		<topic href="cshelp/topics/rmrg_rm_import_options_cw.html" label="Import options"/>
+	</context>
+
+    <context id="rmconfeditor_targetdb">
+		<topic href="cshelp/topics/rmrg_rm_target_db_selection.html" label="Target database"/>
+	</context>
+    <context id="rmconfeditor_techfields">
+		<topic href="cshelp/topics/rmrg_rm_technical_fields.html" label="Technical fields"/>
+	</context>
+
+	<!-- RM import wizard -->
+	<context id="rmwiz_rmresources">
+		<topic href="cshelp/topics/rmrg_rmwiz_import_metadata.html" label="Rapid Modeler settings"/>
+	</context>
+	
+
+	<!-- RG Generation wizard -->
+	<context id="rgwiz_select_models">
+		<topic href="cshelp/topics/rmrg_rgwiz_select_conf_model.html" label="Job Generation Configuration"/>
+	</context>
+	<context id="rgwiz_object_types">
+		<topic href="cshelp/topics/rmrg_rgwiz_select_object_type.html" label="Object types"/>
+	</context>
+	<context id="rgwiz_idoc_settings">
+		<topic href="cshelp/topics/rmrg_rgwiz_idoc_settings.html" label="IDoc settings"/>
+	</context>
+	<context id="rgwiz_abap_programs">
+		<topic href="cshelp/topics/rmrg_rgwiz_abap_prog_options.html" label="ABAP Programs"/>
+	</context>
+	<context id="rgwiz_iisdetails">
+		<topic href="cshelp/topics/rmrg_rgwiz_infoserver_details.html" label="Information Server Details"/>
+	</context>
+	<context id="rgwiz_summary">
+		<topic href="cshelp/topics/rmrg_rgwiz_job_gen_summary.html" label="Job Generation Summary"/>
+	</context>
+
+
+	<!-- RG config editor -->
+	<context id="rgconfeditor_general_sappack">
+		<topic href="cshelp/topics/rmrg_rg_confedit_general.html" label="Rapid Generator Configuration Editor"/>
+	</context>
+	<context id="rgconfeditor_sap_source">
+		<topic href="cshelp/topics/rmrg_rg_confedit_sap_source.html" label="SAP Source"/>
+	</context>
+	<context id="rgconfeditor_sap_target">
+		<topic href="cshelp/topics/rmrg_rg_confedit_sap_target.html" label="SAP Target"/>
+	</context>
+	<context id="rgconfeditor_db_source">
+		<topic href="cshelp/topics/rmrg_rg_confedit_db_source.html" label="Database Source"/>
+	</context>
+	<context id="rgconfeditor_db_target">
+		<topic href="cshelp/topics/rmrg_rg_confedit_db_target.html" label="Database Target"/>
+	</context>
+	<context id="rgconfeditor_abap_extract">
+		<topic href="cshelp/topics/rmrg_rg_confedit_abap_extract.html" label="ABAP Extract settings"/>
+	</context>
+	<context id="rgconfeditor_derivations">
+		<topic href="cshelp/topics/rmrg_rg_confedit_derivations.html" label="Derivation expressions"/>
+	</context>
+	<context id="rgconfeditor_job_description">
+		<topic href="cshelp/topics/rmrg_rg_confedit_description.html" label="Description"/>
+	</context>
+	<context id="rgconfeditor_job_parameters">
+		<topic href="cshelp/topics/rmrg_rg_confedit_parameters.html" label="Description"/>
+	</context>
+<!--
+	<context id="rg_conf_movetranscode">
+		<topic href="cshelp/topics/rmrg_rg_move_transcode.html" label="Move / Transcode options"/>
+	</context>
+
+    <context id="rg_conf_idocload">
+		<topic href="cshelp/topics/rmrg_rm_idoc_load.html" label="IDoc load settings"/>
+	</context>
+-->	
+
+<!--
+	<context id="soc_editor_general_tables">
+		<topic href="cshelp/topics/soc_editor_general_tables.html" label="General page for table lists"/>
+	</context>
+	<context id="soc_editor_general_idocs">
+		<topic href="cshelp/topics/soc_editor_general_idocs.html" label="General page for IDoc segment lists"/>
+	</context>
+	<context id="soc_editor_tables">
+		<topic href="cshelp/topics/soc_editor_tables.html" label="Tables page"/>
+	</context>
+	<context id="soc_editor_idocs">
+		<topic href="cshelp/topics/soc_editor_idocs.html" label="IDoc segments page"/>
+	</context>	
+-->
+	
+<!--
+	<context id="rgconfeditor_idoc_load_cw">
+		<topic href="cshelp/topics/rgconfeditor_idoc_load_cw.html" label="IDoc load"/>
+	</context>
+	<context id="rgconfeditor_move_transcode">
+		<topic href="cshelp/topics/rgconfeditor_move_transcode.html" label="Move / Transcode"/>
+	</context>
+-->
+	
+<!--
+	<context id="rmwiz_rmresources">
+		<topic href="cshelp/topics/rmwiz_rmresources.html" label="Rapid Modeler settings"/>
+	</context>
+	<context id="rmwiz_import_summary">
+		<topic href="cshelp/topics/rmwiz_import_summary.html" label="Metadata import summary"/>
+	</context>
+	-->
+</contexts>

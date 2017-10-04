@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="lib" path="ASBNode/eclipse/plugins/com.ibm.isf.asb_utils_8.1.0.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/lib/java/ASCLModel_api_gen_ecore.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/lib/java/DS4J.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/lib/java/framework.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/lib/java/metadata_services-client.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/lib/java/models_xmeta_api.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/lib/java/DataStageX_api_gen_ecore.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/eclipse/plugins/com.ibm.isf.acs_client_8.1.0.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/eclipse/plugins/com.ibm.isf.asb_util_client_8.1.0.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/eclipse/plugins/com.ibm.isf.acs_common_8.1.0.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/eclipse/plugins/com.ibm.websphere.was_client_6.0.0.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/lib/java/log4j-1.2.8.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="ASBNode/lib/java/metadata_services-asb.jar"/>
+	<classpathentry kind="lib" path="ASBNode/lib/java/repository.jar"/>
+	<classpathentry kind="lib" path="ASBNode/lib/java/xmeta_cache.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

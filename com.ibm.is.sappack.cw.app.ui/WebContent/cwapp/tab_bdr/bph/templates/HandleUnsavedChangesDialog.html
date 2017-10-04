@@ -1,0 +1,22 @@
+<div>
+<div dojoAttachPoint="saveDialog" dojoType="dijit.Dialog" title="${msg.DataNotSavedDialogTitle}">
+	<div class="dialogContent">
+		<table cellspacing="10">
+            <tr>
+				<td>
+					<div dojoAttachPoint="icon">
+                    </div>
+               	</td>
+                <td>
+                	${msg.DataNotSavedWarning}
+				</td>
+			</tr>
+		</table>
+    </div>
+    <div class="dijitDialogPaneActionBar">
+       	<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="saveButton">${msg.SAVE}</div>
+		<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="discardButton">${msg.DISCARD_CHANGES}</div>
+		<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="cancelButton">${msg.CANCEL}</div>
+	</div>
+</div>
+</div>

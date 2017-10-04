@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<!--
+ Description:
+
+ Ant build file for the IDoc load and extract connectors.
+-->
+
+<project name="IDoc Connectors" basedir="." default="all">
+
+	<target name="prepare">
+		<delete dir="${build}"/>
+		<delete dir="${dist}"/>
+		<delete>
+			<fileset dir="." includes="CC_IDOC_ids_root.txt *.res *.class *.java *.xml" excludes="ccidocload.xml ccidocextract.xml CC_SAPCommonProperties.xml ccidocloadDeploy.xml ccidocextractDeploy.xml build*.xml"/>
+		</delete>
+	</target>
+
+	<target name="all" depends="prepare">
+		<ant antfile="buildConnector.xml">
+			<property name="stage" value="load"/>
+			<property name="inifile" value="SAPIDocLoadConnector.ini"/>
+		</ant>
+		<ant antfile="buildConnector.xml">
+			<property name="stage" value="extract"/>
+			<property name="inifile" value="SAPIDocExtractConnector.ini"/>
+		</ant>
+    </target>
+
+</project>

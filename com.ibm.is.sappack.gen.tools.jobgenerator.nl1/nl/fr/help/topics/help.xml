@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<contexts>
+   <context id="JobTypeSelectionPage">
+      <topic href="$nl$/help/topics/JobTypeSelectionPage.html" label="SAP system selection"/>
+   </context>
+   <context id="InformationServerDetailsPage">
+      <topic href="$nl$/help/topics/InformationServerDetailsPage.html" label="Business object selection"/>
+   </context>
+   <context id="JobGeneratorAbapPage">
+      <topic href="$nl$/help/topics/JobGeneratorAbapPage.html" label="Browse the SAP system"/>
+   </context>
+   <context id="JobGeneratorIdocExtractPage">
+      <topic href="$nl$/help/topics/JobGeneratorIdocExtractPage.html" label="Specify tables manually"/>
+   </context>
+   <context id="JobGeneratorIdocLoadPage">
+      <topic href="$nl$/help/topics/JobGeneratorIdocLoadPage.html" label="Specify import options"/>
+   </context>
+   
+   <context id="JobGeneratorJobParametersPage">
+      <topic href="$nl$/help/topics/JobGeneratorJobParametersPage.html" label="Manage SAP system connections"/>
+   </context>
+   <context id="JobGeneratorCustomDerivationsPage">
+      <topic href="$nl$/help/topics/JobGeneratorCustomDerivationsPage.html" label="Manage SAP system connections"/>
+   </context>
+     <context id="JobParameterResolverPage">
+      <topic href="$nl$/help/topics/JobParameterResolverPage.html" label="Resolve Job Parameters"/>
+   </context>
+   
+     <context id="ValidationResultPage">
+      <topic href="$nl$/help/topics/ValidationResultPage.html" label="Validate SAP Settings"/>
+   </context>
+     <context id="JobGenerationSummaryPage">
+        <topic href="$nl$/help/topics/JobGenerationSummaryPage.html" label="Check the job generation summary"/>
+     </context>
+     <context id="JobGeneratorAbapUploadPage">
+        <topic href="$nl$/help/topics/JobGeneratorAbapUploadPage.html" label="ABAP Program settings"/>
+     </context>
+</contexts>

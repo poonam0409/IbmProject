@@ -1,0 +1,227 @@
+////////////////////////////////////////////////////////////////////////////////
+// IBM Confidential                                                            
+//                                                                             
+// OCO Source Materials                                                        
+//                                                                             
+// 5724-Q55                                                                 
+//                                                                             
+// (C) Copyright IBM Corporation 2009, 2014                                              
+//                                                                             
+// The source code for this program is not published or otherwise              
+// divested of its trade secrets, irrespective of what has been                
+// deposited with the U.S. Copyright Office.                                     
+//////////////////////////////////////////////////////////////////////////////// 
+// Maintenance log - insert most recent change descriptions at top 
+//
+// Date....  WorkItem WHO     Description........................................
+//
+// 03/20/2011   95535 osuhre  Initial creation
+// 01/08/2013  156132 hschoen All messages moved from sapstagesmessages.properties
+// 04/09/2014  199326 hschoen Message 'CC_IDOC_ConfigFileEmpty' added
+////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////
+//
+// Correct encoding for this file and translations: UTF-8
+//
+//////////////////////////////////////////////////////////
+
+CC_IDOC_msgs_ko_KR:table
+{
+// new        
+   // descriptor messages
+   // load
+	CC_IDOC_LOAD_STAGE_DISPLAY_NAME:string {"IDoc Load Connector 스테이지"}
+	CC_IDOC_LOAD_SHORT_DESC:string {"SAP에 IDoc을 로드하는 스테이지"} 
+	CC_IDOC_LOAD_LONG_DESC:string {"SAP에 IDoc을 병렬로 로드하는 스테이지"} 
+        
+   // extract
+	CC_IDOC_EXTRACT_STAGE_DISPLAY_NAME:string {"IDoc Extract Connector 스테이지"}
+	CC_IDOC_EXTRACT_SHORT_DESC:string {"SAP로부터 수신된 IDoc을 처리하는 스테이지"} 
+	CC_IDOC_EXTRACT_LONG_DESC:string {"IDoc 리스너 서비스를 통해 SAP로부터 이전에 수신된 IDoc을 처리하는 스테이지입니다."} 
+           
+   // common
+    CC_IDOC_PX_REPOSITORY_LOCATION:string {"\\\\Stage Types\\\\Parallel\\\\Packs"}
+ 
+   /////////////////////////////////
+   // Stage properties
+   
+   // common stage properties 
+        CC_IDOC_SP_DESTINATION:string {"대상"}
+	CC_IDOC_SP_USERNAME:string {"사용자 이름"} 
+	CC_IDOC_SP_JOBNAME:string {"작업 이름"} 
+	CC_IDOC_SP_FILENAME:string {"파일 이름"} 
+	CC_IDOC_SP_PASSWORD:string {"비밀번호"} 
+	CC_IDOC_SP_CLIENT:string {"클라이언트"} 
+	CC_IDOC_SP_IDOCTYP:string {"IDoc 유형 이름"} 
+	CC_IDOC_SP_BASTYP:string {"기본 유형 이름"} 
+	CC_IDOC_SP_LANGUAGE:string {"언어"} 
+	CC_IDOC_SP_CONNECTIONNAME:string {"연결 이름"} 
+	CC_IDOC_SP_USEDEFAULTSAPLOGON:string {"기본 SAP 로그온을 사용하시겠습니까?"} 
+	CC_IDOC_SP_USEOFFLINEPROCESSING:string {"파일 기반 IDoc 처리를 사용하시겠습니까?"} 
+	CC_IDOC_SP_ROUTERSTR:string {"라우터 문자열"} 
+	CC_IDOC_SP_PLUGVSN:string {"플러그인 버전"} 
+        // design time only properties
+	CC_IDOC_SP_CONNECTIONNAMEDT:string {"디자인 시간 연결 이름"} 
+	CC_IDOC_SP_DSSAPCONNECTIONDT:string {"디자인 시간 연결"} 
+	CC_IDOC_SP_USESAPLOGONDT:string {"디자인 시간에 이 연결을 사용하시겠습니까?"} 
+	CC_IDOC_SP_DSSAPCONNECTIONPARAMETERDT:string {"디자인 시간 연결 매개변수 이름"} 
+	CC_IDOC_SP_IDOCTYPE:string {"IDoc 유형 정보"} 
+	CC_IDOC_SP_GWHOST:string {"게이트웨이 호스트"} 
+	CC_IDOC_SP_SYSNBR:string {"시스템 번호"} 
+	CC_IDOC_SP_MSGSVR:string {"메시지 서버"} 
+	CC_IDOC_SP_SYSNAME:string {"시스템 ID"} 
+	CC_IDOC_SP_GROUP:string {"그룹"} 
+	CC_IDOC_SP_LOADBLN:string {"로드 밸런싱"} 
+	CC_IDOC_SP_SAPUSERID:string {"사용자 정의 SAP 사용자 ID"} 
+	CC_IDOC_SP_SAPPASSWORD:string {"사용자 정의 SAP 비밀번호"} 
+	CC_IDOC_SP_SAPCLIENTNUMBER:string {"사용자 정의 SAP 클라이언트 번호"} 
+	CC_IDOC_SP_SAPLANGUAGE:string {"사용자 정의 SAP 언어"} 
+	CC_IDOC_SP_DSSAPCONNECTION:string {"DSSAPCONNECTION"}
+	CC_IDOC_SP_DSSAPCONNECTIONPARAMETER:string {"연결 매개변수 이름"}                 
+	CC_IDOC_SP_PORT_VERSION:string {"PORT_VERSION"} 
+	CC_IDOC_SP_IDOC_TYPE_VERSION:string {"IDOC_TYPE_VERSION"}
+	CC_IDOC_SP_OFFLINE_DESIGN:string {"오프라인 디자인"}
+
+    // load stage properties
+    CC_IDOC_LOAD_SP_MESSAGETYPE:string {"IDoc 메시지 유형(직렬화됨)"}        
+    CC_IDOC_LOAD_SP_MESTYP:string {"IDoc 메시지 유형"}        
+
+    // extract stage properties
+	CC_IDOC_EXTRACT_SP_IDOC_EXTRACT_LIST:string {"IDOC 추출 목록"}
+	CC_IDOC_EXTRACT_SP_MANUAL_BATCH_SIZE:string {"수동 일괄처리 크기"}
+	CC_IDOC_EXTRACT_SP_TESTMODE:string {"테스트 모드"} 
+
+
+    ////////////////////////////////////////
+    // Link properties
+    
+    // commmon link properties
+	CC_IDOC_LP_SEGTYP:string {"세그먼트 유형 이름"} 
+      // design time only link properties
+	CC_IDOC_LP_DESCRIPTION:string {"설명"} 
+	CC_IDOC_LP_PORT_VERSION:string {"PORT_VERSION"} 
+	CC_IDOC_LP_IDOC_TYPE_VERSION:string {"IDOC_TYPE_VERSION"} 
+	CC_IDOC_LP_OBJECTTYPE:string {"OBJECTTYPE"} 
+	CC_IDOC_LP_OBJECTNAME:string {"OBJECTNAME"} 
+	CC_IDOC_LP_RECORDTYP:string {"RECORDTYP"} 
+	CC_IDOC_LP_SEGNAM:string {"SEGNAM"} 
+	CC_IDOC_LP_CONNECTION_NAME:string {"CONNECTION_NAME"} 
+	CC_IDOC_LP_IDOC_TYPE_NAME:string {"IDOC_TYPE_NAME"} 
+	  // Link properties for the Metadata Workbench integration (DataLineage)
+	CC_IDOC_LP_PDS_LOCATOR:string {"공용 데이터 소스 위치 지정자"}
+	CC_IDOC_LP_PDS_FIELDMAP:string {"공용 데이터 소스 필드 맵"}
+    
+    // load link properties
+	CC_IDOC_LOAD_LP_FKEYCOLS:string {"외부 키"} 
+	CC_IDOC_LOAD_LP_PKEYCOLS:string {"1차 키"} 
+      // design time only load link properties
+	CC_IDOC_LOAD_LP_IDOCCOMPONENTTOLOAD:string {"IDOCCOMPONENTTOLOAD"} 
+	CC_IDOC_LOAD_LP_LOADFIELDLIST:string {"LOADFIELDLIST"} 
+	CC_IDOC_LOAD_LP_PARENTOBJECTTYPE:string {"PARENTOBJECTTYPE"} 
+	CC_IDOC_LOAD_LP_PARENTOBJECTNAME:string {"PARENTOBJECTNAME"} 
+	CC_IDOC_LOAD_LP_PKEYCOUNT:string {"PKEYCOUNT"} 
+	CC_IDOC_LOAD_LP_FKEYCOUNT:string {"FKEYCOUNT"} 
+      
+    // extract link properties
+	CC_IDOC_EXTRACT_LP_IDOCCOMPONENTTOEXTRACT:string {"추출할 IDoc 구성요소"} 	
+	CC_IDOC_EXTRACT_LP_EXTRACTFIELDLIST:string {"추출 필드 목록"} 	
+            
+	CC_COMMON_PRPDSC_JAVA_CATEGORY:string {"CC_COMMON_PRPDSC_JAVA_CATEGORY"}
+	CC_COMMON_PRPLBL_JAVA_CATEGORY:string {"CC_COMMON_PRPLBL_JAVA_CATEGORY"}
+	CC_COMMON_PRPLBL_JAVA_CLASSPATH:string {"CC_COMMON_PRPLBL_JAVA_CLASSPATH"}
+	CC_COMMON_PRPDSC_JAVA_CLASSPATH:string {"CC_COMMON_PRPDSC_JAVA_CLASSPATH"}
+	CC_COMMON_PRPDSC_JAVA_JVM_OPTIONS:string {"CC_COMMON_PRPDSC_JAVA_JVM_OPTIONS"}
+	CC_COMMON_PRPLBL_JAVA_JVM_OPTIONS:string {"CC_COMMON_PRPLBL_JAVA_JVM_OPTIONS"}
+
+	// --> moved from file 'sapstagesmessages.properties'
+	CC_IDOC_VersionInfo:string {"버전 정보: {0}"}
+	CC_IDOC_SAPUser:string {"SAP 사용자"}
+	CC_IDOC_SAPPassword:string {"SAP 비밀번호"}
+	CC_IDOC_SAPClientId:string {"SAP 클라이언트 ID"}
+	CC_IDOC_SAPLangue:string {"SAP 언어"}
+
+	CC_IDOC_CommonUnexpectedException:string {"예기치 않은 예외가 발생함: {0}"}
+	CC_IDOC_UnexpectedSAPException:string {"SAP와 통신하는 중에 예기치 않은 예외가 발생함: {0}"}
+	CC_IDOC_ConfigFileNotFound:string {"구성 파일 '{0}'을(를) 서버에서 찾을 수 없습니다."}
+	CC_IDOC_ConfigFileWrongFormat:string {"구성 파일 '{0}'의 형식이 잘못되었습니다."}
+    CC_IDOC_ConfigFileEmpty:string {"구성 파일 '{0}'이(가) 비어 있습니다."}
+	CC_IDOC_ExceptionWhileCreatingConnection:string {"SAP에 대한 연결을 작성하는 중에 예기치 않은 예외가 발생함: {0}"}
+	CC_IDOC_DSSAPConnectionNotFound:string {"'{0}' 연결을 찾을 수 없습니다."}
+	CC_IDOC_DSSAPHOMENotSet:string {"환경 변수 DSSAPHOME이 설정되어 있지 않습니다."}
+	CC_IDOC_EnvVarNotPositiveNumeric:string {"환경 변수 '{0}'의 값은 양수여야 하지만 값이 '{1}'임"}
+	CC_IDOC_TypeNotFoundInSAP:string {"IDoc 유형 '{0}'을(를) SAP에서 찾을 수 없습니다."}
+	CC_IDOC_BasicIDocTypeNotFoundInSAP:string {"기본 IDoc 유형 '{0}'을(를) SAP에서 찾을 수 없습니다."}
+	CC_IDOC_ExtensionIDocTypeNotFoundInSAP:string {"확장 IDoc 유형 '{0}'을(를) SAP에서 찾을 수 없습니다."}
+
+	CC_IDOC_JCOClassNotFound:string {"SAP JCo 클래스를 찾을 수 없습니다. sapjco3.jar가 클래스 경로에 있는지 확인하십시오."}
+	CC_IDOC_JCODLLNotFound:string {"SAP JCo 원시 라이브러리를 찾을 수 없습니다. sapjco3 원시 라이브러리가 있는지 확인하십시오."}
+	CC_IDOC_JCoCheckSuccessful:string {"SAP JCo 라이브러리를 찾았음"}
+
+	CC_IDOC_ControlRecordDescription:string {"IDoc 제어 레코드"}
+	CC_IDOC_TypeMetadataFileNotFound:string {"IDoc 유형 {0}에 대한 메타데이터 파일이 서버에 없습니다."}
+	CC_IDOC_TypeMetadataFileWriteError:string {"IDoc 메타데이터 파일 {0}을(를) 쓰는 중 오류 발생"}
+	CC_IDOC_TypeMetadataFileReadError:string {"IDoc 메타데이터 파일 {0}을(를) 읽는 중 오류 발생"}
+	CC_IDOC_TypeMetadataFileFormatError:string {"IDoc 메타데이터 파일 {0}의 형식이 잘못되었습니다."}
+	CC_IDOC_TypeMetadataFileRetrievalFailed:string {"IDoc 메타데이터 파일에서 IDoc 메타데이터를 검색하는 데 실패했습니다. 대신 SAP에서 IDoc 메타데이터 정보를 가져옵니다."}
+	CC_IDOC_TypeMetadataDirectoryError:string {"IDoc 메타데이터 파일 {0}의 상위 디렉토리를 작성할 수 없습니다."}
+	CC_IDOC_TypeMetadataSAPRetrieval:string {"SAP에서 IDoc 유형 {0}의 메타데이터를 검색하는 중"}
+	CC_IDOC_TypeMetadataFileRetrieval:string {"IDoc 메타데이터 파일 {1}에서 IDoc 유형 {0}의 메타데이터를 검색하는 중"}
+	CC_IDOC_TypeMetadataSegmentTypeNotFound:string {"세그먼트 유형 '{0}'을(를) IDoc 유형 '{1}'에서 찾을 수 없습니다."}
+
+	CC_IDOC_IncorrectProgramLogic:string {"내부 오류 발생: 프로그램 로직이 올바르지 않습니다."}
+	CC_IDOC_ClientIDNotNumeric:string {"클라이언트 번호는 숫자여야 함"}
+	CC_IDOC_NodeNumberMessage:string {"현재 노드 번호는 {1} 중 {0}임"}
+
+	CC_IDOC_ReadingIDocTypeWithRelease:string {"IDoc 유형 '{0}'이(가) 스테이지에 대해 구성되었습니다. 릴리스는 '{1}'입니다."}
+	CC_IDOC_InitializingConnection:string {"연결 '{0}'에 정의된 대로 SAP 시스템에 대한 연결을 초기화하는 중"}
+	CC_IDOC_PropertyNotFound:string {"필수 스테이지 특성 '{0}'을(를) 찾을 수 없음"}
+	CC_IDOC_SEGTYPNotFound:string {"선택된 IDoc 세그먼트 유형이 없음"}
+	CC_IDOC_IDOCTYPNotFound:string {"선택된 IDoc 유형이 없음"}
+
+	CC_IDOC_SegmentIsOrphan:string {"IDoc '{1}'에 있는 세그먼트 번호가 '{0}'인 세그먼트에 상위가 없습니다."}
+	CC_IDOC_SegmentHasParentInDifferentIDoc:string {"IDoc '{1}'에 있는 세그먼트 번호가 '{0}'인 세그먼트에 다른 IDoc과 연관된 상위 세그먼트 번호 '{2}'이(가) 있습니다."}
+	CC_IDOC_NoSegmentsForIDoc:string {"번호가 '{0}'인 IDoc에 올바른 세그먼트가 없습니다."}
+	CC_IDOC_WrongSegmentMetadata:string {"IDoc '{1}'에 있는 번호가 '{0}'인 세그먼트에 유형 '{2}'의 상위 세그먼트가 있습니다('{3}'이어야 함)."}
+	CC_IDOC_SegmentAlreadySeen:string {"IDoc '{2}'에서 번호가 '{0}'이고 상위 번호가 '{1}'인 세그먼트가 이미 삽입되었습니다. 새 세그먼트 데이터를 무시하는 중입니다."}
+	CC_IDOC_FieldTruncation:string {"IDoc {1}의 필드 {0}이(가) 잘렸습니다."}
+	
+	CC_IDOC_RFMDoesNotExist:string {"원격 함수 모듈 '{0}'이(가) SAP 시스템 '{1}'에 없음"}
+	CC_IDOC_TableParamsListIsNull:string {"IDOC_INBOUND_ASYNCHRONOUS에 대한 테이블 매개변수 목록이 널(null)임"}
+	CC_IDOC_TypeNotConfigured:string {"IDoc 유형 '{0}'이(가) 연결에 대해 구성되어 있지 않음"}
+	CC_IDOC_AdminFieldNotFound:string {"기술 필드 '{0}'을(를) 링크에서 찾을 수 없습니다."}
+	CC_IDOC_ErrorCreatingDirectory:string {"디렉토리 {0} 또는 상위 중 하나를 작성할 수 없습니다."}
+	CC_IDOC_AllSegmentDataCollected:string {"모든 세그먼트 데이터가 수집됨, SAP에 대한 전송을 시작함"}
+	CC_IDOC_FieldNotOnLink:string {"세그먼트 '{1}'의 IDoc 필드 '{0}'이(가) 링크에 없습니다."}
+	CC_IDOC_IncorrectPartitioningType:string {"IDoc 세그먼트 수집 및 유효성 검증 중 문제가 발견되었습니다. 이 문제점에 대한 가능한 원인은 IDoc Load 스테이지 입력 링크에 대해 적절하지 않은 파티셔닝 유형을 선택했기 때문일 수 있습니다. 이에 따라 적절히 구성을 확인하십시오."}
+	CC_IDOC_StartingSegmentCollection:string {"IDoc 세그먼트 수집"}
+	CC_IDOC_FileReadException:string {"IDoc 파일을 읽을 때 예외가 발생했습니다."}
+	CC_IDOC_ClassFoundInJar:string {"'{0}' 클래스를 jar 파일 '{1}'에서 찾음"}
+
+	CC_IDOC_InvalidSAPLogonDetailsInConnection:string {"연결에서 올바르지 않거나 비어 있는 SAP 로그온 세부사항이 제공됨: {0}"}
+	CC_IDOC_InvalidSAPLogonDetailsInStage:string {"스테이지에서 올바르지 않거나 비어 있는 SAP 로그온 세부사항이 제공됨: {0}"}
+	CC_IDOC_UnknownSAPEncoding:string {"JAVA가 SAP 시스템의 인코딩을 처리할 수 없습니다."}
+	
+	CC_IDOC_EXTRACT_JobStart:string {"IDoc 추출 작업이 {0}에서 시작됨"}
+	CC_IDOC_EXTRACT_BookmarkFileInitError:string {"IDoc 책갈피 파일 {0}을(를) 제대로 초기화할 수 없습니다."}
+	CC_IDOC_EXTRACT_BookmarkFileWriteError:string {"IDoc 책갈피 파일 {0}을(를) 쓰는 중 오류 발생"}
+	CC_IDOC_EXTRACT_BookmarkFileReadError:string {"IDoc 책갈피 파일 {0}을(를) 읽는 중 오류 발생"}
+	CC_IDOC_EXTRACT_BookmarkFileSetupFailed:string {"IDoc 책갈피 파일을 설정하는 데 실패: {0}"}
+	CC_IDOC_EXTRACT_BookmarkFileUpdateFailed:string {"IDoc 책갈피 파일을 업데이트하는 데 실패: {0}"}
+	CC_IDOC_EXTRACT_IDocFileReadError:string {"IDoc 파일 {0}을(를) 읽는 중 오류 발생"}
+	CC_IDOC_EXTRACT_IDocFileExtractSegmentData:string {"IDoc 파일 {0}에서 세그먼트 데이터를 추출할 때 오류 발생"}
+	CC_IDOC_EXTRACT_SegmentDataTooShort:string {"IDoc 메타데이터와 세그먼트 데이터 길이가 일치하지 않습니다. 세그먼트 데이터가 너무 짧음: {0},{1},{2}"}
+	CC_IDOC_EXTRACT_NumberOfFiles:string {"{0} IDoc 파일을 처리하는 중 ..."}
+	
+	CC_IDOC_LOAD_UnexpectedException:string {"IDoc을 로드하는 중에 예기치 않은 예외가 발생함: {0}"}
+	CC_IDOC_LOAD_Summary:string {"요약: {0} IDoc이 {1} 트랜잭션에서 SAP에 전송됨"}
+	CC_IDOC_LOAD_TransactionOpen:string {"트랜잭션 #{1}에서 {0} IDoc을 SAP에 전송하는 중..."}
+	CC_IDOC_LOAD_TransactionClose:string {"{0} IDoc이 트랜잭션 #{1}에서 SAP에 전송됨"}
+	CC_IDOC_LOAD_JobStart:string {"IDoc 로드 작업이 {0}에서 시작됨"}
+	CC_IDOC_LOAD_ValidationError:string {"IDoc 유효성 검증 실패: {0}, {1}"}
+	CC_IDOC_LOAD_SimulationModeOn:string {"IDoc 로드 시뮬레이션 모드가 켜져 있습니다. IDoc이 SAP에 전송되지 않습니다."}
+	CC_IDOC_LOAD_FileSummary:string {"요약: {0} IDoc이 {2} 노드의 {1} 트랜잭션에서 디스크에 저장됨"}
+	CC_IDOC_LOAD_FilesToBeDeleted:string {"{0}에 있는 모든 기존 IDoc 로드 파일이 삭제됨"}
+	CC_IDOC_LOAD_FilesNamingConflict:string {"{0}에 있는 기존 IDoc 로드 파일이 삭제되지 않아서 잠재적인 파일 이름 지정에 충돌이 발생합니다."}
+	CC_IDOC_LOAD_FileWriteError:string {"IDoc 파일 {0}을(를) 쓰는 중 오류 발생"}
+}

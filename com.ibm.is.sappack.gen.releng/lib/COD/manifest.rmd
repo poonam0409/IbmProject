@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<defaultprofile:Asset xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:defaultprofile="http:///defaultprofile22.ecore" name="COD"
+    id="72D2D605-3B07-587D-AAFB-DA4CE1A7D329" date="2011-06-24" state="Submitted" version="4.0.0.Milestone-b"
+    shortDescription="2nd milestone">
+  <classification>
+    <descriptorGroup name="AssetType">
+      <nodeDescriptor href="https://csnext.ibm.com/ram/classif/assetTypesSchema.xmi#software_component"/>
+    </descriptorGroup>
+    <descriptorGroup name="CustomAttributes">
+      <freeFormValue value="false">
+        <freeFormDescriptor href="https://csnext.ibm.com/ram/classif/assetTypesSchema.xmi#disclosure_agreement_required"/>
+      </freeFormValue>
+      <freeFormValue value="diering@us.ibm.com">
+        <freeFormDescriptor href="https://csnext.ibm.com/ram/classif/assetTypesSchema.xmi#business_owner"/>
+      </freeFormValue>
+      <freeFormValue value="2nd milestone for COD 4.0">
+        <freeFormDescriptor href="https://csnext.ibm.com/ram/classif/assetTypesSchema.xmi#abstract"/>
+      </freeFormValue>
+      <freeFormValue value="steve diering">
+        <freeFormDescriptor href="https://csnext.ibm.com/ram/classif/assetTypesSchema.xmi#manufacturer"/>
+      </freeFormValue>
+      <freeFormValue value="diering@us.ibm.com">
+        <freeFormDescriptor href="https://csnext.ibm.com/ram/classif/assetTypesSchema.xmi#support_contact"/>
+      </freeFormValue>
+      <classificationSchema href="https://csnext.ibm.com/ram/classif/assetTypesSchema.xmi#/"/>
+    </descriptorGroup>
+    <descriptorGroup name="StandardInfo">
+      <freeFormValue value="2" freeFormDescriptor="//@classification/@descriptorGroup.2/@freeFormDescriptor.0"/>
+      <freeFormDescriptor name="revisionCount"/>
+    </descriptorGroup>
+  </classification>
+  <solution>
+    <artifact name="doc" type="folder">
+      <artifact name="class-copyright.png">
+        <reference value="class-copyright.png"/>
+      </artifact>
+      <artifact name="cod-large.jpg">
+        <reference value="cod-large.jpg"/>
+      </artifact>
+      <artifact name="cod-logo.jpg">
+        <reference value="cod-logo.jpg"/>
+      </artifact>
+      <artifact name="cod-maven-plugin.html">
+        <reference value="cod-maven-plugin.html"/>
+      </artifact>
+      <artifact name="cod-small.png">
+        <reference value="cod-small.png"/>
+      </artifact>
+      <artifact name="cod-task.html">
+        <reference value="cod-task.html"/>
+      </artifact>
+      <artifact name="cod-ug.html">
+        <reference value="cod-ug.html"/>
+      </artifact>
+      <artifact name="cod.css">
+        <reference value="cod.css"/>
+      </artifact>
+      <artifact name="enabling-cod-ant-tasks.html">
+        <reference value="enabling-cod-ant-tasks.html"/>
+      </artifact>
+      <artifact name="overview.jpg">
+        <reference value="overview.jpg"/>
+      </artifact>
+      <artifact name="productdefs.jpg">
+        <reference value="productdefs.jpg"/>
+      </artifact>
+      <artifact name="readme.html">
+        <reference value="readme.html"/>
+      </artifact>
+      <artifact name="rtc-changes-task.html">
+        <reference value="rtc-changes-task.html"/>
+      </artifact>
+      <artifact name="rtc-changes.doc">
+        <reference value="rtc-changes.doc"/>
+      </artifact>
+    </artifact>
+    <artifact name="lib" type="folder">
+      <artifact name="cod.jar">
+        <reference value="cod.jar"/>
+      </artifact>
+    </artifact>
+    <artifact name="defs" type="folder">
+      <artifact name="asa.copyright">
+        <reference value="asa.copyright"/>
+      </artifact>
+      <artifact name="asp.copyright">
+        <reference value="asp.copyright"/>
+      </artifact>
+      <artifact name="bat.copyright">
+        <reference value="bat.copyright"/>
+      </artifact>
+      <artifact name="html.copyright">
+        <reference value="html.copyright"/>
+      </artifact>
+      <artifact name="java.copyright">
+        <reference value="java.copyright"/>
+      </artifact>
+      <artifact name="js.copyright">
+        <reference value="js.copyright"/>
+      </artifact>
+      <artifact name="jsp.copyright">
+        <reference value="jsp.copyright"/>
+      </artifact>
+      <artifact name="pl.copyright">
+        <reference value="pl.copyright"/>
+      </artifact>
+      <artifact name="product.properties">
+        <reference value="product.properties"/>
+      </artifact>
+      <artifact name="properties.copyright">
+        <reference value="properties.copyright"/>
+      </artifact>
+    </artifact>
+    <artifact name="product-samples" type="folder">
+      <artifact name="COD" type="folder">
+        <artifact name="css.copyright">
+          <reference value="css.copyright"/>
+        </artifact>
+        <artifact name="html.copyright">
+          <reference value="html.copyright"/>
+        </artifact>
+        <artifact name="java.copyright">
+          <reference value="java.copyright"/>
+        </artifact>
+        <artifact name="product.properties">
+          <reference value="product.properties"/>
+        </artifact>
+        <artifact name="properties.copyright">
+          <reference value="properties.copyright"/>
+        </artifact>
+        <artifact name="xml.copyright">
+          <reference value="xml.copyright"/>
+        </artifact>
+      </artifact>
+      <artifact name="PS" type="folder">
+        <artifact name="bat.copyright">
+          <reference value="bat.copyright"/>
+        </artifact>
+        <artifact name="css.copyright">
+          <reference value="css.copyright"/>
+        </artifact>
+        <artifact name="html.copyright">
+          <reference value="html.copyright"/>
+        </artifact>
+        <artifact name="java.copyright">
+          <reference value="java.copyright"/>
+        </artifact>
+        <artifact name="js.copyright">
+          <reference value="js.copyright"/>
+        </artifact>
+        <artifact name="jsp.copyright">
+          <reference value="jsp.copyright"/>
+        </artifact>
+        <artifact name="pl.copyright">
+          <reference value="pl.copyright"/>
+        </artifact>
+        <artifact name="properties.copyright">
+          <reference value="properties.copyright"/>
+        </artifact>
+        <artifact name="ps-history.cmd">
+          <reference value="ps-history.cmd"/>
+        </artifact>
+        <artifact name="tld.copyright">
+          <reference value="tld.copyright"/>
+        </artifact>
+        <artifact name="xml.copyright">
+          <reference value="xml.copyright"/>
+        </artifact>
+      </artifact>
+      <artifact name="tbsm-oco" type="folder">
+        <artifact name="java.copyright">
+          <reference value="java.copyright"/>
+        </artifact>
+        <artifact name="product.properties">
+          <reference value="product.properties"/>
+        </artifact>
+        <artifact name="rtc-changes-control.properties">
+          <reference value="rtc-changes-control.properties"/>
+        </artifact>
+      </artifact>
+      <artifact name="tbsm-rm" type="folder">
+        <artifact name="bat.copyright">
+          <reference value="bat.copyright"/>
+        </artifact>
+        <artifact name="html.copyright">
+          <reference value="html.copyright"/>
+        </artifact>
+        <artifact name="ipl.copyright">
+          <reference value="ipl.copyright"/>
+        </artifact>
+        <artifact name="js.copyright">
+          <reference value="js.copyright"/>
+        </artifact>
+        <artifact name="jsp.copyright">
+          <reference value="jsp.copyright"/>
+        </artifact>
+        <artifact name="jy.copyright">
+          <reference value="jy.copyright"/>
+        </artifact>
+        <artifact name="product.properties">
+          <reference value="product.properties"/>
+        </artifact>
+        <artifact name="rtc-changes-control.properties">
+          <reference value="rtc-changes-control.properties"/>
+        </artifact>
+        <artifact name="sh.copyright">
+          <reference value="sh.copyright"/>
+        </artifact>
+      </artifact>
+    </artifact>
+    <artifact name="test" type="folder">
+      <artifact name="ant-task-test-cod.xml" type="text/xml">
+        <reference value="ant-task-test-cod.xml"/>
+      </artifact>
+      <artifact name="ant-task-test-rtc.xml" type="text/xml">
+        <reference value="ant-task-test-rtc.xml"/>
+      </artifact>
+      <artifact name="common-test-targets.xml" type="text/xml">
+        <reference value="common-test-targets.xml"/>
+      </artifact>
+      <artifact name="fail" type="folder">
+        <artifact name="badDate.java">
+          <reference value="badDate.java"/>
+        </artifact>
+        <artifact name="noDate.java">
+          <reference value="noDate.java"/>
+        </artifact>
+        <artifact name="noEnd.java">
+          <reference value="noEnd.java"/>
+        </artifact>
+        <artifact name="noTop.java">
+          <reference value="noTop.java"/>
+        </artifact>
+      </artifact>
+      <artifact name="pass" type="folder">
+        <artifact name="add" type="folder">
+          <artifact name="add-Resource.js">
+            <reference value="add-Resource.js"/>
+          </artifact>
+          <artifact name="add.asa">
+            <reference value="add.asa"/>
+          </artifact>
+          <artifact name="add.asp">
+            <reference value="add.asp"/>
+          </artifact>
+          <artifact name="add.bat">
+            <reference value="add.bat"/>
+          </artifact>
+          <artifact name="add.cmd">
+            <reference value="add.cmd"/>
+          </artifact>
+          <artifact name="add.css">
+            <reference value="add.css"/>
+          </artifact>
+          <artifact name="add.dtd">
+            <reference value="add.dtd"/>
+          </artifact>
+          <artifact name="add.htm">
+            <reference value="add.htm"/>
+          </artifact>
+          <artifact name="add.html">
+            <reference value="add.html"/>
+          </artifact>
+          <artifact name="add.iss">
+            <reference value="add.iss"/>
+          </artifact>
+          <artifact name="add.java">
+            <reference value="add.java"/>
+          </artifact>
+          <artifact name="add.js">
+            <reference value="add.js"/>
+          </artifact>
+          <artifact name="add.jsp">
+            <reference value="add.jsp"/>
+          </artifact>
+          <artifact name="add.pl">
+            <reference value="add.pl"/>
+          </artifact>
+          <artifact name="add.properties">
+            <reference value="add.properties"/>
+          </artifact>
+          <artifact name="add.tld">
+            <reference value="add.tld"/>
+          </artifact>
+          <artifact name="add.xml" type="text/xml">
+            <reference value="add.xml"/>
+          </artifact>
+          <artifact name="add.xsd" type="text/xml">
+            <reference value="add.xsd"/>
+          </artifact>
+          <artifact name="add.xsl" type="text/xml">
+            <reference value="add.xsl"/>
+          </artifact>
+          <artifact name="add2.htm">
+            <reference value="add2.htm"/>
+          </artifact>
+          <artifact name="add2.html">
+            <reference value="add2.html"/>
+          </artifact>
+        </artifact>
+        <artifact name="migrate" type="folder">
+          <artifact name="migrate.java">
+            <reference value="migrate.java"/>
+          </artifact>
+        </artifact>
+        <artifact name="ok" type="folder">
+          <artifact name="ok-resources_zh_TW.js">
+            <reference value="ok-resources_zh_TW.js"/>
+          </artifact>
+          <artifact name="ok-resources_zh_TW.properties">
+            <reference value="ok-resources_zh_TW.properties"/>
+          </artifact>
+          <artifact name="ok.asa">
+            <reference value="ok.asa"/>
+          </artifact>
+          <artifact name="ok.asp">
+            <reference value="ok.asp"/>
+          </artifact>
+          <artifact name="ok.bat">
+            <reference value="ok.bat"/>
+          </artifact>
+          <artifact name="ok.cmd">
+            <reference value="ok.cmd"/>
+          </artifact>
+          <artifact name="ok.css">
+            <reference value="ok.css"/>
+          </artifact>
+          <artifact name="ok.dtd">
+            <reference value="ok.dtd"/>
+          </artifact>
+          <artifact name="ok.htm">
+            <reference value="ok.htm"/>
+          </artifact>
+          <artifact name="ok.html">
+            <reference value="ok.html"/>
+          </artifact>
+          <artifact name="ok.iss">
+            <reference value="ok.iss"/>
+          </artifact>
+          <artifact name="ok.java">
+            <reference value="ok.java"/>
+          </artifact>
+          <artifact name="ok.js">
+            <reference value="ok.js"/>
+          </artifact>
+          <artifact name="ok.jsp">
+            <reference value="ok.jsp"/>
+          </artifact>
+          <artifact name="ok.pl">
+            <reference value="ok.pl"/>
+          </artifact>
+          <artifact name="ok.properties">
+            <reference value="ok.properties"/>
+          </artifact>
+          <artifact name="ok.tld">
+            <reference value="ok.tld"/>
+          </artifact>
+          <artifact name="ok.xml" type="text/xml">
+            <reference value="ok.xml"/>
+          </artifact>
+          <artifact name="ok.xsd" type="text/xml">
+            <reference value="ok.xsd"/>
+          </artifact>
+          <artifact name="ok.xsl" type="text/xml">
+            <reference value="ok.xsl"/>
+          </artifact>
+          <artifact name="ok2.html">
+            <reference value="ok2.html"/>
+          </artifact>
+          <artifact name="ok2.java">
+            <reference value="ok2.java"/>
+          </artifact>
+          <artifact name="ok3.java">
+            <reference value="ok3.java"/>
+          </artifact>
+          <artifact name="ok4.java">
+            <reference value="ok4.java"/>
+          </artifact>
+          <artifact name="ok5.java">
+            <reference value="ok5.java"/>
+          </artifact>
+          <artifact name="ok6.java">
+            <reference value="ok6.java"/>
+          </artifact>
+        </artifact>
+      </artifact>
+      <artifact name="rtc-data" type="folder">
+        <artifact name="tbsm" type="folder">
+          <artifact name="build-diff.changelog">
+            <reference value="build-diff.changelog"/>
+          </artifact>
+          <artifact name="build-diff_1.changelog">
+            <reference value="build-diff_1.changelog"/>
+          </artifact>
+        </artifact>
+      </artifact>
+      <artifact name="unit-test" type="folder">
+        <artifact name=".jazzignore">
+          <reference value=".jazzignore"/>
+        </artifact>
+        <artifact name="add.properties">
+          <reference value="add.properties"/>
+        </artifact>
+        <artifact name="add2.html">
+          <reference value="add2.html"/>
+        </artifact>
+      </artifact>
+    </artifact>
+    <artifact name=".com.ibm.ram.data" type="folder">
+      <artifact name=".thumbnails" type="folder">
+        <artifact name="doc" type="folder">
+          <artifact name="cod-ug.html.jpeg">
+            <reference value="cod-ug.html.jpeg"/>
+          </artifact>
+          <artifact name="readme.html.jpeg">
+            <reference value="readme.html.jpeg"/>
+          </artifact>
+        </artifact>
+      </artifact>
+    </artifact>
+  </solution>
+</defaultprofile:Asset>

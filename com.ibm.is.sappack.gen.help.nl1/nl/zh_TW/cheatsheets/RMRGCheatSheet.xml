@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<compositeCheatsheet name="端對端實務範例：匯入 SAP 表格並產生擷取工作">
+   <taskGroup kind="sequence" name="匯入 SAP 表格並產生擷取工作" skip="false">
+      <intro>
+         這個提要將透過下列程序來端對端地引導您：將 SAP 中的邏輯表格匯入
+         邏輯資料模型中、將邏輯資料模型轉換為實體資料模型、從實體模型建立
+         資料庫，最後產生將擷取 SAP 表格至所建立資料庫的 DataStage 工作。
+      </intro>
+      <onCompletion>
+         現在您已建立一個包含 SAP meta 資料的邏輯資料模型、一個可以保留 SAP 資料的資料庫，
+         以及能夠從 SAP 擷取資料至這個資料庫的工作。
+      </onCompletion>
+      <task kind="cheatsheet" name="從 SAP 匯入邏輯表格" skip="true">
+         <intro>
+            這個作業將引導您建立邏輯資料模型，並將 SAP 邏輯表格的 meta 資料匯入這個模型中。
+         </intro>
+         <param name="id" value="com.ibm.is.sappack.gen.help.cheatsheet.rm.tables">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="準備邏輯資料模型以產生工作" skip="true">
+         <intro>
+            這個作業將引導您準備先前針對 Rapid Generator for SAP 所建立的邏輯資料模型。
+            其中包括將它轉換為實體資料模型，以及建立實體模型的資料庫。
+         </intro>
+         <param name="id" value="com.ibm.is.sappack.gen.help.cheatsheet.transform">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="利用 Rapid Generator for SAP 產生工作" skip="true">
+         <intro>
+            這個作業將顯示如何從先前建立的實體模型產生工作。這些工作將使用建立的資料庫來保留 SAP 資料。
+         </intro>
+         <param name="id" value="com.ibm.is.sappack.gen.help.cheatsheet.rg.tables">
+         </param>
+      </task>
+   </taskGroup>
+</compositeCheatsheet>

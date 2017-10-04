@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>SimpleTextArea</title>
+	
+		<script type="text/javascript" src="../../../tests/dojoVersion.js"></script>
+		<script type="text/javascript">
+			dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+			dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+		</script>
+		
+		<style id="idxStyles" type="text/css">
+	        @import "../../../themes/oneui/oneui.css";
+			@import "../../tests/_pagefooter/_PageFooter.css";
+	        @import "../../../themes/test.css";
+	    </style>
+		
+		<!-- required: dojo.js -->
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+		</script>
+		<script type="text/javascript">
+			dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+	
+		<script type="text/javascript" id="postDojo">
+			/*
+			require([
+				"dojo/ready",
+				"dijit/_base/manager",
+				"dijit/form/Button",
+				"dijit/form/Form",
+				"dijit/form/SimpleTextarea",
+				"idx/oneui/tests/_pagefooter/_PageFooter"],
+			function(ready, manager, Button, Form, SimpleTextarea, _PageFooter){
+				
+				ready(function(){
+					new _PageFooter();
+				});
+			});
+			*/
+			var modules = [
+				"dijit.form.Button",
+				"dijit.form.Form",
+				"dijit.form.SimpleTextarea",
+				"idx.oneui.tests._pagefooter._PageFooter"
+			]; 
+			var Button, Form, SimpleTextarea, _PageFooter;
+			
+			function preParse(modules){
+				Button 			= modules["dijit/form/Button"];
+				Form  			= modules["dijit/form/Form"];
+				SimpleTextarea  = modules["dijit/form/SimpleTextarea"];
+				_PageFooter   	= modules["idx/oneui/tests/_pagefooter/_PageFooter"];
+			}
+			function postParse() {
+				new _PageFooter();
+			}
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+		</script>
+		<script type="text/javascript" src="../../../tests/commonTest.js"></script>
+	</head>
+	<body class="oneui" style="width: 100%; height: 100%; margin: 0; padding: 0;">
+		<a class="navigationLink" href="#maincontent">Skip to main content</a>
+		<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+		<a name="maincontent"></a>
+		
+		<div class="testMain">
+			<h2>dijit.form.SimpleTextArea</h2>
+			<textarea data-dojo-type="dijit.form.SimpleTextarea" data-dojo-props='
+				name:"ta1", selectOnClick: true, rows:"", cols:"", style:{width:"350px", height:"100px"},
+				baseClass: "dijitTextBox dijitTextArea dijitSimpleTextArea"
+			'>
+				This is a SimpleTextArea
+			</textarea>
+			<br/>
+			<br/>
+			<textarea disabled data-dojo-type="dijit.form.SimpleTextarea" data-dojo-props='
+				name:"ta2", selectOnClick: true, rows:"", cols:"", style:{width:"350px", height:"100px"},
+				baseClass: "dijitTextBox dijitTextArea dijitSimpleTextArea"
+			'>
+				This is a SimpleTextArea
+			</textarea>
+			<br/>
+			<br/>
+			<textarea readOnly data-dojo-type="dijit.form.SimpleTextarea" data-dojo-props='
+				name:"ta2", selectOnClick: true, rows:"", cols:"", style:{width:"350px", height:"100px"},
+				baseClass: "dijitTextBox dijitTextArea dijitSimpleTextArea"
+			'>
+				This is a SimpleTextArea
+			</textarea>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,15 @@
+# DOM 
+
+Please refer to Notice at:  [http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231][1]  
+  
+
+
+Portions of the Program are Copyright (C) 1994-2002 [ World Wide Web Consortium][2], ([Massachusetts Institute of Technology][3], [Institut National de Recherche en Informatique et en Automatique][4], [Keio University][5]). All Rights Reserved. [http://www.w3.org/Consortium/Legal/ ][6]
+
+   [1]: http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231
+   [2]: http://www.w3.org/
+   [3]: http://www.lcs.mit.edu/
+   [4]: http://www.inria.fr/
+   [5]: http://www.keio.ac.jp/
+   [6]: http://www.w3.org/Consortium/Legal/
+

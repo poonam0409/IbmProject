@@ -1,0 +1,265 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html style="height: 100%; width: 100%; margin: 0px; padding: 0px;" lang="en">
+<head>
+<title>Test PropertyGrid</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+<script type="text/javascript">
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/claro/claro.css", "idxStyles");
+</script>
+
+<style type="text/css" id="idxStyles">
+@import "../../themes/vienna/vienna.css";
+@import "../../themes/oneui/oneui.css";
+@import "../../resources/claro_idx.css";
+@import "../../resources/vienna_idx.css";
+@import "../../themes/test.css";
+</style>
+
+<script type="text/javascript">
+	var dojoConfig = currentDojoVersion.dojoConfig;
+</script>
+
+<script type="text/javascript">
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+</script>
+
+<script type="text/javascript" id="postDojo">
+var modules = ["dijit.form.Form",
+               "dijit.form.Textarea",
+               "dijit.form.TextBox",
+               "idx.form.DatePicker",
+               "idx.grid.PropertyFormatter",
+               "idx.grid.PropertyGrid",
+               "ibm.mygroup.myproduct.util",
+               "idx.string",
+               "idx.util"];
+
+var myUtil = null;
+var iUtil  = null;
+var iString =  null;
+function preParse(modules) {
+   myUtil = modules["ibm/mygroup/myproduct/util"];
+   iString = modules["idx/string"];
+   iUtil = modules["idx/util"];
+   
+   // NOTE: the format function is dynamically declared here for the convenience of
+   // the reviewer (i.e.: to avoid referencing a separate file of utility functions).
+   // typically utility functions will be declared in a separate file (e.g.: util.js)
+    if (! myUtil.classifyAge) {
+      myUtil.classifyAge = function(data) {
+       return ((data.age<18) ? 'Minor' : 'Adult');
+      };
+    }
+    
+   // NOTE: the format function is dynamically declared here for the convenience of
+   // the reviewer (i.e.: to avoid referencing a separate file of utility functions).
+   // typically utility functions will be declared in a separate file (e.g.: util.js)
+   if (! myUtil.doBasicMath) {
+     myUtil.doBasicMath = function(prop,data) {
+       var x = data.argument1;
+       var y = data.argument2;
+       switch (prop) {
+         case 'sum':
+           return ('' + x + ' + ' + y + ' = ' + (x+y));
+         case 'difference':
+           return ('' + x + ' - ' + y + ' = ' + (x-y));
+         case 'product':
+           return ('' + x + ' x ' + y + ' = ' + (x*y));
+         case 'quotient':
+           return ('' + x + ' / ' + y + ' = ' + (x/y));
+         default: 
+           return null;
+        }
+       return null;
+      };
+     }
+}
+
+dojoRequireModules(modules, null, currentDojoVersion.async, preParse);
+</script>
+<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 0px;">
+<a class="navigationLink" href="#maincontent">Skip to main content</a>
+<script type="text/javascript">applyThemeToBody()</script>
+
+<a name="maincontent"></a>
+
+<h1>Widget: idx.grid.PropertyGrid</h1>
+
+<h1>Basic PropertyGrid (no styling -- fills container width)&lrm;</h1>
+<p>
+<div dojoType="idx.grid.PropertyGrid"
+     data="{givenName: 'Joe', surname: 'Schmoe', age: 31, birthDate: new Date(1980,0,1)}"
+     properties="givenName,surname,age(int),birthDate(dat)"></div>
+</p>
+
+
+<h1>Basic PropertyGrid (styled to a width of 500px)&lrm;</h1>
+<p>
+<div dojoType="idx.grid.PropertyGrid" style="width: 500px;"
+     data="{givenName: 'Joe', surname: 'Schmoe', age: 31, birthDate: new Date(1980,0,1)}"
+     properties="givenName,surname,age(int),birthDate(dat)"></div>
+</p>
+
+
+<h1>PropertyGrid (with custom PropertyFormatter)&lrm;</h1>
+<p>
+<div dojoType="idx.grid.PropertyGrid" style="width: 500px;"
+     data="{givenName: 'Joe', surname: 'Schmoe', age: 31, birthDate: new Date(1980,0,1)}"
+     properties="fullName,age(int),birthDate(dat)">
+
+  <div dojoType="idx.grid.PropertyFormatter" 
+     propertyName="fullName" title="F. Name"
+     properties="givenName,surname" format="${givenName} ${surname}"></div>
+</div>
+</p>
+
+
+<h1>PropertyGrid (custom PropertyFormatters, functional formatting, and label resources)&lrm;</h1>
+<p>
+<div dojoType="idx.grid.PropertyGrid" style="width: 500px;"
+     data="{givenName: 'Joe', surname: 'Schmoe', age: 31, birthDate: new Date(1980,0,1)}"
+     properties="fullName,ageAndBirth,status"
+     labelKeySuffix="Label" 
+     resources="{fullNameLabel: 'Full Name', statusLabel: 'Status', ageAndBirthLabel: 'Age (Birth Year)'}">
+
+  <div dojoType="idx.grid.PropertyFormatter" propertyName="fullName"
+     properties="surname,givenName" format="${givenName} ${surname}"></div>
+
+  <div dojoType="idx.grid.PropertyFormatter" propertyName="ageAndBirth" 
+     dateFormatOptions="{datePattern: 'yyyy', selector: 'date'}"
+     properties="age(int),birthDate(dat)" format="${age} (${birthDate})"></div>
+
+  <div dojoType="idx.grid.PropertyFormatter" propertyName="status" 
+     formatFunc="myUtil.classifyAge"></div>
+
+</div>
+</p>
+
+<h1>PropertyGrid (advanced functional formatting)&lrm;</h1>
+<p>
+<div dojoType="idx.grid.PropertyGrid" style="width: 500px;"
+     data="{argument1: 10, argument2: 5}"
+     properties="argument1,argument2,sum,difference,product,quotient"
+     formatFunc="myUtil.doBasicMath">
+
+</div>
+</p>
+
+<h1>PropertyGrid (interactive)&lrm;</h1>
+<p>
+<div dojoType="idx.grid.PropertyGrid"
+	 style="width: 85%;"
+     data="{givenName: 'Joe', surname: 'Schmoe', salary: 85432, weight: 212.20, birthDate: '1980-01-23', currentTime: 'now', address: {street: '101 Main St', city: 'Los Angeles', state: 'California'}, phoneNumbers: [{type: 'home', number: '702-555-1212'}, {type: 'mobile', number:'415-555-1212'}]}"
+     properties="fullName,salary(cur),weight(dec),birthDate(dat),currentTime(dtm),address.street,address.city,address.state,phoneNumbers[0].number,phoneNumbers[0].type"
+   	 resources="{'phoneNumbers[0].type':'Primary Phone Type'}"
+   >
+   		<div dojoType="idx.grid.PropertyFormatter" properties="givenName,surname" propertyName="fullName"
+   			format="${givenName} ${surname}">
+   			<div dojoType="dijit.form.TextBox" name="givenName"></div>
+   			<div dojoType="dijit.form.TextBox" name="surname"></div>
+   		</div>
+   		<div dojoType="idx.grid.PropertyFormatter" properties="birthDate(dat)" propertyName="birthDate">
+			<div dojoType="idx.form.DatePicker" intermediateChanges="true"></div>
+		</div>   
+   		<div dojoType="idx.grid.PropertyFormatter" properties="address.street" propertyName="address.street">
+			<div dojoType="dijit.form.TextBox"></div>
+		</div>   
+   		<div dojoType="idx.grid.PropertyFormatter" properties="phoneNumbers[0].number" propertyName="phoneNumbers[0].number"
+   			 title="Primary Phone">
+			<div dojoType="dijit.form.TextBox"></div>
+		</div>   
+   </div>
+</p>
+<p>
+<div dojoType="idx.grid.PropertyGrid" style="width: 85%;"
+	 properties="data,properties,labelKeyPrefix,labelKeySuffix,resources">
+    <script type="dojo/method">
+		var pg = idx.util.getSiblingWidget(
+			this, true, idx.grid.PropertyGrid);
+		this.data = {
+			data: pg.data,
+			properties: pg.properties,
+			labelKeyPrefix: pg.labelKeyPrefix,
+			labelKeySuffix: pg.labelKeySuffix,
+			resources: pg.resources
+		};
+		dojo.connect(pg, "onChange", this, "refresh");
+	</script> 
+	<div dojoType="idx.grid.PropertyFormatter" propertyName="data"
+	    properties="data">
+	    <script type="dojo/method" event="formatFunc" args="data">
+			return iUtil.debugObject(data.data,true);
+		</script>
+	    <script type="dojo/method" event="toEditFunc" args="prop,data">
+			return dojo.toJson(data.data,true);
+		</script>
+	    <script type="dojo/method" event="fromEditFunc" args="prop,val">
+			return {data: dojo.fromJson(val)};
+		</script>
+	</div>
+	<div dojoType="idx.grid.PropertyFormatter" propertyName="properties"
+	     properties="properties">
+		<div dojoType="dijit.form.TextBox" style="width: 55em;"></div>
+		<script type="dojo/connect" event="onChange" args="data,formatter">
+			var pg = idx.util.getParentWidget(this, idx.grid.PropertyGrid);
+			var pg2 = idx.util.getSiblingWidget(pg, true, idx.grid.PropertyGrid);
+			pg2.set("properties", data.properties);
+		</script>
+	</div>
+	<div dojoType="idx.grid.PropertyFormatter" propertyName="labelKeyPrefix"
+	    properties="labelKeyPrefix">
+		<div dojoType="dijit.form.TextBox" style="width: 55em;"></div>
+		<script type="dojo/connect" event="onChange" args="data,formatter">
+			var pg = idx.util.getParentWidget(this, idx.grid.PropertyGrid);
+			var pg2 = idx.util.getSiblingWidget(pg, true, idx.grid.PropertyGrid);
+			pg2.set(this.propertyName, data[this.propertyName]);
+		</script>		
+	</div>
+	<div dojoType="idx.grid.PropertyFormatter" propertyName="labelKeySuffix"
+	    properties="labelKeySuffix">
+		<div dojoType="dijit.form.TextBox" style="width: 55em;"></div>
+		<script type="dojo/connect" event="onChange" args="data,formatter">
+			var pg = idx.util.getParentWidget(this, idx.grid.PropertyGrid);
+			var pg2 = idx.util.getSiblingWidget(pg, true, idx.grid.PropertyGrid);
+			pg2.set(this.propertyName, data[this.propertyName]);
+		</script>		
+	</div>
+	<div dojoType="idx.grid.PropertyFormatter" propertyName="resources"
+	    properties="resources">
+		<div dojoType="dijit.form.Textarea" style="width: 55em;"></div>
+	    <script type="dojo/method" event="toEditFunc" args="prop,data">
+			var val = data.resources;
+			if (!val) return "";
+			return dojo.toJson(val,true);
+		</script>
+	    <script type="dojo/method" event="formatFunc" args="data">
+			return dojo.toJson(data.resources,true);
+		</script>
+	    <script type="dojo/method" event="fromEditFunc" args="prop,val">
+			val = iString.nullTrim(val);
+			if (!val) return null;
+			var resources = dojo.fromJson(val);
+			return { resources: resources };
+		</script>
+		<script type="dojo/connect" event="onChange" args="data,formatter">
+			var pg = idx.util.getParentWidget(this, idx.grid.PropertyGrid);
+			var pg2 = idx.util.getSiblingWidget(pg, true, idx.grid.PropertyGrid);
+			pg2.set(this.propertyName, data[this.propertyName]);
+		</script>		
+	</div>
+	
+</div>
+
+</body>
+</html>

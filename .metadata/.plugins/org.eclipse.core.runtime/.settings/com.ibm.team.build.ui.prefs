@@ -1,0 +1,4 @@
+#Wed Nov 23 16:36:40 IST 2016
+//BuildQueryDisplayPreferences/default/BuildQueryColumnOrder=Status,State,BuildDefinition,Label,Progress,EstimatedCompletionTime,StartTime,TimeTaken,Tags,BuildEngineId,CompletionTime,Requestor,TimeInQueue
+eclipse.preferences.version=1
+//BuildQueryDisplayPreferences/default/BuildQueryColumnWidth/Label=117

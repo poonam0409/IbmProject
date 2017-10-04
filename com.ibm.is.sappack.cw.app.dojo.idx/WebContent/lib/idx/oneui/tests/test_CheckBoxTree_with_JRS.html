@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>idx.oneui.CheckBoxTree Test</title>
+
+	<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+	<script type="text/javascript">
+		dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+	
+	<style id="idxStyles" type="text/css">
+		@import "../../themes/oneui/idx/oneui/oneuiMain.css";
+		@import "../../themes/oneui/dijit/dijitMain.css";
+		@import "../../themes/oneui/oneui.css";
+		@import "../../themes/test.css";
+		@import "../tests/_pagefooter/_PageFooter.css";
+	</style>
+	
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+	</script>
+	
+	<script type="text/javascript">
+		dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+	
+	<script type="text/javascript" id="postDojo">
+		var modules = [
+			"idx.oneui.CheckBoxTree",
+			"dijit.tree.ForestStoreModel",
+			"dojox.data.JsonRestStore",
+			"idx.oneui.tests._pagefooter._PageFooter"]; 
+		var _PageFooter = null;
+		function preParse(modules){
+			_PageFooter = modules["idx/oneui/tests/_pagefooter/_PageFooter"];
+			new _PageFooter();
+		}
+		function postParse(modules){
+		}
+		dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+	</script>
+	
+	<script type="text/javascript" src="../../tests/commonTest.js"></script>
+
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 0px;">
+	<a class="navigationLink" href="#maincontent">Skip to main content</a>
+	<script type="text/javascript">applyThemeToBody("oneui");</script>
+	<a name="maincontent"></a>
+	<div class="testMain">
+		<h1 class="testTitle">idx.oneui.CheckBoxTree Test</h1>
+		<h2>CheckBoxTree with JsonRestStore</h2>
+		<h3>Mouse</h3>
+		<ul>
+			<li>Clicking on the expando icon before a folder node will open/close it (openOnclick==true)</li>
+			<li>Clicking on the check box before an item will change its' state and update state for all the children and parent nodes</li>
+		</ul>
+		<h3>Keyboard</h3>
+		<ul>
+				<li>Up / Down arrow key is used to navigate through items</li>
+				<li>Right / Left arrow key is used to open/close a folder node, and navigate between children and parent nodes</li>
+				<li>SPACE / ENTER key is used to toggle the check box before the item.</li>
+		</ul>
+		
+		<div data-dojo-id="myStore" data-dojo-type="dojox.data.JsonRestStore" data-dojo-props='target:"./tree/", labelAttribute:"name"'></div>
+		<div data-dojo-id="myModel" data-dojo-type="dijit.tree.ForestStoreModel" data-dojo-props='store:myStore, deferItemLoadingUntilExpand: true,
+			query: "treeTestRoot", childrenAttrs: ["children"]'></div>
+	
+		<table style="margin:5px solid gray;width:100%;" >
+		<tr style="vertical-align: top;">
+			<td style="width: 50%;">
+				<h2>CheckBoxTree with dojox.data.JsonRestStore</h2>
+				<div id="mytree" data-dojo-type="idx.oneui.CheckBoxTree" data-dojo-props='model:myModel, autoExpand:false, openOnClick:true, onLoad:function(){ console.log("loaded mytree (first tree)"); }'>
+				</div>
+			</td>
+		</tr>
+		</table>
+	</div>
+</body>
+</html>

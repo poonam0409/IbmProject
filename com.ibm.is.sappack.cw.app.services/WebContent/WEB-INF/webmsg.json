@@ -1,0 +1,10 @@
+{
+   "WebMsgServlet": 
+      {  
+         "busName": "CWAppBus", 
+         "destination": "Default.Topic.Space", 
+         "clientCanPublish": false,
+         "longPollTimeout": 30,
+         "reliability": "ReliableNonPersistent"
+      }
+}

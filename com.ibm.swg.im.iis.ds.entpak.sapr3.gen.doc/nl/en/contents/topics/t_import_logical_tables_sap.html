@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2011" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2011" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Importing logical tables from SAP" />
+<meta name="abstract" content="You can import metadata for SAP logical tables by using the Rapid Modeler for SAP metadata import wizard." />
+<meta name="description" content="You can import metadata for SAP logical tables by using the Rapid Modeler for SAP metadata import wizard." />
+<meta name="DC.subject" content="Logical tables, importing from SAP, SAP models, selection predefined models, SAP, browsing for tables, Tables, specifying tables manually" />
+<meta name="keywords" content="Logical tables, importing from SAP, SAP models, selection predefined models, SAP, browsing for tables, Tables, specifying tables manually" />
+<meta name="DC.Relation" scheme="URI" content="../topics/t_import_metadata_rapid_modeler.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="importinglogicaltablesfromsap" />
+<meta name="DC.Language" content="en-us" />
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+<link rel="Start" href="../topics/t_import_metadata_rapid_modeler.html" />
+<title>Importing logical tables from SAP</title>
+<script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+<script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+<script type="text/javascript">
+var mDivision = "IM/IS";
+var mProductName = "IBM InfoSphere Information Server";
+var mProductVersion = "8.7.0";
+var mToList = "comments@us.ibm.com,cgauthie@us.ibm.com,burkharj@us.ibm.com,eldredge@us.ibm.com";
+var mNewWindow = false;
+var plugin_form = "com.ibm.srcf.doc";
+</script>
+
+</head>
+<body id="importinglogicaltablesfromsap"><a name="importinglogicaltablesfromsap"><!-- --></a>
+<div role="banner" id="runningheader" class="runningheader">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/IBM_IC_cue.gif" />
+<span class="hf-bold">IBM InfoSphere Information Server Pack for SAP Applications, Version 7.0</span><div id="runningheader-feedback" class="runningheader-feedback">
+<a href="javascript:ibm_id_form()"><span class="hf-bold">Feedback</span></a></div>
+<hr class="hf-hr" />
+</div>
+<!-- This headerarea file can be used for any topic placed in only one subdirectory,
+     not in the root directory of the plug-in. 
+     Template; ICCC Version 3.1, CBU Version 4.2, May 2011.
+--><!-- BEGIN NON-TRANSLATE SECTION --><div>
+   <!-- Additional meta information. -->
+   <meta name="dc.identifier" content="headerfile" />
+   <meta name="dc.rights" content="© Copyright IBM Corporation 2004, 2011" />
+   <!-- meta name="DC.Rights.Owner" content="For support, contact sharpt@us.ibm.com" -->
+   <meta name="feedback" content="" />
+   <meta name="ibm.country" content="US" />
+   <meta name="ibm.effective" scheme="W3CDTF" content="2011-04-27" />
+   <meta name="ibm.expires" scheme="W3CDTF" content="2012-04-27" />
+   <meta name="source" content="CBU map.infocenter transform from DITA" />
+   <!-- Common CSS -->
+   <link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+   <!-- topic_url.js for writing the topic URL in the footer. -->
+   <script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+   <!-- srcfv3.js and variable setup for the Feedback link. -->
+   <script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+   <script type="text/javascript">
+      var mDivision = "IM";
+      var mProductName = "IBM CBU Sample";
+      var mProductVersion = "4.2.0";
+      var mToList = "Notesgroupname";
+      var plugin_form = "com.ibm.srcf.doc"; 
+</script>
+   <noscript>
+      <style type="text/css"><!--.collapsecontent{display:block;}// -->
+      </style>
+   </noscript>
+</div><!-- END NON-TRANSLATE SECTION -->
+<h1 class="title topictitle1">Importing logical tables from SAP</h1>
+<div class="body taskbody"><p class="shortdesc">You can import metadata for SAP logical tables by using
+the Rapid Modeler for SAP metadata import wizard. </p>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">On the <span class="ph uicontrol">Select SAP system</span> page, select
+the import option, then proceed with one of these steps.</span><ul class="ul choices"><li class="li choice">To select from a predefined SAP model, click <span class="ph uicontrol">Browse</span>,
+then select an XML file with the extension <span class="ph filepath">.sapbomodel</span>.
+This file contains predefined models.</li>
+<li class="li choice">To browse for SAP tables, Specify a search term for a table
+name (you can use % and * as wildcards), and click <span class="ph uicontrol">Search</span></li>
+<li class="li choice">To manually add tables, specify the table that you want to
+import in the <span class="ph uicontrol">Table names</span> field. Each line
+must contain one table.</li>
+</ul>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">In the <span class="ph uicontrol">Table import options</span> page,
+select options to define how the tables must be imported.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Next</span> to start the table collection
+process.</span></li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/t_import_metadata_rapid_modeler.html" title="You can use the InfoSphere Rapid Modeler for SAP wizard to import either the metadata from logical tables or IDoc types from SAP into a logical data model.">Importing SAP metadata by using Rapid Modeler</a></div>
+</div>
+</div>
+<br />
+<div role="contentinfo" id="runningfooter" class="runningfooter">
+<hr class="hf-hr" />
+
+<p class="runningfooter">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/timestamp.gif" />
+Release date: 2011-10-01
+
+<span class="hf-block"><script language="javascript">write_topic_url();</script></span>
+
+<span class="hf-block"><img class="hf-icon" src="../../com.ibm.base.collateral.doc/images/pdf.gif" alt="" />
+PDF version of this information:
+<a href="http://www.ibm.com/support/docview.wss?uid=swg27008803"><span class="hf-bold">IBM InfoSphere Information Server Integration Guide for IBM InfoSphere Information Server Pack for SAP Applications</span></a>
+</span>
+</p>
+</div>
+</body>
+</html>

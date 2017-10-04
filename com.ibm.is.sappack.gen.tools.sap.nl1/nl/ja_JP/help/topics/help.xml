@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<contexts>
+   <context id="select_sap_system">
+      <topic href="$nl$/help/topics/select_sap_system.html" label="SAP system selection"/>
+   </context>
+   <context id="select_business_objects">
+      <topic href="$nl$/help/topics/select_business_objects.html" label="Business object selection"/>
+   </context>
+   <context id="browse_sap_system">
+      <topic href="$nl$/help/topics/browse_sap_system.html" label="Browse the SAP system for logical tables"/>
+   </context>
+   <context id="browse_sap_system_for_idocs">
+      <topic href="$nl$/help/browse_sap_system_for_idocs.html" label="Browse the SAP system for IDocs"/>
+   </context>   
+   <context id="specify_tables_manually">
+      <topic href="$nl$/help/topics/specify_tables_manually.html" label="Specify tables manually"/>
+   </context>
+   <context id="specify_idocs_manually">
+      <topic href="$nl$/help/topics/specify_idocs_manually.html" label="Specify IDoc types and segments manually"/>
+   </context>
+   <context id="import_options">
+      <topic href="$nl$/help/topics/import_options.html" label="Specify import options for logical tables"/>
+   </context>
+   <context id="idoc_import_options">
+      <topic href="$nl$/help/topics/idoc_import_options.html" label="Specify import options for IDocs"/>
+   </context>
+   <context id="tables_list">
+      <topic href="$nl$/help/topics/tables_list.html" label="List of found tables"/>
+   </context>
+   <context id="segment_list">
+      <topic href="$nl$/help/topics/segment_list.html" label="List of found segments and tables"/>
+   </context>
+      <context id="sap_system">
+      <topic href="$nl$/help/topics/sap_system.html" label="Manage SAP system connections"/>
+   </context>
+   <context id="technical_fields">
+      <topic href="$nl$/help/topics/technical_fields.html" label="Configure additional technincal fields"/>
+   </context>   
+   <context id="select_ldm_package">
+      <topic href="$nl$/help/topics/select_ldm_package.html" label="Select the package in the logical data model for import"/>
+   </context>
+   <context id="import_summary">
+      <topic href="$nl$/help/topics/import_summary.html" label="Check the metadata import summary"/>
+   </context>
+   <context id="reextract_display_runs">
+      <topic href="$nl$/help/topics/reextract_display_runs.html" label="Re-extract logical data model from SAP"/>
+   </context>
+   <context id="reextract_options">
+      <topic href="$nl$/help/topics/reextract_options.html" label="Re-extraction options"/>
+   </context>
+   
+</contexts>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="Generating table extraction DataStage jobs with Rapid Generator for SAP">
+   <intro>
+      <description>
+         This cheat sheet shows you how to generate a DataStage jobs that extracts the contents of an SAP logical table.
+         <br/>
+         <b>NOTE: This cheatsheet assumes that you have completed the cheat sheet 
+         "Importing logical tables from SAP using Rapid Modeler for SAP"
+         and
+         "Preparing the logical data model for job generation".
+         Be sure to enter that the names of projects, models, etc. used in these cheat sheets 
+         are exactly as
+         indicated otherwise the "Click to perform" buttons here might not work. 
+         However, the "Click when complete" buttons will continue to work.
+         </b>
+      </description>
+   </intro>
+   <item
+         title="Open the Data perspective">
+      <command
+            required="false"
+            serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=com.ibm.datatools.core.internal.ui.perspective)"/>         
+      <description>
+         If you&apos;re not already in the Data perspective, in the main menu select <b>Window</b> &gt; <b>Open Perspective</b> &gt; <b>Data</b>.
+      </description>
+   </item>
+   <item dialog="true" 
+            title="Open the Rapid Generator for SAP wizard on a physical data model">
+        <description>
+        Make sure that the <b>RMTableModel.dbm</b> file exists in the Data Design Project <b>RMTestProject</b>.
+        Remember that this file is the result of transforming the logical model <b>RMTableModel.ldm</b>
+        into a physical data model.
+         <br/>Right-click on <b>RMTableModel.dbm</b> and 
+         select <b>Rapid Generator for SAP</b> &gt; <b>Generate DataStage job</b>.
+        </description>
+      <action required="false"
+			pluginId="com.ibm.is.sappack.gen.tools.jobgenerator"
+			class="com.ibm.is.sappack.gen.tools.jobgenerator.popup.actions.JobGeneratorCheatSheetAction"
+			param1="RMTestProject" param2="RMTableModel.dbm"/>              
+      </item>
+   <item
+         title="Select Job Type">
+      <description>
+       On the <b>Select Job Type</b> page select the <b>ABAP Extract Job</b>.
+       <br/>
+       Click <b>Next</b>.
+      </description>
+   </item>
+   <item
+         title="Enter Information Server Details">
+      <description>
+        Enter the connection information to your Information Server installation.
+        The Domain name typically looks like <b>Servername:9080</b>.
+        Use the drop down boxes to select the DataStage project and the folder
+        within the project.
+        Enter the string <b>RGTableJob</b> as the <b>Job name prefix</b>.
+        <br/>
+        Click <b>Next</b>. 
+      </description>
+   </item>
+   <item
+         title="Enter ABAP Stage details">
+      <description>
+         On the <b>ABAP Extract options</b> page fill in the following sections: 
+      </description>
+      <subitem
+            label="In the Source Options section select the SAP connection defined on the DataStage server together with your credentials.">
+      </subitem>
+      <subitem
+            label="In the Target Options section select ODBC Connector as the Stage Type. Enter the name of your ODBC data source and its user credentials.">
+      </subitem>
+      <subitem
+            label="In RFC Transfer method section enter the SAP gateway and service. These are typically the same host name as the SAP appliation server and the string &apos;sapgw&apos; followed by the system number, e.g., sapgw00. Select a file that contains a list of available RFC destinations. The format of this file is such that it contains a line of the form &lt;RFCDestinationName&gt;&lt;Blank&gt;&lt;RFCDestinationProgramID&gt; for each RFC destination. If you don&apos;t know this information contact your SAP system administrator. Select 1 in the &apos;Max. Number of Flows&apos; dropdown. Leave &apos;Create RFC destination&apos; unchecked.">
+      </subitem>
+      <subitem
+            label="Click the &apos;Validate SAP settings&apos; button to validate your settings. If the validation show that all settings are OK, click Next.">
+      </subitem>
+   </item>
+   <item title="Enter ABAP program settings">
+     <description>
+     On the <b>ABAP Program Settings</b> page, check both &apos;Save the ABAP programs in the workspace&apos; and &apos;Upload the programs to SAP&apos;. Select the SAP connection below that you want to upload the ABAP programs to.
+     </description>
+   </item>
+   <item
+         title="Skip the Define Job Parameters page">
+      <description>
+        On the <b>Define Job Parameters</b> page, leave all settings.
+         <br/>
+         Click <b>Next</b>.
+      </description>
+   </item>
+   <item
+         title="Skip the Define Column Derivations page">
+      <description>
+        On the <b>Define Column Derivations page</b> page, uncheck <b>Use custom derivations</b>.
+         <br/>
+         When you click next on this page the job generation process will start.
+         <br/>
+         Click <b>Next</b>.
+      </description>
+   </item>
+   <item
+         title="Finish the wizard">
+      <description>
+         On the <b>Summary</b> page, review the summary indicating which jobs
+         have been generated.
+         <br/>
+         Check the <b>Launch DataStage Multiple Job Compiler</b> checkbox if you want to compile your
+         job.
+         <br/>
+         Click <b>Finish</b>. 
+      </description>
+         </item>
+   <item
+         skip="true"
+         title="Compile the job">
+      <description>
+        After the wizard has finished the DataStage multiple job compiler will be launched
+        with the generated jobs selected. Walk through the wizard to compile the
+        job.
+      </description>
+   </item>
+   <item href="http://publib.boulder.ibm.com/infocenter/iisinfsv/v8r1/topic/com.ibm.swg.im.iis.productization.iisinfsv.overview.doc/topics/cisodsdirector.html"
+         title="Run the job">
+      <description>
+      To run the job open the <b>DataStage Director</b>, select the
+      job you have just generated and select <b>Run</b>.
+      </description>
+   </item>
+      </cheatsheet>

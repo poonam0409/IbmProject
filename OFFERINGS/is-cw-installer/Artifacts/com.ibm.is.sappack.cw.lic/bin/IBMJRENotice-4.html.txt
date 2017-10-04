@@ -1,0 +1,42 @@
+# Apache Xalan  
+
+
+This product includes software developed by IBM Corporation ([http://www.ibm.com][1])    
+and the Apache Software Foundation ([http://www.apache.org/][2]).  
+  
+Portions of this software were originally based on the following:  
+
+
+  * software copyright (c) 1999-2002, Lotus Development Corporation., [http://www.lotus.com][3].
+  * software copyright (c) 2001-2002, Sun Microsystems., [http://www.sun.com][4].
+  * software copyright (c) 2003, IBM Corporation., [http://www.ibm.com][5].
+  * voluntary contributions made by Ovidiu Predescu <ovidiu@cup.hp.com> on behalf of the Apache Software Foundation that was originally developed at Hewlett Packard Company. 
+
+The binary distribution package (ie. jars, samples and documentation) of this product includes software developed by the following:  
+
+
+  * IBM Corporation
+
+    * B2BXML4J 1.2.1
+
+  * IBM Corporation and others
+
+    * XSLT4J 2.7
+    * XML4J 4.4 
+    * JAXP 1.3 
+
+  * The Apache Software Foundation
+
+    * Bytecode Engineering Library 5.0 
+    * Regular Expression 1.2 
+
+  * Scott Hudson, Frank Flannery, C. Scott Ananian 
+
+    * CUP Parser Generator runtime v10k (javacup\runtime)
+
+   [1]: http://www.ibm.com/
+   [2]: http://www.apache.org/
+   [3]: http://www.lotus.com
+   [4]: http://www.sun.com
+   [5]: http://www.ibm.com
+

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="%productName" id="com.ibm.is.sappack.cw.branding.product" application="org.eclipse.ui.ide.workbench" version="1.1.0.qualifier" useFeatures="true" includeLaunchers="true">
+
+   <aboutInfo>
+      <image path="/com.ibm.is.sappack.cw.branding/icons/about.gif"/>
+      <text>
+         %aboutText
+      </text>
+   </aboutInfo>
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <vmArgs>-Xquickstart
+
+-Xms100m
+
+-Xmx1024m
+
+-Xmnx64m
+
+-Xgcpolicy:gencon
+
+-Xscmx96m
+-Xnolinenumbers
+
+-XX:MaxPermSize=128M
+
+-Dosgi.requiredJavaVersion=1.5
+
+-Dosgi.bundlefile.limit=100</vmArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+   </launcherArgs>
+
+   <windowImages i16="/com.ibm.is.sappack.cw.branding/icons/cw-workbench16.gif" i32="/com.ibm.is.sappack.cw.branding/icons/cw-workbench48.gif" i48="/com.ibm.is.sappack.cw.branding/icons/cw-workbench48.gif" i64="/com.ibm.is.sappack.cw.branding/icons/cw-workbench64.gif" i128="/com.ibm.is.sappack.cw.branding/icons/cw-workbench64.gif"/>
+
+   <splash
+      location="com.ibm.is.sappack.cw.branding"
+      startupProgressRect="5,389,516,12"
+      startupMessageRect="12,405,444,15"
+      startupForegroundColor="000000" />
+   <launcher name="cw-workbench">
+      <linux icon="/com.ibm.is.sappack.cw.branding/icons/cw-workbench.xpm"/>
+      <solaris/>
+      <win useIco="true">
+         <ico path="/com.ibm.is.sappack.cw.branding/icons/cw-workbench.ico"/>
+         <bmp/>
+      </win>
+   </launcher>
+
+   <vm>
+   </vm>
+
+   <plugins>
+   </plugins>
+
+   <features>
+      <feature id="com.ibm.is.3rdparty.sap.feature" version="8.0.0.qualifier"/>
+      <feature id="com.ibm.is.sappack.gen.common.feature" version="8.0.0.qualifier"/>
+      <feature id="com.ibm.is.sappack.gen.common.feature.nls1" version="8.0.0.qualifier"/>
+      <feature id="com.ibm.is.sappack.cw.tools.metadata.feature" version="1.1.0.qualifier"/>
+      <feature id="com.ibm.is.sappack.cw.tools.metadata.feature.nls1" version="1.1.0.qualifier"/>
+      <feature id="com.ibm.is.sappack.cw.plugins.feature" version="1.1.0.qualifier"/>
+      <feature id="com.ibm.is.sappack.cw.plugins.feature.nls1" version="1.1.0.qualifier"/>
+      <feature id="com.ibm.is.sappack.cw.tools.modeler.feature" version="1.1.0.qualifier"/>
+      <feature id="com.ibm.is.sappack.cw.tools.modeler.feature.nls1" version="1.1.0.qualifier"/>
+      <feature id="com.ibm.is.sappack.cw.tools.generator.feature" version="1.1.0.qualifier"/>
+      <feature id="com.ibm.is.sappack.cw.tools.generator.feature.nls1" version="1.1.0.qualifier"/>
+   </features>
+
+
+</product>

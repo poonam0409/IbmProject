@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2014  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<introContent>
+  	<extensionContent id="comibmissappackgenwelcome-introExtension" style="css/sample.css" name="IBM InfoSphere Information Server Packs" path="overview/@">
+        <group style-id="content-group" id="rapidModeler-introLink-group">
+       		<link label="IBM InfoSphere Data Architect components for Pack for SAP Applications product overview" url="http://org.eclipse.ui.intro/showHelpTopic?id=/com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc/nl/en/contents/topics/c_is_pack_sap_applications.html" id="comibmissappackgenwelcome-overview" style-id="content-link">
+          		<text>Welcome to Version 8.0.0.1 of the IBM InfoSphere Data Architect components for Pack for SAP Applications. This new offering is the next generation integration of SAP and
+InfoSphere Information Server. It provides an all-new set of tools which
+will help you integrate SAP data within your enterprise faster, easier,
+and metadata-driven.</text>
+       		</link>
+       		<link label="Introduction to Rapid Modeler for SAP Applications" url="http://org.eclipse.ui.intro/showHelpTopic?id=/com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc/nl/en/contents/topics/c_intro_rapid_modeler.html" id="comibmissappackgenwelcome-rm" style-id="content-link">
+          		<text>This tool let's you browse and select SAP metadata to be imported into
+	a logical
+	data model created with InfoSphere Data Architect. Once the metadata is
+	imported, you can create diagrams from it and add comments and
+	annotations to better understand it.</text>
+       		</link>
+          <link label="Introduction to Rapid Generator for SAP Applications" url="http://org.eclipse.ui.intro/showHelpTopic?id=/com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc/nl/en/contents/topics/c_intro_rapid_generator.html" id="comibmissappackgenwelcome-rg" style-id="content-link">
+              <text>After you have imported SAP metadata with the Rapid Modeler for SAP Applications, this
+	component lets you generate jobs of InfoSphere DataStage. Those jobs, in
+	turn, will extract or load the actual data to / from a
+	relational database or flat files.</text>
+          </link>
+        </group>
+  	</extensionContent>
+</introContent>

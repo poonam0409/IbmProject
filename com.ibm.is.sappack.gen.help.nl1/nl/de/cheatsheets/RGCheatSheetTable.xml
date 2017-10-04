@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="DataStage-Jobs für die Tabellenextraktion mit Rapid Generator for SAP generieren">
+   <intro>
+      <description>
+Dieses Cheat-Sheet zeigt, wie Sie ein logisches Datenmodell erstellen und Metadaten für einen logische SAP-Tabelle extrahieren.
+         <br/>
+         <b>HINWEIS: In diesem Cheat-Sheet wird vorausgesetzt, dass Sie das Cheat-Sheet zum Importieren von IDoc-Typ aus SAP mithilfe von Rapid Modeler for SAP und das Cheat-Sheet zum Vorbereiten des logischen Datenmodells für die Jobgenerierung durchgearbeitet haben.
+Achten Sie darauf, die Namen von Projekten, Modellen usw. in diesen Cheat-Sheets genau wie angegeben einzugeben, da die Schaltflächen zum  Starten der Ausführung andernfalls möglicherweise nicht funktionieren. Allerdings funktionieren die Schaltflächen "Bei Abschluss klicken" weiterhin.
+         </b>
+      </description>
+   </intro>
+   <item
+         title="Datenperspektive öffnen">
+      <command
+            required="false"
+            serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=com.ibm.datatools.core.internal.ui.perspective)"/>         
+      <description>
+Wählen Sie im Hauptmenü <b>Fenster</b> &gt; <b>Perspektive öffnen</b> &gt; <b>Daten</b> aus, wenn die Datenperspektive noch nicht geöffnet ist.
+      </description>
+   </item>
+   <item dialog="true" 
+            title="Assistenten 'Rapid Generator for SAP' für physisches Datenmodell öffnen">
+        <description>
+Stellen Sie sicher, dass die Datei <b>RMTableModel.dbm</b> im Datenentwurfsprojekt <b>RMTestProject</b> vorhanden ist.
+Diese Datei ist das Ergebnis der Umwandlung des logischen Modells <b>RMTableModel.ldm</b> in ein physisches Datenmodell.
+         <br/>Klicken Sie mit der rechten Maustaste auf <b>RMTableModel.dbm</b> und wählen Sie <b>Rapid Generator for SAP</b> &gt; <b>DataStage-Job generieren</b> aus.
+        </description>
+      <action required="false"
+			pluginId="com.ibm.is.sappack.gen.tools.jobgenerator"
+			class="com.ibm.is.sappack.gen.tools.jobgenerator.popup.actions.JobGeneratorCheatSheetAction"
+			param1="RMTestProject" param2="RMTableModel.dbm"/>              
+      </item>
+   <item
+         title="Jobtyp auswählen">
+      <description>
+Wählen Sie den <b>ABAP-Extraktionsjob</b> auf der Seite <b>Jobtyp auswählen</b> aus.
+       <br/>
+Klicken Sie auf <b>Weiter</b>.
+      </description>
+   </item>
+   <item
+         title="Information Server-Details eingeben">
+      <description>
+Geben Sie die Verbindungsinformationen für Ihre Information Server-Installation ein.
+Der Domänenname lautet in der Regel ähnlich wie wie <b>Servername:9080</b>.
+Über die Dropdown-Listen können Sie das DataStage-Projekt und die Projektordner auswählen.
+Geben Sie die Zeichenfolge <b>RGTableJob</b> als Jobnamenpräfix ein.
+        <br/>
+Klicken Sie auf <b>Weiter</b>. 
+      </description>
+   </item>
+   <item
+         title="Details zur ABAP-Stage eingeben">
+      <description>
+Geben Sie auf der Seite <b>ABAP-Extrahieroptionen</b> Werte in den folgenden Abschnitten ein:
+      </description>
+      <subitem
+            label="Wählen Sie im Abschnitt 'Quellenoptionen' die auf dem DataStage-Server definierte SAP-Verbindung zusammen mit Ihren Berechtigungsnachweisen aus. ">
+      </subitem>
+      <subitem
+            label="Wählen Sie 'ODBC-Connector' im Bereich 'Zieloptionen' als Stagetyp aus. Geben Sie den Namen Ihrer ODBC-Datenquelle und die zugehörigen Berechtigungsnachweise ein.">
+      </subitem>
+      <subitem
+            label="Geben Sie im Abschnitt 'RFC-Übertragungsmethode' SAP-Gateway und -Service an. Dies ist normalerweise derselbe Hostname wie der SAP-Anwendungsserver und die Zeichenfolge &apos;sapgw&apos;, gefolgt von der Systemnummer, z. B. sapgw00. Wählen Sie eine Datei aus, die eine Liste verfügbarer RFC-Ziele enthält. Diese Datei enthält eine Zeile mit dem Format &lt;RFC-Zielname&gt;&lt;Leerzeichen&gt;&lt;RFC-Zielprogramm-ID&gt; für jedes RFC-Ziel. Wenn Sie diese Angaben nicht kennen, fragen Sie Ihren SAP-Systemadministrator. Wählen Sie '1' in der Dropdownliste der maximalen Anzahl von Datenflüssen aus. Aktivieren Sie &apos;RFC-Ziel erstellen&apos; nicht.">
+      </subitem>
+      <subitem
+            label="Aktivieren Sie &apos;Die ABAP-Programme im Arbeitsbereich speichern&apos; und &apos;ABAP-Programme auf SAP hochladen&apos; im Abschnitt 'ABAP-Programmoptionen'. Wählen Sie nachfolgend die SAP-Verbindung aus, auf die Sie die ABAP-Programme hochladen wollen.">
+      </subitem>
+      <subitem
+            label="Klicken Sie auf die Schaltfläche &apos;SAP-Einstellungen prüfen&apos;, um Ihre Einstellungen zu prüfen. Wenn die Prüfung ergibt, dass alle Einstellungen in Ordnung sind, klicken Sie auf &apos;Weiter&apos;.">
+      </subitem>
+   </item>
+   <item
+         title="Seite 'Jobparameter definieren' überspringen">
+      <description>
+Lassen Sie die Einstellungen auf der Seite <b>Jobparameter definieren</b> unverändert.
+         <br/>
+Klicken Sie auf <b>Weiter</b>.
+      </description>
+   </item>
+   <item
+         title="Seite 'Spaltenableitungen definieren' überspringen">
+      <description>
+Inaktivieren Sie <b>Angepasste Ableitungen verwenden</b> auf der Seite <b>Spaltenableitungen definieren</b>.
+         <br/>
+Wenn Sie auf dieser Seite auf <b>Weiter</b> klicken, wird der Jobgenerierungsprozess gestartet.
+         <br/>
+Klicken Sie auf <b>Weiter</b>.
+      </description>
+   </item>
+   <item
+         title="Assistenten beenden">
+      <description>
+Prüfen Sie auf der Übersichtsseite die Übersicht der generierten Jobs.
+         <br/>
+Aktivieren Sie das Kontrollkästchen <b>Compiler für mehrere DataStage-Jobs starten</b>, wenn Sie Ihren Job kompilieren wollen.
+         <br/>
+Klicken Sie auf <b>Fertigstellen</b>. 
+      </description>
+         </item>
+   <item
+         skip="true"
+         title="Job kompilieren">
+      <description>
+Nach Abschluss des Assistenten wird der DataStage-Compiler für mehrere Jobs gestartet, wobei die generierten Jobs ausgewählt sind. Befolgen Sie die Anweisungen im Assistenten, um den Job zu kompilieren.
+      </description>
+   </item>
+   <item href="http://publib.boulder.ibm.com/infocenter/iisinfsv/v8r1/topic/com.ibm.swg.im.iis.productization.iisinfsv.overview.doc/topics/cisodsdirector.html"
+         title="Job ausführen">
+      <description>
+Öffnen Sie zum Ausführen des Jobs <b>DataStage Director</b>, wählen Sie den soeben generierten Job aus und wählen Sie dann <b>Ausführen</b> aus.
+      </description>
+   </item>
+      </cheatsheet>

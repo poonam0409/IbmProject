@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <title>LinkPane Test</title>
+        
+		<script type="text/javascript" src="../../../tests/dojoVersion.js"></script>
+	
+		<script type="text/javascript">
+			dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+			dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+		</script>
+		
+	    <style id="idxStyles" type="text/css">
+	        @import "../../../themes/oneui/oneui.css";
+	        @import "../../../themes/test.css";
+	    </style>	        
+        
+        <style type="text/css">
+			body {
+			    margin: 3em;
+			}
+			
+			.outter-box {
+				padding: 10px;
+				border: 2px solid #999999;
+			    -moz-border-radius: 2px;
+			    border-radius: 2px;				
+			    -webkit-box-shadow: 0 0 6px 1px rgba(0,0,0,.25);
+			    -moz-box-shadow: 0 0 6px rgba(0,0,0,.25);
+			    box-shadow: 0 0 6px 1px rgba(0,0,0,.25);
+			}
+			
+			.oneui .dijitLinkPane.dijitContentPane {
+			    margin: 5px;
+			}			
+			
+			.box {
+				position: relative;
+				background-color: white;
+				border: 1px solid #dddddd;
+				margin: 0 0 5px 0;
+			}
+			
+			.testTitle {
+				padding-bottom: 10px;
+			}
+			
+			a:link {color:#FF0000;}      /* unvisited link */
+			a:visited {color:#00FF00;}  /* visited link */
+			a:hover {color:#FF00FF;}  /* mouse over link */
+			a:active {color:#0000FF;}  /* selected link */
+        </style>
+        
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+			dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>        
+        
+        </script>
+        <script type="text/javascript">
+            require([
+				"dojo/ready",
+				"dijit/_base/manager",
+				"dijit/form/Button",
+				"dijit/layout/ContentPane",
+				"dijit/layout/LinkPane",
+				"idx/oneui/tests/_pagefooter/_PageFooter"],
+			function(ready, manager, Button, Header, _PageFooter){
+				ready(function(){
+					new _PageFooter();
+				});
+			});
+			
+			
+			var modules = [
+				"dojo/ready", 
+				"dijit/_base/manager",
+				"dijit/form/Button",
+				"dijit/layout/ContentPane",
+				"dijit/layout/LinkPane",
+				"idx.oneui.tests._pagefooter._PageFooter"
+			]; 
+			var manager, Button, ContentPane, LinkPane, _PageFooter;
+			
+			function preParse(modules){
+				manager 			= modules["dijit/_base/manager"];
+				Button  		= modules["dijit/form/Button"];
+				ContentPane  		= modules["dijit/layout/ContentPane"];
+				LinkPane  		= modules["dijit/layout/LinkPane"];
+				domReady  		= modules["dojo/domReady!"];
+				/*_PageFooter   	= modules["idx/oneui/tests/_pagefooter/_PageFooter"];*/
+			}
+			function postParse() {
+				new _PageFooter();
+			}
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);				
+        </script>
+    </head>
+    <body class="oneui">
+        <h1 class="testTitle">dijit.layout.LinkPane tests</h1>
+		
+		<div class="outter-box">
+		<a data-dojo-type="dijit.layout.LinkPane" data-dojo-props='"class":"box", href:"link1.html"'>Sub TabContainer from href</a>
+
+		<a data-dojo-type="dijit.layout.LinkPane" data-dojo-props='"class":"box", href:"link2.html"'>SplitContainer from href</a>
+		</div>		
+    </body>
+</html>

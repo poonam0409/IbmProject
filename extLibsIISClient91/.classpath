@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/eclipse/plugins/org.eclipse.emf.common_2.2.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/eclipse/plugins/org.eclipse.emf.ecore_2.2.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/lib/java/ASCLModel_api_gen_ecore.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/lib/java/datastage_common.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/lib/java/metadata_services-client.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/lib/java/DataStageX_api_gen_ecore.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/lib/java/models_xmeta_api.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/eclipse/plugins/com.ibm.isf.client/com.ibm.isf.client.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/eclipse/plugins/com.ibm.isf.client/ACS_common.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/eclipse/plugins/com.ibm.isf.client/ACS_client.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/eclipse/plugins/com.ibm.isf.client/ASB_util_client.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/eclipse/plugins/com.ibm.isf.client/ASB_utils.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/eclipse/plugins/com.ibm.isf.client/ISF_util.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/lib/java/framework.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/lib/java/DS4J.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

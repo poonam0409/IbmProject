@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="com.ibm.team.process.rcp.ui.TeamContributorSelectionDialog">
+		<item value="false" key="teamContributorSelectionDialog.includeArchived"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History&gt;&#x0D;&#x0A;&lt;historyRootNode/&gt;&#x0D;&#x0A;&lt;/History&gt;" key="History"/>
+		<item value="false" key="teamContributorSelectionDialog.openEditors"/>
+	</section>
+</section>

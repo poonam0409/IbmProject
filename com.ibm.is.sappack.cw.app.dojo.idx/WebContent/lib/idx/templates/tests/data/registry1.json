@@ -1,0 +1,28 @@
+{
+	"identifier": "id",
+	"label": "name",
+    "items": [
+        {
+            "name": "Context_1",
+            /*"modulePaths": [ { "name": "mytest", "value": "/dojoTest/mytest" }],*/   
+            "id": "suiteadmin",
+            "type": "context",         
+            "dojoType":"idx.layout.OpenMenuTabContainer"
+        },
+     	{
+          	"name": "Tab 1",
+          	/* "nls": { "path": "mytest", "file": "messages" },*/
+            "id": "tab1_id",
+            "type": "tab",          
+            "containerId": "suiteadmin",  
+            "href": "test_console_tab.html"          
+        },
+     	{
+          	"name": "Tab 2",
+            "id": "tab2_id",
+            "type": "tab",          
+            "containerId": "suiteadmin",  
+            "href": "test_console_tab.html"          
+        }
+   ]
+} 

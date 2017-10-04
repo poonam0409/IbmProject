@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><?pde version="3.6"?><target name="WebSphere Application Server v8.0 stub">
+<locations>
+<location path="C:/Program Files (x86)/IBM/TeamConcert/runtimes/base_v8_stub/dev" type="Directory"/>
+<location path="C:/Program Files (x86)/IBM/TeamConcert/runtimes/base_v8_stub/dev/JavaEE" type="Directory"/>
+<location path="C:/Program Files (x86)/IBM/TeamConcert/runtimes/base_v8_stub/dev/osgi/4.2" type="Directory"/>
+<location path="D:/IBM/IBM_Workspace/.metadata/.plugins/com.ibm.etools.aries.core/system/" type="Directory"/>
+</locations>
+</target>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="Preparando um Modelo de Dados Lógico para a Geração de Tarefas">
+   <intro>
+      <description>
+         Esta folha de dicas mostra como transformar um modelo de dados lógico em um modelo de dados físico que será usado para o Rapid Generator for SAP.
+         Ela também mostra como um BD pode ser criado a partir desse modelo físico.
+         
+         <br/>
+         <b>NOTA: Certifique-se de inserir os nomes dos projetos, modelos, etc. nas etapas seguintes, exatamente como indicado, caso contrário, os botões "Clicar para Executar" poderão não funcionar. 
+         No entanto, os botões "Clicar ao Concluir" continuarão funcionando.
+         </b>
+      </description>
+   </intro>
+   <item
+         dialog="true"
+         href="/com.ibm.datatools.transform.ui.doc/topics/ctransform.html"
+         title="Transformar a Lógica em um Modelo Físico">
+      <description>
+         Navegue para o modelo de dados lógico usado para importar dados do SAP usando o Rapid Modeler for SAP.
+      </description>
+      <subitem
+            label="Clique com o botão direito do mouse no modelo de dados lógico e selecione Transformar em Modelo de Dados Físico.">
+      </subitem>
+      <subitem
+            label="Na página do modelo de dados físico de destino, selecione Criar Novo Modelo. Clique em Avançar.">
+      </subitem>
+      <subitem
+            label="Na página Arquivo do Modelo de Dados Físico, selecione DB2 como o banco de dados de destino. Clique em Avançar.">
+      </subitem>
+      <subitem
+            label="Na página Opções, verifique as configurações, particularmente, o nome do esquema. Clique em Avançar.">
+      </subitem>
+      <subitem
+            label="Na página do Assistente de Saída, clique em Concluir">
+      </subitem>
+         </item>
+   <item
+         title="Identificar Banco de Dados DB2">
+      <description>
+         Identifique um banco de dados DB2 em algum lugar em seu sistema que você deseja usar para manter os dados SAP.
+         <br/> 
+         Você precisará criar uma conexão ODBC na máquina do servidor DataStage para esse banco de dados.
+         Como a criação de uma conexão ODBC depende do sistema operacional, consulte o administrador do sistema.
+      </description>
+   </item>
+   <item
+         dialog="true"
+         href="/com.ibm.datatools.connection.repository.ui.doc/topics/tcommon_connecting_wiz.html"
+         title="Criar uma Conexão com o Banco de Dados">
+      <description>
+         Esta etapa permite criar uma conexão com o banco de dados no InfoSphere Data Architect.
+         <br/>
+         Você pode ignorar essa etapa se quiser executar o script DDL criado anteriormente no banco de dados, manualmente.
+      </description>
+      <subitem
+            label="No Data Source Explorer View, clique com o botão direito do mouse em Conexão com o Banco de Dados -&gt; Novo."
+            skip="true"> Novo.">
+      </subitem>
+      <subitem
+            label="Clique no Assistente de Nova Conexão ao inserir as informações de conexão de seu banco de dados."
+            skip="true">
+      </subitem>
+   </item>
+   <item
+         skip="true"
+         title="Criar uma Conexão ODBC no DataStage Server">
+      <description>
+         Você deve criar uma conexão ODBC na máquina do
+DataStage Server para que seu banco de dados possa usá-la nas tarefas do DataStage.
+      </description>
+   </item>
+   <item
+         dialog="true"
+         href="/com.ibm.datatools.fe.ui.doc/topics/ruidll_saverun.html"
+         title="Gerar Script DDL">
+      <description>
+         Navegue para o modelo de dados físico resultante criado na etapa anterior do Data Project Explorer. Clique duas vezes na entrada dbm. Clique com o botão direito do mouse na entrada do banco de dados do arquivo dbm e selecione Gerar DDL. Prossiga pelo Assistente para Gerar DDL para criar um arquivo .sql no Data Design Project.
+      </description>
+      <subitem
+            label="Navegue para o modelo de dados físico resultante criado na etapa anterior do Data Project Explorer e dê um clique duplo nele.">
+      </subitem>
+      <subitem
+            label="Clique com o botão direito do mouse na entrada do banco de dados do arquivo dbm e selecione Gerar DDL.">
+      </subitem>
+      <subitem
+            label="Prossiga pelo Assistente para Gerar DDL para criar um arquivo .sql no Data Design Project.">
+      </subitem>
+   </item>
+   <item
+         href="/com.ibm.datatools.server.ui.doc/topics/cdatabaseexplorer.html"
+         title="Executar o Script DDL no Banco de Dados">
+      <description>
+         Esta etapa mostra como executar o script DDL na conexão criada na etapa anterior.
+      </description>
+      <subitem
+            label="Clique com o botão direito do mouse no arquivo .sql da pasta de scripts SQL do projeto do Data Design e selecione Executar SQL."
+            skip="true">
+      </subitem>
+      <subitem
+            label="Selecione a conexão com o banco de dados criada na etapa anterior e conclua o assistente."
+            skip="true">
+      </subitem>
+   </item>
+      </cheatsheet>

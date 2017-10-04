@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<display-name>com.ibm.is.sappack.cw.app.services</display-name>
+
+	<!--  JAX-RS servlet configuration start -->
+	<servlet>
+		<description>JAX-RS Tools Generated - Do not modify</description>
+		<servlet-name>JAX-RS Servlet</servlet-name>
+		<servlet-class>com.ibm.websphere.jaxrs.server.IBMRestServlet</servlet-class>
+		<init-param>
+			<param-name>javax.ws.rs.Application</param-name>
+			<param-value>com.ibm.is.sappack.cw.app.services.CwApp</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>JAX-RS Servlet</servlet-name>
+		<url-pattern>/jaxrs/*</url-pattern>
+	</servlet-mapping>
+	<!--  JAX-RS servlet configuration end -->
+	<!-- JMS publishing servlet configuration begin -->
+	<servlet>
+		<description>JMS publishing servlet required for Reference Data Import progress update</description>
+	   	<display-name>Publisher</display-name>
+	   	<servlet-name>Publisher</servlet-name>
+	   	<servlet-class>
+	   	    com.ibm.websphere.webmsg.publisher.jndijms.JmsPublisherServlet
+	   	</servlet-class>
+	   	<init-param>
+	   	     <param-name>CONNECTION_FACTORY_JNDI_NAME</param-name>
+	   	     <param-value>java:comp/env/jms/CWAppPublish</param-value>
+	    </init-param>
+	    <load-on-startup>1</load-on-startup>
+	</servlet>
+	<!-- JMS publishing servlet configuration begin -->
+	<!-- Web Messaging servlet (cometd) configuration begin -->
+	<servlet>
+	    <description>Web Messaging servlet required for client notifications via CometD and Bayeux</description>
+	    <display-name>WebMsgServlet</display-name>
+	    <servlet-name>WebMsgServlet</servlet-name>
+	    <servlet-class>com.ibm.websphere.webmsg.servlet.WebMsgServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>WebMsgServlet</servlet-name>
+	    <url-pattern>/webmsg</url-pattern>
+	</servlet-mapping>
+	<!-- Web Messaging servlet (cometd) configuration end -->
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<resource-ref>
+  		<description>Conversion Workbench Database</description>
+  		<res-ref-name>jdbc/CWDatabase</res-ref-name>
+  		<res-type>javax.sql.DataSource</res-type>
+	</resource-ref>
+	<resource-ref>
+  		<description>Conversion Workbench Application Database</description>
+  		<res-ref-name>jdbc/CWAppDatabase</res-ref-name>
+  		<res-type>javax.sql.DataSource</res-type>
+	</resource-ref>
+	<resource-ref>
+		<description>Publishing Queue for Reference Data Import progress update</description>
+		<res-ref-name>jms/CWAppPublish</res-ref-name>
+		<res-type>javax.jms.TopicConnectionFactory</res-type>
+	</resource-ref>
+
+	<persistence-context-ref>
+   		<persistence-context-ref-name>
+       		persistence/cwapp
+       	</persistence-context-ref-name>
+   		<persistence-unit-name>
+       		com.ibm.is.sappack.cw.app.data
+   		</persistence-unit-name>
+	</persistence-context-ref>
+	<security-constraint>
+		<display-name>FunctionalDataAnalystConstraint</display-name>
+		<web-resource-collection>
+			<web-resource-name>JAX-RS Requests</web-resource-name>
+			<url-pattern>/jaxrs/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>FunctionalDataAnalyst</role-name>
+			<role-name>Administrator</role-name>
+			<role-name>ReadOnly</role-name>
+		</auth-constraint>
+		<user-data-constraint>
+			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+	<security-constraint>
+		<display-name>FunctionalDataAnalystConstraint</display-name>
+		<web-resource-collection>
+			<web-resource-name>WebMsg Requests</web-resource-name>
+			<url-pattern>/webmsg</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>FunctionalDataAnalyst</role-name>
+			<role-name>Administrator</role-name>
+			<role-name>ReadOnly</role-name>
+		</auth-constraint>
+		<user-data-constraint>
+			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+</web-app>

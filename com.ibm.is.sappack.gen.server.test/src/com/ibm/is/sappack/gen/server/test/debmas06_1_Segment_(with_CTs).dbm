@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--xtools2_universal_type_manager-->
+<xmi:XMI xmlns:datamodelversion="http://www.ibm.com/com.ibm.datatools.core/model/data/1.1.0.0" xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DB2Model="http:///com/ibm/db/models/db2/db2.ecore" xmlns:LUW="http:///com/ibm/db/models/db2/luw.ecore" xmlns:SQLConstraints="http:///org/eclipse/datatools/modelbase/sql/constraints.ecore" xmlns:SQLDataTypes="http:///org/eclipse/datatools/modelbase/sql/datatypes.ecore">
+  <LUW:LUWDatabase xmi:id="_Gb5xoNwrEd-gXI7ZB9yMKg" name="Database" vendor="DB2 UDB" version="V8.2" schemas="_GfB-INwrEd-gXI7ZB9yMKg"/>
+  <DB2Model:DB2Schema xmi:id="_GfB-INwrEd-gXI7ZB9yMKg" name="Bcde" tables="_GhuFwNwrEd-gXI7ZB9yMKg _GjDivNwrEd-gXI7ZB9yMKg _GjgPVNwrEd-gXI7ZB9yMKg _GjgPk9wrEd-gXI7ZB9yMKg" database="_Gb5xoNwrEd-gXI7ZB9yMKg"/>
+  <LUW:LUWTable xmi:id="_GhuFwNwrEd-gXI7ZB9yMKg" name="DEBMAS06_E2KNA1H001" label="Master customer master basic data: Texts, header" schema="_GfB-INwrEd-gXI7ZB9yMKg">
+    <eAnnotations xmi:id="_GhuFwdwrEd-gXI7ZB9yMKg" source="UDP">
+      <details xmi:id="_GhuFwtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NAME" value="bocasapides5.bocaraton.ibm.com"/>
+      <details xmi:id="_GhuFw9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_HOST" value="bocasapides5.bocaraton.ibm.com"/>
+      <details xmi:id="_GhuFxNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NUMBER" value="0"/>
+      <details xmi:id="_GhuFxdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+      <details xmi:id="_GhuFxtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_CLIENT_ID" value="800"/>
+      <details xmi:id="_GhuFx9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_USER_NAME" value="rguberud"/>
+      <details xmi:id="_GhuFyNwrEd-gXI7ZB9yMKg" key="SAPPACK_OS_USERNAME" value="iifourbpel"/>
+      <details xmi:id="_GhuFydwrEd-gXI7ZB9yMKg" key="SAPPACK_DATE_CREATED" value="Oct 20, 2010"/>
+      <details xmi:id="_GhuFytwrEd-gXI7ZB9yMKg" key="SAPPACK_TIME_CREATED" value="8:44:57 AM"/>
+      <details xmi:id="_GhuFy9wrEd-gXI7ZB9yMKg" key="SAPPACK_RUN_ID" value="1287557097146"/>
+      <details xmi:id="_GhuFzNwrEd-gXI7ZB9yMKg" key="SAPPACK_IDOC_TYPE" value="DEBMAS06"/>
+      <details xmi:id="_GhuFzdwrEd-gXI7ZB9yMKg" key="SAPPACK_IS_EXTENDED_IDOC_TYPE" value="false"/>
+      <details xmi:id="_GhuFztwrEd-gXI7ZB9yMKg" key="SAPPACK_SEG_TYPE" value="E1KNA1H"/>
+      <details xmi:id="_GhuFz9wrEd-gXI7ZB9yMKg" key="SAPPACK_SEG_DEFINITION" value="E2KNA1H001"/>
+      <details xmi:id="_GhuF0NwrEd-gXI7ZB9yMKg" key="SAPPACK_IS_MANDATORY" value="true"/>
+      <details xmi:id="_GhuF0dwrEd-gXI7ZB9yMKg" key="SAPPACK_DATA_OBJECT_SOURCE" value="IDOC"/>
+      <details xmi:id="_GhuF0twrEd-gXI7ZB9yMKg" key="SAPPACK_IS_ROOT_SEGMENT" value="false"/>
+      <details xmi:id="_GhuF09wrEd-gXI7ZB9yMKg" key="SAPPACK_VARCHARS_LENGTH_FACTOR" value="1"/>
+      <details xmi:id="_GhuF1NwrEd-gXI7ZB9yMKg" key="SAPPACK_SEG_OCCURRENCE_MIN" value="1"/>
+      <details xmi:id="_GhuF1dwrEd-gXI7ZB9yMKg" key="SAPPACK_SEG_OCCURRENCE_MAX" value="9999999999"/>
+      <details xmi:id="_GhuF1twrEd-gXI7ZB9yMKg" key="SAPPACK_GEN_MODEL_VERSION" value="4.160-2010-10-19-12-54 (PackX)"/>
+      <details xmi:id="_GhuF19wrEd-gXI7ZB9yMKg" key="SAPPACK_PARENT_SEG" value="E2KNA1M005"/>
+      <details xmi:id="_GhuF2NwrEd-gXI7ZB9yMKg" key="SAPPACK_ATTRIBUTE_TYPE_SOURCE" value="VARCHAR"/>
+      <details xmi:id="_GhuF2dwrEd-gXI7ZB9yMKg" key="SAPPACK_MODEL_PURPOSE" value="IDOC_EXTRACT"/>
+      <details xmi:id="_GhuF2twrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_MESSAGE_TYPES" value="DEBMAS,ZDEBMAS06MESSAGETYPE"/>
+      <details xmi:id="_GhuF29wrEd-gXI7ZB9yMKg" key="SAPPACK_HAS_ADDITIONAL_TECHNICAL_FIELDS" value="true"/>
+    </eAnnotations>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_GhuF3NwrEd-gXI7ZB9yMKg" name="MSGFN" description="Function" label="" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_GhuF3dwrEd-gXI7ZB9yMKg" source="UDP">
+        <details xmi:id="_GhuF3twrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE" value="CHAR"/>
+        <details xmi:id="_GhuF39wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="3"/>
+        <details xmi:id="_GhuF4NwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DECIMALS" value="0"/>
+        <details xmi:id="_GhuF4dwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DOMAIN" value="MSGFN"/>
+        <details xmi:id="_GhuF4twrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NAME" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuF49wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_HOST" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuF5NwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NUMBER" value="0"/>
+        <details xmi:id="_GhuF5dwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+        <details xmi:id="_GhuF5twrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_CLIENT_ID" value="800"/>
+        <details xmi:id="_GhuF59wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_USER_NAME" value="rguberud"/>
+        <details xmi:id="_GhuF6NwrEd-gXI7ZB9yMKg" key="SAPPACK_OS_USERNAME" value="iifourbpel"/>
+        <details xmi:id="_GhuF6dwrEd-gXI7ZB9yMKg" key="SAPPACK_DATE_CREATED" value="Oct 20, 2010"/>
+        <details xmi:id="_GhuF6twrEd-gXI7ZB9yMKg" key="SAPPACK_TIME_CREATED" value="8:44:57 AM"/>
+        <details xmi:id="_GhuF69wrEd-gXI7ZB9yMKg" key="SAPPACK_RUN_ID" value="1287557097146"/>
+        <details xmi:id="_GhuF7NwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_DISPLAY_LENGTH" value="3"/>
+        <details xmi:id="_GhuF7dwrEd-gXI7ZB9yMKg" key="SAPPACK_DATA_OBJECT_SOURCE" value="IDOC"/>
+        <details xmi:id="_GhuF7twrEd-gXI7ZB9yMKg" key="SAPPACK_DERIVATION_EXPRESSION" value="MSGFN"/>
+        <details xmi:id="_GhuF79wrEd-gXI7ZB9yMKg" key="SAPPACK_UNICODE" value="true"/>
+      </eAnnotations>
+      <eAnnotations xmi:id="_GhuF8NwrEd-gXI7ZB9yMKg" source="ColumnDomain">
+        <details xmi:id="_GhuF8dwrEd-gXI7ZB9yMKg" key="DomainName" value="platform:/resource/debmas06/debmas06_with_codetables.ldm?/Package1/MSGFN"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_GhuF8twrEd-gXI7ZB9yMKg" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="3"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_GhuF89wrEd-gXI7ZB9yMKg" name="TDOBJECT" description="Texts: Application Object" label="" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_GhuF9NwrEd-gXI7ZB9yMKg" source="UDP">
+        <details xmi:id="_GhuF9dwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE" value="CHAR"/>
+        <details xmi:id="_GhuF9twrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="10"/>
+        <details xmi:id="_GhuF99wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DECIMALS" value="0"/>
+        <details xmi:id="_GhuF-NwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DOMAIN" value="TDOBJECT"/>
+<!--        
+hansx -->        
+        <details xmi:id="_GhuF-dwrEd-gXI7ZB9yMKg" key="SAPPACK_RELATED_CHECKTABLE" value="TTXOB"/>
+        <details xmi:id="_GhuF-twrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NAME" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuF-9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_HOST" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuF_NwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NUMBER" value="0"/>
+        <details xmi:id="_GhuF_dwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+        <details xmi:id="_GhuF_twrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_CLIENT_ID" value="800"/>
+        <details xmi:id="_GhuF_9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_USER_NAME" value="rguberud"/>
+        <details xmi:id="_GhuGANwrEd-gXI7ZB9yMKg" key="SAPPACK_OS_USERNAME" value="iifourbpel"/>
+        <details xmi:id="_GhuGAdwrEd-gXI7ZB9yMKg" key="SAPPACK_DATE_CREATED" value="Oct 20, 2010"/>
+        <details xmi:id="_GhuGAtwrEd-gXI7ZB9yMKg" key="SAPPACK_TIME_CREATED" value="8:44:57 AM"/>
+        <details xmi:id="_GhuGA9wrEd-gXI7ZB9yMKg" key="SAPPACK_RUN_ID" value="1287557097146"/>
+        <details xmi:id="_GhuGBNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_DISPLAY_LENGTH" value="10"/>
+        <details xmi:id="_GhuGBdwrEd-gXI7ZB9yMKg" key="SAPPACK_DATA_OBJECT_SOURCE" value="IDOC"/>
+        <details xmi:id="_GhuGBtwrEd-gXI7ZB9yMKg" key="SAPPACK_DERIVATION_EXPRESSION" value="TDOBJECT"/>
+        <details xmi:id="_GhuGB9wrEd-gXI7ZB9yMKg" key="SAPPACK_UNICODE" value="true"/>
+      </eAnnotations>
+      <eAnnotations xmi:id="_GhuGCNwrEd-gXI7ZB9yMKg" source="ColumnDomain">
+        <details xmi:id="_GhuGCdwrEd-gXI7ZB9yMKg" key="DomainName" value="platform:/resource/debmas06/debmas06_with_codetables.ldm?/Package1/TDOBJECT"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_GhuGCtwrEd-gXI7ZB9yMKg" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="10"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_GhuGC9wrEd-gXI7ZB9yMKg" name="TDNAME" description="Name" label="" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_GhuGDNwrEd-gXI7ZB9yMKg" source="UDP">
+        <details xmi:id="_GhuGDdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE" value="CHAR"/>
+        <details xmi:id="_GhuGDtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="70"/>
+        <details xmi:id="_GhuGD9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DECIMALS" value="0"/>
+        <details xmi:id="_GhuGENwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DOMAIN" value="TDOBNAME"/>
+        <details xmi:id="_GhuGEdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NAME" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuGEtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_HOST" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuGE9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NUMBER" value="0"/>
+        <details xmi:id="_GhuGFNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+        <details xmi:id="_GhuGFdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_CLIENT_ID" value="800"/>
+        <details xmi:id="_GhuGFtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_USER_NAME" value="rguberud"/>
+        <details xmi:id="_GhuGF9wrEd-gXI7ZB9yMKg" key="SAPPACK_OS_USERNAME" value="iifourbpel"/>
+        <details xmi:id="_GhuGGNwrEd-gXI7ZB9yMKg" key="SAPPACK_DATE_CREATED" value="Oct 20, 2010"/>
+        <details xmi:id="_GhuGGdwrEd-gXI7ZB9yMKg" key="SAPPACK_TIME_CREATED" value="8:44:57 AM"/>
+        <details xmi:id="_GhuGGtwrEd-gXI7ZB9yMKg" key="SAPPACK_RUN_ID" value="1287557097146"/>
+        <details xmi:id="_GhuGG9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_DISPLAY_LENGTH" value="70"/>
+        <details xmi:id="_GhuGHNwrEd-gXI7ZB9yMKg" key="SAPPACK_DATA_OBJECT_SOURCE" value="IDOC"/>
+        <details xmi:id="_GhuGHdwrEd-gXI7ZB9yMKg" key="SAPPACK_DERIVATION_EXPRESSION" value="TDNAME"/>
+        <details xmi:id="_GhuGHtwrEd-gXI7ZB9yMKg" key="SAPPACK_UNICODE" value="true"/>
+      </eAnnotations>
+      <eAnnotations xmi:id="_GhuGH9wrEd-gXI7ZB9yMKg" source="ColumnDomain">
+        <details xmi:id="_GhuGINwrEd-gXI7ZB9yMKg" key="DomainName" value="platform:/resource/debmas06/debmas06_with_codetables.ldm?/Package1/TDOBNAME"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_GhuGIdwrEd-gXI7ZB9yMKg" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="70"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_GhuGItwrEd-gXI7ZB9yMKg" name="TDID" description="Text ID" label="" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_GhuGI9wrEd-gXI7ZB9yMKg" source="UDP">
+        <details xmi:id="_GhuGJNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE" value="CHAR"/>
+        <details xmi:id="_GhuGJdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="4"/>
+        <details xmi:id="_GhuGJtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DECIMALS" value="0"/>
+        <details xmi:id="_GhuGJ9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DOMAIN" value="TDID"/>
+<!--        
+hansx -->        
+        <details xmi:id="_GhuGKNwrEd-gXI7ZB9yMKg" key="SAPPACK_RELATED_CHECKTABLE" value="TTXID"/>
+        <details xmi:id="_GhuGKdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NAME" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuGKtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_HOST" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuGK9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NUMBER" value="0"/>
+        <details xmi:id="_GhuGLNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+        <details xmi:id="_GhuGLdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_CLIENT_ID" value="800"/>
+        <details xmi:id="_GhuGLtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_USER_NAME" value="rguberud"/>
+        <details xmi:id="_GhuGL9wrEd-gXI7ZB9yMKg" key="SAPPACK_OS_USERNAME" value="iifourbpel"/>
+        <details xmi:id="_GhuGMNwrEd-gXI7ZB9yMKg" key="SAPPACK_DATE_CREATED" value="Oct 20, 2010"/>
+        <details xmi:id="_GhuGMdwrEd-gXI7ZB9yMKg" key="SAPPACK_TIME_CREATED" value="8:44:57 AM"/>
+        <details xmi:id="_GhuGMtwrEd-gXI7ZB9yMKg" key="SAPPACK_RUN_ID" value="1287557097146"/>
+        <details xmi:id="_GhuGM9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_DISPLAY_LENGTH" value="4"/>
+        <details xmi:id="_GhuGNNwrEd-gXI7ZB9yMKg" key="SAPPACK_DATA_OBJECT_SOURCE" value="IDOC"/>
+        <details xmi:id="_GhuGNdwrEd-gXI7ZB9yMKg" key="SAPPACK_DERIVATION_EXPRESSION" value="TDID"/>
+        <details xmi:id="_GhuGNtwrEd-gXI7ZB9yMKg" key="SAPPACK_UNICODE" value="true"/>
+      </eAnnotations>
+      <eAnnotations xmi:id="_GhuGN9wrEd-gXI7ZB9yMKg" source="ColumnDomain">
+        <details xmi:id="_GhuGONwrEd-gXI7ZB9yMKg" key="DomainName" value="platform:/resource/debmas06/debmas06_with_codetables.ldm?/Package1/TDID"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_GhuGOdwrEd-gXI7ZB9yMKg" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="4"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_GhuGOtwrEd-gXI7ZB9yMKg" name="TDSPRAS" description="Language Key" label="" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_GhuGO9wrEd-gXI7ZB9yMKg" source="UDP">
+        <details xmi:id="_GhuGPNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE" value="LANG"/>
+        <details xmi:id="_GhuGPdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="1"/>
+        <details xmi:id="_GhuGPtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DECIMALS" value="0"/>
+        <details xmi:id="_GhuGP9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DOMAIN" value="SPRAS"/>
+        <details xmi:id="_GhuGQNwrEd-gXI7ZB9yMKg" key="SAPPACK_RELATED_CHECKTABLE" value="T002"/>
+        <details xmi:id="_GhuGQdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NAME" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuGQtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_HOST" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuGQ9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NUMBER" value="0"/>
+        <details xmi:id="_GhuGRNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+        <details xmi:id="_GhuGRdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_CLIENT_ID" value="800"/>
+        <details xmi:id="_GhuGRtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_USER_NAME" value="rguberud"/>
+        <details xmi:id="_GhuGR9wrEd-gXI7ZB9yMKg" key="SAPPACK_OS_USERNAME" value="iifourbpel"/>
+        <details xmi:id="_GhuGSNwrEd-gXI7ZB9yMKg" key="SAPPACK_DATE_CREATED" value="Oct 20, 2010"/>
+        <details xmi:id="_GhuGSdwrEd-gXI7ZB9yMKg" key="SAPPACK_TIME_CREATED" value="8:44:57 AM"/>
+        <details xmi:id="_GhuGStwrEd-gXI7ZB9yMKg" key="SAPPACK_RUN_ID" value="1287557097146"/>
+        <details xmi:id="_GhuGS9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_DISPLAY_LENGTH" value="1"/>
+        <details xmi:id="_GhuGTNwrEd-gXI7ZB9yMKg" key="SAPPACK_DATA_OBJECT_SOURCE" value="IDOC"/>
+        <details xmi:id="_GhuGTdwrEd-gXI7ZB9yMKg" key="SAPPACK_DERIVATION_EXPRESSION" value="TDSPRAS"/>
+        <details xmi:id="_GhuGTtwrEd-gXI7ZB9yMKg" key="SAPPACK_UNICODE" value="true"/>
+      </eAnnotations>
+      <eAnnotations xmi:id="_GhuGT9wrEd-gXI7ZB9yMKg" source="ColumnDomain">
+        <details xmi:id="_GhuGUNwrEd-gXI7ZB9yMKg" key="DomainName" value="platform:/resource/debmas06/debmas06_with_codetables.ldm?/Package1/SPRAS"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_GhuGUdwrEd-gXI7ZB9yMKg" name="VARCHAR" primitiveType="CHARACTER_VARYING"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_GhuGUtwrEd-gXI7ZB9yMKg" name="TDTEXTTYPE" description="SAPscript: Format of Text" label="" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_GhuGU9wrEd-gXI7ZB9yMKg" source="UDP">
+        <details xmi:id="_GhuGVNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE" value="CHAR"/>
+        <details xmi:id="_GhuGVdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="6"/>
+        <details xmi:id="_GhuGVtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DECIMALS" value="0"/>
+        <details xmi:id="_GhuGV9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DOMAIN" value="TDTEXTTYPE"/>
+        <details xmi:id="_GhuGWNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NAME" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuGWdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_HOST" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuGWtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NUMBER" value="0"/>
+        <details xmi:id="_GhuGW9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+        <details xmi:id="_GhuGXNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_CLIENT_ID" value="800"/>
+        <details xmi:id="_GhuGXdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_USER_NAME" value="rguberud"/>
+        <details xmi:id="_GhuGXtwrEd-gXI7ZB9yMKg" key="SAPPACK_OS_USERNAME" value="iifourbpel"/>
+        <details xmi:id="_GhuGX9wrEd-gXI7ZB9yMKg" key="SAPPACK_DATE_CREATED" value="Oct 20, 2010"/>
+        <details xmi:id="_GhuGYNwrEd-gXI7ZB9yMKg" key="SAPPACK_TIME_CREATED" value="8:44:57 AM"/>
+        <details xmi:id="_GhuGYdwrEd-gXI7ZB9yMKg" key="SAPPACK_RUN_ID" value="1287557097146"/>
+        <details xmi:id="_GhuGYtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_DISPLAY_LENGTH" value="6"/>
+        <details xmi:id="_GhuGY9wrEd-gXI7ZB9yMKg" key="SAPPACK_DATA_OBJECT_SOURCE" value="IDOC"/>
+        <details xmi:id="_GhuGZNwrEd-gXI7ZB9yMKg" key="SAPPACK_DERIVATION_EXPRESSION" value="TDTEXTTYPE"/>
+        <details xmi:id="_GhuGZdwrEd-gXI7ZB9yMKg" key="SAPPACK_UNICODE" value="true"/>
+      </eAnnotations>
+      <eAnnotations xmi:id="_GhuGZtwrEd-gXI7ZB9yMKg" source="ColumnDomain">
+        <details xmi:id="_GhuGZ9wrEd-gXI7ZB9yMKg" key="DomainName" value="platform:/resource/debmas06/debmas06_with_codetables.ldm?/Package1/TDTEXTTYPE"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_GhuGaNwrEd-gXI7ZB9yMKg" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="6"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_GhuGadwrEd-gXI7ZB9yMKg" name="TDSPRASISO" description="Language according to ISO 639" label="" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_GhuGatwrEd-gXI7ZB9yMKg" source="UDP">
+        <details xmi:id="_GhuGa9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE" value="CHAR"/>
+        <details xmi:id="_GhuGbNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="2"/>
+        <details xmi:id="_GhuGbdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DECIMALS" value="0"/>
+        <details xmi:id="_GhuGbtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DOMAIN" value="LAISO"/>
+        <details xmi:id="_GhuGb9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NAME" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuGcNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_HOST" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuGcdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NUMBER" value="0"/>
+        <details xmi:id="_GhuGctwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+        <details xmi:id="_GhuGc9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_CLIENT_ID" value="800"/>
+        <details xmi:id="_GhuGdNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_USER_NAME" value="rguberud"/>
+        <details xmi:id="_GhuGddwrEd-gXI7ZB9yMKg" key="SAPPACK_OS_USERNAME" value="iifourbpel"/>
+        <details xmi:id="_GhuGdtwrEd-gXI7ZB9yMKg" key="SAPPACK_DATE_CREATED" value="Oct 20, 2010"/>
+        <details xmi:id="_GhuGd9wrEd-gXI7ZB9yMKg" key="SAPPACK_TIME_CREATED" value="8:44:57 AM"/>
+        <details xmi:id="_GhuGeNwrEd-gXI7ZB9yMKg" key="SAPPACK_RUN_ID" value="1287557097146"/>
+        <details xmi:id="_GhuGedwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_DISPLAY_LENGTH" value="2"/>
+        <details xmi:id="_GhuGetwrEd-gXI7ZB9yMKg" key="SAPPACK_DATA_OBJECT_SOURCE" value="IDOC"/>
+        <details xmi:id="_GhuGe9wrEd-gXI7ZB9yMKg" key="SAPPACK_DERIVATION_EXPRESSION" value="TDSPRASISO"/>
+        <details xmi:id="_GhuGfNwrEd-gXI7ZB9yMKg" key="SAPPACK_UNICODE" value="true"/>
+      </eAnnotations>
+      <eAnnotations xmi:id="_GhuGfdwrEd-gXI7ZB9yMKg" source="ColumnDomain">
+        <details xmi:id="_GhuGftwrEd-gXI7ZB9yMKg" key="DomainName" value="platform:/resource/debmas06/debmas06_with_codetables.ldm?/Package1/LAISO"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_GhuGf9wrEd-gXI7ZB9yMKg" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="2"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_GhuGgNwrEd-gXI7ZB9yMKg" name="ADM_DOCNUM" description="IDoc Number" label="" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_GhuGgdwrEd-gXI7ZB9yMKg" source="UDP">
+        <details xmi:id="_GhuGgtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE" value="VARC"/>
+        <details xmi:id="_GhuGg9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="16"/>
+        <details xmi:id="_GhuGhNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DECIMALS" value="0"/>
+        <details xmi:id="_GhuGhdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NAME" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuGhtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_HOST" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuGh9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NUMBER" value="0"/>
+        <details xmi:id="_GhuGiNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+        <details xmi:id="_GhuGidwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_CLIENT_ID" value="800"/>
+        <details xmi:id="_GhuGitwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_USER_NAME" value="rguberud"/>
+        <details xmi:id="_GhuGi9wrEd-gXI7ZB9yMKg" key="SAPPACK_OS_USERNAME" value="iifourbpel"/>
+        <details xmi:id="_GhuGjNwrEd-gXI7ZB9yMKg" key="SAPPACK_DATE_CREATED" value="Oct 20, 2010"/>
+        <details xmi:id="_GhuGjdwrEd-gXI7ZB9yMKg" key="SAPPACK_TIME_CREATED" value="8:44:57 AM"/>
+        <details xmi:id="_GhuGjtwrEd-gXI7ZB9yMKg" key="SAPPACK_RUN_ID" value="1287557097146"/>
+        <details xmi:id="_GhuGj9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_DISPLAY_LENGTH" value="16"/>
+        <details xmi:id="_GhuGkNwrEd-gXI7ZB9yMKg" key="SAPPACK_DATA_OBJECT_SOURCE" value="IDOC"/>
+        <details xmi:id="_GhuGkdwrEd-gXI7ZB9yMKg" key="SAPPACK_DERIVATION_EXPRESSION" value="ADMIN.DOCNUM"/>
+        <details xmi:id="_GhuGktwrEd-gXI7ZB9yMKg" key="SAPPACK_UNICODE" value="true"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_GhuGk9wrEd-gXI7ZB9yMKg" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="16"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_GhuGlNwrEd-gXI7ZB9yMKg" name="ADM_SEGNUM" description="Segment Number" label="" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_GhuGldwrEd-gXI7ZB9yMKg" source="UDP">
+        <details xmi:id="_GhuGltwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE" value="VARC"/>
+        <details xmi:id="_GhuGl9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="6"/>
+        <details xmi:id="_GhuGmNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DECIMALS" value="0"/>
+        <details xmi:id="_GhuGmdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NAME" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuGmtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_HOST" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuGm9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NUMBER" value="0"/>
+        <details xmi:id="_GhuGnNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+        <details xmi:id="_GhuGndwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_CLIENT_ID" value="800"/>
+        <details xmi:id="_GhuGntwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_USER_NAME" value="rguberud"/>
+        <details xmi:id="_GhuGn9wrEd-gXI7ZB9yMKg" key="SAPPACK_OS_USERNAME" value="iifourbpel"/>
+        <details xmi:id="_GhuGoNwrEd-gXI7ZB9yMKg" key="SAPPACK_DATE_CREATED" value="Oct 20, 2010"/>
+        <details xmi:id="_GhuGodwrEd-gXI7ZB9yMKg" key="SAPPACK_TIME_CREATED" value="8:44:57 AM"/>
+        <details xmi:id="_GhuGotwrEd-gXI7ZB9yMKg" key="SAPPACK_RUN_ID" value="1287557097146"/>
+        <details xmi:id="_GhuGo9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_DISPLAY_LENGTH" value="6"/>
+        <details xmi:id="_GhuGpNwrEd-gXI7ZB9yMKg" key="SAPPACK_DATA_OBJECT_SOURCE" value="IDOC"/>
+        <details xmi:id="_GhuGpdwrEd-gXI7ZB9yMKg" key="SAPPACK_DERIVATION_EXPRESSION" value="ADMIN.SEGNUM"/>
+        <details xmi:id="_GhuGptwrEd-gXI7ZB9yMKg" key="SAPPACK_UNICODE" value="true"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_GhuGp9wrEd-gXI7ZB9yMKg" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="6"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_GhuGqNwrEd-gXI7ZB9yMKg" name="ADM_PSGNUM" description="Number of superior parent segment" label="" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_GhuGqdwrEd-gXI7ZB9yMKg" source="UDP">
+        <details xmi:id="_GhuGqtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE" value="VARC"/>
+        <details xmi:id="_GhuGq9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="6"/>
+        <details xmi:id="_GhuGrNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DECIMALS" value="0"/>
+        <details xmi:id="_GhuGrdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NAME" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuGrtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_HOST" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuGr9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NUMBER" value="0"/>
+        <details xmi:id="_GhuGsNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+        <details xmi:id="_GhuGsdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_CLIENT_ID" value="800"/>
+        <details xmi:id="_GhuGstwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_USER_NAME" value="rguberud"/>
+        <details xmi:id="_GhuGs9wrEd-gXI7ZB9yMKg" key="SAPPACK_OS_USERNAME" value="iifourbpel"/>
+        <details xmi:id="_GhuGtNwrEd-gXI7ZB9yMKg" key="SAPPACK_DATE_CREATED" value="Oct 20, 2010"/>
+        <details xmi:id="_GhuGtdwrEd-gXI7ZB9yMKg" key="SAPPACK_TIME_CREATED" value="8:44:57 AM"/>
+        <details xmi:id="_GhuGttwrEd-gXI7ZB9yMKg" key="SAPPACK_RUN_ID" value="1287557097146"/>
+        <details xmi:id="_GhuGt9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_DISPLAY_LENGTH" value="6"/>
+        <details xmi:id="_GhuGuNwrEd-gXI7ZB9yMKg" key="SAPPACK_DATA_OBJECT_SOURCE" value="IDOC"/>
+        <details xmi:id="_GhuGudwrEd-gXI7ZB9yMKg" key="SAPPACK_DERIVATION_EXPRESSION" value="ADMIN.PSGNUM"/>
+        <details xmi:id="_GhuGutwrEd-gXI7ZB9yMKg" key="SAPPACK_UNICODE" value="true"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_GhuGu9wrEd-gXI7ZB9yMKg" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="6"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_GhuGvNwrEd-gXI7ZB9yMKg" name="LEGACY_ID" description="technical field" label="" defaultValue="">
+      <eAnnotations xmi:id="_GhuGvdwrEd-gXI7ZB9yMKg" source="UDP">
+        <details xmi:id="_GhuGvtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE" value="VARC"/>
+        <details xmi:id="_GhuGv9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="20"/>
+        <details xmi:id="_GhuGwNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DECIMALS" value="0"/>
+        <details xmi:id="_GhuGwdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NAME" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuGwtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_HOST" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuGw9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NUMBER" value="0"/>
+        <details xmi:id="_GhuGxNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+        <details xmi:id="_GhuGxdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_CLIENT_ID" value="800"/>
+        <details xmi:id="_GhuGxtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_USER_NAME" value="rguberud"/>
+        <details xmi:id="_GhuGx9wrEd-gXI7ZB9yMKg" key="SAPPACK_OS_USERNAME" value="iifourbpel"/>
+        <details xmi:id="_GhuGyNwrEd-gXI7ZB9yMKg" key="SAPPACK_DATE_CREATED" value="Oct 20, 2010"/>
+        <details xmi:id="_GhuGydwrEd-gXI7ZB9yMKg" key="SAPPACK_TIME_CREATED" value="8:44:57 AM"/>
+        <details xmi:id="_GhuGytwrEd-gXI7ZB9yMKg" key="SAPPACK_RUN_ID" value="1287557097146"/>
+        <details xmi:id="_GhuGy9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_DISPLAY_LENGTH" value="20"/>
+        <details xmi:id="_GhuGzNwrEd-gXI7ZB9yMKg" key="SAPPACK_DATA_OBJECT_SOURCE" value="TechField"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_GhuGzdwrEd-gXI7ZB9yMKg" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="20"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_GhuGztwrEd-gXI7ZB9yMKg" name="LEGACY_UK" description="technical field" label="" defaultValue="">
+      <eAnnotations xmi:id="_GhuGz9wrEd-gXI7ZB9yMKg" source="UDP">
+        <details xmi:id="_GhuG0NwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE" value="VARC"/>
+        <details xmi:id="_GhuG0dwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="120"/>
+        <details xmi:id="_GhuG0twrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DECIMALS" value="0"/>
+        <details xmi:id="_GhuG09wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NAME" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuG1NwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_HOST" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuG1dwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NUMBER" value="0"/>
+        <details xmi:id="_GhuG1twrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+        <details xmi:id="_GhuG19wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_CLIENT_ID" value="800"/>
+        <details xmi:id="_GhuG2NwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_USER_NAME" value="rguberud"/>
+        <details xmi:id="_GhuG2dwrEd-gXI7ZB9yMKg" key="SAPPACK_OS_USERNAME" value="iifourbpel"/>
+        <details xmi:id="_GhuG2twrEd-gXI7ZB9yMKg" key="SAPPACK_DATE_CREATED" value="Oct 20, 2010"/>
+        <details xmi:id="_GhuG29wrEd-gXI7ZB9yMKg" key="SAPPACK_TIME_CREATED" value="8:44:57 AM"/>
+        <details xmi:id="_GhuG3NwrEd-gXI7ZB9yMKg" key="SAPPACK_RUN_ID" value="1287557097146"/>
+        <details xmi:id="_GhuG3dwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_DISPLAY_LENGTH" value="120"/>
+        <details xmi:id="_GhuG3twrEd-gXI7ZB9yMKg" key="SAPPACK_DATA_OBJECT_SOURCE" value="TechField"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_GhuG39wrEd-gXI7ZB9yMKg" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="120"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_GhuG4NwrEd-gXI7ZB9yMKg" name="LOB" description="technical field" label="" defaultValue="">
+      <eAnnotations xmi:id="_GhuG4dwrEd-gXI7ZB9yMKg" source="UDP">
+        <details xmi:id="_GhuG4twrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE" value="VARC"/>
+        <details xmi:id="_GhuG49wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="10"/>
+        <details xmi:id="_GhuG5NwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DECIMALS" value="0"/>
+        <details xmi:id="_GhuG5dwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NAME" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuG5twrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_HOST" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuG59wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NUMBER" value="0"/>
+        <details xmi:id="_GhuG6NwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+        <details xmi:id="_GhuG6dwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_CLIENT_ID" value="800"/>
+        <details xmi:id="_GhuG6twrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_USER_NAME" value="rguberud"/>
+        <details xmi:id="_GhuG69wrEd-gXI7ZB9yMKg" key="SAPPACK_OS_USERNAME" value="iifourbpel"/>
+        <details xmi:id="_GhuG7NwrEd-gXI7ZB9yMKg" key="SAPPACK_DATE_CREATED" value="Oct 20, 2010"/>
+        <details xmi:id="_GhuG7dwrEd-gXI7ZB9yMKg" key="SAPPACK_TIME_CREATED" value="8:44:57 AM"/>
+        <details xmi:id="_GhuG7twrEd-gXI7ZB9yMKg" key="SAPPACK_RUN_ID" value="1287557097146"/>
+        <details xmi:id="_GhuG79wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_DISPLAY_LENGTH" value="10"/>
+        <details xmi:id="_GhuG8NwrEd-gXI7ZB9yMKg" key="SAPPACK_DATA_OBJECT_SOURCE" value="TechField"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_GhuG8dwrEd-gXI7ZB9yMKg" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="10"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_GhuG8twrEd-gXI7ZB9yMKg" name="RLOUT" description="technical field" label="" defaultValue="">
+      <eAnnotations xmi:id="_GhuG89wrEd-gXI7ZB9yMKg" source="UDP">
+        <details xmi:id="_GhuG9NwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE" value="VARC"/>
+        <details xmi:id="_GhuG9dwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="30"/>
+        <details xmi:id="_GhuG9twrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DECIMALS" value="0"/>
+        <details xmi:id="_GhuG99wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NAME" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuG-NwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_HOST" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuG-dwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NUMBER" value="0"/>
+        <details xmi:id="_GhuG-twrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+        <details xmi:id="_GhuG-9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_CLIENT_ID" value="800"/>
+        <details xmi:id="_GhuG_NwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_USER_NAME" value="rguberud"/>
+        <details xmi:id="_GhuG_dwrEd-gXI7ZB9yMKg" key="SAPPACK_OS_USERNAME" value="iifourbpel"/>
+        <details xmi:id="_GhuG_twrEd-gXI7ZB9yMKg" key="SAPPACK_DATE_CREATED" value="Oct 20, 2010"/>
+        <details xmi:id="_GhuG_9wrEd-gXI7ZB9yMKg" key="SAPPACK_TIME_CREATED" value="8:44:57 AM"/>
+        <details xmi:id="_GhuHANwrEd-gXI7ZB9yMKg" key="SAPPACK_RUN_ID" value="1287557097146"/>
+        <details xmi:id="_GhuHAdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_DISPLAY_LENGTH" value="30"/>
+        <details xmi:id="_GhuHAtwrEd-gXI7ZB9yMKg" key="SAPPACK_DATA_OBJECT_SOURCE" value="TechField"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_GhuHA9wrEd-gXI7ZB9yMKg" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="30"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_GhuHBNwrEd-gXI7ZB9yMKg" name="CATEGORY" description="technical field" label="" defaultValue="">
+      <eAnnotations xmi:id="_GhuHBdwrEd-gXI7ZB9yMKg" source="UDP">
+        <details xmi:id="_GhuHBtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE" value="VARC"/>
+        <details xmi:id="_GhuHB9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="30"/>
+        <details xmi:id="_GhuHCNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DECIMALS" value="0"/>
+        <details xmi:id="_GhuHCdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NAME" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuHCtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_HOST" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuHC9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NUMBER" value="0"/>
+        <details xmi:id="_GhuHDNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+        <details xmi:id="_GhuHDdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_CLIENT_ID" value="800"/>
+        <details xmi:id="_GhuHDtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_USER_NAME" value="rguberud"/>
+        <details xmi:id="_GhuHD9wrEd-gXI7ZB9yMKg" key="SAPPACK_OS_USERNAME" value="iifourbpel"/>
+        <details xmi:id="_GhuHENwrEd-gXI7ZB9yMKg" key="SAPPACK_DATE_CREATED" value="Oct 20, 2010"/>
+        <details xmi:id="_GhuHEdwrEd-gXI7ZB9yMKg" key="SAPPACK_TIME_CREATED" value="8:44:57 AM"/>
+        <details xmi:id="_GhuHEtwrEd-gXI7ZB9yMKg" key="SAPPACK_RUN_ID" value="1287557097146"/>
+        <details xmi:id="_GhuHE9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_DISPLAY_LENGTH" value="30"/>
+        <details xmi:id="_GhuHFNwrEd-gXI7ZB9yMKg" key="SAPPACK_DATA_OBJECT_SOURCE" value="TechField"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_GhuHFdwrEd-gXI7ZB9yMKg" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="30"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_GhuHFtwrEd-gXI7ZB9yMKg" name="VERSION" description="technical field" label="" defaultValue="">
+      <eAnnotations xmi:id="_GhuHF9wrEd-gXI7ZB9yMKg" source="UDP">
+        <details xmi:id="_GhuHGNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE" value="INT4"/>
+        <details xmi:id="_GhuHGdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="0"/>
+        <details xmi:id="_GhuHGtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DECIMALS" value="0"/>
+        <details xmi:id="_GhuHG9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NAME" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuHHNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_HOST" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuHHdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NUMBER" value="0"/>
+        <details xmi:id="_GhuHHtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+        <details xmi:id="_GhuHH9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_CLIENT_ID" value="800"/>
+        <details xmi:id="_GhuHINwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_USER_NAME" value="rguberud"/>
+        <details xmi:id="_GhuHIdwrEd-gXI7ZB9yMKg" key="SAPPACK_OS_USERNAME" value="iifourbpel"/>
+        <details xmi:id="_GhuHItwrEd-gXI7ZB9yMKg" key="SAPPACK_DATE_CREATED" value="Oct 20, 2010"/>
+        <details xmi:id="_GhuHI9wrEd-gXI7ZB9yMKg" key="SAPPACK_TIME_CREATED" value="8:44:57 AM"/>
+        <details xmi:id="_GhuHJNwrEd-gXI7ZB9yMKg" key="SAPPACK_RUN_ID" value="1287557097146"/>
+        <details xmi:id="_GhuHJdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_DISPLAY_LENGTH" value="0"/>
+        <details xmi:id="_GhuHJtwrEd-gXI7ZB9yMKg" key="SAPPACK_DATA_OBJECT_SOURCE" value="TechField"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_GhuHJ9wrEd-gXI7ZB9yMKg" name="INTEGER" primitiveType="INTEGER"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_GhuHKNwrEd-gXI7ZB9yMKg" name="LOAD_ID" description="technical field" label="" defaultValue="">
+      <eAnnotations xmi:id="_GhuHKdwrEd-gXI7ZB9yMKg" source="UDP">
+        <details xmi:id="_GhuHKtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE" value="INT4"/>
+        <details xmi:id="_GhuHK9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="0"/>
+        <details xmi:id="_GhuHLNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DECIMALS" value="0"/>
+        <details xmi:id="_GhuHLdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NAME" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuHLtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_HOST" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GhuHL9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NUMBER" value="0"/>
+        <details xmi:id="_GhuHMNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+        <details xmi:id="_GhuHMdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_CLIENT_ID" value="800"/>
+        <details xmi:id="_GhuHMtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_USER_NAME" value="rguberud"/>
+        <details xmi:id="_GhuHM9wrEd-gXI7ZB9yMKg" key="SAPPACK_OS_USERNAME" value="iifourbpel"/>
+        <details xmi:id="_GhuHNNwrEd-gXI7ZB9yMKg" key="SAPPACK_DATE_CREATED" value="Oct 20, 2010"/>
+        <details xmi:id="_GhuHNdwrEd-gXI7ZB9yMKg" key="SAPPACK_TIME_CREATED" value="8:44:57 AM"/>
+        <details xmi:id="_GhuHNtwrEd-gXI7ZB9yMKg" key="SAPPACK_RUN_ID" value="1287557097146"/>
+        <details xmi:id="_GhuHN9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_DISPLAY_LENGTH" value="0"/>
+        <details xmi:id="_GhuHONwrEd-gXI7ZB9yMKg" key="SAPPACK_DATA_OBJECT_SOURCE" value="TechField"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_GhuHOdwrEd-gXI7ZB9yMKg" name="INTEGER" primitiveType="INTEGER"/>
+    </columns>
+  </LUW:LUWTable>
+  <LUW:LUWTable xmi:id="_GjDivNwrEd-gXI7ZB9yMKg" name="JLT_T002" label="Joined text table for T002T and T002" schema="_GfB-INwrEd-gXI7ZB9yMKg">
+    <eAnnotations xmi:id="_GjDivdwrEd-gXI7ZB9yMKg" source="UDP">
+      <details xmi:id="_GjDivtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NAME" value="bocasapides5.bocaraton.ibm.com"/>
+      <details xmi:id="_GjDiv9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_HOST" value="bocasapides5.bocaraton.ibm.com"/>
+      <details xmi:id="_GjDiwNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NUMBER" value="0"/>
+      <details xmi:id="_GjDiwdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+      <details xmi:id="_GjDiwtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_CLIENT_ID" value="800"/>
+      <details xmi:id="_GjDiw9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_USER_NAME" value="rguberud"/>
+      <details xmi:id="_GjDixNwrEd-gXI7ZB9yMKg" key="SAPPACK_OS_USERNAME" value="iifourbpel"/>
+      <details xmi:id="_GjDixdwrEd-gXI7ZB9yMKg" key="SAPPACK_DATE_CREATED" value="Oct 20, 2010"/>
+      <details xmi:id="_GjDixtwrEd-gXI7ZB9yMKg" key="SAPPACK_TIME_CREATED" value="8:46:46 AM"/>
+      <details xmi:id="_GjDix9wrEd-gXI7ZB9yMKg" key="SAPPACK_RUN_ID" value="1287557097146"/>
+      <details xmi:id="_GjDiyNwrEd-gXI7ZB9yMKg" key="SAPPACK_CHECK_TABLE_NAME" value="T002"/>
+      <details xmi:id="_GjDiydwrEd-gXI7ZB9yMKg" key="SAPPACK_TEXT_TABLE_NAME" value="T002T"/>
+      <details xmi:id="_GjDiytwrEd-gXI7ZB9yMKg" key="SAPPACK_DATA_OBJECT_SOURCE" value="JoinedCheckAndTextTable"/>
+      <details xmi:id="_GjDiy9wrEd-gXI7ZB9yMKg" key="SAPPACK_IDOC_TYPE" value="DEBMAS06"/>
+      <details xmi:id="_GjDizNwrEd-gXI7ZB9yMKg" key="SAPPACK_IS_EXTENDED_IDOC_TYPE" value="false"/>
+      <details xmi:id="_GjDizdwrEd-gXI7ZB9yMKg" key="SAPPACK_ABAP_PROGRAM_NAME" value="Z_SP_DEBM_DEBM_T002_1031945621"/>
+      <details xmi:id="_GjDiztwrEd-gXI7ZB9yMKg" key="SAPPACK_ABAP_PROGRAM_NAME_CPIC" value="Z0ANATUD"/>
+      <details xmi:id="_GjDiz9wrEd-gXI7ZB9yMKg" key="SAPPACK_GEN_MODEL_VERSION" value="4.160-2010-10-19-12-54 (PackX)"/>
+    </eAnnotations>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_GjDi0twrEd-gXI7ZB9yMKg" name="SPRAS" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_GjDi09wrEd-gXI7ZB9yMKg" source="UDP">
+        <details xmi:id="_GjDi1NwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE" value="LANG"/>
+        <details xmi:id="_GjDi1dwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="1"/>
+        <details xmi:id="_GjDi1twrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DECIMALS" value="0"/>
+        <details xmi:id="_GjDi19wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NAME" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GjDi2NwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_HOST" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GjDi2dwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NUMBER" value="0"/>
+        <details xmi:id="_GjDi2twrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+        <details xmi:id="_GjDi29wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_CLIENT_ID" value="800"/>
+        <details xmi:id="_GjDi3NwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_USER_NAME" value="rguberud"/>
+        <details xmi:id="_GjDi3dwrEd-gXI7ZB9yMKg" key="SAPPACK_OS_USERNAME" value="iifourbpel"/>
+        <details xmi:id="_GjDi3twrEd-gXI7ZB9yMKg" key="SAPPACK_DATE_CREATED" value="Oct 20, 2010"/>
+        <details xmi:id="_GjDi39wrEd-gXI7ZB9yMKg" key="SAPPACK_TIME_CREATED" value="8:46:46 AM"/>
+        <details xmi:id="_GjDi4NwrEd-gXI7ZB9yMKg" key="SAPPACK_RUN_ID" value="1287557097146"/>
+        <details xmi:id="_GjDi4dwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_DISPLAY_LENGTH" value="1"/>
+        <details xmi:id="_GjDi4twrEd-gXI7ZB9yMKg" key="SAPPACK_DATA_OBJECT_SOURCE" value="JoinedCheckAndTextTable"/>
+        <details xmi:id="_GjDi49wrEd-gXI7ZB9yMKg" key="SAPPACK_DERIVATION_EXPRESSION" value="SPRAS"/>
+        <details xmi:id="_GjDi5NwrEd-gXI7ZB9yMKg" key="SAPPACK_UNICODE" value="true"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_GjDi5dwrEd-gXI7ZB9yMKg" name="VARCHAR" primitiveType="CHARACTER_VARYING"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_GjDi5twrEd-gXI7ZB9yMKg" name="SPTXT" defaultValue="">
+      <eAnnotations xmi:id="_GjDi59wrEd-gXI7ZB9yMKg" source="UDP">
+        <details xmi:id="_GjDi6NwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE" value="CHAR"/>
+        <details xmi:id="_GjDi6dwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="16"/>
+        <details xmi:id="_GjDi6twrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DECIMALS" value="0"/>
+        <details xmi:id="_GjDi69wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NAME" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GjDi7NwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_HOST" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GjDi7dwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NUMBER" value="0"/>
+        <details xmi:id="_GjDi7twrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+        <details xmi:id="_GjDi79wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_CLIENT_ID" value="800"/>
+        <details xmi:id="_GjDi8NwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_USER_NAME" value="rguberud"/>
+        <details xmi:id="_GjDi8dwrEd-gXI7ZB9yMKg" key="SAPPACK_OS_USERNAME" value="iifourbpel"/>
+        <details xmi:id="_GjDi8twrEd-gXI7ZB9yMKg" key="SAPPACK_DATE_CREATED" value="Oct 20, 2010"/>
+        <details xmi:id="_GjDi89wrEd-gXI7ZB9yMKg" key="SAPPACK_TIME_CREATED" value="8:46:46 AM"/>
+        <details xmi:id="_GjDi9NwrEd-gXI7ZB9yMKg" key="SAPPACK_RUN_ID" value="1287557097146"/>
+        <details xmi:id="_GjDi9dwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_DISPLAY_LENGTH" value="16"/>
+        <details xmi:id="_GjDi9twrEd-gXI7ZB9yMKg" key="SAPPACK_DATA_OBJECT_SOURCE" value="JoinedCheckAndTextTable"/>
+        <details xmi:id="_GjDi99wrEd-gXI7ZB9yMKg" key="SAPPACK_DERIVATION_EXPRESSION" value="SPTXT"/>
+        <details xmi:id="_GjDi-NwrEd-gXI7ZB9yMKg" key="SAPPACK_UNICODE" value="true"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_GjDi-dwrEd-gXI7ZB9yMKg" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="16"/>
+    </columns>
+    <constraints xsi:type="SQLConstraints:PrimaryKey" xmi:id="_GjDi-twrEd-gXI7ZB9yMKg" name="JLT_T002_PK" members="_GjDi0twrEd-gXI7ZB9yMKg"/>
+  </LUW:LUWTable>
+  <LUW:LUWTable xmi:id="_GjgPVNwrEd-gXI7ZB9yMKg" name="JLT_TTXOB" label="Joined text table for TTXOT and TTXOB" schema="_GfB-INwrEd-gXI7ZB9yMKg">
+    <eAnnotations xmi:id="_GjgPVdwrEd-gXI7ZB9yMKg" source="UDP">
+      <details xmi:id="_GjgPVtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NAME" value="bocasapides5.bocaraton.ibm.com"/>
+      <details xmi:id="_GjgPV9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_HOST" value="bocasapides5.bocaraton.ibm.com"/>
+      <details xmi:id="_GjgPWNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NUMBER" value="0"/>
+      <details xmi:id="_GjgPWdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+      <details xmi:id="_GjgPWtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_CLIENT_ID" value="800"/>
+      <details xmi:id="_GjgPW9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_USER_NAME" value="rguberud"/>
+      <details xmi:id="_GjgPXNwrEd-gXI7ZB9yMKg" key="SAPPACK_OS_USERNAME" value="iifourbpel"/>
+      <details xmi:id="_GjgPXdwrEd-gXI7ZB9yMKg" key="SAPPACK_DATE_CREATED" value="Oct 20, 2010"/>
+      <details xmi:id="_GjgPXtwrEd-gXI7ZB9yMKg" key="SAPPACK_TIME_CREATED" value="8:48:02 AM"/>
+      <details xmi:id="_GjgPX9wrEd-gXI7ZB9yMKg" key="SAPPACK_RUN_ID" value="1287557097146"/>
+      <details xmi:id="_GjgPYNwrEd-gXI7ZB9yMKg" key="SAPPACK_CHECK_TABLE_NAME" value="TTXOB"/>
+      <details xmi:id="_GjgPYdwrEd-gXI7ZB9yMKg" key="SAPPACK_TEXT_TABLE_NAME" value="TTXOT"/>
+      <details xmi:id="_GjgPYtwrEd-gXI7ZB9yMKg" key="SAPPACK_DATA_OBJECT_SOURCE" value="JoinedCheckAndTextTable"/>
+      <details xmi:id="_GjgPY9wrEd-gXI7ZB9yMKg" key="SAPPACK_IDOC_TYPE" value="DEBMAS06"/>
+      <details xmi:id="_GjgPZNwrEd-gXI7ZB9yMKg" key="SAPPACK_IS_EXTENDED_IDOC_TYPE" value="false"/>
+      <details xmi:id="_GjgPZdwrEd-gXI7ZB9yMKg" key="SAPPACK_ABAP_PROGRAM_NAME" value="Z_SP_DEBM_DEBM_TTXO_1926655060"/>
+      <details xmi:id="_GjgPZtwrEd-gXI7ZB9yMKg" key="SAPPACK_ABAP_PROGRAM_NAME_CPIC" value="ZP3WENY"/>
+      <details xmi:id="_GjgPZ9wrEd-gXI7ZB9yMKg" key="SAPPACK_GEN_MODEL_VERSION" value="4.160-2010-10-19-12-54 (PackX)"/>
+    </eAnnotations>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_GjgPatwrEd-gXI7ZB9yMKg" name="TDOBJECT" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_GjgPa9wrEd-gXI7ZB9yMKg" source="UDP">
+        <details xmi:id="_GjgPbNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE" value="CHAR"/>
+        <details xmi:id="_GjgPbdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="10"/>
+        <details xmi:id="_GjgPbtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DECIMALS" value="0"/>
+        <details xmi:id="_GjgPb9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NAME" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GjgPcNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_HOST" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GjgPcdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NUMBER" value="0"/>
+        <details xmi:id="_GjgPctwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+        <details xmi:id="_GjgPc9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_CLIENT_ID" value="800"/>
+        <details xmi:id="_GjgPdNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_USER_NAME" value="rguberud"/>
+        <details xmi:id="_GjgPddwrEd-gXI7ZB9yMKg" key="SAPPACK_OS_USERNAME" value="iifourbpel"/>
+        <details xmi:id="_GjgPdtwrEd-gXI7ZB9yMKg" key="SAPPACK_DATE_CREATED" value="Oct 20, 2010"/>
+        <details xmi:id="_GjgPd9wrEd-gXI7ZB9yMKg" key="SAPPACK_TIME_CREATED" value="8:48:02 AM"/>
+        <details xmi:id="_GjgPeNwrEd-gXI7ZB9yMKg" key="SAPPACK_RUN_ID" value="1287557097146"/>
+        <details xmi:id="_GjgPedwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_DISPLAY_LENGTH" value="10"/>
+        <details xmi:id="_GjgPetwrEd-gXI7ZB9yMKg" key="SAPPACK_DATA_OBJECT_SOURCE" value="JoinedCheckAndTextTable"/>
+        <details xmi:id="_GjgPe9wrEd-gXI7ZB9yMKg" key="SAPPACK_DERIVATION_EXPRESSION" value="TDOBJECT"/>
+        <details xmi:id="_GjgPfNwrEd-gXI7ZB9yMKg" key="SAPPACK_UNICODE" value="true"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_GjgPfdwrEd-gXI7ZB9yMKg" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="10"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_GjgPftwrEd-gXI7ZB9yMKg" name="TDTEXT" defaultValue="">
+      <eAnnotations xmi:id="_GjgPf9wrEd-gXI7ZB9yMKg" source="UDP">
+        <details xmi:id="_GjgPgNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE" value="CHAR"/>
+        <details xmi:id="_GjgPgdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="30"/>
+        <details xmi:id="_GjgPgtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DECIMALS" value="0"/>
+        <details xmi:id="_GjgPg9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NAME" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GjgPhNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_HOST" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GjgPhdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NUMBER" value="0"/>
+        <details xmi:id="_GjgPhtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+        <details xmi:id="_GjgPh9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_CLIENT_ID" value="800"/>
+        <details xmi:id="_GjgPiNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_USER_NAME" value="rguberud"/>
+        <details xmi:id="_GjgPidwrEd-gXI7ZB9yMKg" key="SAPPACK_OS_USERNAME" value="iifourbpel"/>
+        <details xmi:id="_GjgPitwrEd-gXI7ZB9yMKg" key="SAPPACK_DATE_CREATED" value="Oct 20, 2010"/>
+        <details xmi:id="_GjgPi9wrEd-gXI7ZB9yMKg" key="SAPPACK_TIME_CREATED" value="8:48:03 AM"/>
+        <details xmi:id="_GjgPjNwrEd-gXI7ZB9yMKg" key="SAPPACK_RUN_ID" value="1287557097146"/>
+        <details xmi:id="_GjgPjdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_DISPLAY_LENGTH" value="30"/>
+        <details xmi:id="_GjgPjtwrEd-gXI7ZB9yMKg" key="SAPPACK_DATA_OBJECT_SOURCE" value="JoinedCheckAndTextTable"/>
+        <details xmi:id="_GjgPj9wrEd-gXI7ZB9yMKg" key="SAPPACK_DERIVATION_EXPRESSION" value="TDTEXT"/>
+        <details xmi:id="_GjgPkNwrEd-gXI7ZB9yMKg" key="SAPPACK_UNICODE" value="true"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_GjgPkdwrEd-gXI7ZB9yMKg" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="30"/>
+    </columns>
+    <constraints xsi:type="SQLConstraints:PrimaryKey" xmi:id="_GjgPktwrEd-gXI7ZB9yMKg" name="JLT_TTXOB_PK" members="_GjgPatwrEd-gXI7ZB9yMKg"/>
+  </LUW:LUWTable>
+  <LUW:LUWTable xmi:id="_GjgPk9wrEd-gXI7ZB9yMKg" name="JLT_TTXID" label="Joined text table for TTXIT and TTXID" schema="_GfB-INwrEd-gXI7ZB9yMKg">
+    <eAnnotations xmi:id="_GjgPlNwrEd-gXI7ZB9yMKg" source="UDP">
+      <details xmi:id="_GjgPldwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NAME" value="bocasapides5.bocaraton.ibm.com"/>
+      <details xmi:id="_GjgPltwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_HOST" value="bocasapides5.bocaraton.ibm.com"/>
+      <details xmi:id="_GjgPl9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NUMBER" value="0"/>
+      <details xmi:id="_GjgPmNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+      <details xmi:id="_GjgPmdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_CLIENT_ID" value="800"/>
+      <details xmi:id="_GjgPmtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_USER_NAME" value="rguberud"/>
+      <details xmi:id="_GjgPm9wrEd-gXI7ZB9yMKg" key="SAPPACK_OS_USERNAME" value="iifourbpel"/>
+      <details xmi:id="_GjgPnNwrEd-gXI7ZB9yMKg" key="SAPPACK_DATE_CREATED" value="Oct 20, 2010"/>
+      <details xmi:id="_GjgPndwrEd-gXI7ZB9yMKg" key="SAPPACK_TIME_CREATED" value="8:48:05 AM"/>
+      <details xmi:id="_GjgPntwrEd-gXI7ZB9yMKg" key="SAPPACK_RUN_ID" value="1287557097146"/>
+      <details xmi:id="_GjgPn9wrEd-gXI7ZB9yMKg" key="SAPPACK_CHECK_TABLE_NAME" value="TTXID"/>
+      <details xmi:id="_GjgPoNwrEd-gXI7ZB9yMKg" key="SAPPACK_TEXT_TABLE_NAME" value="TTXIT"/>
+      <details xmi:id="_GjgPodwrEd-gXI7ZB9yMKg" key="SAPPACK_DATA_OBJECT_SOURCE" value="JoinedCheckAndTextTable"/>
+      <details xmi:id="_GjgPotwrEd-gXI7ZB9yMKg" key="SAPPACK_IDOC_TYPE" value="DEBMAS06"/>
+      <details xmi:id="_GjgPo9wrEd-gXI7ZB9yMKg" key="SAPPACK_IS_EXTENDED_IDOC_TYPE" value="false"/>
+      <details xmi:id="_GjgPpNwrEd-gXI7ZB9yMKg" key="SAPPACK_ABAP_PROGRAM_NAME" value="Z_SP_DEBM_DEBM_TTXI_1926654876"/>
+      <details xmi:id="_GjgPpdwrEd-gXI7ZB9yMKg" key="SAPPACK_ABAP_PROGRAM_NAME_CPIC" value="ZP3WEIU"/>
+      <details xmi:id="_GjgPptwrEd-gXI7ZB9yMKg" key="SAPPACK_GEN_MODEL_VERSION" value="4.160-2010-10-19-12-54 (PackX)"/>
+    </eAnnotations>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_GjgPqdwrEd-gXI7ZB9yMKg" name="TDOBJECT" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_GjgPqtwrEd-gXI7ZB9yMKg" source="UDP">
+        <details xmi:id="_GjgPq9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE" value="CHAR"/>
+        <details xmi:id="_GjgPrNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="10"/>
+        <details xmi:id="_GjgPrdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DECIMALS" value="0"/>
+        <details xmi:id="_GjgPrtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NAME" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GjgPr9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_HOST" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GjgPsNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NUMBER" value="0"/>
+        <details xmi:id="_GjgPsdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+        <details xmi:id="_GjgPstwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_CLIENT_ID" value="800"/>
+        <details xmi:id="_GjgPs9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_USER_NAME" value="rguberud"/>
+        <details xmi:id="_GjgPtNwrEd-gXI7ZB9yMKg" key="SAPPACK_OS_USERNAME" value="iifourbpel"/>
+        <details xmi:id="_GjgPtdwrEd-gXI7ZB9yMKg" key="SAPPACK_DATE_CREATED" value="Oct 20, 2010"/>
+        <details xmi:id="_GjgPttwrEd-gXI7ZB9yMKg" key="SAPPACK_TIME_CREATED" value="8:48:05 AM"/>
+        <details xmi:id="_GjgPt9wrEd-gXI7ZB9yMKg" key="SAPPACK_RUN_ID" value="1287557097146"/>
+        <details xmi:id="_GjgPuNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_DISPLAY_LENGTH" value="10"/>
+        <details xmi:id="_GjgPudwrEd-gXI7ZB9yMKg" key="SAPPACK_DATA_OBJECT_SOURCE" value="JoinedCheckAndTextTable"/>
+        <details xmi:id="_GjgPutwrEd-gXI7ZB9yMKg" key="SAPPACK_DERIVATION_EXPRESSION" value="TDOBJECT"/>
+        <details xmi:id="_GjgPu9wrEd-gXI7ZB9yMKg" key="SAPPACK_UNICODE" value="true"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_GjgPvNwrEd-gXI7ZB9yMKg" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="10"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_GjgPvdwrEd-gXI7ZB9yMKg" name="TDID" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_GjgPvtwrEd-gXI7ZB9yMKg" source="UDP">
+        <details xmi:id="_GjgPv9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE" value="CHAR"/>
+        <details xmi:id="_GjgPwNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="4"/>
+        <details xmi:id="_GjgPwdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DECIMALS" value="0"/>
+        <details xmi:id="_GjgPwtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NAME" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GjgPw9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_HOST" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GjgPxNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NUMBER" value="0"/>
+        <details xmi:id="_GjgPxdwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+        <details xmi:id="_GjgPxtwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_CLIENT_ID" value="800"/>
+        <details xmi:id="_GjgPx9wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_USER_NAME" value="rguberud"/>
+        <details xmi:id="_GjgPyNwrEd-gXI7ZB9yMKg" key="SAPPACK_OS_USERNAME" value="iifourbpel"/>
+        <details xmi:id="_GjgPydwrEd-gXI7ZB9yMKg" key="SAPPACK_DATE_CREATED" value="Oct 20, 2010"/>
+        <details xmi:id="_GjgPytwrEd-gXI7ZB9yMKg" key="SAPPACK_TIME_CREATED" value="8:48:05 AM"/>
+        <details xmi:id="_GjgPy9wrEd-gXI7ZB9yMKg" key="SAPPACK_RUN_ID" value="1287557097146"/>
+        <details xmi:id="_GjgPzNwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_DISPLAY_LENGTH" value="4"/>
+        <details xmi:id="_GjgPzdwrEd-gXI7ZB9yMKg" key="SAPPACK_DATA_OBJECT_SOURCE" value="JoinedCheckAndTextTable"/>
+        <details xmi:id="_GjgPztwrEd-gXI7ZB9yMKg" key="SAPPACK_DERIVATION_EXPRESSION" value="TDID"/>
+        <details xmi:id="_GjgPz9wrEd-gXI7ZB9yMKg" key="SAPPACK_UNICODE" value="true"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_GjgP0NwrEd-gXI7ZB9yMKg" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="4"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_GjgP0dwrEd-gXI7ZB9yMKg" name="TDTEXT" defaultValue="">
+      <eAnnotations xmi:id="_GjgP0twrEd-gXI7ZB9yMKg" source="UDP">
+        <details xmi:id="_GjgP09wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE" value="CHAR"/>
+        <details xmi:id="_GjgP1NwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="30"/>
+        <details xmi:id="_GjgP1dwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_TYPE_DECIMALS" value="0"/>
+        <details xmi:id="_GjgP1twrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NAME" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GjgP19wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_HOST" value="bocasapides5.bocaraton.ibm.com"/>
+        <details xmi:id="_GjgP2NwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_NUMBER" value="0"/>
+        <details xmi:id="_GjgP2dwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+        <details xmi:id="_GjgP2twrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_CLIENT_ID" value="800"/>
+        <details xmi:id="_GjgP29wrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_USER_NAME" value="rguberud"/>
+        <details xmi:id="_GjgP3NwrEd-gXI7ZB9yMKg" key="SAPPACK_OS_USERNAME" value="iifourbpel"/>
+        <details xmi:id="_GjgP3dwrEd-gXI7ZB9yMKg" key="SAPPACK_DATE_CREATED" value="Oct 20, 2010"/>
+        <details xmi:id="_GjgP3twrEd-gXI7ZB9yMKg" key="SAPPACK_TIME_CREATED" value="8:48:05 AM"/>
+        <details xmi:id="_GjgP39wrEd-gXI7ZB9yMKg" key="SAPPACK_RUN_ID" value="1287557097146"/>
+        <details xmi:id="_GjgP4NwrEd-gXI7ZB9yMKg" key="SAPPACK_SAP_DATA_DISPLAY_LENGTH" value="30"/>
+        <details xmi:id="_GjgP4dwrEd-gXI7ZB9yMKg" key="SAPPACK_DATA_OBJECT_SOURCE" value="JoinedCheckAndTextTable"/>
+        <details xmi:id="_GjgP4twrEd-gXI7ZB9yMKg" key="SAPPACK_DERIVATION_EXPRESSION" value="TDTEXT"/>
+        <details xmi:id="_GjgP49wrEd-gXI7ZB9yMKg" key="SAPPACK_UNICODE" value="true"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_GjgP5NwrEd-gXI7ZB9yMKg" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="30"/>
+    </columns>
+    <constraints xsi:type="SQLConstraints:PrimaryKey" xmi:id="_GjgP5dwrEd-gXI7ZB9yMKg" name="JLT_TTXID_PK" members="_GjgPqdwrEd-gXI7ZB9yMKg _GjgPvdwrEd-gXI7ZB9yMKg"/>
+  </LUW:LUWTable>
+</xmi:XMI>

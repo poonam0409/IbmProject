@@ -1,0 +1,46 @@
+<div>
+	<div dojoType="dijit.Dialog" dojoAttachPoint="addFieldDialog" class="AddFieldDialog_addFieldDialog"	title="${msg.ADDFIELDDIALOG_1}">
+		<div class="dijitDialogPaneContentArea">
+			<div dojoType="dijit.layout.ContentPane" class="noBorder paddedContainerNoTop">
+				${msg.ADDFIELDDIALOG_2}
+			</div>
+			<div dojoType="dijit.layout.ContentPane" class="noBorder paddedContainerNoTop">
+				<form dojoType="dijit.form.Form" dojoAttachPoint="fieldAttributesForm" class="AddFieldDialog_formLayout">
+					<div class="formElement">
+						<label class="formElementLabel_required">${msg.NAME}${msg.COLON}
+							<input type="text" name="fieldName"
+								tabindex="1" dojoType="dijit.form.ValidationTextBox" dojoAttachPoint="fieldNameInput" maxLength="63" required="true" trim="true"
+								class="AddFieldDialog_input" />
+						</label>
+					</div>
+					<div class="formElement">
+						<label class="formElementLabel">${msg.ADDFIELDDIALOG_3}${msg.COLON}
+							<input type="text" name="checkTable"
+								tabindex="2" dojoType="dijit.form.TextBox" dojoAttachPoint="checkTableInput" maxLength="63" trim="true"
+								class="AddFieldDialog_input" />
+						</label>
+					</div>
+					<div class="formElement">
+						<label class="formElementLabel">${msg.ADDFIELDDIALOG_4}${msg.COLON}
+							<input type="text" name="sapView"
+								tabindex="3" dojoType="dijit.form.TextBox" dojoAttachPoint="sapViewInput" maxLength="63" trim="true"
+								class="AddFieldDialog_input" />
+						</label>
+					</div>
+					<div class="formElement">
+						<label class="formElementLabel">${msg.DESCRIPTION}${msg.COLON}
+							<input type="text" name="description"
+								tabindex="4" dojoType="dijit.form.Textarea" dojoAttachPoint="descriptionInput" maxLength="255" trim="true"
+								class="AddFieldDialog_input"
+								style="min-height: 8em;" />
+						</label>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="dijitDialogPaneActionBar">
+			<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="saveButton" disabled="true">${msg.SAVE}</div>
+			<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="cancelButton">${msg.CANCEL}</div>
+		</div>
+	</div>
+</div>

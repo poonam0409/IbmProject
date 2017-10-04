@@ -1,0 +1,18 @@
+################################################################################
+# Copyright definitions for Hypertext Markup Language (HTML) files
+################################################################################
+
+top-line=<!-- ***************************************************** {tag.top} ***
+
+text.1  =* {security.conf}
+text.2  =*
+text.3  =* {category.internal}
+text.4  =* 
+text.5  =* {product}
+text.6  =* 
+text.7  =* {copyright}  {all.rights}
+
+end-line=********************************************************** {tag.end} -->
+
+head.1  =<html
+head.2  =<HTML

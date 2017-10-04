@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>oneui.MenuBar DOH Test</title>
+		
+		<script type="text/javascript" src="../../dojoVersion.js"></script>
+
+		<script type="text/javascript">
+			dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		</script>
+	
+	    <style id="idxStyles" type="text/css">
+    	    @import "../../../themes/oneui/oneui.css";
+        	@import "../../../themes/test.css";
+	    </style>
+		
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+			dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+
+		<script type="text/javascript" id="postDojo">
+			var modules = ["doh", "idx.oneui.MenuBar", "dijit.dijit", "dojo.ready"]; 
+			var doh, MenuBar, dijit, ready;
+			
+			function preParse(modules){
+				doh = modules["doh"];
+				MenuBar = modules["idx/oneui/MenuBar"];
+				dijit = modules["dijit/dijit"]; 
+				ready = modules["dojo/ready"];
+			}
+				
+			function postParse(modules){
+				
+				var testPerformance = /mode=benchmark/i.test(window.location.href);
+				if(!testPerformance){
+					// Register API tests.
+					doh.register("MenuBarAPI", [
+						{
+							name: "parse", 
+							runTest: function(t){
+								dojo.parser.parse();
+								doh.t(dijit.byId("menu_bar_1"));
+							}
+						},
+				        {
+				            name: "SetOpenOnHover",
+				            setUp: function(t){
+				            },
+				            runTest: function(t){
+								var mb = dijit.byId("menu_bar_1");
+								doh.t(mb.openOnHover === true);  // Default value.
+								mb.set("openOnHover", false);
+								doh.t(mb.openOnHover === false);
+								mb.set("openOnHover", true);
+								doh.t(mb.openOnHover === true);
+				            },
+				            tearDown: function(t){
+				            }
+				        }
+				    ]);      
+				}else{
+					// Register performance tests
+					doh.register("MenuBarPerformance", [
+						{
+							testType: "perf",
+							name: "Create MenuBar",
+							trialDuration: 100,
+							trialIterations: 20,
+							trialDelay: 100,
+							setUp: function(t){},
+							runTest: function(t){
+								var div = dojo.create("div", {}, dojo.body())
+								var menuBar = new MenuBar({}, div);
+							},
+							tearDown: function(t){
+								dojo.query("[widgetid*=oneui_MenuBar]").forEach(function(mb){
+									dijit.byNode(mb).destroy(false);
+								});
+							}
+						}
+					]);
+				}
+
+				doh.run();
+			};
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+		</script>
+		<script type="text/javascript" src="../../commonTest.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+		<h1 class="testTitle">DOH Test of idx.oneui.MenuBar</h1>
+	    <div id="menu_bar_1" data-dojo-type="idx.oneui.MenuBar">
+	    </div>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+﻿LİSANS BİLGİLERİ
+
+Aşağıda listelenen programlar, IBM Uluslararası Program Lisans Sözleşmesi (IBM form numarası Z125-3301-14) koşullarına ek olarak aşağıdaki koşullar kapsamında lisanslanır.
+
+Program Adı: IBM InfoSphere Information Server Pack for SAP Applications v7.1
+Program Numarası: 5724-Q55
+
+Program Adı: IBM InfoSphere Information Server Pack for SAP Applications for Non-Production v7.1
+Program Numarası: 5724-Q55
+
+Uluslararası Program Lisans Sözleşmesi'nde ("UPLS") ve bu Lisans Bilgileri belgesinde açıklandığı şekilde IBM, Lisans Alan Tarafa bu Programı kullanması için sınırlı bir hak verir. Bu hak, Yetki Belgesinde (PoE) kanıtlandığı şekilde, Lisans Alan Tarafça ödemesi yapılmış olan İşlemci Değer Birimi ("PVU"), Değer Birimi ("VU") ya da belirlenmiş diğer bir kullanım seviyesi gibi bir Yetkili Kullanım seviyesiyle sınırlanmıştır. Ayrıca, Lisans Alan Tarafın kullanımı, ayrıca belirli bir makineyle ya da yalnızca bir Destekleyici Programla ya da başka kısıtlamalara tabi olarak sınırlanabilir. Lisans Alan Taraf bu Programın ekonomik değerinin tümünü ödemediğinde, ek ücretler ödenmedikçe Programın başka hiçbir şekilde kullanılmasına izin verilmez. Ayrıca, Lisans Alan Tarafın bu Programı kullanmak üzere edindiği yetkiler kapsamındaki geçerli sözleşmeler için açıkça belirtilmediği sürece ve Uluslararası Program Lisans Sözleşmesi'nde ("UPLS") belirtildiği şekilde Lisans Alan Tarafa bu Programı herhangi bir üçüncü kişiye ticari BT hizmetleri sağlamak, ticari barındırma ya da zaman paylaşımı sunmak ya da alt lisanslamak, kiralamak ya da finansal olarak kiralamak üzere kullanım yetkisi de verilmez. Ek ücretlerin ödenmesine bağlı olarak ya da farklı veya tamamlayıcı koşullar kapsamında Lisans Alan Tarafa ek haklar sağlanabilir. IBM, Lisans Alan Tarafa bu tür ek hakları sağlayıp sağlamamaya ilişkin karar verme hakkını saklı tutar.
+
+Programın belirtimleri, Programın Duyuru Mektuplarındaki toplu Tanıtım ve Teknik Bilgiler (Description and Technical Information) başlıklı bölümlerde bulunabilir.
+
+Destekleyici Programlar
+
+Bu Program birden çok ürünün bulunduğu bir paket olarak lisanslanır ve aşağıda belirtilen Destekleyici Programları içerir. Lisans Alan Tarafa, bu tür Destekleyici Programları, Lisans Alan Tarafın Asıl Programı (Principal Program) (işbu Lisans Bilgileri Belgesinin başka herhangi bir yerinde daha geniş yetkiler sağlanmadığı sürece) yalnızca bu Sözleşme kapsamında ve bu Programa ilişkin Yetki Belgesinin (POE) sınırları içinde kullanımını desteklemek üzere kurması ve kullanması için yetki verilir. "Lisans Alan Tarafın .....kullanımını desteklemek üzere" ifadesi, Asıl Programın veya diğer bir Destekleyici Programın lisanslı kullanımı için gerekli olan veya Asıl Programın veya diğer bir Destekleyici Programın lisanslı kullanımıyla başka bir şekilde doğrudan ilişkili olan bu tür kullanımları içerir. Destekleyici Programlar, başka hiçbir amaçla kullanılamaz. Lisans Alan Tarafın, Destekleyici Programları Asıl Programdan ayrı olarak devretme ya da yeniden pazarlama yetkisi yoktur. Bir Destekleyici Programla birlikte lisans koşulları ve eğer varsa, Lisans Alan Tarafın bu Destekleyici Programı kullanımı için geçerli olan koşullar da gönderilebilir. Asıl Programın koşullarıyla Destekleyici Programın koşuları arasında bir çelişki olması durumundan işbu Lisans Bilgileri belgesinin koşulları, Destekleyici Programın koşullarını hükümsüz kılarak onların yerine geçer. Lisans Alan Tarafın bu Programı kullanım hakkı sona erdiğinde ya da sonlandırıldığında, Destekleyici Programların tüm kopyalarını kullanmaya son vermesi, bunları yok etmesi veya derhal Programı edindiği üçüncü kişiye iade etmesi gerekir. Lisans Alan Taraf, Destekleyici Programları yüklediyse, bu Programı edindiği tarafla bağlantıya geçmelidir. Lisans Alan Taraf, Destekleyici Programları, yukarıda belirtilen sınırları aşacak şekilde kullanmak amacıyla lisanslamak isterse, uygun lisansı edinmek için IBM Satış Temsilcisiyle veya bunları edindiği tarafla görüşmelidir.
+
+Bu Programlarla birlikte lisanslanan Destekleyici Programlar aşağıda belirtilmiştir:
+- IBM Cognos Business Intelligence v10.2
+- IBM Master Data Management Reference Data Management Hub v10.1
+- IBM Conversion Workbench Migration Asset for SAP Applications v2.1
+- IBM Cognos Data Manager Connector for SAP R/3 v10.2
+
+İzin Verilen Bileşenler
+
+Bu Sözleşmede yer alan herhangi bir hüküm dikkate alınmaksızın, Lisans Alan Tarafa, belirtilen Destekleyici Programların yalnızca aşağıda gösterilen bileşenlerini ya da işlevlerini kullanma izni verilir:
+- IBM Master Data Management Reference Data Management Hub (may only be used with IBM Conversion Workbench Migration Asset for SAP Applications)
+- IBM Cognos Business Intelligence (may only be used with IBM Conversion Workbench Migration Asset for SAP Applications)
+- Cognos Connection (of IBM Cognos Business Intelligence)
+- Framework Manager (of IBM Cognos Business Intelligence)
+- Report Studio (of IBM Cognos Business Intelligence)
+- Report Viewer (of IBM Cognos Business Intelligence)
+
+Üretim Dışı Kullanıma İlişkin Sınırlama
+
+Bu Program, "Üretim Dışı Kullanım" programı olarak belirlendiyse, yalnızca Lisans Alan Tarafın dahili geliştirme ve test ortamının bir parçası olarak test etme, performans ayarlaması, hata tanılama, dahili karşılaştırmalı değerlendirme, üretime hazırlık, kalite güvencesi etkinlikleri ve/veya yayınlanan uygulama programlama arabirimleri kullanılarak Program için dahili olarak kullanılan eklentilerin veya uzantıların geliştirilmesi gibi etkinlikler de dahil olmak, ancak tümü bunlarla sınırlı olmamak üzere, dahili olarak gerçekleştirilen üretim dışı etkinlikler için devreye alınır. Uygun ürün yetkilerini almadığı sürece, Lisans Alan Tarafa, bu Programın hiçbir bölümünü başka herhangi bir amaçla kullanması için yetki verilmez.
+
+Bir Üçüncü Kişinin Lehine Kullanıma İlişkin Sınırlamalar
+
+IBM tarafından aksi yazılı olarak kabul edilmedikçe, Lisans Alan Taraf bu Programı veya bileşenlerini, hizmet bürosu işletmek, üçüncü kişilere barındırma veya herhangi bir tür ticari bilgi teknolojileri hizmeti sağlamak amacıyla kullanamaz veya bu Programı bir üçüncü kişiye devredemez.
+
+Kurulum
+
+Kurulum, bu Programın lisanslandığı ölçüm birimidir. Kurulum, Programın bir bilgisayarda çalıştırılmak üzere sağlanan fiziksel veya sanal bir diske kurulan kopyasıdır. Lisans Alan Tarafın, bu Programın her Kurulumu için bir yetki edinmesi gerekir.
+
+L/N:  L-SBRN-9FN46Q
+D/N:  L-SBRN-9FN46Q
+P/N:  L-SBRN-9FN46Q 

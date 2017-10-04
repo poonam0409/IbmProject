@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Test ListNavController</title>
+
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+<script type="text/javascript">
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/claro/claro.css", "idxStyles");
+</script>
+
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneui/oneui.css";
+@import "../../themes/vienna/vienna.css";
+@import url("../../resources/claro_idx.css");
+@import url("../../resources/vienna_idx.css");
+@import "../../themes/test.css";
+</style>
+
+<script type="text/javascript">
+	var dojoConfig = currentDojoVersion.dojoConfig;
+</script>
+
+<script type="text/javascript">
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+</script>
+ 
+<script type="text/javascript" id="postDojo">
+var modules = ["idx.layout.PartialListNavController",
+			   "dijit.layout.ContentPane",
+			   "dijit.layout.BorderContainer",
+			   "dijit.layout.StackContainer",
+			   "idx.layout.HeaderPane",
+			   "idx.layout.TitlePane"];
+
+dojoRequireModules(modules, null, currentDojoVersion.async);
+</script>
+
+</style>
+<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 0px;">
+<a class="navigationLink" href="#maincontent">Skip to main content</a>
+<script type="text/javascript">applyThemeToBody()</script>
+<a name="maincontent"></a>
+        <div dojoType="dijit.layout.BorderContainer" id="nested_BorderContainer"
+                style="width: 95%; height: 500px;" title="Nested List" design="sidebar" >
+
+                <div dojoType="idx.layout.HeaderPane" region="leading" id="nested_gblMgmtLeft"
+                     title="Navigation"
+                     splitter="true"
+                     style="width:300px;">
+                  <div dojoType="dijit.layout.ContentPane"
+                  		class="idxNestedNavigation">
+                    <div dojotype="idx.layout.TitlePane" title="first group">
+                            <span dojotype="idx.layout.PartialListNavController" containerid="nested_gblMgmtStack"
+                                ></span>
+                    </div> 
+                    <div dojotype="idx.layout.TitlePane" title="second group">
+                            <span dojotype="idx.layout.PartialListNavController" containerid="nested_gblMgmtStack"
+                                startIndex="1" endIndex="2"></span>
+                    </div>
+                  </div>
+                </div>
+
+				<div dojoType="idx.layout.HeaderPane" title="Selected Item" region="center">
+                        <div dojotype="dijit.layout.StackContainer" id="nested_gblMgmtStack">
+                        
+                                <div dojoType="dijit.layout.ContentPane" title="Users and Groups"
+                                        id="nested_usergroupPane">
+                                        Navigated to "Users and Groups"&lrm;
+                                        <br/><br/>
+                                        <p>The navigation list on the left was achieved by placing an
+                                        idx.layout.PartialListNavController inside of each dijit.TitlePane
+                                        </p>
+                                        <p>Each PartialListNavController is mapped to a subset of the panes
+                                        contained in this dijit.layout.StackContainer
+                                        </p>
+                                        <p>In order to style the TitlePanes to use the appropriate nested navigation styling,
+					                    	a class attribute of "idxNestedNavigation" should be specified on a content pane
+					                    	that surrounds the group of objects making up the navigation list.</p>
+                                </div>
+                                
+                                <div dojoType="dijit.layout.ContentPane" title="Session Management"
+                                        id="nested_sessionPane">
+                                        Navigated to "Session Management"&lrm;
+                                </div>
+                                
+                                <div dojoType="dijit.layout.ContentPane" title="Item 3"
+                                        id="nested_item3Pane">
+                                        Navigated to "Item 3"&lrm;
+                                </div>
+                        </div>
+                </div>
+            </div>
+</body>
+</html>

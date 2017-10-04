@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>Form Layout Test</title>
+
+		<style type="text/css">
+			@import "../../themes/oneui/oneui.css";
+			@import "../../../dijit/tests/css/dijitTests.css";
+			@import "../_pagefooter/_PageFooter.css";
+		</style>
+		<!-- required: dojo.js -->
+		<script type="text/javascript" src="../../../dojo/dojo.js" data-dojo-config="isDebug: true, parseOnLoad: true">
+		</script>
+		<!-- only needed for alternate theme testing: -->
+		<script type="text/javascript" src="../../../dijit/tests/_testCommon.js">
+		</script>
+		<script type="text/javascript">
+			
+			var widgetsOfForm2 = [];
+			
+			require([
+				"dojo/ready",
+				"dijit/_base/manager",
+				"dijit/form/Button",
+				"idx/oneui/MenuBar",
+				"dijit/MenuBarItem", 
+				"idx/oneui/form/Form",
+				"idx/oneui/form/TextBox",
+				"idx/oneui/form/DateTextBox",
+				"idx/oneui/form/TimeTextBox",
+				"idx/oneui/form/CurrencyTextBox",
+				"idx/oneui/form/NumberSpinner",
+				"idx/oneui/form/Textarea",
+				"idx/oneui/form/Select",
+				"idx/oneui/tests/_pagefooter/_PageFooter"],
+			function(ready, manager, Button, MenuBar, MenuBarItem, Form, TextBox, DateTextBox, TimeTextBox, 
+					CurrencyTextBox, NumberSpinner, Textarea, Select, _PageFooter){
+				ready(function(){
+					// Declaration of Form 1 (layout by Columns)
+					var form1 = new Form({
+						heading: "Composite Widgets in Form",
+						description: "This form contains composite widgets have been organized",
+						invalidMessage: "Something goes wrong",
+						labelAlignment: "horizontal",
+						
+						columns: [
+							{labelWidth: "120px", fieldWidth: "240px"}
+						]
+						
+					}, "form1");
+						
+					var textbox = new TextBox({
+						label: "TextBox:",
+						hint: "write something here..."
+					});
+					var datetextbox = new DateTextBox({
+						label: "DateTextBox:",
+						hint: "input date here..."
+					});
+					var timetextbox = new TimeTextBox({
+						label: "TimeTextBox:",
+						hint: "input time here..."
+					});
+					var numberspinner = new NumberSpinner({
+						label: "NumberSpinner:",
+						hint: "input number here..."
+					});
+					var textarea = new Textarea({
+						label: "Textarea:",
+						value: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+					});
+					var currencytextbox = new CurrencyTextBox({
+						label: "CurrencyTextBox:",
+						value: "1000",
+						currency: "USD"
+					});
+					form1.addChild(textbox);
+					form1.addChild(datetextbox);
+					form1.addChild(timetextbox);
+					form1.addChild(textarea);
+					form1.addChild(numberspinner);
+					form1.addChild(currencytextbox);
+					form1.startup();
+					
+					
+					// Declaration of Form 2 (layout by Rows)
+					widgetsOfForm2[0] = new TextBox({
+						label: "TextBox:",
+						hint: "write something here..."
+					});
+					widgetsOfForm2[1] = new DateTextBox({
+						id: "dt",
+						label: "DateTextBox:",
+						hint: "input date here..."
+					});
+					widgetsOfForm2[2] = new TimeTextBox({
+						id: "tt",
+						label: "TimeTextBox:",
+						hint: "input time here..."
+					});
+					widgetsOfForm2[3] = new NumberSpinner({
+						label: "NumberSpinner:",
+						hint: "input number here..."
+					});
+					widgetsOfForm2[4] = new Textarea({
+						label: "Textarea:",
+						value: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+					});
+					widgetsOfForm2[5] = new CurrencyTextBox({
+						label: "CurrencyTextBox:",
+						value: "1000",
+						currency: "USD"
+					});
+					
+					var form2 = new Form({
+						heading: "Composite Widgets in Form",
+						description: "This form contains composite widgets have been organized",
+						invalidMessage: "Something goes wrong",
+						labelAlignment: "vertical"
+					}, "form2");
+					
+					form2.addChild(widgetsOfForm2[0], 0);
+					form2.addChild(widgetsOfForm2[1], 0);
+					form2.addChild(widgetsOfForm2[2], 0);
+					form2.addChild(widgetsOfForm2[3], 1);
+					form2.addChild(widgetsOfForm2[4], 2);
+					form2.addChild(widgetsOfForm2[5], 2);
+					form2.startup();
+					
+					
+					
+					// Declaration of Form 3 (custom buttons)
+					var form3 = new Form({
+						heading: "Custom Buttons in Form",
+						description: "This form contains user customized buttons",
+						invalidMessage: "Something goes wrong",
+						labelAlignment: "horizontal",
+						columns: [
+							{labelWidth: "120px", fieldWidth: "240px"}
+						]
+					}, "form3");
+						
+					var textbox3 = new TextBox({
+						label: "TextBox:",
+						hint: "write something here..."
+					});
+					var datetextbox3 = new DateTextBox({
+						label: "DateTextBox:",
+						hint: "input date here..."
+					});
+					var timetextbox3 = new TimeTextBox({
+						label: "TimeTextBox:",
+						hint: "input time here..."
+					});
+					form3.addChild(textbox3);
+					form3.addChild(datetextbox3);
+					form3.addChild(timetextbox3);
+					form3.addActions([
+						{name: "CustomBtn", action: function(){alert("Custom Button Clicked!")}},
+						{name: "Cancel", action: function(){alert("Cancel button Clicked!")}}
+					]);
+					form3.startup();
+					
+					new _PageFooter();
+				});
+			});
+		</script>
+	</head>
+	<body class="oneui">
+		<h1 class="testTitle">Labels&Fields Alignment Test</h1>
+		<h2>Form Widgets Layout by <b>Columns</b></h2>
+		
+		<select data-dojo-type="oneui.form.Select" id="columnSelect" data-dojo-props='
+			label: "Set columns:",
+			onChange: function(columns){
+				var form = dijit.byId("form1");
+				form.set("columns", columns * 1);
+				form.startup();
+				dijit.byId("labelWidth").set("value", 120);
+				dijit.byId("fieldWidth").set("value", 180);
+				var columnIndexSelect = dijit.byId("columnIndexSelect");
+				
+				switch(columns){
+					case "1":
+						columnIndexSelect.updateOption([{value: "1", disabled: true},{value: "2", disabled: true}]);
+						break;
+					case "2":
+						columnIndexSelect.updateOption([{value: "1", disabled: false},{value: "2", disabled: true}]);
+						break;
+					case "3":
+						columnIndexSelect.updateOption([{value: "1", disabled: false},{value: "2", disabled: false}]);
+						break;
+					default:
+						break;
+				}
+			}
+		'>
+			<option value=1 selected="selected">1 Column</option>
+			<option value=2>2 Columns</option>
+			<option value=3>3 Columns</option>
+		</select>
+		<select data-dojo-type="oneui.form.Select" id="alignmentSelect" data-dojo-props='
+			label: "Label&Field alignment:",
+			fieldWidth: "140px",
+			onChange: function(alignment){
+				dijit.byId("form1").set("labelAlignment", alignment);
+			}
+		'>
+			<option value="horizontal" selected="selected">Horizontal</option>
+			<option value="vertical">Vertical</option>
+		</select>
+		<br><br>
+		<select data-dojo-type="oneui.form.Select" id="columnIndexSelect" data-dojo-props='
+			label: "Select a column:",
+			fieldWidth: "100px",
+			onChange: function(index){
+				var form = dijit.byId("form1");
+				dijit.byId("labelWidth").set("value", parseInt(form.getLabelWidthInColumn(index*1)));
+				dijit.byId("fieldWidth").set("value", parseInt(form.getFieldWidthInColumn(index*1)));
+			}
+		'>
+			<option value=0 selected="selected">1st Column</option>
+			<option value=1 disabled="disabled">2nd Column</option>
+			<option value=2 disabled="disabled">3rd Column</option>
+		</select>
+		<input data-dojo-type="oneui.form.NumberSpinner" id="labelWidth" data-dojo-props='
+			label: "Label width",
+			smallDelta: 10,
+			value: 120,
+			fieldWidth: "100px",
+			unit: "&nbsp px",
+			_arrowReleased: function(){
+				var width = dijit.byId("labelWidth").get("value");
+				var columnIndex =  dijit.byId("columnIndexSelect").get("value");
+				dijit.byId("form1").setLabelWidthInColumn(columnIndex * 1, width + "px");
+			}
+		'/>
+		<input data-dojo-type="oneui.form.NumberSpinner" id="fieldWidth" data-dojo-props='
+			label: "Field width",
+			smallDelta: 10,
+			value: 240,
+			fieldWidth: "100px",
+			unit: "&nbsp px",
+			_arrowReleased: function(){
+				var width = dijit.byId("fieldWidth").get("value");
+				var columnIndex =  dijit.byId("columnIndexSelect").get("value");
+				dijit.byId("form1").setFieldWidthInColumn(columnIndex *1 , width + "px");
+			}
+		'/>
+		<p><form id="form1">
+			
+		</form></p>
+		<br></br>
+		
+		<h2>Form Widgets Layout by <b>Rows</b></h2>
+		<select data-dojo-type="oneui.form.Select" id="formRowIndex" data-dojo-props='
+			label: "Add a TextBox to:",
+			labelWidth: "120px",
+			fieldWidth: "100px",
+			labelAlignment: "horizontal",
+			onChange: function(value){
+				if(value*1 == this.options.length - 1){
+					this.updateOption({value: value, label: "Row " + (value*1 + 1) });
+					this.addOption({value: value*1+1+"", label: "New Row"});
+				}
+				var form = dijit.byId("form2");
+				var index = form.children.length - 5;
+				var newTextBox = new idx.oneui.form.TextBox({
+					label: "New TextBox " + index + ":"
+				})
+				form.addChild(newTextBox, value * 1);
+				form.startup();
+				
+			}
+		'>
+			<option value="0" selected="selected">Row 1</option>
+			<option value="1">Row 2</option>
+			<option value="2">Row 3</option>
+			<option value="3">New Row</option>
+		</select>
+		<button data-dojo-type="dijit.form.Button" data-dojo-props='
+			onClick: function(){
+				var form = dijit.byId("form2");
+				if(form.children.length == 6){return;}
+				form.children = [];
+				form.addChild(widgetsOfForm2[0], 0);
+				form.addChild(widgetsOfForm2[1], 0);
+				form.addChild(widgetsOfForm2[2], 0);
+				form.addChild(widgetsOfForm2[3], 1);
+				form.addChild(widgetsOfForm2[4], 2);
+				form.addChild(widgetsOfForm2[5], 2);
+				form.startup();
+			}
+		'>Reset all changes</button>
+		<p><form id="form2">
+			
+		</form></p>
+		
+		<p></p>
+		<p>
+			<form id="form3"></form>
+		</p>
+		<p>
+			<button data-dojo-type="dijit.form.Button" data-dojo-props='
+				label: "Clear Custom Buttons",
+				onClick: function(){
+					dijit.byId("form3").clearActions();
+				}
+			'></button>
+		</p>
+	</body>
+</html>

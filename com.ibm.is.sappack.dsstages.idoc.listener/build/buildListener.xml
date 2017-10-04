@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2014  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<!--
+ Description:
+
+ Build file to build the DataStage IDoc Listener
+
+-->
+<project basedir="." default="createjar" name="IdocListener">
+    <property environment="env"/>
+	<property name="DSSAPHOME" value="C:/IBM/InformationServer/Server/DSSAPbin" />
+	<property name="build" value="./bin"/>
+	<property name="src" value="../src"/>
+	<property name="commonsrc" value="../../com.ibm.is.sappack.dsstages.common/src"/>
+	<property name="extLibsJCO" value="../../extLibsJCO"/>
+	<property name="extLibs" value="../../extLibs"/>
+	<property name="dist" value="../dist"/>
+
+	<path id="classpath">
+			<pathelement path="./bin"/>
+			<pathelement location="${extLibsJCO}/sapjco3.jar"/>
+			<pathelement location="${extLibs}/commons-io-2.4.jar"/>
+		</path>
+	
+	<!-- create output directories -->
+	<target name="create-dir" description="create directories" depends="cleanup">
+		<mkdir dir="${build}"/>
+		<mkdir dir="${dist}"/>
+	</target>
+
+	<!-- cleanup output directories -->
+	<target name="cleanup" description="delete output directories">
+		<delete dir="${build}/bin"/>
+		<delete dir="${dist}"/>
+	</target>
+
+	<!-- build idoclistener.jar -->
+	<target name="build" depends="create-dir">
+		<!-- build common project -->
+		<javac sourcepath="" srcdir="${commonsrc}" destdir="${build}" classpathref="classpath" debug="${debug}">
+			<include name="com/ibm/is/sappack/dsstages/**/*.java"/>
+		</javac>
+		<copy todir="${build}">
+			<fileset dir="${commonsrc}" includes="**/*.properties"/>
+		</copy>
+		<!-- build idoclistener project -->
+		<javac sourcepath="" srcdir="${src}" destdir="${build}" classpathref="classpath" debug="${debug}" />
+		<!-- copy resource bundles -->
+		<copy todir="${build}">
+			<fileset dir="${src}" includes="**/*.properties"/>
+		</copy>
+	</target>
+	
+	<!-- deploy idoclistener.jar -->
+	<target name="deploy" depends="stopIDOCmanager, copyjar" />
+	
+	<!-- copy jars to DSSAPbin directory-->
+	<target name="copyjar" depends="createjar">
+		 <copy todir="${DSSAPHOME}">
+		 	<fileset dir="${dist}" includes="*.jar"/>       
+		 </copy>
+	</target>	
+	
+		
+	<!-- create jar file -->
+	<target name="createjar" description="createjar" depends="build" >
+	    <jar destfile="${dist}/dsidocserver.jar">
+	        <zipfileset dir="bin">
+	             <include name="**/*.class" />
+	        	 <include name="**/*.properties" />
+	        </zipfileset>
+	        </jar>
+	 </target>
+	
+	<!-- start/stop windows idoc manager service -->
+	<macrodef name="service">
+	        <attribute name="service"/>
+	        <attribute name="action"/>
+	        <sequential>
+	            <exec executable="cmd.exe">
+	                <arg line="/c net @{action} '@{service}'"/>
+	            </exec>
+	         </sequential>
+	    </macrodef>
+
+	    <target name="startIDOCmanager" description="start IDOC manager">
+	        <service action="start" service="DataStage IDOC Manager"/>
+	    </target>
+	    <target name="stopIDOCmanager" description="stop IDOC manager">
+	        <service action="stop" service="DataStage IDOC Manager"/>
+	    </target>
+
+	
+</project>

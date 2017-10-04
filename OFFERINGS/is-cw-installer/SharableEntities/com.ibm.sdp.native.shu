@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<?metadata version='0.0.4'?>
+<su id='com.ibm.sdp.native' version='1.0.1.20061017' iuCount='1' installContext='true' shareable='false' scope='Profile' adapters='native'>
+  <property name='installLocation' value='${context:installLocation}'/>
+  <selector id='installContext'/>
+  <iu id='com.ibm.sdp.native.directories' version='1.0.1.20061017' adapterId='native'>
+    <selectedBy id='installContext'/>
+    <adapterSpecificData>
+      <perform duringPhases='install'>
+        <mkdir
+          dir='${context:installLocation}'/>
+      </perform>
+    </adapterSpecificData>
+  </iu>
+</su>

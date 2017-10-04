@@ -1,0 +1,28 @@
+{
+	"identifier": "id",
+	"label": "name",
+    "items": [
+        {
+            "name": "Context 1",
+            /* "nls": { "path": "your-mod-path-here", "file": "YourMsgFileNameHere" },*/
+            "id": "suiteadmin",
+            "type": "context",
+            "cssclass": "idxConsoleLayoutTabs", /* formerly idxConsoleFrameTabs */
+            "dojoType":"idx.layout.OpenMenuTabContainer"
+        },
+     	{
+          	"name": "Tab 1",
+            "id": "tab1-id",
+            "type": "tab",          
+            "containerId": "suiteadmin",  
+            "href": "test_console_tab.html"          
+        },
+     	{
+          	"name": "Tab 2",
+            "id": "tab2-id",
+            "type": "tab",          
+            "containerId": "suiteadmin",  
+            "href": "test_console_tab.html"          
+        }
+   ]
+} 

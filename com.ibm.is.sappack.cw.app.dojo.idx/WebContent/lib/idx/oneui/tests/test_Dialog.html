@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>idx.oneui.Dialog Test</title>
+
+		<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+		<script type="text/javascript">
+			dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+		</script>
+
+        <style id="idxStyles" type="text/css">
+            @import "../../themes/oneui/oneui.css";
+            @import "../../themes/test.css";
+        </style>
+
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+		</script>
+
+		<script type="text/javascript">
+			dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+
+		<script type="text/javascript" id="postDojo">
+			var modules = [
+				"dijit/_base/manager",
+				"dijit.form.Button", 
+				"dijit.layout.TabContainer",   
+				"dijit.layout.ContentPane",
+				"idx.oneui.Dialog"]; 
+			
+			var manager = null;
+			var Dialog = null;
+			var ContentPane = null;
+			var TabContainer = null;
+			var Button = null;
+			function preParse(modules) {
+				manager 	 = (modules["dijit/_base/manager"] ? modules["dijit/_base/manager"] : dijit);
+				Button  	 = modules["dijit/form/Button"];
+				TabContainer = modules["dijit/layout/TabContainer"];
+				ContentPane  = modules["dijit/layout/ContentPane"];
+				Dialog       = modules["idx/oneui/Dialog"];
+			}			
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse);
+			
+			function showDialog1() {
+				var dialog1 = manager.byId("dialog1");
+				if(!dialog1){
+					dialog1 = new Dialog({
+						id: "dialog1",
+						title: "Dialog Title",
+						instruction: "Instructional information goes here.",
+						content: "<div style='height:80px'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean semper sagittis velit. Cras in mi. Duis porta mauris ut ligula. Proin porta rutrum lacus. Etiam consequat scelerisque quam. Nulla facilisi. Maecenas luctus venenatis nulla.</div>",
+						reference: {
+							name: "Link goes here",
+							link: "http://dojotoolkit.org/"
+						},
+						buttons: [new Button({
+							label: "Button1",
+							onClick: function(){alert("Button1 clicked!")}
+						}),new Button({
+							label: "Button2",
+							onClick: function(){alert("Button2 clicked!")}
+						})],
+						closeButtonLabel: "Cancel"
+					}, "dialog1");
+				}
+				dialog1.show();
+			}
+			
+			function showDialog2(){
+				var dialog2 = manager.byId("dialog2");
+				if(!dialog2){
+					var content = new TabContainer({
+						useMenu: false,
+						useSlider: false,
+						style: "height: 175px;"
+					});
+					var tab1 = new ContentPane({
+						title: "Fix This Problem",
+						content: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean semper sagittis velit. Cras in mi. Duis porta mauris ut ligula. Proin porta rutrum lacus. Etiam consequat scelerisque quam. Nulla facilisi. Maecenas luctus venenatis nulla."
+					});
+					var tab2 = new ContentPane({
+						title: "Get More Help",
+						content: "Nothing here..."
+					});
+					content.addChild(tab1);
+					content.addChild(tab2);
+					
+					dialog2 = new Dialog({
+						id: "dialog2",
+						instruction: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean semper sagittis velit. Cras in mi.",
+						reference: {
+							name: "Link goes here",
+							link: "http://dojotoolkit.org/"
+						}
+					}, "dialog2");
+					dialog2.set("content", content);
+				}
+				dialog2.show(); 
+			}
+			function showDialog3(){
+				manager.byId("dialog3").show();
+			}
+			
+			
+		</script>
+		<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 0px;">
+	<a class="navigationLink" href="#maincontent">Skip to main content</a>
+	<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+	
+	<a name="maincontent"></a>
+	<div class="testMain">
+	<h1 class="testTitle">idx.oneui.Dialog Test</h1>
+	<!--<p>
+	API ref: <a target="_blank" href=""></a>
+	</p>-->
+	<h3>Programic Dialogs</h3>
+	<button dojoType="dijit.form.Button" onClick="showDialog1();">Show Dialog 1</button>
+	<button dojoType="dijit.form.Button" onClick="showDialog2();">Show Dialog 2</button>
+	<div id="dialog1"></div>
+	<div id="dialog2"></div>
+	<h3>Declarative Dialog</h3>
+	<button dojoType="dijit.form.Button" onClick="showDialog3();">Show Dialog 3</button>
+	<div data-dojo-type="idx.oneui.Dialog" data-dojo-props='
+		id: "dialog3",
+		title: "Declarative Dialog",
+		instruction: "Instructional information goes here.",
+		reference: {
+			name: "Goto DojoToolkit",
+			link: "http://dojotoolkit.org/"
+		}
+	'>
+		<div data-dojo-type="dijit.layout.TabContainer"  data-dojo-props='
+			baseClass:"dijitTabContainerCompact dijitTabContainer",
+			style: "height: 175px"
+			'>
+			<div data-dojo-type="dijit.layout.ContentPane"  data-dojo-props='title:"Tab 1"'>
+				Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean semper sagittis velit. 
+				Cras in mi. Duis porta mauris ut ligula. Proin porta rutrum lacus. Etiam consequat scelerisque quam. 
+				Nulla facilisi. Maecenas luctus venenatis nulla. In sit amet dui non mi semper iaculis. 
+				Sed molestie tortor at ipsum. Morbi dictum rutrum magna. Sed vitae risus.
+			</div>
+			<div data-dojo-type="dijit.layout.ContentPane"  data-dojo-props='title:"Tab 2"'>
+				I'm tab2.
+			</div>
+		</div>
+	</div>
+	</div>
+</body>
+</html>

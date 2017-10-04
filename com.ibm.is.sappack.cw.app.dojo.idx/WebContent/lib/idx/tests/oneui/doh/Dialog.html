@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>oneui.Dialog DOH Test</title>
+		<style type="text/css">
+			@import "../../../oneui/themes/oneui/oneui.css";
+			@import "../../../dijit/tests/css/dijitTests.css";
+		</style>
+		<!-- required: dojo.js -->
+		<script type="text/javascript" src="../../../dojo/dojo.js" data-dojo-config="isDebug: true, parseOnLoad: false"></script>
+		<script type="text/javascript" src="../../../dijit/tests/_testCommon.js"></script>
+		<script type="text/javascript">
+
+			require(["doh", "idx/oneui/Dialog", "dijit/dijit", "dojo/ready"], 
+				function(doh, Dialog, dijit, ready){
+				ready(function(){
+					
+					var testPerformance = /mode=benchmark/i.test(window.location.href);
+					if(!testPerformance){
+						// Register API tests.
+						doh.register("DialogAPI", []);      
+					}else{
+						// Register performance tests
+						doh.register("DialogPerformance", [
+							{
+								name: "Create Dialog",
+								testType: "perf",
+								trialDuration: 100,
+								trialDelay: 100,
+								trialIterations: 10,
+								setUp: function(t){},
+								runTest: function(t){
+									var div = dojo.create("div", {}, dojo.body());
+									var dlg = createDialog(div);
+								},
+								tearDown: function(t){
+									dojo.query("[widgetid*=oneui_Dialog]").forEach(function(dlg){
+										dijit.byNode(dlg).destroy(false);
+									})
+								}
+							}
+						]);
+					}
+	
+					doh.run();
+				});
+			});
+		</script>
+	</head>
+	<body class="oneui">
+		<h1 class="testTitle">DOH Test of oneui.Dialog</h1>
+	</body>
+</html>

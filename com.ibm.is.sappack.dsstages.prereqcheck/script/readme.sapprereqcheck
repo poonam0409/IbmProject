@@ -1,0 +1,46 @@
+README for the Prerequisite checking tool for IBM InfoSphere Information Server Packs for SAP Applications V8.0.0.1
+-------------------------------------------------------------------------------------------------------------------
+
+this tool checks if 
+1. all required SAP libraries exist in the correct directories
+2. all required Information Server patches are installed
+
+
+Usage
+------
+1. Copy the files prereqcheck.sh and prereqcheck.jar into some directory
+2. Change to that directory on a command line
+3. On UNIX, make sure that you have called the dsenv script (usually in /opt/IBM/InformationServer/Server/DSEngine/dsenv)
+   to setup your environment
+4. Enter the command
+prereqcheck.sh <ISHomeDir> client|engine
+where
+- <ISHomeDir> is the absolute path to the Information Server installation directory
+  On Windows this is typically C:\IBM\Information Server 
+  On UNIX this is typically /opt/IBM/InformationServer)
+- client | engine indicates if the client or engine tier should be checked
+
+
+Examples
+---------
+
+Example 1 (Windows):
+prereqcheck.sh C:\IBM\InformationServer client
+checks the client tier on a typical Windows installation 
+
+Example 2 (UNIX):
+prereqcheck.sh /opt/IBM/InformationServer engine
+checks the engine tier on a typical UNIX installation
+
+
+Troubleshooting
+----------------
+This tool requires a Java runtime environment (JRE). By default, it will try to detect and use the JRE of the 
+Information Server installation. If this fails you can enter the path to the Java executable
+directly in the prereqcheck.sh script:
+
+Comment in the following line (by removing the leading #) at the beginning of the script
+#export JAVA_EXE=/opt/IBM/InformationServer/ASBNode/apps/jre/bin/java
+and set JAVA_EXE to the absolute path pointing to the java executable. On Windows, use forward slashes instead of
+backward slashes (e.g. JAVA_EXE=C:/IBM/InformationServer/ASBNode/apps/jre/bin/java.exe). 
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>is-rm-installer</name>
+	<comment></comment>
+	<projects>
+		<project>src.IES</project>
+		<project>src.IDA</project>
+		<project>src.ISJG</project>
+		<project>src.MHIWB</project>
+		<project>src.CON</project>
+		<project>src.ISSAP</project>
+		<project>src.ISRM</project>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>com.ibm.cic.dev.core.CICBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.ibm.cic.dev.core.CICNature</nature>
+	</natures>
+</projectDescription>

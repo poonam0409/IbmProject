@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Licensed Materials - Property of IBM
+     5648-F10 (C) Copyright International Business Machines Corp. 2006, 2014
+     All Rights Reserved
+     US Government Users Restricted Rights - Use, duplication or disclosure
+     restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<launchpad>
+
+    <productName>IBM InfoSphere Data Architect components for Pack for SAP Applications 8.0</productName>
+
+    <productVersion>8.0</productVersion>
+
+    <productEdition />
+
+    <template>expressQuickStartTemplate</template>
+
+    <operatingSystems>
+        <operatingSystem>
+            <name>windows</name>
+            <architecture>x86</architecture>
+            <architecture>AMD64</architecture>
+            <architecture>IA64</architecture>
+        </operatingSystem>
+    </operatingSystems>
+
+    <translationLanguages>
+        <selectionType>embedded</selectionType>
+        <default>en</default>
+        <language>en</language>
+        <language>de</language>
+        <language>fr</language>
+        <language>zh_TW</language>
+        <language>zh</language>
+        <language>it</language>
+        <language>ja</language>
+        <language>pt_BR</language>
+        <language>es</language>
+        <language>ko</language>
+    </translationLanguages>
+
+    <preferredBrowser>defaultBrowser</preferredBrowser>
+
+    <enableContextMenu>true</enableContextMenu>
+
+    <userExtensionsClass />
+
+    <menuItems>
+        <menuItem>
+            <name>Welcome</name>
+            <tooltip>Welcome</tooltip>
+            <type>document</type>
+            <prereq />
+            <prereqClass />
+            <menuId>overview</menuId>
+            <document>launchpadContent/welcome.html</document>
+            <pageClass />
+            <propertiesFile>launchpadContent/en/welcome.properties</propertiesFile>
+            <anchor />
+            <action />
+            <actionClass />
+            <activate />
+            <show />
+            <enable />
+            <state />
+            <enableButtons />
+            <enableNext />
+            <enablePrevious />
+            <enableCancel />
+            <showButtons />
+            <showNext />
+            <showPrevious />
+            <showCancel />
+            <nextText />
+            <previousText />
+            <cancelText />
+            <enterAction />
+            <exitAction />
+            <nextAction />
+            <previousAction />
+            <cancelAction />
+            <nextItem />
+            <previousItem />
+            <icon />
+            <description />
+        </menuItem>
+        <menuItem>
+            <name>Install the product</name>
+            <tooltip>Install the product</tooltip>
+            <type>document</type>
+            <prereq />
+            <prereqClass />
+            <menuId>install</menuId>
+            <document>launchpadContent/StepInstall.html</document>
+            <pageClass />
+            <propertiesFile>launchpadContent/en/StepInstall.properties</propertiesFile>
+            <anchor />
+            <action />
+            <actionClass />
+            <activate />
+            <show />
+            <enable />
+            <state />
+            <enableButtons />
+            <enableNext />
+            <enablePrevious />
+            <enableCancel />
+            <showButtons />
+            <showNext />
+            <showPrevious />
+            <showCancel />
+            <nextText />
+            <previousText />
+            <cancelText />
+            <enterAction />
+            <exitAction />
+            <nextAction />
+            <previousAction />
+            <cancelAction />
+            <nextItem />
+            <previousItem />
+            <icon />
+            <description />
+        </menuItem>
+        <menuItem>
+            <name>Exit</name>
+            <tooltip>Exit</tooltip>
+            <type>action</type>
+            <prereq />
+            <prereqClass />
+            <menuId>exit</menuId>
+            <document />
+            <pageClass />
+            <propertiesFile />
+            <anchor />
+            <action>top.Exit(true);</action>
+            <actionClass />
+            <activate />
+            <show />
+            <enable />
+            <state />
+            <enableButtons />
+            <enableNext />
+            <enablePrevious />
+            <enableCancel />
+            <showButtons />
+            <showNext />
+            <showPrevious />
+            <showCancel />
+            <nextText />
+            <previousText />
+            <cancelText />
+            <enterAction />
+            <exitAction />
+            <nextAction />
+            <previousAction />
+            <cancelAction />
+            <nextItem />
+            <previousItem />
+            <icon />
+            <description />
+        </menuItem>
+    </menuItems>
+
+    <appearanceInfo>
+        <title>IBM InfoSphere Data Architect components for Pack for SAP Applications 8.0</title>
+        <banner>launchpadImages/transparent.gif</banner>
+        <navigation>launchpadImages/background.jpg</navigation>
+        <logo>launchpadImages/logo.gif</logo>
+        <icon>launchpadImages/xb.ico</icon>
+        <colorScheme>crossBrandContemporaryAppearanceScheme</colorScheme>
+        <backgroundColor>255 255 255</backgroundColor>
+        <textColor>0 0 0</textColor>
+        <highlightColor>255 255 255</highlightColor>
+        <rolloverColor>255 255 255</rolloverColor>
+        <logoAltText>Logo for IBM InfoSphere Data Architect components for Pack for SAP Applications 8.0</logoAltText>
+        <splash />
+        <splashDuration />
+        <content>launchpadImages/background.jpg</content>
+        <footer>launchpadImages/background.jpg</footer>
+    </appearanceInfo>
+
+    <disks>
+        <disk>
+            <label>IBM InfoSphere Data Architect components for Pack for SAP Applications 8.0 disk 1</label>
+            <name>disk1</name>
+            <customProperties />
+            <compatibilityChecks />
+            <id>disk1</id>
+        </disk>
+        <exportLpToAllDisks>false</exportLpToAllDisks>
+    </disks>
+
+</launchpad>

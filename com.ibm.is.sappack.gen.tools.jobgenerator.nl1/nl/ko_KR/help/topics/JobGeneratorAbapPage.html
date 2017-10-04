@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2011" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2011" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="cshelp" />
+<meta name="DC.Title" content="ABAP 추출 옵션" />
+<meta name="abstract" content="이 페이지에서는 작업 생성 디자인에서 ABAP 추출 옵션을 구성할 수 있습니다." />
+<meta name="description" content="이 페이지에서는 작업 생성 디자인에서 ABAP 추출 옵션을 구성할 수 있습니다." />
+<meta name="DC.Coverage" content="ABAP 추출 옵션" />
+<meta name="DC.Relation" scheme="URI" content="../topics/rapidgenforsap_container.html" />
+<meta name="DC.Relation" scheme="URI" content="../../com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc/topics/t_configure_job_abap_extract.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="abapextractoptions" />
+<meta name="DC.Language" content="ko-kr" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+<link rel="Start" href="../topics/rapidgenforsap_container.html" />
+<title>ABAP 추출 옵션</title>
+<script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+<script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+<script type="text/javascript">
+var mDivision = "IM/IS";
+var mProductName = "IBM InfoSphere Information Server";
+var mProductVersion = "8.7.0";
+var mToList = "comments@us.ibm.com,cgauthie@us.ibm.com,burkharj@us.ibm.com,eldredge@us.ibm.com,pattere@us.ibm.com";
+var mNewWindow = false;
+var plugin_form = "com.ibm.srcf.doc";
+</script>
+
+</head>
+<body id="abapextractoptions"><a name="abapextractoptions"><!-- --></a>
+<div role="banner" id="runningheader" class="runningheader">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/IBM_IC_cue.gif" />
+<span class="hf-bold">IBM InfoSphere Information Server Pack for SAP Applications, 버전 7.0</span><div id="runningheader-feedback" class="runningheader-feedback">
+<a href="javascript:ibm_id_form()"><span class="hf-bold">피드백</span></a></div>
+<hr class="hf-hr" />
+</div>
+<!-- This headerarea file can be used for any topic placed in only one subdirectory,
+     not in the root directory of the plug-in. 
+     Template; ICCC Version 3.1, CBU Version 4.2, May 2011.
+--><div>
+   <!-- Additional meta information. -->
+   <meta name="dc.identifier" content="headerfile" />
+   <meta name="dc.rights" content="© Copyright IBM Corporation 2004, 2011" />
+   <!-- meta name="DC.Rights.Owner" content="For support, contact sharpt@us.ibm.com" -->
+   <meta name="feedback" content="" />
+   <meta name="ibm.country" content="US" />
+   <meta name="ibm.effective" scheme="W3CDTF" content="2011-04-27" />
+   <meta name="ibm.expires" scheme="W3CDTF" content="2012-04-27" />
+   <meta name="source" content="CBU map.infocenter transform from DITA" />
+   <!-- Common CSS -->
+   <link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+   <!-- topic_url.js for writing the topic URL in the footer. -->
+   <script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+   <!-- srcfv3.js and variable setup for the Feedback link. -->
+   <script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+   <script type="text/javascript">
+      var mDivision = "IM";
+      var mProductName = "IBM CBU Sample";
+      var mProductVersion = "4.2.0";
+      var mToList = "Notesgroupname";
+      var plugin_form = "com.ibm.srcf.doc";
+</script>
+   <noscript>
+      <style type="text/css"><!--.collapsecontent{display:block;}// -->
+      </style>
+   </noscript>
+</div>
+<h1 class="title topictitle1">ABAP 추출 옵션</h1>
+<div class="body csbody"><p class="shortdesc">이 페이지에서는 작업 생성 디자인에서 ABAP 추출 옵션을 구성할 수 있습니다.</p>
+<div class="note note"><span class="notetitle">주:</span> 텍스트를 "#" 기호로 둘러싸 텍스트 필드에 대해 <span class="ph">InfoSphere™ DataStage®</span>
+작업 매개변수를 사용할 수 있습니다.
+매개변수 세트는 "#" <span class="keyword parmname parmname">#ParameterSetName.ParameterName#</span> 구문으로 표시됩니다. 매개변수 및 매개변수 세트에 대한 자세한 정보는
+<span class="ph">IBM® InfoSphere DataStage and QualityStage™ 디자이너 클라이언트 안내서</span>의 내용을 참조하십시오.</div>
+<dl class="dl"><dt class="dthd"><strong>소스 옵션</strong></dt>
+<dt class="dt dlterm">DataStage SAP 연결</dt>
+<dd class="dd">DataStage에서 구성된 SAP 연결의 이름입니다.</dd>
+<dt class="dt dlterm">SAP 사용자</dt>
+<dd class="dd">SAP에 연결할 때 사용할 SAP 사용자의 ID입니다. </dd>
+<dt class="dt dlterm">SAP 사용자 비밀번호</dt>
+<dd class="dd">SAP 사용자의 비밀번호입니다. </dd>
+<dt class="dt dlterm">SAP 사용자 클라이언트 번호</dt>
+<dd class="dd">SAP 사용자의 클라이언트 번호입니다. </dd>
+<dt class="dt dlterm">SAP 사용자 언어</dt>
+<dd class="dd">SAP 사용자의 언어입니다. </dd>
+</dl>
+<dl class="dl"><dt class="dthd"><strong>대상 옵션</strong></dt>
+<dt class="dt dlterm">스테이지 유형</dt>
+<dd class="dd">SAP 논리 테이블의 대상으로 생성되는 스테이지의 유형입니다. ODBC Connector 또는 순차 파일을 예로 들 수 있습니다.</dd>
+<dt class="dt dlterm">ODBC Connector</dt>
+<dd class="dd">ODBC Connector를 위한 다음 옵션을 지정하십시오.<dl class="dl"><dt class="dt dlterm">ODBC 데이터 소스</dt>
+<dd class="dd">SAP에서 추출된 오브젝트는 ODBC 데이터 소스 테이블에 저장 및 구성됩니다. </dd>
+<dt class="dt dlterm">ODBC 사용자</dt>
+<dd class="dd">데이터 소스 구성의 사용자를 겹쳐씁니다.
+이 필드는 선택적입니다. </dd>
+<dt class="dt dlterm">ODBC 비밀번호</dt>
+<dd class="dd">데이터 소스 구성의 비밀번호를 겹쳐씁니다.
+이 필드는 선택적입니다. </dd>
+<dt class="dt dlterm">테이블 조치 선택</dt>
+<dd class="dd"><span class="keyword parmname parmname">APPEND</span> 또는 <span class="keyword parmname parmname">TRUNCATE</span> 테이블 조치를 선택할 수 있습니다. 자세한 정보는 ODBC Connector 스테이지 문서를 참조하십시오.</dd>
+</dl>
+</dd>
+<dt class="dt dlterm">순차 파일</dt>
+<dd class="dd">순차 파일 스테이지에 다음 옵션을 지정하십시오. <dl class="dl"><dt class="dt dlterm">파일 이름 접두부</dt>
+<dd class="dd">출력을 저장하는 데 사용되는 모든 파일의 접두부입니다.</dd>
+<dt class="dt dlterm">파일 업데이트 모드</dt>
+<dd class="dd"><span class="keyword parmname parmname">APPEND</span>, <span class="keyword parmname parmname">CREATE(존재하는 경우 오류)</span> 또는 <span class="keyword parmname parmname">OVERWRITE</span>를 선택할 수 있습니다. 자세한 정보는
+순차 파일 스테이지 문서를 참조하십시오.</dd>
+<dt class="dt dlterm">첫 번째 행은 열 이름</dt>
+<dd class="dd">순차 파일의 첫 행에 열 이름을 포함하려는 경우 선택</dd>
+</dl>
+</dd>
+<dt class="dt dlterm">RFC 전송 방법 옵션</dt>
+<dd class="dd">RFC 전송 방법 옵션을 지정하십시오. <dl class="dl"><dt class="dt dlterm">SAP 게이트웨이 호스트</dt>
+<dd class="dd">SAP 서버와 통신하기 위한 서비스를 제공하는 SAP 게이트웨이의 호스트 이름입니다.</dd>
+<dt class="dt dlterm">SAP 게이트웨이 서비스</dt>
+<dd class="dd">게이트웨이 서비스의 이름입니다.</dd>
+<dt class="dt dlterm">RFC 대상</dt>
+<dd class="dd">각각의 행이 공백으로 구분되는 두 개의 항목으로 구성되는 간단한 텍스트 파일입니다. 첫 번째 항목은 SAP 시스템에서 구성되는 RFC 대상의
+이름입니다. 두 번째 항목은 RFC 대상의 해당 프로그램 ID입니다. </dd>
+<dt class="dt dlterm">작업 내 최대 플로우 수</dt>
+<dd class="dd">작업 수를 줄이기 위해 여러 ABAP 스테이지로 ABAP 추출 작업을 생성할 수 있습니다. 하지만, ABAP 추출 작업에서 각 ABAP 스테이지는 SAP에서 고유한 RFC
+대상을 구성해야 합니다. 따라서 ABAP 스테이지의 최대 개수는 제공되는 RFC 대상의 수에 의해 제한됩니다. 또한, 이 수는 단일
+<span class="ph">IBM InfoSphere DataStage</span> 작업 내에서 ABAP 스테이지 인스턴스 또는 작업당
+플로우의 최대 개수를 정의하며, 제공되는 RFC 대상의 수로 제한됩니다.  </dd>
+<dt class="dt dlterm">RFC 대상 자동 작성</dt>
+<dd class="dd">런타임에서 <span class="ph">IBM InfoSphere DataStage</span> 작업에 의해 RFC 대상이
+작성되는 경우 이 옵션을 선택하십시오.</dd>
+<dt class="dt dlterm">필요한 경우 RFC 대상 삭제</dt>
+<dd class="dd">필요한 경우 RFC 대상 삭제를 허용하려면 이 옵션을 선택하십시오.</dd>
+<dt class="dt dlterm">SAP 설정 유효성 검증</dt>
+<dd class="dd">SAP 연결 설정을 유효성 검증하려면 이 단추를 클릭하십시오.</dd>
+</dl>
+ </dd>
+</dl>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="../topics/rapidgenforsap_container.html" title="IBM InfoSphere Rapid Generator for SAP Applications을 사용하여 가져온 SAP 메타데이터로 InfoSphere DataStage 작업을 생성할 수 있습니다. 이런 InfoSphere DataStage 작업은 관계형 데이터베이스 또는 플랫 파일 간에 가져온 메타데이터에 의해 설명되는 SAP 오브젝트의 실제 데이터를 추출하거나 로드합니다.">IBM InfoSphere Rapid Generator for SAP Applications</a></div>
+</div>
+<div class="relinfo reltasks"><strong>관련 태스크</strong><br />
+<div><a class="link" href="../../com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc/topics/t_configure_job_abap_extract.html" title="Rapid Generator for SAP 마법사에서 ABAP 추출 작업을 구성하려면 다음 태스크를 완료하십시오.">ABAP 추출 작업용 작업 생성 구성</a></div>
+</div>
+</div>
+<br />
+<div role="contentinfo" id="runningfooter" class="runningfooter">
+<hr class="hf-hr" />
+
+<p class="runningfooter">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/timestamp.gif" />
+릴리스 날짜: 2011-10-01
+
+<span class="hf-block"><script language="javascript">write_topic_url();</script></span>
+</p>
+</div>
+</body>
+</html>

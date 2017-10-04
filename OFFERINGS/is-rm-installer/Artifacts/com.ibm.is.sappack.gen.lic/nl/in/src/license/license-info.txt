@@ -1,0 +1,48 @@
+﻿INFORMASI LISENSI
+
+Program-program yang tercantum di bawah ini diberi lisensi berdasarkan syarat dan ketentuan berikut ini selain syarat dan ketentuan dari IBM Perjanjian Lisensi Program Internasional (nomor formulir IBM Z125-3301-14).
+
+Nama Program: IBM InfoSphere Information Server Pack for SAP Applications v7.1
+Nomor Program: 5724-Q55
+
+Nama Program: IBM InfoSphere Information Server Pack for SAP Applications for Non-Production v7.1
+Nomor Program: 5724-Q55
+
+Sebagaimana dijelaskan dalam Perjanjian Lisensi Program Internasional (International Program License Agreement/"IPLA") dan Informasi Lisensi ini, IBM memberikan kepada Pemegang lisensi, suatu hak terbatas atas penggunaan Program. Hak ini terbatas pada tinggak Penggunaan yang Sah, seperti Unit Nilai Prosesor (Processor Value Unit/"PVU"), Unit Nilai (Value Unit/"VU"), atau tingkat lain yang ditetapkan, dibayarkan oleh Pemegang Lisensi sebagai Bukti dalam Bukti Kepemilikan. Penggunaan Pemegang Lisensi juga dapat dibatasi pada mesin tertentu, atau hanya sebagai Program Pendukung, atau tunduk kepada pembatasan lainnya. Jika Pemegang Lisensi tidak membayar untuk semua nilai ekonomis dari Program, tidak ada penggunaan lain yang diijinkan tanpa pembayaran biaya tambahan. Selain itu, sebagaimana dinyatakan dalam IPLA, Pemegang Lisensi tidak berhak menggunakan Program untuk memberikan layanan TI komersil kepada pihak ketiga, untuk memberikan hosting atau timesharing komersil, atau untuk mensub-lisensikan, menyewakan, atau meminjamkan Program kecuali dinyatakan secara jelas dalam perjanjian yang berlaku di mana Pemegang Lisensi memperoleh kewenangan untuk menggunakan Program. Hak tambahan dapat diberikan kepada Pemegang Lisensi sesuai dengan pembayaran biaya tambahan atau sesuai dengan syarat tambahan atau syarat berbeda. IBM berhak untuk menentukan apakah akan memberikan hak tambahan tersebut kepada Pemegang Lisensi atau tidak.
+
+Spesifikasi Program dapat ditemukan dalam bagian Informasi Teknis dan Deskripsi kolektif pada Surat Pemberitahuan Program.
+
+Program Pendukung
+
+Program diberi lisensi sebagai sebuah paket multiproduk dan termasuk Program-program Pendukung yang diidentifikasi di bawah ini. Pemegang Lisensi berhak untuk memasang dan menggunakan Program-program Pendukung tersebut hanya untuk mendukung penggunaan Pemegang Lisensi atas Program Utama berdasarkan Perjanjian ini dan dalam batas-batas Bukti Kepemilikan untuk Program (kecuali apabila hak-hak yang lebih luas ditetapkan di suatu tempat dalam dokumen Informasi Lisensi ini). Frasa "untuk mendukung penggunaan Pemegang Lisensi" hanya akan termasuk penggunaan-penggunaan tersebut yang diperlukan atau dengan cara lain, yang terkait secara langsung dengan penggunaan yang diberi lisensi atas Program Utama dan Program Pendukung lainnya. Program-program Pendukung tidak dapat digunakan untuk tujuan lainnya. Pemegang Lisensi tidak berhak untuk mentransfer atau memasarkan kembali Program-program Pendukung secara terpisah dari Program Utama. Program Pendukung dapat disertai dengan syarat-syarat lisensi, dan syarat-syarat tersebut, apabila ada, berlaku untuk penggunaan Pemegang Lisensi atas Program Pendukung. Apabila terdapat ketidaksesuaian, syarat-syarat dalam dokumen Informasi tentang Lisensi ini menggantikan syarat-syarat Program Pendukung. Pada saat hak Pemegang Lisensi untuk menggunakan Program habis waktunya atau berakhir, Pemegang Lisensi harus berhenti menggunakan, memusnahkan atau segera mengembalikan semua salinan dari Program-program Pendukung kepada pihak yang darinya Pemegang Lisensi memperoleh Program. Apabila Pemegang Lisensi telah mengunduh Program-program Pendukung, Pemegang Lisensi sebaiknya menghubungi pihak yang darinya Pemegang Lisensi memperoleh Program. Apabila Pemegang Lisensi ingin memberi lisensi untuk Program-program Pendukung untuk digunakan melampaui batas-batas yang tercantum di atas, hubungi Perwakilan Penjualan IBM atau pihak yang darinya Pemegang Lisensi memperoleh Program untuk mendapatkan lisensi yang sesuai.
+
+Berikut ini adalah Program-program Pendukung yang diberi lisensi bersama dengan Program:
+- IBM Cognos Business Intelligence v10.2
+- IBM Master Data Management Reference Data Management Hub v10.1
+- IBM Conversion Workbench Migration Asset for SAP Applications v2.1
+- IBM Cognos Data Manager Connector for SAP R/3 v10.2
+
+Komponen-komponen yang Diizinkan
+
+Meskipun terdapat ketentuan dalam Perjanjian, Pemegang Lisensi hanya diizinkan untuk menggunakan komponen-komponen atau fungsi-fungsi berikut ini dari Program Pendukung yang telah diidentifikasi:
+- IBM Master Data Management Reference Data Management Hub (may only be used with IBM Conversion Workbench Migration Asset for SAP Applications)
+- IBM Cognos Business Intelligence (may only be used with IBM Conversion Workbench Migration Asset for SAP Applications)
+- Cognos Connection (of IBM Cognos Business Intelligence)
+- Framework Manager (of IBM Cognos Business Intelligence)
+- Report Studio (of IBM Cognos Business Intelligence)
+- Report Viewer (of IBM Cognos Business Intelligence)
+
+Batasan Nonproduksi
+
+Apabila Program ditetapkan sebagai "Nonproduksi", Program hanya dapat diluncurkan sebagai bagian dari pengembangan internal dan lingkungan pengujian untuk kegiatan-kegiatan nonproduksi internal dari Pemegang Lisensi, termasuk tetapi tidak terbatas pada kegiatan pengujian, perbaikan kinerja sistem, diagnosis kesalahan, penentuan tolok ukur internal, pelaksanaan, dan pemberian jaminan kualitas dan/atau pengembangan tambahan atau perpanjangan Program yang digunakan secara internal yang menggunakan antarmuka-antarmuka pemrograman aplikasi yang telah dipublikasikan. Pemegang Lisensi tidak berhak untuk menggunakan sebagian Program untuk tujuan-tujuan lainnya tanpa memperoleh kepemilikan-kepemilikan produksi yang sesuai.
+
+Pembatasan tentang Penggunaan Manfaat Pihak Ketiga
+Pemegang Lisensi tidak dapat menggunakan Program atau setiap komponen dari Program tersebut untuk memberikan kepada kantor layanan, layanan penyelenggaraan atau layanan teknologi informasi komersial dalam bentuk apa pun kepada para pihak ketiga atau mentransfer Program kepada pihak ketiga, kecuali apabila disetujui lain secara tertulis oleh IBM.
+
+Pemasangan
+
+Pemasangan adalah unit ukuran yang olehnya Program dapat diberi lisensi. Pemasangan adalah salinan Program yang dipasang di disket dalam bentuk fisik atau maya yang disediakan untuk dijalankan di komputer. Pemegang Lisensi harus mendapatkan kepemilikan untuk masing-masing Pemasangan Program.
+
+L/N:  L-SBRN-9FN46Q
+D/N:  L-SBRN-9FN46Q
+P/N:  L-SBRN-9FN46Q 

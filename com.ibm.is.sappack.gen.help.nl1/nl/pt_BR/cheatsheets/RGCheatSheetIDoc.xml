@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="Gerando Tarefas do DataStage para Extração de IDoc com o Rapid Generator for SAP">
+   <intro>
+      <description>
+         Esta folha de dicas mostra como criar um modelo de dados lógico e como extrair metadados de um tipo de IDoc de SAP.
+         <br/>
+         <b>NOTA: Esta folha de dicas supõe que você tenha concluído a folha de dicas
+         "Importando Tipos de IDocs do SAP Usando o Rapid Modeler for SAP"
+         e
+         "Preparando o Modelo de Dados Lógico para Geração de Tarefas".
+         Certifique-se de inserir os nomes dos projetos, modelos, etc. usados nessas folhas de dicas exatamente como indicado, caso contrário, os botões "Clicar para Executar" poderão não funcionar. 
+         No entanto, os botões "Clicar ao Concluir" continuarão funcionando.
+         </b>
+      </description>
+   </intro>
+   <item
+         title="Abrir a Perspectiva Dados">
+      <command
+            required="false"
+            serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=com.ibm.datatools.core.internal.ui.perspective)"/>         
+      <description>
+         Se você ainda não estiver na perspectiva Dados, no menu principal, selecione <b>Janela</b> &gt; <b>Abrir Perspectiva</b> &gt; <b>Dados</b>.
+      </description>
+   </item>
+   <item dialog="true" 
+            title="Abrir o Assistente do Rapid Generator for SAP em um Modelo de Dados Físico">
+        <description>
+        Certifique-se de que o arquivo <b>RMIDocModel.dbm</b> exista no Data Design Project <b>RMTestProject</b>.
+        Lembre-se de que esse arquivo é resultado da transformação do modelo lógico <b>RMIDocModel.ldm</b> em um modelo de dados físico.
+         <br/>Clique com o botão direito do mouse em <b>RMIDocModel.dbm</b> e selecione <b>Rapid Generator for SAP</b> &gt; <b>Gerar Tarefa do DataStage</b>.
+        </description>
+      <action required="false"
+			pluginId="com.ibm.is.sappack.gen.tools.jobgenerator"
+			class="com.ibm.is.sappack.gen.tools.jobgenerator.popup.actions.JobGeneratorCheatSheetAction"
+			param1="RMTestProject" param2="RMIDocModel.dbm"/>              
+      </item>
+   <item
+         title="Selecionar o Tipo de Tarefa">
+      <description>
+       Na página <b>Selecionar o Tipo de Tarefa</b>, selecione <b>Tarefa de Extração de IDoc</b>.
+       <br/>
+       Clique em <b>Avançar</b>
+      </description>
+   </item>
+   <item
+         title="Inserir Detalhes do Information Server">
+      <description>
+        Insira as informações de conexão na instalação do Information Server.
+        O nome do domínio geralmente se assemelha a <b>Servername:9080</b>.
+        Use as caixas suspensas para selecionar o projeto DataStage e a pasta dentro do projeto.
+        Insira a sequência <b>RGIDocJob</b> como o <b>prefixo de nome de tarefa</b>.
+        <br/>
+        Clique em <b>Avançar</b> 
+      </description>
+   </item>
+   <item
+         title="Inserir Opções de Extração de IDoc">
+      <description>
+         Na página <b>Opções de Extração de IDoc</b>, preencha as seguintes seções: 
+      </description>
+      <subitem
+            label="Na seção Opções de Origem, selecione a conexão de SAP definida no servidor DataStage. Deixe 'Sobrescrever Padrões de Conexão' desmarcado.">
+      </subitem>
+      <subitem
+            label="Na seção Opções de Destino, selecione Conector ODBC como o Tipo de Estágio. Insira o nome da sua origem de dados ODBC e suas credenciais de usuário. Selecione 'ANEXAR' como a ação da tabela.">
+      </subitem>
+      <subitem
+            label="Clique em Avançar.">
+      </subitem>
+   </item>
+   <item
+         title="Ignore a página Definir Parâmetros da Tarefa">
+      <description>
+        Na página <b>Definir Parâmetros da Tarefa</b>, deixe todas as configurações.
+         <br/>
+         Clique em <b>Avançar</b>
+      </description>
+   </item>
+   <item
+         title="Ignore a página Definir Derivações da Tarefa">
+      <description>
+        Na página <b>Definir Derivações da Coluna</b>, desmarque <b>Usar Derivações Customizadas</b>.
+         <br/>
+         Ao clicar em Avançar nessa página, o processo de geração da tarefa iniciará.
+         <br/>
+         Clique em <b>Avançar</b>
+      </description>
+   </item>
+   <item
+         title="Concluir o Assistente">
+      <description>
+         Na página <b>Resumo</b>, revise o resumo indicando quais tarefas foram geradas.
+         <br/>
+         Marque a caixa de seleção <b>Ativar Compilador de Várias Tarefas de DataStage</b>, se quiser compilar sua tarefa.
+         <br/>
+         Clique em <b>Concluir</b>. 
+      </description>
+         </item>
+   <item
+         skip="true"
+         title="Compile a tarefa">
+      <description>
+        Após a conclusão do assistente, o compilador de várias tarefas do DataStage será ativado com as tarefas geradas selecionadas. Percorra o assistente para compilar a tarefa.
+      </description>
+   </item>
+   <item href="http://publib.boulder.ibm.com/infocenter/iisinfsv/v8r1/topic/com.ibm.swg.im.iis.productization.iisinfsv.overview.doc/topics/cisodsdirector.html"
+         title="Executar a Tarefa">
+      <description>
+      Para executar a tarefa, abra o <b>DataStage Director</b>, selecione a tarefa que acabou de gerar e selecione <b>Executar</b>.
+      </description>
+   </item>
+      </cheatsheet>

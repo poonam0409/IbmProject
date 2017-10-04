@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>idx.oneui.form.CheckBoxList Test</title>
+
+	<script type="text/javascript" src="../../../tests/dojoVersion.js"></script>
+	<script type="text/javascript">
+		dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+	
+	<style id="idxStyles" type="text/css">
+		@import "../../../themes/oneui/oneui.css";
+		@import "../../../themes/test.css";
+		@import "../../tests/_pagefooter/_PageFooter.css";
+	</style>
+	
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+	</script>
+
+	<script type="text/javascript">
+		dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+
+	<script type="text/javascript" id="postDojo">
+		var modules = [
+			"idx.oneui.form.CheckBoxList",
+			"dijit.form.Button",
+			"dijit.form.Form",
+			"idx.oneui.tests._pagefooter._PageFooter"]; 
+		var _PageFooter = null;
+		function preParse(modules){
+			_PageFooter = modules["idx/oneui/tests/_pagefooter/_PageFooter"];
+			new _PageFooter();
+		}
+		function postParse(modules){
+		}
+		dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+	</script>
+
+	<script type="text/javascript" src="../../../tests/commonTest.js"></script>
+</head>
+
+<body class="oneui">
+	<a class="navigationLink" href="#maincontent">Skip to main content</a>
+	<script type="text/javascript">applyThemeToBody("oneui");</script>
+	<a name="maincontent"></a>
+	<div class="testMain">
+		<h1 class="testTitle">idx.oneui.form.CheckBoxList Test</h1>
+		<h2>Horizontal label alignment, Vertical group alignment</h2>
+		<select jsId="cbl1" multiple="true" data-dojo-type="idx.oneui.form.CheckBoxList" data-dojo-props="
+			name: 'cbl1',
+			label: 'Normal:',
+			labelAlignment: 'horizontal',
+			groupAlignment: 'vertical'
+		">
+			<option value="TN">Tennessee</option>
+			<option value="VA">Virginia</option>
+			<option value="WA">Washington</option>
+			<option value="FL">Florida</option>
+			<option value="CA">California</option>
+		</select>
+		
+		<select jsId="cbl2" multiple="true" data-dojo-type="idx.oneui.form.CheckBoxList" data-dojo-props="
+			name: 'cbl2',
+			label: 'Partly disabled:',
+			labelAlignment: 'horizontal',
+			groupAlignment: 'vertical'
+		">
+			<option value="TN">Tennessee</option>
+			<option value="VA" disabled="true">Virginia</option>
+			<option value="WA">Washington</option>
+			<option value="FL">Florida</option>
+			<option value="CA" disabled="true">California</option>
+		</select>
+	
+		<select jsId="cbl3" multiple="true" data-dojo-type="idx.oneui.form.CheckBoxList" data-dojo-props="
+			name: 'cbl3',
+			label: 'Disabled:',
+			disabled: true,
+			labelAlignment: 'horizontal',
+			groupAlignment: 'vertical'
+		">
+			<option value="TN">Tennessee</option>
+			<option value="VA">Virginia</option>
+			<option value="WA">Washington</option>
+			<option value="FL">Florida</option>
+			<option value="CA">California</option>
+		</select>
+		<br/>
+		
+		<h2>Horizontal label alignment, Horizontal group alignment</h2>
+		<select jsId="cbl4" multiple="true" data-dojo-type="idx.oneui.form.CheckBoxList" data-dojo-props="
+			name: 'cbl4',
+			label: 'Normal:',
+			labelAlignment: 'horizontal',
+			groupAlignment: 'horizontal'
+		">
+			<option value="TN">Tennessee</option>
+			<option value="VA">Virginia</option>
+			<option value="WA">Washington</option>
+			<option value="FL">Florida</option>
+			<option value="CA">California</option>
+		</select>
+		<br/>
+		<select jsId="cbl5" multiple="true" data-dojo-type="idx.oneui.form.CheckBoxList" data-dojo-props="
+			name: 'cbl5',
+			label: 'Partly disabled:',
+			labelAlignment: 'horizontal',
+			groupAlignment: 'horizontal'
+		">
+			<option value="TN">Tennessee</option>
+			<option value="VA" disabled="true">Virginia</option>
+			<option value="WA">Washington</option>
+			<option value="FL">Florida</option>
+			<option value="CA" disabled="true">California</option>
+		</select>
+		<br/>
+		<select jsId="cbl6" multiple="true" data-dojo-type="idx.oneui.form.CheckBoxList" data-dojo-props="
+			name: 'cbl6',
+			label: 'Disabled:',
+			disabled: true,
+			labelAlignment: 'horizontal',
+			groupAlignment: 'horizontal'
+		">
+			<option value="TN">Tennessee</option>
+			<option value="VA">Virginia</option>
+			<option value="WA">Washington</option>
+			<option value="FL">Florida</option>
+			<option value="CA">California</option>
+		</select>
+		<br/>
+		
+		<h2>Vertical label alignment, Vertical group alignment</h2>
+		<select jsId="cbl7" multiple="true" data-dojo-type="idx.oneui.form.CheckBoxList" data-dojo-props="
+			name: 'cbl7',
+			label: 'Normal:',
+			labelAlignment: 'vertical',
+			groupAlignment: 'vertical'
+		">
+			<option value="TN">Tennessee</option>
+			<option value="VA">Virginia</option>
+			<option value="WA">Washington</option>
+			<option value="FL">Florida</option>
+			<option value="CA">California</option>
+		</select>
+		
+		<select jsId="cbl8" multiple="true" data-dojo-type="idx.oneui.form.CheckBoxList" data-dojo-props="
+			name: 'cbl8',
+			label: 'Partly disabled:',
+			labelAlignment: 'vertical',
+			groupAlignment: 'vertical'
+		">
+			<option value="TN">Tennessee</option>
+			<option value="VA" disabled="true">Virginia</option>
+			<option value="WA">Washington</option>
+			<option value="FL">Florida</option>
+			<option value="CA" disabled="true">California</option>
+		</select>
+	
+		<select jsId="cbl9" multiple="true" data-dojo-type="idx.oneui.form.CheckBoxList" data-dojo-props="
+			name: 'cbl9',
+			label: 'Disabled:',
+			disabled: true,
+			labelAlignment: 'vertical',
+			groupAlignment: 'vertical'
+		">
+			<option value="TN">Tennessee</option>
+			<option value="VA">Virginia</option>
+			<option value="WA">Washington</option>
+			<option value="FL">Florida</option>
+			<option value="CA">California</option>
+		</select>
+		<br/>
+	
+		<div id="node"></div>
+	</div>
+</body>
+</html>

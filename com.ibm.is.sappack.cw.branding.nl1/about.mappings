@@ -1,0 +1,5 @@
+0=1.1.0
+1=@version.qualifier@
+2=@build.number@
+3=@model.version@
+4=@client.server.version@

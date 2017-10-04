@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>Messaging Test: Modal Dialog</title>
+		
+		<script type="text/javascript" src="../../../tests/dojoVersion.js"></script>
+		<script type="text/javascript">
+			dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+			dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+		</script>
+	
+		<style id="idxStyles" type="text/css">
+            @import "../../../themes/oneui/oneui.css";
+			@import "../../tests/_pagefooter/_PageFooter.css";
+            @import "../../../themes/test.css";
+			
+			a{text-decoration:none;}
+			a:hover{text-decoration:underline;}
+			.blackBackground{
+				background: black;
+			}
+			.blackBackground h2, .blackBackground h3{
+				color: white;
+			}
+		</style>
+	
+		<!-- required: dojo.js -->
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+		</script>
+		<script type="text/javascript">
+			dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+		
+		<script type="text/javascript" id="postDojo">
+			var modules = [
+				"dijit._base.manager", 
+				"dijit.form.Button",
+				"dijit.form.Form",
+				"idx.oneui.messaging.ModalDialog",  
+				"idx.oneui.messaging.ConfirmationDialog", 
+				"idx.oneui.tests._pagefooter._PageFooter"
+			]; 
+			var Button, manager, Form, ModalDialog, ConfirmationDialog, _PageFooter;
+			
+			function preParse(modules){
+				manager 			= modules["dijit/_base/manager"];
+				Button 				= modules["dijit/form/Button"];
+				Form  				= modules["dijit/form/Form"];
+				ModalDialog   		= modules["idx/oneui/messaging/ModalDialog"];
+				ConfirmationDialog 	= modules["idx/oneui/messaging/ConfirmationDialog"];
+				_PageFooter   		= modules["idx/oneui/tests/_pagefooter/_PageFooter"];
+			}
+			function postParse() {
+				new _PageFooter();
+			}
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+			
+			function showError(){
+				var errorDialog = manager.byId("errorDialog");
+				if(!errorDialog){
+					errorDialog = new ModalDialog({
+						id: "errorDialog",
+						type: "error", 
+						text: "The client cannot connect to the server customdoc.usca.ibm.com.",
+						info: [{
+							title: "Fix this problem",
+							content: "The server might not be available because someone pulled out the plug.<br/><br/>" + 
+							"Plug in and restart the server. " + 
+							"<button data-dojo-type=\"dijit.form.Button\" data-dojo-props='\"class\":\"secondaryButton\", onClick:function(){ alert(\"clicked Restart\"); }, value:\"Secondary\"'>Restart</button>" +
+							"<br/><br/>If the problem persists, install a locked door to keep the people away from the server, then restart it."
+						},{
+							title: "Get more help",
+							content: "<a href='#'>Email this message to my administrator</a><br/><br/>" + 
+							"<a href='#'>Live chat with my administrator</a><br/><br/>" + 
+							"<a href='#'>Search support</a><br/><br/>" + 
+							"<a href='#'>Search communities</a>"
+						}],
+						messageId: "CAT123456",
+						messageRef: "http://www.google.com/",
+						messageTimeStamp: new Date(2011, 8, 1)
+					}, "error");
+				}
+				errorDialog.show();
+			};
+			function showWarning(){
+				var warningDialog = manager.byId("warningDialog");
+				if(!warningDialog){
+					warningDialog = new ModalDialog({
+						id: "warningDialog",
+						type: "warning", 
+						text: "The client cannot connect to the server customdoc.usca.ibm.com, please check the server's status",
+						info: "The server might not be available because someone pulled out the plug.<br/><br/>" + 
+							"Plug in and restart the server." + 
+							"<br/><br/>If the problem persists, install a locked door to keep the people away from the server, then restart it.",
+						messageId: "CAT123456",
+						messageTime: true
+					}, "warning");
+				}
+				warningDialog.show();
+			};
+			function showInformation(){
+				var infoDialog = manager.byId("infoDialog");
+				if(!infoDialog){
+					infoDialog = new ModalDialog({
+						id: "infoDialog",
+						type: "information",
+						text: "The database was successfully installed. Restart the system."
+					}, "information");
+				}
+				infoDialog.show();
+			};
+			function ChangeBackgroudColor(){
+				var confirmationDialog = manager.byId("confirmationDialog");
+				if(!confirmationDialog){
+					confirmationDialog = new ConfirmationDialog({
+						id: "confirmationDialog",
+						text: "Are you sure that you want to change the background color?",
+						buttonLabel: "Change",
+						type: "confirmation",
+						dupCheck: true
+					}, "confirmation");
+				}
+				confirmationDialog.confirm(function(){
+					dojo.toggleClass(dojo.body(), "blackBackground");
+				});
+			};
+			
+			function confirmSuccess(){
+				var success = manager.byId("confirmationDialogSuccess");
+				if(!success){
+					success = new ConfirmationDialog({
+						id: "confirmationDialogSuccess",
+						text: "The filter has been removed successfully",
+						info: "All Availiable records",
+						buttonLabel: "OK",
+						type: "success"
+					}, "confirmationSuccess");
+				}
+				success.confirm(function(){
+					console.log("successfully!");
+				});
+			};
+			
+			function confirmQuestion(){
+				var question = manager.byId("confirmationDialogQuestion");
+				if(!question){
+					question = new ConfirmationDialog({
+						id: "confirmationDialogQuestion",
+						text: "Are you sure you want to close your document without saving your changes ?",
+						buttonLabel: "Close Document",
+						type: "question"
+					}, "confirmationQuestion");
+				}
+				question.confirm(function(){
+					console.log("successfully!");
+				});
+			};
+		</script>
+		<script type="text/javascript" src="../../../tests/commonTest.js"></script>
+	</head>
+	<body class="oneui" style="width: 100%; height: 100%; margin: 0; padding: 0;">
+		<a class="navigationLink" href="#maincontent">Skip to main content</a>
+		<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+		<a name="maincontent"></a>
+		
+		<div class="testMain">
+			<h1 class="testTitle">Modal Dialog and Confirm Dialog</h1>
+		
+			<h2>Modal Dialog</h2>
+			<p>
+			API ref: <a target="_blank" href="http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/messaging/ModalDialog.js">http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/messaging/ModalDialog.js</a>
+			</p>
+			<h3>Error, Warning, Infomation</h3>
+			<button dojoType="dijit.form.Button" onClick="showError();">show error</button>
+			<button dojoType="dijit.form.Button" onClick="showWarning();">show warning</button>
+			<button dojoType="dijit.form.Button" onClick="showInformation();">show Information</button>
+			<button data-dojo-type="dijit.form.Button" data-dojo-props='onClick:function(){dijit.byId("error2").show();}'>show another error</button>
+			<div id="error"></div>
+			<div id="warning"></div>
+			<div id="information"></div>
+			<div id="confirmation"></div>
+			<div id="confirmationSuccess"></div>
+			<div id="confirmationQuestion"></div>
+			
+			<div id="error2" data-dojo-type="idx.oneui.messaging.ModalDialog" data-dojo-props=
+				'type:"error", messageId:"12345", messageRef:"http://www.google.com",text:"The client cannot connect to the server customdoc.usca.ibm.com."'>
+			</div>
+			
+			<h2>Confirm Dialog</h2>
+			<button dojoType="dijit.form.Button" onClick="ChangeBackgroudColor();">change background color</button>
+			<button dojoType="dijit.form.Button" onClick="dijit.byId('confirmationDialog').uncheck();">forget my choice</button>
+			<button dojoType="dijit.form.Button" onClick="confirmSuccess();">Success Message Dialog</button>
+			<button dojoType="dijit.form.Button" onClick="confirmQuestion();">Question Mark Message Dialog</button>
+		</div>
+	</body>
+</html>

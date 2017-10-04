@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2011, 2014  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<?eclipse version="3.0"?>
+<plugin>
+
+<extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="com.ibm.iis.sappack.gen.tools.sap.tablelist.TableListEditor"
+            default="true"
+            extensions="rmtl"
+            icon="icons/SAP_abap_table_list_16.png"
+            id="com.ibm.iis.sappack.gen.tools.sap.editor.tablelist"
+            name="%tableListEditorName">
+      </editor>
+      <editor
+            class="com.ibm.iis.sappack.gen.tools.sap.idocseglist.IDocSegmentListEditor"
+            default="true"
+            extensions="rmil"
+            icon="icons/SAP_Idoc _segment_list_16.png"           
+            id="com.ibm.iis.sappack.gen.tools.sap.editor.segmentlist"
+            name="%idocSegmentListEditorName">
+      </editor>
+      <editor
+            class="com.ibm.iis.sappack.gen.tools.sap.rmconf.RMConfigurationEditor"
+            default="true"
+            extensions="rmcfg"
+            icon="icons/SAP_rapid_modeler_config_16.png"
+            id="com.ibm.iis.sappack.gen.tools.sap.rmconf"
+            name="%rmConfEditorName">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+
+      <wizard
+            category="com.ibm.iis.sappack.gen.common.ui.newWizardCategory"
+            class="com.ibm.iis.sappack.gen.tools.sap.tablelist.NewTableListWizard"
+            icon="icons/SAP_abap_table_list_16.png"
+            id="com.ibm.iis.sappack.gen.tools.sap.newTableListWizard"
+            name="%tablelist">
+      </wizard>
+      <wizard
+            category="com.ibm.iis.sappack.gen.common.ui.newWizardCategory"
+            class="com.ibm.iis.sappack.gen.tools.sap.idocseglist.NewIDocSegmentListWizard"
+            helpHref="../com.ibm.is.sappack.gen.help/cshelp/topics/rmrg_rm_idocsegmentlist.html"
+            icon="icons/SAP_Idoc _segment_list_16.png"
+            id="com.ibm.iis.sappack.gen.tools.sap.newIDocSegmentListWizard"
+            name="%idocSegmentList">
+      </wizard>
+      <wizard
+            category="com.ibm.iis.sappack.gen.common.ui.newWizardCategory"
+            class="com.ibm.iis.sappack.gen.tools.sap.rmconf.NewRMConfWizard"
+            icon="icons/SAP_rapid_modeler_config_16.png"
+            id="com.ibm.iis.sappack.gen.tools.sap.newRMConfWizard"
+            name="%importConf">
+      </wizard>
+   </extension>
+   
+   
+   
+   <extension
+         point="org.eclipse.ui.commands">
+         <!--
+      <category
+            name="%category"
+            id="com.ibm.iis.sappack.gen.tools.editors.commands.category">
+      </category>
+            categoryId="com.ibm.iis.sappack.gen.tools.editors.commands.category"
+      -->
+      <command
+            name="%rmCommand"
+            id="com.ibm.iis.sappack.gen.tools.sap.rmcommand">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="com.ibm.iis.sappack.gen.tools.sap.rmcommand"
+            class="com.ibm.iis.sappack.gen.tools.sap.importwizard.RMHandler">
+      </handler>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="%menu"
+               id="com.ibm.iis.sappack.gen.common.ui.menu">
+            <command
+                  commandId="com.ibm.iis.sappack.gen.tools.sap.rmcommand"
+                  icon="icons/SAP_Rapid_Modeler_16.png"
+                  id="com.ibm.iis.sappack.gen.tools.sap.rmmenucommand">
+            </command>
+         </menu>
+      </menuContribution>
+      
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="com.ibm.iis.sappack.gen.common.ui.viewCategory"
+            class="com.ibm.iis.sappack.gen.tools.sap.views.dependency.DependencyView"
+            icon="icons/SAP_sap_import_history_16.png"
+            id="com.ibm.is.sappack.gen.tools.sap.dependencyView"
+            name="%dependencyViewName"
+            restorable="true">
+      </view>
+   </extension>
+   
+
+   <extension
+         id="tablelistvalidator"
+         name="%tablelistvalidatorname"
+         point="org.eclipse.wst.validation.validatorV2">
+      <validator
+            build="true"
+            class="com.ibm.iis.sappack.gen.tools.sap.tablelist.TableListValidator"
+            manual="true"
+            markerId="com.ibm.is.sappack.gen.tools.sap.tablelistmarker"
+            version="1">
+         <include>
+            <rules>
+               <fileext
+                     caseSensitive="false"
+                     ext="rmtl">
+               </fileext>
+            </rules>
+         </include>
+      </validator>
+   </extension>
+
+   <extension
+         id="idocsegmentlistvalidator"
+         name="%idocsegmentlistvalidatorname"
+         point="org.eclipse.wst.validation.validatorV2">
+      <validator
+            build="true"
+            class="com.ibm.iis.sappack.gen.tools.sap.idocseglist.IDocSegmentListValidator"
+            manual="true"
+            markerId="com.ibm.is.sappack.gen.tools.sap.idocsegmentlistmarker"
+            version="1">
+         <include>
+            <rules>
+               <fileext
+                     caseSensitive="false"
+                     ext="rmil">
+               </fileext>
+            </rules>
+         </include>
+      </validator>
+   </extension>
+
+ <extension
+         id="rmconfvalidator"
+         name="%rmconfvalidatorname"
+         point="org.eclipse.wst.validation.validatorV2">
+      <validator
+            build="true"
+            class="com.ibm.iis.sappack.gen.tools.sap.rmconf.RMConfigurationValidator"
+            manual="true"
+            markerId="com.ibm.is.sappack.gen.tools.sap.rmconfmarker"
+            version="1">
+         <include>
+            <rules>
+               <fileext
+                     caseSensitive="false"
+                     ext="rmcfg">
+               </fileext>
+            </rules>
+         </include>
+      </validator>
+   </extension>
+   
+   <extension
+         id="tablelistmarker"
+         name="%tablelistmarkername"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.core.resources.problemmarker">
+      </super>
+      <persistent
+            value="true">
+      </persistent>
+   </extension>
+
+   <extension
+         id="idocsegmentlistmarker"
+         name="%idocsegmentlistmarkername"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.core.resources.problemmarker">
+      </super>
+      <persistent
+            value="true">
+      </persistent>
+   </extension>
+ 
+    <extension
+         id="rmconfmarker"
+         name="%rmconfmarkername"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.core.resources.problemmarker">
+      </super>
+      <persistent
+            value="true">
+      </persistent>
+   </extension>
+ 
+  <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            id="showInDependencyView"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               class="com.ibm.iis.sappack.gen.tools.sap.views.dependency.ShowInDependencyViewAction"
+               enablesFor="1"
+               icon="icons/SAP_sap_import_history_16.png"
+               id="showInDepViewPopupAction"
+               label="%showInDepViewPopup"
+               menubarPath="com.ibm.is.sappack.gen.common.ui.popupmenu/group">
+         </action>
+      </objectContribution>
+
+      <objectContribution
+            adaptable="true"
+            id="showInDependencyViewSAPConnection"
+            objectClass="com.ibm.iis.sappack.gen.common.ui.connections.SapSystem">
+         <action
+               class="com.ibm.iis.sappack.gen.tools.sap.views.dependency.ShowInDependencyViewAction"
+               enablesFor="1"
+               icon="icons/SAP_sap_import_history_16.png"
+               id="showInDepViewPopupActionSAPConnection"
+               label="%showInDepViewPopup"
+               menubarPath="com.ibm.is.sappack.gen.common.ui.popupmenu/group">
+         </action>
+      </objectContribution>
+
+   </extension>
+
+<!--
+  <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IFile"
+            id="com.ibm.is.sappack.gen.tools.sap.sappackpopupmenu">
+			<menu label="%popupMenuLabel"
+	               path="additions"
+	               id="com.ibm.is.sappack.gen.tools.sap.popupmenu">
+	            <separator
+	                  name="group1">
+	            </separator>
+	         </menu>
+	   </objectContribution>
+  </extension>
+	-->
+	         
+  <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.ldm"
+            id="com.ibm.is.sappack.gen.tools.sap.rmimport">
+     	     <action
+                 class="com.ibm.iis.sappack.gen.tools.sap.importwizard.MetaDataImportAction"
+                 enablesFor="1"
+                 icon="icons/SAP_Rapid_Modeler_16.png"
+                 id="com.ibm.is.sappack.gen.tools.sap.action.rmwizard"
+                 label="%rmCommand"
+                 menubarPath="com.ibm.is.sappack.gen.common.ui.popupmenu/group">
+	         </action>    
+	  </objectContribution>
+   </extension>
+
+<!--
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="com.ibm.is.sappack.gen.common.ui.prefpage"
+            class="com.ibm.is.sappack.gen.tools.sap.PreferencePageRMSettings"
+            id="com.ibm.is.sappack.gen.tools.sap.prefPageRadpidModeler"
+            name="%preferencePageRapidModeler">
+      </page>
+   </extension>
+-->
+
+   <extension
+         point="org.eclipse.ui.navigator.viewer">
+      <viewerContentBinding
+             viewerId="com.ibm.iis.sappack.gen.common.ui.sappacknavigator">
+         <includes>
+           <contentExtension pattern="com.ibm.iis.sappack.gen.tools.sap.rmnavigatorcontent"/>
+         </includes>
+      </viewerContentBinding>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <navigatorContent
+            activeByDefault="true"
+            contentProvider="com.ibm.iis.sappack.gen.tools.sap.views.navigator.NavigatorRMContentProvider"
+            id="com.ibm.iis.sappack.gen.tools.sap.rmnavigatorcontent"
+            labelProvider="com.ibm.iis.sappack.gen.tools.sap.views.navigator.NavigatorRMLabelProvider"
+            name="%sappackrmnavigatorcontent"
+            priority="normal">
+         <triggerPoints>
+         </triggerPoints>
+      </navigatorContent>
+   </extension>   
+         
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <actionProvider
+            class="com.ibm.iis.sappack.gen.tools.sap.views.navigator.RMActionProvider">
+         <enablement></enablement>
+      </actionProvider>
+   </extension>   
+
+
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="%helpXML"
+            plugin="com.ibm.is.sappack.gen.tools.sap">
+      </contexts>
+   </extension>
+   
+   <!--
+   <extension
+         point="org.eclipse.ui.popupMenus">
+         <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.datatools.modelbase.sql.tables.Table"
+            id="com.ibm.is.sappack.gen.tools.sap.tableExtract">
+     	     <action
+	               label="Extract tables"
+	               class="com.ibm.is.sappack.gen.tools.sap.tableextract.ExtractTableAction"
+	               menubarPath="com.ibm.is.sappack.gen.common.ui.popupmenu/group"
+	               enablesFor="+"
+	               id="com.ibm.is.sappack.gen.tools.sap.action.tableextract">
+	         </action>    
+	  </objectContribution>
+   </extension>
+   -->
+   
+      <extension
+         point="com.ibm.is.sappack.gen.common.ui.mode">
+      <rmrgmode
+            modeDescription="%defaultModeDescription"
+            modeID="RMRMG_DEFAULT_MODE"
+            modeName="%defaultModeName"
+            modeOptions="com.ibm.is.sappack.gen.common.ui.SAPPackModeOptions">
+      </rmrgmode>
+   </extension>
+   
+</plugin>

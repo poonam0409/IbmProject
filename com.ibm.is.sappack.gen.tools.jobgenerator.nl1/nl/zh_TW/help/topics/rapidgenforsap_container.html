@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2011" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2011" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="cshelp" />
+<meta name="DC.Title" content="IBM InfoSphere Rapid Generator for SAP Applications" />
+<meta name="abstract" content="您可以透過使用 IBM InfoSphere Rapid Modeler for SAP Applications 所匯入的 SAP meta 資料，來產生 InfoSphere DataStage 工作。這些 InfoSphere DataStage 工作會擷取或載入 SAP 物件的實際資料，而 SAP 物件是透過匯入至關聯式資料庫或純文字檔或從中匯入的 Meta 資料來說明。" />
+<meta name="description" content="您可以透過使用 IBM InfoSphere Rapid Modeler for SAP Applications 所匯入的 SAP meta 資料，來產生 InfoSphere DataStage 工作。這些 InfoSphere DataStage 工作會擷取或載入 SAP 物件的實際資料，而 SAP 物件是透過匯入至關聯式資料庫或純文字檔或從中匯入的 Meta 資料來說明。" />
+<meta name="DC.Coverage" content="Rapid Generator for SAP" />
+<meta name="DC.Relation" scheme="URI" content="../topics/JobTypeSelectionPage.html" />
+<meta name="DC.Relation" scheme="URI" content="../topics/InformationServerDetailsPage.html" />
+<meta name="DC.Relation" scheme="URI" content="../topics/JobGeneratorAbapPage.html" />
+<meta name="DC.Relation" scheme="URI" content="../topics/JobGeneratorIdocExtractPage.html" />
+<meta name="DC.Relation" scheme="URI" content="../topics/JobGeneratorIdocLoadPage.html" />
+<meta name="DC.Relation" scheme="URI" content="../topics/JobGeneratorJobParametersPage.html" />
+<meta name="DC.Relation" scheme="URI" content="../topics/JobGeneratorCustomDerivationsPage.html" />
+<meta name="DC.Relation" scheme="URI" content="../topics/JobParameterResolverPage.html" />
+<meta name="DC.Relation" scheme="URI" content="../topics/JobGeneratorAbapUploadPage.html" />
+<meta name="DC.Relation" scheme="URI" content="../topics/ValidationResultPage.html" />
+<meta name="DC.Relation" scheme="URI" content="../topics/JobGenerationSummaryPage.html" />
+<meta name="DC.Relation" scheme="URI" content="../../com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc/topics/c_is_pack_sap_applications.html" />
+<meta name="DC.Relation" scheme="URI" content="../../com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc/topics/c_intro_rapid_generator.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="rapidgeneratorforsap" />
+<meta name="DC.Language" content="zh-tw" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+<title>IBM InfoSphere Rapid Generator for SAP Applications</title>
+<script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+<script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+<script type="text/javascript">
+var mDivision = "IM/IS";
+var mProductName = "IBM InfoSphere Information Server";
+var mProductVersion = "8.7.0";
+var mToList = "comments@us.ibm.com,cgauthie@us.ibm.com,burkharj@us.ibm.com,eldredge@us.ibm.com,pattere@us.ibm.com";
+var mNewWindow = false;
+var plugin_form = "com.ibm.srcf.doc";
+</script>
+
+</head>
+<body id="rapidgeneratorforsap"><a name="rapidgeneratorforsap"><!-- --></a>
+<div role="banner" id="runningheader" class="runningheader">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/IBM_IC_cue.gif" />
+<span class="hf-bold">IBM InfoSphere Information Server Pack for SAP Applications 7.0 版</span><div id="runningheader-feedback" class="runningheader-feedback">
+<a href="javascript:ibm_id_form()"><span class="hf-bold">讀者意見</span></a></div>
+<hr class="hf-hr" />
+</div>
+<!-- This headerarea file can be used for any topic placed in only one subdirectory,
+     not in the root directory of the plug-in. 
+     Template; ICCC Version 3.1, CBU Version 4.2, May 2011.
+--><div>
+   <!-- Additional meta information. -->
+   <meta name="dc.identifier" content="headerfile" />
+   <meta name="dc.rights" content="© Copyright IBM Corporation 2004, 2011" />
+   <!-- meta name="DC.Rights.Owner" content="For support, contact sharpt@us.ibm.com" -->
+   <meta name="feedback" content="" />
+   <meta name="ibm.country" content="US" />
+   <meta name="ibm.effective" scheme="W3CDTF" content="2011-04-27" />
+   <meta name="ibm.expires" scheme="W3CDTF" content="2012-04-27" />
+   <meta name="source" content="CBU map.infocenter transform from DITA" />
+   <!-- Common CSS -->
+   <link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+   <!-- topic_url.js for writing the topic URL in the footer. -->
+   <script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+   <!-- srcfv3.js and variable setup for the Feedback link. -->
+   <script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+   <script type="text/javascript">
+      var mDivision = "IM";
+      var mProductName = "IBM CBU Sample";
+      var mProductVersion = "4.2.0";
+      var mToList = "Notesgroupname";
+      var plugin_form = "com.ibm.srcf.doc"; 
+</script>
+   <noscript>
+      <style type="text/css"><!--.collapsecontent{display:block;}// -->
+      </style>
+   </noscript>
+</div>
+<h1 class="title topictitle1">IBM InfoSphere Rapid Generator for SAP Applications</h1>
+<div class="body csbody"><p class="shortdesc"> 您可以透過使用 IBM InfoSphere Rapid Modeler for SAP Applications 所匯入的 SAP meta 資料，來產生 <span class="ph">InfoSphere™ DataStage®</span> 工作。這些 <span class="ph">InfoSphere DataStage</span> 工作會擷取或載入 SAP 物件的實際資料，而 SAP 物件是透過匯入至關聯式資料庫或純文字檔或從中匯入的 Meta 資料來說明。</p>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../topics/JobTypeSelectionPage.html">選取工作類型</a></strong><br />
+使用此頁面，可以選取要產生的 <span class="ph">IBM® InfoSphere DataStage</span> 工作的類型。您可以使用此頁面來產生 ABAP Extract 工作、IDoc Extract 工作或 IDoc Load 工作。</li>
+<li class="link ulchildlink"><strong><a href="../topics/InformationServerDetailsPage.html">InfoSphere Information Server 明細</a></strong><br />
+指定 <span class="ph">IBM InfoSphere Information Server</span> 網域明細及 <span class="ph">IBM InfoSphere DataStage</span> 認證。</li>
+<li class="link ulchildlink"><strong><a href="../topics/JobGeneratorAbapPage.html">ABAP Extract 選項</a></strong><br />
+使用此頁面，可以在工作產生設計中配置 ABAP Extract 選項。</li>
+<li class="link ulchildlink"><strong><a href="../topics/JobGeneratorIdocExtractPage.html">IDoc Extract 選項</a></strong><br />
+使用此頁面，可以指定 IDoc Extract 工作的來源及目標選項。</li>
+<li class="link ulchildlink"><strong><a href="../topics/JobGeneratorIdocLoadPage.html">IDoc Load 選項</a></strong><br />
+使用此頁面，可以配置 IDoc Load 工作的選項。</li>
+<li class="link ulchildlink"><strong><a href="../topics/JobGeneratorJobParametersPage.html">定義工作參數</a></strong><br />
+此頁面會顯示使用者指定的所有工作參數及參數集，以供目標及來源內容使用。您可以修改參數的所有欄位（<span class="ph uicontrol">參數名稱</span>除外）。</li>
+<li class="link ulchildlink"><strong><a href="../topics/JobGeneratorCustomDerivationsPage.html">定義直欄衍生</a></strong><br />
+使用此頁面，可以衍生要套用至特定類型的所有直欄的表示式。這些表示式是定義於所產生工作的 Transformer 暫置內。您可以交互參照含有 $1 的轉換器輸入引數。部分範例為：<span class="keyword parmname parmname">TrimLeadingTrailing($1)</span> 或 <span class="keyword parmname parmname">NullToEmpty($1)</span>。</li>
+<li class="link ulchildlink"><strong><a href="../topics/JobParameterResolverPage.html">解析工作參數</a></strong><br />
+您可以指定 <span class="ph">IBM InfoSphere DataStage</span> 工作參數的值。這裡所指定的值是用於該工作參數在所有工作及暫置內的所有實例</li>
+<li class="link ulchildlink"><strong><a href="../topics/JobGeneratorAbapUploadPage.html">ABAP 程式設定</a></strong><br />
+使用此頁面，可以針對要為 <span class="ph">IBM InfoSphere DataStage</span> ABAP Extract 工作產生的程式，配置 ABAP 程式設定。</li>
+<li class="link ulchildlink"><strong><a href="../topics/ValidationResultPage.html">驗證結果</a></strong><br />
+顯示所配置 SAP 設定的驗證結果。
+綠色勾號指出已順利驗證設定，紅色勾號則指出發生錯誤。</li>
+<li class="link ulchildlink"><strong><a href="../topics/JobGenerationSummaryPage.html">工作產生摘要</a></strong><br />
+顯示工作產生摘要及新工作的名稱。如果您選取<span class="ph uicontrol">啟動 DataStage 多個工作編譯器</span>勾選框，則會在按一下<span class="ph uicontrol">完成</span>之後啟動 DataStage 的「多個工作編譯器」精靈。
+此精靈在開啟時已選取產生的工作，讓您可以同時編譯所有產生的工作。</li>
+</ul>
+<div class="relinfo relconcepts"><strong>相關概念</strong><br />
+<div><a class="link" href="../../com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc/topics/c_is_pack_sap_applications.html" title="IBM InfoSphere Information Server Pack for SAP Applications 是可整合 SAP 與 InfoSphere Information Server 的供應項目。">IBM InfoSphere Information Server Pack for SAP Applications 概觀</a></div>
+<div><a class="link" href="../../com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc/topics/c_intro_rapid_generator.html" title="IBM InfoSphere Rapid Generator for SAP Applications 是一種可產生 InfoSphere DataStage 工作的精靈，而這些工作可在 InfoSphere Data Architect 的實體資料模型中，與 SAP 之間互相擷取及載入資料。 必須建立此實體資料模型，方法是使用 Rapid Modeler for SAP 轉換已在其中匯入 SAP Meta 資料的邏輯資料模型。">IBM InfoSphere Rapid Generator for SAP Applications 簡介</a></div>
+</div>
+</div>
+<br />
+<div role="contentinfo" id="runningfooter" class="runningfooter">
+<hr class="hf-hr" />
+
+<p class="runningfooter">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/timestamp.gif" />
+發行日期： 2011-10-01
+
+<span class="hf-block"><script language="javascript">write_topic_url();</script></span>
+</p>
+</div>
+</body>
+</html>

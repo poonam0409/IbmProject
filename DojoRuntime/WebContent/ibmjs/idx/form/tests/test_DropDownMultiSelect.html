@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en">
+<head>
+<title>Test DropDownMultiSelect</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+<script type="text/javascript">
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/claro/claro.css", "idxStyles");
+</script>
+
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneui/oneui.css";
+@import "../../themes/vienna/vienna.css";
+@import "../resources/claroDropDownMultiSelect.css";
+@import "../resources/viennaDropDownMultiSelect.css";
+@import "../../themes/test.css";
+</style>
+<script type="text/javascript">
+	var dojoConfig = currentDojoVersion.dojoConfig;
+</script>
+
+<script type="text/javascript">
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+</script>
+ 
+<script type="text/javascript" id="postDojo">
+var modules = [ "idx.form.DropDownMultiSelect",
+				"dojo/_base/connect",	// AMD only, otheriwse use dojo.connect
+				"idx.data.JsonStore",
+				"dijit.form.ComboBox",
+				"dijit._HasDropDown",
+				"dijit.form.TextBox",
+				"dijit.form.Button"];
+				
+
+var testStore = null;
+
+function preParse(modules) {
+	var JsonStore = modules["idx/data/JsonStore"];
+	testStore = new JsonStore({identifier: "value", label: "label", data: [
+	{value: "value1", label: "Label 1"},
+	{value: "value2", label: "Label 2"},
+	{value: "value3", label: "Label 3"},
+	{value: "value4", label: "Label 4"},
+	{value: "value5", label: "Label 5"}
+]});
+}
+
+function postParse(modules) {
+	var dct = modules["dojo/_base/connect"] ? modules["dojo/_base/connect"] : dojo;
+	var connect = dct.connect;
+	
+	connect(multiSelect, "onChange", function(value){
+		console.debug("onChange: value=" + value);
+	});
+}
+
+function getDisplayedValue() {
+	var val = multiSelect.get("displayedValue");
+	output.set("value", val);
+}
+
+function getValue() {
+	var val = multiSelect.get("value");
+	output.set("value", val);
+}
+
+dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+</script>
+<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 0px;">
+<a class="navigationLink" href="#maincontent">Skip to main content</a>
+<script type="text/javascript">applyThemeToBody()</script>
+<a name="maincontent"></a>
+<div dojoType="idx.form.DropDownMultiSelect" jsId="multiSelect" store="testStore" value="['value1', 'value3']"
+		class="dijitSelectFixedWidth" style="width: 200px;"></div>
+		
+<div dojoType="dijit.form.Button" label="Get displayedValue" onClick="getDisplayedValue"></div>
+<div dojoType="dijit.form.Button" label="Get Value" onClick="getValue"></div>
+<br/>
+Result: <div dojoType="dijit.form.TextBox" jsId="output"></div>
+
+<hr/>
+<div dojoType="idx.form.DropDownMultiSelect" value="['value1', 'value3']" required="true" jsId="filteringSelect" store="testStore"></div>
+<select dojoType="idx.form.DropDownMultiSelect" pageSize="10" required="false" jsId="filteringSelect2">
+	<option value="option1">Option 1</option>
+	<option value="option2">Option 2</option>
+	<option value="option3" selected="true">Option 3</option>
+	<option value="option4">Option 4</option>
+	<option value="option5">Option 5</option>
+	<option value="option6">Option 6</option>
+	<option value="option7">Option 7</option>
+	<option value="option8">Option 8</option>
+	<option value="option9">Option 9</option>
+	<option value="option10">Option 10</option>
+	<option value="option11">Option 11</option>
+	<option value="option12">Option 12</option>
+	<option value="option13">Option 13</option>
+	<option value="option14">Option 14</option>
+	<option value="option15">Option 15</option>
+	<option value="option16">Option 16</option>
+	<option value="option17">Option 17</option>
+	<option value="option18">Option 18</option>
+	<option value="option24">Option 24</option>
+	<option value="option25">Option 25</option>
+	<option value="option26">Option 26</option>
+	<option value="option27">Option 27</option>
+	<option value="option28">Option 28</option>
+	<option value="option29">Option 29</option>
+	<option value="option110">Option 110</option>
+	<option value="option111">Option 111</option>
+	<option value="option112">Option 112</option>
+	<option value="option113">Option 113</option>
+	<option value="option114">Option 114</option>
+	<option value="option115">Option 115</option>
+	<option value="option116">Option 116</option>
+	<option value="option117">Option 117</option>
+	<option value="option118">Option 118</option>
+	<option value="option34">Option 34</option>
+	<option value="option35">Option 35</option>
+	<option value="option36">Option 36</option>
+	<option value="option37">Option 37</option>
+	<option value="option38">Option 38</option>
+	<option value="option39">Option 39</option>
+	<option value="option210">Option 210</option>
+	<option value="option211">Option 211</option>
+	<option value="option212">Option 212</option>
+	<option value="option213">Option 213</option>
+	<option value="option214">Option 214</option>
+	<option value="option215">Option 215</option>
+	<option value="option216">Option 216</option>
+	<option value="option217">Option 217</option>
+	<option value="option218">Option 218</option>
+	<option value="option44">Option 44</option>
+	<option value="option45">Option 45</option>
+	<option value="option46">Option 46</option>
+	<option value="option47">Option 47</option>
+	<option value="option48">Option 48</option>
+	<option value="option49">Option 49</option>
+	<option value="option310">Option 310</option>
+	<option value="option311">Option 311</option>
+	<option value="option312">Option 312</option>
+	<option value="option313">Option 313</option>
+	<option value="option314">Option 314</option>
+	<option value="option315">Option 315</option>
+	<option value="option316">Option 316</option>
+	<option value="option317">Option 317</option>
+	<option value="option318">Option 318</option>
+</select>
+</body>
+</html>

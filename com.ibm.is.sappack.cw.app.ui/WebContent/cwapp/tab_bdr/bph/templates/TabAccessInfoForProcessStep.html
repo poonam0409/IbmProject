@@ -1,0 +1,83 @@
+<div dojoType="dijit.layout.ContentPane" class="bdrTab">
+	<div dojoType="idx.layout.BorderContainer"
+		dojoAttachPoint="borderContainer" gutters="false"
+		class="fullSizeContainer">
+		<div dojoType="idx.layout.BorderContainer" region="leading"
+			gutters="false" class="TabAccessInformation_innerBorderContainer">
+			<div dojoType="dijit.layout.ContentPane" region="top"
+				class="bdrElementHeader extraTopMarginThin">${msg.TABACCESSINFORMATION_2}</div>
+			<div dojoType="dijit.layout.ContentPane" region="center"
+				style="width: 100%;">
+				<table dojoType="dojox.grid.DataGrid"
+					dojoAttachPoint="wasRegistryGrid" 
+					class="paddedContainerNoTop dijitBorderContainer-child">
+					<thead>
+						<tr>
+							<th field="type" width="7%"
+							
+								formatter="_displayUserRegistryObjectTypeColumn">&nbsp;</th>
+							<th field="securityName" width="93%">${msg.NAME}</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>
+		<div dojoType="idx.layout.BorderContainer" region="center"
+			gutters="false" class="paddedContainer">
+			<div dojoType="dijit.layout.ContentPane" region="top"
+				class="bdrElementHeader extraTopMarginThin"></div>
+			<div dojoType="dijit.layout.ContentPane" region="center"
+				style="width: 100%; border: 0px; text-align: center;">
+				<table style="width: 100%;">
+					<tr>
+						<td>
+							<div dojoType="dijit.form.Button" type="button"
+								dojoAttachPoint="addButton"
+								class="TabAccessInformation_addRemoveButton" disabled="true">&gt;</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div dojoType="dijit.form.Button" type="button"
+								dojoAttachPoint="addAllButton"
+								class="TabAccessInformation_addRemoveButton" disabled="true">&gt;&gt;</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div dojoType="dijit.form.Button" type="button"
+								dojoAttachPoint="removeButton"
+								class="TabAccessInformation_addRemoveButton" disabled="true">&lt;</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div dojoType="dijit.form.Button" type="button"
+								dojoAttachPoint="removeAllButton"
+								class="TabAccessInformation_addRemoveButton" disabled="true">&lt;&lt;</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div dojoType="idx.layout.BorderContainer" region="trailing"
+			gutters="false" class="TabAccessInformation_innerBorderContainer">
+			<div dojoType="dijit.layout.ContentPane" region="top"
+				class="bdrElementHeader extraTopMarginThin">${msg.TABACCESSINFORMATION_3}</div>
+			<div dojoType="dijit.layout.ContentPane" region="center"
+				style="width: 100%;">
+				<table dojoType="dojox.grid.DataGrid" 
+					dojoAttachPoint="objectAccessGrid"
+					class="paddedContainerNoTop dijitBorderContainer-child">
+					<thead>
+						<tr>
+							<th field="type" width="7%"
+								formatter="_displayUserRegistryObjectTypeColumn">&nbsp;</th>
+							<th field="securityName" width="93%">${msg.NAME}</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>idx.oneui.HoverHelpTooltip DOH Test</title>
+		<script type="text/javascript" src="../../dojoVersion.js"></script>
+		
+		<script type="text/javascript">
+		dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		</script>
+		
+		<style type="text/css">
+			@import "../../../themes/oneui/oneui.css";
+      @import "../../../themes/test.css";
+		</style>
+		<!-- required: dojo.js -->
+		  <script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+		</script>
+		
+		<script type="text/javascript">
+			dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+		
+		
+	<script type="text/javascript" id="postDojo">
+			var modules = [
+				"doh",
+				"idx.oneui.HoverHelpTooltip",
+				"dijit.dijit",
+				"dojo.ready"]; 
+	
+			var doh, HoverHelpTooltip, dijit, ready;
+			
+			function preParse(modules){
+				doh = modules["doh"];
+				HoverHelpTooltip = modules["idx/oneui/HoverHelpTooltip"];
+				dijit = modules["dijit/dijit"]; 
+				ready = modules["dojo/ready"];
+			}
+				
+			function postParse(modules){				
+				
+				
+			//require(["doh", "idx/oneui/HoverHelpTooltip", "dijit/dijit", "dojo/ready"], 
+				//function(doh, HoverHelpTooltip, dijit, ready){
+				//ready(function(){
+					
+					var testPerformance = /mode=benchmark/i.test(window.location.href);
+				
+					if(!testPerformance){
+		// Register API tests
+	
+									
+					}else{
+						// Register performance tests
+						doh.register("HoverHelpTooltipPerformance", [{
+				
+							testType: "perf",			
+							name: "Create HoverHelpTooltip",
+							trialDuration: 100,		
+							trialIterations: 20,	
+							trialDelay: 100,			
+							setUp: function(t){},		
+							runTest: function(t){
+								var div = dojo.create("div", {}, dojo.body());
+								var hh = new idx.oneui.HoverHelpTooltip({label:"HoverHelpTooltip contents", connectId:["perfTest"]});
+							},
+							tearDown: function(t){	
+								dojo.query("[widgetid*=oneui_HoverHelpTooltip]").forEach(function(dlg){
+									dijit.byNode(dlg).destroy(false);
+								})
+							}
+				
+						}]);
+					}
+					doh.run();
+
+				};
+			
+		
+		dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+		</script>
+	</head>
+	<body class="oneui">
+		<h1 class="testTitle">DOH Test of idx.oneui.HoverHelpTooltip</h1>
+		<span id="perfTest">this text has a programmatically created HoverHelpTooltip</span>
+		
+		
+	</body>
+</html>

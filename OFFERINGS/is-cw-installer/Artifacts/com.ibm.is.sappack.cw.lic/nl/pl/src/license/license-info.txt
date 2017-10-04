@@ -1,0 +1,16 @@
+﻿INFORMACJE LICENCYJNE
+
+Wymienione poniżej Programy są licencjonowane na poniższych warunkach, które uzupełniają warunki Międzynarodowa Umowa Licencyjna na Program.
+
+Nazwa Programu: IBM InfoSphere Information Server Pack for SAP Applications V 7.1
+Numer Programu: 5724-Q55
+
+Nazwa Programu: IBM InfoSphere Information Server Pack for SAP Applications for Non-Production Environments V 7.1
+Numer Programu: 5724-Q55
+
+Instalacja
+
+Instalacja to jednostka miary, według której licencjonowany jest Program. Instalacja to zainstalowany egzemplarz Programu na dysku fizycznym lub wirtualnym, który można uruchamiać na komputerze. Licencjobiorca musi nabyć uprawnienie dla każdej Instalacji Programu.
+
+D/N:  L-JCHN-8KES35
+P/N:  L-JCHN-8KES35 

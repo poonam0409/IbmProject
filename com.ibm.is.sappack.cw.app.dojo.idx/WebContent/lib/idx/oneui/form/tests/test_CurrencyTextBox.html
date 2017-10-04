@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>idx.oneui.form.CurrencyTextBox Test</title>
+
+	<script type="text/javascript" src="../../../tests/dojoVersion.js"></script>
+	<script type="text/javascript">
+		dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+
+	<style id="idxStyles" type="text/css">
+		@import "../../../themes/oneui/oneui.css";
+		@import "../../../themes/test.css";
+		@import "../../tests/_pagefooter/_PageFooter.css";
+	</style>
+
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+	</script>
+
+	<script type="text/javascript">
+		dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+
+	<script type="text/javascript" id="postDojo">
+		var modules = [
+			"idx.oneui.form.CurrencyTextBox", 
+			"idx.oneui.tests._pagefooter._PageFooter", 
+			"dojo.parser",
+			"dijit.form.Button"]; 
+		var _PageFooter = null;
+		function preParse(modules){
+			_PageFooter = modules["idx/oneui/tests/_pagefooter/_PageFooter"];
+			new _PageFooter();
+		}
+		function postParse(modules){
+		}
+		dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+	</script>
+
+	<script type="text/javascript" src="../../../tests/commonTest.js"></script>
+</head>
+
+<body style="width: 100%; height: 100%; margin: 0; padding: 0px;">
+	<a class="navigationLink" href="#maincontent">Skip to main content</a>
+	<script type="text/javascript">applyThemeToBody("oneui");</script>
+	<a name="maincontent"></a>
+	
+	<div class="testMain">
+	<h1 class="testTitle">idx.oneui.form.CurrencyTextBox Test</h1>
+	<p>
+	API ref: <a target="_blank" href="http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/CurrencyTextBox.js">http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/CurrencyTextBox.js</a>
+	</p>
+	<p>
+	Here is a composite CurrencyTextBox. 0 - 1,000,000 is an valid range.
+	</p>
+	<button data-dojo-type="dijit.form.Button" data-dojo-props="
+		onClick: function(){
+		dijit.byId('currency1').set('disabled', !dijit.byId('currency1').get('disabled'));
+		return false;
+		}
+	">
+	Toggle Disabled
+	</button>
+	<button data-dojo-type="dijit.form.Button" data-dojo-props="
+		onClick: function(){
+		dijit.byId('currency1').set('readOnly', !dijit.byId('currency1').get('readOnly'));
+		return false;
+		}
+	">
+	Toggle Read Only
+	</button>
+	<button data-dojo-type="dijit.form.Button" data-dojo-props="
+		onClick: function(){
+		dijit.byId('currency1').set('required', !dijit.byId('currency1').get('required'));
+		dijit.byId('currency1').validate();
+		return false;
+		}
+	">
+	Toggle Required
+	</button>
+	<button data-dojo-type="dijit.form.Button" data-dojo-props="
+		onClick: function(){
+		dijit.byId('currency1').set('labelAlignment', 'vertical');
+		return false;
+		}
+	">
+	Vertical
+	</button>
+	<button data-dojo-type="dijit.form.Button" data-dojo-props="
+		onClick: function(){
+		dijit.byId('currency1').set('labelAlignment', 'horizontal');
+		return false;
+		}
+	">
+	Horizontal
+	</button>
+	<button data-dojo-type="dijit.form.Button" data-dojo-props="
+		onClick: function(){
+		dijit.byId('currency1').set('hintPosition', 'outside');
+		return false;
+		}
+	">
+	Set hint outside
+	</button>
+	<button data-dojo-type="dijit.form.Button" data-dojo-props="
+		onClick: function(){
+		dijit.byId('currency1').set('hintPosition', 'inside');
+		return false;
+		}
+	">
+	Set hint inside
+	</button>
+	
+	<br/>
+	<br/>
+	
+	<input id="currency1" data-dojo-type="idx.oneui.form.CurrencyTextBox" data-dojo-props='
+			hint: "Input the number",
+			hintPosition: "inside",
+			label: "Currency:",
+			labelAlignment: "horizontal",
+			currency: "USD",
+			constraints:{max:1000000,places:2}
+		'/>
+	<div id="node"></div>
+	</div>
+</body>
+</html>

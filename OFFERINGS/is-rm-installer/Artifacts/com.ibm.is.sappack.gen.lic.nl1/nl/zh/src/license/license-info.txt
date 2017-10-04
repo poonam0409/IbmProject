@@ -1,0 +1,156 @@
+﻿许可信息
+
+除 国际软件许可协议 中的条款和条件外，下列各程序按照下述条款和条件被特许使用。
+
+程序名称：IBM Administration Client for Application Support Facility V1.0
+程序号：5655-U83
+家用／便携式计算机上的使用授权：本程序可以保存在主机和另一台机器上，其前提是本程序不得同时在两台机器上运行。
+
+其他 IBM 程序的有限使用权利
+
+如果您已作为另一个 IBM 程序（“主程序”）的一部分获得本程序，该主程序把本程序列在“其他 IBM 程序”下面，您仅为了支持主程序接收本程序，并且您使用本程序的权利将受主程序许可的限制。如果您希望获得的本程序单独许可不受主程序的许可条款的限制，请与您的 IBM 销售代表联系。
+
+除外组件（Excluded Component）
+
+如果本段的规定在管辖本许可的法律下无效或无法执行，则不适用本段的规定。下面所列的组件是“除外组件”。无论本协议或您与 IBM 签署的任何其他协议中有任何条款：
+（a）此类“除外组件”的第三方供应商（“供应商”）提供这些组件，但不提供任何种类的保证，并且此类供应商声明免除任一和全部的明示的和暗含的保证和条件，包括但不限于，关于除外组件的所有权、非侵权或冲突的保证以及暗含的关于适销和适用于某种特定用途的保证和条件；
+（b）任何情况下，对于与“除外组件”相关的任何直接的、间接的、附带的、特别的、惩戒性的、惩罚性的或后果性的损害赔偿，包括但不限于数据的丢失、可节省金额的损失和利润的损失，供应商无须负责；并且
+（c）对于由于“除外组件”引起的或与之相关的任何索赔，IBM 和此类供应商将无须向您负责，也不为您抗辩、向您赔偿或使您免遭损失。
+
+尽管有这些排除情况，在德国和奥地利，IBM 对除外组件的保证和责任仅受 IBM 许可协议中分别适用于德国和奥地利的条款的管辖。
+
+IBM 需要向您提供的关于除外组件的声明和重要信息（包括关于获得某些除外组件的源代码的指导说明）可以在本程序随附的 NOTICES 文件中找到。
+
+您使用除外组件须受本协议条款的管辖，而不受 NOTICES 文件中所包含条款的管辖。本协议中包含的条款由 IBM 提供，而不是由任何其他方提供。将来本程序的更新版本或修订包可能包含附加的除外组件。此类附加的除外组件及相关声明和信息（如有）将列在本程序的更新版本或修订包随附的另一个 NOTICES 文件中。
+
+以下为除外组件：
+Apache Bean Scripting Framework (BSF) V2.4
+Apache Commons-BeanUtils V1.7.0
+Apache Commons-Collections V3.2
+Apache Commons-Configuration V1.1
+Apache Commons-DBCP v1.2.1
+Apache Commons-JXPath V1.2
+Apache Commons-Lang V2.3
+Apache Commons-Logging V1.1
+Apache Commons-Pool V1.3
+Apache Log4j V1.2.14
+Apache XMLBeans V2.3.0
+Apache XML4J V4.5.1
+Apache XSLT4J V2.7.8
+Eclipse Platform Classes:
+*com.ibm.lpex.alef.LpexTextViewer.java
+*com.ibm.lpex.alef.LpexTextViewerHoverManager.java
+*com.ibm.lpex.alef.LpexAnnotationBarHoverManager.java
+*com.ibm.lpex.alef.LpexAnnotationRulerColumn.java
+*com.ibm.lpex.alef.LpexChangeRulerColumn.java
+*com.ibm.lpex.alef.LpexSourceViewer.java
+*com.ibm.lpex.alef.LpexVerticalRuler.java
+*com.ibm.lpex.alef.DefaultEncodingSupport.java
+*com.ibm.lpex.alef.LpexTextEditor.java
+*com.ibm.lpex.alef.LpexAbstractDecoratedTextEditor.java
+*com.ibm.lpex.alef.LpexAbstractTextEditor.java
+*com.ibm.lpex.alef.EditorStatusLine.java
+*com.ibm.lpex.alef.LpexStatusTextEditor.java
+*package com.ibm.lpex.alef.contentassist.
+IBM Dojo Toolkit (IDT) V0.4
+IBM Dojo Toolkit (IDT) V1.0.x
+IBM Eclipse Help System (IEHS) V3.1.2
+IBM Eclipse Help System Installer (IEHSI) V3.1.2
+IBM Eclipse Help System (IEHS) for WAS 6.x V3.0.1
+IBM Eclipse SDK (IES) V3.2.2
+International Component for Unicode (ICU4J) V3.4
+LPEX V3.2.x
+
+指定操作环境
+
+有关本程序说明和指定操作环境的信息，可以在随本程序提供的文档例如说明文件中（如有）找到，也可通过 IBM 公布的其他信息，例如公告函件找到。 您同意这类文档或其他程序内容可能仅以英语形式提供。
+
+程序特别条款
+
+权利证明
+
+如果您当前已签订 WebSphere Development Studio for iSeries 的 iSeries SW 维护或 S/W 预订合同，您将有权接收本程序，并且您可以为了开发在您的 WebSphere Development Studio for iSeries 权利证明中描述的 i5/OS 应用程序安装本程序。
+
+IBM WEBFACING TOOL 组件
+
+本程序包括仅用于开发 IBM WebFacing Tool 的版本。为了部署此 IBM WebFacing Tool 构建的 WebFacing 应用程序，您必须购买 IBM WebFacing Deployment Tool for WebSphere Development Studio V7.0, 5724-N52 的合适许可。
+
+IBM WEBSPHERE HOST ACCESS TRANSFORMATION SERVICES（HATS）TOOLKIT V7.0
+
+本程序包括仅用于开发 HATS Toolkit 的版本。为了部署此 Toolkit 构建的 HATS 应用程序，您必须购买 IBM WebFacing Deployment Tool for WebSphere Development Studio V7.0, 5724-N52 的合适许可。
+
+COOPERATIVE DEVELOPMENT ENVIRONMENT AND VISUALAGE RPG（CODE and VARPG）
+
+CODE and VARPG 是本程序的一个组件，并且包含在单独的 CD-ROM 上。安装并使用 CODE and VARPG 组件，即表明您接受单独的 CD-ROM 上 CODE and VARPG 许可中的条款和条件。
+
+DB2 组件
+
+DB2 Connect 组件：本程序包含 DB2 Connect 技术的某些部分。您被授权安装和使用这些组件的一份副本，仅用于您对本程序的许可使用，以开发应用程序和对 DB2 for z/OS 和 DB2 for iSeries 管理的数据对象进行建模。不得将同本程序一起提供的 DB2 Connect 技术用于任何其他目的。不得将 DB2 Connect 技术用于为本程序以外的应用程序提供连接。如果必须使用这种连接，您必须购买合适的 DB2 Connect 许可。
+
+您使用 DB2 Connect 组件须遵守这些组件随附许可协议的条款和条件，但本许可中的限制除外。不得将 DB2 Connect 组件用于任何其他目的。如果您的需要超出本许可协议的许可范围，请与您的 DB2 转售商联系以获得完整的 DB2 Connect 许可。
+
+IBM WEBSPHERE APPLICATION SERVER
+
+WEBSPHERE APPLICATION SERVER：本程序随附 WebSphere Application Server 的多份副本，其中包括本程序的“单元测试环境”中包含的 WebSphere Application Server 的副本。您被授权在装有本程序其他组件的同一机器上安装 WebSphere Application Server 的这些副本中的每个组件，供单个开发人员进行“单元测试”，但仅限于测试由该开发人员编写或创建的代码，以确认此类代码能实现所设计的功能。您并未被授权将根据单元测试权利证明安装和使用的 WebSphere Application Server 组件副本用于下列目的：在与开发人员机器不相连的服务器上测试应用程序，或模拟生产工作负载或测试任何代码、应用程序或系统的可伸缩性。WebSphere Application Server 组件不得用于生产性目的。
+
+源代码：WebSphere Application Server 的某些组件可能以源代码格式提供。无论本协议有何相反规定，本程序服务仅提供给 WebSphere Application Server 包中的这些组件的未经修改的、二进制代码版本，而不是这些组件的源代码或您创建的此类组件的任何修改后的版本。
+
+J2C 技术
+
+本程序包含 J2C 连接器技术。以下信息适用：
+
+IMS：
+本程序包含 IMS TM 资源适配器（也称为 IMS Connector for Java）的 JCA 1.0 和 JCA 1.5 单独版本。您被授权仅为了撰写或生成代码的目的，使用这些资源适配器功能。但是为了对使用本程序编写或创建的任何代码进行单元测试，您必须至少有一份有效的 IMS V9 许可。您未被授权将本程序中提供的 IMS TM 资源适配器用于生产。如果您希望将这些 IMS TM 资源适配器用于生产，请参阅 IMS Connector for Java Web 站点：www.ibm.com/ims。
+
+JCA：
+随本程序提供的和在名为“cicseci.rar”的文件中打包的 J2EE Connector Architecture（JCA）资源适配器以及随本程序提供的和在名为“ctgclient.jar”的文件中打包的 Java 客户类可由本程序的许可用户自由分发。选择分发这些客户类的许可用户须负责已分发类的支持和维护。IBM 同意此类分发是以本程序的许可用户负责确保满足以下条件为基础的：
+
+（i）不得修改任何“JAR”或“RAR”文件的原始形式；
+（ii）“JAR”或“RAR”文件不得在本程序支持的 Java 环境以外使用；并且
+（iii）到 CICS Transaction Gateway 的所有通信均是在与“ctgclient.jar”或“RAR”文件版本相同的或更高的发行级别进行的。
+
+JRPC DEVELOPMENT KIT
+
+以下是与本程序中包含的 JRPC Development Kit 组件相关的一些权利和限制。安装本程序即表明您同意遵守以下条款和条件：
+
+本程序并非设计或意在用于飞行器、空中交通、航空导航或航空通讯的联机控制；也不用于任何核设施的设计、建造、运营或维护。被许可方保证不将本程序用于此类用途。
+
+J2C 技术：COBOL 编译器组件
+
+您的本程序副本包含 J2C 连接器技术，其中包括 IBM WebSphere Studio COBOL for Windows：COBOL 编译器组件。本程序中所包含的 COBOL 编译器组件仅可通过使用本程序的内部组件，以导入采用 COBOL 数据结构的元数据。您不得将此代码用于生产。
+
+J2C 技术：PL/I 编译器组件
+
+您的本程序副本包含 J2C 连接器技术，其中包括 IBM WebSphere Studio PL/I for Windows：PL/I 编译器组件。本程序中所包含的 PL/I 编译器组件仅可通过使用本程序的内部组件，以导入采用 PL/I 数据结构的元数据。您不得将此代码用于生产。
+
+MICROSOFT 代码
+
+本程序包含 Microsoft Corporation 的一些可再分发的软件。除了本许可协议中规定的其他条款和条件，您不得反向工程、反编译和反汇编此类软件。尽管有此限制，如果适用的法律明确许可，则只能在该法律明确许可的范围内执行上述操作。
+
+未经 Microsoft 事先书面许可，您不得将 Microsoft .Net Framework 的任何基准测试结果披露给任何一方。
+
+在适用法律允许的最大限度下，在任何情况下 MICROSOFT 或其供应商对由于以任何方式与使用或无法使用软件，产品或无法通过软件提供支持或其他服务，信息及相关内容引起的，任何特殊的、偶然的、惩罚性的、间接的、重大的损害或任何（包括但不限于由于失去利润，机密或其他信息，商业中断，人身伤害，失去隐私，无法完成包括良好的信誉或合理的照料在内的任务，疏忽以及金钱及任何其他的损失）均不负责；或是由于使用软件甚至在错误、民事侵权行为（包括疏忽）、错误的展示、严格的责任、违反合同或 MICROSOFT 或任何供应商的保证，甚至 MICROSOFT 或任何供应商已经告知有这种可能性也是如此。
+
+不管您由于任何原因可能引起任何损害赔偿数额是多少（包括但不限于，本文所提及的所有损害赔偿以及合同或其他资料中的所有直接或一般损害赔偿），MICROSOFT 及其任何供应商的全部救济措施以及您的整体赔偿限于以下数额中较高的一个：您发生的实际损害，但不超过您为本软件实际支付的金额，或者 US$5.00。上述限制、除外条款和免责条款适用于适用法律许可的最大范围，即使任何救济措施不能实现其基本目的时，也是如此。
+
+样本图库
+
+本程序可能包含样本源代码或者可说明编程技术的程序。可在样本图库中找到这些样本。您可复制、修改这些样本，并可在内部以任何形式或作为应用程序或相关文档的一部分分发这些样本或其修改。这些样本尚未在所有条件下进行测试，由 IBM 提供给您，但无义务提供任何种类的支持。IBM 根据不能被排除的任何法定保证“按现状”提供这些样本。IBM 关于这些样本或技术支持（如有）不作任何明示的或暗含的保证或条件，包括但不限于暗含的关于适销、适用于某特定用途以及非侵权的保证或条件。您须赔偿 IBM 或提供 IBM 产品的第三方（“第三方”）由于您将这些样本和您的应用程序一起使用、修改或分发而引起的任何第三方索赔而造成的损失。您不得使用与原文件／原模块相同的路径名。您不得更改或删除样本中的任何版权信息。
+
+更新共同组件
+
+本程序中的某些组件已由 IBM 内部指定为“共同组件”，这些组件可以在多个 IBM 程序间共享。在此您承认并同意：安装本程序、本程序以后的更新或其他使用此类共同组件的 IBM 程序可能导致这些共同组件在多个 IBM 程序间被更新。
+
+WEB 服务
+
+本程序所包含的样本程序可在下面的目录中找到：eclipse\plugins\com.ibm.etools.webservice.samples*.jar（“Apache Axis 样本程序”），其中包括由 Apache Axis 生成的组件，或者您可以借此生成 Apache Axis 组件。IBM 不支持 Apache Axis 样本程序和您可能生成的 Apache Axis 组件。
+
+LPEX
+
+IBM 已对 LPEX 组件的 Eclipse 代码进行了某些修改，这些修改是指“Eclipse 平台类”。因为 Eclipse 平台类专用于本程序及其 LPEX 组件，所以不把它们返回给 Eclipse Foundation。“Eclipse 平台类”的源代码可以通过向 stori@ca.ibm.com 发送电子邮件请求从 IBM 获得。
+
+
+
+
+D/N:  L-TDEN-7CHHUL
+P/N:  L-TDEN-7CHHUL 

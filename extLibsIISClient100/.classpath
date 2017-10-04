@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="lib/iis/60isf/iis_util.jar"/>
+	<classpathentry kind="lib" path="lib/iis/60isf/isf-agent.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/iis/60isf/isf-common.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/iis/60isf/isf-core.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/iis/60isf/isf-repos-pojo.jar"/>
+	<classpathentry kind="lib" path="lib/iis/60isf/isf-repos-util.jar"/>
+	<classpathentry kind="lib" path="lib/iis/60isf/isf-server.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/iis/50xmeta/xmeta_common.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/iis/50xmeta/xmeta_repository.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/iis/60isf/DS4J.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/iis/datastage/datastage_common.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/iis/20thirdparty/common-2.8.0.v20120606-0717.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/iis/20thirdparty/ecore-2.8.0.v20120606-0717.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/iis/40models/ASCLModel_api_gen_ecore.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

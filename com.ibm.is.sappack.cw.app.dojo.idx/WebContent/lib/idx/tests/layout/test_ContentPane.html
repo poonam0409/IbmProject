@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>ContentPane Test</title>
+
+	<script type="text/javascript" src="../dojoVersion.js"></script>
+
+	<script type="text/javascript">
+		dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+	</script>
+	
+	<style id="idxStyles" type="text/css">
+        @import "../../themes/oneui/oneui.css";
+        @import "../../themes/vienna/vienna.css";
+        @import "../../themes/claro/claro.css";
+        @import "../../resources/claro_idx.css";
+        @import "../../resources/vienna_idx.css";
+        @import "../../themes/test.css";
+	</style>
+		
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+		dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+
+	<script type="text/javascript" id="postDojo">
+		var modules=["doh",
+					 "doh.runner",
+					 "dijit.dijit", // optimize: load dijit layer
+					 "dijit/registry",
+					 "idx.layout.ContentPane"];
+
+		function callback(modules) {
+		    var parser = modules["dojo/parser"];
+			var dDoh = modules["doh"] ? modules["doh"] : doh;
+			var ContentPane = modules["idx/layout/ContentPane"];
+			var dRegistry = modules["dijit/registry"] ? modules["dijit/registry"] : dijit;
+			
+            doh.register("parse", function(){
+                parser.parse();               
+                cpane1 = dRegistry.byId('cparsedPane');
+            });
+
+            dDoh.register("basicChecks", [
+            {
+                name: 'checkForExistance',
+                runTest: function(t){
+                    console.log("basicChecks: " + this.name);
+                    var cparserTest = dRegistry.byId("cparsedPane");
+                    t.assertTrue(cparserTest);
+                }
+            },
+            {
+                name: 'setContent',
+                runTest: function(t){
+                    console.log("basicChecks: " + this.name);
+                    var msg = "Simple Test";
+                    cpane1.set('content', msg);
+                    t.assertEqual(msg, cpane1.containerNode.innerHTML);
+                }
+            }
+            ]);
+
+			dDoh.run();
+		}
+
+		dojoRequireModules(modules, null, currentDojoVersion.async, true, callback);
+	</script>
+</head>
+<body>
+    <p>ContentPanes used by the unit tests to verify functionality</p>
+    <div id='cparsedPane' dojoType="idx.layout.ContentPane" >
+        Default Content
+    </div>
+</body>
+</html>
+
+

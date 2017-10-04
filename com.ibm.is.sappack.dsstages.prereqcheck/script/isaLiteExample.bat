@@ -1,0 +1,1 @@
+C:\IBM\InformationServer\ASBNode\apps\jre\bin\java.exe -jar sappackv7prereqcheck.jar C:\IBM\InformationServer client C:\home\tmp\prereqout.txt C:\IBM\InformationServer\ASBNode\apps\jre\bin\java.exe

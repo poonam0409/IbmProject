@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<contexts>
+   <context id="JobTypeSelectionPage">
+      <topic href="help/JobTypeSelectionPage.html" label="SAP system selection"/>
+   </context>
+    <context id="JobGeneratorIdocLoadPage">
+      <topic href="help/JobGeneratorIdocLoadPage.html" label="Specify import options"/>
+   </context>
+   <context id="JobGeneratorMovePage">
+      <topic href="help/JobGeneratorMovePage.html" label="List of found tables"/>
+   </context>
+</contexts>

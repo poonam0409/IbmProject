@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectivitySDK xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ConnectivitySDK.xsd">
+   <Descriptor>
+      <StageID>%STAGEID%</StageID>
+      <DisplayName>%STAGEID%</DisplayName>
+      <ShortDescription>Short description of your connector</ShortDescription>
+      <LongDescription>Long description of your connector</LongDescription>
+      <Author>Author name</Author>
+      <Vendor>Vendor name</Vendor>
+      <Copyright>Copyright information</Copyright>
+      <RepositoryLocation>\Stage Types\Parallel\Connectivity SDK</RepositoryLocation>
+      <SupportedContexts>%CONTEXTS%</SupportedContexts>
+      <SupportedInputLinks max="%MAX-INPUTS%" min="%MIN-INPUTS%"/>
+      <SupportedOutputLinks max="%MAX-OUTPUTS%" min="%MIN-OUTPUTS%"/>
+      <SupportedRejectLinks max="%MAX-REJECTS%" min="%MIN-REJECTS%"/>
+      <Properties>
+         <Usage>
+            <Property name="UserClassName" default="%CLASS-NAME%" hidden="true"/>
+%CUSTOM-PROPERTIES%
+         </Usage>
+      </Properties>
+   </Descriptor>
+</ConnectivitySDK>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<?eclipse version="3.4"?>
+<plugin>
+<!--
+   <extension
+         id="com.ibm.is.sppack.cw.extensions.cpic"
+         point="com.ibm.is.sappack.cw.extensions">
+      <cpicTransferMethod
+            enabled="true">
+      </cpicTransferMethod>
+   </extension>
+   <extension
+         id="com.ibm.is.sppack.cw.extensions.mih"
+         point="com.ibm.is.sappack.cw.extensions">
+      <mihExtensions enabled="false" />
+   </extension>
+   -->
+</plugin>

@@ -1,0 +1,2000 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+<title>Test NavTree</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+<script type="text/javascript">
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/icons/commonIcons.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/icons/commonIcons_rtl.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/icons/editorIcons.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/icons/editorIcons_rtl.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/claro/claro.css", "idxStyles");
+</script>
+
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneui/oneui.css";
+@import "../../themes/vienna/vienna.css";
+@import "../../resources/claro_idx.css";
+@import "../../resources/vienna_idx.css";
+@import "../../themes/test.css";
+
+label {
+	white-space: nowrap;
+}
+</style>
+
+<script type="text/javascript">
+	var dojoConfig = currentDojoVersion.dojoConfig;
+</script>
+
+<script type="text/javascript">
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+</script>
+ 
+<script type="text/javascript" id="postDojo">
+var modules = [	"dojo/_base/connect",
+				"dojo/_base/lang",
+				"dojo/dom-construct",
+				"dojo/dom-attr",
+				"dijit/registry",
+				"dijit.Menu",
+				"dijit.MenuItem",
+				"dijit.layout.AccordionContainer",
+				"dijit.layout.TabContainer",
+				"idx.layout.BorderContainer",
+				"dijit.layout.ContentPane",
+				"dojo.data.ItemFileReadStore",
+				"dijit.Tree",
+				"dijit.form.Form",
+				"dijit.form.ComboButton",
+				"dijit.form.Button",
+				"dijit.form.CheckBox",
+				"dijit.form.TextBox",
+				"dijit.form.NumberTextBox",
+				"dijit.form.Textarea",
+				"dijit.form.Select",
+				"idx.layout.TitlePane",
+				"idx.layout.HeaderPane",
+				"idx.layout.ButtonBar",
+				"idx.widget.NavTree",
+				"idx.widget.NavTreeModel",
+				"idx.data.JsonStore",
+				"idx.grid.PropertyFormatter",
+				"idx.grid.PropertyGrid",
+				"idx.util",
+				"idx.string"];
+
+var dConnect = null;
+var dButton = null;
+var dDomConstruct = null;
+var dDomAttr = null;
+var dComboButton = null;
+var dLang = null;
+var dRegistry = null;
+var dSelect = null;
+var dContentPane = null;
+var iNavTree = null;
+var iNavTreeModel = null;
+var iButtonBar = null;
+var iUtil = null;
+var iString = null;
+var iJsonStore = null;
+var iPropertyGrid = null;
+var iPropertyFormatter = null;
+var dCheckBox;
+var navStore = null;
+var countryStore = null;
+var countryModel = null;
+var defaultGridData = {};
+var dTextBox = null;
+var dNumberTextBox = null;
+var jsonFormat = null;
+
+var navResources = {
+    	navitem_home_label: "Home",
+    	navitem_security_label: "Security",
+    	navitem_users_label: "Users",
+    	navitem_groups_label: "Groups",
+    	navitem_policy_label: "Policy",
+    	navitem_dataSources_label: "Data Sources",
+    	navitem_public_label: "Public Records",
+    	navitem_phoneRecords_label: "Phone Records",
+    	navitem_countyAssessor_label: "County Assessor",
+    	navitem_census_label: "Census",
+    	navitem_internal_label: "Internal",
+    	navitem_employees_label: "Employees",
+    	navitem_vendors_label: "Vendors",
+    	navitem_suppliers_label: "Suppliers",
+    	navitem_proprietary_label: "Proprietary",
+    	navitem_otherDataSources_label: "Other",
+    	navitem_creditRecords_label: "Credit Records",
+    	navitem_marketing_label: "Marketing",
+    	
+    	badge_info_label: "info",
+    	badge_warning_label: "warning",
+    	badge_error_label: "error",
+    	badge_new_label: "*new*"
+};
+var iconClasses = [
+"dijitIconSave",
+"dijitIconPrint",
+"dijitIconCut",
+"dijitIconCopy",
+"dijitIconClear",
+"dijitIconDelete",
+"dijitIconUndo",
+"dijitIconEdit",
+"dijitIconNewTask",
+"dijitIconEditTask",
+"dijitIconEditProperty",
+"dijitIconTask",
+"dijitIconFilter",
+"dijitIconConfigure",
+"dijitIconSearch",
+"dijitIconApplication",
+"dijitIconBookmark",
+"dijitIconChart",
+"dijitIconConnector",
+"dijitIconDatabase",
+"dijitIconDocuments",
+"dijitIconMail",
+"dijitLeaf",
+"dijitIconFile",
+"dijitIconFunction",
+"dijitIconKey",
+"dijitIconPackage",
+"dijitIconSample",
+"dijitIconTable",
+"dijitIconUsers",
+"dijitFolderClosed",
+"dijitIconFolderClosed",
+"dijitFolderOpened",
+"dijitIconFolderOpen",
+"dijitIconError" ];
+
+var iconOptions = [
+	{value: null, label: "[No Icon]"}	
+];
+for (var index = 0; index < iconClasses.length; index++) {
+	iconOptions.push({value: iconClasses[index], label: iconClasses[index]});
+}
+
+function preParse(modules) {
+	dConnect = modules["dojo/_base/connect"] ? modules["dojo/_base/connect"] : dojo;
+	dLang = modules["dojo/_base/lang"] ? modules["dojo/_base/lang"] : dojo;
+	dRegistry = modules["dijit/registry"] ? modules["dijit/registry"] : dijit;
+	dDomConstruct = modules["dojo/dom-construct"] ? modules["dojo/dom-construct"] : dojo;
+	dDomAttr = modules["dojo/dom-attr"] ? modules["dojo/dom-attr"] : {set: dojo.attr, get: dojo.attr};
+	dItemFileReadStore = modules["dojo/data/ItemFileReadStore"];
+	iNavTreeModel = modules["idx/widget/NavTreeModel"];
+	iNavTree = modules["idx/widget/NavTree"];
+	iUtil = modules["idx/util"];
+	iString = modules["idx/string"];
+	iJsonStore = modules["idx/data/JsonStore"];
+	iButtonBar = modules["idx/layout/ButtonBar"];
+	iPropertyGrid = modules["idx/grid/PropertyGrid"];
+	iPropertyFormatter = modules["idx/grid/PropertyFormatter"]
+	dCheckBox = modules["dijit/form/CheckBox"];
+	dContentPane = modules["dijit/layuout/ContentPane"];
+	dButton = modules["dijit/form/Button"];
+	dComboButton = modules["dijit/form/ComboButton"];
+	dSelect = modules["dijit/form/Select"];
+	dTextBox = modules["dijit/form/TextBox"];
+	dNumberTextBox = modules["dijit/form/NumberTextBox"];
+	
+	jsonFormat = function(data) {
+		if (!this) return "";
+		var propertyName = this.get("propertyName");
+		var value = data[propertyName];
+		return iUtil.debugObject(value);
+	};
+	countryStore = new dItemFileReadStore({url: "../../tests/testdata/countries.json"});
+	countryModel = new iNavTreeModel({rootId: "_root_", store: countryStore, query: {type: 'continent'}});
+	
+	navStore = new iJsonStore({
+		identifier: 'id', 
+		label: 'id',
+		data: [
+    			{ id: 'home', type: 'workspace', top: true },
+    			{ id: 'security', type: 'group', top: true, selectable: true, badgeLabel: 2,
+    				children: [
+    					{ id: 'users', type: 'workspace', top: false, badgeLabel: 5},
+    					{ id: 'groups', type: 'workspace', top: false, badgeIconType: "error"},
+    					{ id: 'policy', type: 'workspace', top: false}
+    					]
+    			},
+    			{ id: 'dataSources', type: 'group', top: true, selectable: true,
+    				children: [
+    					{ id: 'public', type: 'subgroup', top: false,
+    						children: [
+    							{ id: 'phoneRecords', type: 'workspace', top: false, badgeLabel: "new"},
+    							{ id: 'countyAssessor', type: 'workspace', top: false},
+    							{ id: 'census', type: 'workspace', top: false}
+    						]
+    					},
+    					{ id: 'internal', type: 'subgroup', top: false,
+    						children: [
+    							{ id: 'employees', type: 'workspace', top: false},
+    							{ id: 'vendors', type: 'workspace', top: false, badgeIconType: "warning"},
+    							{ id: 'suppliers', type: 'workspace', top: false}
+    						]
+    					},
+    					{ id: 'proprietary', type: 'subgroup', top: false,
+    						children: [
+    							{ id: 'creditRecords', type: 'workspace', top: false},
+    							{ id: 'marketing', type: 'workspace', top: false}
+    						]
+    					}
+    				]
+    			}
+    		]
+    	});
+    	
+	navModel = new iNavTreeModel({rootId: "_root_",store: navStore, query: {top:true}});
+	emptyStore = new iJsonStore({identifier: "value", label: "label", data: [ ]});
+}
+
+function postParse(modules) {
+
+}
+dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+</script>
+<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 0;">
+<a class="navigationLink" href="#maincontent">Skip to main content</a>
+<script type="text/javascript">applyThemeToBody();</script>
+<a name="maincontent"></a>
+<form>
+<div data-dojo-type="idx.layout.BorderContainer" 
+	 data-dojo-props="design: 'sidebar', 
+	 				  gutters: true, 
+	 				  liveSplitters: true, 
+	 				  style: 'position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;'"> 
+	<script type="dojo/method" data-dojo-event="updateNodeFields" data-dojo-args="item,node,fields">
+		if ((!node) || (!item)) {
+			fields.nodeName.reset();
+			fields.nodeLabel.reset();
+			fields.nodeID.reset();
+			fields.nodeType.reset();
+			fields.selectability.reset();
+			fields.badgeLabel.reset();
+			fields.badgeIconType.reset();
+			fields.badgeIconClass.reset();
+			if (fields.grid) {
+				fields.grid.set("data", {});
+				fields.grid.refresh();
+			}
+		} else {
+			var navTree = this._handle.navTree;
+			var model 	= navTree.model;
+			var store 	= model.store;
+
+			var itemID 			= model.getIdentity(item);
+			var label 			= node.label;
+			var name 			= model.getLabel(item);
+			var badge 			= model.getBadge(item);
+			var badgeLabel 		= null;
+			var badgeIconType 	= null;
+			var badgeIconClass 	= null;
+			var selectability   = null;
+			
+			if (store.hasAttribute(item, model.selectableAttr)) {
+				selectability = store.getValue(item, model.selectableAttr);
+			}
+
+			if (badge) {
+				if (badge.label) badgeLabel = badge.label;
+					if (badge.iconType) {
+						badgeIconType = badge.iconType;
+						if (this._handle.navTree.badgeIconMap) {
+							badgeIconClass = navTree.badgeIconMap[badge.iconType];
+						}
+				}
+			}
+			var itemType = model.getItemType(item);
+			fields.nodeName.set("value", name);
+			fields.nodeLabel.set("value", label); 
+			fields.nodeID.set("value", itemID);
+			fields.nodeType.set("value", itemType);
+			if (selectability) fields.selectability.set("value", "" + selectability);
+			else fields.selectability.reset();
+			if (badgeLabel) fields.badgeLabel.set("value", badgeLabel);
+			else fields.badgeLabel.reset();
+			if (badgeIconType) fields.badgeIconType.set("value", badgeIconType);
+			else fields.badgeIconType.reset();
+			if (badgeIconClass) fields.badgeIconClass.set("value", badgeIconClass);
+			else fields.badgeIconClass.reset();
+
+			if (fields.grid) {
+				var data = {itemID: itemID, type: itemType, label: label, name: name, selectable: selectability,
+							badgeLabel: badgeLabel, badgeIconType: badgeIconType, badgeIconClass: badgeIconClass }; 
+				fields.grid.set("data", data);
+				fields.grid.refresh();
+			}
+
+		}
+	</script>
+	<script type="dojo/method" data-dojo-event="onNavTreeSelect" data-dojo-args="items,nodes,tree">
+		if (this._started) {
+			var item = null, node = null;
+			if ((items) || (items.length>0)) item = items[0], node = nodes[0];
+			this.updateNodeFields(item,node,this._handle.selected);
+		}
+	</script>
+	<script type="dojo/method" data-dojo-event="onNavTreeClick" data-dojo-args="item,node,evt">
+		if (this._started) {
+			this.updateNodeFields(item,node,this._handle.clicked);
+		}
+	</script>
+	<script type="dojo/method" data-dojo-event="onItemChange" data-dojo-args="item">
+		if (this._started) {
+			var selectedItemID = this._handle.selected.nodeID.getValue("value");
+			var clickedItemID = this._handle.clicked.nodeID.getValue("clicked");
+			var itemID = this._handle.navTree.model.getIdentity(item);
+			var nodes = this._handle.navTree.getNodesByItem(itemID);
+			var node = (nodes && (nodes.length>0)) ? nodes[0] : null;
+			if (!node) return;
+			if (selectedItemID == itemID) {
+				this.updateNodeFields(item,node,this._handle.selected);
+			}
+			if (clickedItemID == itemID) {
+				this.updateNodeFields(item,node,this._handle.clicked);
+			}
+		}
+	</script>
+	<script type="dojo/connect" data-dojo-event="startup">
+		var leadPane = iUtil.getChildWidget(this,false,dContentPane);
+		while ((leadPane) && (leadPane.get("title") != "Navigation Tree")) {
+			leadPane = iUtil.getSiblingWidget(leadPane,false,dContentPane);
+		}
+		var navTree = iUtil.getChildWidget(leadPane,false,iNavTree);
+
+		var nodeFields = { selected: {}, clicked: {} };
+		for (var fieldType in nodeFields) {
+			nodeFields[fieldType].nodeName = iUtil.getFormWidget(fieldType + "NodeName", this);
+			nodeFields[fieldType].nodeLabel = iUtil.getFormWidget(fieldType + "NodeLabel", this);
+			nodeFields[fieldType].nodeID = iUtil.getFormWidget(fieldType + "NodeID", this);
+			nodeFields[fieldType].nodeType = iUtil.getFormWidget(fieldType + "NodeType", this);
+			nodeFields[fieldType].badgeLabel = iUtil.getFormWidget(fieldType + "NodeBadgeLabel", this);
+			nodeFields[fieldType].badgeIconType = iUtil.getFormWidget(fieldType + "NodeBadgeIconType", this);
+			nodeFields[fieldType].badgeIconClass = iUtil.getFormWidget(fieldType + "NodeBadgeIconClass", this);
+			nodeFields[fieldType].selectability = iUtil.getFormWidget(fieldType + "NodeSelectability", this);
+		}
+
+		this._handle = {
+			navTree: navTree,
+			form: form,
+			selected: nodeFields.selected,
+			clicked: nodeFields.clicked
+		};
+		var descendants = this.getDescendants();
+		for (var index = 0; index < descendants.length; index++) {
+			var descendant = descendants[index];
+			if (descendant.treeTestInit) {
+				descendant._handle = this._handle;
+				descendant.treeTestInit();
+			}
+		}
+		dConnect.connect(navTree,"onSelectionChanged",this,"onNavTreeSelect");
+		dConnect.connect(navTree,"onClick",this,"onNavTreeClick");
+		dConnect.connect(navTree.model,"onChange", this, "onItemChange");
+		var paths = navTree.get("paths");
+		if (paths && (paths.length > 0)) {
+			var path = paths[0];
+			var itemID = path[path.length - 1];
+			var nodes = navTree.getNodesByItem(itemID);
+			if (nodes && (nodes.length>0)) {
+				var node = nodes[0];
+				var item = node.get("item");
+				this.updateNodeFields(item,node,this._handle.selected);
+			}
+		}
+		this._handle.selected.grid.refresh();
+		this._handle.clicked.grid.refresh();
+	</script>
+	<div data-dojo-type="idx.layout.HeaderPane" data-dojo-props="region: 'leading',title: 'Navigation Tree', style: 'width: 20em;'">
+		<div data-dojo-type="idx.widget.NavTree" 
+	  	 	data-dojo-props="paths: [['_root_','home']], model: navModel, resources: navResources, badgeIconMap: {error: 'dijitIconError'}">
+		</div>
+	</div>
+	<div data-dojo-type="idx.layout.HeaderPane" data-dojo-props="title: 'Basic Settings', region: 'top', splitter: true, style:'height: 10em;'">
+		<table style="padding: 4px; width: 100%;">
+			<tr>
+				<th style="font-weight: bold; text-align: center; text-decoration: underline;">NavTree Settings</th>
+				<th style="font-weight: bold; text-align: center; text-decoration: underline;">NavTreeModel Settings</th>
+			</tr>
+			<tr>
+				<td style="text-align: center; vertical-align: top;">
+				<table style="padding: 4px;display: inline-block;">
+				<tr>
+				<td style="padding-right: 10px;text-align: left;">
+					<div data-dojo-type="dijit.form.CheckBox" name="showIcons">
+						<script type="dojo/method" event="treeTestInit">
+							this.set("checked", this._handle.navTree.get("showIcons"));
+						</script>
+						<script type="dojo/connect" event="onChange">
+							this._handle.navTree.set("showIcons", this.get("checked"));
+						</script>
+					</div>
+					<label for="highlightSelection">Show Icons</label>
+				</td>
+				<td style="padding-right: 10px;text-align: left;">
+					<div data-dojo-type="dijit.form.CheckBox" name="showBadges">
+						<script type="dojo/method" event="treeTestInit">
+							this.set("checked", this._handle.navTree.get("showBadges"));
+						</script>
+						<script type="dojo/connect" event="onChange">
+							this._handle.navTree.set("showBadges", this.get("checked"));
+						</script>
+					</div>
+					<label for="highlightSelection">Show Badges</label>
+				</td>
+				<td style="padding-right: 10px;text-align: left;">
+					<div data-dojo-type="dijit.form.CheckBox" name="highlightSelection">
+						<script type="dojo/method" event="treeTestInit">
+							this.set("checked", this._handle.navTree.get("highlightSelection"));
+						</script>
+						<script type="dojo/connect" event="onChange">
+							this._handle.navTree.set("highlightSelection", this.get("checked"));
+						</script>
+					</div>
+					<label for="highlightSelection">Highlight Selection</label>
+				</td>
+				</tr>
+				<tr>
+				<td style="padding-right: 10px;text-align: left;">
+					<div data-dojo-type="dijit.form.CheckBox" name="lookupItemLabels">
+						<script type="dojo/method" event="treeTestInit">
+							this.set("checked", this._handle.navTree.get("lookupItemLabels"));
+						</script>
+						<script type="dojo/connect" event="onChange">
+							this._handle.navTree.set("lookupItemLabels", this.get("checked"));
+						</script>
+					</div>
+					<label for="lookupItemLabels">Lookup Item Labels</label>
+				</td>
+				<td style="padding-right: 10px;text-align: left;">
+					<div data-dojo-type="dijit.form.CheckBox" name="lookupBadgeLabels">
+						<script type="dojo/method" event="treeTestInit">
+							this.set("checked", this._handle.navTree.get("lookupBadgeLabels"));
+						</script>
+						<script type="dojo/connect" event="onChange">
+							this._handle.navTree.set("lookupBadgeLabels", this.get("checked"));
+						</script>
+					</div>
+					<label for="lookupBadgeLabels">Lookup Badge Labels</label>
+				</td>
+				<td style="padding-right: 10px;text-align: left;">
+				</td>
+				</tr>
+				</table>
+			</td>
+			<td style="text-align: center; vertical-align: top;">
+				<table style="display: inline-block;">
+				<tr>
+				<td><label for="defaultSelectability">Default Model Selection Mode</label></td>
+				<td>
+				<select data-dojo-type="dijit.form.Select" data-dojo-props="name: 'defaultSelectability',style: 'width: 10em;'">
+					<script type="dojo/method" event="treeTestInit">
+						this.set("value", this._handle.navTree.model.defaultSelectability);	
+					</script>
+					<script type="dojo/connect" event="onChange">
+						this._handle.navTree.model.defaultSelectability = this.get("value");
+					</script>
+					<option value="all">All</option>
+					<option value="none">None</option>
+					<option value="leaves">Leaves</option>
+				</select>
+				</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		</table>
+	</div>
+	<div data-dojo-type="idx.layout.HeaderPane" data-dojo-props="title: 'Current Selection & Last Clicked', region: 'center'">
+			<table style="padding: 2px; width: 100%;">
+					<tr>
+						<th colspan="2" style="font-weight: bold; text-align: center; text-decoration: underline;">Selected Node/Item</th>
+						<th colspan="2" style="font-weight: bold; text-align: center; text-decoration: underline;">Last Clicked Node/Item</th>
+					</tr>
+					<tr>
+							 
+					
+						<td colspan="2" style="width: 50%; padding: 0px 10px;">
+						<div data-dojo-type="idx.grid.PropertyGrid"
+							 data-dojo-props="data: {}, resources: {emptyFormat: '[None]'}, properties:'itemID,type,label,name,selectable,badgeLabel,badgeIconType,badgeIconClass'">
+							 <script type="dojo/method" event="treeTestInit">
+								this._handle.selected.grid = this;
+  							 </script>
+							 <script type="dojo/connect" event="onChange" args="data,grid,formatter">
+									var itemID = data.itemID;
+									if (!(iString.nullTrim(itemID))) return;
+									var propName = formatter.get("propertyName");
+									var value = data[propName];
+									var model = this._handle.navTree.model;
+									var nodes = this._handle.navTree.getNodesByItem(itemID);
+									var node  = (nodes && (nodes.length>0)) ? nodes[0] : null;
+									if (! node) return;
+									var item = node.get("item");									
+									model.store.setValue(item, propName, value);
+									model.store.save();									
+ 							</script>
+							<div data-dojo-type="idx.grid.PropertyFormatter"
+								 data-dojo-props="propertyName: 'type',properties: 'type'">
+								 <div data-dojo-type="dijit.form.TextBox" 
+								 	  data-dojo-props="name: 'type',style: 'width: 20em;'">
+								 </div>
+								 <script type="dojo/connect" event="onRefresh" args="data,formatter">
+									this.set("readOnly", (! data.itemID)); 
+								 </script>
+							</div>
+							<div data-dojo-type="idx.grid.PropertyFormatter"
+								 data-dojo-props="propertyName: 'selectable',properties: 'selectable'">
+								 <div data-dojo-type="dijit.form.CheckBox"
+								 	  data-dojo-props="name: 'selectable'">
+								 </div>
+								 <script type="dojo/connect" event="onRefresh" args="data,formatter">
+									this.set("readOnly", (! data.itemID)); 
+								 </script>
+							</div>
+							<div data-dojo-type="idx.grid.PropertyFormatter"
+								 data-dojo-props="propertyName: 'badgeLabel',properties: 'badgeLabel'">
+								 <div data-dojo-type="dijit.form.TextBox"
+								 	  data-dojo-props="name: 'badgeLabel',style: 'width: 20em;'">
+								 </div>
+								 <script type="dojo/connect" event="onRefresh" args="data,formatter">
+									this.set("readOnly", (! data.itemID)); 
+								 </script>
+							</div>
+							<div data-dojo-type="idx.grid.PropertyFormatter"
+								 data-dojo-props="propertyName: 'badgeIconType',properties: 'badgeIconType'">
+								 <div data-dojo-type="dijit.form.TextBox"
+								 	  data-dojo-props="name: 'badgeIconType',style: 'width: 20em;'">
+								 </div>
+								 <script type="dojo/connect" data-dojo-event="onRefresh" data-dojo-args="data,formatter">
+									this.set("readOnly", (! data.itemID)); 
+								 </script>
+							</div>
+						</div>
+							 
+						</td>
+						<td colspan="2" style="width: 50%; padding: 0px 10px;">
+						<div data-dojo-type="idx.grid.PropertyGrid"
+							 data-dojo-props="data: {}, resources: {emptyFormat: '[None]'}, properties:'itemID,type,label,name,selectable,badgeLabel,badgeIconType,badgeIconClass'">
+							 <script type="dojo/method" event="treeTestInit">
+								this._handle.clicked.grid = this;
+  							 </script>
+							 <script type="dojo/connect" event="onChange" args="data,grid,formatter">
+									var itemID = data.itemID;
+									if (!(iString.nullTrim(itemID))) return;
+									var propName = formatter.get("propertyName");
+									var value = data[propName];
+									var model = this._handle.navTree.model;
+									var nodes = this._handle.navTree.getNodesByItem(itemID);
+									var node  = (nodes && (nodes.length>0)) ? nodes[0] : null;
+									if (! node) return;
+									var item = node.get("item");									
+									model.store.setValue(item, propName, value);
+									model.store.save();									
+ 							</script>
+							<div data-dojo-type="idx.grid.PropertyFormatter"
+								 data-dojo-props="propertyName: 'type', properties: 'type'">
+								 <div data-dojo-type="dijit.form.TextBox"
+								 	  data-dojo-props="name: 'type',style: 'width: 20em;'">
+								 </div>
+								 <script type="dojo/connect" event="onRefresh" args="data,formatter">
+									this.set("readOnly", (! data.itemID)); 
+								 </script>
+							</div>
+							<div data-dojo-type="idx.grid.PropertyFormatter"
+								 data-dojo-props="propertyName: 'selectable', properties: 'selectable'">
+								 <div data-dojo-type="dijit.form.CheckBox"
+								 	  data-dojo-props="name: 'selectable'">
+								 </div>
+								 <script type="dojo/connect" event="onRefresh" args="data,formatter">
+									this.set("readOnly", (! data.itemID)); 
+								 </script>
+							</div>
+							<div data-dojo-type="idx.grid.PropertyFormatter"
+								 data-dojo-props="propertyName: 'badgeLabel', properties: 'badgeLabel'">
+								 <div data-dojo-type="dijit.form.TextBox"
+								 	  data-dojo-props="name: 'badgeLabel',style: 'width: 20em;'">
+								 </div>
+								 <script type="dojo/connect" event="onRefresh" args="data,formatter">
+									this.set("readOnly", (! data.itemID)); 
+								 </script>
+							</div>
+							<div data-dojo-type="idx.grid.PropertyFormatter"
+								 data-dojo-props="propertyName: 'badgeIconType', properties: 'badgeIconType'">
+								 <div data-dojo-type="dijit.form.TextBox"
+								 	  data-dojo-props="name: 'badgeIconType',style: 'width: 20em;'">
+								 </div>
+								 <script type="dojo/connect" event="onRefresh" args="data,formatter">
+									this.set("readOnly", (! data.itemID)); 
+								 </script>
+							</div>
+						</div>
+						</td>
+					</tr>
+					<tr style="display: none; visibility: hidden;">
+						<td style="text-align: right;"><label for="selectedNodeID">Selected Node ID</label>: </td>
+						<td> 
+						<div data-dojo-type="dijit.form.TextBox" 
+							 data-dojo-props="readOnly:true, name: 'selectedNodeID', placeholder: '[None]'"></div>
+						</td>
+						<td style="text-align: right;"><label for="clickedNodeID">Clicked Node ID</label>: </td>
+						<td> 
+						<div data-dojo-type="dijit.form.TextBox" 
+							 data-dojo-props="readOnly:true, name: 'clickedNodeID', placeholder: '[None]'"></div>
+						</td>
+					</tr>
+					<tr style="display: none; visibility: hidden;">
+						<td style="text-align: right;"><label for="selectedNodeName">Selected Node Name</label>: </td>
+						<td>
+						<div data-dojo-type="dijit.form.TextBox" 
+							 data-dojo-props="readOnly:true, name: 'selectedNodeName', placeholder: '[None]'">
+							 </div>
+						</td>
+						<td style="text-align: right;"><label for="clickedNodeName">Clicked Node Name</label>: </td>
+						<td>
+						<div data-dojo-type="dijit.form.TextBox" 
+							 data-dojo-props="readOnly:true, name: 'clickedNodeName', placeholder: '[None]'">
+							 </div>
+						</td>
+					</tr>
+					<tr style="display: none; visibility: hidden;">
+						<td style="text-align: right;"><label for="selectedNodeLabel">Selected Node Label</label>: </td>
+						<td>
+						<div data-dojo-type="dijit.form.TextBox" 
+							 data-dojo-props="readOnly:true, name: 'selectedNodeLabel', placeholder: '[None]'">
+							</div>
+						</td>
+						<td style="text-align: right;"><label for="clickedNodeLabel">Clicked Node Label</label>: </td>
+						<td>
+						<div data-dojo-type="dijit.form.TextBox" 
+							 data-dojo-props="readOnly:true, name: 'clickedNodeLabel', placeholder: '[None]'">
+							</div>
+						</td>
+					</tr>
+					<tr style="display: none; visibility: hidden;">
+						<td style="text-align: right;"><label for="selectedNodeType">Selected Node Type</label>: </td>
+						<td>
+						<div data-dojo-type="dijit.form.TextBox" 
+							 data-dojo-props="readOnly:true, name: 'selectedNodeType', placeholder: '[None]'">
+							</div>
+						</td>
+						<td style="text-align: right;"><label for="clickedNodeType">Clicked Node Type</label>: </td>
+						<td>
+						<div data-dojo-type="dijit.form.TextBox" 
+							 data-dojo-props="readOnly:true, name: 'clickedNodeType', placeholder: '[None]'">
+							</div>
+						</td>
+					</tr>
+					<tr style="display: none; visibility: hidden;">
+						<td style="text-align: right;"><label for="selectedNodeSelectability">Selected Node Selectability</label>: </td>
+						<td>
+						<div data-dojo-type="dijit.form.TextBox" 
+							 data-dojo-props="readOnly:true, name: 'selectedNodeSelectability', placeholder: '[None]'">
+							</div>
+						</td>
+						<td style="text-align: right;"><label for="clickedNodeSelectability">Clicked Node Selectability</label>: </td>
+						<td>
+							<div data-dojo-type="dijit.form.TextBox" 
+								 data-dojo-props="readOnly:true, name: 'clickedNodeSelectability', placeholder: '[None]'">
+							</div>
+						</td>
+					</tr>
+					<tr style="display: none; visibility: hidden;">
+						<td style="text-align: right;"><label for="selectedNodeBadgeLabel">Selected Node Badge Label</label>: </td>
+						<td>
+						<div data-dojo-type="dijit.form.TextBox" 
+							 data-dojo-props="readOnly: true, name: 'selectedNodeBadgeLabel', placeholder: '[None]'">
+						</div>
+						</td>
+						<td style="text-align: right;"><label for="clickedNodeBadgeLabel">Clicked Node Badge Label</label>: </td>
+						<td>
+						<div data-dojo-type="dijit.form.TextBox" 
+							 data-dojo-props="readOnly: true, name: 'clickedNodeBadgeLabel', placeholder: '[None]'">
+						</div>
+						</td>
+					</tr>
+					<tr style="display: none; visibility: hidden;">
+						<td style="text-align: right;"><label for="selectedNodeBadgeIconType">Selected Node Badge Icon Type</label>: </td>
+						<td>
+						<div data-dojo-type="dijit.form.TextBox" 
+							 data-dojo-props="readOnly: true, name: 'selectedNodeBadgeIconType', placeholder: '[None]'">
+						</div>
+						</td>
+						<td style="text-align: right;"><label for="clickedNodeBadgeIconType">Clicked Node Badge Icon Type</label>: </td>
+						<td>
+						<div data-dojo-type="dijit.form.TextBox" 
+							 data-dojo-props="readOnly: true, name: 'clickedNodeBadgeIconType', placeholder: '[None]'">
+						</div>
+						</td>
+					</tr>
+					<tr style="display: none; visibility: hidden;">
+						<td style="text-align: right;"><label for="selectedNodeBadgeIconClass">Selected Node Badge Icon Class</label>: </td>
+						<td>
+						<div data-dojo-type="dijit.form.TextBox" 
+							 data-dojo-props="readOnly:true, name: 'selectedNodeBadgeIconClass', placeholder: '[None]'">							 
+						</div>
+							
+						</td>
+						<td style="text-align: right;"><label for="clickedNodeBadgeIconClass">Clicked Node Badge Icon Class</label>: </td>
+						<td>
+							<div data-dojo-type="dijit.form.TextBox" 
+								 data-dojo-props="readOnly:true, name: 'clickedNodeBadgeIconClass', placeholder: '[None]'">
+							</div>
+						</td>
+					</tr>
+				</table>
+	</div>
+	<div data-dojo-type="idx.layout.HeaderPane" 
+	     data-dojo-props="title: 'Advanced Settings', region: 'bottom', splitter: true, style:'height: 20em; width: 100%;'">
+						<div data-dojo-type="dijit.layout.TabContainer" data-dojo-props="style:'width: 98%; height: 20em;'">
+							<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="title: 'NavTree iconMap'">
+								<div data-dojo-type="idx.layout.ButtonBar">
+									<script type="dojo/method" event="treeTestInit">
+										// do nothing, but this gets us a reference to _handle
+									</script>
+									<script type="dojo/method" event="addIconMapping" args="type">
+										var iconCount = 1;
+										var dropDown = this._handle.iconMappingCount;
+										if (dropDown) {
+											var value = dropDown.get("value");
+											if (value) iconCount = parseInt(value);
+										}
+										var navTree = this._handle.navTree;
+
+										var propGrid = this._handle.iconGrid;
+										var gridData = propGrid.get("data");
+										var fields = (gridData === defaultGridData) ? "" : propGrid.get("properties");
+										var prefix = (gridData === defaultGridData) ? "" : ",";
+
+										var map = navTree.get("iconMap");
+										map = (map) ? dLang.clone(map) : {};
+
+										if (! (type in map)) {
+											fields = fields + prefix + type;
+								
+											switch (iconCount) {
+												case 1:
+													{
+														map[type] = null;
+														var formatter = new iPropertyFormatter({propertyContainer: propGrid,
+																								propertyName: type,
+																								properties: type});
+													
+														var selectBox = new dSelect({style: 'width: 20em;',
+																					 name: type,
+																					 options: dLang.clone(iconOptions)});
+														selectBox.startup();
+														formatter.startup();
+														formatter.addChild(selectBox);
+													
+														propGrid.addChild(formatter);
+													}
+													break;
+												case 2:
+													{
+														map[type] = {leaf: null, branch: null};
+														var properties = type + ".leaf" + "," + type + ".branch";
+														var formatter = new iPropertyFormatter({propertyContainer: propGrid,
+																								propertyName: type,
+																								formatFunc: jsonFormat,
+																								properties: properties});
+														
+														var selectBox1 = new dSelect({style: 'width: 20em;',
+																					 name: type + ".leaf",
+																					 options: dLang.clone(iconOptions)});
+
+														var selectBox2 = new dSelect({style: 'width: 20em;',
+																					 name: type + ".branch",
+																					 options: dLang.clone(iconOptions)});
+														
+														selectBox1.startup();
+														selectBox2.startup();
+														formatter.startup();
+														var leafSpan = dDomConstruct.create("span", {innerHTML: ":"});
+														var leafLabel = dDomConstruct.create("label", {innerHTML: "leaf", title: "Set Leaf Icon"});
+														dDomConstruct.place(leafLabel, leafSpan, "first");
+														dDomConstruct.place(leafSpan, formatter.containerNode, "last"); 
+														formatter.addChild(selectBox1);
+														var branchSpan = dDomConstruct.create("span", {innerHTML: ":"});
+														var branchLabel = dDomConstruct.create("label", {innerHTML: "branch", title: "Set Branch Icon"});
+														dDomConstruct.place(branchLabel, branchSpan, "first");
+														dDomConstruct.place(branchSpan, formatter.containerNode, "last"); 
+														formatter.addChild(selectBox2);
+													
+														propGrid.addChild(formatter);
+														dDomAttr.set(leafLabel, "for", dDomAttr.get(selectBox1.domNode, "id"));
+														dDomAttr.set(branchLabel, "for", dDomAttr.get(selectBox2.domNode, "id"));
+													}
+													break;
+												case 3:
+													{
+														map[type] = {leaf: null, open: null, closed: null};
+														var properties = type + ".leaf," + type + ".open," + type + ".closed";
+														var formatter = new iPropertyFormatter({propertyContainer: propGrid,
+																								propertyName: type,
+																								formatFunc: jsonFormat,
+																								properties: properties});
+														
+														var selectBox1 = new dSelect({style: 'width: 20em;',
+																					 name: type + ".leaf",
+																					 options: dLang.clone(iconOptions)});
+
+														var selectBox2 = new dSelect({style: 'width: 20em;',
+																					 name: type + ".open",
+																					 options: dLang.clone(iconOptions)});
+
+														var selectBox3 = new dSelect({style: 'width: 20em;',
+																					 name: type + ".closed",
+																					 options: dLang.clone(iconOptions)});
+														
+														selectBox1.startup();
+														selectBox2.startup();
+														selectBox3.startup();
+														formatter.startup();
+														var leafSpan = dDomConstruct.create("span", {innerHTML: ":"});
+														var leafLabel = dDomConstruct.create("label", {innerHTML: "leaf", title: "Set Leaf Icon"});
+														dDomConstruct.place(leafLabel, leafSpan, "first");
+														dDomConstruct.place(leafSpan, formatter.containerNode, "last"); 
+														formatter.addChild(selectBox1);
+														var openSpan = dDomConstruct.create("span", {innerHTML: ":"});
+														var openLabel = dDomConstruct.create("label", {innerHTML: "open", title: "Set Open Icon"});
+														dDomConstruct.place(openLabel, openSpan, "first");
+														dDomConstruct.place(openSpan, formatter.containerNode, "last"); 
+														formatter.addChild(selectBox2);
+														var closedSpan = dDomConstruct.create("span", {innerHTML: ":"});
+														var closedLabel = dDomConstruct.create("label", {innerHTML: "closed", title: "Set Closed Icon"});
+														dDomConstruct.place(closedLabel, closedSpan, "first");
+														dDomConstruct.place(closedSpan, formatter.containerNode, "last"); 
+														formatter.addChild(selectBox3);
+													
+														propGrid.addChild(formatter);
+														dDomAttr.set(leafLabel, "for", dDomAttr.get(selectBox1.domNode, "id"));
+														dDomAttr.set(openLabel, "for", dDomAttr.get(selectBox2.domNode, "id"));
+														dDomAttr.set(closedLabel, "for", dDomAttr.get(selectBox3.domNode, "id"));
+													}
+													break;
+											}
+
+										}
+										propGrid.set({data: map, properties: fields});
+										navTree.set("iconMap", map);
+										propGrid.refresh();										
+									</script>							
+									<script type="dojo/method" event="removeIconMapping" args="type">
+										var navTree = this._handle.navTree;
+										var map = navTree.get("iconMap");
+										if (!map) return;
+										map = dLang.clone(map);
+										
+										delete map[type];
+
+										var propGrid = this._handle.iconGrid;
+
+										var fields = "";
+										var prefix = "";
+										var fieldCount = 0;
+										for (var field in map) {
+											fields = fields + prefix + field;
+											prefix = ",";
+											fieldCount++;
+										}
+										if (fieldCount == 0) {
+											navTree.set("iconMap", null);
+											propGrid.set({data:defaultGridData, properties: ""});
+										} else {
+											navTree.set("iconMap", map);
+											propGrid.set({data:map, properties: fields});
+										}
+										propGrid.refresh();
+									</script>
+								<select data-dojo-type="dijit.form.Select" data-dojo-props="disabled: true, style: 'width: 20em;'">
+									<option value="1">Single Icon Class (string)</option>
+		        					<option value="2">Separate Leaf vs Branch (object)</option>
+		        					<option value="3">Separate Leaf vs Open vs Closed</option>
+									<script type="dojo/connect" event="treeTestInit">
+										dConnect.connect(this._handle.selected.nodeType, "onChange", this, "onItemChange");
+										dConnect.connect(this._handle.clicked.nodeType, "onChange", this, "onItemChange");
+										var buttonBar = iUtil.getParentWidget(this, iButtonBar);
+										dConnect.connect(buttonBar, "onAnyClick", this, "onItemChange");
+										this._handle.iconMappingCount = this;
+									</script>
+									<script type="dojo/connect" event="onItemChange">
+										var selectedTypeField = this._handle.selected.nodeType;
+										var clickedTypeField = this._handle.clicked.nodeType;
+										var selectedType = selectedTypeField.get("value");
+										var clickedType = clickedTypeField.get("value");
+										var navTree = this._handle.navTree;
+										var map = navTree.iconMap;
+										var clickedTypeDisabled = (!iString.nullTrim(clickedType)) || ((map) && (clickedType in map));
+										var selectedTypeDisabled = (!iString.nullTrim(selectedType)) || ((map) && (selectedType in map));
+										var disabled = (clickedTypeDisabled && selectedTypeDisabled) ? true : false;
+										this.set("disabled", disabled);
+									</script>
+								</select>
+								<div data-dojo-type="dijit.form.Button" data-dojo-props="label: 'Add Selected Type', disabled: true">
+									<script type="dojo/connect" event="treeTestInit">
+										dConnect.connect(this._handle.selected.nodeType, "onChange", this, "onItemChange");
+										var buttonBar = iUtil.getParentWidget(this, iButtonBar);
+										dConnect.connect(buttonBar, "onAnyClick", this, "onItemChange");
+									</script>
+									<script type="dojo/connect" event="onItemChange">
+										var nodeTypeField = this._handle.selected.nodeType;
+										var type = nodeTypeField.get("value");
+										var navTree = this._handle.navTree;
+										var map = navTree.iconMap;
+										var label = (!iString.nullTrim(type) ? "Add Selected Type" : "Add Selected Type (" + type + ")");
+										this.set("label", label);
+										var disabled = ((!iString.nullTrim(type)) || ((map) && (type in map))) ? true : false;
+										this.set("disabled", disabled);
+									</script>							
+									<script type="dojo/connect" event="onClick" args="evt">
+										var nodeTypeField = this._handle.selected.nodeType;
+										var type = nodeTypeField.get("value");
+										var parent = iUtil.getParentWidget(this,iButtonBar);
+										parent.addIconMapping(type);										
+									</script>									
+								</div><!--  end Button -->
+								<div data-dojo-type="dijit.form.Button" data-dojo-props="label: 'Add Clicked Type', disabled: true">
+									<script type="dojo/connect" event="treeTestInit">
+										dConnect.connect(this._handle.clicked.nodeType, "onChange", this, "onItemChange");
+										var buttonBar = iUtil.getParentWidget(this, iButtonBar);
+										dConnect.connect(buttonBar, "onAnyClick", this, "onItemChange");
+									</script>
+									<script type="dojo/connect" event="onItemChange">
+										var nodeTypeField = this._handle.clicked.nodeType;
+										var type = nodeTypeField.get("value");
+										var navTree = this._handle.navTree;
+										var map = navTree.iconMap;
+										var label = (!iString.nullTrim(type) ? "Add Clicked Type" : "Add Clicked Type (" + type + ")");
+										this.set("label", label);
+										var disabled = ((!iString.nullTrim(type)) || ((map) && (type in map))) ? true : false;
+										this.set("disabled", disabled);
+									</script>							
+									<script type="dojo/connect" event="onClick" args="evt">
+										var nodeTypeField = this._handle.clicked.nodeType;
+										var type = nodeTypeField.get("value");
+										var parent = iUtil.getParentWidget(this,iButtonBar);
+										parent.addIconMapping(type);										
+									</script>									
+								</div><!--  end Button -->
+								<div data-dojo-type="dijit.form.Button" data-dojo-props="label: 'Remove Selected Type', disabled: true, region: 'secondary'">
+									<script type="dojo/connect" event="treeTestInit">
+										dConnect.connect(this._handle.selected.nodeType, "onChange", this, "onItemChange");
+										var buttonBar = iUtil.getParentWidget(this, iButtonBar);
+										dConnect.connect(buttonBar, "onAnyClick", this, "onItemChange");
+									</script>
+									<script type="dojo/connect" event="onItemChange">
+										var nodeTypeField = this._handle.selected.nodeType;
+										var type = nodeTypeField.get("value");
+										var navTree = this._handle.navTree;
+										var map = navTree.get("iconMap");
+										var label = (!iString.nullTrim(type) ? "Remove Selected Type" : "Remove Selected Type (" + type + ")");
+										this.set("label", label);
+										var disabled = ((!iString.nullTrim(type)) || (!map) || (!(type in map))) ? true : false;
+										this.set("disabled", disabled);
+									</script>							
+									<script type="dojo/connect" event="onClick" args="evt">
+										var nodeTypeField = this._handle.selected.nodeType;
+										var type = nodeTypeField.get("value");
+										var parent = iUtil.getParentWidget(this,iButtonBar);
+										parent.removeIconMapping(type);
+
+									</script>
+								</div><!--  end Button -->
+								<div data-dojo-type="dijit.form.Button" data-dojo-props="label: 'Remove Clicked Type', disabled: true, region: 'secondary'">
+									<script type="dojo/connect" event="treeTestInit">
+										dConnect.connect(this._handle.clicked.nodeType, "onChange", this, "onItemChange");
+										var buttonBar = iUtil.getParentWidget(this, iButtonBar);
+										dConnect.connect(buttonBar, "onAnyClick", this, "onItemChange");
+									</script>
+									<script type="dojo/connect" event="onItemChange">
+										var nodeTypeField = this._handle.clicked.nodeType;
+										var type = nodeTypeField.get("value");
+										var navTree = this._handle.navTree;
+										var map = navTree.get("iconMap");
+										var label = (!iString.nullTrim(type) ? "Remove Clicked Type" : "Remove Clicked Type (" + type + ")");
+										this.set("label", label);
+										var disabled = ((!iString.nullTrim(type)) || (!map) || (!(type in map))) ? true : false;
+										this.set("disabled", disabled);
+									</script>							
+									<script type="dojo/connect" event="onClick" args="evt">
+										var nodeTypeField = this._handle.clicked.nodeType;
+										var type = nodeTypeField.get("value");
+										var parent = iUtil.getParentWidget(this,iButtonBar);
+										parent.removeIconMapping(type);
+									</script>
+								</div><!--  end Button -->
+								</div><!--  end ButtonBar -->
+								<br><br>
+								<div data-dojo-type="idx.grid.PropertyGrid" 
+									 data-dojo-props="data: defaultGridData, properties: '', rawLabels: true">
+									<script type="dojo/method" event="treeTestInit">
+										this._handle.iconGrid = this;
+									</script>				
+									<script type="dojo/connect" event="onChange" args="data">
+										this._handle.navTree.set("iconMap", data);
+									</script>				
+								</div><!--  end PropertyGrid -->
+								
+						</div>
+							<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="title: 'NavTree badgeIconMap'">
+								<div data-dojo-type="idx.layout.ButtonBar">
+									<script type="dojo/method" event="treeTestInit">
+										// do nothing, but this gets us a reference to _handle
+									</script>
+									<script type="dojo/method" event="addIconMapping" args="type">
+										var iconCount = 1;
+										var dropDown = this._handle.badgeIconMappingCount;
+										if (dropDown) {
+											var value = dropDown.get("value");
+											if (value) iconCount = parseInt(value);
+										}
+										var navTree = this._handle.navTree;
+
+										var propGrid = this._handle.badgeIconGrid;
+										var gridData = propGrid.get("data");
+										var fields = (gridData === defaultGridData) ? "" : propGrid.get("properties");
+										var prefix = (gridData === defaultGridData) ? "" : ",";
+
+										var map = navTree.get("badgeIconMap");
+										map = (map) ? dLang.clone(map) : {};
+										if (! (type in map)) {
+											fields = fields + prefix + type;
+								
+											switch (iconCount) {
+												case 1:
+													{
+														map[type] = null;
+														var formatter = new iPropertyFormatter({propertyContainer: propGrid,
+																								propertyName: type,
+																								properties: type});
+													
+														var selectBox = new dSelect({style: 'width: 20em;',
+																					 name: type,
+																					 options: dLang.clone(iconOptions)});
+														selectBox.startup();
+														formatter.startup();
+														formatter.addChild(selectBox);
+													
+														propGrid.addChild(formatter);
+													}
+													break;
+												case 2:
+													{
+														map[type] = {leaf: null, branch: null};
+														var properties = type + ".leaf" + "," + type + ".branch";
+														var formatter = new iPropertyFormatter({propertyContainer: propGrid,
+																								propertyName: type,
+																								formatFunc: jsonFormat,
+																								properties: properties});
+														
+														var selectBox1 = new dSelect({style: 'width: 20em;',
+																					 name: type + ".leaf",
+																					 options: dLang.clone(iconOptions)});
+
+														var selectBox2 = new dSelect({style: 'width: 20em;',
+																					 name: type + ".branch",
+																					 options: dLang.clone(iconOptions)});
+														
+														selectBox1.startup();
+														selectBox2.startup();
+														formatter.startup();
+														var leafSpan = dDomConstruct.create("span", {innerHTML: ":"});
+														var leafLabel = dDomConstruct.create("label", {innerHTML: "leaf", title: "Set Leaf Icon"});
+														dDomConstruct.place(leafLabel, leafSpan, "first");
+														dDomConstruct.place(leafSpan, formatter.containerNode, "last"); 
+														formatter.addChild(selectBox1);
+														var branchSpan = dDomConstruct.create("span", {innerHTML: ":"});
+														var branchLabel = dDomConstruct.create("label", {innerHTML: "branch", title: "Set Branch Icon"});
+														dDomConstruct.place(branchLabel, branchSpan, "first");
+														dDomConstruct.place(branchSpan, formatter.containerNode, "last"); 
+														formatter.addChild(selectBox2);
+													
+														propGrid.addChild(formatter);
+														dDomAttr.set(leafLabel, "for", dDomAttr.get(selectBox1.domNode, "id"));
+														dDomAttr.set(branchLabel, "for", dDomAttr.get(selectBox2.domNode, "id"));
+													}
+													break;
+												case 3:
+													{
+														map[type] = {leaf: null, open: null, closed: null};
+														var properties = type + ".leaf," + type + ".open," + type + ".closed";
+														var formatter = new iPropertyFormatter({propertyContainer: propGrid,
+																								propertyName: type,
+																								formatFunc: jsonFormat,
+																								properties: properties});
+														
+														var selectBox1 = new dSelect({style: 'width: 20em;',
+																					 name: type + ".leaf",
+																					 options: dLang.clone(iconOptions)});
+
+														var selectBox2 = new dSelect({style: 'width: 20em;',
+																					 name: type + ".open",
+																					 options: dLang.clone(iconOptions)});
+
+														var selectBox3 = new dSelect({style: 'width: 20em;',
+																					 name: type + ".closed",
+																					 options: dLang.clone(iconOptions)});
+														
+														selectBox1.startup();
+														selectBox2.startup();
+														selectBox3.startup();
+														formatter.startup();
+														var leafSpan = dDomConstruct.create("span", {innerHTML: ":"});
+														var leafLabel = dDomConstruct.create("label", {innerHTML: "leaf", title: "Set Leaf Icon"});
+														dDomConstruct.place(leafLabel, leafSpan, "first");
+														dDomConstruct.place(leafSpan, formatter.containerNode, "last"); 
+														formatter.addChild(selectBox1);
+														var openSpan = dDomConstruct.create("span", {innerHTML: ":"});
+														var openLabel = dDomConstruct.create("label", {innerHTML: "open", title: "Set Open Icon"});
+														dDomConstruct.place(openLabel, openSpan, "first");
+														dDomConstruct.place(openSpan, formatter.containerNode, "last"); 
+														formatter.addChild(selectBox2);
+														var closedSpan = dDomConstruct.create("span", {innerHTML: ":"});
+														var closedLabel = dDomConstruct.create("label", {innerHTML: "closed", title: "Set Closed Icon"});
+														dDomConstruct.place(closedLabel, closedSpan, "first");
+														dDomConstruct.place(closedSpan, formatter.containerNode, "last"); 
+														formatter.addChild(selectBox3);
+													
+														propGrid.addChild(formatter);
+														dDomAttr.set(leafLabel, "for", dDomAttr.get(selectBox1.domNode, "id"));
+														dDomAttr.set(openLabel, "for", dDomAttr.get(selectBox2.domNode, "id"));
+														dDomAttr.set(closedLabel, "for", dDomAttr.get(selectBox3.domNode, "id"));
+													}
+													break;
+											}
+
+										}
+										console.log("CURRENT FIELDS / ICON MAP: " + fields + " / " + iUtil.debugObject(map));
+										propGrid.set({data: map, properties: fields});
+										navTree.set("badgeIconMap", map);
+										propGrid.refresh();										
+									</script>
+									<script type="dojo/method" event="removeIconMapping" args="type">
+										var navTree = this._handle.navTree;
+										var map = navTree.get("badgeIconMap");
+										if (!map) return;
+										map = dLang.clone(map);
+										
+										delete map[type];
+
+										var propGrid = this._handle.badgeIconGrid;
+
+										var fields = "";
+										var prefix = "";
+										var fieldCount = 0;
+										for (var field in map) {
+											fields = fields + prefix + field;
+											prefix = ",";
+											fieldCount++;
+										}
+										if (fieldCount == 0) {
+											navTree.set("badgeIconMap", null);
+											propGrid.set({data:defaultGridData, properties: ""});
+										} else {
+											navTree.set("badgeIconMap", map);
+											propGrid.set({data:map, properties: fields});
+										}
+										propGrid.refresh();									
+									</script>							
+								<select data-dojo-type="dijit.form.Select" data-dojo-props="disabled: true, style: 'width: 20em;'">
+									<option value="1">Single Icon Class (string)</option>
+		        					<option value="2">Separate Leaf vs Branch (object)</option>
+		        					<option value="3">Separate Leaf vs Open vs Closed</option>
+									<script type="dojo/connect" event="treeTestInit">
+										dConnect.connect(this._handle.selected.badgeIconType, "onChange", this, "onItemChange");
+										dConnect.connect(this._handle.clicked.badgeIconType, "onChange", this, "onItemChange");
+										var buttonBar = iUtil.getParentWidget(this, iButtonBar);
+										dConnect.connect(buttonBar, "onAnyClick", this, "onItemChange");
+										this._handle.badgeIconMappingCount = this;
+									</script>
+									<script type="dojo/connect" event="onItemChange">
+										var selectedTypeField = this._handle.selected.badgeIconType;
+										var clickedTypeField = this._handle.clicked.badgeIconType;
+										var selectedType = selectedTypeField.get("value");
+										var clickedType = clickedTypeField.get("value");
+										var navTree = this._handle.navTree;
+										var map = navTree.badgeIconMap;
+										var clickedTypeDisabled = (!iString.nullTrim(clickedType)) || ((map) && (clickedType in map));
+										var selectedTypeDisabled = (!iString.nullTrim(selectedType)) || ((map) && (selectedType in map));
+										var disabled = (clickedTypeDisabled && selectedTypeDisabled) ? true : false;
+										this.set("disabled", disabled);
+									</script>
+								</select>
+								<div data-dojo-type="dijit.form.Button" data-dojo-props="label: 'Add Selected Type', disabled: true">
+									<script type="dojo/connect" event="treeTestInit">
+										dConnect.connect(this._handle.selected.badgeIconType, "onChange", this, "onItemChange");
+										var buttonBar = iUtil.getParentWidget(this, iButtonBar);
+										dConnect.connect(buttonBar, "onAnyClick", this, "onItemChange");
+									</script>
+									<script type="dojo/connect" event="onItemChange">
+										var badgeIconTypeField = this._handle.selected.badgeIconType;
+										var type = badgeIconTypeField.get("value");
+										var navTree = this._handle.navTree;
+										var map = navTree.badgeIconMap;
+										var label = (!iString.nullTrim(type) ? "Add Selected Type" : "Add Selected Type (" + type + ")");
+										this.set("label", label);
+										var disabled = ((!iString.nullTrim(type)) || ((map) && (type in map))) ? true : false;
+										this.set("disabled", disabled);
+									</script>							
+									<script type="dojo/connect" event="onClick" args="evt">
+										var badgeIconTypeField = this._handle.selected.badgeIconType;
+										var type = badgeIconTypeField.get("value");
+										var parent = iUtil.getParentWidget(this,iButtonBar);
+										parent.addIconMapping(type);										
+									</script>									
+								</div>
+								<div data-dojo-type="dijit.form.Button" data-dojo-props="label: 'Add Clicked Type', disabled: true">
+									<script type="dojo/connect" event="treeTestInit">
+										dConnect.connect(this._handle.clicked.badgeIconType, "onChange", this, "onItemChange");
+										var buttonBar = iUtil.getParentWidget(this, iButtonBar);
+										dConnect.connect(buttonBar, "onAnyClick", this, "onItemChange");
+									</script>
+									<script type="dojo/connect" event="onItemChange">
+										var badgeIconTypeField = this._handle.clicked.badgeIconType;
+										var type = badgeIconTypeField.get("value");
+										var navTree = this._handle.navTree;
+										var map = navTree.badgeIconMap;
+										var label = (!iString.nullTrim(type) ? "Add Clicked Type" : "Add Clicked Type (" + type + ")");
+										this.set("label", label);
+										var disabled = ((!iString.nullTrim(type)) || ((map) && (type in map))) ? true : false;
+										this.set("disabled", disabled);
+									</script>							
+									<script type="dojo/connect" event="onClick" args="evt">
+										var badgeIconTypeField = this._handle.clicked.badgeIconType;
+										var type = badgeIconTypeField.get("value");
+										var parent = iUtil.getParentWidget(this,iButtonBar);
+										parent.addIconMapping(type);										
+									</script>									
+								</div>
+								<div data-dojo-type="dijit.form.Button" data-dojo-props="label: 'Remove Selected Type', disabled: true, region: 'secondary'">
+									<script type="dojo/connect" event="treeTestInit">
+										dConnect.connect(this._handle.selected.badgeIconType, "onChange", this, "onItemChange");
+										var buttonBar = iUtil.getParentWidget(this, iButtonBar);
+										dConnect.connect(buttonBar, "onAnyClick", this, "onItemChange");
+									</script>
+									<script type="dojo/connect" event="onItemChange">
+										var badgeIconTypeField = this._handle.selected.badgeIconType;
+										var type = badgeIconTypeField.get("value");
+										var navTree = this._handle.navTree;
+										var map = navTree.get("badgeIconMap");
+										var label = (!iString.nullTrim(type) ? "Remove Selected Type" : "Remove Selected Type (" + type + ")");
+										this.set("label", label);
+										var disabled = ((!iString.nullTrim(type)) || (!map) || (!(type in map))) ? true : false;
+										this.set("disabled", disabled);
+									</script>							
+									<script type="dojo/connect" event="onClick" args="evt">
+										var badgeIconTypeField = this._handle.selected.badgeIconType;
+										var type = badgeIconTypeField.get("value");
+										var parent = iUtil.getParentWidget(this,iButtonBar);
+										parent.removeIconMapping(type);
+									</script>
+								</div>
+								<div data-dojo-type="dijit.form.Button" data-dojo-props="label: 'Remove Clicked Type', disabled: true, region: 'secondary'">
+									<script type="dojo/connect" event="treeTestInit">
+										dConnect.connect(this._handle.clicked.badgeIconType, "onChange", this, "onItemChange");
+										var buttonBar = iUtil.getParentWidget(this, iButtonBar);
+										dConnect.connect(buttonBar, "onAnyClick", this, "onItemChange");
+									</script>
+									<script type="dojo/connect" event="onItemChange">
+										var badgeIconTypeField = this._handle.clicked.badgeIconType;
+										var type = badgeIconTypeField.get("value");
+										var navTree = this._handle.navTree;
+										var map = navTree.get("badgeIconMap");
+										var label = (!iString.nullTrim(type) ? "Remove Clicked Type" : "Remove Clicked Type (" + type + ")");
+										this.set("label", label);
+										var disabled = ((!iString.nullTrim(type)) || (!map) || (!(type in map))) ? true : false;
+										this.set("disabled", disabled);
+									</script>							
+									<script type="dojo/connect" event="onClick" args="evt">
+										var badgeIconTypeField = this._handle.clicked.badgeIconType;
+										var type = badgeIconTypeField.get("value");
+										var parent = iUtil.getParentWidget(this,iButtonBar);
+										parent.removeIconMapping(type);
+									</script>
+								</div>
+								</div>
+								<br><br>
+								<div data-dojo-type="idx.grid.PropertyGrid" 
+									 data-dojo-props="data: defaultGridData, properties: '', rawLabels: true">
+									<script type="dojo/method" event="treeTestInit">
+										this._handle.badgeIconGrid = this;
+										this.set({data: this._handle.navTree.badgeIconMap,
+                                                  properties: "error"});
+										this.refresh();
+									</script>				
+									<script type="dojo/connect" event="onChange" args="data">
+										this._handle.navTree.set("badgeIconMap", data);
+									</script>
+									<div data-dojo-type="idx.grid.PropertyFormatter" 
+										 data-dojo-props="propertyName: 'error', properties: 'error'">
+										<div data-dojo-type="dijit.form.Select"
+											 data-dojo-props="options: dLang.clone(iconOptions), 
+											 				  name: 'error',
+											 				  style: 'width: 20em;'">
+										</div>
+									</div>
+								</div>			
+								
+						</div>												
+							<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="title: 'NavTreeModel badgeMap'">
+								<div data-dojo-type="idx.layout.ButtonBar">
+									<script type="dojo/method" event="treeTestInit">
+										// do nothing, but this gets us a reference to _handle
+									</script>
+									<script type="dojo/method" event="addBadgeMapping" args="itemID">
+										var badgeMappingType = "integer";
+										var dropDown = this._handle.badgeMappingType;
+										if (dropDown) {
+											var value = dropDown.get("value");
+											if (value) badgeMappingType = value;
+										}
+										var navTree = this._handle.navTree;
+										var model = navTree.model;
+
+										var propGrid = this._handle.badgeGrid;
+										var gridData = propGrid.get("data");
+										var fields = (gridData === defaultGridData) ? "" : propGrid.get("properties");
+										var prefix = (gridData === defaultGridData) ? "" : ",";
+
+										var map = model.badgeMap;
+										map = (map) ? map : {};
+
+										if (! (itemID in map)) {
+											fields = fields + prefix + itemID;
+								
+											switch (badgeMappingType) {
+												case "integer":
+													{
+														map[itemID] = 0;
+														var formatter = new iPropertyFormatter({propertyContainer: propGrid,
+																								propertyName: itemID,
+																								properties: itemID});
+													
+														var numTextBox = new dNumberTextBox({style: 'width: 20em;',
+																					          name: itemID,
+																							  constraints:{places:0}});
+
+														numTextBox.startup();
+														formatter.startup();
+														formatter.addChild(numTextBox);
+													
+														propGrid.addChild(formatter);
+													}
+													break;
+												case "text":
+													{
+														map[itemID] = "badge";
+														var formatter = new iPropertyFormatter({propertyContainer: propGrid,
+																								propertyName: itemID,
+																								properties: itemID});
+													
+														var textBox = new dTextBox({style: 'width: 20em;',
+																					name: itemID});
+														textBox.startup();
+														formatter.startup();
+														formatter.addChild(textBox);
+													
+														propGrid.addChild(formatter);
+													}
+													break;
+												case "object":
+													{
+														map[itemID] = {label: "badge", iconType: null};
+														var properties = itemID + ".label" + "," + itemID + ".iconType";
+														var formatter = new iPropertyFormatter({propertyContainer: propGrid,
+																								propertyName: itemID,
+																								formatFunc: jsonFormat,
+																								properties: properties});
+														
+														var textBox1 = new dTextBox({style: 'width: 20em;',
+																					name: itemID + ".label"});
+
+														var textBox2 = new dTextBox({style: 'width: 20em;',
+																					name: itemID + ".iconType"});
+
+														textBox1.startup();
+														textBox2.startup();
+														formatter.startup();
+														var labelSpan = dDomConstruct.create("span", {innerHTML: ":"});
+														var labelLabel = dDomConstruct.create("label", {innerHTML: "label", title: "Set Badge Label"});
+														dDomConstruct.place(labelLabel, labelSpan, "first");
+														dDomConstruct.place(labelSpan, formatter.containerNode, "last"); 
+														formatter.addChild(textBox1);
+														var iconTypeSpan = dDomConstruct.create("span", {innerHTML: ":"});
+														var iconTypeLabel = dDomConstruct.create("label", {innerHTML: "iconType", title: "Set Badge Icon Type"});
+														dDomConstruct.place(iconTypeLabel, iconTypeSpan, "first");
+														dDomConstruct.place(iconTypeSpan, formatter.containerNode, "last"); 
+														formatter.addChild(textBox2);
+													
+														propGrid.addChild(formatter);
+														dDomAttr.set(labelLabel, "for", dDomAttr.get(textBox1.domNode, "id"));
+														dDomAttr.set(iconTypeLabel, "for", dDomAttr.get(textBox2.domNode, "id"));
+													}
+													break;
+											}
+
+										}
+										propGrid.set({data: map, properties: fields});
+										model.badgeMap = map;
+										model.onBadgesChanged();
+										propGrid.refresh();										
+									</script>
+									<script type="dojo/method" event="removeBadgeMapping" args="itemID">
+										var navTree = this._handle.navTree;
+										var model = navTree.model;
+										var map = model.badgeMap;
+										if (!map) return;
+										
+										delete map[itemID];
+
+										var propGrid = this._handle.badgeGrid;
+
+										var fields = "";
+										var prefix = "";
+										var fieldCount = 0;
+										for (var field in map) {
+											fields = fields + prefix + field;
+											prefix = ",";
+											fieldCount++;
+										}
+										if (fieldCount == 0) {
+											model.badgeMap = null;
+											model.onBadgesChanged();
+											propGrid.set({data:defaultGridData, properties: ""});
+										} else {
+											model.badgeMap = map;
+											model.onBadgesChanged();
+											propGrid.set({data:map, properties: fields});
+										}
+										propGrid.refresh();									
+									</script>							
+								<select data-dojo-type="dijit.form.Select" data-dojo-props="disabled: true,style: 'width: 20em;'">
+									<option value="integer">Numeric Badge Label (integer)</option>
+		        					<option value="text">Text Badge Label (string)</option>
+		        					<option value="object">Badge Label + Badge Icon Type (object)</option>
+									<script type="dojo/connect" event="treeTestInit">
+										dConnect.connect(this._handle.selected.nodeID, "onChange", this, "onItemChange");
+										dConnect.connect(this._handle.clicked.nodeID, "onChange", this, "onItemChange");
+										var buttonBar = iUtil.getParentWidget(this, iButtonBar);
+										dConnect.connect(buttonBar, "onAnyClick", this, "onItemChange");
+										this._handle.badgeMappingType = this;
+									</script>
+									<script type="dojo/connect" event="onItemChange">
+										var selectedIDField = this._handle.selected.nodeID;
+										var clickedIDField = this._handle.clicked.nodeID;
+										var selectedID = selectedIDField.get("value");
+										var clickedID = clickedIDField.get("value");
+										var navTree = this._handle.navTree;
+										var model = navTree.model;
+										var map = model.badgeMap;
+										var clickedIDDisabled = (!iString.nullTrim(clickedID)) || ((map) && (clickedID in map));
+										var selectedIDDisabled = (!iString.nullTrim(selectedID)) || ((map) && (selectedID in map));
+										var disabled = (clickedIDDisabled && selectedIDDisabled) ? true : false;
+										this.set("disabled", disabled);
+									</script>
+								</select>
+								<div data-dojo-type="dijit.form.Button" data-dojo-props="label: 'Add Selected Item', disabled: true">
+									<script type="dojo/connect" event="treeTestInit">
+										dConnect.connect(this._handle.selected.nodeID, "onChange", this, "onItemChange");
+										var buttonBar = iUtil.getParentWidget(this, iButtonBar);
+										dConnect.connect(buttonBar, "onAnyClick", this, "onItemChange");
+									</script>
+									<script type="dojo/connect" event="onItemChange">
+										var nodeIDField = this._handle.selected.nodeID;
+										var itemID = nodeIDField.get("value");
+										var navTree = this._handle.navTree;
+										var model = navTree.model;
+										var map = model.badgeMap;
+										var label = (!iString.nullTrim(itemID) ? "Add Selected Item" : "Add Selected Item (" + itemID + ")");
+										this.set("label", label);
+										var disabled = ((!iString.nullTrim(itemID)) || ((map) && (itemID in map))) ? true : false;
+										this.set("disabled", disabled);
+									</script>							
+									<script type="dojo/connect" event="onClick" args="evt">
+										var nodeIDField = this._handle.selected.nodeID;
+										var itemID = nodeIDField.get("value");
+										var parent = iUtil.getParentWidget(this,iButtonBar);
+										parent.addBadgeMapping(itemID);										
+									</script>									
+								</div>
+								<div data-dojo-type="dijit.form.Button" data-dojo-props="label: 'Add Clicked Item', disabled: true">
+									<script type="dojo/connect" event="treeTestInit">
+										dConnect.connect(this._handle.clicked.nodeID, "onChange", this, "onItemChange");
+										var buttonBar = iUtil.getParentWidget(this, iButtonBar);
+										dConnect.connect(buttonBar, "onAnyClick", this, "onItemChange");
+									</script>
+									<script type="dojo/connect" event="onItemChange">
+										var nodeIDField = this._handle.clicked.nodeID;
+										var itemID = nodeIDField.get("value");
+										var navTree = this._handle.navTree;
+										var model = navTree.model;
+										var map = model.badgeMap;
+										var label = (!iString.nullTrim(itemID) ? "Add Clicked Item" : "Add Clicked Item (" + itemID + ")");
+										this.set("label", label);
+										var disabled = ((!iString.nullTrim(itemID)) || ((map) && (itemID in map))) ? true : false;
+										this.set("disabled", disabled);
+									</script>							
+									<script type="dojo/connect" event="onClick" args="evt">
+										var nodeIDField = this._handle.clicked.nodeID;
+										var itemID = nodeIDField.get("value");
+										var parent = iUtil.getParentWidget(this,iButtonBar);
+										parent.addBadgeMapping(itemID);										
+									</script>									
+								</div>
+								<div data-dojo-type="dijit.form.Button" data-dojo-props="label: 'Remove Selected Item', disabled: true, region: 'secondary'">
+									<script type="dojo/connect" event="treeTestInit">
+										dConnect.connect(this._handle.selected.nodeID, "onChange", this, "onItemChange");
+										var buttonBar = iUtil.getParentWidget(this, iButtonBar);
+										dConnect.connect(buttonBar, "onAnyClick", this, "onItemChange");
+									</script>
+									<script type="dojo/connect" event="onItemChange">
+										var nodeIDField = this._handle.selected.nodeID;
+										var itemID = nodeIDField.get("value");
+										var navTree = this._handle.navTree;
+										var model = navTree.model;
+										var map = model.badgeMap;
+										var label = (!iString.nullTrim(itemID) ? "Remove Selected Item" : "Remove Selected Item (" + itemID + ")");
+										this.set("label", label);
+										var disabled = ((!iString.nullTrim(itemID)) || (!map) || (!(itemID in map))) ? true : false;
+										this.set("disabled", disabled);
+									</script>							
+									<script type="dojo/connect" event="onClick" args="evt">
+										var nodeIDField = this._handle.selected.nodeID;
+										var itemID = nodeIDField.get("value");
+										var parent = iUtil.getParentWidget(this,iButtonBar);
+										parent.removeBadgeMapping(itemID);
+									</script>
+								</div>
+								<div data-dojo-type="dijit.form.Button" data-dojo-props="label: 'Remove Clicked Item', disabled: true, region: 'secondary'">
+									<script type="dojo/connect" event="treeTestInit">
+										dConnect.connect(this._handle.clicked.nodeID, "onChange", this, "onItemChange");
+										var buttonBar = iUtil.getParentWidget(this, iButtonBar);
+										dConnect.connect(buttonBar, "onAnyClick", this, "onItemChange");
+									</script>
+									<script type="dojo/connect" event="onItemChange">
+										var nodeIDField = this._handle.clicked.nodeID;
+										var itemID = nodeIDField.get("value");
+										var navTree = this._handle.navTree;
+										var model = navTree.model;
+										var map = model.badgeMap;
+										var label = (!iString.nullTrim(itemID) ? "Remove Clicked Item" : "Remove Clicked Item (" + itemID + ")");
+										this.set("label", label);
+										var disabled = ((!iString.nullTrim(itemID)) || (!map) || (!(itemID in map))) ? true : false;
+										this.set("disabled", disabled);
+									</script>							
+									<script type="dojo/connect" event="onClick" args="evt">
+										var nodeIDField = this._handle.clicked.nodeID;
+										var itemID = nodeIDField.get("value");
+										var parent = iUtil.getParentWidget(this,iButtonBar);
+										parent.removeBadgeMapping(itemID);
+									</script>
+								</div>
+								</div>
+								<br><br>
+								<div data-dojo-type="idx.grid.PropertyGrid" 
+									 data-dojo-props="data: defaultGridData, properties: '', rawLabels: true">
+									<script type="dojo/method" event="treeTestInit">
+										this._handle.badgeGrid = this;
+									</script>				
+									<script type="dojo/connect" event="onChange" args="data">
+										this._handle.navTree.model.onBadgesChanged();
+									</script>
+								</div>			
+								
+						</div>												
+							<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="title: 'NavTreeModel typeSelectabilityMap'">
+								<div data-dojo-type="idx.layout.ButtonBar">
+								<div data-dojo-type="dijit.form.Button" data-dojo-props="label: 'Add Selected Type', disabled: true">
+									<script type="dojo/connect" event="treeTestInit">
+										dConnect.connect(this._handle.selected.nodeType, "onChange", this, "onItemChange");
+										var buttonBar = iUtil.getParentWidget(this, iButtonBar);
+										dConnect.connect(buttonBar, "onAnyClick", this, "onItemChange");
+									</script>
+									<script type="dojo/connect" event="onItemChange">
+										var nodeTypeField = this._handle.selected.nodeType;
+										var type = nodeTypeField.get("value");
+										var model = this._handle.navTree.model;
+										var map = model.typeSelectabilityMap;
+
+										var label = (!iString.nullTrim(type) ? "Add Selected Type" : "Add Selected Type (" + type + ")");
+										this.set("label", label);
+										var disabled = ((!iString.nullTrim(type)) || ((map) && (type in map))) ? true : false;
+										this.set("disabled", disabled);
+									</script>							
+									<script type="dojo/connect" event="onClick" args="evt">
+										var nodeTypeField = this._handle.selected.nodeType;
+										var type = nodeTypeField.get("value");
+										var model = this._handle.navTree.model;
+
+										var propGrid = this._handle.typeSelectabilityGrid;
+										var gridData = propGrid.get("data");
+										var fields = (gridData === defaultGridData) ? "" : propGrid.get("properties");
+										var prefix = (gridData === defaultGridData) ? "" : ",";
+
+										if (!model.typeSelectabilityMap) model.typeSelectabilityMap = { };
+
+										if (! (type in model.typeSelectabilityMap)) {
+											fields = fields + prefix + type;
+											
+											var formatter = new iPropertyFormatter({propertyContainer: propGrid,
+																					propertyName: type,
+																					properties: type});
+											var checkbox = new dCheckBox({name: type});
+											checkbox.startup();
+											formatter.startup();
+											formatter.addChild(checkbox);
+											propGrid.addChild(formatter);
+										}
+										if (gridData == defaultGridData) {
+											propGrid.set({data: model.typeSelectabilityMap, properties: fields});
+										} else {
+											propGrid.set("properties", fields);
+										}										
+										model.typeSelectabilityMap[type] = true;
+										model.onSelectabilityChanged();
+										propGrid.refresh();										
+										
+									</script>
+								</div>
+								<div data-dojo-type="dijit.form.Button" data-dojo-props="label: 'Add Clicked Type', disabled: true">
+									<script type="dojo/connect" event="treeTestInit">
+										dConnect.connect(this._handle.clicked.nodeType, "onChange", this, "onItemChange");
+										var buttonBar = iUtil.getParentWidget(this, iButtonBar);
+										dConnect.connect(buttonBar, "onAnyClick", this, "onItemChange");
+									</script>
+									<script type="dojo/connect" event="onItemChange">
+										var nodeTypeField = this._handle.clicked.nodeType;
+										var type = nodeTypeField.get("value");
+										var model = this._handle.navTree.model;
+										var map = model.typeSelectabilityMap;
+										var label = (!iString.nullTrim(type) ? "Add Clicked Type" : "Add Clicked Type (" + type + ")");
+										this.set("label", label);
+										var disabled = ((!iString.nullTrim(type)) || ((map) && (type in map))) ? true : false;
+										this.set("disabled", disabled);
+									</script>							
+									<script type="dojo/connect" event="onClick" args="evt">
+										var nodeTypeField = this._handle.clicked.nodeType;
+										var type = nodeTypeField.get("value");
+										var model = this._handle.navTree.model;
+
+										var propGrid = this._handle.typeSelectabilityGrid;
+										var gridData = propGrid.get("data");
+										var fields = (gridData === defaultGridData) ? "" : propGrid.get("properties");
+										var prefix = (gridData === defaultGridData) ? "" : ",";
+
+										if (!model.typeSelectabilityMap) model.typeSelectabilityMap = { };
+
+										if (! (type in model.typeSelectabilityMap)) {
+											fields = fields + prefix + type;
+											
+											var formatter = new iPropertyFormatter({propertyContainer: propGrid,
+																					propertyName: type,
+																					properties: type});
+											var checkbox = new dCheckBox({name: type});
+											checkbox.startup();
+											formatter.startup();
+											formatter.addChild(checkbox);
+											propGrid.addChild(formatter);
+										}
+										if (gridData == defaultGridData) {
+											propGrid.set({data: model.typeSelectabilityMap, properties: fields});
+										} else {
+											propGrid.set("properties", fields);
+										}										
+										model.typeSelectabilityMap[type] = true;
+										model.onSelectabilityChanged();
+										propGrid.refresh();										
+										
+									</script>
+								</div>
+								<div data-dojo-type="dijit.form.Button" data-dojo-props="label: 'Remove Selected Type', disabled: true, region: 'secondary'">
+									<script type="dojo/connect" event="treeTestInit">
+										dConnect.connect(this._handle.selected.nodeType, "onChange", this, "onItemChange");
+										var buttonBar = iUtil.getParentWidget(this, iButtonBar);
+										dConnect.connect(buttonBar, "onAnyClick", this, "onItemChange");
+									</script>
+									<script type="dojo/connect" event="onItemChange">
+										var nodeTypeField = this._handle.selected.nodeType;
+										var type = nodeTypeField.get("value");
+										var model = this._handle.navTree.model;
+										var map = model.typeSelectabilityMap;
+										var label = (!iString.nullTrim(type) ? "Remove Selected Type" : "Remove Selected Type (" + type + ")");
+										this.set("label", label);
+										var disabled = ((!iString.nullTrim(type)) || (!map) || (!(type in map))) ? true : false;
+										this.set("disabled", disabled);
+									</script>							
+									<script type="dojo/connect" event="onClick" args="evt">
+										var nodeTypeField = this._handle.selected.nodeType;
+										var type = nodeTypeField.get("value");
+										var model = this._handle.navTree.model;
+										if (!model.typeSelectabilityMap) return;
+										delete model.typeSelectabilityMap[type];
+
+										var propGrid = this._handle.typeSelectabilityGrid;
+
+										var fields = "";
+										var prefix = "";
+										var fieldCount = 0;
+										for (var field in model.typeSelectabilityMap) {
+											fields = fields + prefix + field;
+											prefix = ",";
+											fieldCount++;
+										}
+										if (fieldCount > 0) {
+											propGrid.set("properties", fields);
+										} else {
+											propGrid.set({data:defaultGridData, properties: ""});
+										}
+										model.onSelectabilityChanged();
+									</script>
+								</div>
+								<div data-dojo-type="dijit.form.Button" data-dojo-props="label: 'Remove Clicked Type', disabled: true, region: 'secondary'">
+									<script type="dojo/connect" event="treeTestInit">
+										dConnect.connect(this._handle.clicked.nodeType, "onChange", this, "onItemChange");
+										var buttonBar = iUtil.getParentWidget(this, iButtonBar);
+										dConnect.connect(buttonBar, "onAnyClick", this, "onItemChange");
+									</script>
+									<script type="dojo/connect" event="onItemChange">
+										var nodeTypeField = this._handle.clicked.nodeType;
+										var type = nodeTypeField.get("value");
+										var model = this._handle.navTree.model;
+										var map = model.typeSelectabilityMap;
+										var label = (!iString.nullTrim(type) ? "Remove Clicked Type" : "Remove Clicked Type (" + type + ")");
+										this.set("label", label);
+										var disabled = ((!iString.nullTrim(type)) || (!map) || (!(type in map))) ? true : false;
+										this.set("disabled", disabled);
+									</script>							
+									<script type="dojo/connect" event="onClick" args="evt">
+										var nodeTypeField = this._handle.clicked.nodeType;
+										var type = nodeTypeField.get("value");
+										var model = this._handle.navTree.model;
+										if (!model.typeSelectabilityMap) return;
+										delete model.typeSelectabilityMap[type];
+
+										var propGrid = this._handle.typeSelectabilityGrid;
+
+										var fields = "";
+										var prefix = "";
+										var fieldCount = 0;
+										for (var field in model.typeSelectabilityMap) {
+											fields = fields + prefix + field;
+											prefix = ",";
+											fieldCount++;
+										}
+										if (fieldCount > 0) {
+											propGrid.set("properties", fields);
+										} else {
+											propGrid.set({data:defaultGridData, properties: ""});
+										}
+										model.onSelectabilityChanged();
+									</script>
+								</div>
+								</div>
+								<br><br>
+								<div data-dojo-type="idx.grid.PropertyGrid" 
+									 data-dojo-props="data: defaultGridData, properties: '', rawLabels: true">
+									<script type="dojo/method" event="treeTestInit">
+										this._handle.typeSelectabilityGrid = this;
+									</script>				
+									<script type="dojo/method" event="onChange">
+										this._handle.navTree.model.onSelectabilityChanged();
+									</script>
+								</div>			
+								
+						</div>												
+							<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="title: 'NavTreeModel selectabilityMap'">
+								<div data-dojo-type="idx.layout.ButtonBar">
+								<div data-dojo-type="dijit.form.Button" data-dojo-props="label: 'Add Selected Item', disabled: true">
+									<script type="dojo/connect" event="treeTestInit">
+										dConnect.connect(this._handle.selected.nodeID, "onChange", this, "onItemChange");
+										var buttonBar = iUtil.getParentWidget(this, iButtonBar);
+										dConnect.connect(buttonBar, "onAnyClick", this, "onItemChange");
+									</script>
+									<script type="dojo/connect" event="onItemChange">
+										var nodeIDField = this._handle.selected.nodeID;
+										var itemID = nodeIDField.get("value");
+										var model = this._handle.navTree.model;
+										var map = model.selectabilityMap;
+										var label = (!iString.nullTrim(itemID) ? "Add Selected Item" : "Add Selected Item (" + itemID + ")");
+										this.set("label", label);
+										var disabled = ((!iString.nullTrim(itemID)) || ((map) && (itemID in map))) ? true : false;
+										this.set("disabled", disabled);
+ 									</script>							
+									<script type="dojo/connect" event="onClick" args="evt">
+										var nodeIDField = this._handle.selected.nodeID;
+										var itemID = nodeIDField.get("value");
+										var model = this._handle.navTree.model;
+
+										var propGrid = this._handle.selectabilityGrid;
+										var gridData = propGrid.get("data");
+										var fields = (gridData === defaultGridData) ? "" : propGrid.get("properties");
+										var prefix = (gridData === defaultGridData) ? "" : ",";
+
+										if (!model.selectabilityMap) model.selectabilityMap = { };
+
+										if (! (itemID in model.selectabilityMap)) {
+											fields = fields + prefix + itemID;
+											
+											var formatter = new iPropertyFormatter({propertyContainer: propGrid,
+																					propertyName: itemID,
+																					properties: itemID});
+											var checkbox = new dCheckBox({name: itemID});
+											checkbox.startup();
+											formatter.startup();
+											formatter.addChild(checkbox);
+											propGrid.addChild(formatter);
+										}
+										if (gridData == defaultGridData) {
+											propGrid.set({data: model.selectabilityMap, properties: fields});
+										} else {
+											propGrid.set("properties", fields);
+										}										
+										model.selectabilityMap[itemID] = true;
+										model.onSelectabilityChanged();
+										propGrid.refresh();										
+									</script>
+								</div>
+								<div data-dojo-type="dijit.form.Button" data-dojo-props="label: 'Add Clicked Item', disabled: true">
+									<script type="dojo/connect" event="treeTestInit">
+										dConnect.connect(this._handle.clicked.nodeID, "onChange", this, "onItemChange");
+										var buttonBar = iUtil.getParentWidget(this, iButtonBar);
+										dConnect.connect(buttonBar, "onAnyClick", this, "onItemChange");
+									</script>
+									<script type="dojo/connect" event="onItemChange">
+										var nodeIDField = this._handle.clicked.nodeID;
+										var itemID = nodeIDField.get("value");
+										var model = this._handle.navTree.model;
+										var map = model.selectabilityMap;
+										var label = (!iString.nullTrim(itemID) ? "Add Clicked Item" : "Add Clicked Item (" + itemID + ")");
+										this.set("label", label);
+										var disabled = ((!iString.nullTrim(itemID)) || ((map) && (itemID in map))) ? true : false;
+										this.set("disabled", disabled);
+									</script>							
+									<script type="dojo/connect" event="onClick" args="evt">
+										var nodeIDField = this._handle.clicked.nodeID;
+										var itemID = nodeIDField.get("value");
+										var model = this._handle.navTree.model;
+
+										var propGrid = this._handle.selectabilityGrid;
+										var gridData = propGrid.get("data");
+										var fields = (gridData === defaultGridData) ? "" : propGrid.get("properties");
+										var prefix = (gridData === defaultGridData) ? "" : ",";
+
+										if (!model.selectabilityMap) model.selectabilityMap = { };
+
+										if (! (itemID in model.selectabilityMap)) {
+											fields = fields + prefix + itemID;
+											
+											var formatter = new iPropertyFormatter({propertyContainer: propGrid,
+																					propertyName: itemID,
+																					properties: itemID});
+											var checkbox = new dCheckBox({name: itemID});
+											checkbox.startup();
+											formatter.startup();
+											formatter.addChild(checkbox);
+											propGrid.addChild(formatter);
+										}
+										if (gridData == defaultGridData) {
+											propGrid.set({data: model.selectabilityMap, properties: fields});
+										} else {
+											propGrid.set("properties", fields);
+										}										
+										model.selectabilityMap[itemID] = true;
+										model.onSelectabilityChanged();
+										propGrid.refresh();										
+									</script>
+								</div>
+								<div data-dojo-type="dijit.form.Button" data-dojo-props="label: 'Remove Selected Item', disabled: true, region: 'secondary'">
+									<script type="dojo/connect" event="treeTestInit">
+										dConnect.connect(this._handle.selected.nodeID, "onChange", this, "onItemChange");
+										var buttonBar = iUtil.getParentWidget(this, iButtonBar);
+										dConnect.connect(buttonBar, "onAnyClick", this, "onItemChange");
+									</script>
+									<script type="dojo/connect" event="onItemChange">
+										var nodeIDField = this._handle.selected.nodeID;
+										var itemID = nodeIDField.get("value");
+										var model = this._handle.navTree.model;
+										var map = model.selectabilityMap;
+										var label = (!iString.nullTrim(itemID) ? "Remove Selected Item" : "Remove Selected Item (" + itemID + ")");
+										this.set("label", label);
+										var disabled = ((!iString.nullTrim(itemID)) || (!map) || (!(itemID in map))) ? true : false;
+										this.set("disabled", disabled);
+									</script>							
+									<script type="dojo/connect" event="onClick" args="evt">
+										var nodeIDField = this._handle.selected.nodeID;
+										var itemID = nodeIDField.get("value");
+										var model = this._handle.navTree.model;
+										if (!model.selectabilityMap) return;
+										delete model.selectabilityMap[itemID];
+										var propGrid = this._handle.selectabilityGrid;
+
+										var fields = "";
+										var prefix = "";
+										var fieldCount = 0;
+										for (var field in model.selectabilityMap) {
+											fields = fields + prefix + field;
+											prefix = ",";
+											fieldCount++;
+										}
+										if (fieldCount > 0) {
+											propGrid.set("properties", fields);
+										} else {
+											propGrid.set({data:defaultGridData, properties: ""});
+										}
+										propGrid.refresh();
+										model.onSelectabilityChanged();
+				
+									</script>
+								</div>
+								<div data-dojo-type="dijit.form.Button" data-dojo-props="label: 'Remove Clicked Item', disabled: true, region: 'secondary'">
+									<script type="dojo/connect" event="treeTestInit">
+										dConnect.connect(this._handle.clicked.nodeID, "onChange", this, "onItemChange");
+										var buttonBar = iUtil.getParentWidget(this, iButtonBar);
+										dConnect.connect(buttonBar, "onAnyClick", this, "onItemChange");
+									</script>
+									<script type="dojo/connect" event="onItemChange">
+										var nodeIDField = this._handle.clicked.nodeID;
+										var itemID = nodeIDField.get("value");
+										var model = this._handle.navTree.model;
+										var map = model.selectabilityMap;
+										var label = (!iString.nullTrim(itemID) ? "Remove Clicked Item" : "Remove Clicked Item (" + itemID + ")");
+										this.set("label", label);
+										var disabled = ((!iString.nullTrim(itemID)) || (!map) || (!(itemID in map))) ? true : false;
+										this.set("disabled", disabled);
+									</script>							
+									<script type="dojo/connect" event="onClick" args="evt">
+										var nodeIDField = this._handle.clicked.nodeID;
+										var itemID = nodeIDField.get("value");
+										var model = this._handle.navTree.model;
+										if (!model.selectabilityMap) return;
+										delete model.selectabilityMap[itemID];
+										var propGrid = this._handle.selectabilityGrid;
+
+										var fields = "";
+										var prefix = "";
+										var fieldCount = 0;
+										for (var field in model.selectabilityMap) {
+											fields = fields + prefix + field;
+											prefix = ",";
+											fieldCount++;
+										}
+										if (fieldCount > 0) {
+											propGrid.set("properties", fields);
+										} else {
+											propGrid.set({data:defaultGridData, properties: ""});
+										}
+										propGrid.refresh();
+										model.onSelectabilityChanged();
+				
+									</script>
+								</div>								
+								</div>
+								<br><br>
+								<div data-dojo-type="idx.grid.PropertyGrid" 
+									 data-dojo-props="data: defaultGridData, properties: '', rawLabels: true">
+									<script type="dojo/method" event="treeTestInit">
+										this._handle.selectabilityGrid = this;
+									</script>
+									<script type="dojo/method" event="onChange">
+										this._handle.navTree.model.onSelectabilityChanged();
+									</script>
+								</div>
+							</div>
+				</div>			
+			</div>
+</div> <!--  end BorderContainer -->
+</form>
+</body>
+</html>

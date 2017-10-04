@@ -1,0 +1,18 @@
+{
+	identifier: 'id',
+	label: 'name',
+	items: [
+		{ id: '0', name:'Foods', numberOfItems:1, children:[ {_reference: '1'},  {_reference: '2'},  {_reference: '3'} ] },
+			{ id: '1', name:'Fruits', numberOfItems:1, children:[ {_reference: '4'} ] },
+				{ id: '4',name:'Citrus', numberOfItems:1, children:[ {_reference: '5'}, {_reference: '10'} ] },
+					{ id: '5', name:'Orange'},
+					{ id: '10', name:'Lemon'},
+		{ id: '2', name:'Vegetables', numberOfItems:1, children:[{_reference: '6'},{_reference: '7'},{_reference: '8'},{_reference: '9'} ]},
+			{ id: '6', name:'Banana', numberOfItems:0},
+			{ id: '7', name:'Apple', numberOfItems:0},
+			{ id: '8', name:'Carrot', numberOfItems:0},
+			{ id: '9', name:'Grape', numberOfItems:0},
+		
+		{ id: '3', name:'Cereals', numberOfItems:0}
+	]
+}

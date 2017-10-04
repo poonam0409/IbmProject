@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>IBM Documentation Feedback</title>
+
+<!-- ******************* START OF VARIABLES ********************* -->
+
+<!-- edit second year to match current year and edit publishing date -->
+<meta content="(C) Copyright IBM Corporation 2003, 2008" name="copyright"/>
+<meta content="2008-03-01" name="dc.date"/>
+<!-- All rights reserved. -->
+
+<!-- edit page owner name; leave the word "junk" -->
+<meta content="Ellen Patterson,junk" name="keywords"/>
+
+<!-- edit product name -->
+<meta content="IBM Information Server" name="GENERATOR"/>
+
+<!-- edit IC-specific info and TRANSLATE nocomment sentence -->
+<script type="text/JavaScript" language="JavaScript">
+  var contactPerson = "comments@us.ibm.com";
+  var nocomment   = "Please add some comments about how we can improve the documentation.";
+  var eqchar      = "[equals character]";
+</script>
+
+<!-- ********************* END OF VARIABLES ********************** -->
+
+<meta http-equiv="Content-Style-Type" content="text/css"/>
+<meta content="public" name="security"/>
+<meta content="en-us" name="dc.language"/>
+<meta content="index,follow" name="Robots"/>
+<link href="ibmdita.css" type=text/css rel="stylesheet"/>
+<link href="../com.ibm.swg.im.iis.common.ic.doc/wsii-common.css" type=text/css rel="stylesheet"/>
+<script type="text/JavaScript" language="JavaScript">
+
+    function setTopic() {
+      //var tinfo = decodeURI(document.URL);
+      var info = decodeURI(document.location.search).substring(1).split('+');
+      document.feedbackForm.icName.value = info[0];
+      document.feedbackForm.pluginName.value = info[1];
+
+      document.feedbackForm.fileName.value = "";
+      document.feedbackForm.topicName.value = "";
+      setSubject();
+
+      if (info.length>1) {
+        document.feedbackForm.fileName.value = info[2];
+        document.feedbackForm.fileLanguage.value = info[4];
+        setSubject();
+
+        if (info.length>2) {
+          var s = info[3];
+          var i = s.indexOf('%20')
+          while(i > -1) {
+            s = s.substring(0,i) + " " + s.substring(i+3);
+            i = s.indexOf('%20');
+          }
+          document.feedbackForm.topicName.value = s;
+        }
+      }
+    }
+
+    function setSubject() {
+
+      var p = "[FEEDBACK";
+
+      if (document.feedbackForm.icName.value.length>0) {
+        p = p + "-" + document.feedbackForm.icName.value + "]: ";
+      } else {
+        p = p + "]: ";
+      }
+
+      if (document.feedbackForm.fileName.value.length>0) {
+        p = p + document.feedbackForm.fileName.value;
+      }
+      document.feedbackForm.subject.value = p;
+    }
+
+
+
+    function sendComment() {
+      var s = "";
+
+      document.feedbackForm.to.value      = contactPerson;
+
+      var x = document.feedbackForm.Comment.value;
+      if (x.length==0) s+=nocomment+"\n";
+      else document.feedbackForm.Comment.value = x.replace(/=/g,eqchar);
+
+      if (s.length > 0) {
+        alert(s);
+        return false;
+      }
+      return true;
+    }
+
+  </script>
+
+</head>
+<body onLoad="setTopic()" bgcolor="white">
+<h3>We'd like to hear from you!</h3>
+<form name="feedbackForm"
+      method="POST"
+      action="https://www.ibm.com/cgi-bin/nph-comments"
+      onSubmit="return sendComment()">
+  <input type="hidden" name="to"         size="100"  value=""/>
+  <input type="hidden" name="subject"    size="100"  value=""/>
+  <input type="hidden" name="icName"    size="100"  value=""/>
+  <input type="hidden" name="pluginName" size="100"  value=""/>
+  <input type="hidden" name="fileLanguage" size="100"  value=""/>
+  <p>Please use this form to submit comments about the information in this topic.
+    <br clear=""/>
+    Your comments are sent directly to the authors to help improve IBM product
+    information.</p>
+  <ul>
+    <li>To report a defect through IBM Software Support, go to <a
+  href="http://www.ibm.com/support/us/">Support Services</a>.</li>
+    <li>For general questions about IBM products, go to <a
+  href="http://www.ibm.com/contact/us">Contact IBM</a>. </li>
+  </ul>
+  <p>The fields indicated with an asterisk (<font color="red"><b>*</b></font>)
+    are required to complete this form. If you do not want to provide us with
+    the required information, please use the "Back" button on your browser to
+    return to the previous page, or close the window or browser that is displaying
+    the page.</p>
+  <table cellSpacing=5 cellPadding=0 border=0>
+    <tbody>
+    <tr>
+      <td>
+        <input type="hidden" name="fileName" size="18" maxlength="20" onBlur="setSubject()"/>
+        <b><label for="topicName">Topic or page:</label></b>
+        <input type="text" id="topicName" name="topicName" size="57" maxlength="90"/>
+      </td>
+    </tr>
+    <tr>
+      <td><b><label for="infoSat"><br />
+        How satisfied are you with this information?</label></b> <br />
+        <input class="iform" id="infoSatVS" type="radio"
+      value="v.satisfied" name="satisfy"/>
+        <label for="infoSatVS">Very satisfied</label><br />
+        <input class="iform" id="infoSatS" type="radio" value="satisfied" name="satisfy"/>
+        <label for="infoSatS">Satisfied</label><br />
+        <input class="iform" id="infoSatN" type="radio" value="neutral" name="satisfy"/>
+        <label for="infoSatN">Neutral</label><br />
+        <input class="iform" id="infoSatD" type="radio" value="dissatisfied"
+      name="satisfy"/>
+        <label for="infoSatD">Dissatisfied</label><br />
+        <input class="iform" id="infoSatVD" type="radio"
+      value="v.dissatisfied" name="satisfy"/>
+        <label for="infoSatVD">Very dissatisfied</label><br />
+      </td>
+    </tr>
+    <tr>
+      <td><label for="Comment"><b><br />
+        How can we improve this information?</b></label> <font color="red"><b>*</b></font>
+        <br />
+        <textarea id="Comment"
+        name="Comment" rows="10" cols="64"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td><b><label><br />
+        Your contact information so that we can respond to your comments:</label></b>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td><label for="Name">Your name:</label><br />
+        <input id="Name" size="40" name="Name"/>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="Email">Your e-mail address:</label><br />
+        <input size="40" id="Email" name="Email"/>
+        <br clear=""/>
+      </td>
+    </tr>
+    <tr>
+      <td><b><label for="infoContact"><br />
+        May we contact you for more information about the quality of IBM product
+        information?</label></b> <br clear=""/>
+        <input class="iform" id="infoContactYes" type="radio" value="Yes"
+      name="contact"/>
+        <label for="infoContactYes">Yes</label> <br />
+        <input class="iform" id="infoContactNo" type="radio" value="No" name="contact"/>
+        <label for="infoContactNo">No</label> <br />
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <hr />
+  <h3>Privacy</h3>
+  <p></p>
+  <p>IBM respects your privacy (<a
+href="http://www.ibm.com/privacy/us/">IBM Privacy statement</a>).</p>
+  <p>By clicking "Submit" you agree that IBM may process your data in the manner
+    indicated above and as described in the IBM Privacy statement.</p>
+  <div style="HEIGHT: 10px">
+    <input type="image" src="images/submit.gif" width="120" height="21" border="0" alt="Submit" title="Submit" name="submit"/></div>
+  </form>
+<p>&nbsp;</p>
+</body>
+</html>

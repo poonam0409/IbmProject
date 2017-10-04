@@ -1,0 +1,24 @@
+<div dojoType="dijit.layout.ContentPane" class="fullSizePaddedContainer" region="body">
+	<div dojoType="idx.layout.BorderContainer" dojoAttachPoint="borderContainer" gutters=false class="fullSizeContainer">
+		<div dojoType="dijit.layout.ContentPane" region="top" class="extraBottomMarginThin">
+			<div dojoType="idx.layout.ButtonBar" region="majorActions">
+				<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="importButton">${msg.DATAMAPNGSPG_2}</div>
+				<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="selectAllButton" region="secondary">${msg.SELECT_ALL}</div>
+				<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="deselectAll" region="secondary">${msg.DESELECT_ALL}</div>
+			</div>
+			<div dojoType="idx.form.Link" dojoAttachPoint="refreshAction" class="refreshLink">${msg.REFRESH}</div>
+		</div>
+		<div dojoType="dijit.layout.ContentPane" region="center" class="dijitBorderContainer-child">
+			<table dojoType="dojox.grid.DataGrid" region="center" dojoAttachPoint="dataMappingsGrid" rowSelector="20px"
+				class="dataGrid" id="DataMappingsPage_dataGrid">
+				<thead>
+					<tr>
+						<th width="auto"></th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div dojoType="dijit.layout.ContentPane" region="bottom" dojoAttachPoint="statusBar"
+			class="statusBar dijitBorderContainer-child"></div>
+	</div>
+</div>

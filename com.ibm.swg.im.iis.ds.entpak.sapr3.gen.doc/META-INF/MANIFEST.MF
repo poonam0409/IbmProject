@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-Name: %name
+Created-By: 1.4.2 (IBM Corporation)
+Bundle-Vendor: %providerName
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc; singl
+ eton:=true
+Bundle-Localization: plugin
+Bundle-Version: 8.0.0.qualifier
+Eclipse-LazyStart: true
+

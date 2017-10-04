@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="Generación de trabajos de DataStage de extracción de IDoc con Rapid Generator for SAP">
+   <intro>
+      <description>
+         Esta hoja de apuntes muestra cómo crear un modelo de datos lógico y cómo extraer metadatos para un tipo de IDoc SAP.
+         <br/>
+         <b>NOTA: Esta hoja de apuntes supone que ha completado la hoja de apuntes
+         "Importación de tipos de IDoc desde SAP utilizando Rapid Modeler for SAP"
+         y
+         "Preparación del modelo de datos lógico para la generación de trabajos".
+         Asegúrese de que los nombres de proyectos, modelos, etc. utilizados en
+         estas hojas de apuntes sean exactos como se indica, de lo contrario es
+         posible que aquí los botones "Pulsar para realizar" no funcionen. 
+         Sin embargo, los botones "Pulsar al finalizar" seguirán funcionando.
+         </b>
+      </description>
+   </intro>
+   <item
+         title="Abrir la perspectiva de Datos">
+      <command
+            required="false"
+            serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=com.ibm.datatools.core.internal.ui.perspective)"/>         
+      <description>
+         Si todavía no está en la perspectiva de Datos, en el menú principal seleccione <b>Ventana</b> &gt; <b>Abrir perspectiva</b> &gt; <b>Datos</b>.
+      </description>
+   </item>
+   <item dialog="true" 
+            title="Abrir el asistente de Rapid Generator for SAP en un modelo de datos físico">
+        <description>
+        Asegúrese de que el archivo <b>RMIDocModel.dbm</b> existe en el proyecto de diseño de datos <b>RMTestProject</b>.
+        Recuerde que este archivo es el resultado de la transformación del modelo lógico
+        <b>RMIDocModel.ldm</b> en un modelo de datos físico.
+         <br/>Pulse con el botón derecho del ratón en <b>RMIDocModel.dbm</b> y
+         seleccione <b>Rapid Generator for SAP</b> &gt; <b>Generar trabajo de DataStage</b>.
+        </description>
+      <action required="false"
+			pluginId="com.ibm.is.sappack.gen.tools.jobgenerator"
+			class="com.ibm.is.sappack.gen.tools.jobgenerator.popup.actions.JobGeneratorCheatSheetAction"
+			param1="RMTestProject" param2="RMIDocModel.dbm"/>              
+      </item>
+   <item
+         title="Seleccionar el tipo de trabajo">
+      <description>
+       En la página <b>Seleccionar el tipo de trabajo</b> seleccione <b>Trabajo de extracción de IDoc</b>.
+       <br/>
+       Pulse <b>Siguiente</b>.
+      </description>
+   </item>
+   <item
+         title="Especificar detalles de Information Server">
+      <description>
+        Especifique la información de conexión en la instalación de Information Server.
+        Normalmente el nombre de dominio es similar a <b>Servername:9080</b>.
+        Utilice los recuadros desplegables para seleccionar el proyecto de DataStage y la
+        carpeta dentro del proyecto.
+        Especifique la serie <b>RGIDocJob</b> como el <b>Prefijo de nombre de trabajo</b>.
+        <br/>
+        Pulse <b>Siguiente</b>. 
+      </description>
+   </item>
+   <item
+         title="Especificar opciones de IDoc Extract">
+      <description>
+         En la página <b>Opciones de IDoc Extract</b> rellene las secciones siguientes:
+</description>
+      <subitem
+            label="En la sección Opciones de origen seleccione la conexión de SAP definida en el servidor DataStage. Deje 'Sobrescribir valores predeterminados de conexión' sin seleccionar.">
+      </subitem>
+      <subitem
+            label="En la sección Opciones de destino seleccione Conector ODBC como el tipo de etapa. Especifique el nombre del origen de datos ODBC y sus credenciales de usuario. Seleccione 'APPEND' como la acción de tabla.">
+      </subitem>
+      <subitem
+            label="Pulse Siguiente. ">
+      </subitem>
+   </item>
+   <item
+         title="Saltar la página Definir parámetros del trabajo">
+      <description>
+        En la página <b>Definir parámetros del trabajo</b>, deje todos los valores.
+         <br/>
+         Pulse <b>Siguiente</b>.       </description>
+   </item>
+   <item
+         title="Saltar la página Definir derivaciones de columna">
+      <description>
+        En la página <b>Definir derivaciones de columna</b>, deseleccione <b>Utilizar derivaciones personalizadas</b>.
+         <br/>
+         Cuando pulse siguiente en esta página se iniciará el proceso de generación de trabajos.
+         <br/>
+         Pulse <b>Siguiente</b>.       </description>
+   </item>
+   <item
+         title="Finalizar el asistente">
+      <description>
+         En la página <b>Resumen</b>, revise el resumen que indica qué trabajos se han generado.
+         <br/>
+         Marque el recuadro de selección <b>Iniciar compilador de varios trabajos de DataStage</b> si desea compilar el trabajo.
+         <br/>
+         Pulse <b>Finalizar</b>.
+      </description>
+         </item>
+   <item
+         skip="true"
+         title="Compile el trabajo">
+      <description>
+        Cuando finalice el asistente, se iniciará el compilador de varios trabajos de
+        DataStage con los trabajos generados seleccionados. Avance por el asistente para
+        compilar el trabajo.
+      </description>
+   </item>
+   <item href="http://publib.boulder.ibm.com/infocenter/iisinfsv/v8r1/topic/com.ibm.swg.im.iis.productization.iisinfsv.overview.doc/topics/cisodsdirector.html"
+         title="Ejecutar el trabajo">
+      <description>
+      Para ejecutar el trabajo, abra <b>Director de DataStage</b>, seleccione el
+      trabajo que acaba de generar y seleccione <b>Ejecutar</b>.
+      </description>
+   </item>
+      </cheatsheet>

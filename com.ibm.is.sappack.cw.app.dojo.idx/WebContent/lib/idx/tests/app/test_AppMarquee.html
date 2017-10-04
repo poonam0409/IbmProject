@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Test AppMarquee</title>
+
+		<script type="text/javascript" src="../dojoVersion.js"></script>
+
+		<script type="text/javascript">
+			dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		</script>
+	
+	    <style id="idxStyles" type="text/css">
+    	    @import "../../../themes/oneui/oneui.css";
+    	    @import "../../../themes/vienna/vienna.css";
+    	    @import "../../../themes/claro/claro.css";
+    	    @import "../../../resources/claro_idx.css";
+    	    @import "../../../resources/vienna_idx.css";
+    	    @import "../../../themes/test.css";
+	    </style>
+		
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+			dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+
+		<script type="text/javascript" id="postDojo">
+		var modules=["doh",
+					 "doh.runner",
+					 "dijit.dijit", // optimize: load dijit layer
+					 "idx.app.AppMarquee"];
+
+		function postParse(modules) {
+			var myDoh = modules["doh"] ? modules["doh"] : doh;
+			var AppMarquee = modules["idx/app/AppMarquee"];
+			myDoh.register("create", function(){	
+				var mq = null;
+				try {	
+					mq = new AppMarquee({
+						region: "marquee",
+						appName: "Test App Name",
+	       				appLogo: "../../../../images/header.png",
+	       				vendorName: "IBM &#0174;",
+	       				vendorLogo: "../../../../images/ibm-logo-white.gif"	
+					});
+				} catch(e) {
+					console.error("Test failed due to error",e);
+				}	
+				myDoh.t(mq != null);
+			});
+
+			myDoh.run();
+		}
+		dojoRequireModules(modules, null, currentDojoVersion.async, null, postParse);
+	</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<div dojoType="dijit.layout.ContentPane" class="fullSizePaddedContainer" region="body">
+	<div dojoType="idx.layout.BorderContainer" dojoAttachPoint="borderContainer" gutters=false class="fullSizeContainer">
+	    <div dojoType="dijit.layout.ContentPane" region="top" class="extraBottomMarginThin">
+		    <div dojoType="idx.layout.ButtonBar">
+	            <div dojoType="dijit.form.Button" type="button" region="secondary" dojoAttachPoint="selectAllButton">${msg.SELECT_ALL}
+	            </div>
+	            <div dojoType="dijit.form.Button" type="button" region="secondary" dojoAttachPoint="deselectAllButton">${msg.DESELECT_ALL}
+	            </div>
+            </div>
+        </div>
+        <div dojoType="dijit.layout.ContentPane" region="center" class="dijitBorderContainer-child">
+			<table dojoType="dojox.grid.DataGrid" region="center" dojoAttachPoint="referenceDataTableDataGrid" rowSelector="20px" class="dataGrid">
+				<thead>
+					<tr>
+						<th width="auto"> </th>
+					</tr>
+				</thead>
+			</table>
+        </div>
+		<div dojoType="dijit.layout.ContentPane" region="bottom" dojoAttachPoint="referenceDataTableStatusBar" class="statusBar dijitBorderContainer-child">
+		</div>
+  		</div>	
+</div>

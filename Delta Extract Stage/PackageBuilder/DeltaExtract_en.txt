@@ -1,0 +1,27 @@
+#CC_DELTA_EXTRACT_DISPLAY_NAME#           = Delta Extract Stage
+#CC_DELTA_EXTRACT_SHORT_DESCRIPTION#      = Delta Extract Stage
+#CC_DELTA_EXTRACT_LONG_DESCRIPTION#       = Stage to extract delta data from SAP systems using SAP BW Extractors
+#CC_DELTA_EXTRACT_AUTHOR#                 = IBM Corporation
+#CC_DELTA_EXTRACT_VERSION#                = IBM Corporation
+#CC_DELTA_EXTRACT_COPYRIGHT#              = Licensed Materials - Property of IBM (C) Copyright IBM Corp. 2015 All Rights Reserved.
+#CC_DELTA_EXTRACT_REPOSITORY_LOCATION# 	  = \Stage Types\Parallel\Packs
+#CC_DELTA_EXTRACT_HELP_URL#               =  
+#CC_DELTA_EXTRACT_SAP_CONN_NAME#		  = SAP Connection Name
+#CC_DELTA_EXTRACT_SAP_USERNAME#			  = SAP Username
+#CC_DELTA_EXTRACT_SAP_PASSWORD#			  = SAP Password
+#CC_DELTA_EXTRACT_SAP_CLIENT#			  = SAP Client Number
+#CC_DELTA_EXTRACT_SAP_LANG#				  = Language 
+#CC_DELTA_EXTRACT_DATA_SOURCE_NAME#		  = Data Source Name 
+#CC_DELTA_EXTRACT_DATA_SOURCE_TYPE#		  = Data Source Type 
+#CC_DELTA_EXTRACT_DATA_FETCH_MODE#		  = Data Fetch Mode
+#CC_DELTA_EXTRACT_DATA_FILTER#			  = Data Filters 
+#CC_DELTA_EXTRACT_SAP_USE_CONN_DEFAULTS#  = Use SAP Connection Defaults
+#CC_DELTA_EXTRACT_DATA_SOURCE_DESC#		  = Data Source Description
+#CC_DELTA_EXTRACT_DATA_HIERARCHY_NAME#	  = Hierarchy Name
+#CC_DELTA_EXTRACT_DATA_HIERARCHY_CLASS#	  = Hierarchy 0Class
+#CC_DELTA_EXTRACT_DATA_HIERARCHY_VALIDFROM#	  = Hierarchy Valid From
+#CC_DELTA_EXTRACT_DATA_HIERARCHY_VALIDTO#	  = Hierarchy Valid TO
+#CC_DELTA_EXTRACT_DATA_HIERARCHY_OWNER_DATASRC#	  = Hierarchy Owner Data Source Name
+#CC_DELTA_EXTRACT_DSSAPCONNECTION# 				  = Connection to SAP ERP Application
+
+

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+	<!--
+		Description: Ant build file for the IDoc load and extract connectors.
+	-->
+
+<project name="SAP Packs PII apply" basedir="." default="all">
+
+	<!--
+		This Ant script modifies PII packages and copy them to the source code
+		location.
+	-->
+
+
+	<!-- change these properties accordingly -->
+
+	<!-- Location of your code extracted from SCI -->
+	<property name="sci.checkindir"
+		value="C:/Users/IBM_ADMIN/workspaces/SCI_R3x" />
+	<property name="pii.package.location" value="C:/Users/IBM_ADMIN/PIISAPPacksV71/drop1" />
+
+
+	<property name="sci.vob" value="asw-vob1" />
+	<property name="sci.task" value="osuhre.t6.RTC106110.R3_70.PIIDrop1_1" />
+
+	<!-- ============================================================== -->
+
+	<!--
+		if you don't want to use this workspace or want the results to be put
+		some where else than the piiout directory, change the following
+		properties
+	-->
+<!-- 	<property name="rtc.code" value="${basedir}/../.." /> -->
+	<property name="tmp.pii.dir" value="${pii.package.location}/tmp" />
+
+<!--   
+	<property name="rtc.target.dir" value="c:/home/SAPPacks/code/PIISAPPacksV7/rtcdir"/>
+-->
+	<property name="rtc.target.dir" value="${basedir}/../.."/> 
+
+	<!-- ============================================================== -->
+	<!-- DO NOT change anything below this line -->
+
+	<target name="preparePackage">
+		<mkdir dir="${tmp.pii.dir}" />
+		<delete includeemptydirs="true">
+			<fileset dir="${tmp.pii.dir}" includes="**/*" />
+		</delete>
+		<unzip src="${pii.package.location}/${pii.package.zipfile}"
+			dest="${tmp.pii.dir}" />
+	</target>
+
+	<target name="renameSCIFiles">
+		<!--
+			<move
+			file="${tmp.pii.dir}/sci/R3_STAGES/ABAP_EXTRACT/sapdss/dsftpenu.rs"
+			tofile="${tmp.pii.dir}/sci/R3_STAGES/ABAP_EXTRACT/sapdss/dsftp_${pii.sci.langid}.rs"
+			/> <move
+			file="${tmp.pii.dir}/sci/R3_STAGES/BAPI/dsruntime/dsr3bapienu.rs"
+			tofile="${tmp.pii.dir}/sci/R3_STAGES/BAPI/dsruntime/dsr3bapi_${pii.sci.langid}.rs"
+			/>
+		-->
+
+		<move
+			todir="${tmp.pii.dir}/sci/HawkPackages/R3/abappack/META-INF/${pii.sci.langid.stagedscid}">
+			<fileset dir="${tmp.pii.dir}/sci/HawkPackages/R3/abappack/META-INF/en"
+				includes="*" />
+		</move>
+		<delete dir="${tmp.pii.dir}/sci/HawkPackages/R3/abappack/META-INF/en" />
+
+		<move
+			todir="${tmp.pii.dir}/sci/HawkPackages/R3/bapipack/META-INF/${pii.sci.langid.stagedscid}">
+			<fileset dir="${tmp.pii.dir}/sci/HawkPackages/R3/bapipack/META-INF/en"
+				includes="*" />
+		</move>
+		<delete dir="${tmp.pii.dir}/sci/HawkPackages/R3/bapipack/META-INF/en" />
+
+	</target>
+
+	<target name="checkOutFromSCI">
+		<copy file="checkoutPIIFilesSCI.plink.template" overwrite="true"
+		      tofile="checkoutPIIFilesSCI_${sci.task}.plink" />
+
+		<replace file="checkoutPIIFilesSCI_${sci.task}.plink" token="SCITASKID"
+			value="${sci.task}" />
+		<replace file="checkoutPIIFilesSCI_${sci.task}.plink" token="LANGFULL"
+			value="${pii.sci.langid}" />
+		<replace file="checkoutPIIFilesSCI_${sci.task}.plink" token="LANGSTAGEDESC"
+			value="${pii.sci.langid.stagedscid}" />
+
+		<exec executable="plink">
+			<arg value="${sci.user}@${sci.vob}" />
+			<arg value="-pw" />
+			<arg value="${sci.password}" />
+			<arg value="-ssh" />
+			<arg value="-m" />
+			<arg value="checkoutPIIFilesSCI_${sci.task}.plink" />
+		</exec>
+	</target>
+
+	<target name="copyToSCICode">
+		<copy todir="${sci.checkindir}" verbose="true" overwrite="true">
+			<fileset dir="${tmp.pii.dir}/sci" includes="**/*">
+			</fileset>
+		</copy>
+
+	</target>
+
+	<target name="renameRTCFiles">
+		<move todir="${tmp.pii.dir}/rtc">
+		<fileset dir="${tmp.pii.dir}/rtc">
+	<include name="**/*.properties"/>
+	<exclude name="**/*${pii.langid.full}.properties"/>
+    </fileset>
+    <!-- 
+    <mapper type="glob" from="(.*)\.properties" to="\1_${pii.sci.langid}.properties"/>
+    -->
+    <mapper type="glob" from="*.properties" to="*_${pii.langid.full}.properties"/>
+		</move>
+	
+	</target>
+	
+	<target name="copyToRTCCode">
+		<copy todir="${rtc.target.dir}" verbose="true" overwrite="true">
+			<fileset dir="${tmp.pii.dir}/rtc" includes="**/*.properties">
+			</fileset>
+		</copy>
+		
+	</target>
+	
+<!-- 
+	<target name="processPackage" depends="preparePackage,renameSCIFiles,copyToSCICode,checkOutFromSCI">
+	<target name="processPackage" depends="preparePackage,renameRTCFiles,copyToRTCCode">
+	-->
+	<target name="processPackage" depends="preparePackage,renameRTCFiles,copyToRTCCode">
+		<echo>PII package ${pii.package.zipfile} of language ${pii.langid} was extracted and applied</echo>
+	</target>
+
+ 	<target name="prepare">
+		<delete includeemptydirs="true">
+			<fileset dir="${sci.checkindir}" includes="**/*" />
+		</delete>
+	</target>
+
+
+<!--  
+zip files
+ISV87AAP026_0606_ja_JP.zip
+ISV87AAP026_PII_06062011_de_DE.zip
+ISV87AAP026_PII_06062011_es_ES.zip
+ISV87AAP026_PII_06062011_IT.zip
+ISV87AAP026_PII_0606_fr_FR.zip
+ISv87AAP026_PII_0606_kr_KR.zip
+ISV87AAP026_PII_Shipment_1_zh_CN.zip
+ISV87AAP026_PII_Shipment_1_zh_TW.zip
+-->
+
+	<target name="all" depends="prepare"	>
+		<antcall target="processPackage">
+			<param name="pii.package.zipfile" value="ISV87AAP026_0606_ja_JP.zip" />
+			<param name="pii.sci.langid" value="ja_JP" />
+			<param name="pii.sci.langid.stagedscid" value="ja" />
+			<param name="pii.langid.full" value="ja_JP" />
+		</antcall>
+		
+		<antcall target="processPackage">
+			<param name="pii.package.zipfile" value="ISV87AAP026_PII_06062011_de_DE.zip" />
+			<param name="pii.sci.langid" value="de_DE" />
+			<param name="pii.sci.langid.stagedscid" value="de" />
+			<param name="pii.langid.full" value="de_DE" />
+		</antcall>
+
+		<antcall target="processPackage">
+			<param name="pii.package.zipfile" value="ISV87AAP026_PII_06062011_es_ES.zip" />
+			<param name="pii.sci.langid" value="es_ES" />
+			<param name="pii.sci.langid.stagedscid" value="es" />
+			<param name="pii.langid.full" value="es_ES" />		
+		</antcall>
+		<antcall target="processPackage">
+			<param name="pii.package.zipfile" value="ISV87AAP026_PII_06062011_IT.zip" />
+			<param name="pii.sci.langid" value="it_IT" />
+			<param name="pii.sci.langid.stagedscid" value="it" />
+			<param name="pii.langid.full" value="it_IT" />
+		</antcall>
+		<antcall target="processPackage">
+			<param name="pii.package.zipfile" value="ISV87AAP026_PII_0606_fr_FR.zip" />
+			<param name="pii.sci.langid" value="fr_FR" />
+			<param name="pii.sci.langid.stagedscid" value="fr" />
+			<param name="pii.langid.full" value="fr_FR" />
+		</antcall>
+		<antcall target="processPackage">
+			<param name="pii.package.zipfile" value="ISV87AAP026_PII_0606_kr_KR.zip" />
+			<param name="pii.sci.langid" value="ko_KR" />
+			<param name="pii.sci.langid.stagedscid" value="ko" />
+			<param name="pii.langid.full" value="kr_KR" />
+		</antcall>
+		<antcall target="processPackage">
+			<param name="pii.package.zipfile" value="ISV87AAP026_PII_Shipment_1_zh_CN.zip" />
+			<param name="pii.sci.langid" value="zh_CN" />
+			<param name="pii.sci.langid.stagedscid" value="zh_CN" />
+			<param name="pii.langid.full" value="zh_CN" />
+		</antcall>
+		<antcall target="processPackage">
+			<param name="pii.package.zipfile" value="ISV87AAP026_PII_Shipment_1_zh_TW.zip" />
+			<param name="pii.sci.langid" value="zh_TW" />
+			<param name="pii.sci.langid.stagedscid" value="zh_TW" />
+			<param name="pii.langid.full" value="zh_TW" />
+		</antcall>
+
+
+	</target>
+
+</project>

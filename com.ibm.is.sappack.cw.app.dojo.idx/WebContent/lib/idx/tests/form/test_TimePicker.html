@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Test TimePicker</title>
+		<script type="text/javascript" src="../dojoVersion.js"></script>
+
+		<script type="text/javascript">
+			dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		</script>
+	
+	    <style id="idxStyles" type="text/css">
+    	    @import "../../hemes/oneui/oneui.css";
+    	    @import "../..//themes/vienna/vienna.css";
+    	    @import "../../themes/claro/claro.css";
+    	    @import "../../resources/claro_idx.css";
+    	    @import "../../resources/vienna_idx.css";
+    	    @import "../../themes/test.css";
+	    </style>
+		
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+			dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+
+		<script type="text/javascript" id="postDojo">
+		var modules=["doh",
+					 "doh.runner",
+					 "dijit.dijit", // optimize: load dijit layer
+					 "dijit/registry",
+					 "idx.form.TimePicker"];
+
+		function postParse(modules) {
+			var myDoh = modules["doh"] ? modules["doh"] : doh;
+			var TimePicker = modules["idx/form/TimePicker"];
+			var dRegistry = modules["dijit/registry"] ? modules["dijit/registry"] : dijit;
+			
+			myDoh.register("create", function(){
+				var timePicker = new TimePicker({});
+				myDoh.t(timePicker != null);
+			});
+
+			myDoh.register("parse", function(){
+				myDoh.t(dRegistry.byId("timePicker") != null);
+			});
+
+			myDoh.run();
+		}
+
+		dojoRequireModules(modules, null, currentDojoVersion.async, null, postParse);
+	</script>
+</head>
+<body>
+	<input dojoType="idx.form.TimePicker" id="timePicker"/>
+</body>
+</html>

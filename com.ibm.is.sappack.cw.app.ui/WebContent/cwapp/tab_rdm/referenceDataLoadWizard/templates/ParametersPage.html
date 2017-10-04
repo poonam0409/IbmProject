@@ -1,0 +1,30 @@
+<div dojoType="dijit.layout.ContentPane" class="fullSizePaddedContainer" region="body">
+    <div dojoType="idx.layout.BorderContainer" dojoAttachPoint="borderContainer" class="fullSizeContainer">
+	    <div dojoType="dijit.layout.ContentPane" dojoAttachPoint="gridTitleContentPane" region="top"
+	        class="ReferenceDataLoadWizardPage_contentPane" style="vertical-align: middle">
+	        ${msg.WizardParameters_TargetSapSystem}
+	    </div>
+	    <div dojoType="dijit.layout.ContentPane" region="center" dojoAttachPoint="sapSystemGridParentContentPane">
+	        <table dojoType="dojox.grid.DataGrid" dojoAttachPoint="sapSystemsTable" class="dataGrid">
+	            <thead>
+	                <tr>
+	                    <th width="auto"> </th>
+	                </tr>
+	            </thead>
+	        </table>
+	    </div>
+	    <div dojoType="dijit.layout.ContentPane" region="bottom" class="ReferenceDataLoadWizardPage_contentPane" dojoAttachPoint="paramsContentPane">
+	        <form dojoType="dijit.form.Form" dojoAttachPoint="form" class="extraTopMargin">
+	            <div class="formElement extraBottomMargin">
+	                <label class="formElementLabel_required">${msg.ROLLOUT}${msg.COLON}</label>
+	                <input type="text" dojoType="dijit.form.Select" dojoAttachPoint="rolloutInput" style="width: 200px;" />
+	            </div>
+	            <div class="formElement extraBottomMargin">
+                   <label class="formElementLabel_required">${msg.WizardParameters_BusinessObject}${msg.COLON}</label>
+                   <input type="text" dojoType="dijit.form.Select" dojoAttachPoint="boInput" style="width: 200px;" />
+               </div>
+	        </form>
+	    </div>
+    </div>
+</div>
+

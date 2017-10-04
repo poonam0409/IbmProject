@@ -1,0 +1,25 @@
+<div class="DataModelUploadPage">
+	<div dojoType="idx.layout.HeaderPane" title="${msg.DATAMDLUPLOADPG_1}" dojoAttachPoint="headerPane" class="DataModelUploadPage_headerPane">
+		<form method="post" dojoAttachPoint="dataModelUploadForm" enctype="multipart/form-data" action="/com.ibm.is.sappack.cw.app.services/jaxrs/datamodel/upload">
+			<div class="DataModelUploadPage_formElement">
+				<input dojoType="dijit.form.TextBox" dojoAttachPoint="dataModelFileSelectionInput" class="DataModelUploadPage_formInput"/>
+				<input dojoType="dojox.form.Uploader"
+					name="uploadedfile"
+					multiple="false"
+					type="file"
+					force=""
+					label="${msg.DATAMDLUPLOADPG_2}"
+					dojoAttachPoint="dataModelFileUploader"
+					class="DataModelUploadPage_formUploader"/>
+			</div>
+		</form>
+		<div dojoType="idx.widget.SimpleIconDialog"
+			title="${msg.DATAMDLUPLOADPG_3}"
+			dojoAttachPoint="uploadProgressDialog"
+			showActionBar="false"
+			iconClass="idxSignIcon dijitContentPaneLoading"
+			text="${msg.DATAMDLUPLOADPG_10}"
+			style="min-width: 350px; min-height: 100px;	max-width: 500px; display: none;">
+		</div>
+	</div>
+</div>

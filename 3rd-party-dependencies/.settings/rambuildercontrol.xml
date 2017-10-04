@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><ramcopyartifactentries>
+<copyartifactentry>
+<key>{FF93533F-8708-B53F-9F2D-EB97FFE68E7E}#1.5.1#/Installation Manager 1.5.1/agent.installer.win32.win32.x86_1.5.1000.20111128_0824.zip///Installation Manager 1.5.1/agent.installer.linux.gtk.x86_1.5.1000.20111128_0824.zip</key>
+<assetname>Capilano</assetname>
+<destination>installation-manager/1.5.1</destination>
+<connection>https://w3-03.ibm.com/tools/cm/iram/ram.ws;{54367CB5-6E7A-3579-615A-4244FC1C53FB}</connection>
+<preserveArtifactPath>false</preserveArtifactPath>
+</copyartifactentry>
+</ramcopyartifactentries>

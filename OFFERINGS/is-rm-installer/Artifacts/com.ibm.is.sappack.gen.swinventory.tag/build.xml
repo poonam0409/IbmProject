@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<project default="BuildAll" name="ICONBuild">
+    <tstamp/>
+    <property name="dest.native.dir" value="../native" />
+    <property name="src.swtag.file.dir" value="./properties/version" />
+    <property name="src.metadata.dir" value="." />
+    <property name="native.name.prefix" value="com.ibm.is.sappack.gen.swinventory.tag" />
+    <property name="file.name.version" value="1.0.0" />
+    <property name="version.qualifier" value="${DSTAMP}${TSTAMP}"/>
+    <property name="offeringLICENSENnative" value="${native.name.prefix}_${file.name.version}.${version.qualifier}" />
+
+    <!-- Build Target repository -->
+    <target name="build.native" depends="clean.native">
+        <echo message="Building: ${dest.native.dir}/${offeringLICENSENnative}.zip" />
+        <echo message="Including: dir=${src.swtag.file.dir} includes='*.*'" />
+        <zip destfile="${dest.native.dir}/${offeringLICENSENnative}.zip" update="true">
+            <zipfileset dir="${src.swtag.file.dir}" includes='*.*' />
+        </zip>
+    </target>
+
+    <!-- Clean Target repository -->
+    <target name="clean.native" depends="">
+        <echo message="Deleting: ${dest.native.dir}/${native.name.prefix}_${file.name.version}.*.zip"/>
+        <delete dir="${dest.native.dir}">
+            <include name="${native.name.prefix}_${file.name.version}.*.zip" />
+        </delete>
+    </target>
+
+    <target name="BuildAll" depends="CleanAll, build.native" />
+    <target name="CleanAll" depends="clean.native" />
+</project>

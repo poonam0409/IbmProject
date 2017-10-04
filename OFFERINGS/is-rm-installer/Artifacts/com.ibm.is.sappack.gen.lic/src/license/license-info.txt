@@ -1,0 +1,49 @@
+﻿LICENSE INFORMATION
+
+The Programs listed below are licensed under the following terms and conditions in addition to those of the IBM International Program License Agreement (IBM form number Z125-3301-14).
+
+Program Name: IBM InfoSphere Information Server Pack for SAP Applications v7.1
+Program Number: 5724-Q55
+
+Program Name: IBM InfoSphere Information Server Pack for SAP Applications for Non-Production v7.1
+Program Number: 5724-Q55
+
+As described in the International Program License Agreement ("IPLA") and this License Information, IBM grants Licensee a limited right to use the Program. This right is limited to the level of Authorized Use, such as a Processor Value Unit ("PVU"), a Value Unit ("VU"), or other specified level of use, paid for by Licensee as evidenced in the Proof of Entitlement. Licensee's use may also be limited to a specified machine, or only as a Supporting Program, or subject to other restrictions. As Licensee has not paid for all of the economic value of the Program, no other use is permitted without the payment of additional fees. In addition, as stated in the IPLA, Licensee is not authorized to use the Program to provide commercial IT services to any third party, to provide commercial hosting or timesharing, or to sublicense, rent, or lease the Program unless expressly provided for in the applicable agreements under which Licensee obtains authorizations to use the Program. Additional rights may be available to Licensee subject to the payment of additional fees or under different or supplementary terms. IBM reserves the right to determine whether to make such additional rights available to Licensee.
+
+Program's specifications can be found in the collective Description and Technical Information sections of the Program's Announcement Letters.
+
+Supporting Programs
+
+The Program is licensed as a multi-product package and includes the Supporting Programs identified below. Licensee is authorized to install and use such Supporting Programs only to support Licensee's use of the Principal Program under this Agreement and within the limits of the Proofs of Entitlement for the Program (unless broader rights are provided elsewhere in this License Information document). The phrase "to support Licensee's use" would include only those uses that are necessary or otherwise directly related to a licensed use of the Principal Program or another Supporting Program. The Supporting Programs may not be used for any other purpose. Licensee is not authorized to transfer or remarket the Supporting Programs separate from the Principal Program. A Supporting Program may be accompanied by license terms, and those terms, if any, apply to Licensee's use of that Supporting Program. In the event of conflict, the terms in this License Information document supersede the Supporting Program's terms. When Licensee's right to use the Program expires or terminates, Licensee must discontinue use, destroy or promptly return all copies of the Supporting Programs to the party from whom Licensee acquired the Program. If Licensee downloaded the Supporting Programs, Licensee should contact the party from whom Licensee acquired the Program. If Licensee wishes to license the Supporting Programs for any use beyond the limits set forth above, please contact an IBM Sales Representative or the party from whom Licensee acquired the Program to obtain the appropriate license.
+
+The following are Supporting Programs licensed with the Program:
+- IBM Cognos Business Intelligence v10.2
+- IBM Master Data Management Reference Data Management Hub v10.1
+- IBM Conversion Workbench Migration Asset for SAP Applications v2.1
+- IBM Cognos Data Manager Connector for SAP R/3 v10.2
+
+Permitted Components
+
+Notwithstanding any provision in the Agreement, Licensee is permitted to use only the following components or functions of the identified Supporting Program:
+- IBM Master Data Management Reference Data Management Hub (may only be used with IBM Conversion Workbench Migration Asset for SAP Applications)
+- IBM Cognos Business Intelligence (may only be used with IBM Conversion Workbench Migration Asset for SAP Applications)
+- Cognos Connection (of IBM Cognos Business Intelligence)
+- Framework Manager (of IBM Cognos Business Intelligence)
+- Report Studio (of IBM Cognos Business Intelligence)
+- Report Viewer (of IBM Cognos Business Intelligence)
+
+Non-Production Limitation
+
+If the Program is designated as "Non-Production", the Program can only be deployed as part of the Licensee's internal development and test environment for internal non-production activities, including but not limited to testing, performance tuning, fault diagnosis, internal benchmarking, staging, quality assurance activity and/or developing internally used additions or extensions to the Program using published application programming interfaces. Licensee is not authorized to use any part of the Program for any other purposes without acquiring the appropriate production entitlements.
+
+Restrictions on Use for the Benefit of a Third Party
+
+Licensee may not use the Program or any component thereof to provide service bureau, hosting services, or any sort of commercial information technology services to third parties, or transfer the Program to a third party, unless otherwise agreed to in writing by IBM.
+
+Install
+
+Install is a unit of measure by which the Program can be licensed. An Install is an installed copy of the Program on a physical or virtual disk made available to be executed on a computer. Licensee must obtain an entitlement for each Install of the Program.
+
+L/N:  L-SBRN-9FN46Q
+D/N:  L-SBRN-9FN46Q
+P/N:  L-SBRN-9FN46Q 

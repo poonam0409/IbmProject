@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="Gerando Tarefas de Extração de Tabelas de DataStage com o Rapid Generator for SAP">
+   <intro>
+      <description>
+         Esta folha de dicas mostra como criar um modelo de dados lógico e como extrair metadados de uma tabela lógica SAP.
+         <br/>
+         <b>NOTA: Esta folha de dicas supõe que você tenha concluído a folha de dicas
+         "Importando Tabelas Lógicas do SAP Usando o Rapid Modeler for SAP"
+         e
+         "Preparando o Modelo de Dados Lógico para Geração de Tarefas".
+         Certifique-se de inserir os nomes dos projetos, modelos, etc. usados nessas folhas de dicas exatamente como indicado, caso contrário, os botões "Clicar para Executar" poderão não funcionar. 
+         No entanto, os botões "Clicar ao Concluir" continuarão funcionando.
+         </b>
+      </description>
+   </intro>
+   <item
+         title="Abrir a Perspectiva Dados">
+      <command
+            required="false"
+            serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=com.ibm.datatools.core.internal.ui.perspective)"/>         
+      <description>
+         Se você ainda não estiver na perspectiva Dados, no menu principal, selecione <b>Janela</b> &gt; <b>Abrir Perspectiva</b> &gt; <b>Dados</b>.
+      </description>
+   </item>
+   <item dialog="true" 
+            title="Abrir o Assistente do Rapid Generator for SAP em um Modelo de Dados Físico">
+        <description>
+        Certifique-se de que o arquivo <b>RMTableModel.dbm</b> exista no Data Design Project <b>RMTestProject</b>.
+        Lembre-se de que esse arquivo é resultado da transformação do modelo lógico <b>RMTableModel.ldm</b> em um modelo de dados físico.
+         <br/>Clique com o botão direito do mouse em <b>RMTableModel.dbm</b> e selecione <b>Rapid Generator for SAP</b> &gt; <b>Gerar Tarefa do DataStage</b>.
+        </description>
+      <action required="false"
+			pluginId="com.ibm.is.sappack.gen.tools.jobgenerator"
+			class="com.ibm.is.sappack.gen.tools.jobgenerator.popup.actions.JobGeneratorCheatSheetAction"
+			param1="RMTestProject" param2="RMTableModel.dbm"/>              
+      </item>
+   <item
+         title="Selecionar o Tipo de Tarefa">
+      <description>
+       Na página <b>Selecionar o Tipo de Tarefa</b>, selecione <b>Tarefa de Extração de ABAP</b>.
+       <br/>
+       Clique em <b>Avançar</b>
+      </description>
+   </item>
+   <item
+         title="Inserir Detalhes do Information Server">
+      <description>
+        Insira as informações de conexão na instalação do Information Server.
+        O nome do domínio geralmente se assemelha a <b>Servername:9080</b>.
+        Use as caixas suspensas para selecionar o projeto DataStage e a pasta dentro do projeto.
+        Insira a sequência <b>RGTableJob</b> como o <b>prefixo de nome de tarefa</b>.
+        <br/>
+        Clique em <b>Avançar</b> 
+      </description>
+   </item>
+   <item
+         title="Inserir Detalhes do Estágio de ABAP">
+      <description>
+         Na página <b>Opções de Extração de ABAP</b>, preencha as seguintes seções: 
+      </description>
+      <subitem
+            label="Na seção Opções de Origem, selecione a conexão de SAP definida no servidor DataStage junto com suas credenciais.">
+      </subitem>
+      <subitem
+            label="Na seção Opções de Destino, selecione Conector ODBC como o Tipo de Estágio. Insira o nome da sua origem de dados ODBC e suas credenciais de usuário.">
+      </subitem>
+      <subitem
+            label="Na seção Método de Transferência de RFC, insira o gateway e serviço SAP. Geralmente eles são o mesmo nome de host do servidor de aplicativos SAP e a sequência &apos;sapgw&apos; seguida pelo número do sistema, por exemplo, sapgw00. Selecione um arquivo que contenha uma lista de destinos RFC disponíveis. O formato desse arquivo contém uma linha no formato &lt;RFCDestinationName&gt;&lt;Blank&gt;&lt;RFCDestinationProgramID&gt; para cada destino RFC. Se você não souber essas informações, entre em contato com o administrador do sistema SAP. Selecione 1 no menu suspenso &apos;Número Máximo de Fluxos&apos;. Deixe &apos;Criar Destino RFC&apos; desmarcado.">
+      </subitem>
+      <subitem
+            label="Na seção Opções do Programa ABAP, marque &apos;Salvar os Programas ABAP na Área de Trabalho&apos; e &apos;Carregar os Programas for SAP&apos;. Selecione a conexão de SAP abaixo, na qual você deseja carregar os programas ABAP.">
+      </subitem>
+      <subitem
+            label="Clique no botão &apos;Validar Configurações de SAP&apos; para validar suas configurações. Se a validação mostrar que todas as configurações estão OK, clique em Avançar.">
+      </subitem>
+   </item>
+   <item
+         title="Ignore a página Definir Parâmetros da Tarefa">
+      <description>
+        Na página <b>Definir Parâmetros da Tarefa</b>, deixe todas as configurações.
+         <br/>
+         Clique em <b>Avançar</b>
+      </description>
+   </item>
+   <item
+         title="Ignore a página Definir Derivações da Tarefa">
+      <description>
+        Na página <b>Definir Derivações da Coluna</b>, desmarque <b>Usar Derivações Customizadas</b>.
+         <br/>
+         Ao clicar em Avançar nessa página, o processo de geração da tarefa iniciará.
+         <br/>
+         Clique em <b>Avançar</b>
+      </description>
+   </item>
+   <item
+         title="Concluir o Assistente">
+      <description>
+         Na página <b>Resumo</b>, revise o resumo indicando quais tarefas foram geradas.
+         <br/>
+         Marque a caixa de seleção <b>Ativar Compilador de Várias Tarefas de DataStage</b>, se quiser compilar sua tarefa.
+         <br/>
+         Clique em <b>Concluir</b>. 
+      </description>
+         </item>
+   <item
+         skip="true"
+         title="Compile a tarefa">
+      <description>
+        Após a conclusão do assistente, o compilador de várias tarefas do DataStage será ativado com as tarefas geradas selecionadas. Percorra o assistente para compilar a tarefa.
+      </description>
+   </item>
+   <item href="http://publib.boulder.ibm.com/infocenter/iisinfsv/v8r1/topic/com.ibm.swg.im.iis.productization.iisinfsv.overview.doc/topics/cisodsdirector.html"
+         title="Executar a Tarefa">
+      <description>
+      Para executar a tarefa, abra o <b>DataStage Director</b>, selecione a tarefa que acabou de gerar e selecione <b>Executar</b>.
+      </description>
+   </item>
+      </cheatsheet>

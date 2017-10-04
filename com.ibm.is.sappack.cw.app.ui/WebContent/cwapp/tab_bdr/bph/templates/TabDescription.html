@@ -1,0 +1,16 @@
+<div dojoType="dijit.layout.ContentPane" class="bdrTab">
+	<form dojoType="dijit.form.Form" dojoAttachPoint="descriptionForm" class="bigForm">
+		<div class="formElement">
+			<label for="name" class="formElementLabel_required">${msg.NAME}${msg.COLON}</label>
+			<input type="text" tabindex="1" dojoType="dijit.form.TextBox" dojoAttachPoint="name" trim="true" style="width: 50%;"/>
+		</div>
+		<div dojoAttachPoint="shortNameDiv" class="formElement">
+            <label for="shortName" class="formElementLabel_required">${msg.SHORT_NAME}${msg.COLON}</label>
+            <input type="text" tabindex="2" dojoType="dijit.form.TextBox" dojoAttachPoint="shortName" maxLength="${constants.BO_SHORT_NAME}" trim="true" style="width: 50%;"/>
+        </div>
+		<div class="formElement">
+			<label for="description">${msg.DESCRIPTION}${msg.COLON}</label>
+			<input type="text" tabindex="3" dojoType="dijit.form.Textarea" dojoAttachPoint="description" maxLength="${constants.DESCRIPTION}" trim="true" rows="10" style="width: 50%; min-height: 25em;"/>
+		</div>
+	</form>
+</div>

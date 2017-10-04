@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="/com.ibm.is.sappack.dsstages.common"/>
+	<classpathentry kind="src" path="/com.ibm.is.sappack.dsstages.test"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/extLibsJCO"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/com.ibm.is.sappack.dsstages.xmeta.common"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/com.ibm.is.sappack.dsstages.xmeta_v10"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/com.ibm.is.sappack.dsstages.xmeta_v8"/>
+	<classpathentry kind="lib" path="/extLibsIISClient91/ASBNode/client/lib/java/datastage_common.jar"/>
+	<classpathentry kind="lib" path="/extLibsIISClient91/ASBNode/client/lib/java/dstage_wrapper.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/extLibsIISClient91"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

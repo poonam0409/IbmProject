@@ -1,0 +1,49 @@
+﻿INFORMACIÓN SOBRE LICENCIA
+
+Los Programas que se enumeran a continuación se licencian bajo los siguientes términos y condiciones, además de los del IBM Acuerdo Internacional de Programas bajo Licencia (form number de IBM Z125-3301-14).
+
+Nombre de Programa: IBM InfoSphere Information Server Pack for SAP Applications v7.1
+Número de Programa: 5724-Q55
+
+Nombre de Programa: IBM InfoSphere Information Server Pack for SAP Applications for Non-Production v7.1
+Número de Programa: 5724-Q55
+
+Tal como se estipula en el Acuerdo Internacional de Programas Bajo Licencia ("IPLA") y en la presente Información de Licencia, IBM otorga al Licenciatario un derecho limitado a utilizar el Programa. Este derecho está limitado a los niveles de Uso Autorizado establecidos, como una Value Unit de Procesador ("PVU"), una Value Unit ("VU") u otros niveles de uso estipulados que el Licenciatario hubiera pagado, tal como se indica en el Documento de Titularidad. El uso por parte del Licenciatario también se limitará a una máquina especificada o al uso como Programa de Soporte, o se someterá a otras restricciones. Puesto que el Licenciatario no ha pagado el valor económico íntegrodel Programa, no se permitirá ningún otro uso sin abonar previamente los cargos adicionales correspondientes. Además, tal como se indica en el IPLA, el Licenciatario no está autorizado a utilizar el Programa para prestar servicios de TI comerciales a terceros o para prestar servicios comerciales de alojamiento web u ofrecer el uso del Programa en régimen de multipropiedad, ni a otorgar licencias a terceros, alquilar o arrendar el Programa, salvo que así se estableciera explícitamente en los acuerdos aplicables en virtud de los cuales el Licenciatario obtiene las necesarias autorizaciones para utilizar el Programa. Podrán otorgarse al Licenciatario derechos adicionales previo pago de los cargos adicionales correspondientes o en virtud de unos términos distintos o complementarios. IBM se reserva el derecho a determinar si desea otorgar al Licenciatario dichos derechos adicionales.
+
+Encontrará las especificaciones del Programa en las cláusulas comunes Descripción e Información técnica incluidas en las Cartas de anuncio del Programa.
+
+Programas de Soporte
+
+El Programa se licencia como un paquete de Programa de varios productos e incluye los Programas de Soporte definidos a continuación. El Licenciatario está autorizado para instalar y utilizar dichos Programas de Soporte únicamente para ofrecer soporte al uso por parte del Licenciatario del Programa Principal bajo el presente Acuerdo y dentro de los límites de los Documentos de Titularidad del Programa (salvo que en cualquier otra parte de este documento de Información de Licencia se proporcionen derechos que vayan más allá). La frase "para ofrecer soporte al uso por parte del Licenciatario" incluiría únicamente los usos necesarios o de otro modo relacionados directamente con un uso bajo licencia del Programa Principal u otro Programa de Soporte. Los Programas de Soporte no pueden utilizarse con ninguna otra finalidad. El Licenciatario no está autorizado para transferir ni recomercializar los Programas de Soporte separados del Programa Principal. Un Programa de Soporte puede ir acompañado de términos de licencia y, dichos términos, de haberlos, se aplicarán al uso del Programa de Soporte por parte del Licenciatario. En el supuesto de que se produjera un conflicto, los términos de este documento de Licencia prevalecerán sobre los términos del Programa de Soporte. Cuando el derecho del Licenciatario a utilizar el Programa expira o finaliza, el Licenciatario debe interrumpir el uso, destruir o devolver inmediatamente todas las copias de los Programas de Soporte al distribuidor de quien adquirió el Programa. Si el Licenciatario ha descargado los Programas de Soporte, el Licenciatario debe ponerse en contacto con el distribuidor de quien adquirió el Programa. Si el Licenciatario deseara adquirir una licencia para los Programas de Soporte para cualquier uso más allá de los límites que se establecen más arriba, deberá ponerse en contacto con un Representante de Ventas de IBM o con el distribuidor que le proporcionó el Programa para obtener la licencia adecuada.
+
+Los siguientes Programas de Soporte se licencian con el Programa:
+- IBM Cognos Business Intelligence v10.2
+- IBM Master Data Management Reference Data Management Hub v10.1
+- IBM Conversion Workbench Migration Asset for SAP Applications v2.1
+- IBM Cognos Data Manager Connector for SAP R/3 v10.2
+
+Componentes Permitidos
+
+Sin perjuicio de que se indique lo contrario en las estipulaciones de este Acuerdo, el Licenciatario únicamente está autorizado para utilizar los siguientes componentes o funciones del Programa de Soporte identificado:
+- IBM Master Data Management Reference Data Management Hub (may only be used with IBM Conversion Workbench Migration Asset for SAP Applications)
+- IBM Cognos Business Intelligence (may only be used with IBM Conversion Workbench Migration Asset for SAP Applications)
+- Cognos Connection (of IBM Cognos Business Intelligence)
+- Framework Manager (of IBM Cognos Business Intelligence)
+- Report Studio (of IBM Cognos Business Intelligence)
+- Report Viewer (of IBM Cognos Business Intelligence)
+
+Limitación de no producción
+
+Si el Programa se designa como de "No producción", sólo puede desplegarse como parte del entorno interno de desarrollo y pruebas del Licenciatario para actividades internas de no producción, incluidos pero sin limitarse a, la realización de pruebas, el ajuste de rendimiento, el diagnóstico de errores, la realización de evaluaciones comparativas internas, las transferencias, las actividades de control de calidad y/o el desarrollo de adiciones o extensiones de uso interno para el Programa mediante interfaces de programación de aplicaciones publicadas. El Licenciatario no está autorizado para utilizar ninguna parte del Programa para ninguna otra finalidad sin adquirir las autorizaciones de producción correspondientes.
+
+Restricciones de uso para el beneficio de Terceros
+
+El Licenciatario no puede utilizar el Programa ni ninguno de sus componentes para proporcionar a terceros servicios a sus clientes, servicios de hosting, ni ningún tipo de servicio de tecnología de la información para fines comerciales, ni transferir el Programa a un tercero, salvo que se acuerde de otra forma por escrito con IBM.
+
+Instalación
+
+Una Instalación es una unidad de medida por la que se puede licenciar el Programa. Una Instalación es una copia instalada del Programa en un disco físico o virtual que se pone a disposición para ejecutarse en un sistema. El Licenciatario debe obtener una autorización para cada Instalación del Programa.
+
+L/N:  L-SBRN-9FN46Q
+D/N:  L-SBRN-9FN46Q
+P/N:  L-SBRN-9FN46Q 

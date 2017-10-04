@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="ID">#IDPLACEHOLDER#</entry>
+<entry key="AUTHOR">IBM</entry>
+<entry key="DOCUMENTATION">Example model for installed inventory:
+The IBASE object contains all tables that store data about the installed inventory</entry>
+<entry key="COMPANY">IBM</entry>
+<entry key="VERSION">1.0</entry>
+<entry key="KEY_TABLES">COMM_IL_IBCQFR
+COMM_IL_IBCQFR_H
+COMM_IL_IBCWTY
+COMM_IL_IBCWTY_H
+COMM_IL_IBHQFR
+COMM_IL_IBHQFR_H
+IBADDR
+IBIB
+IBIN
+IBINOBS
+IBINOWN
+IBINVALUES
+IBPART
+IBSP
+IBST
+IBSTREF
+IBSYMBOL
+T371A
+T371B
+T371C
+T371D
+T371F
+T371G
+T371K
+T371U</entry>
+<entry key="PROP_KEY_MODE">RMRG_CW_MODE</entry>
+</properties>

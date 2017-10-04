@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         id="copyright-software-19980720.htm.txt"
+         name="src/license/copyright-software-19980720.htm.txt"
+         point="com.ibm.cic.common.core.licenseText">
+      <!--
+        |
+        | The actual RM/RG product license (plus license info)
+        |
+      -->
+      <license
+            licenseId="com.ibm.is.sappack.cw.lic"
+            file="src/license/license.txt">
+      </license>
+      <licenseOfferingBinding
+            licenseId="com.ibm.is.sappack.cw.lic"
+            offeringVersion="[1.1.0,2.0.0)"
+            offeringId="com.ibm.is.sappack.conversion.workbench"
+            label="%plugin.com.ibm.is.sappack.cw.lic.label"
+            primary="true">
+      </licenseOfferingBinding>
+      <license
+            licenseId="license-info.txt"
+            file="src/license/license-info.txt">
+      </license>
+      <licenseOfferingBinding
+            grouping="%plugin.main.code"
+            label="%plugin.license-info.txt.label"
+            licenseId="license-info.txt"
+            offeringId="com.ibm.is.sappack.conversion.workbench"
+            offeringVersion="[1.1.0,2.0.0)"
+            primary="true">
+      </licenseOfferingBinding>
+      <license
+            licenseId="notices.txt"
+            file="src/license/notices.txt">
+      </license>
+      <licenseOfferingBinding
+            grouping="%plugin.main.code"
+            label="%plugin.notices.txt.label"
+            licenseId="notices.txt"
+            offeringId="com.ibm.is.sappack.conversion.workbench"
+            offeringVersion="[1.1.0,2.0.0)"
+            primary="true">
+      </licenseOfferingBinding>
+      <!--
+        |
+        | The Apache Software License (ASL) V2.0
+        |
+      -->
+      <license
+            file="src/license/LICENSE-2.0.txt"
+            licenseId="LICENSE-2.0.txt">
+      </license>
+      <licenseOfferingBinding
+            grouping="%plugin.3rd.party.code"
+            label="%plugin.LICENSE-2.0.txt.label"
+            licenseId="LICENSE-2.0.txt"
+            offeringId="com.ibm.is.sappack.conversion.workbench"
+            offeringVersion="[1.1.0,2.0.0)"
+            primary="false">
+      </licenseOfferingBinding>
+      <!--
+        |
+        | Xerces and Xalan related files
+        |
+      -->
+      <license
+            file="src/license/LICENSE.dom.html.txt"
+            licenseId="LICENSE.dom.html.txt">
+      </license>
+      <licenseOfferingBinding
+            grouping="%plugin.3rd.party.code"
+            label="%plugin.LICENSE.dom.html.txt.label"
+            licenseId="LICENSE.dom.html.txt"
+            offeringId="com.ibm.is.sappack.conversion.workbench"
+            offeringVersion="[1.1.0,2.0.0)">
+      </licenseOfferingBinding>
+      <license
+            file="src/license/cup-runtime.LICENSE.txt"
+            licenseId="cup-runtime.LICENSE.txt">
+      </license>
+      <licenseOfferingBinding
+            grouping="%plugin.3rd.party.code"
+            label="%plugin.cup-runtime.LICENSE.txt.label"
+            licenseId="cup-runtime.LICENSE.txt"
+            offeringId="com.ibm.is.sappack.conversion.workbench"
+            offeringVersion="[1.1.0,2.0.0)">
+      </licenseOfferingBinding>
+      <license
+            file="src/license/LICENSE.sax.txt"
+            licenseId="LICENSE.sax.txt">
+      </license>
+      <licenseOfferingBinding
+            grouping="%plugin.3rd.party.code"
+            label="%plugin.LICENSE.sax.txt.label"
+            licenseId="LICENSE.sax.txt"
+            offeringId="com.ibm.is.sappack.conversion.workbench"
+            offeringVersion="[1.1.0,2.0.0)">
+      </licenseOfferingBinding>
+      <license
+            file="src/license/copyright-software-20021231.htm.txt"
+            licenseId="copyright-software-20021231.htm.txt">
+      </license>
+      <licenseOfferingBinding
+            grouping="%plugin.3rd.party.code"
+            label="%plugin.copyright-software-20021231.htm.txt.label"
+            licenseId="copyright-software-20021231.htm.txt"
+            offeringId="com.ibm.is.sappack.conversion.workbench"
+            offeringVersion="[1.1.0,2.0.0)">
+      </licenseOfferingBinding>
+      <license
+            file="src/license/CSSStyles-notice.txt"
+            licenseId="CSSStyles-notice.txt">
+      </license>
+      <licenseOfferingBinding
+            grouping="%plugin.3rd.party.code"
+            label="%plugin.CSSStyles-notice.txt.label"
+            licenseId="CSSStyles-notice.txt"
+            offeringId="com.ibm.is.sappack.conversion.workbench"
+            offeringVersion="[1.1.0,2.0.0)">
+      </licenseOfferingBinding>
+      <license
+            file="src/license/LICENSE-1.1.txt"
+            licenseId="apache_license_1_1">
+      </license>
+      <licenseOfferingBinding
+            grouping="%plugin.3rd.party.code"
+            label="%plugin.apache_license_1_1.label"
+            licenseId="apache_license_1_1"
+            offeringId="com.ibm.is.sappack.conversion.workbench"
+            offeringVersion="[1.1.0,2.0.0)">
+      </licenseOfferingBinding>
+   </extension>
+
+</plugin>

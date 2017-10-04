@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>com.ibm.is.sappack.cw.app.test</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>com.ibm.ws.ast.jythontools.core.jythonbuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.ibm.datatools.core.ui.DatabaseDesignNature</nature>
+		<nature>com.ibm.ws.ast.jythontools.core.jythonnature</nature>
+	</natures>
+</projectDescription>

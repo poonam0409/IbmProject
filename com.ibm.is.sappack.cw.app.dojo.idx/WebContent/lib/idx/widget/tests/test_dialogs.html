@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en">
+<head>
+<title>Test dialogs</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+<script type="text/javascript">
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/claro/claro.css", "idxStyles");
+</script>
+
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneui/oneui.css";
+@import "../../themes/vienna/vienna.css";
+@import "../../resources/claroCommon.css";
+@import "../../resources/viennaCommon.css";
+@import "../../themes/preoneui/idx/widget/errorDialog.css";
+@import "../resources/claroErrorDialog.css";
+@import "../resources/viennaErrorDialog.css";
+@import "../../themes/test.css";
+.myH3 {
+	font-size: 1em;
+	font-weight: bold;
+	line-height: 1.5em;
+	margin-bottom: 0px;
+	margin-top: 1.5em;
+}
+</style>
+<script type="text/javascript">
+	var dojoConfig = currentDojoVersion.dojoConfig;
+</script>
+
+<script type="text/javascript">
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+</script>
+ 
+<script type="text/javascript" id="postDojo">
+var modules = [ "dijit.TitlePane",
+				"dojo/dom-construct",
+				"dijit/_base/manager",
+				"idx.form.Link",
+				"idx.dialogs" ];
+
+var manager = null;
+var dialogs = null;
+var domConstruct = null;
+var TitlePane = null;
+
+function preParse(modules) {
+	manager = modules["dijit/_base/manager"] ? modules["dijit/_base/manager"] : dijit;
+	dialogs = modules["idx/dialogs"];
+	domConstruct = modules["dojo/dom-construct"] ? modules["dojo/dom-construct"] : dojo;
+	TitlePane = modules["dijit/TitlePane"];
+	Link = modules["idx/form/Link"];	
+}
+
+test_ed = function(error){
+	var e1 = manager.byId("e");
+	e1.set("error", error);
+	e1.show();
+}
+test_ed1 = function(){
+	test_ed({messageId: "DEF4567E", summary: "Error summary"});
+}
+test_ed2 = function(){
+	test_ed({messageId: "DEF4567E", summary: "Error summary", detail: "Error details, Lorem ipsum dolor sit amet, consectetur adipisicing elit"});
+}
+test_ed3 = function(){
+	test_ed(createError());
+}
+test_error = function(){
+	dialogs.error(createError(), null);
+}
+test_error2 = function(){
+	dialogs.error(createError(), null, "idx.error - Custom OK");
+}
+test_confirm = function(){
+	dialogs.confirm("Lorem ipsum dolor sit amet,",
+		function(){alert("OK clicked");},
+		function(){alert("Cancel clicked");}
+	);
+}
+test_confirm2 = function(){
+	dialogs.confirm("Are you sure to delete?",
+		function(){alert("Delete clicked");},
+		function(){alert("No clicked");},
+		"Delete",
+		"No"
+	);
+}
+test_cb = function(){
+	dialogs.error("Callback test", function(){
+		alert("Callback");
+	});
+}
+test_pd = function(){
+	dialogs.showProgressDialog("Will be dismissed in 3 sec");
+	setTimeout(dialogs.hideProgressDialog, 3000);
+}
+test_pd2 = function(){
+	dialogs.showProgressDialog("Will be dismissed in 5 sec", 5000);
+}
+createError = function(){
+	var node = domConstruct.create("div", {innerHTML: "More help goes here"});
+	new TitlePane({title: "Stack Trace", open: false,
+		content: "java.io.IOException: at com.ibm.idx.Abc.def(Unknown Source) at com.ibm.idx.Bcd.efg(Unknown Source) at com.ibm.idx.Cde.fgh(Unknown Source) at com.ibm.idx.Def.ghi(Def.java:111) at com.ibm.idx.Efg.hij(Efg.java:222) at com.ibm.idx.Fgh.ijk(Fgh.java:333) at com.ibm.idx.Ghi.jkl(Ghi.java:444) ",
+		style: "max-height: 100px; overflow: auto; padding:5px 0px;"
+	}).placeAt(node);
+	new Link({label: "Help Link", style: "padding:5px;"}).placeAt(node);
+	new Link({label: "Another Link", style: "padding:5px;"}).placeAt(node);
+	return {
+		messageId: "XYZ9876W",
+		summary: "Error summary",
+		detail: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+		moreContent: node
+	};
+}
+
+dojoRequireModules(modules, null, currentDojoVersion.async, preParse);
+</script>
+<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 0">
+<a class="navigationLink" href="#maincontent">Skip to main content</a>
+<script type="text/javascript">applyThemeToBody()</script>
+<!--
+<div class="myH3">SimpleIconDialog and ErrorDialog</div>
+<button onclick="dijit.byId('d').show()">idx.widget.SimpleIconDialog</button>
+<button onclick="test_ed1()">idx.widget.ErrorDialog summary</button>
+<button onclick="test_ed2()">idx.widget.ErrorDialog +detail</button>
+<button onclick="test_ed3()">idx.widget.ErrorDialog +more</button>
+-->
+
+<a name="maincontent"></a>
+<div class="myH3">idx.info/warn/error/confirm</div>
+<button onclick="dialogs.info('Lorem ipsum dolor sit amet,')">idx.info</button>
+<button onclick="dialogs.warn('Lorem ipsum dolor sit amet, consectetur adipisicing elit,')">idx.warn</button>
+<button onclick="dialogs.error('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.')">idx.error</button>
+<button onclick="test_confirm()">idx.confirm</button>
+<button onclick="test_error()">idx.error complex</button>
+<button onclick="test_cb()">idx.error w/callback</button>
+
+<div class="myH3">idx.info/warn/error/confirm with custom label</div>
+<button onclick="dialogs.info('Lorem ipsum dolor sit amet,', null, 'idx.info - Custom OK')">idx.info</button>
+<button onclick="dialogs.warn('Lorem ipsum dolor sit amet,', null, 'idx.warn - Custom OK')">idx.warn</button>
+<button onclick="dialogs.error('Lorem ipsum dolor sit amet,', null, 'idx.error - Custom OK')">idx.error</button>
+<button onclick="test_confirm2()">idx.confirm</button>
+<button onclick="test_error2()">idx.error complex</button>
+
+<div class="myH3">idx.showProgressDialog</div>
+<button onclick="test_pd()">show and hide</button>
+<button onclick="test_pd2()">hide automatically</button>
+
+<!--
+<div id="d" dojoType="idx.widget.SimpleIconDialog" iconClass="idxInfoIcon" title="SimpleIconDialog" style="width:30em;" text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."></div>
+<div id="e" dojoType="idx.widget.ErrorDialog" style="width:30em;"></div>
+-->
+</body>
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<compositeCheatsheet name="总方案：导入 SAP 表并生成抽取作业">
+   <taskGroup kind="sequence" name="导入 SAP 表并生成抽取作业" skip="false">
+      <intro>
+该备忘单将指导您完成将逻辑表从 SAP 导入逻辑数据模型，将逻辑数据模型转换为物理数据模型，通过物理模型创建数据库，最后生成 DataStage 作业（用于将 SAP 表抽取到所创建数据库）的全过程。
+      </intro>
+      <onCompletion>
+您现已创建包含 SAP 元数据的逻辑数据模型、可存储 SAP 数据的数据库，以及能够将数据从 SAP 抽取到该数据库的作业。
+      </onCompletion>
+      <task kind="cheatsheet" name="从 SAP 导入逻辑表" skip="true">
+         <intro>
+本任务将指导您创建逻辑数据模型并将 SAP 逻辑表的元数据导入该模型。
+         </intro>
+         <param name="id" value="com.ibm.is.sappack.gen.help.cheatsheet.rm.tables">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="为作业生成准备逻辑数据模型" skip="true">
+         <intro>
+本任务将指导您为 Rapid Generator for SAP 准备先前创建的逻辑数据模型。这将涉及将该逻辑数据模型转换为物理数据模型，并会创建该物理模型的数据库。
+         </intro>
+         <param name="id" value="com.ibm.is.sappack.gen.help.cheatsheet.transform">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="使用 Rapid Generator for SAP 生成作业" skip="true">
+         <intro>
+本任务将向您说明如何使用先前创建的物理模型生成作业。这些作业将使用所创建的数据库来存储 SAP 数据。
+         </intro>
+         <param name="id" value="com.ibm.is.sappack.gen.help.cheatsheet.rg.tables">
+         </param>
+      </task>
+   </taskGroup>
+</compositeCheatsheet>

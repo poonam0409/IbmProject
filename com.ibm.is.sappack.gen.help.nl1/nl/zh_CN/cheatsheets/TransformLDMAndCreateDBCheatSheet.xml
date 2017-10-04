@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="为作业生成准备逻辑数据模型">
+   <intro>
+      <description>
+该备忘单向您说明如何将逻辑数据模型转换为要用于 Rapid Generator for SAP 的物理数据模型。
+还将说明如何通过该物理模型创建数据库。
+         
+         <br/>
+         <b>注：确保完全按照指示在以下步骤中输入项目、模型等的名称，否则“单击以执行”按钮可能会不起作用。但是，“在完成时单击”按钮将继续有效。
+         </b>
+      </description>
+   </intro>
+   <item
+         dialog="true"
+         href="/com.ibm.datatools.transform.ui.doc/topics/ctransform.html"
+         title="将逻辑模型转换为物理模型">
+      <description>
+浏览至用于通过 Rapid Modeler for SAP 从 SAP 导入元数据的逻辑数据模型。
+      </description>
+      <subitem
+            label="右键单击该逻辑数据模型，然后选择“转换为物理数据模型”。">
+      </subitem>
+      <subitem
+            label="在“目标物理数据模型”页面上选择“创建新模型”。单击“下一步”。">
+      </subitem>
+      <subitem
+            label="在“物理数据模型文件”页面上，选择 DB2 作为目标数据库。单击“下一步”。">
+      </subitem>
+      <subitem
+            label="在“选项”页面上，检查设置，尤其是模式名称。单击“下一步”。">
+      </subitem>
+      <subitem
+            label="在“输出”向导页面上单击“完成”">
+      </subitem>
+         </item>
+   <item
+         title="标识 DB2 数据库">
+      <description>
+标识系统架构中要用于存储 SAP 数据的 DB2 数据库。
+         <br/> 
+您必须在 DataStage 服务器机器上创建到该数据库的 ODBC 连接。
+创建 ODBC 连接的方式取决于操作系统。请咨询系统管理员。
+      </description>
+   </item>
+   <item
+         dialog="true"
+         href="/com.ibm.datatools.connection.repository.ui.doc/topics/tcommon_connecting_wiz.html"
+         title="创建到数据库的连接">
+      <description>
+本步骤使您能够在 InfoSphere Data Architect 中创建到数据库的连接。
+         <br/>
+如果要手动运行先前在数据库中创建的 DDL 脚本，那么可以跳过该步骤。
+      </description>
+      <subitem
+            label="在“数据源资源管理器视图”中，右键单击“数据库连接 -&gt; 新建”。"
+            skip="true"> 新建。>
+      </subitem>
+      <subitem
+            label="在输入数据库的连接信息时，单击“新建连接”向导。"
+            skip="true">
+      </subitem>
+   </item>
+   <item
+         skip="true"
+         title="在 DataStage 服务器上创建 ODBC 连接">
+      <description>
+必须在 DataStage 服务器机器上创建到数据库的 ODBC 连接，以便能够在 DataStage 作业中使用该连接。
+      </description>
+   </item>
+   <item
+         dialog="true"
+         href="/com.ibm.datatools.fe.ui.doc/topics/ruidll_saverun.html"
+         title="生成 DDL 脚本">
+      <description>
+浏览至上一步在数据项目资源管理器中创建的结果物理数据模型。双击 dbm 条目。右键单击 dbm 文件下的“数据库”条目，然后选择“生成 DDL”。完成“生成 DDL”向导以在数据设计项目中创建 .sql 文件。
+      </description>
+      <subitem
+            label="浏览至上一步在数据项目资源管理器中创建的结果物理数据模型并双击该模型。">
+      </subitem>
+      <subitem
+            label="右键单击 dbm 文件下的“数据库”条目，然后选择“生成 DDL”。">
+      </subitem>
+      <subitem
+            label="完成“生成 DDL”向导以在数据设计项目中创建 .sql 文件。
+">
+      </subitem>
+   </item>
+   <item
+         href="/com.ibm.datatools.server.ui.doc/topics/cdatabaseexplorer.html"
+         title="对数据库运行 DDL 脚本">
+      <description>
+本步骤说明如何对在上一步中创建的连接运行 DDL 脚本。
+      </description>
+      <subitem
+            label="右键单击数据设计项目内 SQL 脚本文件夹中的 .sql 文件，然后选择“运行 SQL”。"
+            skip="true">
+      </subitem>
+      <subitem
+            label="选择在上一步中创建的数据库连接并完成向导。"
+            skip="true">
+      </subitem>
+   </item>
+      </cheatsheet>

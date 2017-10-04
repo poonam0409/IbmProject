@@ -1,0 +1,27 @@
+#
+# Licensed Material - Property of IBM
+#
+# 5724-Q55
+#
+# (c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+# 
+# US Government Users Restricted Rights - Use, duplication or disclosure
+# restricted by GSA ADP Schedule Contract with IBM Corp.
+#
+
+echo Checking out all files
+echo $PATH
+cd /view/SAP_APPS%SCITASKID/sci/SAP_APPS
+
+/usr/local/bin/sci/sci_checkout -product SAP_APPS -task SCITASKID -nq dssapadmin/resources/LANGFULL/dsidocutl_LANGFULL.rc
+/usr/local/bin/sci/sci_checkout -product SAP_APPS -task SCITASKID -nq dssapsup/resources/LANGFULL/dssapsup_LANGFULL.rc
+/usr/local/bin/sci/sci_checkout -product SAP_APPS -task SCITASKID -nq HawkPackages/R3/abappack/META-INF/LANGSTAGEDESC/StageDsc.xml
+/usr/local/bin/sci/sci_checkout -product SAP_APPS -task SCITASKID -nq HawkPackages/R3/bapipack/META-INF/LANGSTAGEDESC/StageDsc.xml
+/usr/local/bin/sci/sci_checkout -product SAP_APPS -task SCITASKID -nq R3_STAGES/ABAP_EXTRACT/sapdss/dsftp_LANGFULL.rs
+/usr/local/bin/sci/sci_checkout -product SAP_APPS -task SCITASKID -nq R3_STAGES/ABAP_EXTRACT/sapgui/resources/LANGFULL/sapgui_LANGFULL.rc
+/usr/local/bin/sci/sci_checkout -product SAP_APPS -task SCITASKID -nq R3_STAGES/BAPI/dsbapigui/resources/LANGFULL/dsbapigui_LANGFULL.rc
+/usr/local/bin/sci/sci_checkout -product SAP_APPS -task SCITASKID -nq R3_STAGES/BAPI/dsruntime/dsr3bapi_LANGFULL.rs
+/usr/local/bin/sci/sci_checkout -product SAP_APPS -task SCITASKID -nq R3_STAGES/IDOC/dsidocgui/resources/LANGFULL/dsidocgui_LANGFULL.rc
+/usr/local/bin/sci/sci_checkout -product SAP_APPS -task SCITASKID -nq R3_STAGES/IDOC/iloadgui/resources/LANGFULL/iloadgui_LANGFULL.rc
+
+echo All files checked out

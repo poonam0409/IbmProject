@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>is-rm-lpad</name>
+	<comment>version=3.2.2.201103111532;compatibleVersions=[123]\\.\\d*\\.\\d*\\.\\w*;launchpadUniqueId=9790;</comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+		<nature>com.ibm.eec.launchpad.launchpadProjectNature</nature>
+	</natures>
+</projectDescription>

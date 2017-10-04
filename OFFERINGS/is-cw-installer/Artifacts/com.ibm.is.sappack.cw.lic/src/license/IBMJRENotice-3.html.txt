@@ -1,0 +1,18 @@
+# Apache Xalan Serializer  
+
+
+This product includes software developed by IBM Corporation ([http://www.ibm.com][1])    
+and the Apache Software Foundation ([http://www.apache.org/][2]).  
+  
+Portions of this software were originally based on the following:  
+
+
+  * software copyright (c) 1999-2002, Lotus Development Corporation., [http://www.lotus.com][3].
+  * software copyright (c) 2001-2002, Sun Microsystems., [http://www.sun.com][4].
+  * software copyright (c) 2003, IBM Corporation., [http://www.ibm.com][1].
+
+   [1]: http://www.ibm.com
+   [2]: http://www.apache.org/
+   [3]: http://www.lotus.com
+   [4]: http://www.sun.com
+

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<?NLS TYPE="org.eclipse.help.toc"?>
+<!--© Copyright IBM Corporation 2010-->
+<toc label="Dotted decimal" topic="common/iiypcmic_dotteddecimal.html">
+   <topic label="Dotted decimal syntax diagrams"
+          href="common/iiypcmic_dotteddecimal.html"/>
+</toc>

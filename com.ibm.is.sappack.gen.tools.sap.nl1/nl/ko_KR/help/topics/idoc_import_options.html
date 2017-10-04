@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2011" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2011" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="cshelp" />
+<meta name="DC.Title" content="IDoc 가져오기 옵션" />
+<meta name="abstract" content="이 페이지에서 IDoc 유형을 논리 데이터 모델로 가져오는 방식을 구성할 수 있습니다. 각 세그먼트는 관계 테이블로 맵핑되고 IDoc 세그먼트 계층 구조의 상위 및 하위 관계를 설정하는 데 추가 필드가 사용됩니다." />
+<meta name="description" content="이 페이지에서 IDoc 유형을 논리 데이터 모델로 가져오는 방식을 구성할 수 있습니다. 각 세그먼트는 관계 테이블로 맵핑되고 IDoc 세그먼트 계층 구조의 상위 및 하위 관계를 설정하는 데 추가 필드가 사용됩니다." />
+<meta name="DC.Coverage" content="IDoc 가져오기 옵션" />
+<meta name="DC.Relation" scheme="URI" content="../topics/specify_idocs_manually.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="specifyidocimportoptions" />
+<meta name="DC.Language" content="ko-kr" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+<link rel="Start" href="../../../help/topics/specify_idocs_manually.html" />
+<title>IDoc 가져오기 옵션</title>
+<script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+<script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+<script type="text/javascript">
+var mDivision = "IM/IS";
+var mProductName = "IBM InfoSphere Information Server";
+var mProductVersion = "8.7.0";
+var mToList = "comments@us.ibm.com,cgauthie@us.ibm.com,burkharj@us.ibm.com,eldredge@us.ibm.com,pattere@us.ibm.com";
+var mNewWindow = false;
+var plugin_form = "com.ibm.srcf.doc";
+</script>
+
+</head>
+<body id="specifyidocimportoptions"><a name="specifyidocimportoptions"><!-- --></a>
+<div role="banner" id="runningheader" class="runningheader">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/IBM_IC_cue.gif" />
+<span class="hf-bold">IBM InfoSphere Information Server Pack for SAP Applications, 버전 7.0</span><div id="runningheader-feedback" class="runningheader-feedback">
+<a href="javascript:ibm_id_form()"><span class="hf-bold">피드백</span></a></div>
+<hr class="hf-hr" />
+</div>
+<!-- This headerarea file can be used for any topic placed in only one subdirectory,
+     not in the root directory of the plug-in. 
+     Template; ICCC Version 3.1, CBU Version 4.2, May 2011.
+--><div>
+   <!-- Additional meta information. -->
+   <meta name="dc.identifier" content="headerfile" />
+   <meta name="dc.rights" content="© Copyright IBM Corporation 2004, 2011" />
+   <!-- meta name="DC.Rights.Owner" content="For support, contact sharpt@us.ibm.com" -->
+   <meta name="feedback" content="" />
+   <meta name="ibm.country" content="US" />
+   <meta name="ibm.effective" scheme="W3CDTF" content="2011-04-27" />
+   <meta name="ibm.expires" scheme="W3CDTF" content="2012-04-27" />
+   <meta name="source" content="CBU map.infocenter transform from DITA" />
+   <!-- Common CSS -->
+   <link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+   <!-- topic_url.js for writing the topic URL in the footer. -->
+   <script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+   <!-- srcfv3.js and variable setup for the Feedback link. -->
+   <script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+   <script type="text/javascript">
+      var mDivision = "IM";
+      var mProductName = "IBM CBU Sample";
+      var mProductVersion = "4.2.0";
+      var mToList = "Notesgroupname";
+      var plugin_form = "com.ibm.srcf.doc";
+</script>
+   <noscript>
+      <style type="text/css"><!--.collapsecontent{display:block;}// -->
+      </style>
+   </noscript>
+</div>
+<h1 class="title topictitle1">IDoc 가져오기 옵션</h1>
+<div class="body csbody"><p class="shortdesc">이 페이지에서 IDoc 유형을 논리 데이터 모델로 가져오는 방식을 구성할 수 있습니다. 각 세그먼트는 관계 테이블로 맵핑되고 IDoc 세그먼트 계층 구조의
+상위 및 하위 관계를 설정하는 데 추가 필드가 사용됩니다.</p>
+<dl class="dl"><dt class="dt dlterm">IDoc 세그먼트 필드</dt>
+<dd class="dd">논리 데이터 모델에서 다양한 유형의 IDoc 세그먼트 필드를 속성에 맵핑하는 방법을 지정하십시오.<dl class="dl"><dt class="dt dlterm">모든 세그먼트 필드에서 널(null) 허용</dt>
+<dd class="dd">모든 필드에서 널을 허용하는 플래그를 설정합니다.</dd>
+<dt class="dt dlterm">모든 열에 모든 유형 허용</dt>
+<dd class="dd">속성의 유형은 <span class="keyword option">VARCHAR</span> 또는 <span class="keyword option">DATE</span>와 같은 세그먼트 필드의 데이터 유형에서 파생됩니다.</dd>
+<dt class="dt dlterm">VARCHAR만 사용</dt>
+<dd class="dd"><span class="keyword option">VARCHAR</span>을 모든 속성에 대한 유형으로 사용하십시오. 이 옵션을 선택한 경우 원래 길이에 곱하는 길이 비율을 정의할 수 있습니다. 결과
+테이블을 사용하여 길이가 SAP에서 정의된 최대 길이를 초과하는 데이터를 임시로 보유하도록 하려는 경우 이 옵션이 유용합니다.</dd>
+</dl>
+</dd>
+<dt class="dt dlterm">검사 테이블 옵션</dt>
+<dd class="dd">어떤 필드에 대해 유효한 값을 포함한 관련 검사 테이블을 추출하는 옵션을 지정하십시오.<dl class="dl"><dt class="dt dlterm">관련 검사 테이블을 위한 메타데이터 가져오기</dt>
+<dd class="dd">가져온 IDoc 세그먼트 필드에 대한 모든 검사 테이블을 가져옵니다.</dd>
+<dt class="dt dlterm">관련 텍스트 테이블을 위한 메타데이터 가져오기</dt>
+<dd class="dd">모든 검사 테이블에 대한 관련 텍스트 테이블을 가져옵니다. 이런 텍스트 테이블에는 검사 테이블의 값에 대한 설명이 포함됩니다.</dd>
+<dt class="dt dlterm">검사 테이블 블랙리스트</dt>
+<dd class="dd">검사 테이블 가져오기 중에 피할 검사 테이블 목록이 포함된 파일입니다. 행당 하나의 테이블 이름을 지정하십시오.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="../../../help/topics/specify_idocs_manually.html" title="이 페이지에서 IDoc 유형 및 세그먼트를 수동으로 지정할 수 있습니다.">IDoc 유형 및 세그먼트 수동 지정</a></div>
+</div>
+</div>
+<br />
+<div role="contentinfo" id="runningfooter" class="runningfooter">
+<hr class="hf-hr" />
+
+<p class="runningfooter">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/timestamp.gif" />
+릴리스 날짜: 2011-10-01
+
+<span class="hf-block"><script language="javascript">write_topic_url();</script></span>
+</p>
+</div>
+</body>
+</html>

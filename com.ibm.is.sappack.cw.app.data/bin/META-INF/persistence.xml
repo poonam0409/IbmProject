@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="com.ibm.is.sappack.cw.app.data">
+		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+		<jta-data-source>java:comp/env/jdbc/CWAppDatabase</jta-data-source>
+		<mapping-file>META-INF/RdmMapping.xml</mapping-file>
+		<mapping-file>META-INF/RdmSet.xml</mapping-file>
+		<mapping-file>META-INF/ReferenceTable.xml</mapping-file>
+		<mapping-file>META-INF/Setting.xml</mapping-file>
+		<mapping-file>META-INF/TranscodingTable.xml</mapping-file>
+		<mapping-file>META-INF/SourceDataCollectionRule.xml</mapping-file>
+		<mapping-file>META-INF/Process.xml</mapping-file>
+		<mapping-file>META-INF/ProcessStep.xml</mapping-file>
+		<mapping-file>META-INF/Table.xml</mapping-file>
+		<mapping-file>META-INF/TableUsage.xml</mapping-file>
+		<mapping-file>META-INF/Field.xml</mapping-file>
+		<mapping-file>META-INF/FieldUsage.xml</mapping-file>
+		<mapping-file>META-INF/BusinessObject.xml</mapping-file>
+        <class>com.ibm.is.sappack.cw.app.data.config.jpa.Setting</class>
+		<class>com.ibm.is.sappack.cw.app.data.bdr.jpa.Process</class>
+		<class>com.ibm.is.sappack.cw.app.data.bdr.jpa.ProcessStep</class>
+		<class>com.ibm.is.sappack.cw.app.data.bdr.jpa.Transaction</class>
+		<class>com.ibm.is.sappack.cw.app.data.bdr.jpa.BusinessObject</class>
+		<class>com.ibm.is.sappack.cw.app.data.bdr.jpa.Table</class>
+        <class>com.ibm.is.sappack.cw.app.data.bdr.jpa.TableUsage</class>
+		<class>com.ibm.is.sappack.cw.app.data.bdr.jpa.Field</class>
+		<class>com.ibm.is.sappack.cw.app.data.bdr.jpa.FieldUsage</class>
+		<class>com.ibm.is.sappack.cw.app.data.bdr.jpa.UserRegistryObject</class>
+		<class>com.ibm.is.sappack.cw.app.data.rdm.jpa.RdmMapping</class>
+		<class>com.ibm.is.sappack.cw.app.data.rdm.jpa.RdmSet</class>
+		<class>com.ibm.is.sappack.cw.app.data.rdm.jpa.ReferenceTable</class>
+		<class>com.ibm.is.sappack.cw.app.data.rdm.jpa.TextTable</class>
+		<class>com.ibm.is.sappack.cw.app.data.rdm.jpa.TranscodingTable</class>
+		<class>com.ibm.is.sappack.cw.app.data.rdm.jpa.ReferenceTableColumn</class>
+		<class>com.ibm.is.sappack.cw.app.data.rdm.jpa.TextTableColumn</class>
+		<class>com.ibm.is.sappack.cw.app.data.rdm.jpa.SourceDataCollectionRule</class>
+		<properties>
+      		<property name="openjpa.jdbc.Schema" value="CWAPP"/>
+			<property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=false)"/>
+			<property name="openjpa.jdbc.MappingDefaults" value="ForeignKeyDeleteAction=restrict, JoinForeignKeyDeleteAction=restrict"/>
+			<property name="openjpa.TransactionMode" value="managed"/>
+			<property name="openjpa.ConnectionFactoryMode" value="managed"/>
+		</properties>
+	</persistence-unit>
+</persistence>

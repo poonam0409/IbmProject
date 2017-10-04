@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Validators
+Bundle-SymbolicName: com.ibm.ibd.install.validators;singleton:=true
+Bundle-Version: 2.0.1.201112151623
+Bundle-ClassPath: com.ibm.ibd.install.validators_2.0.1.201112151623.jar
+Bundle-Activator: com.ibm.ibd.install.validators.Activator
+Bundle-Vendor: IBM
+Export-Package: com.ibm.ibd.install.validators
+Require-Bundle: org.eclipse.core.runtime,
+ com.ibm.cic.common.core,
+ com.ibm.cic.agent.core
+Import-Package: org.eclipse.swt.widgets
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: J2SE-1.5

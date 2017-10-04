@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<index>
+  <entry keyword="InfoSphere Pack for SAP applications">
+    <topic href="topics/c_is_pack_sap_applications.html#ibminfospherepackforsapapplications" title="Overview"/>
+  </entry>
+  <entry keyword="understanding SAP metadata">
+    <topic href="topics/c_is_pack_sap_applications.html#ibminfospherepackforsapapplications" title="Overview"/>
+  </entry>
+  <entry keyword="InfoSphere Data Architect">
+    <topic href="topics/c_is_pack_sap_applications.html#ibminfospherepackforsapapplications" title="Overview"/>
+    <topic href="topics/c_intro_rapid_modeler.html#introductiontoibminfosphererapidmodelerforsapapplications" title="Introduction to InfoSphere Rapid Modeler for SAP Applications"/>
+    <topic href="topics/c_intro_rapid_generator.html#introductiontoibminfosphererapidgeneratorforsapapplications" title="Introduction to InfoSphere Rapid Generator for SAP Applications"/>
+    <topic href="topics/c_installation_prerequisites.html#installationprerequisites" title="Prerequisites"/>
+    <topic href="topics/c_install_ida_components.html#installingtheinfospheredataarchitectcomponents" title="Installing the IBM InfoSphere Data Architect components"/>
+    <topic href="topics/c_prepare_ida_workspace.html#preparingtheinfospheredataarchitectworkspace" title="Preparing the InfoSphere Data Architect workspace"/>
+  </entry>
+  <entry keyword="Product usage">
+    <topic href="topics/c_is_pack_sap_applications.html#ibminfospherepackforsapapplications" title="Overview"/>
+  </entry>
+  <entry keyword="SAP data model">
+    <topic href="topics/c_is_pack_sap_applications.html#ibminfospherepackforsapapplications" title="Overview"/>
+  </entry>
+  <entry keyword="understanding">
+    <topic href="topics/c_is_pack_sap_applications.html#ibminfospherepackforsapapplications" title="Overview"/>
+  </entry>
+  <entry keyword="SAP systems">
+    <topic href="topics/c_is_pack_sap_applications.html#ibminfospherepackforsapapplications" title="Overview"/>
+  </entry>
+  <entry keyword="consolidation and migration">
+    <topic href="topics/c_is_pack_sap_applications.html#ibminfospherepackforsapapplications" title="Overview"/>
+  </entry>
+  <entry keyword="ETL projects">
+    <topic href="topics/c_is_pack_sap_applications.html#ibminfospherepackforsapapplications" title="Overview"/>
+  </entry>
+  <entry keyword="Accelerate change management">
+    <topic href="topics/c_is_pack_sap_applications.html#ibminfospherepackforsapapplications" title="Overview"/>
+  </entry>
+  <entry keyword="Job authoring">
+    <topic href="topics/c_is_pack_sap_applications.html#ibminfospherepackforsapapplications" title="Overview"/>
+  </entry>
+  <entry keyword="DataStage">
+    <topic href="topics/c_is_pack_sap_applications.html#ibminfospherepackforsapapplications" title="Overview"/>
+  </entry>
+  <entry keyword="Introduction to Rapid Modeler">
+    <topic href="topics/c_intro_rapid_modeler.html#introductiontoibminfosphererapidmodelerforsapapplications" title="Introduction to InfoSphere Rapid Modeler for SAP Applications"/>
+  </entry>
+  <entry keyword="Logical tables">
+    <topic href="topics/c_intro_rapid_modeler.html#introductiontoibminfosphererapidmodelerforsapapplications" title="Introduction to InfoSphere Rapid Modeler for SAP Applications"/>
+    <topic href="topics/t_import_logical_tables_sap.html#importinglogicaltablesfromsap" title="Importing logical tables from SAP"/>
+  </entry>
+  <entry keyword="IDocs">
+    <topic href="topics/c_intro_rapid_modeler.html#introductiontoibminfosphererapidmodelerforsapapplications" title="Introduction to InfoSphere Rapid Modeler for SAP Applications"/>
+  </entry>
+  <entry keyword="Introduction to Rapid Generator">
+    <topic href="topics/c_intro_rapid_generator.html#introductiontoibminfosphererapidgeneratorforsapapplications" title="Introduction to InfoSphere Rapid Generator for SAP Applications"/>
+  </entry>
+  <entry keyword="ABAP extract jobs">
+    <topic href="topics/c_intro_rapid_generator.html#introductiontoibminfosphererapidgeneratorforsapapplications" title="Introduction to InfoSphere Rapid Generator for SAP Applications"/>
+  </entry>
+  <entry keyword="IDoc extract jobs">
+    <topic href="topics/c_intro_rapid_generator.html#introductiontoibminfosphererapidgeneratorforsapapplications" title="Introduction to InfoSphere Rapid Generator for SAP Applications"/>
+  </entry>
+  <entry keyword="IDoc load jobs">
+    <topic href="topics/c_intro_rapid_generator.html#introductiontoibminfosphererapidgeneratorforsapapplications" title="Introduction to InfoSphere Rapid Generator for SAP Applications"/>
+    <topic href="topics/t_configure_job_idoc_load.html#configuringjobgenerationforidocloadjobs" title="Configuring job generation for IDoc load jobs"/>
+  </entry>
+  <entry keyword="Prerequisites">
+    <topic href="topics/c_installation_prerequisites.html#installationprerequisites" title="Prerequisites"/>
+  </entry>
+  <entry keyword="Installation">
+    <topic href="topics/c_installation_prerequisites.html#installationprerequisites" title="Prerequisites"/>
+  </entry>
+  <entry keyword="Client install">
+    <topic href="topics/c_installation_prerequisites.html#installationprerequisites" title="Prerequisites"/>
+  </entry>
+  <entry keyword="Server install">
+    <topic href="topics/c_installation_prerequisites.html#installationprerequisites" title="Prerequisites"/>
+  </entry>
+  <entry keyword="Supported database">
+    <topic href="topics/c_installation_prerequisites.html#installationprerequisites" title="Prerequisites"/>
+  </entry>
+  <entry keyword="components">
+    <topic href="topics/c_install_ida_components.html#installingtheinfospheredataarchitectcomponents" title="Installing the IBM InfoSphere Data Architect components"/>
+  </entry>
+  <entry keyword="Client">
+    <topic href="topics/c_install_ida_components.html#installingtheinfospheredataarchitectcomponents" title="Installing the IBM InfoSphere Data Architect components"/>
+    <topic href="topics/t_install_client.html#installingtheclient" title="Installing the client"/>
+  </entry>
+  <entry keyword="installing">
+    <topic href="topics/c_install_ida_components.html#installingtheinfospheredataarchitectcomponents" title="Installing the IBM InfoSphere Data Architect components"/>
+    <topic href="topics/t_install_client.html#installingtheclient" title="Installing the client"/>
+    <topic href="topics/t_install_server_component.html#installingtheservercomponent" title="Installing the Server component"/>
+  </entry>
+  <entry keyword="Server component">
+    <topic href="topics/c_install_ida_components.html#installingtheinfospheredataarchitectcomponents" title="Installing the IBM InfoSphere Data Architect components"/>
+    <topic href="topics/t_install_server_component.html#installingtheservercomponent" title="Installing the Server component"/>
+  </entry>
+  <entry keyword="Rapid Modeler">
+    <topic href="topics/t_install_client.html#installingtheclient" title="Installing the client"/>
+    <topic href="topics/t_import_metadata_rapid_modeler.html#importingsapmetadatabyusingrapidmodeler" title="Importing SAP metadata by using Rapid Modeler"/>
+    <entry keyword="overview">
+      <topic href="topics/c_component_overview.html#overviewofthecomponents" title="Overview of the components"/>
+    </entry>
+  </entry>
+  <entry keyword="Rapid Generator">
+    <topic href="topics/t_install_client.html#installingtheclient" title="Installing the client"/>
+    <topic href="topics/t_install_server_component.html#installingtheservercomponent" title="Installing the Server component"/>
+    <topic href="topics/t_prepare_ds_environment_rapid_generator.html#t_prepare_ds_environment_rapid_generator" title="Configuring the IBM InfoSphere DataStage environment for Rapid Generator for SAP"/>
+    <topic href="topics/t_generate_ds_jobs_rapid_generator.html#generatinginfospheredatastagejobsbyusingrapidgenerator" title="Generating InfoSphere DataStage jobs by using InfoSphere Rapid Generator for SAP"/>
+    <topic href="topics/t_configure_job_idoc_load.html#configuringjobgenerationforidocloadjobs" title="Configuring job generation for IDoc load jobs"/>
+    <topic href="topics/t_create_connection_sap_system.html#creatingaconnectiontothesapsystem" title="Creating a connection to the SAP system"/>
+    <entry keyword="overview">
+      <topic href="topics/c_component_overview.html#overviewofthecomponents" title="Overview of the components"/>
+    </entry>
+  </entry>
+  <entry keyword="server component">
+    <topic href="topics/t_install_server_component.html#installingtheservercomponent" title="Installing the Server component"/>
+  </entry>
+  <entry keyword="IBM InfoSphere DataStage">
+    <topic href="topics/t_prepare_ds_environment_rapid_generator.html#t_prepare_ds_environment_rapid_generator" title="Configuring the IBM InfoSphere DataStage environment for Rapid Generator for SAP"/>
+  </entry>
+  <entry keyword="preparing the environment">
+    <topic href="topics/t_prepare_ds_environment_rapid_generator.html#t_prepare_ds_environment_rapid_generator" title="Configuring the IBM InfoSphere DataStage environment for Rapid Generator for SAP"/>
+  </entry>
+  <entry keyword="generate jobs">
+    <topic href="topics/t_prepare_ds_environment_rapid_generator.html#t_prepare_ds_environment_rapid_generator" title="Configuring the IBM InfoSphere DataStage environment for Rapid Generator for SAP"/>
+  </entry>
+  <entry keyword="DataStage project">
+    <topic href="topics/t_prepare_ds_environment_rapid_generator.html#t_prepare_ds_environment_rapid_generator" title="Configuring the IBM InfoSphere DataStage environment for Rapid Generator for SAP"/>
+    <topic href="topics/t_create_ds_projects_generated_jobs.html#creatingadedicateddatastageprojectforgeneratedjobs" title="Creating a dedicated InfoSphere DataStage project for generated jobs"/>
+  </entry>
+  <entry keyword="creating">
+    <topic href="topics/t_prepare_ds_environment_rapid_generator.html#t_prepare_ds_environment_rapid_generator" title="Configuring the IBM InfoSphere DataStage environment for Rapid Generator for SAP"/>
+    <topic href="topics/t_create_ds_projects_generated_jobs.html#creatingadedicateddatastageprojectforgeneratedjobs" title="Creating a dedicated InfoSphere DataStage project for generated jobs"/>
+  </entry>
+  <entry keyword="Generated jobs">
+    <topic href="topics/t_prepare_ds_environment_rapid_generator.html#t_prepare_ds_environment_rapid_generator" title="Configuring the IBM InfoSphere DataStage environment for Rapid Generator for SAP"/>
+    <topic href="topics/t_create_ds_projects_generated_jobs.html#creatingadedicateddatastageprojectforgeneratedjobs" title="Creating a dedicated InfoSphere DataStage project for generated jobs"/>
+  </entry>
+  <entry keyword="creating dedicated DataStage project">
+    <topic href="topics/t_prepare_ds_environment_rapid_generator.html#t_prepare_ds_environment_rapid_generator" title="Configuring the IBM InfoSphere DataStage environment for Rapid Generator for SAP"/>
+    <topic href="topics/t_create_ds_projects_generated_jobs.html#creatingadedicateddatastageprojectforgeneratedjobs" title="Creating a dedicated InfoSphere DataStage project for generated jobs"/>
+  </entry>
+  <entry keyword="preparing the workspace">
+    <topic href="topics/c_prepare_ida_workspace.html#preparingtheinfospheredataarchitectworkspace" title="Preparing the InfoSphere Data Architect workspace"/>
+  </entry>
+  <entry keyword="SAP JCo connector">
+    <topic href="topics/c_prepare_ida_workspace.html#preparingtheinfospheredataarchitectworkspace" title="Preparing the InfoSphere Data Architect workspace"/>
+    <topic href="topics/t_configure_jco_connector.html#configuringthesapjcoconnector" title="Configuring the SAP JCo connector"/>
+  </entry>
+  <entry keyword="configuring">
+    <topic href="topics/c_prepare_ida_workspace.html#preparingtheinfospheredataarchitectworkspace" title="Preparing the InfoSphere Data Architect workspace"/>
+    <topic href="topics/t_configure_jco_connector.html#configuringthesapjcoconnector" title="Configuring the SAP JCo connector"/>
+    <topic href="topics/t_configure_is_client.html#configuringtheinformationserverclient" title="Configuring the InfoSphere Information Server client"/>
+  </entry>
+  <entry keyword="Information Server client">
+    <topic href="topics/c_prepare_ida_workspace.html#preparingtheinfospheredataarchitectworkspace" title="Preparing the InfoSphere Data Architect workspace"/>
+    <topic href="topics/t_configure_is_client.html#configuringtheinformationserverclient" title="Configuring the InfoSphere Information Server client"/>
+  </entry>
+  <entry keyword="SAP metadata">
+    <topic href="topics/t_import_metadata_rapid_modeler.html#importingsapmetadatabyusingrapidmodeler" title="Importing SAP metadata by using Rapid Modeler"/>
+  </entry>
+  <entry keyword="importing">
+    <topic href="topics/t_import_metadata_rapid_modeler.html#importingsapmetadatabyusingrapidmodeler" title="Importing SAP metadata by using Rapid Modeler"/>
+  </entry>
+  <entry keyword="importing SAP metadata">
+    <topic href="topics/t_import_metadata_rapid_modeler.html#importingsapmetadatabyusingrapidmodeler" title="Importing SAP metadata by using Rapid Modeler"/>
+  </entry>
+  <entry keyword="importing from SAP">
+    <topic href="topics/t_import_logical_tables_sap.html#importinglogicaltablesfromsap" title="Importing logical tables from SAP"/>
+    <topic href="topics/t_import_idoc_types_sap.html#importingidoctypesfromsap" title="Importing IDoc types from SAP"/>
+  </entry>
+  <entry keyword="SAP models">
+    <topic href="topics/t_import_logical_tables_sap.html#importinglogicaltablesfromsap" title="Importing logical tables from SAP"/>
+  </entry>
+  <entry keyword="selection predefined models">
+    <topic href="topics/t_import_logical_tables_sap.html#importinglogicaltablesfromsap" title="Importing logical tables from SAP"/>
+  </entry>
+  <entry keyword="SAP">
+    <topic href="topics/t_import_logical_tables_sap.html#importinglogicaltablesfromsap" title="Importing logical tables from SAP"/>
+  </entry>
+  <entry keyword="browsing for tables">
+    <topic href="topics/t_import_logical_tables_sap.html#importinglogicaltablesfromsap" title="Importing logical tables from SAP"/>
+  </entry>
+  <entry keyword="Tables">
+    <topic href="topics/t_import_logical_tables_sap.html#importinglogicaltablesfromsap" title="Importing logical tables from SAP"/>
+  </entry>
+  <entry keyword="specifying tables manually">
+    <topic href="topics/t_import_logical_tables_sap.html#importinglogicaltablesfromsap" title="Importing logical tables from SAP"/>
+  </entry>
+  <entry keyword="IDoc types">
+    <topic href="topics/t_import_idoc_types_sap.html#importingidoctypesfromsap" title="Importing IDoc types from SAP"/>
+  </entry>
+  <entry keyword="generating InfoSphere DataStage jobs">
+    <topic href="topics/t_generate_ds_jobs_rapid_generator.html#generatinginfospheredatastagejobsbyusingrapidgenerator" title="Generating InfoSphere DataStage jobs by using InfoSphere Rapid Generator for SAP"/>
+  </entry>
+  <entry keyword="InfoSphere DataStage jobs">
+    <topic href="topics/t_generate_ds_jobs_rapid_generator.html#generatinginfospheredatastagejobsbyusingrapidgenerator" title="Generating InfoSphere DataStage jobs by using InfoSphere Rapid Generator for SAP"/>
+  </entry>
+  <entry keyword="by using Rapid Generator">
+    <topic href="topics/t_generate_ds_jobs_rapid_generator.html#generatinginfospheredatastagejobsbyusingrapidgenerator" title="Generating InfoSphere DataStage jobs by using InfoSphere Rapid Generator for SAP"/>
+  </entry>
+  <entry keyword="ABAP extract">
+    <topic href="topics/t_configure_job_abap_extract.html#configuringjobgenerationforabapextractjobs" title="Configuring job generation for ABAP extract jobs"/>
+  </entry>
+  <entry keyword="configuring job generation">
+    <topic href="topics/t_configure_job_abap_extract.html#configuringjobgenerationforabapextractjobs" title="Configuring job generation for ABAP extract jobs"/>
+    <topic href="topics/t_configure_job_idoc_extract.html#configuringjobgenerationforidocextractjob" title="Configuring job generation for IDoc extract job"/>
+    <topic href="topics/t_configure_job_idoc_load.html#configuringjobgenerationforidocloadjobs" title="Configuring job generation for IDoc load jobs"/>
+  </entry>
+  <entry keyword="Job generation">
+    <topic href="topics/t_configure_job_abap_extract.html#configuringjobgenerationforabapextractjobs" title="Configuring job generation for ABAP extract jobs"/>
+  </entry>
+  <entry keyword="configuring for ABAP extract jobs">
+    <topic href="topics/t_configure_job_abap_extract.html#configuringjobgenerationforabapextractjobs" title="Configuring job generation for ABAP extract jobs"/>
+  </entry>
+  <entry keyword="IDoc extract">
+    <topic href="topics/t_configure_job_idoc_extract.html#configuringjobgenerationforidocextractjob" title="Configuring job generation for IDoc extract job"/>
+  </entry>
+  <entry keyword="Extract job">
+    <topic href="topics/t_configure_job_idoc_extract.html#configuringjobgenerationforidocextractjob" title="Configuring job generation for IDoc extract job"/>
+  </entry>
+  <entry keyword="configuring job generation for IDoc">
+    <topic href="topics/t_configure_job_idoc_extract.html#configuringjobgenerationforidocextractjob" title="Configuring job generation for IDoc extract job"/>
+  </entry>
+  <entry keyword="configuring IDoc load jobs">
+    <topic href="topics/t_configure_job_idoc_load.html#configuringjobgenerationforidocloadjobs" title="Configuring job generation for IDoc load jobs"/>
+  </entry>
+  <entry keyword="SAP system">
+    <topic href="topics/t_reconcile_model_sap_system.html#reconcilingyourmodelwithansapsystem" title="Reconciling your model with an SAP system"/>
+    <topic href="topics/t_create_connection_sap_system.html#creatingaconnectiontothesapsystem" title="Creating a connection to the SAP system"/>
+  </entry>
+  <entry keyword="reconciling your model">
+    <topic href="topics/t_reconcile_model_sap_system.html#reconcilingyourmodelwithansapsystem" title="Reconciling your model with an SAP system"/>
+  </entry>
+  <entry keyword="Known problems">
+    <topic href="topics/c_troubleshooting.html#troubleshooting" title="Troubleshooting"/>
+  </entry>
+  <entry keyword="troubleshooting">
+    <topic href="topics/c_troubleshooting.html#troubleshooting" title="Troubleshooting"/>
+  </entry>
+  <entry keyword="Information resources">
+    <topic href="topics/c_getting_help.html#gettinghelp" title="Getting help"/>
+  </entry>
+  <entry keyword="getting help">
+    <topic href="topics/c_getting_help.html#gettinghelp" title="Getting help"/>
+  </entry>
+  <entry keyword="help topics">
+    <topic href="topics/c_getting_help.html#gettinghelp" title="Getting help"/>
+  </entry>
+  <entry keyword="Information Center">
+    <topic href="topics/c_getting_help.html#gettinghelp" title="Getting help"/>
+  </entry>
+  <entry keyword="context sensitive help">
+    <topic href="topics/c_getting_help.html#gettinghelp" title="Getting help"/>
+  </entry>
+  <entry keyword="Information">
+    <topic href="topics/c_getting_help.html#gettinghelp" title="Getting help"/>
+  </entry>
+  <entry keyword="cheat sheets">
+    <topic href="topics/c_getting_help.html#gettinghelp" title="Getting help"/>
+  </entry>
+  <entry keyword="examples">
+    <topic href="topics/c_getting_help.html#gettinghelp" title="Getting help"/>
+  </entry>
+  <entry keyword="resources">
+    <topic href="topics/c_getting_help.html#gettinghelp" title="Getting help"/>
+  </entry>
+  <entry keyword="SAP components">
+    <entry keyword="overview">
+      <topic href="topics/c_component_overview.html#overviewofthecomponents" title="Overview of the components"/>
+    </entry>
+  </entry>
+  <entry keyword="SAP environment">
+    <topic href="topics/c_prepare_sap_environment.html#preparingthesapenvironment" title="Prerequisites for the SAP environment"/>
+  </entry>
+  <entry keyword="preparing">
+    <topic href="topics/c_prepare_sap_environment.html#preparingthesapenvironment" title="Prerequisites for the SAP environment"/>
+  </entry>
+  <entry keyword="prerequisites">
+    <topic href="topics/c_prepare_sap_environment.html#preparingthesapenvironment" title="Prerequisites for the SAP environment"/>
+  </entry>
+  <entry keyword="creating a connection">
+    <topic href="topics/t_create_connection_sap_system.html#creatingaconnectiontothesapsystem" title="Creating a connection to the SAP system"/>
+  </entry>
+  <entry keyword="connecting to the SAP system">
+    <topic href="topics/t_create_connection_sap_system.html#creatingaconnectiontothesapsystem" title="Creating a connection to the SAP system"/>
+  </entry>
+</index>

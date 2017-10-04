@@ -1,0 +1,23 @@
+{
+	identifier: 'id',
+	label: 'name',
+	items: [
+	        { id: 'ROOT', name:'Continent', children:[ {_reference: 'AF'},  {_reference: 'AS'}]},
+					{ id: 'AF', name:'Africa', type:'continent', population:'900 million', area: '30,221,532 sq km',
+	        		timezone: '-1 UTC to +4 UTC',
+	        		children:[{_reference:'EG'}, {_reference:'KE'}, {_reference:'SD'}] },
+	        	{ id: 'EG', name:'Egypt', type:'country' },
+	        	{ id: 'KE', name:'Kenya', type:'country',
+	        			children:[{_reference:'Nairobi'}, {_reference:'Mombasa'}] },
+	        		{ id: 'Nairobi', name:'Nairobi', type:'city' },
+	        		{ id: 'Mombasa', name:'Mombasa', type:'city' },
+	        	{ id: 'SD', name:'Sudan', type:'country',
+	        			children:{_reference:'Khartoum'} },
+	        		{ id: 'Khartoum', name:'Khartoum', type:'city' },
+	        	{ id: 'AS', name:'Asia', type:'continent',
+	        			children:[{_reference:'CN'}, {_reference:'IN'}, {_reference:'RU'}, {_reference:'MN'}] },
+	        		{ id: 'CN', name:'China', type:'country' },
+	        		{ id: 'IN', name:'India', type:'country' },
+	        		{ id: 'RU', name:'Russia', type:'country' },
+	        		{ id: 'MN', name:'Mongolia', type:'country' }
+]}

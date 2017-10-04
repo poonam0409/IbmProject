@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Composite Fields Test</title>
+
+	<script type="text/javascript" src="../../../tests/dojoVersion.js"></script>
+	<script type="text/javascript">
+		dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+
+	<style id="idxStyles" type="text/css">
+		@import "../../../themes/oneui/oneui.css";
+		@import "../../../themes/test.css";
+		@import "../../tests/_pagefooter/_PageFooter.css";
+		.apiRef{
+			vertical-align: middle;
+			padding-top: 2px;
+		}
+		.apiRefDiv{
+			vertical-align: top;
+			/*display: inline;*/
+			display: none;
+			position: absolute;
+			left: 500px;
+			
+		}
+	</style>
+
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+	</script>
+
+	<script type="text/javascript">
+		dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>	
+
+	<script type="text/javascript" id="postDojo">
+		var modules = [
+			"dijit._base.manager",
+			"dijit.form.Button",
+			"dijit.form.Form",
+			"idx.oneui.form.TextBox",
+			"idx.oneui.form.Textarea",
+			"idx.oneui.form.Select",
+			"idx.oneui.form.DateTextBox",
+			"idx.oneui.form.TimeTextBox",
+			"idx.oneui.form.NumberSpinner",
+			"idx.oneui.form.CurrencyTextBox",
+			"idx.oneui.form.HorizontalSlider",
+			"idx.oneui.form.HorizontalRule",
+			"idx.oneui.form.HorizontalRuleLabels",
+			"idx.oneui.form.VerticalSlider",
+			"idx.oneui.form.VerticalRule",
+			"idx.oneui.form.VerticalRuleLabels",
+			"idx.oneui.form.CheckBox",
+			"idx.oneui.form.TriStateCheckBox",
+			"idx.oneui.form.ComboBox",
+			"idx.oneui.form.CheckBoxSelect",
+			"idx.oneui.form.CheckBoxList",
+			"idx.oneui.tests._pagefooter._PageFooter"]; 
+		var _PageFooter = null,
+			widgets = [
+			"textbox", 
+			"datetextbox", 
+			"timetextbox", 
+			"numberspinner", 
+			"currencytextbox", 
+			"textarea", 
+			"select",
+			"checkboxselect",
+			"combobox",
+			"checkboxlist",
+			"checkbox",
+			"tristatecheckbox",
+			"hslider",
+			"vslider"
+		];
+		function preParse(modules){
+			_PageFooter = modules["idx/oneui/tests/_pagefooter/_PageFooter"];
+		}
+		function postParse(modules){
+			new _PageFooter();
+		}
+		dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+	</script>
+
+	<script type="text/javascript" src="../../../tests/commonTest.js"></script>
+	
+	<body style="width: 100%; height: 100%; margin: 0; padding: 0px;">
+		<a class="navigationLink" href="#maincontent">Skip to main content</a>
+		<script type="text/javascript">applyThemeToBody("oneui");</script>
+		<a name="maincontent"></a>
+		
+		<div class="testMain">
+		<div><button data-dojo-type="dijit.form.Button" data-dojo-props='
+			label: "Vertical Alignment",
+			onClick: function(){
+				dojo.forEach(widgets, function(id){
+					dijit.byId(id).set("labelAlignment", "vertical");
+				})
+			}
+		'></button>
+		
+		<button data-dojo-type="dijit.form.Button" data-dojo-props='
+			label: "Horizontal Alignment",
+			onClick: function(){
+				dojo.forEach(widgets, function(id){
+					dijit.byId(id).set("labelAlignment", "horizontal");
+				})
+			}
+		'></button>
+		
+		<button data-dojo-type="dijit.form.Button" data-dojo-props='
+			label: "Put Hint Outside",
+			onClick: function(){
+				dojo.forEach(widgets, function(id){
+					dijit.byId(id).set("hintPosition", "outside");
+				})
+			}
+		'></button>
+		
+		<button data-dojo-type="dijit.form.Button" data-dojo-props='
+			label: "Put Hint Inside",
+			onClick: function(){
+				dojo.forEach(widgets, function(id){
+					dijit.byId(id).set("hintPosition", "inside");
+				})
+			}
+		'></button>
+		
+		<button data-dojo-type="dijit.form.Button" data-dojo-props='
+			label: "Set Fields Required",
+			onClick: function(){
+				dojo.forEach(widgets, function(id){
+					dijit.byId(id).set("required", true);
+					//dijit.byId(id).validate();
+				})
+			}
+		'></button>
+		
+		<button data-dojo-type="dijit.form.Button" data-dojo-props='
+			label: "Set Fields Optional",
+			onClick: function(){
+				dojo.forEach(widgets, function(id){
+					dijit.byId(id).set("required", false);
+					dijit.byId(id).validate();
+				})
+			}
+		'></button>
+		
+		<button data-dojo-type="dijit.form.Button" data-dojo-props='
+			label: "Add a Unit to TextBox",
+			onClick: function(){
+				dijit.byId("textbox").set("unit", "UNIT");
+			}
+		'></button>
+		</div>
+		<!--<h2>Composite TextBox</h2>-->
+		<input id="textbox" data-dojo-type="idx.oneui.form.TextBox" data-dojo-props='
+			hint: "Input text",
+			hintPosition: "inside",
+			label: "idx.oneui.form.TextBox:",
+			labelAlignment: "horizontal",
+			labelWidth: 200
+		'/>
+		<div class="apiRefDiv">
+			<span class="apiRef">
+				<a target="_blank" href="http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/TextBox.js">API reference</a>
+			</span>
+		</div>
+		<!--<h2>Composite FileInput</h2>-->
+		<br/>
+		<!--<input id="fileinput" data-dojo-type="oneui.form.FileInput" data-dojo-props='
+			hint: "Choose a file",
+			hintPosition: "inside",
+			label: "Choose a File:",
+			labelAlignment: "horizontal",
+			url: "../../dojox/form/resources/RecieveFile.php",
+			labelWidth: 200
+		'/>
+		<div class="apiRefDiv">
+			<span class="apiRef">
+				<a target="_blank" href="http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/FileInput.js">API reference</a>
+			</span>
+		</div>
+		<br/>-->
+		<input id="datetextbox" data-dojo-type="idx.oneui.form.DateTextBox" data-dojo-props='
+			hint: "MM/DD/YYYY",
+			hintPosition: "inside",
+			label: "idx.oneui.form.DateTextBox:",
+			labelAlignment: "horizontal",
+			labelWidth: 200
+		'/>
+		<div class="apiRefDiv">
+			<span class="apiRef">
+				<a target="_blank" href="http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/DateTextBox.js">API reference</a>
+			</span>
+		</div>
+		<br/>
+		<input id="timetextbox" data-dojo-type="idx.oneui.form.TimeTextBox" data-dojo-props='
+			hint: "HH:MM AM/PM",
+			hintPosition: "inside",
+			label: "idx.oneui.form.TimeTextBox:",
+			labelAlignment: "horizontal",
+			labelWidth: 200
+		'/>
+		<div class="apiRefDiv">
+			<span class="apiRef">
+				<a target="_blank" href="http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/TimeTextBox.js">API reference</a>
+			</span>
+		</div>
+		<br/>
+		<input id="currencytextbox" data-dojo-type="idx.oneui.form.CurrencyTextBox" data-dojo-props='
+			hint: "Input currency",
+			hintPosition: "inside",
+			label: "idx.oneui.form.CurrencyTextBox:",
+			labelAlignment: "horizontal",
+			labelWidth: 200
+		'/>
+		<div class="apiRefDiv">
+			<span class="apiRef">
+				<a target="_blank" href="http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/CurrencyTextBox.js">API reference</a>
+			</span>
+		</div>
+		<br/>
+		<input id="numberspinner" data-dojo-type="idx.oneui.form.NumberSpinner" data-dojo-props='
+			hint: "Input number",
+			hintPosition: "inside",
+			label: "idx.oneui.form.NumberSpinner:",
+			labelAlignment: "horizontal",
+			labelWidth: 200,
+			unit: "Items"
+		'/>
+		<div class="apiRefDiv">
+			<span class="apiRef">
+				<a target="_blank" href="http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/NumberSpinner.js">API reference</a>
+			</span>
+		</div>
+		<br/>
+		<textarea data-dojo-type="idx.oneui.form.Textarea" id="textarea" data-dojo-props='
+			rows: 2,
+			cols: 20,
+			trim: true,
+			hint: "Input text",
+			hintPosition: "inside",
+			label: "idx.oneui.form.Textarea:",
+			labelAlignment: "horizontal",
+			labelWidth: 200
+		'>
+		
+		</textarea>
+		<div class="apiRefDiv">
+			<span class="apiRef">
+				<a target="_blank" href="http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/Textarea.js">API reference</a>
+			</span>
+		</div>
+		<br/>
+		<select data-dojo-type="idx.oneui.form.Select" id="select" data-dojo-props='
+			label: "idx.oneui.form.Select:",
+			labelAlignment: "horizontal",
+			labelWidth: 200
+		'>
+			<option value="TN" selected="selected">Tennessee</option>
+			<option value="VA" >Virginia</option>
+			<option value="WA">Washington</option>
+			<option value="FL">Florida</option>
+			<option value="CA">California</option>
+		</select>
+		<div class="apiRefDiv">
+			<span class="apiRef">
+				<a target="_blank" href="http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/Select.js">API reference</a>
+			</span>
+		</div>
+		<br/>
+		<!--<h2>Composite CheckBoxSelect</h2>-->
+		<select id="checkboxselect" data-dojo-type="idx.oneui.form.CheckBoxSelect" data-dojo-props="
+			labelAlignment: 'horizontal',
+			label: 'idx.oneui.form.CheckBoxSelect:',
+			name: 'checkboxselect',
+			labelWidth: 200">
+			<option value="TN">Tennessee</option>
+			<option value="VA" selected="selected">Virginia</option>
+			<option value="WA" selected="selected">Washington</option>
+			<option value="FL">Florida</option>
+			<option value="CA">California</option>
+		</select>
+		<div class="apiRefDiv">
+			<span class="apiRef">
+				<a target="_blank" href="http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/CheckBoxSelect.js">API reference</a>
+			</span>
+		</div>
+		<br/>
+		<!--<h2>Composite ComboBox</h2>-->
+		<select id="combobox" data-dojo-type="idx.oneui.form.ComboBox"
+				data-dojo-props='name:"combobox",
+				value: "",
+				label: "idx.oneui.form.ComboBox:",
+				hint: "Select state",
+				isValid: function(){
+					return this.get("value") != "Hawaii";
+				},
+				invalidMessage: "Hawaii is an invalid option!",
+				labelWidth: 200
+		'>
+			<option value="AK">Alaska</option>
+			<option value="AS">American Samoa</option>
+			<option value="AZ">Arizona</option>
+			<option value="AR">Arkansas</option>
+			<option value="AE">Armed Forces Europe</option>
+			<option value="AP">Armed Forces Pacific</option>
+			<option value="AA">Armed Forces the Americas</option>
+			<option value="CA">California</option>
+			<option value="CO">Colorado</option>
+			<option value="CT">Connecticut</option>
+			<option value="DE">Delaware</option>
+			<option value="DC">District of Columbia</option>
+			<option value="FM">Federated States of Micronesia</option>
+			<option value="FL">Florida</option>
+			<option value="GA">Georgia</option>
+			<option value="GU">Guam</option>
+			<option value="HI">Hawaii</option>
+			<option value="ID">Idaho</option>
+			<option value="IL">Illinois</option>
+			<option value="IN">Indiana</option>
+			<option value="IA">Iowa</option>
+			<option value="KS">Kansas</option>
+			<option value="KY">Kentucky</option>
+			<option value="LA">Louisiana</option>
+			<option value="ME">Maine</option>
+			<option value="MH">Marshall Islands</option>
+			<option value="MD">Maryland</option>
+			<option value="MA">Massachusetts</option>
+			<option value="MI">Michigan</option>
+			<option value="MN">Minnesota</option>
+			<option value="MS">Mississippi</option>
+			<option value="MO">Missouri</option>
+			<option value="MT">Montana</option>
+			<option value="NE">Nebraska</option>
+			<option value="NV">Nevada</option>
+			<option value="NH">New Hampshire</option>
+			<option value="NJ">New Jersey</option>
+			<option value="NM">New Mexico</option>
+			<option value="NY">New York</option>
+			<option value="NC">North Carolina</option>
+			<option value="ND">North Dakota</option>
+			<option value="MP">Northern Mariana Islands</option>
+			<option value="OH">Ohio</option>
+			<option value="OK">Oklahoma</option>
+			<option value="OR">Oregon</option>
+			<option value="PA">Pennsylvania</option>
+			<option value="PR">Puerto Rico</option>
+			<option value="RI">Rhode Island</option>
+			<option value="SC">South Carolina</option>
+			<option value="SD">South Dakota</option>
+			<option value="TN">Tennessee</option>
+			<option value="TX">Texas</option>
+			<option value="UT">Utah</option>
+			<option value="VT">Vermont</option>
+			<option value="VI">Virgin Islands, U.S.</option>
+			<option value="VA">Virginia</option>
+			<option value="WA">Washington</option>
+			<option value="WV">West Virginia</option>
+			<option value="WI">Wisconsin</option>
+			<option value="WY">Wyoming</option>
+		</select>
+		<div class="apiRefDiv">
+			<span class="apiRef">
+				<a target="_blank" href="http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/ComboBox.js">API reference</a>
+			</span>
+		</div>
+		<br/>
+		<!--<h2>Composite CheckBoxList</h2>-->
+		<select id="checkboxlist" data-dojo-type="idx.oneui.form.CheckBoxList" data-dojo-props="
+			name: 'checkboxlist',
+			label: 'idx.oneui.form.CheckBoxList:',
+			labelAlignment: 'horizontal',
+			groupAlignment: 'vertical',
+			value: ['VA'],
+			invalidMessage: 'Checkbox1 is not a valid selection.',
+			isValid: function(){ return !this.getOptions(0).selected; },
+			labelWidth: 200
+		">
+			<option value="TN">Tennessee</option>
+			<option value="VA">Virginia</option>
+			<option value="WA">Washington</option>
+			<option value="FL">Florida</option>
+			<option value="CA">California</option>
+		</select>
+		<div class="apiRefDiv">
+			<span class="apiRef">
+				<a target="_blank" href="http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/CheckBoxList.js">API reference</a>
+			</span>
+		</div>
+		<br/>
+		<!--<h2>Composite CheckBox</h2>-->
+		<input id="checkbox" data-dojo-id="cb1" data-dojo-type="idx.oneui.form.CheckBox" data-dojo-props='name:"checkbox", label: "idx.oneui.form.CheckBox"'/>
+		<div class="apiRefDiv">
+			<span class="apiRef">
+				<a target="_blank" href="http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/CheckBox.js">API reference</a>
+			</span>
+		</div>
+		<br/>
+		<!--<h2>Composite TriStateCheckBox</h2>-->
+		<input id="tristatecheckbox" data-dojo-id="tristatecheckbox" data-dojo-type="idx.oneui.form.TriStateCheckBox" data-dojo-props='name:"tristatecheckbox", label:"idx.oneui.form.TriStateCheckBox"'/>
+		<div class="apiRefDiv">
+			<span class="apiRef">
+				<a target="_blank" href="http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/TriStateCheckBox.js">API reference</a>
+			</span>
+		</div>
+		<br/>
+		
+		<div id="hslider" data-dojo-type="idx.oneui.form.HorizontalSlider" data-dojo-props='
+			label: "idx.oneui.form.HorizontalSlider:",
+			labelAlignment: "horizontal",
+			name:"horizontal1",
+			value:70,
+			maximum:100,
+			minimum:0,
+			pageIncrement:100,
+			showButtons:true,
+			intermediateChanges:true,
+			slideDuration:500,
+			style:{width:"500px"},
+			labelWidth: 200
+			'>
+			<ol data-dojo-type="idx.oneui.form.HorizontalRuleLabels" data-dojo-props='container:"topDecoration", style:{height:"1.2em",fontSize:"75%"}, count:6, numericMargin:1'></ol>
+			<div data-dojo-type="idx.oneui.form.HorizontalRule" data-dojo-props='container:"topDecoration", count:6, style:{height:"5px"}'></div>
+			<div data-dojo-type="idx.oneui.form.HorizontalRule" data-dojo-props='container:"bottomDecoration", count:5, style:{height:"5px"}'></div>
+			<ol data-dojo-type="idx.oneui.form.HorizontalRuleLabels" data-dojo-props='container:"bottomDecoration", style:{height:"1em",fontSize:"75%"}'>
+				<li>lowest</li>
+				<li>normal</li>
+				<li>highest</li>
+			</ol>
+		</div>
+		<div class="apiRefDiv" style="left: 700px;">
+			<span class="apiRef">
+				<a target="_blank" href="http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/HorizontalSlider.js">API reference</a>
+			</span>
+		</div>
+		<br/>
+		<div id="vslider" data-dojo-type="idx.oneui.form.VerticalSlider" data-dojo-props='
+			label: "idx.oneui.form.VerticalSlider:",
+			labelAlignment: "horizontal",
+			name:"vertical1",
+			value:60,
+			maximum:100,
+			minimum:0,
+			discreteValues:11,
+			style: {height:"300px"},
+			labelWidth: 200
+			'>
+			<ol data-dojo-type="idx.oneui.form.VerticalRuleLabels" data-dojo-props='container:"leftDecoration", style:{width:"2em"}, labelStyle:"right:0px;"'>
+				<li>0</li>
+				<li>100</li>
+			</ol>
+			<div data-dojo-type="idx.oneui.form.VerticalRule" data-dojo-props='container:"leftDecoration", count:11, style:{width:"5px"}, ruleStyle:"border-color: #888"'></div>
+			<div data-dojo-type="idx.oneui.form.VerticalRule" data-dojo-props='container:"rightDecoration", count:11, style:{width:"5px"}, ruleStyle:"border-color: #888"'></div>
+			<ol data-dojo-type="idx.oneui.form.VerticalRuleLabels" data-dojo-props='container:"rightDecoration", style:{width:"2em"}, count:6, numericMargin:1, maximum:100, constraints:{pattern:"#"}'></ol>
+		</div>
+		<div class="apiRefDiv" style="left: 700px;">
+			<span class="apiRef">
+				<a target="_blank" href="http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/VerticalSlider.js">API reference</a>
+			</span>
+		</div>
+		</div>
+	</body>
+</html>

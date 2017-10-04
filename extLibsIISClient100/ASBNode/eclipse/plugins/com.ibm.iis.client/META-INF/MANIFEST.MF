@@ -1,0 +1,57 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.2
+Created-By: pwi3270_27-20131115_04 (IBM Corporation)
+Specification-Version: 11.3.0.M18g.xx
+Implementation-Version: 11.3.0.M18g.xx
+Product-Version: 11.3.0.M18g
+Bundle-Name: ISF Client Plug-in
+Bundle-SymbolicName: com.ibm.iis.client;singleton:=true
+Bundle-Version: 11.3.0.M18g
+Bundle-Activator: com.ibm.iis.client.ISFClient
+Bundle-ClassPath: .,com.ibm.iis.client.jar,isf-common.jar,isf-core.jar
+ ,iis_util.jar,httpclient-4.2.1.jar,httpcore-4.2.1.jar,commons-codec-1
+ .6.jar,commons-logging-1.1.1.jar,JSON4J-1.1.0.0.jar
+Bundle-ManifestVersion: 2
+Bundle-Vendor: IBM
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.2"
+Eclipse-LazyStart: true
+Eclipse-BuddyPolicy: registered
+Export-Package:  com.ibm.iis.client,com.ibm.iis.client.resources,com.i
+ bm.iis.isf.binding.javahttp,com.ibm.iis.isf.binding.javahttp.runtime,
+ com.ibm.iis.isf.binding.rest2,com.ibm.iis.isf.caching,com.ibm.iis.isf
+ .command,com.ibm.iis.isf.j2ee,com.ibm.iis.isf.j2ee.security,com.ibm.i
+ is.isf.j2ee.transaction,com.ibm.iis.isf.security,com.ibm.iis.isf.serv
+ ice,com.ibm.iis.isf.service.security,com.ibm.iis.isf.service.transact
+ ion,com.ibm.iis.isf.util,com.ibm.iis.isf.util.command,com.ibm.iis.isf
+ .util.format,com.ibm.iis.isf.util.logging,com.ibm.iis.isf.util.loggin
+ g.event,com.ibm.iis.isf.util.logging.layout,com.ibm.iis.isf.util.logg
+ ing.resources,com.ibm.iis.isf.util.security,com.ibm.iis.isf.util.serv
+ ice,com.ibm.iis.isf.util.startup,com.ibm.iis.isf.agent,com.ibm.iis.is
+ f.agent.config,com.ibm.iis.isf.agent.pool,com.ibm.iis.isf.ai.security
+ ,com.ibm.iis.isf.config,com.ibm.iis.isf.registration,com.ibm.iis.isf.
+ registration.client,com.ibm.iis.isf.reporting,com.ibm.iis.isf.reporti
+ ng.console,com.ibm.iis.isf.reporting.format,com.ibm.iis.isf.reporting
+ .parameter,com.ibm.iis.isf.reporting.parameter.value,com.ibm.iis.isf.
+ reporting.resources,com.ibm.iis.isf.reporting.selectList,com.ibm.iis.
+ isf.repository,com.ibm.iis.isf.scheduling,com.ibm.iis.isf.security,co
+ m.ibm.iis.isf.security.acl,com.ibm.iis.isf.security.ai,com.ibm.iis.is
+ f.security.auth,com.ibm.iis.isf.security.auth.impl,com.ibm.iis.isf.se
+ curity.directory,com.ibm.iis.isf.synchronization,com.ibm.iis.xmeta.se
+ rvice,com.ibm.iis.isf.security.console,com.ibm.iis.isf.security.crypt
+ o,com.ibm.iis.isf.security.crypto.provider,com.ibm.iis.spi.security.c
+ rypto,org.apache.http.client,org.apache.http.client.params,org.apache
+ .http.client.entity,org.apache.http.client.protocol,org.apache.http.c
+ lient.methods,org.apache.http.client.utils,org.apache.http.impl.clien
+ t,org.apache.http.impl.conn,org.apache.http.impl.conn.tsccm,org.apach
+ e.http.impl.cookie,org.apache.http.impl.auth,org.apache.http.conn,org
+ .apache.http.conn.routing,org.apache.http.conn.params,org.apache.http
+ .conn.scheme,org.apache.http.conn.ssl,org.apache.http.conn.util,org.a
+ pache.http.cookie,org.apache.http.cookie.params,org.apache.http.auth,
+ org.apache.http.auth.params,org.apache.http,org.apache.http.pool,org.
+ apache.http.concurrent,org.apache.http.params,org.apache.http.entity,
+ org.apache.http.protocol,org.apache.http.annotation,org.apache.http.i
+ mpl,org.apache.http.impl.pool,org.apache.http.impl.entity,org.apache.
+ http.impl.io,org.apache.http.message,org.apache.http.io,org.apache.ht
+ tp.util,com.ibm.json,com.ibm.json.java,com.ibm.json.xml
+

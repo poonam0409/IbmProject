@@ -1,0 +1,188 @@
+﻿Uluslararası Program Lisans Sözleşmesi
+
+Bölüm 1 - Genel Koşullar
+
+BU PROGRAMI YÜKLEYEREK, KURARAK, KOPYALAYARAK, KULLANARAK YA DA BU PROGRAMA ERİŞEREK, BU SÖZLEŞMENİN KOŞULLARINI KABUL EDİYORSUNUZ. BU KOŞULLARI BİR BAŞKA KİŞİ YA DA ŞİRKET YA DA TÜZEL KİŞİLİK ADINA KABUL EDİYORSANIZ, BU KİŞİ, ŞİRKET YA DA TÜZEL KİŞİNİN BU KOŞULLARA UYMASINI SAĞLAMAK İÇİN ELİNİZDE TAM YETKİ BULUNDUĞUNU BEYAN VE GARANTİ EDERSİNİZ. BU KOŞULLARI KABUL ETMİYORSANIZ; 
+
+- BU PROGRAMI YÜKLEMEYİNİZ, KURMAYINIZ, KOPYALAMAYINIZ, KULLANMAYINIZ YA DA BU PROGRAMA ERİŞMEYİNİZ; VE 
+
+- ÖDEDİĞİNİZ TUTARIN GERİ ÖDENMESİ İÇİN PROGRAMI VE YETKİ BELGESİNİ PROGRAMI ALDIĞINIZ TARAFA HEMEN İADE EDİNİZ. PROGRAMI YÜKLEDİYSENİZ, PROGRAMI ALDIĞINIZ TARAFLA GÖRÜŞÜNÜZ.
+
+"IBM", International Business Machines Corporation ya da yan kuruluşlarından herhangi biri anlamındadır.
+
+"Lisans Bilgileri" ("LB") bir Programa ilişkin özel bilgiler sağlayan bir belge anlamındadır. Programın LB'si http://www.ibm.com/software/sla/ adresinde bulunabilir. LB aynı zamanda, bir sistem komutu kullanılarak erişilen Program dizinindeki bir kütükte bulunabilir ya da Programla birlikte bir kitapçık biçiminde gönderilebilir.
+
+"Program", orijinalleri ve onun tüm kısmi veya tam kopyaları da dahil olmak üzere, aşağıdakiler anlamındadır: 1) makinede okunabilir komutlar ve veriler, 2) bileşenleri, 3) işitsel-görsel içerik (örneğin, görüntüler, metinler, kayıtlar ya da resimler), 4) ilişkili lisanslı malzeme, ve 5) lisans kullanımı belgeleri veya anahtarları ve dokümantasyonu
+
+"Yetki Belgesi" (Proof of Entitlement - "POE"), bir Programı belirli bir düzeyde kullanmaya yetkiniz olduğunu gösteren bir delil anlamındadır. Bu düzey, örneğin işlemci ya da kullanıcı sayısıyla ölçülebilir. POE, aynı zamanda, garanti, varsa gelecekteki yükseltme ücretleri ve olası özel olanaklar ya da promosyon olanaklarından yararlanmaya uygun olduğunuzu gösterir. IBM Size bir POE sağlamazsa, üzerinde Programın adının ve kullanım düzeyinin belirtilmesi koşuluyla, Programı aldığınız tarafın verdiği (IBM ya da satıcısı) orijinal satış makbuzu ya da diğer satış kayıtları IBM tarafından kabul edilebilir. 
+
+"Siz" ve "Sizin" sözcükleri, tek bir kişi ya da tek bir tüzel kişilik için kullanılır.
+
+Bu Sözleşme Bölüm 1 - Genel Koşullar, Bölüm 2 - Ülkeye Özgü Koşullar (varsa), Lisans Bilgileri ve Yetki Belgesini içerir ve bu Programın kullanımına ilişkin Sizle IBM arasındaki sözleşmenin tamamını oluşturur. Bu Sözleşme, Programı kullanmanızla ilgili olarak IBM'le aranızda daha önce gerçekleştirilen her türlü sözlü ve yazılı iletişimin yerine geçer. Bölüm 2'de ve Lisans Bilgilerinde yer alan koşullar, Bölüm 1'dekilerin yerine geçebilir veya bunları değiştirebilir.. Bu Sözleşme ile IBM Uluslararası Passport Olanağı Sözleşmesinin koşulları arasında bir çelişki olduğunda, IBM Uluslararası Passport Olanağı Sözleşmesinin koşulları bu Sözleşme koşullarının önüne geçer.
+
+1. Yetki
+
+Lisans
+
+Programın sahibi IBM ya da bir IBM sağlayıcısıdır. Program telif hakkına tabidir ve lisanslanır, satılmaz.
+
+Programı kanuni yollarla edindiğinizde, IBM, Programı kullanmanız için Size münhasır olmayan bir lisans verir.
+
+1) Programı POE'de belirtilen düzeye kadar kullanabilir ve 2) bu tür bir kullanımı desteklemek için kopyalarını ve yedek kopyalarını çıkarabilir ve kurabilirsiniz. Bu lisansın koşulları, çıkardığınız her kopya için geçerlidir. Programın herbir tam ı ya da kısmi kopyasına, telif hakkı bildirimini ve mülkiyeti belirleyen diğer tüm işaretleri eklemelisiniz..
+
+Programı bir program yükseltmesi olarak edindiyseniz, yükseltmeyi kurduktan sonra, yükseltme yaptığınız eski Programı kullanamaz ya da başka bir tarafa devredemezsiniz.
+
+Bu Programı kullanan herkesin (yerel ya da uzaktan erişim ile), yalnızca Sizin yetkilendirildiğiniz kullanımınız kapsamında Programı kullanmasını ve bu Sözleşmenin koşullarına uymasını sağlamayı kabul etmiş sayılırsınız. 
+
+1) Programı bu Sözleşmede belirtilenler dışında başka bir biçimde kullanamaz, kopyalayamaz, değiştiremez ya da dağıtamazsınız; 2) geçerli yasaların sözleşme ile değiştirilmesine olanak tanımayarak açıkça izin verdiği durumlar dışında, Programı ters çeviremez, ters derleyemez veya başka yöntemlerle çevirisini yapamazsınız; ya da 3) Programı alt lisanslayamaz, Programı kiralayamaz ya da kiraya veremezsiniz.
+
+Bu Sözleşmenin koşullarına uymamanız durumunda, IBM lisansınızı sona erdirebilir. IBM lisansınızı sona erdirirse, Programın tüm kopyalarını ve POE'sini imha etmeniz gerekir.
+
+Para İadesi Garantisi
+
+Herhangi bir nedenle Programdan memnun kalmazsanız ve orijinal lisans sahibiyseniz, fatura tarihinden itibaren 30 gün içinde Programı ve POE'sini Programı edindiğiniz tarafa iade etmeniz durumunda, Program için ödediğiniz ücreti geri alabilirsiniz. Programı bir yerden yüklediyseniz, paranızın iade edilmesine ilişkin yönergeler için Programı edindiğiniz tarafla temasa geçebilirsiniz..
+
+Programın Devredilmesi
+
+Programı ve tüm lisans haklarınızı, bu Sözleşmenin koşullarını kabul etmesi koşuluyla başka bir tarafa devredebilirsiniz. Programı devrettiğinizde, Programın POE'si de içinde olmak üzere bu Sözleşmenin bir kopyasını da devretmeniz gerekir. Devretme işlemi gerçekleştikten sonra, Programı Siz kullanamazsınız.
+
+2. Ücretler
+
+Bir Program lisansı için ödenmesi gereken ücret bir kerelik bir ücrettir.
+
+Bir kerelik ücretler, POE'de belirtilen, edinilen kullanım düzeyine bağlıdır. IBM, bu Sözleşmenin başka bir yerinde aksi belirtilenler dışında, muaccel olmuş ya da ödenmiş ücretler için Size bir kredi vermez ya da geri ödeme yapmaz.
+
+Kullanım düzeyini yükseltmek istediğinizde, IBM'e ya da Programı edindiğiniz tarafa bunu bildiriniz ve varsa uygulanabilir ücretleri ödeyiniz.
+
+Herhangi yetkili bir makam, Programla ilgili olarak, IBM'in net gelirine dayananlar hariç olmak üzere bir vergi, resim, harç veya başkaca mali yükün ödenmesini zorunlu kılarsa, belirtilen bu tutarı ödemeyi veya bunlardan muafsanız, bu belgeyi IBM'e sağlamayı kabul edersiniz. Programla ilgili olarak, o Programı edindiğiniz tarihten sonraki tüm kişisel mülkiyet vergilerinden Siz sorumlusunuz.
+
+3. Sınırlı Garanti
+
+IBM, saptanmış işletim ortamında kullanıldığında, Programın, belirtimlerine uygun olacağını garanti eder. Garanti, Programın yalnızca değiştirilmemiş kısımları için geçerlidir. IBM, Programın kesintisiz ya da hatasız çalışacağını ya da Programda oluşan tüm hataları düzelteceğini garanti etmez. Programın kullanımından elde edilen sonuçlardan Siz sorumlusunuz.
+
+IBM, bilinen Program hataları, hata düzeltmeleri, sınırlamalar ve sorun atlatma gibi konularda bilgiler içeren IBM veritabanlarına ek ücret ödemeden erişmenizi sağlar. Ek bilgi için http://www.ibm.com/software/support adresindeki IBM Software Support Guide'a (IBM Yazılım Desteği Kılavuzu) bakınız. IBM, bu bilgileri, orijinal lisans sahibi, Programı edindikten itibaren en az bir yıl ("Garanti Süresi") süreyle sağlar. 
+
+Eğer Program, Garanti Süresi içinde garanti edildiği gibi çalışmazsa ve sorun IBM'in veritabanında bulunan bilgilerle çözülemezse, Programı ve POE'sini, Programı edindiğiniz tarafa (IBM ya da satıcısına) iade edebilir ve program için ödemiş olduğunuz ücreti geri alabilirsiniz. Programı bir yerden yüklediyseniz, paranızın iade edilmesine ilişkin yönergeler için Programı aldığınız tarafla temasa geçebilirsiniz. 
+
+BU GARANTİLER SİZE MÜNHASIR GARANTİLER OLUP, TİCARİLİK VE BELİRLİ BİR AMACA UYGUNLUK İÇİN ZIMNİ GARANTİLER VEYA KOŞULLAR DA DAHİL OLMAK VE FAKAT BUNLARLA SINIRLI OLMAMAK ÜZERE, AÇIK VEYA ZIMNİ, DİĞER BÜTÜN GARANTİ VEYA KOŞULLARIN YERİNE GEÇER. BAZI ÜLKELER YA DA HUKUK DÜZENLERİ, AÇIK YA DA ZIMNİ GARANTİLERİN HARİÇ TUTULMASINA İZİN VERMEZ, BU DURUMDA YUKARIDA HARİÇ TUTULAN GARANTİLER SİZİN İÇİN GEÇERLİ OLMAYABİLİR. BÖYLE BİR DURUMDA, BU TÜR GARANTİLER GARANTİ SÜRESİYLE SINIRLIDIR. BU SÜRE DOLDUKTAN SONRA HİÇBİR GARANTİ GEÇERLİ DEĞİLDİR. BAZI ÜLKELER YA DA HUKUK DÜZENLERİ, ZIMNİ BİR GARANTİNİN NE KADAR SÜRECEĞİNE İLİŞKİN SINIRLAMALARA İZİN VERMEZ, BU DURUMDA YUKARIDAKİ SINIRLAMALAR SİZİN İÇİN GEÇERLİ OLMAYABİLİR. 
+
+BU GARANTİLER SİZE BELİRLİ YASAL HAKLAR KAZANDIRIR, AYNI ZAMANDA ÜLKELERE YA DA HUKUK DÜZENLERİNE GÖRE DEĞİŞEN DİĞER HAKLARA DA SAHİP OLABİLİRSİNİZ.
+
+4. Sorumlulukların Sınırı
+
+IBM'in bir kusuru veya sorumluluklarını yerine getirmemesinden kaynaklanan zararlarınızı IBM'den talep etmeye hak kazandığınız durumlar olabilir. 
+
+Bu tür her durumda, zararınızı IBM'den talep etmenize olanak sağlayan yasal dayanak (Sözleşmenin esaslı ihlali, ihmal, yanlış beyan, diğer ahdi iddialar veya haksız fiil iddiaları dahil olmak üzere) her ne olursa olsun, IBM yalnızca: 1) ölüm dahil cismani zarar ile taşınmaz ve taşınabilir kişisel mallara verilen zararlardan; ve 2) iddiaya konu olan Programa ilişkin ücreti, aşmamak koşuluyla, herhangi diğer gerçek doğrudan zararlardan sorumlu olur. Sorumlulukların bu sınırı, IBM'in Program geliştiricileri ve sağlayıcıları için de geçerli olup, IBM'in, Program geliştiricilerinin ve sağlayıcılarının toplu olarak sorumlu oldukları azami tutardır. 
+
+Olasılıkları önceden bildirilmiş olsa bile IBM, IBM'in Program geliştiricileri veya sağlayıcıları: 
+
+1. verilerdeki kayıp veya hasardan; 
+
+2. özel, arızi veya dolaylı zararlardan veya sonuçta ortaya çıkan ekonomik zararlardan; veya 
+
+3. kar kaybı, iş kaybı, gelir kaybı, itibar kaybı veya tahmin edilen tasarrufun kaybından hiçbir koşul altında sorumlu olmaz.
+
+BAZI HUKUK DÜZENLERİ ARIZİ VEYA SONUÇTA ORTAYA ÇIKAN ZARARLARIN HARİÇ TUTULMASINA YA DA SINIRLANMASINA İZİN VERMEZ, BU DURUMDA YUKARIDAKİ SINIRLAMALAR YA DA İSTİSNALAR SİZİN İÇİN GEÇERLİ OLMAYABİLİR.
+
+5. Genel 
+
+1. Bu Sözleşmenin hiçbir koşulu, tüketicilerin sözleşme yoluyla vazgeçilemeyen veya sınırlandırılamayan yasal haklarını etkilemez..
+
+2. Bu Sözleşmenin herhangi bir hükmü geçersiz ya da uygulanamaz olduğunda, Sözleşmenin geri kalan hükümleri tam olarak yürürlükte kalmaya ve geçerli olmaya devam eder.
+
+3. Uygulanabilir tüm ihracat ve ithalat yasa ve yönetmeliklerine uymayı kabul edersiniz.
+
+4. IBM'in iş yaptığı her yerde isim, telefon numarası ve e-posta adresi de dahil olmak üzere, Sizin temasta olduğunuz kişilerle ilgili bilgileri IBM'in saklamasına ve kullanmasına izin vermeyi kabul edersiniz. Bu bilgiler IBM ile Sizin iş ilişkiniz ile bağlantılı olarak işlenecek ve kullanılacak ve IBM'in müteahhitlerine, Çözüm Ortakları'na ve tayin ettiği taraflara, Sizinle iletişim kurmak da dahil olmak üzere, ortaklaşa gerçekleştirdikleri iş faaliyetleri ile tutarlı amaçlarda kullanılmak üzere, verilebilecektir (örneğin siparişlerin işleme konulması için, tanıtımlar için ve pazar araştırması için). 
+
+5. Yerel yasaların, sözleşme ile değiştirilmesine veya sınırlandırılmasına olanak tanımayarak aksini belirttiği durumlar dışında, taraflardan hiçbiri, dava nedeninin doğuşundan 2 yıldan fazla bir süre geçtikten sonra yasal bir işleme başvuramaz.
+
+6. Taraflardan hiçbiri, elinde olmayan nedenlerden ötürü yükümlülüklerini yerine getirememekten sorumlu tutulamaz. 
+
+7. Bu Sözleşme herhangi bir üçüncü kişi için bir dava hakkı ya da bir dava nedeni yaratmamaktadır ve ayrıca yukarıdaki "Sorumlulukların Sınırı" başlıklı bölümde izin verildiği ölçüde IBM'in yasal olarak sorumlu olduğu (ölüm dahil) cismani zarar veya taşınmaz ve taşınabilir kişisel mallara verilen zararlar hariç olmak üzere, üçüncü kişiler tarafından Size yöneltilen iddialar karşısında IBM'in sorumluluğu bulunmamaktadır. 
+
+6. Yetkili Hukuk ve Yetkili Mahkeme
+ 
+Yetkili Hukuk
+
+Taraflar, kanunların ihtilafı prensibine bakılmaksızın, bu Sözleşmenin konusundan doğan veya bir biçimde bu Sözleşmenin konusu ile ilgili olan haklar, görevler ve yükümlülüklerin, Sözleşmenin karşılıklı akdedildiği ülkenin kanunlarına tabi olup, yine bunların yorumlanması ve uygulanmasında bu kanunların geçerli olduğunu kabul ederler.
+
+Birleşmiş Milletler'in Uluslararası Mal Satışlarına ilişkin Sözleşme Bildirgesi geçerli değildir.
+
+Yetkili Mahkeme
+
+Tarafların tüm hak, görev ve yükümlülükleri, Program lisansını edindiğiniz ülkenin mahkemelerine tabidir.
+
+Bölüm 2 - Ülkeye Özgü Koşullar
+
+Yetkili Hukuk ve Yetkili Mahkeme (Bölüm 6)
+
+Yetkili Mahkeme
+
+Bu bölüme aşağıdaki özel durumlar eklenmiştir:
+
+Türkiye'de bu Sözleşmeden kaynaklanan ya da bu Sözleşmeyle ilgili tüm anlaşmazlıklar, Türkiye Cumhuriyeti'nin, İstanbul Merkez (Sultanahmet) Ticaret Mahkemelerinde ve İcra Dairelerinde çözülecektir.
+
+Z125-3301-12 (11/2002)
+
+LİSANS BİLGİLERİ
+
+Aşağıda listelenen programlar, Uluslararası Program Lisans Sözleşmesi kayıt ve koşullarına ek olarak aşağıdaki kayıt ve koşullar kapsamında lisanslanmıştır.
+
+Program Adı:  DB2 Universal Database Program components
+Program Numarası:  n/a
+Evde Kullanım için Yetki/Taşınabilir Bilgisayarda Kullanım için Yetki:  1
+
+KOŞULLARA İLİŞKİN AÇIKLAMA:
+
+Evde Kullanım için Yetki/Taşınabilir Bilgisayarda Kullanım için Yetki:
+"1", Programın, her iki makinede aynı anda etkin kullanımda olmaması koşuluyla birincil makineye ve bir başka makineye depolanabileceği anlamındadır.
+"2", Programı, ek lisans ücretlerini ödemeden bir başka bilgisayara kopyalayamayacağınız ve bir başka bilgisayarda kullanamayacağınız anlamındadır.
+
+Tanımlanmış İşletim Ortamı
+
+Programın belirtimleri ve tanımlanmış işletim ortamı bilgileri, Programla birlikte gönderilen, varsa READ-ME dosyası gibi belgelerde veya IBM tarafından yayınlanan duyuru mektubu gibi diğer bilgilerde bulunabilir.
+
+Üçüncü Kişi Kodu
+
+Program ve Program için gerçekleştirilecek güncellemeler ve düzeltme paketleri, bu Sözleşmenin koşullarından farklı koşullar kapsamında sağlanan ya da IBM'in veya IBM ürünlerini sağlayan üçüncü kişilerin ("Üçüncü Kişiler") size belirli bildirimler ve/veya bilgiler sağlamasını gerektiren bazı üçüncü kişi bileşenlerini içerebilir. Üçüncü kişiye ait bu tür her bileşene ilişkin olarak, IBM veya Üçüncü Kişiler, bu üçüncü kişi bileşenlerini bir "README" dosyasında (ya da düzeltme paketi ya da güncellemeyle gelen güncellenmiş bir "README" dosyasında), ya da bu tür "README" dosyalarında atıfta bulunulan dosya ya da dosyalarda tanımlayacaktır (ve varsa ilişkili lisans sözleşmesi, bildirim ya da ilişkili başka bir bilgiyi dosyaya ekleyecek) ya da üçüncü kişi bileşeni kendi lisans sözleşmesini içerecek ya da sözleşme bu bileşenle birlikte gelecektir (örneğin bu bileşenin kurulması ya da başlatılması sırasında sağlanacak ya da "README", "COPYING", "LICENSE" ya da genel olarak benzer bir ada sahip bir dosyada bileşenle birlikte gelecek ya da varsa  Program  belgeleri arasında yer alacaktır). Kendi lisans sözleşmesini içeren ya da bu sözleşmeyle birlikte gelen ya da IBM'in veya Üçüncü Kişilerin yukarıdaki "README" dosyalarından birinde (ya da orada atıfta bulunulan dosya veya dosyalarda) bir lisans sözleşmesi tanımladığı bir üçüncü kişi bileşenini kullanımınız, bu Sözleşmenin değil, sözü geçen diğer sözleşmenin koşullarına tabidir. Bu üçüncü kişi bileşenlerinin ilk kuruluşundan sonra bu bileşenleri kullanarak ya da kaldırmayarak (bu şekilde uygulanabilir lisans sözleşmelerine, bildirim ve bilgilere erişerek) yalnızca İngilizce dilinde sağlananlar da dahil olmak üzere tüm bu lisans sözleşmelerini, bildirimleri ve bilgileri kabul etmiş sayılırsınız. Program güncellemeleri ve düzeltme paketleriyle birlikte gönderilen tüm güncellenmiş "README" dosyalarını incelemeyi kabul etmiş sayılırsınız.
+
+Bu Program, aşağıdaki üçüncü kişi bileşenlerini içerir:
+Actipro Software 3rd party DLLs (re-distributable)
+WSWB (Eclipse) Help System - WebSphere Studio Workbench technology platform - EMF framework portion.
+WSWB (Eclipse) Help System - WebSphere Studio Workbench technology platform. 
+XSLT4C (XALAN) v1.5/1.6
+ICU (New version v2.4/2.6) - International Components for Unicode.
+XML4C v5.3.1.
+INTEL Re-distributable binaries for the Intel(R) C++ Compiler for Linux
+Microsoft MS Visual Studio .Net Redistributable Library:
+Microsoft .Net Data Provider
+Intel Electron Compiler redistributable libraries
+Microsoft Windbg SDK redistributable library
+ESRI ArcGIS
+Microsoft Windows Install 
+Microsoft MDAC 
+Microsoft MS runtime library and redistributable DLL from MSVC++ 
+Apache (An XML Parser) XALAN Version 
+Rogue Wave Tools
+Expat code Thai Open Source Software Center Ltd. 
+Rocket Software QMF
+SUN JAVA JRE, JDK, JavaHelp 
+DataDirect Connect for ODBC
+Hewlett PAckard SDK for Java
+RSA Data Security BSAFE 
+CUP LALAR Parser Generator for Java(tm) and Runtime Classes
+ICU(International Components for Unicode) 
+Intel (open source) Stack Unwind Library 
+Open source Infozip (UnZipSFX)
+libcxa.so.3
+
+Programa Özgü Koşullar
+
+Bu bileşeni, 8.2 DB2 Programı kanalı ile edindiyseniz, ilgili koşullar bu  Programın içinde yer alır.
+
+Bu bileşeni, 8.2 DB2 Programı dışında edindiyseniz, bu Programa ilişkin yetkili kullanımınızı desteklemek amacıyla bileşenleri Teşebbüsünüz içinde kopyalayabilir veya dağıtabilirsiniz.
+
+
+
+D/N:  L-SBEE-5XAP4A
+P/N:  L-SBEE-5XAP4A 

@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2012  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+<title>IBM InfoSphere Packs for SAP Applications</title>
+</head>
+
+<link rel="stylesheet" type="text/css"
+	href="PLUGINS_ROOT/com.ibm.help.common.resources.doc/css/help.css" />
+
+<body>
+<h1>What's new in this version?</h1>
+This section describes the new features / important changes for the current drop.
+<br/><br/>
+
+The RM/RG in this version contains significant changes regarding the was how metadata is imported and jobs are generated.
+The main objective of these changes is to move most of the options required for metadata import and job generation out of the 
+respective wizards but make them reside in files that exist in the IDA workspace. The advantages of this approach are:
+<ul>
+<li>Re-usability: You can
+have multiple settings files for different scenarios and you can share them (either with regular file export / import) or
+through version control. This means that you don't have to rely solely on documentation for communicating
+common settings for your project. Instead you can share the configurations directly.</li>
+<li>Speed: the wizards require only the settings files and no longer require you to type / modify the options
+every time you start an import or job generation.</li>
+<li>(Troubleshooting: In case something goes wrong it is much easier to deliver a test case for reproducing issues, 
+just send those files.)</li>
+</ul>
+
+<h2>Enhanced connection management</h2>
+Connections to SAP systems and Information Server instances can be managed through a specialized view.
+You can define SAP connections per workspace (just as in previous versions) or once you have defined
+a connection to an Information Server, use the connections defined there (e.g. through the DataStage Administrator for SAP).
+In a typical Conversion Workbench scenario, you typically don't need local connections anymore because
+you will always use the SAP connections from Information Server.
+
+<h2>New workspace objects</h2>
+
+The following new objects (i.e. files in the IDA workspace) can be created to hold certain information required for Rapid Modeler
+and Rapid Generator.
+
+<h3>Rapid Modeler</h3>
+
+<h4>SAP Object lists</h4>
+
+An SAP Object list describes <em>what</em> is imported into a logical data model.
+It simply contains a list of SAP objects. There are two possible instantiations:
+
+<ol>
+<li>ABAP Table List: a list of SAP logical tables, e.g. KNA1, KNVV, KNB1</li>
+<li>IDoc Segment List: an IDoc type and a list of segment types for 
+this IDoc type, e.g. DEBMAS06 and segment E1KNA1M, E1KNB1M.</li>
+</ol>
+
+In previous versions, the metadata import wizard had pages where you could select table or IDoc names directly
+from SAP or from a comma separated list. Think of an ABAP Table List / IDoc Segment List as those pages, only in a tabbed editor. 
+
+<h4>Rapid Modeler configuration</h4>
+
+A Rapid Modeler configuration describes <em>how</em> metadata is imported into a logical data model. 
+It contains settings that define, e.g., how SAP data types are mapped to IDA types, if check tables should 
+also be imported or not, if / how keys are created, which technical fields are created, or into which package
+the objects are imported.
+<br/>
+In previous versions, the metadata import wizard contained separate pages for these kinds of options.
+Think of a Rapid Modeler configuration as those pages, only in a tabbed editor.
+
+
+<h3>Rapid Generator</h3>
+
+<h4>Rapid Generator configuration</h4>
+A Rapid Generator configuration captures all settings that are needed for job generation. It includes separate pages
+to configure, e.g., SAP credentials, ODBC settings, settings for ABAP extract jobs, or transcoding settings.
+It also allows you to use parameters (or parameter sets) for each of those values.
+
+<br/>
+Think of a Rapid Generator configuration as those pages, only in a tabbed editor.
+
+<br/><br/>
+The actual import / job generation tasks are still be triggered through wizards but instead having pages 
+for all different options you will just have to point the wizard to the file(s) in the workspace containing
+the ABAP Table List or IDoc Segment List, the Rapid Modeler configuration, or the Rapid Generator configuration, respectively. 
+       
+<h2>Preview features</h2>
+This section describes features that are contained in this drop but which are not yet officially supported but we
+would love to get feedback from you.
+
+<h3>SAP Packs Navigator</h3>
+This new view displays the IDA workspace in a way that it introduces new categories of objects that are relevant
+when working with Rapid Modeler / Rapid Generator. The top level nodes of the navigator are Data Design projects 
+(just as in the Data Project Explorer). Below the project, there are the following categories:
+<ul>
+<li>ABAP Table List</li>
+<li>IDoc Segment List</li>
+<li>Rapid Modeler Configurations</li>
+<li>Logical data models</li>
+<li>Physical data models</li>
+<li>Rapid Generator Configurations</li>
+<li>ABAP Program archives</li>
+</ul> 
+Under each category you can see the objects described by the category. 
+
+<h3>SAP Import history view</h3>
+This new IDA view displays the graphically the previous imports of metadata into logical models.   
+For instance, it enables you to see for a given ABAP Table list where it was used to import metadata.
+This information is represented in a tree where the focus is always set on the tree root.
+In the upper right corner you see two buttons "Up" and "Down" which define the dependency direction.
+<br/>
+To show dependencies for an object available in the Data Project Explorer or SAP Packs Navigator, simply right click 
+on it and select InfoSphere Pack for SAP -> Show in SAP Import History View.
+      
+<br/>
+       
+</body>
+</html>

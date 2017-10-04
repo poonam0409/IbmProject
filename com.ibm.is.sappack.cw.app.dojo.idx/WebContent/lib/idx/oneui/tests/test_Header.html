@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en-US">
+<head>
+	<title>Header widget example</title>
+	
+	<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+	<script type="text/javascript">
+		dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+	
+    <style id="idxStyles" type="text/css">
+        @import "../../themes/oneui/oneui.css";
+        @import "../../themes/test.css";
+    </style>
+
+	<style>
+		#content_container .dijitContentPane {
+			padding: 1em 30px;
+		}
+	</style>
+
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+		dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+	
+	<script type="text/javascript" id="postDojo">
+		var modules = [
+			"dojo/dom", 
+			"dojo.ready",
+			"dijit/registry",
+			"idx.oneui.tests.headerExamples"];
+			
+		var dom, ready, ht;
+
+		function preParse(modules){
+			dom = modules["dojo/dom"] || dojo;
+			ready = modules["dojo/ready"];
+			registry = modules["dijit/registry"] || dijit;
+			ht = modules["idx/oneui/tests/headerExamples"];
+		}
+
+		function postParse(modules){
+			var factory = ht.getHeaderFactory(template, example),
+				html = "",
+				ntm = ht.getNumberOfTemplates(),
+				nex, itm, iex, anode;
+				
+			for(itm = (template ? 1 : 0); itm <= ntm; itm++){
+				html += '<div style="display: table-row;">' +
+						'<div style="display: table-cell; border-top: 1px solid #e7e7e7; padding: 0.5em 1em 0.5em 30px;">Template ' + itm + ': ';
+
+				if(itm == template){
+					html += '<b>' + ht.getTitle(itm) + '</b>';
+				}else{
+					html += '<a href="' + makelink(itm, 1) + '">' + ht.getTitle(itm) + '</a>';
+				}
+
+				html += '</div>' +
+						'<div style="display: table-cell; border-top: 1px solid #e7e7e7; *border: 0; padding: 0.5em 30px 0.5em 0; *padding-left: 12em;">';
+				nex = ht.getNumberOfExamples(itm);
+				for(iex = 1; iex <= nex; iex++){
+					if(iex > 1){ html += '<br />'; }
+					if((itm == template) && (iex == example)){
+						html += 'example ' + iex + ': <b>' + ht.getTitle(itm, iex) + '</b>';
+					}else{
+						html += 'example ' + iex + ': <a href="' + makelink(itm, iex) + '">' + ht.getTitle(itm, iex) + '</a>';
+					}
+				}
+				html += '</div></div>';
+			}
+			
+			dom.byId("pi_links").innerHTML += html;
+			
+			if(factory){
+				dom.byId("pi_te_bad").style.display = "none";
+				
+				if(template == 0){
+					dom.byId("pi_te_g0").style.display = "none";
+				}else{
+					dom.byId("pi_te_0").style.display = "none";
+				}
+				
+				dom.byId("pi_template").innerHTML = template;
+				dom.byId("pi_template_title").innerHTML = ht.getTitle(template);
+				dom.byId("pi_example").innerHTML = example;
+				dom.byId("pi_example_title").innerHTML = ht.getTitle(template, example);
+				
+				var overrides = {};
+				
+				if(template == 0){
+					var val = allparams.nav;
+					if((null != val) && (typeof val == "string")){
+						overrides.primaryBannerType = val;
+					}
+
+					val = allparams.type;
+					if((null != val) && (typeof val == "string")){
+						overrides.secondaryBannerType = val;
+					}
+
+					val = allparams.layout;
+					if((null != val) && (typeof val == "string")){
+						overrides.layoutType = val;
+					}
+
+					val = allparams.inline;
+					if((null != val) && (typeof val == "string")){
+						overrides.contentTabsInline = ("true" == val.toLowerCase());
+					}
+				}
+			
+				factory("header", "content_container", overrides);
+				
+				dom.byId("pi_sc").innerText = '<div id="header"></div>\r\n' +
+				                               (factory.hasContent ? '<div id="content_container"></div>\r\n\r\n' : '\r\n') +
+											   '<scr' + 'ipt type="text/javascript">\r\n\r\n' +
+											   '\trequire(["idx/oneui/layout/Header", "idx/oneui/Menu", "dijit/MenuItem"],\r\n' +
+											   '\t        function(Header, Menu, MenuItem){\r\n' +
+                                               factory.toString().match(/\/\/START([\s\S]*)\/\/END/m)[1].replace(/__id__/g, '"header"').replace(/__contentcontainer__/g, '"content_container"') +
+											   '\t});\r\n\r\n' +
+											   '</scr' + 'ipt>';
+											   
+				var hdr = registry.byId("header");			
+				dom.byId("pi_udn").value = (hdr.user && hdr.user.displayName) || '-';
+				dom.byId("pi_udi").checked = hdr.user && hdr.user.displayImage;
+				dom.byId("pi_umn").value = (hdr.user && hdr.user.messageName) || '-';
+				dom.byId("pi_umsg").value = (hdr.user && hdr.user.message) || '-';
+			}else{
+				dom.byId("pi_te_ok").style.display = "none";
+			}
+		}
+
+		dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+	
+		var page_isltr, page_isa11y, allparams, template, example, isltr, isa11y;
+
+		// this needs to be called once there is a body but before the DOM parsing finishes
+		function initialiseDOM(){
+			page_isltr = dojo.isBodyLtr();
+			page_isa11y = dojo.hasClass(dojo.body(), "dijit_a11y");
+			allparams = dojo.queryToObject(window.location.search.substr(1));
+			template = parseInt(allparams.template || "1");
+			example = parseInt(allparams.example || "1");
+			isltr = !allparams.dir || ("rtl" != allparams.dir.toLowerCase());
+			isa11y = (allparams.a11y && ("true" == allparams.a11y.toLowerCase())) ? true : false;
+
+			if(isltr != page_isltr){
+				dojo.doc.getElementsByTagName("html")[0].dir = isltr ? "ltr" : "rtl";
+			}
+			
+			if(isa11y && !page_isa11y){
+				dojo.addClass(dojo.body(), "dijit_a11y");
+			}
+			
+			dojo.byId("pi_td").innerHTML = isltr ? "left-to-right" : "right-to-left";
+			dojo.byId("pi_tdo").innerHTML = isltr ? "right-to-left" : "left-to-right";
+			dojo.byId("pi_lk_dir").href = makelink(null, null, true, false);
+			
+			dojo.byId("pi_hc").innerHTML = isa11y ? "enabled" : "not enabled";
+			dojo.byId("pi_hco").innerHTML = isa11y ? "not enabled" : "enabled";
+			dojo.byId("pi_lk_hc").href = makelink(null, null, false, true);
+		}
+				
+		function makelink(newtemplate, newexample, changedir, changea11y){
+			var newparams = {
+				template: newtemplate || template,
+				example: newexample || example
+			};
+			if((isltr == page_isltr) == (changedir ? true : false)){
+				newparams.dir = (changedir ? !isltr : isltr) ? "ltr" : "rtl";
+			}
+			if((isa11y == page_isa11y) == (changea11y ? true : false)){
+				newparams.a11y = (changea11y ? !isa11y : isa11y) ? true : false;
+			}
+			return window.location.pathname + "?" +dojo.objectToQuery(newparams);
+		};
+		
+		function updateUser(field, valueid){
+			var value = dojo.byId(valueid).value;
+			if(value == '-'){
+				value = null;
+			}
+			dijit.byId('header').set(field, value);
+		}
+
+		function updateUserImage(){
+			dijit.byId('header').set('userDisplayImage', dojo.byId('pi_udi').checked ? "http://w3.ibm.com/bluepages/api/BluePagesPhoto.jsp?CNUM=074773866" : null);
+		}
+	</script>
+
+	<script type="text/javascript" src="../../tests/commonTest.js"></script>
+
+</head>
+<body>
+	
+	<a class="navigationLink" href="#maincontent">Skip to main content</a>
+	<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+	
+	<a name="maincontent"></a>
+	<div id="header"></div>
+	<div id="content_container"></div>
+
+	<div style="position: absolute; top: 180px; left: 0; width: 100%;">
+		<p id="pi_te_bad" style="padding: 0 30px;" dir="ltr">This is <b>NOT</b> a valid test example</p>
+		<p id="pi_te_ok" style="font-style: italic; margin-top: 0.5em; padding: 0 30px;"><span dir="ltr">The header shown above is
+		<span id="pi_te_g0"><b>template <span id="pi_template"></span></b> (<span id="pi_template_title"></span>),</span>
+		<span id="pi_te_0"><b>NOT</b> a standard header template, but is a <b>test example</b>,</span>
+		<b>example <span id="pi_example"></span></b> (<span id="pi_example_title"></span>)</span></p>
+	
+		<div id="page_info" dir="ltr" style="background-color: #f7f7f7; border-top: 1px solid #e7e7e7; font-size: 0.9em;">
+			<div style="display: table;" id="pi_links">
+				<div style="display: table-row;"><div style="display: table-cell; padding: 0.5em 0 0.5em 30px;">
+					<div style="display: table;">
+						<p style="display: table-row;">
+							<span style="display: table-cell; padding-right: 1em;">Text direction:</span>
+							<span style="display: table-cell; font-weight: 600;" id="pi_td">unknown</span>
+							<span style="display: table-cell; padding-left: 2em;">(<a href="" id="pi_lk_dir">switch to <span id="pi_tdo">opposite</span></a>)</span>
+						</p>
+						<p style="display: table-row;">
+							<span style="display: table-cell; padding-right: 1em;">Accessibility mode:</span>
+							<span style="display: table-cell; font-weight: 600;" id="pi_hc">unknown</span>
+							<span style="display: table-cell; padding-left: 2em;">(<a href="" id="pi_lk_hc">switch to <span id="pi_hco">opposite</span></a>)</span>
+						</p>
+					</div>
+				</div>
+				<div style="display: table-cell; padding: 0.5em 30px 0.5em 0;">
+					<div style="display: table;">
+						<p style="display: table-row;">
+							<span style="display: table-cell; padding-right: 1em;">User display name:</span>
+							<span style="display: table-cell;">
+								<input id="pi_udn" style="font-size: inherit;" /><button onclick="updateUser('userDisplayName', 'pi_udn');" style="font-size: inherit;">update</button>
+								<input id="pi_udi" type="checkbox" style="vertical-align: text-bottom;" onchange="updateUserImage();" /> <label for="pi_udi">show picture</label>
+							</span>
+						</p><p style="display: table-row;">
+							<span style="display: table-cell; padding-right: 1em;">User message name:</span>
+							<span style="display: table-cell;">
+								<input id="pi_umn" style="font-size: inherit;" /><button onclick="updateUser('userMessageName', 'pi_umn');" style="font-size: inherit;">update</button>
+								(message:
+								<input id="pi_umsg" style="font-size: inherit;" /><button onclick="updateUser('userMessage', 'pi_umsg');" style="font-size: inherit;">update</button>)
+							</span>
+						</p>
+					</div>
+				</div></div>
+			</div>
+		
+			<p id="pi_show_sc" style="padding: 0 30px;"><a href="javascript:" onclick="dojo.byId('pi_show_sc').style.display='none'; dojo.byId('pi_sc').style.display='block';">Show source</a></p>
+			<pre id="pi_sc" style="font-size: 0.9em; padding: 1em 30px; display: none;">
+			</pre>
+		</div>
+	</div>
+
+<script type="text/javascript">
+	initialiseDOM();
+</script>
+
+</body>
+</html>

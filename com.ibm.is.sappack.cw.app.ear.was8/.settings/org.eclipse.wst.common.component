@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="com.ibm.is.sappack.cw.app.ear">
+        <wb-resource deploy-path="/" source-path="/" tag="defaultRootSource"/>
+        <dependent-module archiveName="com.ibm.is.sappack.cw.app.ui.war" deploy-path="/" handle="module:/resource/com.ibm.is.sappack.cw.app.ui/com.ibm.is.sappack.cw.app.ui">
+            <dependent-object>Module_1332837799772</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="DojoRuntime.war" deploy-path="/" handle="module:/resource/DojoRuntime/DojoRuntime">
+            <dependent-object>Module_1332837799774</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ibm-wink-jaxrs.jar" deploy-path="/lib" handle="module:/classpath/lib/extLibsWAS/ibm-wink-jaxrs.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jackson-jaxrs.jar" deploy-path="/lib" handle="module:/classpath/lib/extLibsWAS/jackson-jaxrs.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jackson-mapper-asl.jar" deploy-path="/lib" handle="module:/classpath/lib/extLibsWAS/jackson-mapper-asl.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jackson-core-asl.jar" deploy-path="/lib" handle="module:/classpath/lib/extLibsWAS/jackson-core-asl.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jackson-xc.jar" deploy-path="/lib" handle="module:/classpath/lib/extLibsWAS/jackson-xc.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="webmsg_applib.jar" deploy-path="/lib" handle="module:/classpath/lib/extLibsWAS/webmsg_applib.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="com.ibm.is.sappack.cw.app.services.war" deploy-path="/" handle="module:/resource/com.ibm.is.sappack.cw.app.services/com.ibm.is.sappack.cw.app.services">
+            <dependent-object>Module_1344495459890</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="com.ibm.is.sappack.gen.common.jar" deploy-path="/lib" handle="module:/resource/com.ibm.is.sappack.gen.common/com.ibm.is.sappack.gen.common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="com.ibm.is.sappack.cw.app.data.jar" deploy-path="/lib" handle="module:/resource/com.ibm.is.sappack.cw.app.data/com.ibm.is.sappack.cw.app.data">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

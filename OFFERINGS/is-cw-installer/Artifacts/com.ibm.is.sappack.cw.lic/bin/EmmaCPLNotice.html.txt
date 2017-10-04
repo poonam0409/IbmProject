@@ -1,0 +1,4 @@
+The source code for this package is available from [http://emma.sourceforge.net/][1].
+
+   [1]: http://emma.sourceforge.net/
+

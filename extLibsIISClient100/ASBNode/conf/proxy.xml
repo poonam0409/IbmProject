@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <Codemesh>
+    <Runtime>
+      <Loader name="Default" />
+      <Default.JvmSettings>
+        <add key="Type" value="Codemesh.JuggerNET.SunJava2JvmLoader" />
+        <add key="JVMPath" value="C:\IBM\InformationServer\jdk32\jre\bin\j9vm\jvm.dll" />
+        <add key="InitialHeapSize" value="64" />
+        <add key="MaximumHeapSize" value="384" />
+        <add key="CheckJNI" value="false" />
+       <add key="ClassPath" value="C:\IBM\InformationServer\ASBNode\conf;C:\IBM\InformationServer\ASBNode\eclipse\plugins\com.ibm.iis.client" />
+        <add key="COMExceptionMessages" value="true" />
+      </Default.JvmSettings>
+      <Default.Options>
+        <add key="java.ext.dirs" value="C:\IBM\InformationServer\jdk32\jre\lib\ext;C:\IBM\InformationServer\ASBNode\lib\java;C:\IBM\InformationServer\ASBNode\eclipse\plugins;C:\IBM\InformationServer\ASBNode\eclipse\plugins\com.ibm.iis.client" />
+        <add key="entityExpansionLimit" value="4194304" />
+       	<add key="com.ibm.tools.attach.enable" value="no" />
+      </Default.Options>
+      <Default.XOptions>
+        <add key="ss1m" value="" />
+      </Default.XOptions>
+      <!-- These settings are overrides used by DataStage client applications -->
+      <DSClient.JvmSettings>
+        <add key="MaximumHeapSize" value="384" />
+      </DSClient.JvmSettings>
+          <isc.JvmSettings>
+            <add key="MaximumHeapSize" value="128" />
+          </isc.JvmSettings>
+    </Runtime>
+  </Codemesh>
+</configuration>

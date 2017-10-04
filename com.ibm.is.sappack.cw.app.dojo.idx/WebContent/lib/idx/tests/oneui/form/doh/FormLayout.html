@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>oneui.form.Form DoH</title>
+		<style type="text/css">
+			@import "../../../themes/oneui/document.css";
+			@import "../../../../oneui/themes/oneui/oneui.css";
+			@import "../../../../dijit/tests/css/dijitTests.css";
+			
+		</style>
+		<!-- required: dojo.js -->
+		<script type="text/javascript" src="../../../../dojo/dojo.js" data-dojo-config="isDebug: true, parseOnLoad: false">
+		</script>
+		<script type="text/javascript" src="../../../../dijit/tests/_testCommon.js"></script>
+		<script type="text/javascript">
+			dojo.require("dijit.dijit"); // optimize: load dijit layer
+			dojo.require("oneui.form.Form");
+			dojo.require("oneui.form.TextBox");
+			dojo.require("oneui.form.DateTextBox");
+			dojo.require("oneui.form.TimeTextBox");
+			dojo.require("oneui.form.CurrencyTextBox");
+			dojo.require("oneui.form.NumberSpinner");
+			dojo.require("oneui.form.Textarea");
+			dojo.require("doh.runner");
+			
+			dojo.ready(function(){
+	
+				doh.register("getValue & setValue",function(){
+					var form1 = new oneui.form.Form({
+						heading: "Composite Widgets in Form",
+						description: "This form contains composite widgets have been organized",
+						invalidMessage: "Something goes wrong",
+						labelAlignment: "horizontal",
+						
+						columns: [
+							{labelWidth: "120px", fieldWidth: "240px"}
+						]
+						
+					}, "form1");
+						
+					var textbox = new oneui.form.TextBox({
+						label: "TextBox:",
+						hint: "write something here..."
+					});
+					var datetextbox = new oneui.form.DateTextBox({
+						label: "DateTextBox:",
+						hint: "input date here..."
+					});
+					var timetextbox = new oneui.form.TimeTextBox({
+						label: "TimeTextBox:",
+						hint: "input time here..."
+					});
+					var numberspinner = new oneui.form.NumberSpinner({
+						label: "NumberSpinner:",
+						hint: "input number here..."
+					});
+					var textarea = new oneui.form.Textarea({
+						label: "Textarea:",
+						value: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+					});
+					var currencytextbox = new oneui.form.CurrencyTextBox({
+						label: "CurrencyTextBox:",
+						value: "1000",
+						currency: "USD"
+					});
+					form1.addChild(textbox);
+					form1.addChild(datetextbox);
+					form1.addChild(timetextbox);
+					form1.addChild(textarea);
+					form1.addChild(numberspinner);
+					form1.addChild(currencytextbox);
+					form1.startup();
+					
+					doh.t(form1.getWidgetsInColumn(0).length == 6);
+				});
+				
+				doh.run();
+			});
+		</script>
+	</head>
+	<body class="oneui">
+		<h1 class="testTitle">DoH Test of FormLayout</h1>
+		<form id="form1">
+		
+	</body>
+</html>

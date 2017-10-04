@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>dijit.Tree(with OneUI theme) Test</title>
+	
+		<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+		<script type="text/javascript">
+			dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+		</script>
+	
+		<style id="idxStyles" type="text/css">
+			/* the following imports are unconventional. normally just import oneui.css */
+            @import "../../themes/oneui/dijit/document.css";
+            @import "../../themes/oneui/dijit/dijitMain.css";
+			@import "_pagefooter/_PageFooter.css";
+            @import "../../themes/test.css";
+			.oneui .dijitTitlePane .dijitTitlePaneContentInner{
+				padding-left: 20px;
+			}
+			.oneui .dijitTitlePaneRtl .dijitTitlePaneContentInner{
+				padding-left: 0px;
+				padding-right: 20px;
+			}
+			.oneui .dijitTitlePane .dijitArrowNode{
+				display: none;
+			}
+        </style>
+	
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+		</script>
+		<script type="text/javascript">
+			dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+		
+		<script type="text/javascript" id="postDojo">
+			var modules = [
+				"dojo.data.ItemFileReadStore", 
+				"dijit.tree.ForestStoreModel",
+				"dijit.Tree",
+				"dijit.TitlePane",
+				"idx.oneui.tests._pagefooter._PageFooter"
+			]; 
+			var ItemFileReadStore, ForestStoreModel, Tree, _PageFooter;
+			
+			function preParse(modules){
+				ItemFileReadStore 	= modules["dojo/data/ItemFileReadStore"];
+				ForestStoreModel  	= modules["dijit/tree/ForestStoreModel"];
+				Tree  				= modules["dijit/Tree"];
+				TitlePane		 	= modules["dijit/TitlePane"];
+				_PageFooter   		= modules["idx/oneui/tests/_pagefooter/_PageFooter"];
+			}
+			function postParse() {
+				new _PageFooter();
+			}
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+		</script>
+		<script type="text/javascript" src="../../tests/commonTest.js"></script>
+	</head>
+	<body class="oneui" style="width: 100%; height: 100%; margin: 0; padding: 0;">
+		<a class="navigationLink" href="#maincontent">Skip to main content</a>
+		<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+		<a name="maincontent"></a>
+		
+		<div class="testMain">
+			<h1 class="testTitle">Dijit Tree Test</h1>
+			
+			<div data-dojo-id="continentStore" data-dojo-type="dojo.data.ItemFileReadStore" data-dojo-props='url:"_data/countries.json"'></div>
+			<div data-dojo-id="continentModel" data-dojo-type="dijit.tree.ForestStoreModel" data-dojo-props='store:continentStore, query:{type:"continent"},
+				rootId:"continentRoot", rootLabel:"Continents", childrenAttrs:["children"]'></div>
+			
+			<div data-dojo-type="dijit.TitlePane" data-dojo-props='title:"Tree", toggleable: false,
+				tooltip:"This is a Tree test",
+				style:"width: 300px;" '>
+				<div id="mytree" data-dojo-type="dijit.Tree" data-dojo-props='model:continentModel, openOnClick:true, onLoad:function(){ console.log("loaded mytree (first tree)"); }'>
+					<script type="dojo/method" data-dojo-event="onClick" data-dojo-args="item">
+						console.log("Execute of node " + continentStore.getLabel(item)
+							+", population=" + continentStore.getValue(item, "population"));
+					</script>
+					<script type="dojo/method" data-dojo-event="onOpen" data-dojo-args="item">
+						console.log("Open of node " + continentStore.getLabel(item)||"root");
+					</script>
+					<script type="dojo/method" data-dojo-event="onClose" data-dojo-args="item">
+						console.log("Close of node " + continentStore.getLabel(item)||"root");
+					</script>
+				</div>
+			</div>
+		
+		</div>
+	</body>
+</html>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="Running the Rapid Generator wizard">
+   <intro>
+      <description>
+         This cheat sheet shows you how to generate jobs from a physical data model.
+         <br/>
+         This cheat sheet assumes that a Rapid Generator configuration and a physical
+         data model containing SAP table metadata exist.
+      </description>
+   </intro>
+   <item dialog="true"
+         title="Open the Rapid Generator wizard">
+      <description>      
+      In the main toolbar select <b>SAP Pack -> Generate Data Stage jobs</b>.
+      The Rapid Generator wizard will open.
+      
+      </description>
+      <action required="false"
+			pluginId="com.ibm.is.sappack.gen.tools.jobgenerator"
+			class="com.ibm.iis.sappack.gen.tools.jobgenerator.jobgenwizard.JobgeneratorCheatSheetAction"/>   
+
+   </item>
+   <item title="Select Rapid generator configuration">
+      <description>
+      On the first wizard page you select the Rapid generator configuration and the physical
+      data model(s) which constitute the source and / or target model.
+      <br/>
+      Select the Rapid Generator configuration created previously and the physical data model
+      containing the SAP logical tables.
+      <br/>
+      Click <b>Next</b>.
+      </description>
+   </item>
+   <item title="Select object types">
+     <description>
+     On this page you can
+     select the type of object in the physical data model you want to generate jobs for.
+     The checkboxes are enabled if the configuration type supports the types and if
+     one object of that type exists in the model.
+     <br/>
+     <br/>
+     Select Tables -> Data Tables.
+     <br/>
+     Click <b>Next</b>. 
+     </description>
+   </item>
+   <item title="Select ABAP extract settings">
+      <description>
+      On this page you can specify settings for the ABAP extract stages to be generated.
+      <br/>
+      <br/>
+      Leave all defaults and check "Save ABAP programs to workspace".
+      <br/>
+      Click <b>Next</b>. 
+      </description>
+   </item>
+   <item title="Information Server details">
+      <description>
+      This page lets you select the Information Server connection, DataStage project, and
+      folder where the jobs should be generated. 
+      <br/>
+      Note that the connection is defined in the
+      SAP Pack Connections view 
+      (see separate cheat sheet "Defining connections to SAP systems and Information Server instances").
+      <br/>
+      <br/>
+      Select the Information Server connection first and select the project and folder.
+      <br/>
+      Click <b>Next</b>. 
+      </description>
+   </item>
+   <item
+         title="Finish the wizard">
+      <description>
+      Review the information on the summary page.
+         <br/>
+         Click <b>Finish</b> to start the job generation.
+         <br/>
+         If you choose to let the job generation run in background, open the "Progress" view to get updates
+         on the status. Once job generation is finished, you can click on the link there to view the results.
+      </description>
+      <onCompletion>Congratulations! You have successfully initiated job generation.
+      </onCompletion>
+         </item>
+      </cheatsheet>

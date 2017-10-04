@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<compositeCheatsheet name="Importing logical tables from SAP with Rapid Modeler">
+   <taskGroup kind="sequence" name="Importing logical tables from SAP with Rapid Modeler" skip="false">
+      <intro>
+         This cheat sheet will guide you through the process of 
+         importing logical tables from SAP into a logical data model.
+         In particular, it will guide you through the creation of all required artifacts.
+      </intro>
+      <onCompletion>
+         You have now created a logical data model containing SAP metadata, a database that
+         can hold SAP data, and jobs that are able to extract data from SAP to this database.
+      </onCompletion>
+      <task kind="cheatsheet" name="Defining connections to an SAP system" skip="true">
+         <intro>
+            This task shows to to define connections to SAP systems.
+         </intro>
+         <param name="path" value="ConnectionsCheatSheet.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Creating an ABAP Table List" skip="true">
+         <intro>
+            An ABAP Table list defines which ABAP tables (a.k.a. logical tables) should be imported.
+         </intro>
+         <param name="path" value="CreateTableSOCCheatSheet.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Creating a Rapid Modeler Configuration" skip="true">
+         <intro>
+            A Rapid Modeler configuration defines how SAP objects should be imported.
+         </intro>
+         <param name="path" value="CreateRMConfCheatSheet.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Running the Rapid Modeler wizard" skip="true">
+         <intro>
+            The Rapid Modeler wizard performs the actual import using all artifacts created before.
+         </intro>
+         <onCompletion>
+            <b>Conclusion</b>
+         </onCompletion>
+         <param name="path" value="ConfigRMCheatSheetTable.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Using the new SAP Packs views" skip="true">
+         <intro>
+            Use new views to get your workspace organized.
+         </intro>
+         <onCompletion>
+            <b>Conclusion</b>
+         </onCompletion>
+         <param name="path" value="RMViewsCheatSheet.xml">
+         </param>
+      </task>
+   </taskGroup>
+</compositeCheatsheet>

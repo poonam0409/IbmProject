@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2011, 2014  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<?eclipse version="3.4"?>
+<plugin>
+<!--
+   <extension-point id="com.ibm.is.sappack.cw.extensions" name="CWExtension" schema="schema/com.ibm.is.sappack.cw.extensions.exsd"/>
+-->
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="help/help.xml"
+            plugin="com.ibm.is.sappack.cw.tools.sap">
+      </contexts>
+   </extension>
+   <!--
+   <extension
+         point="com.ibm.is.sappack.gen.common.ui.cwextension">
+      <cwextension
+            replayAction="com.ibm.is.sappack.cw.tools.sap.action.CWReplayAction"
+            rmAction="com.ibm.is.sappack.cw.tools.sap.action.CWMetadataImportAction"></cwextension>
+   </extension>
+   -->
+   <extension
+         point="com.ibm.is.sappack.gen.common.ui.mode">
+      <rmrgmode
+            modeDescription="%cwModeDescription"
+            modeID="RMRG_CW_MODE"
+            modeName="%cwModeName"
+            modeOptions="com.ibm.is.sappack.gen.common.ui.CWModeOptions">
+      </rmrgmode>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.popupMenus">
+         <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.ldm"
+            id="com.ibm.is.sappack.gen.cw.tools.sap.cwdbexport">
+     	     <action
+	               label="%exportLDM2CWDBWizard"
+	               class="com.ibm.is.sappack.cw.tools.sap.ExportLDM2CWDBAction"
+	               menubarPath="com.ibm.is.sappack.gen.common.ui.popupmenu/group"
+	               enablesFor="+"
+	               id="com.ibm.is.sappack.gen.cw.tools.sap.action.cwdbexportwizard">
+	         </action>    
+	  </objectContribution>
+   </extension>
+   
+
+<!--
+  <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            id="com.ibm.is.sapppack.cw.tools.sap.tableextract.contribution"
+            objectClass="com.ibm.db.models.db2.luw.LUWTable">
+         <action
+               class="com.ibm.is.sappack.gen.tools.sap.tableextract.ExtractTableAction"
+               enablesFor="+"
+               id="com.ibm.is.sapppack.cw.tools.tableextract.action"
+               label="%tableextractentry">
+         </action>
+      </objectContribution>
+   </extension>
+-->
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            name="%prepareCWProjectCommand"
+            id="com.ibm.iis.sappack.cw.tools.sap.preparecwproject">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="com.ibm.iis.sappack.cw.tools.sap.preparecwproject"
+            class="com.ibm.is.sappack.cw.tools.sap.PrepareCWProjectHandler">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:com.ibm.iis.sappack.gen.common.ui.menu">
+            <command
+                  commandId="com.ibm.iis.sappack.cw.tools.sap.preparecwproject"
+                  id="com.ibm.iis.sappack.gen.cw.tools.sap.preparecwproject2">
+            </command>
+      </menuContribution>
+      
+   </extension>
+
+
+</plugin>

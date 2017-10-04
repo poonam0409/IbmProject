@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.7.1
+Created-By: 2.4 (IBM Corporation)
+Bundle-ManifestVersion: 2
+Bundle-Name: Validation
+Bundle-SymbolicName: com.ibm.is.sappack.gen.jco.validation; singleton:
+ =true
+Bundle-Version: 1.0.0.201210091221
+Bundle-Vendor: IBM
+Require-Bundle: org.eclipse.core.runtime,com.ibm.cic.common.core,com.i
+ bm.cic.agent.core
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+

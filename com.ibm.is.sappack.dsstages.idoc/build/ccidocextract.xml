@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2014  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<?resource-bundle ./CC_IDOC ?>
+<asc:Connector xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ascentialsoftware.com ../CC_Common/XML/CC_Connector.xsd"
+	xmlns:asc="http://www.ascentialsoftware.com" version="1.0"
+	schemaVersion="1.0">
+
+
+	<MetaData>
+		<Id>SAPIDocExtractConnector</Id>
+		<Type>application</Type>
+		<DisplayName>CC_IDOC_EXTRACT_STAGE_DISPLAY_NAME</DisplayName>
+		<Description>
+			<ShortVersion>CC_IDOC_EXTRACT_SHORT_DESC</ShortVersion>
+			<LongVersion>CC_IDOC_EXTRACT_LONG_DESC</LongVersion>
+		</Description>
+		<Author>IBM Corporation</Author>
+		<Vendor>IBM Corporation</Vendor>
+		<Copyright>(C) Copyright IBM Corp. 2011, 2014. All Rights Reserved.</Copyright>
+		<DependentLibraries />
+	</MetaData>
+
+	<Variants>
+		<Variant>
+			<Name>1.0</Name>
+			<Library>
+				"java:com/ibm/is/sappack/dsstages/idocextract/jcconnector/IDocExtractConnectorLibrary"
+			</Library>
+			<Version>8.0</Version>
+		</Variant>
+	</Variants>
+
+	<Capabilities>
+		<SupportedEngines>ee</SupportedEngines>
+		<SupportedPlatforms>
+			<Platform>windows</Platform>
+			<Platform>linux</Platform>
+			<Platform>solaris</Platform>
+			<Platform>aix</Platform>
+			<Platform>hpia64</Platform>
+			<Platform>linuxz</Platform>
+		</SupportedPlatforms>
+		<SupportedContexts>source</SupportedContexts>
+		<SupportedTransactionModels />
+		<SupportsBrowsing />
+		<Listener>none</Listener>
+		<ConnectionScope>process</ConnectionScope>
+		<Reject />
+		<ConnectorOrientation>stage</ConnectorOrientation>
+		<PxCapabilities>
+			<RepositoryLocation>CC_IDOC_PX_REPOSITORY_LOCATION</RepositoryLocation>
+			<StageType>active</StageType>
+			<SupportsRef>false</SupportsRef>
+			<SuperIconName>IDOCEExtract</SuperIconName>
+			<SuperIconDefaultPriority>95</SuperIconDefaultPriority>
+			<SupportedLookupTypes />
+			<OutputLinks min="0" max="-1" />
+			<StageOLEType>CCustomStage.SAPIDocExtractConnector</StageOLEType>
+		</PxCapabilities>
+	</Capabilities>
+
+	<MetaDataImport />
+
+	<Properties>
+		<Connection>
+           <?include CC_SAPCommonProperties.xml IDocConnectionProperties ?>
+           <?include CC_SAPCommonProperties.xml IDocExtractConnectionProperties ?>
+		</Connection>
+		<Usage>
+           <?include CC_SAPCommonProperties.xml IDocUsageProperties ?>
+           <?include CC_SAPCommonProperties.xml IDocExtractUsageProperties ?>
+			<!-- The default values of the java properties are overwritten at design time. See IDoc extract GUI code (StageGenPage.cpp) -->
+            <Property name="Java" contexts="all" description="CC_COMMON_PRPDSC_JAVA_CATEGORY" label="CC_COMMON_PRPLBL_JAVA_CATEGORY" 
+             maxOccurs="1" minOccurs="0" required="false" scope="stage" type="category">
+      			<Property name="ConnectorClasspath" contexts="all" default="$(DSHOME)/../DSComponents/bin/ccidocextractstage.jar;$(DSHOME)/../DSComponents/bin/sapjco3.jar" 
+      			  description="CC_COMMON_PRPDSC_JAVA_CLASSPATH" label="CC_COMMON_PRPLBL_JAVA_CLASSPATH" 
+                  maxOccurs="1" minOccurs="0" required="false" scope="stage" type="string"  hidden="true"/>
+                <Property name="ConnectorOtherOptions" contexts="all" default="-Djava.ext.dirs=$(DSHOME)/../DSComponents/bin;$(DSHOME)/../../ASBNode/apps/jre/lib/ext" 
+                  description="CC_COMMON_PRPDSC_JAVA_JVM_OPTIONS" label="CC_COMMON_PRPLBL_JAVA_JVM_OPTIONS" 
+                  maxOccurs="1" minOccurs="0" required="false" type="string" hidden="true"/>  
+           </Property>
+		</Usage>
+	</Properties>
+</asc:Connector>

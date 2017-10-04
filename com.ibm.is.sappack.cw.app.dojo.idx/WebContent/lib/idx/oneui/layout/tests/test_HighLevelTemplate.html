@@ -1,0 +1,336 @@
+<!DOCTYPE HTML>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>idx.oneui.layout.HighLevelTemplate Test</title>
+
+	<script type="text/javascript" src="../../../tests/dojoVersion.js"></script>
+	
+	<script type="text/javascript">
+		dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+	
+	<style id="idxStyles" type="text/css">
+        @import "../../../themes/oneui/oneui.css";
+        @import "../../../themes/test.css";
+		body, html { width:100%; height:100%; margin:0; padding:0; overflow:hidden; }
+		.centeredContent{
+			margin-top:31px;
+			font-size: 28px;
+			text-align: center;
+		}
+		.content{
+			margin-top:0px;
+			font-size: 28px;
+			text-align: center;
+		}
+    </style>
+	
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+		dojoConfig.locale = "en";
+	</script>
+
+	<script type="text/javascript">
+		dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+	
+	<script type="text/javascript" id="postDojo">
+		var modules = [
+			"dijit.dijit",
+			"dojo.topic",
+			"dijit.layout.AccordionContainer",
+			"dijit.form.Button",
+			"idx.oneui.layout.HighLevelTemplate",
+			"idx.oneui.Header",
+			"idx.oneui.MenuBar",
+			"dijit.MenuBarItem",
+			"idx.oneui.Menu",
+			"dijit.MenuItem"],
+			AccordionContainer = null,
+			Button = null,
+			HighLevelTemplate = null,
+			topic = null;
+		function preParse(modules) {
+			AccordionContainer = modules["dijit/layout/AccordionContainer"];
+			Button = modules["dijit/form/Button"];
+			HighLevelTemplate = modules["idx/oneui/layout/HighLevelTemplate"];
+			topic = modules["dojo/topic"];			
+		}	
+		function postParse(modules){
+			topic.subscribe("_pages-selectChild", function(tab){
+				for(var i = 1; i < 5; i++){
+					var hlt = dijit.byId("hlt"+i)
+					dojo.toggleClass(hlt.domNode, "dijitHidden", i != tab.idx);
+					hlt.resize();
+				}
+			})
+			dijit.byId("_pages").selectChild("firstTab");
+		}
+		dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+	</script>
+
+	<script type="text/javascript" src="../../../tests/commonTest.js"></script>
+
+</head>
+<body id="testpage">
+	<a class="navigationLink" href="#maincontent">Skip to main content</a>
+	<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+	<a name="maincontent"></a>
+	
+	
+	
+		<!-- Header Content, invisible --> 
+		<div id="_nav1" data-dojo-type="idx.oneui.MenuBar">
+			<div data-dojo-type="dijit.MenuBarItem" data-dojo-props="currentPage:true">header(required)</div>
+		</div>
+		
+		<div id="_action" data-dojo-type="idx.oneui.Menu" style="display:none">
+			<div data-dojo-type="dijit.MenuItem">Edit Profile</div>
+			<div data-dojo-type="dijit.MenuItem">Sign Out</div>
+		</div>
+		
+		<div id="_help" data-dojo-type="idx.oneui.Menu" style="display:none">
+			<div data-dojo-type="dijit.MenuItem">Help Center</div>
+			<div data-dojo-type="dijit.MenuItem">About</div>
+		</div>
+		
+		<div id="_pages" data-dojo-type="dijit.layout.StackContainer" data-dojo-props="doLayout: true" style="width: auto; height:auto;display:none;">
+	        <div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="id: 'firstTab', title: 'Template 1', idx: 1"></div>
+			<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="title: 'Template 2', idx: 2, selected: true"></div>
+			<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="title: 'Template 3', idx: 3"></div>
+			<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="title: 'Template 4', idx: 4"></div>
+	    </div>
+		<!-- Header Content end-->
+		<!-- Header start -->
+		<div data-dojo-type="idx.oneui.Header" data-dojo-props="
+			id: 'header1',
+			primaryTitle: 'IBM OneUI Test',
+			navigation: '_nav1',
+			user: {
+				displayName: 'User Name',
+				displayImage: 'http://w3.ibm.com/bluepages/api/BluePagesPhoto.jsp?CNUM=074773866',
+				actions: '_action'
+			},
+			help: '_help',
+			contentContainer: '_pages',
+			region: 'top'
+		">
+		</div>
+		<!-- Header end -->
+		
+<!-- HighLevelTemplate template 1: with left column and right column -->
+	<div id="hlt1" data-dojo-type="idx.oneui.layout.HighLevelTemplate" data-dojo-props="
+		style: 'width: 100%; height: 100%;', header: 'header1'">	
+		
+		<!-- Left Nav start -->
+		<div data-dojo-type="dijit.layout.AccordionContainer" data-dojo-props="
+			splitter: 'toggle',
+			minSize: 20,
+			style: 'width: 20%;',
+			region: 'leading'
+		">
+			<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="
+				title: 'Navigation',
+				style: 'background-color: #dbdbdb;'">
+				<div class="content">left column<br/>(optional)</div>
+			</div>
+		</div>
+		<!-- Left Nav end -->
+		
+		<!-- Main Content start -->
+		<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="
+			style: 'padding: 10px;background-color:transparent;',
+			region: 'center'
+		">
+			<div class="centeredContent">content area<br/>(required)</div>
+		</div>
+		<!-- Main Content end -->
+		
+		<!-- Right Column start -->
+		<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="
+			splitter: 'drag',
+			style: 'background-color: #dbdbdb; width: 15%;',
+			region: 'trailing'
+		">
+			<div class="centeredContent">right column<br/>(optional)</div>
+		</div>
+		<!-- Right Column end -->
+		
+		<!-- Footer start -->
+		<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="
+			splitter: 'toggle',
+			style: 'background-color: #dbdbdb; height: 10%;',
+			region: 'bottom'
+		">
+			<div class="content" >footer<br/>(optional)</div>
+		</div>
+		<!-- Footer end -->
+	</div>
+<!-- HighLevelTemplate 1 end -->
+
+	<div id="_nav2" data-dojo-type="idx.oneui.MenuBar">
+		<div data-dojo-type="dijit.MenuBarItem" data-dojo-props="currentPage:true">header(required)</div>
+	</div>
+	<!-- Header start -->
+	<div data-dojo-type="idx.oneui.Header" data-dojo-props="
+		id: 'header2',
+		primaryTitle: 'IBM OneUI Test',
+		navigation: '_nav2',
+		user: {
+			displayName: 'User Name',
+			displayImage: 'http://w3.ibm.com/bluepages/api/BluePagesPhoto.jsp?CNUM=074773866',
+			actions: '_action'
+		},
+		help: '_help',
+		contentContainer: '_pages',
+		region: 'top'
+	">
+	</div>
+	<!-- Header end -->
+<!-- HighLevelTemplate template 2: with only left column -->
+	<div id="hlt2" data-dojo-type="idx.oneui.layout.HighLevelTemplate" data-dojo-props="
+		style: 'width: 100%; height: 100%;', header: 'header2'">	
+		
+		<!-- Left Nav start -->
+		<div data-dojo-type="dijit.layout.AccordionContainer" data-dojo-props="
+			splitter: 'toggle',
+			minSize: 20,
+			style: 'width: 20%;',
+			region: 'leading'
+		">
+			<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="
+				title: 'Navigation',
+				style: 'background-color: #dbdbdb;'">
+				<div class="content">left column<br/>(optional)</div>
+			</div>
+		</div>
+		<!-- Left Nav end -->
+		
+		<!-- Main Content start -->
+		<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="
+			style: 'padding: 10px;background-color:transparent;',
+			region: 'center'
+		">
+			<div class="centeredContent">content area<br/>(required)</div>
+		</div>
+		<!-- Main Content end -->
+		
+		<!-- Footer start -->
+		<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="
+			splitter: 'toggle',
+			style: 'background-color: #dbdbdb; height: 10%;',
+			region: 'bottom'
+		">
+			<div class="content" >footer<br/>(optional)</div>
+		</div>
+		<!-- Footer end -->
+	</div>
+<!-- HighLevelTemplate 2 end -->
+	<div id="_nav3" data-dojo-type="idx.oneui.MenuBar">
+		<div data-dojo-type="dijit.MenuBarItem" data-dojo-props="currentPage:true">header(required)</div>
+	</div>
+	<!-- Header start -->
+	<div data-dojo-type="idx.oneui.Header" data-dojo-props="
+		id: 'header3',
+		primaryTitle: 'IBM OneUI Test',
+		navigation: '_nav3',
+		user: {
+			displayName: 'User Name',
+			displayImage: 'http://w3.ibm.com/bluepages/api/BluePagesPhoto.jsp?CNUM=074773866',
+			actions: '_action'
+		},
+		help: '_help',
+		contentContainer: '_pages',
+		region: 'top'
+	">
+	</div>
+	<!-- Header end -->
+	
+<!-- HighLevelTemplate template 3: with only right column -->
+	<div id="hlt3" data-dojo-type="idx.oneui.layout.HighLevelTemplate" data-dojo-props="
+		style: 'width: 100%; height: 100%;', header: 'header3'">	
+		
+		<!-- Main Content start -->
+		<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="
+			style: 'padding: 10px;background-color:transparent;',
+			region: 'center'
+		">
+			<div class="centeredContent">content area<br/>(required)</div>
+		</div>
+		<!-- Main Content end -->
+		<!-- Right Column start -->
+		<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="
+			splitter: 'drag',
+			style: 'background-color: #dbdbdb; width: 15%;',
+			region: 'trailing'
+		">
+			<div class="centeredContent">right column<br/>(optional)</div>
+		</div>
+		<!-- Right Column end -->
+		<!-- Footer start -->
+		<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="
+			splitter: 'toggle',
+			style: 'background-color: #dbdbdb; height: 10%;',
+			region: 'bottom'
+		">
+			<div class="content" >footer<br/>(optional)</div>
+		</div>
+		<!-- Footer end -->
+	</div>
+<!-- HighLevelTemplate 3 end -->
+
+	<div id="_nav4" data-dojo-type="idx.oneui.MenuBar">
+		<div data-dojo-type="dijit.MenuBarItem" data-dojo-props="currentPage:true">header(required)</div>
+	</div>
+	<!-- Header start -->
+	<div data-dojo-type="idx.oneui.Header" data-dojo-props="
+		id: 'header4',
+		primaryTitle: 'IBM OneUI Test',
+		navigation: '_nav4',
+		user: {
+			displayName: 'User Name',
+			displayImage: 'http://w3.ibm.com/bluepages/api/BluePagesPhoto.jsp?CNUM=074773866',
+			actions: '_action'
+		},
+		help: '_help',
+		contentContainer: '_pages',
+		region: 'top'
+	">
+	</div>
+	<!-- Header end -->
+	
+<!-- HighLevelTemplate template 2: without left or right column -->
+	<div id="hlt4" data-dojo-type="idx.oneui.layout.HighLevelTemplate" data-dojo-props="
+		style: 'width: 100%; height: 100%;', header: 'header4'">	
+		
+		<!-- Main Content start -->
+		<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="
+			style: 'padding: 10px;background-color:transparent;',
+			region: 'center'
+		">
+			<div class="centeredContent">content area<br/>(required)</div>
+		</div>
+		<!-- Main Content end -->
+		
+		<!-- Footer start -->
+		<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="
+			splitter: 'toggle',
+			style: 'background-color: #dbdbdb; height: 10%;',
+			region: 'bottom'
+		">
+			<div class="content" >footer<br/>(optional)</div>
+		</div>
+		<!-- Footer end -->
+	</div>
+<!-- HighLevelTemplate 4 end -->
+</body>
+</html>

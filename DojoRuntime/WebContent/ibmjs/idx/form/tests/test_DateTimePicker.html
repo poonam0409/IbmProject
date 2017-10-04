@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Test DateTimePicker</title>
+
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+<script type="text/javascript">
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/claro/claro.css", "idxStyles");
+</script>
+
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneui/oneui.css";
+@import "../../themes/vienna/vienna.css";
+@import url("../resources/claroDateTimePicker.css");
+@import url("../resources/viennaDateTimePicker.css");
+@import "../../themes/test.css";
+
+.idx .DatePicker3 {
+	border: 0px none;
+	border-collapse: collapse;
+	width: 50%;
+}
+.idx .DatePicker3 .idxDatePickerCell {
+	width: 100%;
+}
+.idx .DatePicker3 .idxDatePickerTextBox {
+	width: auto;
+}
+.idx .DatePicker3 .idxDatePickerIcon {
+	padding-top: 0px;
+}
+.idx .DatePicker3 .idxDatePickerIconLink {
+	margin-left: 7px;
+}
+</style>
+
+<script type="text/javascript">
+	var dojoConfig = currentDojoVersion.dojoConfig;
+</script>
+
+<script type="text/javascript">
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+</script>
+ 
+<script type="text/javascript" id="postDojo">
+	var modules = ["dojo.parser",
+					"dijit/_base/manager",		// for AMD only, otherwise use "dijit"
+					"idx.form.DateTimePicker",
+					"dijit.form.Button",
+					"dijit.form.Form"];
+
+	var manager = null;
+	
+	function preParse(modules) {
+		var mgr = modules["dijit/_base/manager"] ? modules["dijit/_base/manager"] : dijit;
+		manager = mgr;
+	}
+	
+	function validate() {
+		var dp = manager.byId("picker1");
+		dp.validationSuccess = function() {
+			console.debug("success");
+		};
+		dp.validationFailure = function() {
+			console.debug("failure");
+		};
+		manager.byId("picker1").validate();
+	}
+
+	function setvalue() {
+		var dp = manager.byId("picker1");
+		dp.set("value", new Date());
+	}
+	
+	function getvalue() {
+		var dp = manager.byId("picker1");
+		var dp2 = manager.byId("picker2");
+		console.debug("dp.attr('value') = " + dp.attr("value"));
+		console.debug("dp.value = " + dp.value);
+
+		console.debug("dp2.attr('value') = " + dp2.attr("value"));
+		console.debug("dp2.value = " + dp2.value);
+	}
+
+	function clear() {
+		var dp = manager.byId("picker1");
+		var dp2 = manager.byId("picker2");
+
+		dp.reset();
+		dp2.reset();
+	}
+
+	function toggleDisable() {
+		var dp = manager.byId("picker1");
+		dp.set("disabled", !dp.disabled);
+	}
+
+	function toggleReadOnly() {
+		var dp = manager.byId("picker1");
+		dp.set("readOnly", !dp.get("readOnly"));
+	}
+
+	function toggleRequired() {
+		var dp = manager.byId("picker1");
+		dp.set("required", !dp.get("required"));
+	}
+
+	function validateForm() {
+		console.debug(form.validate());
+	}
+	
+	dojoRequireModules(modules, null, currentDojoVersion.async, preParse);
+</script>
+
+<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 0px;">
+<a class="navigationLink" href="#maincontent">Skip to main content</a>
+<script type="text/javascript">applyThemeToBody()</script>
+<a name="maincontent"></a>
+<div dojoType="dijit.form.Form" jsId="form">
+	<div id="picker1" dojoType="idx.form.DateTimePicker"
+		title="hoge"
+	></div>
+</div>
+	
+	<div dojoType="dijit.form.Button"
+		id="validateButton"
+		label="Validate"
+		onclick="validate"
+	></div>
+	<div dojoType="dijit.form.Button"
+		id="getvalue"
+		label="Get Value"
+		onclick="getvalue"
+	></div>
+	<div dojoType="dijit.form.Button"
+		id="setvalue"
+		label="Set Current Date"
+		onclick="setvalue"
+	></div>
+	<div dojoType="dijit.form.Button"
+		label="Clear"
+		onclick="clear"
+	></div>
+	<div dojoType="dijit.form.Button"
+		label="Toggle Disable"
+		onclick="toggleDisable"
+	></div>
+	<div dojoType="dijit.form.Button"
+		label="Toggle ReadOnly"
+		onclick="toggleReadOnly"
+	></div>
+	<div dojoType="dijit.form.Button"
+		label="Toggle Required"
+		onclick="toggleRequired"
+	></div>
+	<div dojoType="dijit.form.Button"
+		label="Validate Form"
+		onclick="validateForm"
+	></div>
+	<div>showFormatPattern="true"</div>
+	<div id="picker2" dojoType="idx.form.DateTimePicker" showDateFormatPattern="true" showTimeFormatPattern="true" iconPath="../../idx/widget/resources/images/datepicker16.png" iconWidth="16" iconHeight="16"></div>
+</body>
+</html>

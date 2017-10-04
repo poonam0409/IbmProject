@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="ID">localrmcfg:13417452598751165932365</entry>
+<entry key="DOCUMENTATION">This is an example for a Rapid modeler configuration</entry>
+<entry key="PROP_KEY_MODE">RMRG_CW_MODE</entry>
+</properties>

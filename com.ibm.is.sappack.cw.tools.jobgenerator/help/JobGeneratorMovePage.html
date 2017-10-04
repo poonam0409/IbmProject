@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h3>Move Options</h3>
+<p>Where indicated, you may refer to a job parameter in the form
+#parameter_name#, e.g., #DayOfWeek#. When you actually use one of the
+parameters from a parameter set in your job design, you refer to it in
+the form #parameter_set.parameter_name#. For example, if you want your
+job to use the value of the parameter DayOfWeek from the parameter set
+Runschedule, you refer to it in the job as #Runschedule.DayOfWeek#. For
+more information on parameters and parameter sets, please see the <span>WebSphere
+DataStage and QualityStage</span> <i>Designer Client Guide</i>.</p>
+<ul><li><b>Model File: </b>The model file describing the source/target schema. Note, that both model files have to be equal with respect to the contained entities and their attributes<b>. </b></li>
+	<li><b>ODBC DataSource:</b> The data objects will be read/written through this datasource. The ODBC datasource has to be configured in the
+	operating system. (#&lt;identifier&gt;# defines a job parameter)</li>
+	<li><b>ODBC User: </b>(optional)<b>:</b> Overwrites the user in the datasource configuration. (#&lt;identifier&gt;# defines a job parameter)</li>
+<li><b>ODBC Password: </b>(optional)<b>:</b> Overwrites tha password in the datasource configuration. (#&lt;identifier&gt;# defines a job parameter)</li>
+<li><b>Reject File Server Path:</b> (optional)<b>:</b> The generated job will log all rejected objects in this file if specified</li>
+</ul></body>
+</html>

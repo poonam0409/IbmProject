@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.7.1
+Created-By: 2.4 (IBM Corporation)
+Bundle-ManifestVersion: 2
+Bundle-Name: IBM InfoSphere Information Server Pack for SAP Applicatio
+ ns - License Plugin
+Bundle-SymbolicName: com.ibm.is.sappack.gen.lic; singleton:=true
+Bundle-Version: 1.1.0.201405221631
+Bundle-Vendor: IBM
+Bundle-Localization: plugin
+Require-Bundle: com.ibm.cic.common.core
+Bundle-ClassPath: src/license/,.
+

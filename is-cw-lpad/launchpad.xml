@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Licensed Materials - Property of IBM
+     5648-F10 (C) Copyright International Business Machines Corp. 2006
+     All Rights Reserved
+     US Government Users Restricted Rights - Use, duplication or disclosure
+     restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<launchpad>
+
+    <productName>IBM InfoSphere Conversion Workbench for SAP Applications</productName>
+
+    <productVersion>1.1.0</productVersion>
+
+    <productEdition />
+
+    <template>expressQuickStartTemplate</template>
+
+    <operatingSystems>
+        <operatingSystem>
+            <name>Linux</name>
+            <architecture>x86</architecture>
+            <architecture>AMD64</architecture>
+        </operatingSystem>
+        <operatingSystem>
+            <name>windows</name>
+            <architecture>x86</architecture>
+            <architecture>AMD64</architecture>
+        </operatingSystem>
+    </operatingSystems>
+
+    <translationLanguages>
+        <selectionType>embedded</selectionType>
+        <default>en</default>
+        <language>en</language>
+    </translationLanguages>
+
+    <preferredBrowser>defaultBrowser</preferredBrowser>
+
+    <enableContextMenu>false</enableContextMenu>
+
+    <userExtensionsClass />
+
+    <menuItems>
+        <menuItem>
+            <name>Welcome</name>
+            <tooltip>Welcome</tooltip>
+            <type>document</type>
+            <prereq />
+            <prereqClass />
+            <menuId>overview</menuId>
+            <document>launchpadContent/welcome.html</document>
+            <pageClass />
+            <propertiesFile>launchpadContent/en/welcome.properties</propertiesFile>
+            <anchor />
+            <action />
+            <actionClass />
+            <activate />
+            <show />
+            <enable />
+            <state />
+            <enableButtons />
+            <enableNext />
+            <enablePrevious />
+            <enableCancel />
+            <showButtons />
+            <showNext />
+            <showPrevious />
+            <showCancel />
+            <nextText />
+            <previousText />
+            <cancelText />
+            <enterAction />
+            <exitAction />
+            <nextAction />
+            <previousAction />
+            <cancelAction />
+            <nextItem />
+            <previousItem />
+            <icon />
+            <description />
+        </menuItem>
+        <menuItem>
+            <name>Access your software</name>
+            <tooltip>Access your software</tooltip>
+            <type>document</type>
+            <prereq />
+            <prereqClass />
+            <menuId>software</menuId>
+            <document>launchpadContent/Step1.html</document>
+            <pageClass />
+            <propertiesFile>launchpadContent/en/Step1.properties</propertiesFile>
+            <anchor />
+            <action />
+            <actionClass />
+            <activate />
+            <show />
+            <enable />
+            <state />
+            <enableButtons />
+            <enableNext />
+            <enablePrevious />
+            <enableCancel />
+            <showButtons />
+            <showNext />
+            <showPrevious />
+            <showCancel />
+            <nextText />
+            <previousText />
+            <cancelText />
+            <enterAction />
+            <exitAction />
+            <nextAction />
+            <previousAction />
+            <cancelAction />
+            <nextItem />
+            <previousItem />
+            <icon />
+            <description />
+        </menuItem>
+        <menuItem>
+            <name>Evaluate your hardware and system configuration</name>
+            <tooltip>Evaluate your hardware and system configuration</tooltip>
+            <type>document</type>
+            <prereq />
+            <prereqClass />
+            <menuId>prereq</menuId>
+            <document>launchpadContent/Step2.html</document>
+            <pageClass />
+            <propertiesFile>launchpadContent/en/Step2.properties</propertiesFile>
+            <anchor />
+            <action />
+            <actionClass />
+            <activate />
+            <show />
+            <enable />
+            <state />
+            <enableButtons />
+            <enableNext />
+            <enablePrevious />
+            <enableCancel />
+            <showButtons />
+            <showNext />
+            <showPrevious />
+            <showCancel />
+            <nextText />
+            <previousText />
+            <cancelText />
+            <enterAction />
+            <exitAction />
+            <nextAction />
+            <previousAction />
+            <cancelAction />
+            <nextItem />
+            <previousItem />
+            <icon />
+            <description />
+        </menuItem>
+        <menuItem>
+            <name>Review the base architecture and installation steps</name>
+            <tooltip>Review the base architecture and installation steps</tooltip>
+            <type>document</type>
+            <prereq />
+            <prereqClass />
+            <menuId>architecture</menuId>
+            <document>launchpadContent/Step3.html</document>
+            <pageClass />
+            <propertiesFile>launchpadContent/en/Step3.properties</propertiesFile>
+            <anchor />
+            <action />
+            <actionClass />
+            <activate />
+            <show />
+            <enable />
+            <state />
+            <enableButtons />
+            <enableNext />
+            <enablePrevious />
+            <enableCancel />
+            <showButtons />
+            <showNext />
+            <showPrevious />
+            <showCancel />
+            <nextText />
+            <previousText />
+            <cancelText />
+            <enterAction />
+            <exitAction />
+            <nextAction />
+            <previousAction />
+            <cancelAction />
+            <nextItem />
+            <previousItem />
+            <icon />
+            <description />
+        </menuItem>
+        <menuItem>
+            <name>Access your documentation</name>
+            <tooltip>Access your documentation</tooltip>
+            <type>document</type>
+            <prereq />
+            <prereqClass />
+            <menuId>docs</menuId>
+            <document>launchpadContent/Step4.html</document>
+            <pageClass />
+            <propertiesFile>launchpadContent/en/Step4.properties</propertiesFile>
+            <anchor />
+            <action />
+            <actionClass />
+            <activate />
+            <show />
+            <enable />
+            <state />
+            <enableButtons />
+            <enableNext />
+            <enablePrevious />
+            <enableCancel />
+            <showButtons />
+            <showNext />
+            <showPrevious />
+            <showCancel />
+            <nextText />
+            <previousText />
+            <cancelText />
+            <enterAction />
+            <exitAction />
+            <nextAction />
+            <previousAction />
+            <cancelAction />
+            <nextItem />
+            <previousItem />
+            <icon />
+            <description />
+        </menuItem>
+        <menuItem>
+            <name>Install the product</name>
+            <tooltip>Install the product</tooltip>
+            <type>document</type>
+            <prereq />
+            <prereqClass />
+            <menuId>install</menuId>
+            <document>launchpadContent/Step5.html</document>
+            <pageClass />
+            <propertiesFile>launchpadContent/en/Step5.properties</propertiesFile>
+            <anchor />
+            <action />
+            <actionClass />
+            <activate />
+            <show />
+            <enable />
+            <state />
+            <enableButtons />
+            <enableNext />
+            <enablePrevious />
+            <enableCancel />
+            <showButtons />
+            <showNext />
+            <showPrevious />
+            <showCancel />
+            <nextText />
+            <previousText />
+            <cancelText />
+            <enterAction />
+            <exitAction />
+            <nextAction />
+            <previousAction />
+            <cancelAction />
+            <nextItem />
+            <previousItem />
+            <icon />
+            <description />
+        </menuItem>
+        <menuItem>
+            <name>Exit</name>
+            <tooltip>Exit</tooltip>
+            <type>action</type>
+            <prereq />
+            <prereqClass />
+            <menuId>exit</menuId>
+            <document />
+            <pageClass />
+            <propertiesFile />
+            <anchor />
+            <action>top.Exit(true);</action>
+            <actionClass />
+            <activate />
+            <show />
+            <enable />
+            <state />
+            <enableButtons />
+            <enableNext />
+            <enablePrevious />
+            <enableCancel />
+            <showButtons />
+            <showNext />
+            <showPrevious />
+            <showCancel />
+            <nextText />
+            <previousText />
+            <cancelText />
+            <enterAction />
+            <exitAction />
+            <nextAction />
+            <previousAction />
+            <cancelAction />
+            <nextItem />
+            <previousItem />
+            <icon />
+            <description />
+        </menuItem>
+    </menuItems>
+
+    <appearanceInfo>
+        <title>IBM InfoSphere Conversion Workbench for SAP Applications 1.1.0</title>
+        <banner>launchpadImages/transparent.gif</banner>
+        <navigation>launchpadImages/background.jpg</navigation>
+        <logo>launchpadImages/logo.gif</logo>
+        <icon>launchpadImages/xb.ico</icon>
+        <colorScheme>crossBrandContemporaryAppearanceScheme</colorScheme>
+        <backgroundColor>255 255 255</backgroundColor>
+        <textColor>0 0 0</textColor>
+        <highlightColor>255 255 255</highlightColor>
+        <rolloverColor>255 255 255</rolloverColor>
+        <logoAltText>Logo for IBM InfoSphere Conversion Workbench for SAP Applications 1.1.0</logoAltText>
+        <splash />
+        <splashDuration />
+        <content>launchpadImages/background.jpg</content>
+        <footer>launchpadImages/background.jpg</footer>
+    </appearanceInfo>
+
+    <disks>
+        <disk>
+            <label>IBM InfoSphere Conversion Workbench for SAP Applications 1.1.0 disk 1</label>
+            <name>disk1</name>
+            <customProperties />
+            <compatibilityChecks />
+            <id>disk1</id>
+        </disk>
+        <exportLpToAllDisks>false</exportLpToAllDisks>
+    </disks>
+
+</launchpad>

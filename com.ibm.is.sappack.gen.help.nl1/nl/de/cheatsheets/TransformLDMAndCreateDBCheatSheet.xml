@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="Logisches Datenmodell für die Jobgenerierung vorbereiten">
+   <intro>
+      <description>
+In diesem Cheat-Sheet wird gezeigt, wie ein logisches Datenmodell zur Verwendung für Rapid Generator for SAP in ein physisches Datenmodell umgesetzt wird.
+Es wird auch gezeigt, wie eine Datenbank aus diesem physischen Modell erstellt werden kann.
+         
+         <br/>
+         <b>HINWEIS: Achten Sie darauf, die Namen von Projekten, Modellen usw. in den folgenden Schritten genau wie an anderer Stelle angegeben einzugeben, da die Schaltflächen zum  Starten der Ausführung andernfalls möglicherweise nicht funktionieren. Allerdings funktionieren die Schaltflächen "Bei Abschluss klicken" weiterhin.
+         </b>
+      </description>
+   </intro>
+   <item
+         dialog="true"
+         href="/com.ibm.datatools.transform.ui.doc/topics/ctransform.html"
+         title="Logisches in physisches Modell umsetzen">
+      <description>
+Navigieren Sie zu dem logischen Datenmodell, mit dem Sie Metadaten über Rapid Modeler for SAP aus SAP importiert haben.
+      </description>
+      <subitem
+            label="Klicken Sie mit der rechten Maustaste auf das logische Datenmodell und wählen Sie 'Modell in ein physisches Datenmodell umsetzen' aus.">
+      </subitem>
+      <subitem
+            label="Wählen Sie 'Neues Modell erstellen' auf der Seite 'Physisches Datenmodell für Ziel'. Klicken Sie auf 'Weiter'.">
+      </subitem>
+      <subitem
+            label="Wählen Sie 'DB2' auf der Seite 'Physische Datenmodelldatei' als Zieldatenbank aus. Klicken Sie auf 'Weiter'.">
+      </subitem>
+      <subitem
+            label="Überprüfen Sie auf der Seite 'Optionen' die Einstellungen, insbesondere den Schemanamen. Klicken Sie auf 'Weiter'.">
+      </subitem>
+      <subitem
+            label="Klicken Sie auf der Seite des Assistenten 'Ausgabe' auf 'Fertig stellen'">
+      </subitem>
+         </item>
+   <item
+         title="DB2-Datenbank angeben">
+      <description>
+Geben Sie eine DB2-Datenbank in Ihrer Systemumgebung an, in der Sie
+SAP-Daten speichern wollen.
+         <br/> 
+Sie müssen eine ODBC-Verbindung in Ihrem DataStage-Serversystem zu dieser Datenbank erstellen.
+Wie eine ODBC-Verbindung erstellt wird, hängt vom Betriebssystem ab. Fragen Sie Ihren Systemadministrator.
+      </description>
+   </item>
+   <item
+         dialog="true"
+         href="/com.ibm.datatools.connection.repository.ui.doc/topics/tcommon_connecting_wiz.html"
+         title="Verbindung zur Datenbank erstellen">
+      <description>
+Mit diesem Schritt können Sie eine Verbindung zu Ihrer Datenbank in InfoSphere Data Architect erstellen.
+         <br/>
+Sie können diesen Schritt überspringen, wenn Sie das zuvor erstellte DDL-Script manuell für die Datenbank ausführen wollen.
+      </description>
+      <subitem
+            label="Klicken Sie in der Datenquellenexploreransicht mit der rechten Maustaste auf 'Datenbankverbindung -&gt; Neu'."
+            skip="true"> Neu.">
+      </subitem>
+      <subitem
+            label="Navigieren Sie durch den Assistenten 'Neue Verbindung' und geben Sie dabei die Verbindungsinformationen für Ihre Datenbank ein."
+            skip="true">
+      </subitem>
+   </item>
+   <item
+         skip="true"
+         title="ODBC-Verbindung auf dem DataStage-Server erstellen">
+      <description>
+Sie müssen eine ODBC-Verbindung zu Ihrer Datenbank auf dem
+DataStage-Serversystem erstellen, damit Sie sie in DataStage-Jobs verwenden können.
+      </description>
+   </item>
+   <item
+         dialog="true"
+         href="/com.ibm.datatools.fe.ui.doc/topics/ruidll_saverun.html"
+         title="DDL-Script generieren">
+      <description>
+Navigieren Sie zu dem physischen Datenmodell, das im vorherigen Schritt in Data Project Explorer erstellt wurde. Doppelklicken Sie auf den DBM-Eintrag. Klicken Sie mit der rechten Maustaste auf den Eintrag <b>Datenbank</b> unter der DBM-Datei und wählen Sie <b>DDL generieren</b> aus. Befolgen Sie die Anweisungen im Assistenten <b>DDL generieren</b>, um im Datenentwurfsprojekt eine SQL-Datei zu erstellen.
+      </description>
+      <subitem
+            label="Navigieren Sie zu dem physischen Datenmodell, das im vorherigen Schritt im Datenquellenexplorer erstellt wurde, und doppelklicken Sie darauf.">
+      </subitem>
+      <subitem
+            label="Klicken Sie mit der rechten Maustaste auf den Eintrag 'Datenbank' unter der DBM-Datei und wählen Sie 'DDL generieren' aus.">
+      </subitem>
+      <subitem
+            label="Befolgen Sie die Anweisungen im Assistenten 'DDL generieren', um im Datenentwurfsprojekt eine SQL-Datei zu erstellen.">
+      </subitem>
+   </item>
+   <item
+         href="/com.ibm.datatools.server.ui.doc/topics/cdatabaseexplorer.html"
+         title="DDL-Script für die Datenbank ausführen">
+      <description>
+In diesem Schritt wird gezeigt, wie das DDL-Script für die im vorherigen Schritt erstellte Verbindung ausgeführt wird.
+      </description>
+      <subitem
+            label="Klicken Sie mit der rechten Maustaste auf die SQL-Datei im SQL-Script-Ordner in Ihrem Datenentwurfsprojekt und wählen Sie 'SQL ausführen' aus."
+            skip="true">
+      </subitem>
+      <subitem
+            label="Wählen Sie die Datenbankverbindung aus, die im vorherigen Schritt erstellt wurde, und beenden Sie den Assistenten."
+            skip="true">
+      </subitem>
+   </item>
+      </cheatsheet>

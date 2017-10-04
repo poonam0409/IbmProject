@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<RSREQUST>
+    <IDOC BEGIN="1">
+        <EDI_DC40 SEGMENT="1">
+            <TABNAM><![CDATA[EDI_DC40]]></TABNAM>
+            <MANDT>%s</MANDT>
+            <DOCREL></DOCREL>
+            <DIRECT>2</DIRECT>
+            <OUTMOD></OUTMOD>
+            <EXPRSS>X</EXPRSS>
+            <IDOCTYP>RSREQUST</IDOCTYP>
+            <MESTYP>RSRQST</MESTYP>
+            <SNDPOR>%s</SNDPOR>
+            <SNDPRT>LS</SNDPRT>
+            <SNDPRN>%s</SNDPRN>
+            <RCVPRT>LS</RCVPRT>
+            <RCVPRN>%s</RCVPRN>
+        </EDI_DC40>
+        <E1RSRH SEGMENT="1">
+            <REQUEST><![CDATA[%s]]></REQUEST>
+            <REQOBJTYPE>%s</REQOBJTYPE>
+            <REQDATE>%s</REQDATE>
+            <REQTIME>%s</REQTIME>
+            <REQUSER>%s</REQUSER>
+            <TRSPMODE>T</TRSPMODE>
+            %s
+        </E1RSRH>
+    </IDOC>
+</RSREQUST>

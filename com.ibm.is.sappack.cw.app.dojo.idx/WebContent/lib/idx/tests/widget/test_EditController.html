@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Edit Controller Test</title>
+
+	<script type="text/javascript" src="../dojoVersion.js"></script>
+
+	<script type="text/javascript">
+		dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+	</script>
+	
+	<style id="idxStyles" type="text/css">
+        @import "../../themes/oneui/oneui.css";
+        @import "../../themes/vienna/vienna.css";
+        @import "../../themes/claro/claro.css";
+        @import "../../resources/claro_idx.css";
+        @import "../../resources/vienna_idx.css";
+        @import "../../themes/test.css";
+	</style>
+		
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+		dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+
+	<script type="text/javascript" id="postDojo">
+		var modules=["doh",
+					 "doh.runner",
+					 "dijit.dijit", // optimize: load dijit layer
+					 "dijit/registry",
+					 "dijit.form.TextBox",
+					 "dojo.string",
+					 "idx.util",
+					 "idx.layout.TitlePane",
+					 "idx.layout.HeaderPane",
+					 "idx.grid.PropertyFormatter",
+					 "idx.grid.PropertyGrid",			 
+					 "idx.widget.EditController"];
+
+		function callback(modules) {
+		    var parser = modules["dojo/parser"];
+			var dDoh = modules["doh"] ? modules["doh"] : doh;
+			var EditController = modules["idx/widget/EditController"];
+			var dRegistry = modules["dijit/registry"] ? modules["dijit/registry"] : dijit;
+			
+            dDoh.register("parse", function(){
+                console.log("parse: " + this.name);
+                parser.parse();                
+            });
+
+            dDoh.register("basicChecks", [
+            {
+                name: 'checkForExistance',
+                runTest: function(t){
+                    console.log("basicChecks: " + this.name);
+                    var ecpparserTest = dRegistry.byId("ecr1");
+                    t.assertTrue(ecpparserTest);
+                }
+            }
+   
+            ]);
+
+			dDoh.run();
+		}
+
+		dojoRequireModules(modules, null, currentDojoVersion.async, true, callback);
+	</script>
+	
+</head>
+	
+<body>
+
+<h1>Edit Controller Test</h1>
+<div id="ecr1" dojoType="idx.widget.EditController" region="titleActions"></div>
+
+	<div dojoType="idx.grid.PropertyGrid" 
+	     data="{givenName: 'Joe', surname: 'Schmoe'}"
+	     properties="givenName,surname"
+	     editController="'ecr1'">	
+		  <div dojoType="idx.grid.PropertyFormatter" propertyName="givenName" properties="givenName">
+		    <div dojoType="dijit.form.TextBox"></div>
+		  </div>
+		  <div dojoType="idx.grid.PropertyFormatter" propertyName="surname" properties="surname">
+		    <div dojoType="dijit.form.TextBox"></div>
+		  </div>
+	</div>
+
+</body>
+</html>
+
+

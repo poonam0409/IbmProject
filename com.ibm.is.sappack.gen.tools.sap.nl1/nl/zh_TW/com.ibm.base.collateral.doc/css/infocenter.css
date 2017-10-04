@@ -1,0 +1,561 @@
+/* ICCC Version 3.1, CBU Version 4.2, May 2011. */
+/* STYLES FOR STANDARD CLASSES - DO NOT MODIFY */
+
+html {
+    margin:           0;
+    padding:          0;
+}
+
+/***********************************************************
+ * Basic fonts
+ ***********************************************************/
+body,
+td,
+th,
+caption  {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+}
+pre, code {
+    font-family: MS Courier New, Courier, monospace;
+}
+
+h1, h2, h3 {
+    font-size:   12pt;
+ font-weight: bold;
+    color:       #336699;
+}
+h4 {
+    font-size:   10pt;
+ font-weight: bold;
+    color:       #336699;
+}
+div.fnnum {
+    font-size:   9pt;
+}
+div.fntext {
+    font-size:   9pt;
+}
+td.uititle,
+span.uititle {
+    font-weight:  bold;
+}
+
+span.sectiontitle,
+span.exampletitle,
+span.prereqtitle,
+span.contexttitle,
+span.stepstitle,
+span.resulttitle,
+span.postreqtitle,
+span.propertiestitle,
+span.menupathtitle,
+span.menubartitle,
+span.toolbarstitle,
+span.popupmenutitle,
+span.uifieldstitle,
+span.uiactionstitle,
+span.actiontabletitle,
+span.attributetabletitle,
+span.problemtitle,
+span.investigationtitle,
+span.reltopictitle {
+    font-weight:    bold;
+    color:          #336699;
+}
+span.attentiontitle,
+span.cautiontitle,
+span.dangertitle,
+span.notetitle,
+span.warningtitle,
+span.cmdexctitle,
+span.cmdrslttitle {
+    font-weight: bold;
+}
+div.notelisttitle {
+	font-weight: bold;
+}
+
+span.uigrouptitle {
+    font-weight: bold;
+}
+td.caution,
+td.danger {
+    font-weight: bold;
+}
+
+/*
+span.uigroup {
+    font-weight: bold;
+}
+*/
+
+/* should maybe be bold? */
+span.glossary {
+    font-style: italic;
+}
+
+dt.action,
+dt.condition,
+dt.alternative {
+    font-weight: bold;
+}
+
+span.responsetitle,
+span.causetitle,
+span.backgroundtitle {
+    font-style: italic;
+}
+
+
+/***********************************************************
+ * Basic indents, padding, and margin
+ ***********************************************************/
+body {
+    color:            black;
+    background-color: white;
+    margin:           0;
+    padding-top:      0.2em;
+    padding-left:     0.6em;
+    padding-right:    0.2em;
+    padding-bottom:   0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    padding:        0;
+    margin-top:     1em;
+    margin-bottom:  0.75em;
+    margin-left:    0;
+    margin-right:   0;
+}
+
+/*
+.topictitle,
+.concepttitle,
+.paneltitle,
+.referencetitle,
+.tasktitle,
+.troubletitle,
+.commandreference
+*/
+
+address,
+dl,
+blockquote,
+li,
+p {
+    padding:        0;
+    margin-top:     0.75em;
+    margin-bottom:  0.75em;
+    margin-left:    0;
+    margin-right:   0;
+    line-height:    125%;
+}
+td dl {
+    margin-left:    2em;
+}
+pre {
+    padding:        0;
+    margin-top:     0.75em;
+    margin-bottom:  0.75em;
+    margin-left:    2em;
+    margin-right:   0;
+}
+ol,
+ul {
+    padding:        0;
+    margin-top:     0.75em;
+    margin-bottom:  0.75em;
+    margin-left:    2em;
+    margin-right:   0;
+}
+
+dd {
+    margin-top:     0.75em;
+    margin-bottom:  0.75em;
+    line-height:    125%;
+}
+
+div.section,
+div.example,
+div.prereq,
+div.context,
+div.steps,
+div.result,
+div.postreq,
+div.properties,
+div.menupath,
+div.menubar,
+div.toolbars,
+div.popupmenu,
+div.uifields,
+div.uiactions,
+div.actiontable,
+div.attributetable,
+div.problem,
+div.investigation {
+    padding:        0;
+    margin-top:     1em;
+    margin-bottom:  0.75em;
+    margin-left:    0;
+    margin-right:   0;
+}
+
+div.menubar,
+div.toolbars,
+div.popupmenu,
+div.uifields,
+div.uiactions,
+div.actiontable,
+div.attributetable,
+div.reltopic,
+div.msgmodules div.msg {
+    border-top:     1px solid #8cb1c1;
+    padding:        0;
+    margin-top:     1em;
+    margin-bottom:  0.75em;
+    margin-left:    0;
+    margin-right:   0;
+}
+div.msgmodules div.msg div.reltopic {
+   border: 0;
+ }
+ 
+/** Thomas: compact and simple ul are for multiple PDF links in topic footers */
+.compact
+{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.simple
+{
+    list-style-type: none;
+}
+
+/*
+dl.propertylist
+ul.simple li
+ul.simple p
+ol.steplist
+ul.steplist
+pre.xmp
+p.shortdesc
+p.leadin
+*/
+
+/***********************************************************
+ * Table configuration
+ ***********************************************************/
+table {
+    border-color:     #8cb1d1;
+    border-width:     1px;
+    border-style:     solid;
+    padding:          1px;
+    border-collapse:  collapse;
+}
+tr {
+    border-color:     #8cb1d1;
+}
+td {
+    border-color:     #8cb1d1;
+}
+
+table.uiiconlist td,
+table.uinestedlist td,
+table.uibasiclist td,
+table.layout td {
+    padding-bottom:  0.25em;
+}
+td.uisubindent {
+    width: 4em;
+}
+
+table.uiiconlist,
+table.uinestedlist,
+table.uibasiclist,
+table.layout {
+    border-color:    white;
+    margin-top:      0;
+    margin-bottom:   0.75em;
+    margin-left:     0;
+    margin-right:    0;
+    border-collapse: collapse;
+    border-spacing:  0;
+}
+table.uiiconlist tr,
+table.uinestedlist tr,
+table.uibasiclist tr,
+table.layout tr {
+    border-color:   white;
+}
+
+/*
+table.uigrouplist {
+    border-color:    white;
+    margin-top:      0.75em;
+    margin-bottom:   0.75em;
+    margin-left:     2em;
+}
+table.uigrouplist tr {
+    border-color:   white;
+}
+*/
+
+table.uibasiclist tr.xlight,
+table.uiiconlist tr.xlight,
+table.uinestedlist tr.xlight {
+    background-color: transparent;
+}
+thead tr,
+tr.xlight {
+    background-color: #b5c5dd;
+}
+
+/***********************************************************
+ * Text decoration
+ ***********************************************************/
+
+/* provide solid bullets in nested lists */
+ul {
+    list-style-type: disc;
+}
+/*
+div.reltopic ul {
+    list-style-type: none;
+}
+div.reltopic li:first-line {
+    margin-left:     -2em;
+}
+*/
+ul.uigrouplist {
+    list-style-type: none;
+}
+
+ul.sitemap {
+    list-style-type: none;
+    padding:        3px;
+    margin-top:     0;
+    margin-bottom:  0;
+    margin-left:    1em;
+    margin-right:   0;
+}
+ul.sitemap li{
+    padding:        2px;
+    margin-top:     0;
+    margin-bottom:  0;
+    margin-left:    0;
+    margin-right:   0;
+    line-height:    100%;}
+/***********************************************************
+ * Special cases
+ ***********************************************************/
+p.copyrightnotice {
+    margin-top:  2em;
+    text-align:  center;
+    color:       #336699;
+    font-size:   8pt;
+}
+p.copyrightnotice a:link {
+    color:           #336699;
+    text-decoration: none;
+}
+p.copyrightnotice a:visited {
+    color:           #336699;
+    text-decoration: none;
+}
+p.copyrightnotice a:hover {
+    color:           #336699;
+    text-decoration: underline;
+}
+
+div.copyrightnotice {
+    margin-top:  0.75em;
+    text-align:  left;
+    color:       #336699;
+    font-size:   7pt;
+}
+div.copyrightnotice a:link {
+    color:           #336699;
+    text-decoration: none;
+}
+div.copyrightnotice a:visited {
+    color:           #336699;
+    text-decoration: none;
+}
+div.copyrightnotice a:hover {
+    color:           #336699;
+    text-decoration: none;
+}
+
+
+div.runningfooter { 
+    margin-top:  3em;
+    text-align:  left;
+    color: 	 #336699;
+    font-size:   7pt;
+}
+div.runningfooter a:link {
+	color: 	 #336699
+	text-decoration: none;
+}
+div.runningfooter a:active { 
+	color: 	 #336699
+	text-decoration: none;
+}
+div.runningfooter a:visited {
+	color: 	 #336699
+	text-decoration: none;
+}
+div.runningfooter a:hover { 
+	color: 	 #336699
+	text-decoration: none;
+}
+
+/*
+div.figbox { padding: 5px 5px 5px 5px; border: solid; border-width: thin; margin-top: 2px }
+div.figrules { padding: 5px 5px 5px 5px; border-top: solid; border-bottom: solid; border-width: thin; margin-top: 2px }
+div.fignone { padding: 5px 5px 5px 5px; border: none; border-width: thin; margin-top: 2px }
+*/
+div.objframe {
+    border:         1px solid #8cb1c1;
+    padding:        1.5em;
+}
+div.objframe dl {
+    margin-left:    4em;
+}
+div.objframe table.layout {
+    margin-left:    4em;
+}
+div.msg {
+    padding:        0;
+    border-top:     none;
+    margin-top:     0;
+    margin-bottom:  0;
+}
+div.msgnum {
+    margin-bottom:  0;
+    color:          #336699;
+}
+div.explanation h4.sectiontitle,
+div.action h4.sectiontitle {
+	margin-left: -2em;
+}
+div.msgitem,
+div.explanation,
+div.action {
+    margin-top:     0.75em;
+    margin-bottom:  0.75em;
+    padding-left:   2em;
+}
+div.msgitemtitle {
+    color:          #336699;
+    font-weight:    bold; 
+    margin-left:    -2em;
+}
+
+div.ledi {
+    margin-left: 2em;
+}
+div.ledesc {
+    margin-left: 0;
+}
+div.ledi h4 {
+    margin-left: -2em;
+}
+caption {
+    text-align: left;
+    font-style: normal;
+}
+.tbldesc {
+    font-style: normal;
+}
+
+a.navtreebtn {
+    display:  none;
+}
+
+/***********************************************************
+ * Unmodified from ibmidwb
+ ***********************************************************/
+span.mv { font-style: italic }
+span.md { text-decoration: line-through }
+span.pk { font-weight: bold }
+span.pkdef { font-weight: bold; text-decoration: underline }
+span.pv { font-style: italic }
+span.pvdef { font-style: italic; text-decoration: underline }
+span.kwd { font-weight: bold }
+span.kdwdef {font-weight: bold; text-decoration: underline }
+span.oper { font-style:normal }
+span.operdef { text-decoration: underline }
+span.var { font-style: italic }
+span.vardef  { font-style: italic; text-decoration: underline }
+
+div.fnnum { float: left }
+div.fntext { margin-left: 2em }
+
+div.stepl { margin-left: 2em }
+div.steplnum { float: left }
+div.stepltext { margin-left: 5em }
+
+ul.simple { list-style-type: none }
+
+span.pblktitle { font-weight: bold }
+div.pblklblbox { padding: 5px 5px 5px 5px; border: solid; border-width: thin; margin-top: 2px }
+span.ednoticestitle { font-weight: bold }
+
+span.term { font-weight: bold }
+span.idxshow { color: green }
+
+div.code { font-weight: bold; margin-bottom: 1em }
+div.msgtext { font-weight: bold; margin-bottom: 1em }
+
+p.msgitem { margin-top: 0em }
+span.version { font-weight: bold; font-style: italic }
+span.release { font-weight: bold; font-style: italic }
+span.refkey { font-weight: bold; color: white; background-color: black }
+tt.apl { font-style: italic }
+
+span.figcap { font-style: italic }
+span.figdesc { font-style: italic }
+
+div.qualifstart { padding: 1px 5px 5px 5px; border-top: solid; border-left: solid; border-right: solid; border-width: thin; font-weight: bold; margin-top: 2px; margin-bottom: 2px; text-align: center }
+div.qualifend { padding: 5px 5px 1px 5px; border-bottom: solid; border-left: solid; border-right: solid; border-width: thin; font-weight: bold; margin-bottom: 2px; text-align: center }
+
+span.breadcrumbs { font-size: 8pt }
+
+div.mmobj { margin-top: 1em; margin-bottom: 1em }
+div.mmobjleft { margin-top: 1em; margin-bottom: 1em; text-align: left }
+div.mmobjcenter { margin-top: 1em; margin-bottom: 1em; text-align: center }
+div.mmobjright { margin-top: 1em; margin-bottom: 1em; text-align: right }
+
+pre.screen { padding: 5px 5px 5px 5px; border: outset; background-color: #CCCCCC; margin-top: 2px }
+
+.base { font-weight: normal; font-style: normal; font-variant: normal; text-decoration: none } 
+.italic { font-style: italic }
+.bold { font-weight: bold }
+.underlined { text-decoration: underline }
+.bold-italic { font-weight: bold; font-style: italic }
+.smallcaps { font-variant: small-caps }
+.italic-underlined { font-style: italic; text-decoration: underline }
+.bold-underlined { font-weight: bold; text-decoration: underline }
+.bold-italic-underlined { font-weight: bold; font-style: italic; text-decoration: underline }
+.smallcaps-underlined { font-variant: small-caps; text-decoration: underline }
+
+.noshade { background-color: transparent }
+.light { background-color: #B0B0B0 }
+.medium { background-color: #8C8C8C }
+.dark { background-color: #6E6E6E }
+.xdark { background-color: #585858 }
+
+#changed {
+    position: absolute;
+    left: 1px;
+    color: black;
+    background-color: white;
+    font-style: normal;
+    font-weight: normal;
+}

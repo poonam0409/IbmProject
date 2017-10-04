@@ -1,0 +1,33 @@
+#
+# Licensed Material - Property of IBM
+#
+# 5724-Q55
+#
+# (c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+# 
+# US Government Users Restricted Rights - Use, duplication or disclosure
+# restricted by GSA ADP Schedule Contract with IBM Corp.
+#
+#
+# src.IDA is our main dependency - this is what all of IS Rapid Modeler depends upon.  This will be revved
+# on a regular basis up until the IDA gold master (GM) has been created.
+#
+# IDA 7.5.2
+#src.IDA=repository.http://bldfarm7.svl.ibm.com/DS_22/N/N20090611_1406/cic-metadata
+# 
+# IDA 7.5.2.1
+src.IDA=repository.http://xbox.svl.ibm.com:9080/secure/DS_2221/N/N20100323_1907/cic-metadata/
+
+# Constellation 3.x dependency. We depend on the common splash screen
+src.CON=repository.https://constellation.ratl.swg.usma.ibm.com/ccl/3031/I/CCL3031-I20100318_2248/cic-metadata/
+
+# The next dependencies are simpler, but also sensitive - especially the order.  For example, it appears that
+# src.IES must be first as this is what the target Eclipse is built from when running JUnit tests.
+# Also, src.DTP16x must come early in the list to ensure its plugins are picked before the constellation ones.
+#
+
+src.IES=src.IDA
+#src.IES=https://constellation.ratl.swg.usma.ibm.com/metadata/ies/342/I/342I20090225k-2/
+src.ISSAP=file:///C:/is-jobgen-deps/is-job-generator/
+# not needed any longer
+#src.MHIWB=file:///c:/is-jobgen-deps/mih-workbench/

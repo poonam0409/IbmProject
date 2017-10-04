@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>oneui.MenuDialog DOH Test</title>
+		
+		<script type="text/javascript" src="../../dojoVersion.js"></script>
+
+		<script type="text/javascript">
+			dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		</script>
+	
+	    <style id="idxStyles" type="text/css">
+    	    @import "../../../themes/oneui/oneui.css";
+        	@import "../../../themes/test.css";
+	    </style>
+		
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+			dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+
+		<script type="text/javascript" id="postDojo">
+			var modules = [
+				"doh", 
+				"idx.oneui.MenuBar", 
+				"idx.oneui.MenuDialog",
+				"idx.oneui.Menu", 
+				"idx.oneui.MenuHeading", 
+				"dijit.PopupMenuBarItem", 
+				"dijit.dijit", 
+				"dojo._base.sniff", 
+				"dojo.aspect",
+				"dojo.dom",
+				"dojo.dom-construct", 
+				"dojo.parser",
+				"dojo.query",
+				"dojo.string",
+				"dojo._base.window",
+				"dojo.ready"];
+				 
+			var doh, 
+				MenuBar,
+				MenuDialog, 
+				Menu, 
+				MenuHeading, 
+				PopupMenuBarItem, 
+				dijit, 
+				has, 
+				aspect,
+				dom,
+				domc,
+				parser,
+				query,
+				string,
+				win,
+				ready;
+				
+			function preParse(modules){
+				doh = modules["doh"];
+				MenuBar = modules["idx/oneui/MenuBar"];
+				MenuDialog = modules["idx/oneui/MenuDialog"]; 
+				Menu = modules["idx/oneui/Menu"]; 
+				MenuHeading = modules["idx/oneui/MenuHeading"]; 
+				PopupMenuBarItem = modules["dijit/PopupMenuBarItem"]; 
+				dijit = modules["dijit/dijit"]; 
+				has = modules["dojo/_base/sniff"]; 
+				aspect = modules["dojo/aspect"];
+				dom = modules["dojo/dom"];
+				domc = modules["dojo/dom-construct"];
+				parser = modules["dojo/parser"];
+				query = modules["dojo/query"];
+				string = modules["dojo/string"];
+				win = modules["dojo/_base/window"];
+				ready = modules["dojo/ready"];
+			}
+				
+			function postParse(modules){
+				var testPerformance = /mode=benchmark/i.test(window.location.href);
+				if(!testPerformance){
+					// Register API tests.
+					doh.register("MenuDialogAPI", [
+						{
+							name: "parse", 
+							runTest: function(t){
+								parser.parse();
+								doh.t(dijit.byId("menu_bar_1"));
+								doh.t(dijit.byId("menu_dialog_1"));
+							}
+						},
+				        {
+				            name: "ParentMenu",
+				            runTest: function(t){
+								var md = dijit.byId("menu_dialog_1");
+								dijit.byId("menu_bar_1").onItemClick(dijit.byId("menu_item_1"));
+								doh.t(md.parentMenu && (md.parentMenu === dijit.byId("menu_bar_1")));
+								md = dijit.byId("menu_dialog_2");
+								doh.t(md.parentMenu === null);
+				            }
+				        },
+				        {
+				            name: "isShowingNow",
+				            runTest: function(t){
+								var md = dijit.byId("menu_dialog_2");
+								doh.f(md.isShowingNow);
+								md.open({});
+								doh.t(md.isShowingNow);
+								md.close();
+								doh.f(md.isShowingNow);
+				            }
+						},
+				        {
+				            name: "SetUseConnector",
+				            runTest: function(t){
+								var md = dijit.byId("menu_dialog_1");
+								testBooleanProperty(md, "useConnector", false);
+								md = dijit.byId("menu_dialog_2");
+								doh.t(md.useConnector);
+				            }
+						},
+				        {
+				            name: "SetHoverToOpen",
+				            runTest: function(t){
+								var md = dijit.byId("menu_dialog_1");
+								testBooleanProperty(md, "hoverToOpen", true);
+								var md = dijit.byId("menu_dialog_2");
+								doh.f(md.hoverToOpen)
+				            }
+						},
+				        {
+				            name: "SetLeftClickToOpen",
+				            runTest: function(t){
+								var md = dijit.byId("menu_dialog_1");
+								testBooleanProperty(md, "leftClickToOpen", false);
+								md = dijit.byId("menu_dialog_2");
+								doh.t(md.leftClickToOpen);
+				            }
+						},
+				        {
+				            name: "SetPopupPosition",
+				            runTest: function(t){
+								var md = dijit.byId("menu_dialog_1");
+								doh.t(md.popupPosition === undefined);
+								md.popupPosition = ['before'];
+								doh.t(md.popupPosition[0] === 'before');
+								md = dijit.byId("menu_dialog_2");
+								doh.t(md.popupPosition.length === 2);
+								doh.t(md.popupPosition[1] === 'below');
+				            }
+						},
+				        {
+				            name: "TargetNodeIds",
+				            runTest: function(t){
+								var md = dijit.byId("menu_dialog_1");
+								doh.t(md.targetNodeIds === undefined);
+								md = dijit.byId("menu_dialog_2");
+								doh.t(md.targetNodeIds.length === 1);
+								doh.t(md.targetNodeIds[0] === 'trigger_node_3');
+				            }
+						},
+						{
+							name: "OnOpenClose",
+							runTest: function(t){
+								var onOpenCalled = false, onCloseCalled = false;
+								var md = dijit.byId("menu_dialog_2");
+								var openHandler = aspect.after(md, "onOpen", function(){
+									onOpenCalled = true;
+									openHandler.remove();
+								});
+								var closeHandler = aspect.after(md, "onClose", function(){
+									onCloseCalled = true;
+									closeHandler.remove();
+								});
+								doh.f(onOpenCalled);
+								doh.f(onCloseCalled);
+								md.open({coords: {x:0, y:0}});
+								doh.t(onOpenCalled);
+								doh.f(onCloseCalled);
+								md.close();
+								doh.t(onOpenCalled);
+								doh.t(onCloseCalled);
+							}
+						},
+						{
+							name: "OnCancelExecute",
+							runTest: function(t){
+								var md = dijit.byId("menu_dialog_2");
+								doh.f(md.isShowingNow);
+								md.open({coords: {x:0, y:0}});
+								doh.t(md.isShowingNow);
+								md.onExecute();
+								doh.f(md.isShowingNow);
+								md.open({coords: {x:0, y:0}});
+								doh.t(md.isShowingNow);
+								md.onCancel();
+								doh.f(md.isShowingNow);
+							}
+						},
+						{
+							name: "BindDomNode",
+							runTest: function(t){
+								var md = dijit.byId("menu_dialog_2");
+								var triggerNode = dom.byId("trigger_node_4");
+								md.leftClickToOpen = true;
+								doh.f(md.isShowingNow);
+								md.bindDomNode(triggerNode);
+								triggerNode.click();
+								var deferred = new doh.Deferred();
+                                setTimeout(function(){
+												if(md.isShowingNow === true)
+													deferred.callback(true);
+												else
+													deferred.errback(new Error("Wrong value for MenuDialog.isShowingNow: ", md.isShowingNow));
+											}, 100);
+								return deferred;
+							}
+						},
+						{
+							name: "UnBindDomNode",
+							runTest: function(t){
+								var md = dijit.byId("menu_dialog_2");
+								var triggerNode = dom.byId("trigger_node_4");
+								md.close();
+								doh.f(md.isShowingNow);
+								md.unBindDomNode(triggerNode);
+								triggerNode.click();
+								var deferred = new doh.Deferred();
+                                setTimeout(function(){
+												if(md.isShowingNow === false)
+													deferred.callback(true);
+												else
+													deferred.errback(new Error("Wrong value for MenuDialog.isShowingNow: ", md.isShowingNow));
+											}, 100);
+								return deferred;
+							}
+						}
+				    ]);      
+				}else{
+					// Register performance tests
+					doh.register("MenuDialogPerformance", [
+						{
+							testType: "perf",
+							name: "Create Menu Dialog",
+							trialDuration: 100,
+							trialIterations: 20,
+							trialDelay: 100,
+							setUp: function(t){
+								parser.parse();
+							},
+							runTest: function(t){
+								var div = domc.create("div", {}, win.body())
+								var menuDialog = new MenuDialog({
+									useConnector: false,
+									hoverToOpen: true,
+									leftClickToOpen: false,
+									popupPosition: "below,above",
+									targetNodeIds: ['trigger_node_1', 'trigger_node_2'],
+									"class": "cleanupAfterPerfTest"
+								}, div);
+							},
+							tearDown: function(t){
+								query("[class*=cleanupAfterPerfTest]").forEach(function(md){
+									dijit.byNode(md).destroyRecursive(false);
+								});
+							}
+						},
+						{
+							testType: "perf",
+							name: "Popup Menu Dialog",
+							trialDuration: 100,
+							trialIterations: 20,
+							trialDelay: 100,
+							runTest: function(t){
+								var md = dijit.byId("menu_dialog_2");
+								md.open({coords: {x:0, y:0}});
+								md.close();
+							}
+						}
+					]);
+				}
+
+				doh.run();
+			};
+
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+
+			function testBooleanProperty(obj, propertyName, defaultValue){
+				// Test a boolean widget property has the correct default value
+				// (optional) and can be set true/false.
+				if(defaultValue != undefined)
+					doh.t(obj[propertyName] === defaultValue);  // Default value.
+				obj.set(propertyName, false);
+				doh.t(obj[propertyName] === false);
+				obj.set(propertyName, true);
+				doh.t(obj[propertyName] === true);
+			}
+					
+		</script>
+
+		<script type="text/javascript" src="../../commonTest.js"></script>
+	</head>
+	<body id="body">
+		<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+		<h1 class="testTitle">DOH Test of idx.oneui.MenuDialog</h1>
+	    <div id="menu_bar_1" data-dojo-type="idx.oneui.MenuBar">
+			<div id="menu_item_1" data-dojo-type="dijit.PopupMenuBarItem">
+				<span>idx.oneui.MenuDialog #1</span>
+				<div id="menu_dialog_1" data-dojo-type="idx.oneui.MenuDialog">
+					<div>
+					<h3>Drop-down idx.oneui.MenuDialog</h3>
+					<p>...with static dialog content.</p>
+					</div>
+				</div>
+			</div>
+	    </div>
+		<div id="trigger_node_1">Trigger node #1</div>
+		<div id="trigger_node_2">Trigger node #2</div>
+		<div id="trigger_node_3">Trigger node #3</div>
+		<button id="trigger_node_4">Trigger node #4</button>
+		<div id="menu_dialog_2" style="display:none" data-dojo-type="idx.oneui.MenuDialog" data-dojo-props="targetNodeIds: ['trigger_node_3'], useConnector: true, hoverToOpen: false, leftClickToOpen: true, popupPosition: ['above','below']">
+			<div>
+			<h3>Pop-up idx.oneui.MenuDialog</h3>
+			<p>...with static dialog content.</p>
+			</div>
+		</div>
+	</body>
+</html>

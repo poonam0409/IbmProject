@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/eclipse/plugins/com.ibm.isf.client_8.5.0.0/ACS_client.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/eclipse/plugins/com.ibm.isf.client_8.5.0.0/ACS_common.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/eclipse/plugins/com.ibm.isf.client_8.5.0.0/ASB_util_client.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/eclipse/plugins/com.ibm.isf.client_8.5.0.0/ASB_utils.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/eclipse/plugins/com.ibm.isf.client_8.5.0.0/ISF_j2ee.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/eclipse/plugins/com.ibm.isf.client_8.5.0.0/ISF_util.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/eclipse/plugins/org.eclipse.emf.common_2.2.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/eclipse/plugins/org.eclipse.emf.ecore_2.2.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/eclipse/plugins/org.eclipse.emf.ecore.xmi_2.2.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/lib/java/ASCLModel_api_gen_ecore.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/lib/java/DataStageX_api_gen_ecore.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/lib/java/DS4J.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/lib/java/framework.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/lib/java/log4j-1.2.8.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/lib/java/metadata_services-asb.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/lib/java/metadata_services-client.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/lib/java/models_xmeta_api.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/eclipse/plugins/com.ibm.isf.client_8.5.0.0/com.ibm.ws.ejb.thinclient_7.0.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="ASBNode/client/lib/java/xmeta_cache.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="ASBNode/client/lib/java/dstage_wrapper_lang.jar"/>
+	<classpathentry kind="lib" path="ASBNode/client/lib/java/dstage_wrapper.jar"/>
+	<classpathentry kind="lib" path="ASBNode/client/lib/java/datastage_common.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

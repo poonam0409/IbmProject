@@ -1,0 +1,12 @@
+<root>
+  <facet id="jst.jaxrs">
+    <node name="libprov">
+      <attribute name="provider-id" value="com.ibm.ast.ws.jaxrs.v7.jaxrs11.v112.library"/>
+    </node>
+  </facet>
+  <facet id="jpt.jpa">
+    <node name="libprov">
+      <attribute name="provider-id" value="runtime-library-provider"/>
+    </node>
+  </facet>
+</root>

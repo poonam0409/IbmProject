@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2012  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="Defining connections to SAP systems and Information Server instances">
+   <intro>
+      <description>
+         This cheat sheet shows you how to define connections to SAP systems and / or Information Server instances. 
+         If your Information Server instance has SAP connections defined (created with, e.g.,  the DataStage Administrator for SAP)
+         you can re-use these connections in Rapid Modeler and Rapid Generator. 
+      </description>
+   </intro>
+   <item
+         title="Open the SAP Pack Connections View">
+         
+      <description>
+      In the main toolbar, go
+ to <b>Window</b> &gt; <b>Show View</b> &gt; <b>Other</b>. Search
+      for the category <b>InfoSphere for SAP</b> and select <b>SAP Pack connections</b>.
+      <br/>
+      Click <b>OK</b>.
+      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.ui.views.showView(org.eclipse.ui.views.showView.viewId=com.ibm.iis.sappack.gen.common.ui.connectionsView)"/>   </item>
+   <item
+         title="Determine the connection type">
+      <description>
+         The SAP Pack Connections View offers two ways of creating connections to SAP systems:
+         <br/>
+         1. <b>Local</b>: This is a connection that is only known in your workspace. This is 
+         the best choice if you don't work with Information Server.
+         <br/>
+         2. <b>Information Server connection</b>: If you have an Information Server somewhere in your
+         environment and you have SAP connections defined there (e.g. with the DataStage Administrator for SAP
+         tool of the DataStage components of the SAP Packs) you can re-use these connections here.
+         This is typically the best choice if you work with Conversion Workbench for SAP.
+         <br/>
+         The next two steps describe in detail how connections are created for these connection types.
+      </description>
+   </item>
+   <item
+         skip="true"
+         title="Create a local SAP connection">
+      <description>      
+      In the SAP Pack connections view, right click on <b>Local SAP Connections</b> and select <b>New...</b>.
+      Enter all necessary information in the panel that opens and click <b>OK</b> to save.
+      </description>
+   </item>
+   <item skip="true"
+         title="Create an Information Server connection">
+      <description>      
+      In the SAP Pack connections view, right click on <b>Information Server Connections</b> and select <b>New...</b>.
+      Enter all necessary information in the panel that opens and click <b>OK</b> to save.
+      <br/>
+      If you expand the Information Server connection in the view, you will see all SAP connections
+      defined on this Information Server instance under the folder <b>DataStage SAP Connections</b>.
+      </description>
+
+   </item>
+</cheatsheet>

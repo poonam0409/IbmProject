@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.util.UUID"/>
+<fullyQualifiedTypeName name="java.net.ServerSocket"/>
+<fullyQualifiedTypeName name="com.ibm.tools.attach.VirtualMachine"/>
+<fullyQualifiedTypeName name="com.ibm.tools.attach.VirtualMachineDescriptor"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.lang.management.ManagementFactory"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="java.util.logging.FileHandler"/>
+<fullyQualifiedTypeName name="com.ibm.is.sappack.deltaextractstage.utils.DsSapExtractorUtility"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="sun.misc.Cleaner"/>
+<fullyQualifiedTypeName name="com.ibm.is.sappack.dsstages.idocload.segcollimpl.FixedFilesSegmentCollector"/>
+<fullyQualifiedTypeName name="com.ibm.is.sappack.dsstages.idocload.segcollimpl.VariableFilesSegmentCollector"/>
+<fullyQualifiedTypeName name="com.ibm.is.sappack.dsstages.idocload.segcollimpl.FileSegmentCollectorBase"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="com.ibm.is.sappack.deltaextractstage.client.DsSapExtractorLogger"/>
+<fullyQualifiedTypeName name="com.ibm.is.sappack.deltaextractstage.client.DsSapExtractorLogger.LogType"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<compositeCheatsheet name="エンドツーエンド・シナリオ: SAP 表のインポートおよび抽出ジョブの生成">
+   <taskGroup kind="sequence" name="SAP 表のインポートおよび抽出ジョブの生成" skip="false">
+      <intro>
+この虎の巻では、一連のプロセス (SAP から論理データ・モデル内への論理表のインポート、論理データ・モデルの物理データ・モデルへの変換、物理モデルからのデータベースの作成、および最終的に行う、SAP 表を作成済みのデータベースに抽出する DataStage ジョブの生成) についてエンドツーエンドでガイドします。      </intro>
+      <onCompletion>
+SAP メタデータを格納する論理データ・モデル、SAP データを保持できるデータベース、および SAP からこのデータベースにデータを抽出できるジョブを作成します。      </onCompletion>
+      <task kind="cheatsheet" name="SAP から論理表をインポート" skip="true">
+         <intro>
+このタスクでは、論理データ・モデルの作成、およびこのモデル内への SAP 論理表のメタデータのインポートについてガイドします。
+         </intro>
+         <param name="id" value="com.ibm.is.sappack.gen.help.cheatsheet.rm.tables">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="ジョブ生成のために論理データ・モデルを準備" skip="true">
+         <intro>
+このタスクでは、前に作成した論理データ・モデルを Rapid Generator for SAP 用に準備することについてガイドします。これには、論理データ・モデルの物理データ・モデルへの変換、および物理モデルのデータベースの作成が含まれます。         </intro>
+         <param name="id" value="com.ibm.is.sappack.gen.help.cheatsheet.transform">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Rapid Generator for SAP を使用してジョブを生成" skip="true">
+         <intro>
+このタスクでは、前に作成した物理モデルからジョブを生成する方法について説明します。これらのジョブでは、SAP データを保持する作成済みのデータベースを使用します。         </intro>
+         <param name="id" value="com.ibm.is.sappack.gen.help.cheatsheet.rg.tables">
+         </param>
+      </task>
+   </taskGroup>
+</compositeCheatsheet>

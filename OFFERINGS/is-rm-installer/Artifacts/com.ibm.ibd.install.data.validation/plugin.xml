@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="com.ibm.cic.common.core.offeringUserData">
+      <offeringBinding
+            offeringId="com.ibm.ibd.offering"
+            offeringVersionRange="[1.0.0, 3.0.0)">
+         <offeringData
+               dataDefaultValue="true"
+               dataDes="This is an offering user data associated with the Blueprint Director offering. You need to check the checklbox"
+               dataKey="user.launchmode"
+               validationClass="com.ibm.ibd.install.ValidateSimplifyIDE">
+         </offeringData>
+      </offeringBinding>
+      <offeringBinding
+            offeringId="com.ibm.ibd.offering.36"
+            offeringVersionRange="[1.0.0, 3.0.0)">
+         <offeringData
+               dataDefaultValue="true"
+               dataDes="This is an offering user data associated with the Blueprint Director offering. You need to check the checklbox"
+               dataKey="user.launchmode"
+               validationClass="com.ibm.ibd.install.ValidateSimplifyIDE">
+         </offeringData>
+      </offeringBinding>
+   </extension>
+</plugin>

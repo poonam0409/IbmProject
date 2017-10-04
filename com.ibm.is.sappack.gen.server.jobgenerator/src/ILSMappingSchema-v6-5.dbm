@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2011, 2012  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<!--xtools2_universal_type_manager-->
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DB2Model="http:///com/ibm/db/models/db2/db2.ecore" xmlns:LUW="http:///com/ibm/db/models/db2/luw.ecore" xmlns:SQLConstraints="http:///org/eclipse/datatools/modelbase/sql/constraints.ecore" xmlns:SQLDataTypes="http:///org/eclipse/datatools/modelbase/sql/datatypes.ecore">
+  <LUW:LUWDatabase xmi:id="_ils_s5w3LmhEd00" name="Database" vendor="DB2 UDB" version="V9.5" schemas="_ils_s5w3LmhEd01"/>
+  <DB2Model:DB2Schema xmi:id="_ils_s5w3LmhEd01" name="AUX" tables="_K8pYcNqfEd6g05l7yF8FCg _R-VyMNqiEd6g05l7yF8FCg _keHgMNqiEd6g05l7yF8FCg _oM--oNqiEd6g05l7yF8FCg" database="_ils_s5w3LmhEd00"/>
+  <LUW:LUWTable xmi:id="_K8pYcNqfEd6g05l7yF8FCg" name="TRANSFORMER_MAPPING_1" label="Transformer Mapping Table 1" schema="_ils_s5w3LmhEd01">
+    <eAnnotations xmi:id="_ils_s5w3LmhEd22a" source="UDP">
+      <details xmi:id="_ils_s5w3LmhEd22a1" key="SAPPACK_RUN_ID" value="1255621398297"/>
+      <details xmi:id="_ils_s5w3LmhEd22a2" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      <details xmi:id="_ils_s5w3LmhEd22a3" key="SAPPACK_STAGE_VARIABLES" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&lt;StageVariables>&lt;StageVariable name =&quot;SurrogateKey&quot; description=&quot;next surrogate key&quot; type=&quot;INTEGER&quot; length=&quot;-1&quot; derivation=&quot;If SurrogateKey = 0 Then NextSurrogateKey() Else SurrogateKey&quot;/>&lt;/StageVariables>"/>
+      <details xmi:id="_ils_s5w3LmhEd22a4" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+      <details xmi:id="_ils_s5w3LmhEd22a9" key="SAPPACK_GEN_MODEL_VERSION" value="!"/>
+    </eAnnotations>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_ils_s5w9RmhEd210" name="IDOC_{0}_P_KEY" description="Primary Key for IDOC type" label="IDOC_{0}_P_KEY" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_ils_s5w9RmhEd2109" source="UDP">
+        <details xmi:id="_ils_s5w9RmhEd2109a" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="30"/>
+        <details xmi:id="_ils_s5w9RmhEd2109b" key="SAPPACK_TRANSFORMER_SRC_MAPPING" value="IDOC_{0}_F_KEY"/>
+        <details xmi:id="_ils_s5w9RmhEd2109c" key="SAPPACK_UNICODE" value="true"/>
+        <details xmi:id="_ils_s5w9RmhEd2109d" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_ils_s5w9RmhEd210a" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="30"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_ils_s5w3LmhEd220" name="SEG_{0}_P_KEY" description="Primary key for segment" label="SEG_{0}_P_KEY" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_ils_s5w3LmhEd2209" source="UDP">
+        <details xmi:id="_ils_s5w3LmhEd2209a" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="30"/>
+        <details xmi:id="_ils_s5w3LmhEd2209b" key="SAPPACK_TRANSFORMER_SRC_MAPPING" value="SEG_{0}_P_KEY"/>
+        <details xmi:id="_ils_s5w3LmhEd2209c" key="SAPPACK_UNICODE" value="true"/>
+        <details xmi:id="_ils_s5w3LmhEd2209d" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_ils_s5w3LmhEd220a" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="30"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_ils_s5w3LmhEd240" name="SERIAL" description="Serialization" label="SERIAL" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_ils_s5w3LmhEd2409" source="UDP">
+        <details xmi:id="_ils_s5w3LmhEd2409a" key="SAPPACK_TRANSFORMER_SRC_MAPPING" value="SurrogateKey"/>
+        <details xmi:id="_ils_s5w3LmhEd2409c" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_ils_s5w3LmhEd240a" name="INTEGER" primitiveType="INTEGER"/>
+    </columns>
+    <constraints xsi:type="SQLConstraints:PrimaryKey" xmi:id="_Y_TeENqjEd6g05l7yF8FCg" name="ILS_{0}_PK" members="_ils_s5w9RmhEd210 _ils_s5w3LmhEd220"/>
+  </LUW:LUWTable>
+  <LUW:LUWTable xmi:id="_R-VyMNqiEd6g05l7yF8FCg" name="CONTROL_RECORD" label="Control Record" schema="_ils_s5w3LmhEd01">
+    <eAnnotations xmi:id="_ils_y5w0LmhFa22a" source="UDP">
+      <details xmi:id="_ils_y5w0LmhFa22a1" key="SAPPACK_RUN_ID" value="1233567398297"/>
+      <details xmi:id="_ils_y5w0LmhFa22a2" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      <details xmi:id="_ils_y5w0LmhFa22a3" key="SAPPACK_SEG_TYPE" value="CONTROL_RECORD"/>
+      <details xmi:id="_ils_y5w0LmhFa22a4" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+      <details xmi:id="_ils_y5w0LmhFa22a9" key="SAPPACK_GEN_MODEL_VERSION" value="!"/>
+    </eAnnotations>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_ils_y5w0LmhFa220" name="IDOC_{0}_P_KEY" description="Primary Key for IDOC type" label="IDOC_{0}_P_KEY" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_ils_y5w0LmhFa2209" source="UDP">
+        <details xmi:id="_ils_y5w0LmhFa2209a" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="30"/>
+        <details xmi:id="_ils_y5w0LmhFa2209b" key="SAPPACK_DERIVATION_EXPRESSION" value="IDOC_{0}_P_KEY"/>
+        <details xmi:id="_ils_y5w0LmhFa2209c" key="SAPPACK_UNICODE" value="true"/>
+        <details xmi:id="_ils_y5w0LmhFa2209d" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_ils_y5w0LmhFa220a" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="30"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_ils_y5w0LmhFa230" name="ARCKEY" description="Key for external message archive" label="ARCKEY" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_ils_y5w0LmhFa2309" source="UDP">
+        <details xmi:id="_ils_y5w0LmhFa2309a" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="70"/>
+        <details xmi:id="_ils_y5w0LmhFa2309b" key="SAPPACK_TRANSFORMER_SRC_MAPPING" value="{0}.SERIAL : ''x'' : {0}.SEG_{0}_P_KEY"/>
+        <details xmi:id="_ils_y5w0LmhFa2309c" key="SAPPACK_UNICODE" value="true"/>
+        <details xmi:id="_ils_y5w0LmhFa2309d" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_ils_y5w0LmhFa230a" name="CHAR" primitiveType="CHARACTER" length="70"/>
+    </columns>
+    <constraints xsi:type="SQLConstraints:PrimaryKey" xmi:id="_T5Gj0NqkEd6g05l7yF8FCg" name="CONTROL_RECORD_PK" members="_ils_y5w0LmhFa220"/>
+  </LUW:LUWTable>
+  <LUW:LUWTable xmi:id="_keHgMNqiEd6g05l7yF8FCg" name="RECORD_STATUS_2" label="Record Status" schema="_ils_s5w3LmhEd01">
+    <eAnnotations xmi:id="_ils_y5w0LmhFa25a" source="UDP">
+      <details xmi:id="_ils_y5w0LmhFa25a1" key="SAPPACK_RUN_ID" value="6313567398297"/>
+      <details xmi:id="_ils_y5w0LmhFa25a2" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      <details xmi:id="_ils_y5w0LmhFa25a3" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+      <details xmi:id="_ils_y5w0LmhFa25a9" key="SAPPACK_GEN_MODEL_VERSION" value="!"/>
+    </eAnnotations>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_ils_y5w0LmhFa250" name="TABNAME" description="available at job generation" label="TABLE_NAME" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_ils_y5w0LmhFa2509" source="UDP">
+        <details xmi:id="_ils_y5w0LmhFa2509a" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="30"/>
+        <details xmi:id="_ils_y5w0LmhFa2509b" key="SAPPACK_TRANSFORMER_SRC_MAPPING" value="%TBL_NAME%"/>
+        <details xmi:id="_ils_y5w0LmhFa2509c" key="SAPPACK_UNICODE" value="true"/>
+        <details xmi:id="_ils_y5w0LmhFa2509d" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_ils_y5w0LmhFa250a" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="30"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_ils_y5w0LmhFa260" name="OBJECT_KEY" description="" label="OBJECT_KEY" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_ils_y5w0LmhFa2609" source="UDP">
+        <details xmi:id="_ils_y5w0LmhFa2609a" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="30"/>
+        <details xmi:id="_ils_y5w0LmhFa2609b" key="SAPPACK_TRANSFORMER_SRC_MAPPING" value="SEG_{0}_P_KEY"/>
+        <details xmi:id="_ils_y5w0LmhFa2609c" key="SAPPACK_UNICODE" value="true"/>
+        <details xmi:id="_ils_y5w0LmhFa2609d" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_ils_y5w0LmhFa260a" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="30"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_ils_y5w0LmhFa270" name="BATCH_KEY" description="" label="BATCH_KEY" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_ils_y5w0LmhFa2709" source="UDP">
+        <details xmi:id="_ils_y5w0LmhFa2709a" key="SAPPACK_TRANSFORMER_SRC_MAPPING" value="SERIAL"/>
+        <details xmi:id="_ils_y5w0LmhFa2709c" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_ils_y5w0LmhFa270a" name="INTEGER" primitiveType="INTEGER"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_ils_y5w0LmhFa280" name="LOAD_FLAG" description="always &quot;&quot;" label="LOAD_FLAG" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_ils_y5w0LmhFa2809" source="UDP">
+        <details xmi:id="_ils_y5w0LmhFa2809a" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="1"/>
+        <details xmi:id="_ils_y5w0LmhFa2809b" key="SAPPACK_TRANSFORMER_SRC_MAPPING" value="&quot; &quot;"/>
+        <details xmi:id="_ils_y5w0LmhFa2809c" key="SAPPACK_UNICODE" value="true"/>
+        <details xmi:id="_ils_y5w0LmhFa2809d" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_ils_y5w0LmhFa280a" name="CHAR"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_ils_y5w0LmhFa290" name="IDOC_NUM" description="updated by IDoc Load Status" label="IDOC_NUM" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_ils_y5w0LmhFa2609" source="UDP">
+        <details xmi:id="_ils_y5w0LmhFa2909a" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="16"/>
+        <details xmi:id="_ils_y5w0LmhFa2909b" key="SAPPACK_TRANSFORMER_SRC_MAPPING" value="&quot;&quot;"/>
+        <details xmi:id="_ils_y5w0LmhFa2909c" key="SAPPACK_UNICODE" value="true"/>
+        <details xmi:id="_ils_y5w0LmhFa2909d" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_ils_y5w0LmhFa290a" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="16"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_ils_y5w0LmhFa300" name="STATUS_CODE" description="updated by IDoc Load Status" label="STATUS_CODE" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_ils_y5w0LmhFa3009" source="UDP">
+        <details xmi:id="_ils_y5w0LmhFa3009a" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="2"/>
+        <details xmi:id="_ils_y5w0LmhFa3009b" key="SAPPACK_TRANSFORMER_SRC_MAPPING" value="&quot;  &quot;"/>
+        <details xmi:id="_ils_y5w0LmhFa3009c" key="SAPPACK_UNICODE" value="true"/>
+        <details xmi:id="_ils_y5w0LmhFa3009d" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_ils_y5w0LmhFa300a" name="CHAR" length="2"/>
+    </columns>
+<!--    
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_ils_y5w0LmhFa310" name="STATUS_TEXT" description="updated by IDoc Load Status" label="STATUS_TEXT" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_ils_y5w0LmhFa3109" source="UDP">
+        <details xmi:id="_ils_y5w0LmhFa3109a" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="2048"/>
+        <details xmi:id="_ils_y5w0LmhFa3109b" key="SAPPACK_TRANSFORMER_SRC_MAPPING" value="&quot;&quot;"/>
+        <details xmi:id="_ils_y5w0LmhFa3109c" key="SAPPACK_UNICODE" value="true"/>
+        <details xmi:id="_ils_y5w0LmhFa3109d" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_ils_y5w0LmhFa310a" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="2000"/>
+    </columns>
+-->    
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_ils_y5w0LmhFa320" name="DXOB_QID" description="not used" label="DXOB_QID" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_ils_y5w0LmhFa3209" source="UDP">
+        <details xmi:id="_ils_y5w0LmhFa3209a" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="20"/>
+        <details xmi:id="_ils_y5w0LmhFa3209b" key="SAPPACK_TRANSFORMER_SRC_MAPPING" value="&quot;&quot;"/>
+        <details xmi:id="_ils_y5w0LmhFa3209c" key="SAPPACK_UNICODE" value="true"/>
+        <details xmi:id="_ils_y5w0LmhFa3209d" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_ils_y5w0LmhFa320a" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="20"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_ils_y5w0LmhFa330" name="EFFECTIVE_DATE" description="updated by IDoc Load Status" label="EFFECTIVE_DATE" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_ils_y5w0LmhFa3309" source="UDP">
+        <details xmi:id="_ils_y5w0LmhFa3309a" key="SAPPACK_TRANSFORMER_SRC_MAPPING" value="DSJobStartTimestamp"/>
+        <details xmi:id="_ils_y5w0LmhFa3309b" key="SAPPACK_UNICODE" value="true"/>
+        <details xmi:id="_ils_y5w0LmhFa3309c" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_ils_y5w0LmhFa330a" name="TIMESTAMP" primitiveType="TIMESTAMP"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_ils_y5w0LmhFa340" name="NEW_SAP_KEY" description="updated by IDoc Load Status" label="NEW_SAP_KEY" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_ils_y5w0LmhFa3409" source="UDP">
+        <details xmi:id="_ils_y5w0LmhFa3409a" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="30"/>
+        <details xmi:id="_ils_y5w0LmhFa3409b" key="SAPPACK_TRANSFORMER_SRC_MAPPING" value="&quot;&quot;"/>
+        <details xmi:id="_ils_y5w0LmhFa3409c" key="SAPPACK_UNICODE" value="true"/>
+        <details xmi:id="_ils_y5w0LmhFa3409d" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_ils_y5w0LmhFa340a" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="30"/>
+    </columns>
+    <constraints xsi:type="SQLConstraints:PrimaryKey" xmi:id="_XvQgkNqlEd6g05l7yF8FCg" name="RESULT_TABLE_1_PK" members="_ils_y5w0LmhFa250 _ils_y5w0LmhFa260"/>
+  </LUW:LUWTable>
+  <LUW:LUWTable xmi:id="_oM--oNqiEd6g05l7yF8FCg" name="JOB_RUN_DATA_2" label="Job Run Data results" schema="_ils_s5w3LmhEd01">
+    <eAnnotations xmi:id="_ils_y5w0u6rVd40a" source="UDP">
+      <details xmi:id="_ils_y5w0u6rVd40a1" key="SAPPACK_RUN_ID" value="63134827398297"/>
+      <details xmi:id="_ils_y5w0u6rVd40a2" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      <details xmi:id="_ils_y5w0u6rVd40a3" key="SAPPACK_FILTER_CONSTRAINT" value="@PARTITIONNUM=0 AND @INROWNUM=1"/>
+      <details xmi:id="_ils_y5w0u6rVd40a4" key="SAPPACK_SAP_SYSTEM_IS_UNICODE" value="true"/>
+      <details xmi:id="_ils_y5w0u6rVd40a9" key="SAPPACK_GEN_MODEL_VERSION" value="!"/>
+    </eAnnotations>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_ils_y5w0u6rVd400" name="BATCH_KEY" description="" label="BATCH_KEY" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_ils_y5w0u6rVd4009" source="UDP">
+        <details xmi:id="_ils_y5w0u6rVd4009a" key="SAPPACK_TRANSFORMER_SRC_MAPPING" value="SERIAL"/>
+        <details xmi:id="_ils_y5w0u6rVd4009c" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_ils_y5w0u6rVd400a" name="INTEGER" primitiveType="INTEGER"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_ils_y5w0u6rVd401" name="LOAD_TYPE" description="always IDOC" label="LOAD_TYPE" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_ils_y5w0u6rVd4019" source="UDP">
+        <details xmi:id="_ils_y5w0u6rVd4019a" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="16"/>
+        <details xmi:id="_ils_y5w0u6rVd4019b" key="SAPPACK_TRANSFORMER_SRC_MAPPING" value="&quot;IDOC&quot;"/>
+        <details xmi:id="_ils_y5w0u6rVd4019c" key="SAPPACK_UNICODE" value="true"/>
+        <details xmi:id="_ils_y5w0u6rVd4019d" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_ils_y5w0u6rVd401a" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="16"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_ils_y5w0u6rVd402" name="LOAD_FLAG" description="always &quot;&quot;" label="LOAD_FLAG" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_ils_y5w0u6rVd4029" source="UDP">
+        <details xmi:id="_ils_y5w0u6rVd4029a" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="1"/>
+        <details xmi:id="_ils_y5w0u6rVd4029b" key="SAPPACK_TRANSFORMER_SRC_MAPPING" value="&quot;&quot;"/>
+        <details xmi:id="_ils_y5w0u6rVd4029c" key="SAPPACK_UNICODE" value="true"/>
+        <details xmi:id="_ils_y5w0u6rVd4029d" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_ils_y5w0u6rVd402a" name="CHAR"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_ils_y5w0u6rVd403" name="STARTLOADTS" description="" label="STARTLOADTS" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_ils_y5w0u6rVd4039" source="UDP">
+        <details xmi:id="_ils_y5w0u6rVd4039a" key="SAPPACK_TRANSFORMER_SRC_MAPPING" value="DSJobStartTimestamp"/>
+        <details xmi:id="_ils_y5w0u6rVd4039b" key="SAPPACK_UNICODE" value="true"/>
+        <details xmi:id="_ils_y5w0u6rVd4039c" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_ils_y5w0u6rVd403a" name="TIMESTAMP" primitiveType="TIMESTAMP"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_ils_y5w0u6rVd404" name="OBJECT_NAME" description="available at job generation" label="OBJECT_NAME" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_ils_y5w0u6rVd4049" source="UDP">
+        <details xmi:id="_ils_y5w0u6rVd4049a" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="20"/>
+        <details xmi:id="_ils_y5w0u6rVd4049b" key="SAPPACK_TRANSFORMER_SRC_MAPPING" value="%OBJECTNAME%"/>
+        <details xmi:id="_ils_y5w0u6rVd4049c" key="SAPPACK_UNICODE" value="true"/>
+        <details xmi:id="_ils_y5w0u6rVd4049d" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_ils_y5w0u6rVd404a" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="20"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_ils_y5w0u6rVd405" name="ENDLOADTS" description="not used" label="ENDLOADTS" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_ils_y5w0u6rVd4059" source="UDP">
+        <details xmi:id="_ils_y5w0u6rVd4059a" key="SAPPACK_TRANSFORMER_SRC_MAPPING" value="DSJobStartTimestamp"/>
+        <details xmi:id="_ils_y5w0u6rVd4059b" key="SAPPACK_UNICODE" value="true"/>
+        <details xmi:id="_ils_y5w0u6rVd4059c" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_ils_y5w0u6rVd405a" name="TIMESTAMP" primitiveType="TIMESTAMP"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_ils_y5w0u6rVd406" name="JOBNAME" description="" label="JOBNAME" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_ils_y5w0u6rVd4069" source="UDP">
+        <details xmi:id="_ils_y5w0u6rVd4069a" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="255"/>
+        <details xmi:id="_ils_y5w0u6rVd4069b" key="SAPPACK_TRANSFORMER_SRC_MAPPING" value="DSJobName"/>
+        <details xmi:id="_ils_y5w0u6rVd4069c" key="SAPPACK_UNICODE" value="true"/>
+        <details xmi:id="_ils_y5w0u6rVd4069d" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_ils_y5w0u6rVd406a" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="255"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_ils_y5w0u6rVd407" name="MSG_TYPE" description="available at job generation" label="MSG_TYPE" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_ils_y5w0u6rVd4079" source="UDP">
+        <details xmi:id="_ils_y5w0u6rVd4079a" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="35"/>
+        <details xmi:id="_ils_y5w0u6rVd4079b" key="SAPPACK_TRANSFORMER_SRC_MAPPING" value="%MSG_TYPE%"/>
+        <details xmi:id="_ils_y5w0u6rVd4079c" key="SAPPACK_UNICODE" value="true"/>
+        <details xmi:id="_ils_y5w0u6rVd4079d" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_ils_y5w0u6rVd407a" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="35"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_ils_y5w0u6rVd408" name="SEND_PTNR" description="available at job generation" label="SEND_PTNR" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_ils_y5w0u6rVd4089" source="UDP">
+        <details xmi:id="_ils_y5w0u6rVd4089a" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="35"/>
+        <details xmi:id="_ils_y5w0u6rVd4089b" key="SAPPACK_TRANSFORMER_SRC_MAPPING" value="&quot;&quot;"/>
+        <details xmi:id="_ils_y5w0u6rVd4089c" key="SAPPACK_UNICODE" value="true"/>
+        <details xmi:id="_ils_y5w0u6rVd4089d" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_ils_y5w0u6rVd408a" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="35"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_ils_y5w0u6rVd409" name="SEND_PORT" description="available at job generation" label="SEND_PORT" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_ils_y5w0u6rVd4099" source="UDP">
+        <details xmi:id="_ils_y5w0u6rVd4099a" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="35"/>
+        <details xmi:id="_ils_y5w0u6rVd4099b" key="SAPPACK_TRANSFORMER_SRC_MAPPING" value="&quot;&quot;"/>
+        <details xmi:id="_ils_y5w0u6rVd4099c" key="SAPPACK_UNICODE" value="true"/>
+        <details xmi:id="_ils_y5w0u6rVd4099d" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_ils_y5w0u6rVd409a" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="35"/>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_ils_y5w0u6rVd40A" name="TABNAME" description="available at job generation" label="TABLE_NAME" nullable="false" defaultValue="">
+      <eAnnotations xmi:id="_ils_y5w0u6rVd40A9" source="UDP">
+        <details xmi:id="_ils_y5w0u6rVd40A9a" key="SAPPACK_SAP_DATA_TYPE_LENGTH" value="30"/>
+        <details xmi:id="_ils_y5w0u6rVd40A9b" key="SAPPACK_TRANSFORMER_SRC_MAPPING" value="%TBL_NAME%"/>
+        <details xmi:id="_ils_y5w0u6rVd40A9c" key="SAPPACK_UNICODE" value="true"/>
+        <details xmi:id="_ils_y5w0u6rVd40A9d" key="SAPPACK_DATA_OBJECT_SOURCE" value="SapPackLoadStatus"/>
+      </eAnnotations>
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_ils_y5w0u6rVd40Aa" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="30"/>
+    </columns>
+    <constraints xsi:type="SQLConstraints:PrimaryKey" xmi:id="_5rTvUNqlEd6g05l7yF8FCg" name="RESULT_TABLE_2_PK" members="_ils_y5w0u6rVd400"/>
+  </LUW:LUWTable>
+</xmi:XMI>

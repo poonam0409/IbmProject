@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2014  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en">
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<title>IBM InfoSphere Information Server Rapid Modeler and Rapid Generator for SAP Applications</title>
+</head>
+<body>
+<h1>IBM InfoSphere Information Server Rapid Modeler and Rapid Generator for SAP Applications</h1>
+<h2>Installation and system requirements</h2>
+The <b>Rapid Modeler and Rapid Generator</b> component is part of the IBM InfoSphere Pack for SAP Applications. It consists of two tiers:
+<ul>
+    <li><b>Client</b><br />
+    The client tier is a plug-in for InfoSphere Data Architect and is installed separately using IBM Installation Manager.</li>
+    <li><b>Server</b><br />
+    This server tier is a web application that is installed on the WebSphere Application Server that is part of IBM Information Server.
+    It is installed automatically by the Pack for SAP Applications installer.</li>
+</ul>
+
+<h3>Required products and components (client tier)</h3>
+
+The client tier is only available for Windows operating systems.<br />
+The following table shows the required products and components.<br />
+<br />
+<table border="1">
+    <tbody>
+        <tr>
+            <td><b>Product</b></td>
+            <td><b>Version</b></td>
+            <td><b>Remarks</b></td>
+        </tr>
+        <tr>
+            <td>IBM InfoSphere Data Architect</td>
+            <td>8.1 or 8.5</td>
+            <td>Required</td>
+        </tr>
+        <tr>
+            <td>SAP JCo</td>
+            <td>3</td>
+            <td>Required</td>
+        </tr>
+        <tr>
+            <td>IBM InfoSphere Information Server (client tier)</td>
+            <td>9.1.2 or 11.3</td>
+            <td>Optional, used for job compilation only</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Client tier installation</h3>
+<ol>
+    <li>Run <b>launchpad.exe</b> in the root folder of the installation package.</li>
+    <li>Follow the instructions in the installation wizard and make sure that you select the package group where
+    you installed InfoSphere Data Architect.</li>
+</ol>
+
+<h3>Server tier installation</h3>
+The server tier is installed automatically as part of the Pack for SAP Applications installation.
+<br/>
+To check if the server tier was installed successfully, open a browser window and enter the following URL:<br /><br />
+https://&lt;ISDomainName&gt;:&lt;ISDomainPort&gt;/cwrapidgenerator/JobGenerator
+<br/><br />
+where &lt;ISDomainName&gt; is replaced by the IS Server domain name
+and &lt;ISDomainPort&gt; is replaced by the IS HTTPS port number (the default is 9443).
+<p/>
+
+</body>
+</html>

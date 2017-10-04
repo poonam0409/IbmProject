@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2014  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<HTML LANG="en">
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+
+<!-- Licensed Materials - Property of IBM
+     5648-F10 (C) Copyright International Business Machines Corp. 2007, 2014
+     All Rights Reserved
+     US Government Users Restricted Rights - Use, duplication or disclosure
+     restricted by GSA ADP Schedule Contract with IBM Corp. -->
+
+<script language="javascript">
+   var knowledgeCenterHostURL='http://www.ibm.com/support/knowledgecenter/SSZJPZ_11.3.0/';
+   var prereqDocumentURL='http://www.ibm.com/support/docview.wss?uid=swg27037768';
+</script>
+</head>
+
+
+<script src="../jscp.js" language="javascript">
+<%@ include file="global.head" %>
+<% loadCSSfiles(DEFAULTCSS, "content.css"); %>
+
+<body>
+	<span class="mainHeader"><%= property('guideTitle') %></span><br>
+	<em><%= property('intro') %></em><br>
+	
+	<h1 class="noNumber"><%= property('overview') %></h1>
+	<p>
+		<%= property('sentence1') %>
+		<br>
+		<img src="./images/info_link.gif">&nbsp;<a href="javascript:void 0" onclick="viewPage(NO_DISKID, findFileInPaths(null, ['documentation/'+top.LOCALE, 'documentation'], property('overviewHTML')))"><%=property('overviewitem')%></a>
+	</p>
+
+    <h1 class="noNumber"><%= property('install') %></h1>
+    <p><%= property('installsentence1') %>
+
+	<br>
+	<img src="./images/readme_16.gif">&nbsp;<a href="javascript:void 0" name="readme_installation"
+	     onclick="viewPage(NO_DISKID, knowledgeCenterHostURL + property('installationHTML'))"><%=property('installlink')%></a>
+	<br>
+	<img src="./images/readme_16.gif">&nbsp;<a href="javascript:void 0" name="readme_prereq" 
+	     onclick="viewPage(NO_DISKID, prereqDocumentURL)"><%=property('prereqlink')%></a>
+		
+	</p>
+	<h1 class="noNumber"><%= property('more') %></h1>
+	<p><%= property('sentence3') %>
+	</p>
+
+	<hr>
+	<p class="copyright"><%= property('copyright') %></p>
+
+</body>
+</script>
+</html>

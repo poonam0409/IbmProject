@@ -1,0 +1,314 @@
+//---------------------------------------------------------------------------  
+// IBM Confidential                                                            
+//                                                                             
+// OCO Source Materials                                                        
+//                                                                             
+// 5724-Q55                                                                 
+//                                                                             
+// (C) Copyright IBM Corporation 2009, 2011                                              
+//                                                                             
+// The source code for this program is not published or otherwise              
+// divested of its trade secrets, irrespective of what has been                
+// deposited with the U.S. Copyright Office.                                     
+//---------------------------------------------------------------------------  
+//-*-************************************************************************  
+//                                                                             
+// IBM InfoSphere Information Server Packs for SAP Applications 
+//                                                                             
+// Module Name : com.ibm.is.sappack.dsstages.idocload.segcollimpl
+//                                                                             
+//*************************-END OF SPECIFICATIONS-***************************
+package com.ibm.is.sappack.dsstages.idocload.segcollimpl;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.logging.Level;
+
+import com.ibm.is.sappack.dsstages.common.Constants;
+import com.ibm.is.sappack.dsstages.common.DSEnvironment;
+import com.ibm.is.sappack.dsstages.common.DSSAPConnection;
+import com.ibm.is.sappack.dsstages.common.IDocSegment;
+import com.ibm.is.sappack.dsstages.common.IDocType;
+import com.ibm.is.sappack.dsstages.common.IDocTypeConfiguration;
+import com.ibm.is.sappack.dsstages.common.StageLogger;
+import com.ibm.is.sappack.dsstages.common.Utilities;
+import com.ibm.is.sappack.dsstages.idoc.IDocRuntimeException;
+import com.ibm.is.sappack.dsstages.idocload.ControlRecordData;
+import com.ibm.is.sappack.dsstages.idocload.ControlRecordDataImpl;
+import com.ibm.is.sappack.dsstages.idocload.IDocTree;
+import com.ibm.is.sappack.dsstages.idocload.SegmentCollector;
+import com.ibm.is.sappack.dsstages.idocload.SegmentData;
+import com.ibm.is.sappack.dsstages.idocload.SegmentDataImpl;
+import com.ibm.is.sappack.dsstages.idocload.SegmentValidationHandler;
+
+/**
+ * A base implementation for a file-based segment collector.
+ * An instance of this class keeps track of a list of files (field entries).
+ * Each of those files will contain all segments for one IDoc (including the
+ * control record). That means that segments for one IDoc are not 
+ * distributed across file entries! 
+ * When accessing the IDocs, an InMemorySegmentCollector is created for each
+ * of the file entries and all IDoc retrieval is delegated to the InMemorySegmentCollector
+ * (see implementation of getAllIDocTrees()).
+ * 
+ * Subclasses must implement findEntry(), the implementation should create / access
+ * file entries.
+ */
+public abstract class FileSegmentCollectorBase extends SegmentCollector {
+
+	static String copyright() {
+		return com.ibm.is.sappack.dsstages.idocload.segcollimpl.Copyright.IBM_COPYRIGHT_SHORT;
+	}
+
+	private final static String CLASSNAME = FileSegmentCollectorBase.class.getName();
+
+	protected static class Entry {
+		File file = null;
+		ExternalIDocSegmentWriter writer = null;
+		int numberOfIDocs = 0;
+	}
+
+	protected List<Entry> entries;
+
+	protected FileSegmentCollectorBase(DSEnvironment env, DSSAPConnection dsSAPConnection, IDocType idocType, SegmentValidationHandler handler) {
+		super(env, dsSAPConnection, idocType, handler);
+		this.entries = new ArrayList<Entry>();
+	}
+
+	protected Entry addNewEntry(int currNodeNumber) throws IOException {
+		Entry e = new Entry();
+		//if (currNodeNumber>=0)//poonam
+		
+		logger.log(Level.FINE, "inside addNewEntry  ''{0}''", currNodeNumber); //$NON-NLS-1$
+				
+		e.file = createNewFile(currNodeNumber, this.entries.size());
+		logger.log(Level.FINE, "Added segment collector file ''{0}''", e.file.getAbsolutePath()); //$NON-NLS-1$
+		
+		e.numberOfIDocs = 0;
+		e.writer = new ExternalIDocSegmentWriter(e.file);
+		this.entries.add(e);
+		logger.log(Level.FINE, "list of entries  ''{0}''", entries.toString()); //$NON-NLS-1$
+		
+		return e;
+	}
+
+	private File createNewFile(int currentNodeNumber, int i) {
+	    final String METHODNAME = "createNewFile(int, int)"; //$NON-NLS-1$
+	    logger.entering(CLASSNAME, METHODNAME);
+		String loadDataDir = null;
+		logger.log(Level.FINE, "dsSAPConnection ''{0}''", dsSAPConnection); //$NON-NLS-1$
+		
+		if (this.dsSAPConnection != null) {
+			IDocTypeConfiguration config = Utilities.findConfiguration(dsSAPConnection, this.idocType.getIDocTypeName());
+			loadDataDir = config.getLoadConfiguration().getLoadDataDirectory();
+		} else {
+			loadDataDir = System.getProperty("java.io.tmpdir");
+			//$NON-NLS-1$
+			logger.log(Level.FINE, "loadDataDir ''{0}''", loadDataDir); //$NON-NLS-1$
+			
+		}
+		String project = this.dsEnvironment.getProjectName();
+		String job = this.dsEnvironment.getJobName();
+		String instance = this.dsEnvironment.getInvocationID();
+		String stageName = this.dsEnvironment.getStageName();
+		String loadFileName = project + "_" + job + "_" + instance + "_" + stageName + "_" + currentNodeNumber + "_" + i + ".tmp";    //$NON-NLS-1$//$NON-NLS-2$//$NON-NLS-3$//$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$
+		loadFileName = Utilities.toValidFileName(loadFileName);
+		logger.log(Level.FINE, "loadFileName ''{0}''", loadFileName); //$NON-NLS-1$
+		
+		File dir = new File(loadDataDir);
+	    // Need to create the directory first if it doesn't exist
+        if (!dir.exists()) {
+            boolean dirCreated = dir.mkdirs();
+            if (!dirCreated) {
+                logger.log(Level.SEVERE, "CC_IDOC_ErrorCreatingDirectory", dir);
+                logger.exiting(CLASSNAME, METHODNAME);
+                return null;
+            }
+        }
+		File result = new File(dir, loadFileName);
+		logger.log(Level.FINE, "result ''{0}''", result); //$NON-NLS-1$
+		logger.exiting(CLASSNAME, METHODNAME);
+		return result;
+	}
+
+	/*
+	 * This class iterates over the file entries of the enclosing class.
+	 * For each entry, it 
+	 *   1. creates an InMemSegmentCollector on the fly
+	 *   2. Reads all idoc segments from the file
+	 *   3. inserts all segments into the InMemSegmentCollector
+	 *   4. Delegates iteration to the iterator of the InMemSegmentCollector
+	 */
+	class FileIDocTreeIterator implements Iterator<IDocTree> {
+
+		int entryIndex;
+		Iterator<IDocTree> inMemIterator;
+
+		public FileIDocTreeIterator() {
+			entryIndex = 0;
+			inMemIterator = null;
+		}
+
+		void advance() {
+			final String METHODNAME = "advance"; //$NON-NLS-1$
+			logger.entering(CLASSNAME, METHODNAME);
+			if (inMemIterator != null) {
+				if (inMemIterator.hasNext()) {
+					logger.exiting(CLASSNAME, METHODNAME);
+					return;
+				}
+				inMemIterator = null;
+			}
+			try {
+				while (inMemIterator == null || !inMemIterator.hasNext()) {
+					if (logger.isLoggable(Level.FINE)) {
+						if (entryIndex < entries.size()) {
+							Entry e = entries.get(entryIndex);
+							logger.log(Level.FINE, "File {0} with index {1} finished", new Object[]{e.file.getAbsolutePath(), entryIndex }); //$NON-NLS-1$
+						}
+					}
+					while (entryIndex < entries.size() && entries.get(entryIndex).file.length() == 0) {
+						entryIndex++;
+					}
+					if (entryIndex < entries.size()) {
+						Entry e = entries.get(entryIndex);
+						if (logger.isLoggable(Level.FINE)) {
+							logger.log(Level.FINE, "Creating in memory segment collector for file {0} at index {1}", new Object[] { e.file.getAbsolutePath(), entryIndex  }); //$NON-NLS-1$
+						}
+						InMemorySegmentCollector segColl = new InMemorySegmentCollector(dsEnvironment, dsSAPConnection, idocType, segmentValidationHandler);
+						ExternalIDocSegmentReader segReader = new ExternalIDocSegmentReader(e.file);
+						entryIndex++;
+						Object[] seg = null;
+						while ((seg = segReader.getNextIDocData()) != null) {
+							String segmentTypeName = (String) seg[3];
+							if (segmentTypeName.equals(Constants.IDOC_CONTROL_RECORD_SEGMENT_TYPE_NAME)){
+								ControlRecordData crd = new ControlRecordDataImpl(idocType.getControlRecord(), (char[]) seg[4]);
+								segColl.setControlRecord((String) seg[0], crd);
+							}else{
+								IDocSegment segmentMetaData = findIDocSegment(segmentTypeName);
+								SegmentDataImpl sd = new SegmentDataImpl(segmentMetaData.getSegmentDefinitionName(), (char[]) seg[4]);
+								segColl.insertSegment((String) seg[0], (String) seg[1], (String) seg[2], segmentMetaData, sd);
+							}
+						}
+						segReader.close();
+						inMemIterator = segColl.getAllIDocTrees();
+					} else {
+						// no subsequent iterator
+						break;
+					}
+				}
+			} catch (IOException exc) {
+				StageLogger.logUnexpectedException(exc);
+				throw new IDocRuntimeException(exc);
+			}
+			//cleanup();//poonam
+			logger.exiting(CLASSNAME, METHODNAME);
+		}
+
+		@Override
+		public boolean hasNext() {
+			final String METHODNAME = "hasNext"; //$NON-NLS-1$
+			logger.entering(CLASSNAME, METHODNAME);
+			advance();
+			boolean result = this.inMemIterator != null && this.inMemIterator.hasNext();
+			logger.exiting(CLASSNAME, METHODNAME);
+			return result;
+		}
+
+		@Override
+		public IDocTree next() {
+			final String METHODNAME = "next"; //$NON-NLS-1$
+			logger.entering(CLASSNAME, METHODNAME);
+			advance();
+			logger.exiting(CLASSNAME, METHODNAME);
+			return this.inMemIterator.next();
+		}
+
+		@Override
+		public void remove() {
+			throw new UnsupportedOperationException();
+		}
+
+	}
+
+	@Override
+	public Iterator<IDocTree> getAllIDocTrees() {
+		final String METHODNAME = "getAllIDocTrees"; //$NON-NLS-1$
+		this.logger.entering(CLASSNAME, METHODNAME);
+		this.logger.log(Level.FINER, "Closing all external file writers"); //$NON-NLS-1$
+		try {
+			for (Entry e : entries) {
+				ExternalIDocSegmentWriter w = e.writer;
+				if (w != null) {
+					w.close();
+					e.writer = null;
+				}
+			}
+		} catch (IOException exc) {
+			StageLogger.logUnexpectedException(exc);
+			throw new IDocRuntimeException(exc);
+		}
+		Iterator<IDocTree> result = new FileIDocTreeIterator();
+		this.logger.exiting(CLASSNAME, METHODNAME);
+		return result;
+	}
+
+
+	protected abstract Entry findEntry(String idocNumber) throws IOException;
+
+	@Override
+	public void insertSegment(String idocNumber, String segmentID, String parentID, IDocSegment seg, SegmentData segData) {
+		final String METHODNAME = "insertSegment"; //$NON-NLS-1$
+		this.logger.entering(CLASSNAME, METHODNAME);
+		try {
+			Entry e = findEntry(idocNumber);
+			e.writer.addIDocData(idocNumber, segmentID, parentID, seg.getSegmentTypeName(), segData.getSegmentDataBuffer());
+		} catch (IOException e) {
+			StageLogger.logUnexpectedException(e);
+			throw new IDocRuntimeException(e);
+		}
+		this.logger.exiting(CLASSNAME, METHODNAME);
+	}
+	
+	@Override
+	public void setControlRecord(String idocNumber, ControlRecordData controRecordData) {
+		final String METHODNAME = "setControlRecord"; //$NON-NLS-1$
+		this.logger.entering(CLASSNAME, METHODNAME);
+		this.insertSegment(idocNumber, "", "", this.idocType.getControlRecord(), controRecordData); //$NON-NLS-1$ //$NON-NLS-2$
+		this.logger.exiting(CLASSNAME, METHODNAME);
+	}
+	
+	@Override
+	public void cleanup() {
+		this.logger.log(Level.FINE, "inside cleanup"); //$NON-NLS-1$
+		
+		final String METHODNAME = "cleanup"; //$NON-NLS-1$
+		this.logger.entering(CLASSNAME, METHODNAME);
+		for (Entry e : this.entries) {
+			this.logger.log(Level.FINE, "file name {0} ",e.file.toString());
+			
+//			if (e.file.exists()) {
+//				this.logger.log(Level.INFO, "file name {0} ",e.file.toString());
+//				
+//				this.logger.log(Level.INFO, "file  exists before delete ");
+//				if (!e.file.delete()) {
+//					this.logger.log(Level.FINE, "Segment collector file {0} could not be deleted", new Object[] { e.file.getName() }); //$NON-NLS-1$
+//				}
+//			}
+//			if (e.writer != null) {
+//				try {
+//					e.writer.close();
+//				} catch (IOException exc) {
+//					this.logger.log(Level.WARNING, "CC_IDOC_CommonUnexpectedException", exc); //$NON-NLS-1$
+//					// log warning but continue
+//				}
+//				e.writer = null;
+//			}
+		}
+		this.logger.exiting(CLASSNAME, METHODNAME);
+	}
+
+}

@@ -1,0 +1,49 @@
+﻿许可信息
+
+除 IBM 国际程序许可协议 （IBM 书号 Z125-3301-14）中的条款和条件外，下列各程序按照下述条款和条件被特许使用。
+
+程序名称：IBM InfoSphere Information Server Pack for SAP Applications v7.1
+程序号：5724-Q55
+
+程序名称：IBM InfoSphere Information Server Pack for SAP Applications for Non-Production v7.1
+程序号：5724-Q55
+
+根据国际软件许可协议（"IPLA"）和本许可信息中的描述，IBM 授予被许可方有限的使用本程序的权利。本权限仅限于授权使用级别，如被许可方根据“权利证明”支付的处理器价值单元（“PVU”）、价值单元(“ VU ”）或其他指定使用级别。被许可方的使用还可能限定于特定的机器，或仅作为支持程序，或遵循其他限制。由于被许可方未购买程序的整个经济价值，因此在未支付额外费用时，不允许使用其他项。此外，根据 IPLA 中的叙述，除非适用的协议中明确表明被许可方获得使用本程序的授权，否则被许可方无权使用本程序向任何第三方提供商业 IT 服务、提供商业托管或时间共享，或再许可、出租或租赁本程序。通过支付额外费用或根据其他或补充条款，被许可方可能获得更多权利。IBM 保留决定是否向被许可方提供此类额外权利的权利。
+
+本程序的规格详见本程序公告函的统一描述和技术信息部分。
+
+支持程序
+
+本程序是作为一个多产品程序包许可的，包括以下所标识的支持程序。被许可方被授权安装和使用此类支持程序，但仅支持被许可方根据本协议，在本程序的权利证明限制下，对本“主体程序”的使用（除非在本“许可证信息”文档中的其他地方提供了更大的权利）。短语“支持被许可方使用”将仅包含那些必要的使用，或者是与“主体程序”或另一支持程序的许可使用直接相关的那些使用。不得将支持程序用于任何其他目的。被许可方未被授权在“主体程序”之外转让或再销售支持程序。支持程序可能随附有许可条款以及适用于被许可方对支持程序使用的条款（如果有的话）。如果发生冲突，本许可信息文档的条款优先于支持程序的条款。当被许可方使用本程序的权利到期或终止时，被许可方必须停止使用、销毁支持程序的所有副本或立即将所有副本退还给被许可方从中获得本程序的一方。如果被许可方下载了支持程序，且从一方获得本程序，那么被许可方应该与该方取得联系。如果被许可方希望许可支持程序用于上述规定的限制范围之外的任何使用，请与 IBM 销售代表或被许可方从中获得本程序的一方联系，以获得相应的许可。
+
+以下是随本程序一起许可的支持程序：
+- IBM Cognos Business Intelligence v10.2
+- IBM Master Data Management Reference Data Management Hub v10.1
+- IBM Conversion Workbench Migration Asset for SAP Applications v2.1
+- IBM Cognos Data Manager Connector for SAP R/3 v10.2
+
+允许的组件
+
+无论本协议中有任何规定，都允许被许可方仅使用所标识的支持程序中的以下组件或功能：
+- IBM Master Data Management Reference Data Management Hub (may only be used with IBM Conversion Workbench Migration Asset for SAP Applications)
+- IBM Cognos Business Intelligence (may only be used with IBM Conversion Workbench Migration Asset for SAP Applications)
+- Cognos Connection (of IBM Cognos Business Intelligence)
+- Framework Manager (of IBM Cognos Business Intelligence)
+- Report Studio (of IBM Cognos Business Intelligence)
+- Report Viewer (of IBM Cognos Business Intelligence)
+
+非生产性限制
+
+如果本程序被指定为“非生产性”，那么本程序仅作为用于内部非生产活动的被许可方内部开发和测试环境的一部分进行部署，包括但不限于测试、性能调整、故障诊断、内部基准评测、登台、质量保证活动和/或使用已发布应用程序编程接口开发内部使用的本程序的添加项或扩展。在没有获取相应的生产权利的情况下，被许可方未被授权将本程序的任何部分用于任何其他用途。
+
+为了第三方利益的使用限制
+
+除非 IBM 另行书面同意，否则被许可方不得将本程序及其任何组件用于向第三方提供服务机构、托管服务或任何类别的商业信息技术服务或将本程序转让给第三方。
+
+安装
+
+“安装”是获取本程序许可所使用的计量单位。一个安装是物理或虚拟硬盘上可用于在计算机上执行的一个本程序已安装副本。被许可方必须为本程序的每个安装获得一份权利。
+
+L/N:  L-SBRN-9FN46Q
+D/N:  L-SBRN-9FN46Q
+P/N:  L-SBRN-9FN46Q 

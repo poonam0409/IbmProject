@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="利用 Rapid Generator for SAP 產生 IDoc 擷取 DataStage 工作">
+   <intro>
+      <description>
+         這個提要會顯示如何建立邏輯資料模型，以及如何擷取 SAP IDoc 類型的 meta 資料。
+         <br/>
+         <b>附註：這個提要假設您已完成提要「使用 Rapid Modeler for SAP
+         從 SAP 匯入 IDoc 類型」及「準備邏輯資料模型來產生工作」。
+         輸入這些提要中使用的專案、模型等名稱時，務必要與指出的名稱完全
+         相同，否則這裡的「按一下執行」按鈕可能無法運作。不過，「完成時
+         按一下」按鈕將繼續運作。
+         </b>
+      </description>
+   </intro>
+   <item
+         title="開啟資料視景">
+      <command
+            required="false"
+            serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=com.ibm.datatools.core.internal.ui.perspective)"/>         
+      <description>
+         如果您尚未在「資料」視景中，請在主功能表中選取<b>視窗</b> &gt; <b>開啟視景</b> &gt; <b>資料</b>。
+      </description>
+   </item>
+   <item dialog="true" 
+            title="在實體資料模型上開啟 Rapid Generator for SAP 精靈">
+        <description>
+        請確定 <b>RMIDocModel.dbm</b> 檔案存在於「資料設計專案」<b>RMTestProject</b> 中。
+        請記住，這個檔案是將邏輯模型 <b>RMIDocModel.ldm</b> 轉換為實體資料模型的結果。
+         <br/>用滑鼠右鍵按一下 <b>RMIDocModel.dbm</b>，然後選取
+         <b>Rapid Generator for SAP</b> &gt; <b>產生 DataStage 工作</b>。
+        </description>
+      <action required="false"
+			pluginId="com.ibm.is.sappack.gen.tools.jobgenerator"
+			class="com.ibm.is.sappack.gen.tools.jobgenerator.popup.actions.JobGeneratorCheatSheetAction"
+			param1="RMTestProject" param2="RMIDocModel.dbm"/>              
+      </item>
+   <item
+         title="選取工作類型">
+      <description>
+       在<b>選取工作類型</b>頁面上，選取 <b>IDoc Extract 工作</b>。
+       <br/>
+       按<b>下一步</b>。
+      </description>
+   </item>
+   <item
+         title="輸入 Information Server 明細">
+      <description>
+        輸入 Information Server 安裝的連線資訊。
+        「網域」名稱通常看起來像 <b>Servername:9080</b>。
+        請使用下拉方框，來選取 DataStage 專案以及專案內的資料夾。
+        輸入字串 <b>RGIDocJob</b> 作為<b>工作名稱字首</b>。
+        <br/>
+        按<b>下一步</b>。
+      </description>
+   </item>
+   <item
+         title="輸入 IDoc Extract 選項">
+      <description>
+         在 <b>IDoc Extract 選項</b>頁面上，填寫下列區段：
+      </description>
+      <subitem
+            label="在「來源選項」區段中，選取已在 DataStage 伺服器上定義的 SAP 連線。維持不勾選「改寫連線預設值」。">
+      </subitem>
+      <subitem
+            label="在「目標選項」區段中，選取 ODBC Connector 作為「暫置類型」。輸入 ODBC 資料來源的名稱及其使用者認證。選取 'APPEND' 作為表格動作。">
+      </subitem>
+      <subitem
+            label="按「下一步」。">
+      </subitem>
+   </item>
+   <item
+         title="跳過定義工作參數頁面">
+      <description>
+        在<b>定義工作參數</b>頁面上，保留所有設定。
+         <br/>
+         按<b>下一步</b>。
+      </description>
+   </item>
+   <item
+         title="跳過定義直欄衍生頁面">
+      <description>
+        在<b>定義直欄衍生</b>頁面上，取消勾選<b>使用自訂衍生</b>。
+         <br/>
+         在這個頁面上按「下一步」時，工作產生程序即會開始。
+         <br/>
+         按<b>下一步</b>。
+      </description>
+   </item>
+   <item
+         title="完成精靈">
+      <description>
+         在<b>摘要</b>頁面上，檢閱指出已產生工作的摘要。
+         <br/>
+         如果您要編譯工作，請勾選<b>啟動 DataStage 多重工作編譯器</b>勾選框。
+         <br/>
+         按一下<b>完成</b>。
+      </description>
+         </item>
+   <item
+         skip="true"
+         title="編譯工作">
+      <description>
+        在精靈完成之後，將利用所選取的已產生工作來啟動 DataStage 多重工作編譯器。
+        逐步執行精靈來編譯工作。
+      </description>
+   </item>
+   <item href="http://publib.boulder.ibm.com/infocenter/iisinfsv/v8r1/topic/com.ibm.swg.im.iis.productization.iisinfsv.overview.doc/topics/cisodsdirector.html"
+         title="執行工作">
+      <description>
+      若要執行工作，請開啟 <b>DataStage Director</b>、選取您剛產生的工作，
+      然後選取<b>執行</b>。
+      </description>
+   </item>
+      </cheatsheet>

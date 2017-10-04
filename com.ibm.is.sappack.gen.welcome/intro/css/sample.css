@@ -1,0 +1,18 @@
+/*
+Licensed Material - Property of IBM
+
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+ 
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+*/
+a#comibmissappackgenwelcome-overview img { background-image : url(graphics/is-generator48.gif); }
+a#comibmissappackgenwelcome-overview:hover img { background-image : url(graphics/is-generator48_hov.gif); }
+
+a#comibmissappackgenwelcome-rm img { background-image : url(graphics/Rapid_modeler.png); }
+a#comibmissappackgenwelcome-rm:hover img { background-image : url(graphics/Rapid_modeler.png); }
+
+a#comibmissappackgenwelcome-rg img { background-image : url(graphics/Rapid_generator.png); }
+a#comibmissappackgenwelcome-rg:hover img { background-image : url(graphics/Rapid_generator.png); }

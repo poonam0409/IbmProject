@@ -1,0 +1,38 @@
+<div class="bdrTab">
+    <div dojoType="idx.layout.BorderContainer" dojoAttachPoint="borderContainer" class="bdrBorderContainer"
+        design="sidebar" gutters="true" liveSplitters="true">
+	    <div dojoType="dijit.layout.ContentPane" class="bdrNavContainer" region="leading">
+	        <div data-dojo-type="idx.layout.BorderContainer" data-dojo-props="gutters:false">
+		        <div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region:'top'" class="paddedContainer">
+					<div dojoType="idx.layout.ButtonBar" region="majorActions">
+						<div dojoType="dijit.form.Button" type="button"	dojoAttachPoint="addButton">${msg.ADD}</div>
+						<div dojoType="dijit.form.Button" type="button"	dojoAttachPoint="removeButton" disabled="true">${msg.BPHTAB_2}</div>
+						<div dojoType="dijit.form.DropDownButton" dojoAttachPoint="importFromSapButton" disabled="true">
+								<span>${msg.FIELDSIMPORTBUTTON}</span>
+								<div data-dojo-type="dijit.Menu">
+								</div>
+						</div>
+						<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="importSapViewButton">${msg.FIELDSIMPORTSAPVIEWBUTTON}</div>
+					</div>
+				</div>
+				<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region:'top'" class="paddedContainerNoTop">
+				    <div dojoType="cwapp.main.SearchBox" dojoAttachPoint="filteringInput" placeHolder="${msg.FILTER}" class="bdrTabFilteringInput"></div>
+				</div>
+				<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region:'center'" class="paddedContainerNoTop dijitBorderContainer-child">
+					<table dojoType="dojox.grid.EnhancedGrid" dojoAttachPoint="_grid" class="dataGrid">
+						<thead>
+							<tr>
+								<th field="name" width="100%" formatter="_displayTableNameColumn">${msg.NAME}</th>
+							</tr>
+						</thead>
+					</table>
+    			</div>
+		    </div>
+		</div>
+	
+	    <div dojoType="dijit.layout.ContentPane" class="bdrItemContainer" splitter="true" region="center">
+			<div id="tableDetailsPanel"></div>
+			<div id="tableBphPlaceholderWidget"></div>
+	    </div>
+    </div>
+</div>

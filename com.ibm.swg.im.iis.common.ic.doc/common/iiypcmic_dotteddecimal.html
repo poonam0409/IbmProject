@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2010" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2010" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Dotted decimal syntax diagrams" />
+<meta name="abstract" content="The syntax diagrams in these topics are available in dotted decimal syntax format, which is an accessible format that is available only if you are using a screen reader." />
+<meta name="description" content="The syntax diagrams in these topics are available in dotted decimal syntax format, which is an accessible format that is available only if you are using a screen reader." />
+<meta name="DC.subject" content="syntax diagrams, accessibility features, diagrams, syntax" />
+<meta name="keywords" content="syntax diagrams, accessibility features, diagrams, syntax" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="iiypcmic_dotteddecimal" />
+<meta name="DC.Language" content="en-us" />
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../com.ibm.swg.im.iis.common.ic.doc/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.swg.im.iis.common.ic.doc/wsii-common.css" />
+<title>Dotted decimal syntax diagrams</title>
+
+<script type="text/javascript" src="../../com.ibm.srcf.doc/srcf.js"> </script></head>
+<body id="iiypcmic_dotteddecimal"><a name="iiypcmic_dotteddecimal"><!-- --></a>
+<div id="runheaderdiv"><div style="float:left;text-align:left;" class="runningheader"><div style="padding-top : .5em;"><img src="../../com.ibm.swg.im.iis.common.ic.swg.help.doc/icons/help16.gif" border="0" style="margin-top:4; border:0; vertical-align:middle;" alt="Information icon" /> <strong>IBM InfoSphere Foundation Tools, </strong> <strong>IBM InfoSphere Information Server,  Version 8.5<br /></strong></div>
+</div><div style="padding-top:0.5em;float:right;text-align:right;"><img src="../../com.ibm.swg.im.iis.common.ic.swg.help.doc/images/spacer.gif" border="0" alt="space " style="border:0; vertical-align:middle; height:16px;" /><script type="text/javascript">var plugin_form = "com.ibm.srcf.doc"</script><a class="runningheader" href="javascript:ibm_id_form()"><strong>Feedback</strong></a></div><div style="padding-top:1em;clear:right;clear:left;"></div></div><hr align="left" /><h1 class="title topictitle1">Dotted decimal syntax diagrams</h1>
+<div class="body conbody"><p class="shortdesc">The syntax diagrams in these topics are available in dotted
+decimal syntax format, which is an accessible format that is available
+only if you are using a screen reader.</p>
+<p class="p">In dotted decimal format, each syntax element is written on a separate
+line. If two or more syntax elements are always present together (or
+always absent together), they can appear on the same line, because
+they can be considered as a single compound syntax element.</p>
+<p class="p">Each line starts with a dotted decimal number; for example, 3 or
+3.1 or 3.1.1. To hear these numbers correctly, make sure that your
+screen reader is set to read punctuation. All the syntax elements
+that have the same dotted decimal number (for example, all the syntax
+elements that have the number 3.1) are mutually exclusive alternatives.
+If you hear the lines 3.1 USERID and 3.1 SYSTEMID, you know that your
+syntax can include either USERID or SYSTEMID, but not both. </p>
+<p class="p">The dotted decimal numbering level denotes the level of nesting. For
+example, if a syntax element with dotted decimal number 3 is followed
+by a series of syntax elements with dotted decimal number 3.1, all
+the syntax elements numbered 3.1 are subordinate to the syntax element
+numbered 3. </p>
+<p class="p">Certain words and symbols are used next to the dotted decimal numbers
+to add information about the syntax elements. Occasionally, these
+words and symbols might occur at the beginning of the element itself.
+For ease of identification, if the word or symbol is a part of the
+syntax element, it is preceded by the backslash (\) character. The
+* symbol can be used next to a dotted decimal number to indicate that
+the syntax element repeats. For example, syntax element *FILE with
+dotted decimal number 3 is given the format 3 \* FILE. Format 3* FILE
+indicates that syntax element FILE repeats. Format 3* \* FILE indicates
+that syntax element * FILE repeats.</p>
+<p class="p">Characters such as commas, which are used to separate a string
+of syntax elements, are shown in the syntax just before the items
+they separate. These characters can appear on the same line as each
+item, or on a separate line with the same dotted decimal number as
+the relevant items. The line can also show another symbol that provides
+information about the syntax elements. For example, the lines 5.1*,
+5.1 LASTRUN, and 5.1 DELETE mean that if you use more than one of
+the LASTRUN and DELETE syntax elements, the elements must be separated
+by a comma. If no separator is given, assume that you use a blank
+to separate each syntax element.</p>
+<p class="p">If a syntax element is preceded by the % symbol, this indicates
+a reference that is defined elsewhere. The string following the %
+symbol is the name of a syntax fragment rather than a literal. For
+example, the line 2.1 %OP1 means that you should refer to separate
+syntax fragment OP1.</p>
+<p class="p">The following words and symbols are used next to the dotted decimal
+numbers:</p>
+<ul class="ul"><li class="li">? means an optional syntax element. A dotted decimal number followed
+by the ? symbol indicates that all the syntax elements with a corresponding
+dotted decimal number, and any subordinate syntax elements, are optional.
+If there is only one syntax element with a dotted decimal number, the ?
+symbol is displayed on the same line as the syntax element (for example
+5? NOTIFY). If there is more than one syntax element with a dotted
+decimal number, the ? symbol is displayed on a line by itself, followed
+by the syntax elements that are optional. For example, if you hear
+the lines 5 ?, 5 NOTIFY, and 5 UPDATE, you know that syntax elements
+NOTIFY and UPDATE are optional; that is, you can choose one or none
+of them. The ? symbol is equivalent to a bypass line in a railroad
+diagram.</li>
+<li class="li">! means a default syntax element. A dotted decimal number followed
+by the ! symbol and a syntax element indicates that the syntax element
+is the default option for all syntax elements that share the same
+dotted decimal number. Only one of the syntax elements that share
+the same dotted decimal number can specify a ! symbol. For example,
+if you hear the lines 2? FILE, 2.1! (KEEP), and 2.1 (DELETE), you
+know that (KEEP) is the default option for the FILE keyword. In this
+example, if you include the FILE keyword, but do not specify an option,
+default option KEEP will be applied. A default option also applies
+to the next higher dotted decimal number. In this example, if the
+FILE keyword is omitted, default FILE(KEEP) is used. However, if you
+hear the lines 2? FILE, 2.1, 2.1.1! (KEEP), and 2.1.1 (DELETE), the
+default option KEEP applies only to the next higher dotted decimal
+number, 2.1 (which does not have an associated keyword), and does
+not apply to 2? FILE. Nothing is used if the keyword FILE is omitted.</li>
+<li class="li">* means a syntax element that can be repeated zero or more times. A
+dotted decimal number followed by the * symbol indicates that this
+syntax element can be used zero or more times; that is, it is optional
+and can be repeated. For example, if you hear the line 5.1* data area,
+you know that you can include more than one data area or you can include
+none. If you hear the lines 3*, 3 HOST, and 3 STATE, you know that
+you can include HOST, STATE, both together, or nothing.<div class="note note"><span class="notetitle">Notes:</span> <ol class="ol"><li class="li">If a dotted decimal number has an asterisk (*) next to it and
+there is only one item with that dotted decimal number, you can repeat
+that same item more than once.</li>
+<li class="li">If a dotted decimal number has an asterisk next to it and several
+items have that dotted decimal number, you can use more than one item
+from the list, but you cannot use the items more than once each. In
+the previous example, you could write HOST STATE, but you could not
+write HOST HOST.</li>
+<li class="li">The * symbol is equivalent to a loop-back line in a railroad syntax
+diagram.</li>
+</ol>
+</div>
+</li>
+<li class="li">+ means a syntax element that must be included one or more times.
+A dotted decimal number followed by the + symbol indicates that this
+syntax element must be included one or more times. For example, if
+you hear the line 6.1+ data area, you must include at least one data
+area. If you hear the lines 2+, 2 HOST, and 2 STATE, you know that
+you must include HOST, STATE, or both. As for the * symbol, you can
+only repeat a particular item if it is the only item with that dotted
+decimal number. The + symbol, like the * symbol, is equivalent to
+a loop-back line in a railroad syntax diagram.</li>
+</ul>
+</div>
+<div class="related-links"></div><hr align="left" /><span>                                                                                                                                                                                                                                                            </span><br /><br />
+<img src="../../com.ibm.swg.im.iis.common.ic.swg.help.doc/images/timestamp.gif" alt="Update timestamp" style="margin-right:4; border:0; valign:middle" /><span class="runningfooter"> Last updated: 2010-11-20 </span><br />
+<div style="padding-top:0.5em;clear:right;clear:left;"><strong> IBM Confidential </strong><br /> This topic contains information about unreleased IBM product(s) and feature(s). IBM, therefore, cannot guarantee or
+imply reliability, serviceability, or function of this information. The information is provided, 
+ <strong> AS IS </strong>without warranty of
+any kind. <br /></div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+<!--© Copyright IBM Corporation 2011-->
+<toc label="InfoSphere Rapid Modeler for SAP Applications and InfoSphere Rapid Generator for SAP Applications"
+     link_to="../com.ibm.swg.im.iis.ds.entpak.nav.doc/entpak_nav.xml#pack_08"
+     topic="nl/en/contents/topics/c_gen_pack_sap_container.html">
+   <topic label="IBM InfoSphere Data Architect components for the Pack for SAP Applications"
+          href="nl/en/contents/topics/c_gen_pack_sap_container.html">
+      <topic label="Overview" href="nl/en/contents/topics/c_is_pack_sap_applications.html">
+         <topic label="Introduction to InfoSphere Rapid Modeler for SAP Applications"
+                href="nl/en/contents/topics/c_intro_rapid_modeler.html"/>
+         <topic label="Introduction to InfoSphere Rapid Generator for SAP Applications"
+                href="nl/en/contents/topics/c_intro_rapid_generator.html"/>
+      </topic>
+      <topic label="Prerequisites" href="nl/en/contents/topics/c_installation_prerequisites.html"/>
+      <topic label="Installing the IBM InfoSphere Data Architect components"
+             href="nl/en/contents/topics/c_install_ida_components.html">
+         <topic label="Installing the client" href="nl/en/contents/topics/t_install_client.html"/>
+         <topic label="Installing the Server component"
+                href="nl/en/contents/topics/t_install_server_component.html"/>
+      </topic>
+      <topic label="Configuring the IBM InfoSphere DataStage environment for Rapid Generator for SAP"
+             href="nl/en/contents/topics/t_prepare_ds_environment_rapid_generator.html"/>
+      <topic label="Preparing the InfoSphere Data Architect workspace"
+             href="nl/en/contents/topics/c_prepare_ida_workspace.html">
+         <topic label="Configuring the SAP JCo connector"
+                href="nl/en/contents/topics/t_configure_jco_connector.html"/>
+         <topic label="Configuring the InfoSphere Information Server client"
+                href="nl/en/contents/topics/t_configure_is_client.html"/>
+      </topic>
+      <topic label="Importing SAP metadata by using Rapid Modeler"
+             href="nl/en/contents/topics/t_import_metadata_rapid_modeler.html">
+         <topic label="Importing logical tables from SAP"
+                href="nl/en/contents/topics/t_import_logical_tables_sap.html"/>
+         <topic label="Importing IDoc types from SAP"
+                href="nl/en/contents/topics/t_import_idoc_types_sap.html"/>
+      </topic>
+      <topic label="Generating InfoSphere DataStage jobs by using InfoSphere Rapid Generator for SAP Applications"
+             href="nl/en/contents/topics/t_generate_ds_jobs_rapid_generator.html">
+         <topic label="Configuring job generation for ABAP extract jobs"
+                href="nl/en/contents/topics/t_configure_job_abap_extract.html"/>
+         <topic label="Configuring job generation for IDoc extract job"
+                href="nl/en/contents/topics/t_configure_job_idoc_extract.html"/>
+         <topic label="Configuring job generation for IDoc load jobs"
+                href="nl/en/contents/topics/t_configure_job_idoc_load.html"/>
+      </topic>
+      <topic label="Reconciling your model with an SAP system"
+             href="nl/en/contents/topics/t_reconcile_model_sap_system.html"/>
+      <topic label="Troubleshooting" href="nl/en/contents/topics/c_troubleshooting.html"/>
+   </topic>
+</toc>

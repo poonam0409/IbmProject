@@ -1,0 +1,16 @@
+﻿LICENCIJOS INFORMACIJA
+
+Toliau nurodytos Programos licencijuojamos pagal šias ir Tarptautinė programos licencinė sutartis sąlygas.
+
+Programos pavadinimas: IBM InfoSphere Information Server Pack for SAP Applications V 7.1
+Programos numeris: 5724-Q55
+
+Programos pavadinimas: IBM InfoSphere Information Server Pack for SAP Applications for Non-Production Environments V 7.1
+Programos numeris: 5724-Q55
+
+Įdiegtis
+
+Įdiegtis yra matavimo vienetas, kuriuo remiantis gali būti licencijuojama ši Programa. Įdiegtis - tai fiziniame arba virtualiajame diske įdiegta Programos kopija, kurią galima vykdyti kompiuteryje. Licenciatas privalo įsigyti teises kiekvienai Programos Įdiegčiai.
+
+D/N:  L-JCHN-8KES35
+P/N:  L-JCHN-8KES35 

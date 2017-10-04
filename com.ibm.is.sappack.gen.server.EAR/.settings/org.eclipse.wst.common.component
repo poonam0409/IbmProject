@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="com.ibm.is.sappack.gen.server.EAR">
+        <wb-resource deploy-path="/" source-path="/EarContent"/>
+        <dependent-module archiveName="com.ibm.is.sappack.gen.server.war" deploy-path="/" handle="module:/resource/com.ibm.is.sappack.gen.server/com.ibm.is.sappack.gen.server">
+            <dependent-object>WebModule_1257501105503</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="com.ibm.is.sappack.gen.server.jobgenerator.jar" deploy-path="/" handle="module:/resource/com.ibm.is.sappack.gen.server.jobgenerator/com.ibm.is.sappack.gen.server.jobgenerator">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="com.ibm.is.sappack.gen.server.datastage.jar" deploy-path="/" handle="module:/resource/com.ibm.is.sappack.gen.server.datastage/com.ibm.is.sappack.gen.server.datastage">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="com.ibm.is.sappack.gen.common.jar" deploy-path="/" handle="module:/resource/com.ibm.is.sappack.gen.common/com.ibm.is.sappack.gen.common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="com.ibm.is.sappack.gen.server.common.jar" deploy-path="/" handle="module:/resource/com.ibm.is.sappack.gen.server.common/com.ibm.is.sappack.gen.server.common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="com.ibm.is.sappack.gen.server.datastage_v10.jar" deploy-path="/" handle="module:/resource/com.ibm.is.sappack.gen.server.datastage_v10/com.ibm.is.sappack.gen.server.datastage_v10">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="com.ibm.is.sappack.gen.server.datastage_v8.jar" deploy-path="/" handle="module:/resource/com.ibm.is.sappack.gen.server.datastage_v8/com.ibm.is.sappack.gen.server.datastage_v8">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="DS4J.jar" deploy-path="/" handle="module:/classpath/lib/extLibsIISClient85/ASBNode/client/lib/java/DS4J.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

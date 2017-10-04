@@ -1,0 +1,18 @@
+################################################################################
+# Copyright definitions for Tag Library Definition (TLD) files
+################################################################################
+
+top-line=<!-- ***************************************************** {tag.top} ***
+
+text.1  =* {category.licensed}
+text.2  =* {product}
+text.3  =*
+text.4  =* {copyright}
+text.5  =*
+text.6  =* {us.gov.1}
+text.7  =* {us.gov.2}
+
+end-line=********************************************************** {tag.end} -->
+
+head.1  =<?xml
+head.2  =<!DOCTYPE

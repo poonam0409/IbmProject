@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="Rapid Modeler for SAP を使用して SAP から IDoc タイプをインポート">
+   <intro>
+      <description>
+この虎の巻では、論理データ・モデルを作成する方法、および SAP IDoc タイプのメタデータを抽出する方法について説明します。         <br/>
+         <b>注: 以下のステップでは、指示通りに正確にプロジェクト、モデルなどの名前を入力してください。正確に入力しないと、「実行のためにクリックする」ボタンが作動しない場合があります。ただし、「完了時にクリックする」ボタンは引き続き作動します。         </b>
+      </description>
+   </intro>
+   <item
+         title="「データ」パースペクティブを開く">
+      <command
+            required="false"
+            serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=com.ibm.datatools.core.internal.ui.perspective)"/>
+         
+      <description>
+「データ」パースペクティブが開かれていない場合、メインメニューで<b>「ウィンドウ」</b>&gt;<b>「パースペクティブを開く」</b>&gt;<b>「データ」</b>を選択します。      </description>
+   </item>
+   <item
+         title="データ・デザイン・プロジェクトの作成">
+      <description>      
+データ・モデルを作成する前に、データ・モデルを配置する先のプロジェクトが必要です。メイン・ツールバーで、<b>「ファイル」</b>&gt;<b>「新規」</b>&gt;<b>「データ・デザイン・プロジェクト」</b>をクリックします。
+         <br/>
+<b>「プロジェクト名」</b>フィールドに <b>RMTestProject</b> と入力します。
+         <br/><b>「完了」</b>をクリックします。      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.ui.newWizard(newWizardId=com.ibm.datatools.core.internal.ui.wizard.DatabaseCreationProjectWizard)"/>
+   </item>
+   <item
+         title="論理データ・モデル・ファイルの作成">
+      <description>      
+次のステップは、新しい論理データ・モデル・ファイルを作成することです。再びメイン・ツールバーで、<b>「ファイル」</b>&gt;<b>「新規」</b>&gt;<b>「論理データ・モデル」</b>をクリックします。
+         <br/><b>「出力先フォルダー」</b>が、前のステップで作成したプロジェクトの名前 (例えば、<b>RMTestProject</b>) に設定されていることを確認します。<br/>ファイル名として <b>RMIDocModel</b> と入力します。
+         <br/><b>「完了」</b>をクリックします。      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.ui.newWizard(newWizardId=com.ibm.datatools.logical.ui.wizards.NewLogicalModelWizard)"/>
+
+   </item>
+   <item dialog="true" 
+            title="論理モデルに対し「Rapid Modeler for SAP」ウィザードを開く">
+        <description>
+論理モデルを作成した後、このモデルに SAP メタデータをインポートできます。
+         <br/>
+<b>「データ・プロジェクト・エクスプローラー」</b>ビュー (通常、<b>「データ」</b>パースペクティブの左上) で、前のステップで作成した論理データ・モデルを参照します (<b>「RMTestProject」</b>&gt;<b>「データ・モデル」</b>&gt;<b>「RMIDocModel.ldm」</b>)。
+         <br/><b>「RMIDocModel.ldm」</b>を右クリックし、<b>「Rapid Modeler for SAP」</b>&gt;<b>「SAP メタデータの抽出」</b>を選択します。        </description>
+            <action required="false"
+			pluginId="com.ibm.is.sappack.gen.tools.sap"
+			class="com.ibm.is.sappack.gen.tools.sap.action.MetadataImportCheatSheetAction"
+			param1="RMTestProject" param2="RMIDocModel.ldm"/>            
+      </item>
+
+   <item
+         title="SAP システムの選択">
+      <description>
+最初のウィザード・ページで、SAP システム接続を選択するか、<b>「編集」</b>を使用して SAP システム接続を作成します。
+<b>「SAP 内の IDoc を参照」</b>オプションを選択します。
+         <br/><b>「次へ」</b>をクリックします。
+      </description>
+   </item>
+   <item
+         title="IDoc の検索">
+      <description>
+<b>「SAP 内の IDoc を参照」</b>ページで、IDoc タイプ名のパターン (例えば、<b>DEBMAS*</b>) を入力します。         <br/>
+<b>「基本タイプ」</b>オプションを選択します。
+         <br/><b>「検索」</b>をクリックします。
+      </description>
+   </item>
+   <item
+         title="IDoc セグメントの選択">
+      <description>
+表示されている IDoc セグメント・ツリーで、最も大きい番号の IDoc タイプ (例えば、<b>DEBMAS06</b>) を展開します。
+         <br/>ツリーでセグメント (例えば、<b>E1KNA1M</b>、<b>E1KNVM</b>、および <b>E1KNVB</b>) を選択します。
+         <br/><b>「次へ」</b>をクリックします。
+      </description>
+   </item>
+   <item
+         title="インポート・オプションの構成">
+      <description>
+「インポート・オプション」ページで、次のオプションを選択します。<br/>
+<b>「IDoc 抽出用のモデルを作成」</b>を選択します。<br/>
+<b>「すべてのセグメントを NULL 可能にする」</b>のチェック・マークを外します。<br/>
+<b>「列に対しすべてのタイプを許可」</b>を選択します。<br/>
+<b>「関連するチェック表のメタデータをインポート」</b>のチェック・マークを外します。         <br/>         
+<b>「次へ」</b>をクリックします。
+      </description>
+   </item>
+   <item
+         title="表の確認">
+      <description>
+<b>「作成する表の確認」</b>ページで、作成する表を確認します。
+         <br/>
+<b>「次へ」</b>をクリックします。
+      </description>
+   </item>
+   <item
+         title="テクニカル・フィールドをスキップ">
+      <description>
+<b>「テクニカル・フィールド」</b>ページで、<b>「追加のテクニカル・フィールドを構成」</b>のチェック・マークを外します。         <br/>
+<b>「次へ」</b>をクリックします。
+      </description>
+   </item>
+   <item
+         title="非デフォルト・パッケージをスキップ">
+      <description>
+<b>「TBD」</b>ページで、<b>「インポート先としてパッケージ名を使用」</b>のチェック・マークを外します。         <br/>
+このページを終了した後、インポート・プロセスが開始されます。
+         <br/>
+<b>「次へ」</b>をクリックします。
+      </description>
+   </item>
+   <item
+         title="ウィザードの完了">
+      <description>
+<b>「TBD」</b>ページで、インポート・サマリーを確認します。         <br/>
+<b>「完了」</b>をクリックします。         
+      </description>
+      <onCompletion>おめでとうございます! 論理データ・モデル内への IDoc タイプのインポートはこれで完了です。</onCompletion>
+         </item>
+      </cheatsheet>

@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Test ListNavController</title>
+
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+<script type="text/javascript">
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/claro/claro.css", "idxStyles");
+</script>
+
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneui/oneui.css";
+@import "../../themes/vienna/vienna.css";
+@import url("../../resources/claro_idx.css");
+@import url("../../resources/vienna_idx.css");
+@import "../../themes/test.css";
+</style>
+
+<script type="text/javascript">
+	var dojoConfig = currentDojoVersion.dojoConfig;
+</script>
+
+<script type="text/javascript">
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+</script>
+ 
+<script type="text/javascript" id="postDojo">
+var modules = ["idx.layout.SectionedNavController",
+			   "dijit.layout.ContentPane",
+			   "dijit.layout.BorderContainer",
+			   "dijit.layout.StackContainer",
+			   "idx.layout.HeaderPane",
+			   "idx.layout.TitlePane",
+			   "dojo.data.ItemFileWriteStore",
+			   "dojox.grid.DataGrid"];
+			   
+
+	/**
+	 * Grid structure/layout for sectioned list nav
+	 */
+	var testColumnView =
+	{
+		cells: [
+			[  // column header row
+				{ field: "id",     width: "3%", name: 'ID'}, 
+				{ field: "name",     width: "10%",name: 'Name'}
+			]
+		] 
+	};
+	var test_layout = [ testColumnView ];
+	
+	/**
+	 * test data for sectioned list nav
+	 */
+	var testData = 
+		{
+		identifier: 'id',
+		label: 'name',
+		items: [
+		        { id: 1, name: 'aGroup1'},  
+		        { id: 2, name: 'aGroup2'},
+		        { id: 3, name: 'aGroup3'},
+		        { id: 4, name: 'aGroup4'},
+		        { id: 5, name: 'aGroup5'},
+		        { id: 6, name: 'bGroup1'},
+		        { id: 7, name: 'bGroup2'},
+		        { id: 8, name: 'bGroup3'},
+		        { id: 9, name: 'bGroup4'},
+		        { id: 10, name: 'bGroup5'}
+		       ]
+		};
+
+dojoRequireModules(modules, null, currentDojoVersion.async);
+</script>
+
+</style>
+<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 0px;">
+<a class="navigationLink" href="#maincontent">Skip to main content</a>
+<script type="text/javascript">applyThemeToBody()</script>
+<a name="maincontent"></a>
+		<span dojoType="dojo.data.ItemFileWriteStore" jsId="test_store" data="testData"></span>
+
+        <div dojoType="dijit.layout.BorderContainer" id="sectioned_BorderContainer"
+                title="Sectioned List" design="sidebar" style="width: 95%; height: 500px;">
+
+                <div dojoType="idx.layout.HeaderPane" region="leading" id="sectioned_gblMgmtLeft"
+                     title="Navigation"
+                     splitter="true"
+                     style="width:300px;">
+                  <div dojoType="dijit.layout.ContentPane" class="idxSectionedNavigation">
+                    <div id="tpSectionA" dojotype="idx.layout.TitlePane" title="Section A">
+                        <script type="dojo/connect" event="_onShow">
+                            var dg = dijit.byId("gridA");
+                            if(dg){ dg.resize(); }
+                            var tp = dijit.byId("tpSectionA");
+                            if(tp){ tp.layout(); } 
+                        </script>
+                         <div dojoType="dojox.grid.DataGrid"
+						    id="gridA"
+							store="test_store"
+							query="{ name: 'a*' }"  
+							structure="test_layout"
+							autoHeight="true"
+								
+						></div>
+                    </div> 
+                    <div id="tpSectionB" dojotype="idx.layout.TitlePane" title="Section B">
+                        <script type="dojo/connect" event="_onShow">
+                            var dg = dijit.byId("gridB");
+                            if(dg){ dg.resize(); }
+                            var tp = dijit.byId("tpSectionB");
+                            if(tp){ tp.layout(); } 
+                        </script>
+                        <div dojoType="dojox.grid.DataGrid"
+						    id="gridB"
+							store="test_store"
+							query="{ name: 'b*' }"  
+							structure="test_layout"
+							autoHeight="true"
+						></div>
+                    </div>
+                    <span id="secNavController" dojoType="idx.layout.SectionedNavController" associatedGrids="gridA,gridB"></span> 
+                  </div>
+                </div>
+
+				<div dojoType="idx.layout.HeaderPane" title="Selected Item" region="center">
+                    <script type='dojo/method' event='postCreate'>
+			
+						this.inherited("postCreate", arguments);
+						this.subscribe("secNavController-selectionChanged", function(obj){
+							dojo.byId("selectionInfo").innerHTML = "focused on " + (obj? (obj.grid.id + " row " + obj.grid.selection.selectedIndex) :"nothing");
+						});
+					</script>    
+                    <p id="selectionInfo"></p>
+                    <p>The navigation list on the left was achieved by placing DataGrids within
+                    	TitlePanes.  A non-visual component provided by the framework
+                    	(idx.layout.SectionedNavController) is added after the grids to help
+                    	coordinate the highlighting between all the grids that belong to the
+                    	same navigation list.  The SectionedNavController is provided with
+                    	the grid IDs via its 'associatedGrids' attribute as a comma-separated
+                    	list.  In order to facilitate the handling of a navigation selection,
+                    	the SectionedNavController publishes a &lt;SectionedNavControllerID&gt;-selectionChanged
+                    	topic.  This allows a user to subscribe to a single event, instead of handling
+                    	an event from each grid in the navigation list independently.</p>
+                    <p>In order to style the TitlePanes and Grids to use the sectioned navigation styling,
+                    	a class attribute of "sectionedNavigation" should be specified on a content pane
+                    	that surrounds the group of objects making up the navigation list.</p>
+                </div>
+            </div>
+
+</body>
+</html>

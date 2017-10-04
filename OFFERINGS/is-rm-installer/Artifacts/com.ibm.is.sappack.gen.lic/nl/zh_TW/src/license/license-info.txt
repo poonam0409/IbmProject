@@ -1,0 +1,49 @@
+﻿授權手冊
+
+除IBM 國際程式授權合約（IBM 書號 Z125-3301-14）外，以下條款亦適用於下列程式。
+
+程式名稱：IBM InfoSphere Information Server Pack for SAP Applications v7.1
+程式編號：5724-Q55
+
+程式名稱：IBM InfoSphere Information Server Pack for SAP Applications for Non-Production v7.1
+程式編號：5724-Q55
+
+如國際程式授權合約 ("IPLA") 及本授權手冊所述，IBM 授予被授權人本程式之限制使用權利。此授權以被授權人依權利證明書之指示付款之授權使用層級為限，例如處理器價值單位 ("PVU")、價值單位 ("VU") 或其他指定使用層級。此外，前述授權，可能被授權人之使用以指定機器為限，或僅限將本程式當作支援程式，或受其他限制拘束。因被授權人未就本程式之一切經濟價值而付款，是以，未支付額外費用者，不得行使其他使用行為。此外，如 IPLA 所示，被授權人未獲授權使用本程式提供商用 IT 服務予任何第三人、提供商用主機作業或分時，或對本程式行使再授權、出租或租賃之行為；但被授權人據以取得本程式使用授權之適用合約另有明文規定者不在此限。是否享有額外權利，依被授權人支付額外費用或依不同或補充條款之規定而定。IBM 保留決定是否授予被授權人前項額外權利之權利。
+
+程式之規格載明於本程式通知函之統稱為「說明與技術資訊」章節中。
+
+支援程式
+
+本程式係以多重產品套裝軟體之方式授權，並包括以下載明之支援程式。依本合約及於本程式權利證明書之限制範圍內，被授權人僅限於為支援被授權人對主要程式之使用，而安裝及使用該等支援程式（但本「授權手冊」文件另有規定較多權利者不在此限）。「為支援被授權人使用」之用語，僅包括必要之使用，或與主要程式或其他支援程式之授權使用直接相關之使用。「支援程式」不得用於任何其他用途。被授權人不得獨立於主要程式之外，而轉讓或轉售支援程式。「支援程式」可能檢附授權條款，有檢附者，該等授權條款適用於被授權人對該支援程式之使用。有抵觸者，本授權手冊中之條款較該支援程式之條款優先適用。被授權人之本程式使用權到期或終止時，被授權人須停用、銷毀或立即歸還支援程式之一切複本予被授權人所由取得本程式之他方。若被授權人係下載取得支援程式，被授權人應與所由取得本程式之他方聯絡。若被授權人欲取得逾越上述限制規定之授權以使用支援程式，請被授權人與 IBM 業務代表或與被授權人所由取得本程式之該方聯絡，以取得適當授權。
+
+下列為隨本程式一併授權之支援程式：
+- IBM Cognos Business Intelligence v10.2
+- IBM Master Data Management Reference Data Management Hub v10.1
+- IBM Conversion Workbench Migration Asset for SAP Applications v2.1
+- IBM Cognos Data Manager Connector for SAP R/3 v10.2
+
+准用元件
+
+本合約縱有任何條款規定，被授權人仍僅限於使用所指定支援程式之下列元件或功能：
+- IBM Master Data Management Reference Data Management Hub (may only be used with IBM Conversion Workbench Migration Asset for SAP Applications)
+- IBM Cognos Business Intelligence (may only be used with IBM Conversion Workbench Migration Asset for SAP Applications)
+- Cognos Connection (of IBM Cognos Business Intelligence)
+- Framework Manager (of IBM Cognos Business Intelligence)
+- Report Studio (of IBM Cognos Business Intelligence)
+- Report Viewer (of IBM Cognos Business Intelligence)
+
+非正式作業之限制
+
+若本程式係被指定為非正式作業，則本程式僅限為內部非正式作業活動而部署為被授權人之開發及測試環境之一部分，該等活動包括但不限於測試、效能調整、錯誤診斷、內部基準評價、建置、確保品質等活動及/或利用已發佈之應用程式設計介面開發供內部使用之本程式附加或延伸部分。未取得適當之正式作業授權者，被授權人不得將本程式之任何部分用於任何其他用途。
+
+第三人受益之使用限制
+
+未經 IBM 書面同意，被授權人不得使用本程式或其任何元件而提供服務機構、代管服務或任何種類之商用資訊技術服務予第三人，亦不得轉讓本程式予第三人。
+
+安裝
+
+稱「安裝」者，係指本程式之授權計量單位。「安裝」係指可於電腦之實體或虛擬磁碟上執行之本程式之已安裝複本。被授權人應為本程式之每一「安裝」取得一份授權。
+
+L/N:  L-SBRN-9FN46Q
+D/N:  L-SBRN-9FN46Q
+P/N:  L-SBRN-9FN46Q 

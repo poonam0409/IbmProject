@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Test DatePicker</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+<script type="text/javascript">
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/claro/claro.css", "idxStyles");
+</script>
+
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneui/oneui.css";
+@import "../../themes/vienna/vienna.css";
+@import url("../resources/claroDatePicker.css");
+@import url("../resources/viennaDatePicker.css");
+@import "../../themes/test.css";
+</style>
+
+<script type="text/javascript">
+	var dojoConfig = currentDojoVersion.dojoConfig;
+</script>
+
+<script type="text/javascript">
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+</script>
+ 
+<script type="text/javascript" id="postDojo">
+	var modules = ["dojo.parser",
+					"dijit/_base/manager",
+					"dojo/_base/connect",
+					"idx.form.DatePicker",
+					"dijit.form.Button"];
+	
+	var manager = null;
+	var connect = null;
+	
+	function preParse(modules) {
+		var mgr = modules["dijit/_base/manager"] ? modules["dijit/_base/manager"] : dijit;
+		var dct = modules["dojo/_base/connect"] ? modules["dojo/_base/connect"] : dojo;
+		manager = mgr;
+		connect = dct.connect;
+	}
+	
+	function validate() {
+		var dp = manager.byId("datePicker");
+		dp.validationSuccess = function() {
+			console.debug("success");
+		};
+		dp.validationFailure = function() {
+			console.debug("failure");
+		};
+		manager.byId("datePicker").validate();
+	}
+
+	function setvalue() {
+		var dp = manager.byId("datePicker");
+		dp.set("value", new Date());
+	}
+	
+	function getvalue() {
+		var dp = manager.byId("datePicker");
+		var dp2 = manager.byId("datePicker2");
+		console.debug("dp.attr('value') = " + dp.attr("value"));
+		console.debug("dp.value = " + dp.value);
+
+		console.debug("dp2.attr('value') = " + dp2.attr("value"));
+		console.debug("dp2.value = " + dp2.value);
+	}
+	
+	function wire(){
+		connect(dps, "onChange", function(value){
+		
+			if(dpe.getDate && value && !dpe.getDate()){
+				dpe.setDate(value);
+			} else if (value && !dpe.get("value")) {
+				dpe.set("value", value);
+			}
+		});
+		connect(dpe, "onChange", function(value){
+			if(dps.getDate && value && !dps.getDate()){
+				dps.setDate(value);
+			} else if (value && !dps.get("value")) {
+				dps.set("value", value);
+			}
+		});
+	}
+
+	function postParse(modules) {
+		manager.byId("datePicker2")._onFocus = function() {};
+		wire();	
+	}
+	
+	dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+</script>
+
+<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 0px;">
+<a class="navigationLink" href="#maincontent">Skip to main content</a>
+<script type="text/javascript">applyThemeToBody()</script>
+
+<a name="maincontent"></a>
+	<div id="datePicker" dojoType="idx.form.DatePicker"
+		title="hoge"
+	></div>
+	
+	<div dojoType="dijit.form.Button"
+		id="validateButton"
+		label="Validate"
+		onclick="validate"
+	></div>
+	<div dojoType="dijit.form.Button"
+		id="getvalue"
+		label="Get Value"
+		onclick="getvalue"
+	></div>
+	<div dojoType="dijit.form.Button"
+		id="setvalue"
+		label="Set Current Date"
+		onclick="setvalue"
+	></div>
+	<br />
+	
+	<div id="datePicker2" dojoType="dijit.form.DateTextBox"></div>
+	
+	<div style="border:1px solid black; padding:4px; margin:3px; width:600px;">
+		<div><b>Wiring two DataPickers.</b> The value is copied to the opposite in case the target is blank</div>
+		Start: <div jsId="dps" dojoType="idx.form.DatePicker"></div>
+		End: <div jsId="dpe" dojoType="idx.form.DatePicker"></div>
+	</div>
+
+	<div>showFormatPattern="true"</div>
+	<div dojoType="idx.form.DatePicker" showFormatPattern="true"></div>
+	
+	<div>disabled="true"</div>
+	<div dojoType="idx.form.DatePicker" disabled="true"></div>
+</body>
+</html>

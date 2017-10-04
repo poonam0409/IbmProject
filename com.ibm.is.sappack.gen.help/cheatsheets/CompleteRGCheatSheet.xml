@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<compositeCheatsheet name="Generating jobs with Rapid Generator">
+   <taskGroup kind="sequence" name="Generating jobs with Rapid Generator" skip="false">
+      <intro>
+         This cheat sheet will guide you through the process of 
+         generating DataStage jobs from a physical data model.
+         <br/>
+         <b>Note:</b> This cheat sheet assumes that you completed all the tasks in the 
+         cheat sheet "Importing logical tables from SAP with Rapid Modeler".
+      </intro>
+      <onCompletion>
+         You have now generated jobs that extract logical tables from SAP and save them into a database.
+      </onCompletion>
+      <task kind="cheatsheet" name="Preparing a logical data model for job generation" skip="true">
+         <intro>
+            This task shows how to transform a logical data model with metadata imported by Rapid Modeler into a phyiscal data model that can be used with job generation.
+         </intro>
+         <param name="path" value="TransformLDMAndCreateDBCheatSheet.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Creating a Rapid Generator configuration" skip="true">
+         <intro>
+            This cheat sheet shows you how to create a Rapid Generator configuration.
+         </intro>
+         <param name="path" value="CreateRGConfCheatSheet.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Generating DataStage jobs using Rapid Generator" skip="true">
+         <intro>
+            This cheat sheet shows you how to generate jobs from a physical data model.
+         </intro>
+         <param name="path" value="ConfigRGCheatSheetTable.xml">
+         </param>
+      </task>
+   </taskGroup>
+</compositeCheatsheet>

@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<?metadata version='0.0.4'?>
+<su id='com.ibm.is.sappack.conversion.workbench.shortcuts' version='1.1.0.qualifier'>
+  <selector id='main'/>
+  <iu id='com.ibm.is.sappack.conversion.workbench.win32.shortcuts' version='1.1.0.qualifier' adapterId='nativeWin32'>
+    <selectedByExpression>
+      <and>
+        <selectedBy id='os' value='win32'/>
+        <selectedBy id='main'/>
+      </and>
+    </selectedByExpression>
+    <adapterSpecificData>
+      <zip
+        id='com.ibm.is.sappack.conversion.workbench.icons'
+        destination='${context:installLocation}/conversion-workbench/startmenu' downloadSize='12151' installSize='43630'/>
+      <zip
+        id='client.nlproperties.shortcuts'
+        destination='${context:installLocation}/conversion-workbench/startmenu' downloadSize='6236' installSize='8310'/>
+      <desktopIcon_win32
+        folder='${NLProperty:${context:installLocation}\conversion-workbench\startmenu\nl\client-shortcuts,ConversionWorkbench.startup.folder}/${NLProperty:${context:installLocation}\conversion-workbench\startmenu\nl\client-shortcuts,ConversionWorkbench.startup.name}'
+        name='${NLProperty:${context:installLocation}\conversion-workbench\startmenu\nl\client-shortcuts,ConversionWorkbench.startup.name}'
+        workingDirectory='${eclipseIdeLocation}'
+        command='${eclipseIdeLocation}/eclipse.exe'
+        arguments='-product com.ibm.is.sappack.gen.branding.product'
+        iconPath='${context:installLocation}/conversion-workbench/startmenu/is-cw.ico'
+        context='ALL_USER'
+        description='${NLProperty:${context:installLocation}\conversion-workbench\startmenu\nl\client-shortcuts,ConversionWorkbench.startup.description}'/>
+    </adapterSpecificData>
+  </iu>
+  <!--
+  <iu id='com.ibm.is.sappack.conversion.workbench.isa.win32.shortcuts' version='1.0.0.qualifier' adapterId='nativeWin32'>
+	<property name='order.dependencies' value='com.ibm.is.sappack.conversion.workbench.win32.shortcuts'/>
+    <selectedByExpression>
+      <and>
+        <selectedBy id='os' value='win32'/>
+        <selectedBy id='main'/>
+      </and>
+    </selectedByExpression>
+    <adapterSpecificData>
+      <desktopIcon_win32
+        folder='${NLProperty:${context:installLocation}\conversion-workbench\startmenu\nl\client-shortcuts,ConversionWorkbench.startup.folder}/${NLProperty:${context:installLocation}\conversion-workbench\startmenu\nl\client-shortcuts,ConversionWorkbench.startup.name}'
+        name='IBM Support Assistant'
+        workingDirectory=''
+        command='http://www.ibm.com/software/support/isa/'
+        arguments=''
+        iconPath=''
+        context='ALL_USER'
+        description='IBM Suport Assistant'/>
+    </adapterSpecificData>
+  </iu>
+  -->
+  <!--
+  <iu id='com.ibm.is.sappack.conversion.workbench.setupguide.win32.shortcuts' version='1.0.0.qualifier' adapterId='nativeWin32'>
+    <property name='order.dependencies' value='com.ibm.is.sappack.conversion.workbench.win32.shortcuts'/>		
+    <selectedByExpression>
+      <and>
+        <selectedBy id='os' value='win32'/>
+        <selectedBy id='main'/>
+      </and>
+    </selectedByExpression>
+    <adapterSpecificData>
+      <desktopIcon_win32
+        folder='${NLProperty:${context:installLocation}\conversion-workbench\startmenu\nl\client-shortcuts,ConversionWorkbench.startup.folder}/${NLProperty:${context:installLocation}\conversion-workbench\startmenu\nl\client-shortcuts,ConversionWorkbench.startup.name}'
+        name='Setupguide'
+        workingDirectory='${profile:installLocation}/conversion-workbench'
+        command='${profile:installLocation}/conversion-workbench/setupguide/index.html'
+        arguments=''
+        iconPath=''
+        context='ALL_USER'
+        description='Setup and Configuration Guide'/>
+    </adapterSpecificData>
+  </iu>
+  -->
+  <iu id='com.ibm.is.sappack.conversion.workbench.license.win32.shortcuts' version='1.0.0.qualifier' adapterId='nativeWin32'>
+	<property name='order.dependencies' value='com.ibm.is.sappack.conversion.workbench.win32.shortcuts'/>
+    <selectedByExpression>
+      <and>
+        <selectedBy id='os' value='win32'/>
+        <selectedBy id='main'/>
+      </and>
+    </selectedByExpression>
+    <adapterSpecificData>
+      <desktopIcon_win32
+        folder='${NLProperty:${context:installLocation}\conversion-workbench\startmenu\nl\client-shortcuts,ConversionWorkbench.startup.folder}/${NLProperty:${context:installLocation}\conversion-workbench\startmenu\nl\client-shortcuts,ConversionWorkbench.startup.name}'
+        name='License Text'
+        workingDirectory='${profile:installLocation}/conversion-workbench'
+        command='${profile:installLocation}/conversion-workbench/license.html'
+        arguments=''
+        iconPath=''
+        context='ALL_USER'
+        description='License Text'/>
+    </adapterSpecificData>
+  </iu>
+  <iu id='com.ibm.is.sappack.conversion.workbench.license.info.win32.shortcuts' version='1.0.0.qualifier' adapterId='nativeWin32'>
+    <property name='order.dependencies' value='com.ibm.is.sappack.conversion.workbench.win32.shortcuts'/>
+    <selectedByExpression>
+      <and>
+        <selectedBy id='os' value='win32'/>
+        <selectedBy id='main'/>
+      </and>
+    </selectedByExpression>
+    <adapterSpecificData>
+      <desktopIcon_win32
+        folder='${NLProperty:${context:installLocation}\conversion-workbench\startmenu\nl\client-shortcuts,ConversionWorkbench.startup.folder}/${NLProperty:${context:installLocation}\conversion-workbench\startmenu\nl\client-shortcuts,ConversionWorkbench.startup.name}'
+        name='License Information'
+        workingDirectory='${profile:installLocation}/conversion-workbench'
+        command='${profile:installLocation}/conversion-workbench/license-info.html'
+        arguments=''
+        iconPath=''
+        context='ALL_USER'
+        description='License Information'/>
+    </adapterSpecificData>
+  </iu>
+  <iu id='com.ibm.is.sappack.conversion.workbench.linux.shortcuts' version='1.0.0.qualifier' adapterId='nativeLinux'>
+    <selectedByExpression>
+      <and>
+        <selectedBy id='os' value='linux'/>
+        <selectedBy id='main'/>
+      </and>
+    </selectedByExpression>
+    <adapterSpecificData>
+      <zip
+        id='com.ibm.is.sappack.conversion.workbench.icons'
+        destination='${context:installLocation}/conversion-workbench/startmenu' downloadSize='12151' installSize='43630'/>
+      <zip
+        id='client.nlproperties.shortcuts'
+        destination='${context:installLocation}/conversion-workbench/startmenu' downloadSize='6236' installSize='8310'/>
+      <desktopIcon_linux
+        folder='${NLProperty:${context:installLocation}/conversion-workbench/startmenu/nl/client-shortcuts,ConversionWorkbench.startup.folder}/${NLProperty:${context:installLocation}/conversion-workbench/startmenu/nl/client-shortcuts,ConversionWorkbench.startup.name}'
+        name='${NLProperty:${context:installLocation}/conversion-workbench/startmenu/nl/client-shortcuts,ConversionWorkbench.startup.name}'
+        workingDirectory='${eclipseIdeLocation}'
+        command='${eclipseIdeLocation}/eclipse'
+        arguments='-product com.ibm.is.sappack.cw.branding.product'
+        iconPath='${context:installLocation}/conversion-workbench/startmenu/is-rm.xpm'
+        context='ALL_USER'
+        categories=''
+        description='${NLProperty:${context:installLocation}/conversion-workbench/startmenu/nl/client-shortcuts,ConversionWorkbench.startup.description}'
+        desktopFile=''/>
+    </adapterSpecificData>
+  </iu>
+</su>

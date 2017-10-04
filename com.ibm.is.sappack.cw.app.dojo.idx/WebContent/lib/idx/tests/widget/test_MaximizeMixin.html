@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Test _MaximizeMixin</title>
+	<script type="text/javascript" src="../dojoVersion.js"></script>
+
+	<script type="text/javascript">
+		dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+	</script>
+	
+	<style id="idxStyles" type="text/css">
+        @import "../../themes/oneui/oneui.css";
+        @import "../../themes/vienna/vienna.css";
+        @import "../../themes/claro/claro.css";
+        @import "../../resources/claro_idx.css";
+        @import "../../resources/vienna_idx.css";
+        @import "../../themes/test.css";
+	</style>
+		
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+		dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+
+	<script type="text/javascript" id="postDojo">
+		var modules=["doh",
+					 "doh.runner",
+					 "dijit.dijit", // optimize: load dijit layer
+					 "dijit/registry",
+					 "dojo/_base/declare",
+					 "dojo/dom-construct",
+					 "dijit.layout.ContentPane",
+					 "idx.widget._MaximizeMixin"];
+
+
+		function callback(modules) {
+		    var parser = modules["dojo/parser"];
+			var dDoh = modules["doh"] ? modules["doh"] : doh;
+			var _MaximizeMixin = modules["idx/widget/_MaximizeMixin"];
+			var dRegistry = modules["dijit/registry"] ? modules["dijit/registry"] : dijit;
+			var dDeclare = modules["dojo/_base/declare"] ? modules["dojo/_base/declare"] : dojo.declare;
+			var ContentPane = modules["dijit/layout/ContentPane"];
+			var dDomConstruct = modules["dojo/dom-construct"] ? modules["dojo/dom-construct"] : dojo;
+			
+			var TestMaximizeMixin = dDeclare("TestMaximizePane", [ContentPane, _MaximizeMixin], {});
+			
+			var maximizePane = null;
+
+			dDoh.register("create", function(){
+				maximizePane = new TestMaximizePane({});
+				doh.t(maximizePane != null);
+				dDomConstruct.create("div", {}, maximizePane.containerNode);
+			});
+
+			dDoh.register("maximize", function(){
+				maximizePane.maximize(maximizePane.containerNode.firstChild, maximizePane.containerNode);
+			});
+
+			dDoh.register("restore", function(){
+				maximizePane.restore();
+			});
+
+			dDoh.run();
+		}
+
+		dojoRequireModules(modules, null, currentDojoVersion.async, true, callback);
+	</script>
+</head>
+<body>
+</body>
+</html>

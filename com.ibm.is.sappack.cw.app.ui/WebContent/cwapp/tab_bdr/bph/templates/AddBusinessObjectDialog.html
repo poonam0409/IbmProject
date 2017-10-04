@@ -1,0 +1,19 @@
+<div>
+	<div dojoType="dijit.Dialog" dojoAttachPoint="addBODialog" title="${msg.BPHTAB_18}">
+		<div class="bdrAddBODialogContent">
+			<div dojoType="idx.layout.BorderContainer" gutters=false class="bdrBorderContainer">
+				<div dojoType="dijit.layout.ContentPane" region="top" class="noBorder paddedContainerNoTop">
+					${msg.BphAddBODialog_Prompt}</div>
+				<div dojoType="dijit.layout.ContentPane" region="top" class="noBorder paddedContainerNoTop">
+					<div dojoType="cwapp.main.SearchBox" dojoAttachPoint="filteringInput" placeHolder="${msg.FILTER}"
+						class="bdrTabFilteringInput"></div>
+				</div>
+				<div dojoType="dijit.layout.ContentPane" region="center" dojoAttachPoint="gridParent" class="paddedContainerNoTop"></div>
+			</div>
+		</div>
+		<div class="dijitDialogPaneActionBar">
+			<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="okButton" disabled="true">${msg.OK}</div>
+			<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="cancelButton">${msg.CANCEL}</div>
+		</div>
+	</div>
+</div>

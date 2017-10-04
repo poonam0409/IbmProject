@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <title>Calendar Test</title>
+
+		<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+		<script type="text/javascript">
+			dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+		</script>
+
+        <style id="idxStyles" type="text/css">
+            @import "../../themes/oneui/dijit/document.css";
+            @import "../../themes/oneui/dijit/dijitMain.css";
+			@import "_pagefooter/_PageFooter.css";
+            @import "../../themes/test.css";
+        </style>
+
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+		</script>
+		<script type="text/javascript">
+			dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+
+		<script type="text/javascript" id="postDojo">
+			var modules = [
+				"dojo.date.locale", 
+				"dijit.Calendar",
+				"idx.oneui.tests._pagefooter._PageFooter"
+			]; 
+			var locale, Calendar, _PageFooter;
+			
+			function preParse(modules){
+				locale 			= modules["dojo/date/locale"];
+				Calendar  		= modules["dijit/Calendar"];
+				_PageFooter   	= modules["idx/oneui/tests/_pagefooter/_PageFooter"];
+			}
+			function postParse() {
+				new _PageFooter();
+			}
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+		</script>
+		<script type="text/javascript" src="../../tests/commonTest.js"></script>
+	</head>
+	<body class="oneui" style="width: 100%; height: 100%; margin: 0; padding: 0;">
+		<a class="navigationLink" href="#maincontent">Skip to main content</a>
+		<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+		<a name="maincontent"></a>
+		
+		<div class="testMain">
+	        <h2 class="testTitle">Normal Calendar Test</h2>
+	        <input data-dojo-type="dijit.Calendar"/>
+			
+			<p/>
+			<p/>
+			
+			<h2 class="testTitle">Calendar With Disabled Date</h2>
+			<input data-dojo-type="dijit.Calendar" data-dojo-props='isDisabledDate:dojo.date.locale.isWeekend'/>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+//***************************************************************************
+// (c) Copyright IBM Corp. 2014 All rights reserved.
+// 
+// The following sample of source code ("ConnectivitySDK.xsd") is owned by International 
+// Business Machines Corporation or one of its subsidiaries ("IBM") and is 
+// copyrighted and licensed, not sold. You may use, copy, modify, and 
+// distribute the Sample in any form without payment to IBM, for the purpose of 
+// assisting you in the development of your applications.
+// 
+// The Sample code is provided to you on an "AS IS" basis, without warranty of 
+// any kind. IBM HEREBY EXPRESSLY DISCLAIMS ALL WARRANTIES, EITHER EXPRESS OR 
+// IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+// MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. Some jurisdictions do 
+// not allow for the exclusion or limitation of implied warranties, so the above 
+// limitations or exclusions may not apply to you. IBM shall not be liable for 
+// any damages you suffer as a result of using, copying, modifying or 
+// distributing the Sample, even if IBM has been advised of the possibility of 
+// such damages.
+//*************************************************************************** -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+    <xs:annotation>
+        <xs:documentation>The XML schema definition for the connector configuration files that are used by the Connectivity SDK tool.</xs:documentation>
+    </xs:annotation>
+    <xs:element name="ConnectivitySDK">
+        <xs:annotation>
+            <xs:documentation>The root element for the Connectivity SDK configuration file.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Descriptor" type="Descriptor">
+                    <xs:annotation>
+                        <xs:documentation>The root element for the connector description.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="Descriptor">
+        <xs:all>
+            <xs:element name="StageID" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>A unique identifier for the connector stage. Only alphanumeric characters or underscores can be used. This element is required.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="DisplayName" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>The name of the connector that is shown in the pallette.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ShortDescription" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>A short description of the connector.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="LongDescription" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>A detailed description of the connector.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Author" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Information about the creator of the connector.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Vendor" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>The vendor information for the connector.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Copyright" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>The copyright information for the connector.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="RepositoryLocation" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>The path of the connector in the repository tree. Use backslashes (\) to separate items in the path. This element is required.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="SupportedContexts" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>A list of contexts such as source, target, or request, separated by a space character for which the connector is valid.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="SupportedInputLinks" type="SupportedNumberOfLinks" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>The element to specify the maximum and minimum number of input links that is supported by the connector.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="SupportedOutputLinks" type="SupportedNumberOfLinks" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>The element to specify the maximum and minimum number of output links that is supported by the connector.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="SupportedRejectLinks" type="SupportedNumberOfLinks" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>The element to specify the maximum and minimum number of reject links that is supported by the connector.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="SupportsSparseLookup" type="BoolType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Indicates whether the connector supports sparse lookup.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="InstalledDirectory" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>The directory path where the .jar file of the connector is located.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ProcessorClasspath" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>The class path that is used when the Processor class is loaded.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="SupportsViewData" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>A list of contexts such as source, target, or request that the connector supports viewing data for. Separate each item with a space.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="SupportsTestConnection" type="BoolType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Specifies whether the connector supports the Test Connection hyperlink to test the connection.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="HelpURL" type="HelpURL" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Specifies information that is provided in the stage editor. Use the child elements to specify help URLs.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Reject" type="Reject" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Specifies the reject condition. Child elements specify the settings for the reject condition.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="MetaDataImport" type="MetaDataImport" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Specifies settings for importing metadata.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Properties" type="Properties">
+                <xs:annotation>
+                    <xs:documentation>Specifies the connector properties.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ModelMappings" type="ModelMappings" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Contains the data connection parameters that are used to connect to the data source.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:all>
+    </xs:complexType>
+
+    <xs:complexType name="Properties">
+        <xs:sequence>
+            <xs:element name="Connection" minOccurs="0" type="PropertyCategory">
+                <xs:annotation>
+                    <xs:documentation>The parent element for connection properties.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Usage" minOccurs="0" type="PropertyCategory">
+                <xs:annotation>
+                    <xs:documentation>The parent element for usage properties.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PropertyCategory">
+        <xs:sequence>
+            <xs:element name="Property" type="Property" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Property">
+        <xs:annotation>
+            <xs:documentation>The base element for the properties structure. The hierarchy of the property element determines the properties structure that is shown in the stage editor.</xs:documentation>
+        </xs:annotation>
+        <xs:choice>
+            <xs:element name="Value" type="PropertyValue" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="Property" type="Property" minOccurs="0" maxOccurs="unbounded" />
+        </xs:choice>
+        <xs:attribute name="name" type="xs:string" use="required" />
+        <xs:attribute name="label" type="xs:string" use="optional" />
+        <xs:attribute name="description" type="xs:string" use="optional" />
+        <xs:attribute name="contexts" type="xs:string" use="optional" />
+        <xs:attribute name="type" type="PropertyType" use="optional" />
+        <xs:attribute name="required" type="BoolType" use="optional" />
+        <xs:attribute name="hidden" type="BoolType" use="optional" />
+        <xs:attribute name="default" type="xs:string" use="optional" />
+        <xs:attribute name="scope" type="PropertyScope" use="optional" />
+        <xs:attribute name="filter" type="xs:string" use="optional" />
+        <xs:attribute name="filterChildPropertiesOnValue" type="xs:string" use="optional" />
+    </xs:complexType>
+
+    <xs:complexType name="PropertyValue">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="xs:int" use="required" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:simpleType name="BoolType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="true" />
+            <xs:enumeration value="false" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="PropertyType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="string" />
+            <xs:enumeration value="int" />
+            <xs:enumeration value="protectedstring" />
+            <xs:enumeration value="bool" />
+            <xs:enumeration value="category" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="PropertyScope">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="stage" />
+            <xs:enumeration value="link" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="SupportedNumberOfLinks">
+        <xs:attributeGroup ref="NumbersOfLinks" />
+    </xs:complexType>
+
+    <xs:attributeGroup name="NumbersOfLinks">
+        <xs:attribute name="max" type="xs:int" use="optional" />
+        <xs:attribute name="min" type="xs:int" use="optional" />
+    </xs:attributeGroup>
+
+    <xs:complexType name="HelpURL">
+        <xs:all>
+            <xs:element name="Properties" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Specifies the URL for the context-sensitive help on the Properties page.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Reject" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Specifies the URL for the context-sensitive help on the Reject page.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:all>
+    </xs:complexType>
+
+    <xs:complexType name="Reject">
+        <xs:sequence>
+            <xs:element name="RejectConditions" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>The parent element for the Error element.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Error" minOccurs="0">
+                            <xs:annotation>
+                                <xs:documentation>Specifies the reject condition label that is shown in the stage editor.</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="xs:string">
+                                        <xs:attribute name="code" fixed="0" use="required" />
+                                        <xs:attribute name="default" fixed="true" use="required" />
+                                        <xs:attribute name="readonly" fixed="true" use="required" />
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="MetaDataImport">
+        <xs:sequence>
+            <xs:element name="TableSchemas" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>The parent element for the FilterProperties element.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="FilterProperties" minOccurs="0">
+                            <xs:annotation>
+                                <xs:documentation>The parent element for the FilterProperty elements.</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="Property" type="FilterProperty" minOccurs="0" maxOccurs="unbounded" />
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="FilterProperty">
+        <xs:attribute name="name" type="xs:string" use="required" />
+        <xs:attribute name="label" type="xs:string" use="optional" />
+        <xs:attribute name="description" type="xs:string" use="optional" />
+        <xs:attribute name="type" type="FilterPropertyType" use="optional" />
+        <xs:attribute name="required" type="BoolType" use="optional" />
+        <xs:attribute name="default" type="xs:string" use="optional" />
+    </xs:complexType>
+
+    <xs:simpleType name="FilterPropertyType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="bool" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="ModelMappings">
+        <xs:sequence>
+            <xs:element name="DataConnection" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>The parent element for the data connection parameter elements.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                        <xs:choice>
+                            <xs:element name="Username" type="xs:string" minOccurs="0" />
+                            <xs:element name="Password" type="xs:string" minOccurs="0" />
+                            <xs:element name="ConnectionString" type="xs:string" minOccurs="0" />
+                            <xs:element name="Private" type="PrivateParameter" minOccurs="0" />
+                        </xs:choice>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PrivateParameter">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="name" type="xs:string" use="required" />
+                <xs:attribute name="usage" type="xs:string" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+</xs:schema>

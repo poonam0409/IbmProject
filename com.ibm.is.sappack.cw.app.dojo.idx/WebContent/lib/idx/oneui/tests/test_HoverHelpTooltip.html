@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>HoverHelpTooltip Widget Tests</title>
+
+	<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+	<script type="text/javascript">
+		dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+
+    <style id="idxStyles" type="text/css">
+        @import "../../themes/oneui/oneui.css";
+        @import "../../themes/test.css";
+    </style>
+    
+    <script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+	</script>
+	
+	<script type="text/javascript">
+		dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+	
+	<script type="text/javascript" id="postDojo">
+		var modules = [
+			
+			"dijit.form.Button", 
+			"dijit.form.TextBox", 				
+			"idx.oneui.HoverHelpTooltip"]; 
+			
+			dojoRequireModules(modules, null, currentDojoVersion.async, null, null);
+	</script>
+
+	<script type="text/javascript" src="../../tests/commonTest.js"></script>
+
+	<script type="text/javascript">
+		//require(["idx/oneui/HoverHelpTooltip", "dijit/form/Button", "dijit/form/TextBox", "dojo/parser"], function(){});
+		
+	</script>
+	
+</head>
+<body class="oneui" style="padding:15px">
+<a class="navigationLink" href="#maincontent">Skip to main content</a> <script type="text/javascript">applyThemeToBody("oneui");</script>
+
+<a name="maincontent"></a>
+
+	<h1 class="testTitle">idx.oneui.HoverHelpTooltip tests</h1>
+	<br/>Hover over the icons.<br />
+	<h2>Example 1: Default</h2>
+	<!--<ul>
+		<li>Appears on click</li>
+		<li>Closes on click outside or click on close button</li>
+		
+	</ul>-->
+<table><tr><td>Change password:</td><td>
+		<div id="two" aria-label="Help for password" href="#bogus1" tabindex="0" style="background-image:url('../../themes/oneui/idx/oneui/images/hoverHelpQuestionMarkIcon.png'); height:16px; width:16px; margin-left:2px; margin-right:3px;" onmouseover="idx.oneui.HoverHelpTooltip.defaultPosition=['above', 'below']"></div>
+		<span id="two_tooltip" data-dojo-type="idx.oneui.HoverHelpTooltip" data-dojo-props='connectId:["two"], forceFocus: true, showLearnMore:true, learnMoreLinkValue:"http://www.ibm.com"' style="width: 300px">
+			Passwords must be between 5 and 20 characters. There must be a combination of alphanumeric characters, starting with a letter and at least one number1.  <br /><br />
+		
+		</span>
+	</div></td>
+<td>
+<input style="display:inline" id="textbox1" /></td></tr></table>
+<br /><br />
+<b>Test below:</b><br />
+<table><tr><td>Change password:</td><td>
+		<div id="twob" aria-label="Help for password" href="#bogus1" tabindex="0" style="background-image:url('../../themes/oneui/idx/oneui/images/hoverHelpQuestionMarkIcon.png'); height:16px; width:16px; margin-left:2px; margin-right:3px;" onmouseover="idx.oneui.HoverHelpTooltip.defaultPosition=['below']"></div>
+		<span id="twob_tooltip" data-dojo-type="idx.oneui.HoverHelpTooltip" data-dojo-props='connectId:["twob"], forceFocus: true, showLearnMore:true, learnMoreLinkValue:"http://www.ibm.com"' style="width: 300px">
+			Passwords must be between 5 and 20 characters. There must be a combination of alphanumeric characters, starting with a letter and at least one number.<br /><br />
+		</span>
+	</div></td>
+<td>
+<input style="display:inline" id="textbox1" /></td></tr></table>
+
+<br /><br /><br />
+
+
+<h2>Example 2: In-context messages</h2>
+	<!--<ul>
+		<li>500ms show delay</li>
+		<li>800ms hide delay</li>
+		<li>Closes after mouse out or close button clicked</li>
+	</ul>-->
+<table><tr><td>Change password: <input style="display:inline" id="textbox" /></td><td style="padding-left:5px;">
+<div style="display: inline;">
+		<div id="one" aria-label="Help for password" href="#bogus" tabindex="0" onmouseover="idx.oneui.HoverHelpTooltip.defaultPosition=['after-centered', 'before-centered']" style="background-image:url('../../themes/oneui/idx/oneui/messaging/images/msgIcons_24bit.png');background-position:0 0; height:19px; width:19px; margin-left: 1px"></div>
+		<span id="one_tooltip" data-dojo-type="idx.oneui.HoverHelpTooltip" data-dojo-props='connectId:["one"], forceFocus: true, showCloseIcon:true'>
+			You do not have permission to perform that action. Contact your administrator to address authorization access. <br /><br />
+			<a href="http://www.ibm.com" target="_blank">CAT123456</a>&nbsp;&nbsp; | &nbsp;&nbsp;<a href="http://www.ibm.com" target="_blank">View Details</a>
+		</span>
+	</div>
+</td></tr></table>
+
+
+
+	
+	
+
+
+</body>
+</html>

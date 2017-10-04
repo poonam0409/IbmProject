@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PatchManifest patchName="%PACKAGENAME%" specversion="1.0" >
+  <ChangeType type="Interim" />
+  <Compatibility min="11.3.0.0"  patches="" undoable="true" platform=""/>
+  <Description description="%PACKAGEDESC%" />
+  <FileActions>%FILEACTIONS%</FileActions>
+  <ConfigActions>
+    <CompInstaller phase="PostStartup" installType="server" platform="" file="%JARNAME%" deployment="deploy" />
+  </ConfigActions>
+</PatchManifest>

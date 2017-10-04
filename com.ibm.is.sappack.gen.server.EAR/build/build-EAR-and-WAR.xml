@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2014  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<!--
+ Description:
+
+ Ant build file for the EAR and WAR target for Pack for SAP Service.
+ 
+ It's may be used for personal builds only. DO NOT COPY the resulted jar file 
+ on production systems.
+-->
+
+<project name="EAR-and-WAR" basedir="." default="all">
+
+    <property name="ECLIPSE_HOME"                value="../../../../../IBM/RSA8.5"/>
+    <property name="debug"                       value="on"/>
+	<property name="xmetaV8src"                  value="../../com.ibm.is.sappack.dsstages.xmeta_v8/src"/>
+	<property name="xmetaV10src"                 value="../../com.ibm.is.sappack.dsstages.xmeta_v10/src"/>
+	<property name="build.dir"                   value="./bin"/>
+	<property name="dist.dir"                    value="./dist"/>
+	<property name="distComponents.dir"          value="./dist/components"/>
+	<property name="tmpWARBase.dir"              value="${build.dir}/tmp/WARComponentsBase"/>
+	<property name="tmpEARWAR.dir"               value="${tmpWARBase.dir}/jobGenServlet4EARWar"/>
+
+	<property name="targetJAR"                   value="${dist.dir}/dsr3idocmeta.jar"/>
+	<property name="extLibsIISClient.dir"        value="../../extLibsIISClient91/ASBNode/client"/>
+    <property name="extLibsIISClient100.dir"     value="../../extLibsIISClient100"/>
+    <property name="extLibsIISClient100.IIS.dir" value="${extLibsIISClient100.dir}/ASBNode/eclipse/plugins/com.ibm.iis.client"/>
+	
+    <property name="commonJar"                value="com.ibm.is.sappack.gen.common.jar"/>
+    <property name="serverCommonJar"          value="com.ibm.is.sappack.gen.server.common.jar"/>
+    <property name="serverDataStageV8Jar"     value="com.ibm.is.sappack.gen.server.datastage_v8.jar"/>
+    <property name="serverDataStageV10Jar"    value="com.ibm.is.sappack.gen.server.datastage_v10.jar"/>
+    <property name="serverDataStageJar"       value="com.ibm.is.sappack.gen.server.datastage.jar"/>
+    <property name="jobGeneratorJar"          value="com.ibm.is.sappack.gen.server.jobgenerator.jar"/>
+    <property name="jobGenServletWar"         value="com.ibm.is.sappack.gen.server.war"/>
+    <property name="jobGenTmpServlet4EARWar"  value="server.temp-4-ear.war"/>
+    <property name="jobGeneratorEAR"          value="ISPackForSAP-JobGen.ear"/>
+    <property name="jobGeneratorWAR"          value="ISPackForSAP-JobGen.war"/>
+			
+	
+	<!-- ********************* -->	
+	<!--   setup class paths   -->	
+	<!-- ********************* -->	
+	<path id="utilClasspath">
+        <pathelement location="${extLibsIISClient100.IIS.dir}/httpcore-4.2.1.jar"/>
+        <pathelement location="${extLibsIISClient100.IIS.dir}/httpclient-4.2.1.jar"/>
+        <pathelement location="${extLibsIISClient100.IIS.dir}/isf-core.jar"/>
+        <pathelement location="C:/Program Files (x86)/IBM/SDP/runtimes/base_v85_stub/lib/j2ee.jar"/>
+	</path>
+	<path id="classpathISClientV8">
+		<pathelement path="${build.dir}" />
+		<fileset dir="${extLibsIISClient.dir}" >
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+	<path id="classpathISClientV10">
+		<pathelement path="${build.dir}" />
+		<fileset dir="${extLibsIISClient100.dir}" >
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+	<path id="fullClasspath">
+		<path refid="classpathISClientV8"/>
+		<path refid="utilClasspath"/>
+		<fileset dir="${distComponents.dir}" >
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+	<path id="fullClasspathV10">
+		<path refid="classpathISClientV10"/>
+		<path refid="utilClasspath"/>
+		<fileset dir="${distComponents.dir}" >
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<!-- *********** -->
+	<!--   targets   -->
+	<!-- *********** -->
+	<target name="all" depends="prepare, cleanup, buildJobGenEAR, buildJobGenWAR, finalCleanup"/>
+
+	<target name="cleanup">
+		<delete dir="${build.dir}"/>
+		<delete dir="${dist.dir}"/>
+	</target>
+
+	<target name="prepare" depends="cleanup">
+		<mkdir dir="${build.dir}"/>
+		<mkdir dir="${dist.dir}"/>
+		<mkdir dir="${distComponents.dir}"/>
+	</target>
+
+	<!-- __________________________________________________________________________________________________________________________ -->
+	<!--                                                                                                                            -->
+	<!--                                                Build the component jars                                                    -->
+	<!-- __________________________________________________________________________________________________________________________ -->
+	<!--                                                      Common jar                                                            -->
+	<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<target name="buildCommonJar" description="build the Common jar" depends="prepare">
+	    <property name="buildCommon.dir" value="${build.dir}/common"/>
+		<property name="commonSrc.dir"   value="../../com.ibm.is.sappack.gen.common/src"/>
+		<mkdir dir="${buildCommon.dir}"/>
+
+		<javac sourcepath="" srcdir="${commonSrc.dir}" destdir="${buildCommon.dir}" classpathref="utilClasspath" debug="${debug}">
+			<include name="**/*.java"/>
+		</javac>
+		<copy todir="${buildCommon.dir}">
+			<fileset dir="${commonSrc.dir}" includes="**/*.properties"/>
+		</copy>
+		<jar jarfile="${distComponents.dir}/${commonJar}" basedir="${buildCommon.dir}"/>
+	</target>
+
+	<!--                                                  Server Common jar                                                         -->
+	<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<target name="buildServerCommonJar" description="build the Server Common jar" depends="buildCommonJar">
+	    <property name="buildServerCommon.dir" value="${build.dir}/serverCommon"/>
+		<property name="serverCommonSrc.dir"   value="../../com.ibm.is.sappack.gen.server.common/src"/>
+		<mkdir dir="${buildServerCommon.dir}"/>
+
+		<javac sourcepath="" srcdir="${serverCommonSrc.dir}" destdir="${buildServerCommon.dir}" classpathref="fullClasspath" debug="${debug}">
+			<include name="**/*.java"/>
+		</javac>
+		<copy todir="${buildServerCommon.dir}">
+			<fileset dir="${serverCommonSrc.dir}" includes="**/*.properties"/>
+		</copy>
+		<jar jarfile="${distComponents.dir}/${serverCommonJar}" basedir="${buildServerCommon.dir}"/>
+	</target>
+
+	<!--                                              Server DataStage V8 base jar                                                  -->
+	<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<target name="buildServerDataStageV8Jar" description="build the Server DataStage V8 jar" depends="buildServerCommonJar">
+	    <property name="buildServerDataStageV8.dir" value="${build.dir}/serverDataStageV8"/>
+		<property name="serverDataStageV8Src.dir"   value="../../com.ibm.is.sappack.gen.server.datastage_v8/src"/>
+		<mkdir dir="${buildServerDataStageV8.dir}"/>
+
+		<javac sourcepath="" srcdir="${serverDataStageV8Src.dir}" destdir="${buildServerDataStageV8.dir}" classpathref="fullClasspath" debug="${debug}">
+			<include name="**/*.java"/>
+		</javac>
+		<copy todir="${buildServerDataStageV8.dir}">
+			<fileset dir="${serverDataStageV8Src.dir}" includes="**/*.properties"/>
+		</copy>
+		<jar jarfile="${distComponents.dir}/${serverDataStageV8Jar}" basedir="${buildServerDataStageV8.dir}"/>
+	</target>
+
+	<!--                                              Server DataStage V10 base jar                                                 -->
+	<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<target name="buildServerDataStageV10Jar" description="build the Server DataStage V10 jar" depends="buildServerDataStageV8Jar">
+	    <property name="buildServerDataStageV10.dir" value="${build.dir}/serverDataStageV108"/>
+		<property name="serverDataStageV10Src.dir"   value="../../com.ibm.is.sappack.gen.server.datastage_v10/src"/>
+		<mkdir dir="${buildServerDataStageV10.dir}"/>
+
+		<javac sourcepath="" srcdir="${serverDataStageV10Src.dir}" destdir="${buildServerDataStageV10.dir}" classpathref="fullClasspathV10" debug="${debug}">
+			<include name="**/*.java"/>
+		</javac>
+		<copy todir="${buildServerDataStageV10.dir}">
+			<fileset dir="${serverDataStageV10Src.dir}" includes="**/*.properties"/>
+		</copy>
+		<jar jarfile="${distComponents.dir}/${serverDataStageV10Jar}" basedir="${buildServerDataStageV10.dir}"/>
+	</target>
+
+	<!--                                                 Server DataStage jar                                                   -->
+	<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<target name="buildServerDataStageJar" description="build the Server DataStage jar" depends="buildServerDataStageV10Jar">
+	    <property name="buildServerDataStage.dir" value="${build.dir}/serverDataStage"/>
+		<property name="serverDataStageSrc.dir"   value="../../com.ibm.is.sappack.gen.server.datastage/src"/>
+		<mkdir dir="${buildServerDataStage.dir}"/>
+
+		<javac sourcepath="" srcdir="${serverDataStageSrc.dir}" destdir="${buildServerDataStage.dir}" classpathref="fullClasspath" debug="${debug}">
+			<include name="**/*.java"/>
+		</javac>
+		<copy todir="${buildServerDataStage.dir}">
+			<fileset dir="${serverDataStageSrc.dir}" includes="**/*.properties"/>
+		</copy>
+		<jar jarfile="${distComponents.dir}/${serverDataStageJar}" basedir="${buildServerDataStage.dir}"/>
+	</target>
+
+	<!--                                                  Job Generator jar                                                         -->
+	<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<target name="buildJobGeneratorJar" description="build the Job Generator jar" depends="buildServerDataStageJar">
+	    <property name="buildJobGenerator.dir" value="${build.dir}/jobGenerator"/>
+		<property name="jobGeneratorSrc.dir"   value="../../com.ibm.is.sappack.gen.server.jobgenerator/src"/>
+		<mkdir dir="${buildJobGenerator.dir}"/>
+
+		<javac sourcepath="" srcdir="${jobGeneratorSrc.dir}" destdir="${buildJobGenerator.dir}" classpathref="fullClasspath" debug="${debug}">
+			<include name="**/*.java"/>
+		</javac>
+		<copy todir="${buildJobGenerator.dir}">
+			<fileset dir="${jobGeneratorSrc.dir}" includes="**/*.properties"/>
+		</copy>
+		<jar jarfile="${distComponents.dir}/${jobGeneratorJar}" basedir="${buildJobGenerator.dir}"/>
+	</target>
+
+	<!--                                         Job Generator Servlet war (used by EAR only)                                       -->
+	<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<target name="buildJobGenServletWar" description="build the Job Generator servlet" depends="buildJobGeneratorJar">
+	    <property name="buildJobGenServlet.dir" value="${build.dir}/jobGenerator"/>
+		<property name="jobGenServletSrc.dir"   value="../../com.ibm.is.sappack.gen.server/WebContent"/>
+	    <property name="tmpWeb-xml.dir"         value="${build.dir}/tmp/tmpWeb-xml"/>
+		<mkdir dir="${buildJobGenServlet.dir}"/>
+		<mkdir dir="${tmpEARWAR.dir}"/>
+
+		<javac sourcepath="" srcdir="${jobGeneratorSrc.dir}" destdir="${buildJobGenerator.dir}" classpathref="fullClasspath" debug="${debug}">
+			<include name="**/*.java"/>
+		</javac>
+		<copy todir="${buildJobGenerator.dir}">
+			<fileset dir="${jobGeneratorSrc.dir}" includes="**/*.properties"/>
+		</copy>
+
+		<!-- This WAR file must contain a special 'web.xml' file -->
+		<copy file="${jobGenServletSrc.dir}/WEB-INF/web-IS-9.1.2.xml" tofile="${tmpWeb-xml.dir}/WEB-INF/web.xml"/>
+
+		<jar jarfile="${tmpEARWAR.dir}/${jobGenTmpServlet4EARWar}" basedir="${jobGenServletSrc.dir}"
+		     manifest="${jobGenServletSrc.dir}/META-INF/MANIFEST.MF" excludes="**/web*xml">
+			<fileset dir="${tmpWeb-xml.dir}" includes="**/*.xml"/>
+		</jar>
+	</target>
+
+	<!-- __________________________________________________________________________________________________________________________ -->
+	<!--                                                                                                                            -->
+	<!--                                                   Build EAR and WAR files                                                  -->
+	<!-- __________________________________________________________________________________________________________________________ -->
+	<target name="buildJobGenEAR" description="build the target JobGenerator EAR" depends="buildJobGenServletWar">
+	    <property name="buildJobGenEAR.dir" value="${dist.dir}"/>
+		<property name="jobGenEARSrc.dir"   value="../../com.ibm.is.sappack.gen.server.EAR/EarContent"/>
+
+		<copy file="${tmpEARWAR.dir}//${jobGenTmpServlet4EARWar}" tofile="${distComponents.dir}/${jobGenServletWar}"/>
+		
+		<jar destfile="${dist.dir}/${jobGeneratorEAR}" manifest="${jobGenEARSrc.dir}/META-INF/MANIFEST.MF"> 
+			<fileset dir="${distComponents.dir}/" includes="**/*"/>
+			<fileset dir="${extLibsIISClient.dir}/lib/java" includes="DS4J*" />
+			<fileset dir="${jobGenEARSrc.dir}/" includes="**/application.xml" />
+			<fileset dir="${jobGenEARSrc.dir}/" includes="**/ibm-application-bnd.xmi" />
+		</jar>
+	</target>
+
+	<target name="buildJobGenWAR" description="build the target JobGenerator WAR" depends="buildJobGeneratorJar">
+	    <property name="tmpBuild.dir"       value="${build.dir}/tmp/WebContent"/>
+	    <property name="buildJobGenWAR.dir" value="${dist.dir}"/>
+		<property name="jobGenWARSrc.dir"   value="../../com.ibm.is.sappack.gen.server/WebContent"/>
+
+		<copy todir="${tmpBuild.dir}">
+			<fileset dir="${jobGenWARSrc.dir}/" includes="**/**" excludes="**/web*9.1*xml"/>
+		</copy>
+		<copy todir="${tmpBuild.dir}/WEB-INF/lib">
+			<fileset dir="${distComponents.dir}/" includes="*.jar" excludes="*v8*"/>
+		</copy>
+		<delete file="${tmpBuild.dir}"/>
+		<jar destfile="${dist.dir}/${jobGeneratorWAR}" basedir="${tmpBuild.dir}" manifest="${jobGenWARSrc.dir}/META-INF/MANIFEST.MF" />
+	</target>
+
+	<!-- __________________________________________________________________________________________________________________________ -->
+	<!--                                                                                                                            -->
+	<!--                                  Last not least remove build and component folders                                         -->
+	<!-- __________________________________________________________________________________________________________________________ -->
+	<target name="finalCleanup">
+		<delete dir="${build.dir}"/>
+		<delete dir="${distComponents.dir}"/>
+	</target>
+
+</project>

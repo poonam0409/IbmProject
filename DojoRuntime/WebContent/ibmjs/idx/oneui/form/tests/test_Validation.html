@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Validation Test</title>
+
+	<script type="text/javascript" src="../../../tests/dojoVersion.js"></script>
+	<script type="text/javascript">
+		dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+	
+	<style id="idxStyles" type="text/css">
+		@import "../../../themes/oneui/oneui.css";
+		@import "../../../themes/test.css";
+		@import "../../tests/_pagefooter/_PageFooter.css";
+	</style>
+
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+	</script>
+	
+	<script type="text/javascript">
+		dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+		
+	<script type="text/javascript" id="postDojo">
+		var modules = [
+			"dijit._base.manager", 
+			"dijit.form.Button", 
+			"idx.oneui.form.TextBox",
+			"idx.oneui.form.Textarea", 
+			"idx.oneui.form.Select", 
+			"idx.oneui.form.DateTextBox", 
+			"idx.oneui.form.TimeTextBox", 
+			"idx.oneui.form.NumberSpinner", 
+			"idx.oneui.form.CurrencyTextBox", 
+			"idx.oneui.form.HorizontalSlider", 
+			"idx.oneui.form.HorizontalRule", 
+			"idx.oneui.form.HorizontalRuleLabels", 
+			"idx.oneui.form.VerticalSlider", 
+			"idx.oneui.form.VerticalRule", 
+			"idx.oneui.form.VerticalRuleLabels", 
+			"idx.oneui.form.CheckBoxSelect",
+			"idx.oneui.form.RadioButtonSet",
+			"idx.oneui.form.CheckBox",
+			"idx.oneui.tests._pagefooter._PageFooter"]; 
+		var _PageFooter = null;
+		function preParse(modules){
+			_PageFooter = modules["idx/oneui/tests/_pagefooter/_PageFooter"];
+		}
+		function postParse(modules){
+			new _PageFooter();
+		}
+		dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+	</script>
+	<script type="text/javascript" src="../../../tests/commonTest.js"></script>
+
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 0px;">
+	<a class="navigationLink" href="#maincontent">Skip to main content</a>
+	<script type="text/javascript">applyThemeToBody("oneui");</script>
+	<a name="maincontent"></a>
+	
+	<div class="testMain">
+	<h2>Widgets below got validated <b>ON BLUR</b> by default</h2>
+	<h3>idx.oneui.form.Textbox <b>(rules: required and inputs more than 5 characters)</b></h3>
+	<p>
+	API ref: <a target="_blank" href="http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/TextBox.js">http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/TextBox.js</a>
+	</p>
+	<input data-dojo-type="idx.oneui.form.TextBox" id="textbox" data-dojo-props='
+		value: "abcdef",
+		required: true,
+		invalidMessage: "Value must contain more than 5 characters",
+		isValid: function(){return this.get("value").length > 5;}
+	'></input>
+	
+	<h3>idx.oneui.form.Textarea <b>(rules: required and must contain 'dojo')</b></h3>
+	<p>
+	API ref: <a target="_blank" href="http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/Textarea.js">http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/Textarea.js</a>
+	</p>
+	<textarea data-dojo-type="idx.oneui.form.Textarea" id="textarea" data-dojo-props='
+		rows: "2",
+		cols: "20",
+		required: true,
+		invalidMessage: "The value must contain \"dojo\".",
+		isValid: function(){
+			return this.get("value").indexOf("dojo") >= 0
+		}'
+	>There is some dummy messages: blablabla... dojo</textarea>
+	
+	<h3>idx.oneui.form.DateTextBox, vaildation was already implemented.<b>(rules: follow date pattern of 'MMMM dd')</b></h3>
+	<p>
+	API ref: <a target="_blank" href="http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/DateTextBox.js">http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/DateTextBox.js</a>
+	</p>
+	<input data-dojo-type="idx.oneui.form.DateTextBox" id="datetextbox" data-dojo-props='
+		required:"true",
+		constraints:{datePattern:"MMMM dd"},
+		value:new Date(2011,10,25),
+		invalidMessage:"The value must be formatted as month dd"'
+	></input>
+	
+	<h3>idx.oneui.form.TimeTextBox, vaildation was already implemented.<b>(rules: follow time pattern of '**:**' PM/AM')</b></h3>
+	<p>
+	API ref: <a target="_blank" href="http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/TimeTextBox.js">http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/TimeTextBox.js</a>
+	</p>
+	<input data-dojo-type="idx.oneui.form.TimeTextBox" id="timetextbox" data-dojo-props='
+		value:"T17:45:00",
+		title:"title: Time using local conventions",
+		constraints:{formatLength:"short"},
+		required:true,
+		invalidMessage:"The value must be formatted as hh:dd AM or PM"'
+	></input>
+	
+	<h3>idx.oneui.form.NumberSpinner, vaildation was already implemented.<b>(rules: number accepted only, and max value is 1550)</b></h3>
+	<p>
+	API ref: <a target="_blank" href="http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/NumberSpinner.js">http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/NumberSpinner.js</a>
+	</p>
+	<input data-dojo-type="idx.oneui.form.NumberSpinner" id="numberspinner"
+		data-dojo-props='value:900,	"class":"bigFont",
+		constraints:{max:1550,places:0},
+		invalidMessage:"The value must be numeric"'
+	/>
+	
+	<h3>idx.oneui.form.CurrencyTextBox, for currency of USD. <b>(rules: number accepted only, and max value is 1100)</b></h3>
+	<p>
+	API ref: <a target="_blank" href="http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/CurrencyTextBox.js">http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/CurrencyTextBox.js</a>
+	</p>
+	<input data-dojo-type="idx.oneui.form.CurrencyTextBox" id="currencytextbox"
+		data-dojo-props='value: 1020, currency: "USD",
+		constraints: {max: 1100}'
+	/>
+	<br>
+	<br>
+	<h2>Widgets below got validated <b>ON CHANGE</b> by default</h2>
+	
+	<!--<h3>1. File Input <b>(rules: only ***.txt file is accepted)</b></h3>
+	<p>
+	API ref: <a target="_blank" href="http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/FileInput.js">http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/FileInput.js</a>
+	</p>
+	<input dojoType="oneui.form.FileInput" id="fileinput" url="../../form/resources/RecieveFile.php"/>-->
+	
+	<h3>idx.oneui.form.Select, <b>(rules: Select a specified place.)</b></h3>
+	<p>
+	API ref: <a target="_blank" href="http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/Select.js">http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/Select.js</a>
+	</p>
+	<select data-dojo-type="idx.oneui.form.Select" id="select" data-dojo-props='
+		isValid: function(){
+			return !this.getOptions(0).selected;
+		},
+		invalidMessage: "A value is required."'>
+		<option value="">Please select a place</option>
+		<option value="TN" selected="selected">Tennessee</option>
+		<option value="VA" >Virginia</option>
+		<option value="WA">Washington</option>
+		<option value="FL">Florida</option>
+		<option value="CA">California</option>
+	</select>
+	
+	<h3>idx.oneui.form.CheckBoxSelect, <b>(rules: Virginia should be selected)</b></h3>
+	<select data-dojo-type="idx.oneui.form.CheckBoxSelect" id="checkboxSelect"
+		data-dojo-props='multiple:true, dropdown:false, 
+		name:"checkboxselect",
+		required:true,
+		invalidMessage: "Virginia is required.",
+		isValid: function(){return this.getOptions(1).selected;}'>
+		<option value="TN">Tennessee</option>
+		<option value="VA" selected="selected">Virginia</option>
+		<option value="WA" selected="selected">Washington</option>
+		<option value="FL">Florida</option>
+		<option value="CA">California</option>
+	</select>
+	
+	<h3>idx.oneui.form.RadioButtonSet, <b>(rules: Radio 1 should not checked.)</b></h3>
+	<select id="radioGroup" data-dojo-type="idx.oneui.form.RadioButtonSet" data-dojo-props='
+		name:"radio",
+		invalidMessage: "Radio1 is not a valid selection.",
+		isValid: function(){return !this.getOptions(0).selected;}
+		'>
+		<option value ="Radio1">Radio1</option>
+		<option value ="Radio2" selected="selected">Radio2</option>
+		<option value ="Radio3">Radio3</option>
+	</select>
+	
+	
+	<h3>idx.oneui.form.Checkbox, <b>(rules: Must be checked)</b></h3>
+	<input id="checkbox" data-dojo-type="idx.oneui.form.CheckBox" data-dojo-props='
+		name:"checkbox",
+		isValid: function(){
+			return this.checked;
+		},
+		invalidMessage: "You must read the agreements before you can continue",
+		checked: true,
+		label: "I have read all the agreements"
+	'/>
+	
+	<h3>idx.oneui.form.HorizontalSlider, <b>(rules: Should be greater than 50%)</b></h3>
+	<p>
+	API ref: <a target="_blank" href="http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/HorizontalSlider.js">http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/HorizontalSlider.js</a>
+	</p>
+	<div id="slider1" data-dojo-type="idx.oneui.form.HorizontalSlider" data-dojo-props='
+		name:"horizontal1",
+		onChange:function(val){ dijit.byId("slider1input").set("value",dojo.number.format(val/100,{places:1,pattern:"#%"})); },
+		value:70,
+		isValid: function(){return this.get("value") > 50;},
+		invalidMessage: "The value must be greater than 50%.",
+		maximum:100,
+		minimum:0,
+		pageIncrement:100,
+		showButtons:true,
+		intermediateChanges:true,
+		slideDuration:500,
+		style:{width:"500px"}
+		'>
+			<ol data-dojo-type="idx.oneui.form.HorizontalRuleLabels" data-dojo-props='container:"topDecoration", style:{height:"1.2em",fontSize:"75%"}, count:6, numericMargin:1'></ol>
+			<div data-dojo-type="idx.oneui.form.HorizontalRule" data-dojo-props='container:"topDecoration", count:6, style:{height:"5px"}'></div>
+			<div data-dojo-type="idx.oneui.form.HorizontalRule" data-dojo-props='container:"bottomDecoration", count:5, style:{height:"5px"}'></div>
+			<ol data-dojo-type="idx.oneui.form.HorizontalRuleLabels" data-dojo-props='container:"bottomDecoration", style:{height:"1em",fontSize:"75%"}'>
+				<li>lowest</li>
+				<li>normal</li>
+				<li>highest</li>
+			</ol>
+	</div><br/>
+	Slider1 Value:<input data-dojo-type="idx.oneui.form.TextBox" id="slider1input" data-dojo-props='value: "10.0%",disabled:true'></input>
+	<h3>idx.oneui.form.VerticalSlider, <b>(rule: Should be greater than 40%)</b></h3>
+	<p>
+	API ref: <a target="_blank" href="http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/VerticalSlider.js">http://dojosh.bluehost.ibm.com/ORIA-OneUI/util/docscripts/preview.php#oneui/form/VerticalSlider.js</a>
+	</p>
+	<div id="slider2" data-dojo-type="idx.oneui.form.VerticalSlider" data-dojo-props='name:"vertical1",
+		onChange:function(val){ dijit.byId("slider2input").set("value",val); },
+		isValid: function(){return this.get("value") > 40;},
+		invalidMessage: "The value must be greater than 40%.",
+		value:60,
+		maximum:100,
+		minimum:0,
+		discreteValues:11,
+		style: {height:"300px"}
+		'>
+			<ol data-dojo-type="idx.oneui.form.VerticalRuleLabels" data-dojo-props='container:"leftDecoration", style:{width:"2em"}, labelStyle:"right:0px;"'>
+				<li>0</li>
+				<li>100</li>
+			</ol>
+			<div data-dojo-type="idx.oneui.form.VerticalRule" data-dojo-props='container:"leftDecoration", count:11, style:{width:"5px"}, ruleStyle:"border-color: #888"'></div>
+			<div data-dojo-type="idx.oneui.form.VerticalRule" data-dojo-props='container:"rightDecoration", count:11, style:{width:"5px"}, ruleStyle:"border-color: #888"'></div>
+			<ol data-dojo-type="idx.oneui.form.VerticalRuleLabels" data-dojo-props='container:"rightDecoration", style:{width:"2em"}, count:6, numericMargin:1, maximum:100, constraints:{pattern:"#"}'></ol>
+	</div><br/>
+	Slider2 Value:<input readOnly data-dojo-type="idx.oneui.form.TextBox" id="slider2input" data-dojo-props='value: "10.0%",disabled:true'></input>
+	</div>
+	</body>
+</html>

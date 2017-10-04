@@ -1,0 +1,195 @@
+<!--******************************************************************************
+ * Licensed Materials - Property of IBM
+ * (c) Copyright IBM Corporation 2009. All Rights Reserved.
+ * 
+ * Note to U.S. Government Users Restricted Rights:
+ * Use, duplication or disclosure restricted by GSA ADP Schedule
+ * Contract with IBM Corp. 
+ *******************************************************************************-->
+<!--
+
+This is a sample Ant script that you can use to publish an asset into IBM Rational Asset Manager.
+Typically, this script is used in a headless build process, in which a set of generated artifacts 
+are published into Rational Asset Manager as a single asset. The asset will also have information and dependencies 
+to other assets that were used to generate the asset, such as open source or common components, supported platforms, 
+and specifications, and includes a link to the specifications, release, design, or other information that is 
+implemented because the asset is published. 
+ 
+Prerequisites:
+
+1.	This script uses Rational Asset Manager Ant tasks.
+	When you run this Ant script, you must download the ramclient.zip file, extract it to a folder, and include that 
+	folder on the ant lib path. 	
+	The ramclient.zip file contains a set of .jar and Ant script files. You can download the file from the Extensions 
+	page of any deployed Rational Asset Manager server instance.  
+	To access the file directly, use this URL: 
+		http://<host, e.g., localhost>:<port, e.g., 9080>/ram/ramclient.zip
+
+2.	This script also uses the ANT-CONTRIB (http://ant-contrib.sourceforge.net/) task utilities.
+	Place the ant-contrib-XXX.jar file on the lib path. 				
+		
+3.	Properties:				 
+		ram.url is the URL for the Rational Asset Manager Web services. To find this URL, on the Extensions page of Rational Asset Manager, see the Repository location. 
+		ram.user.uid is the user ID to use when you log in to the Rational Asset Manager server.
+		ram.user.passwd is the password to use when you log in to the Rational Asset Manager server.		
+		ram.asset.version is the version of the asset.
+		ram.asset.name is the name of the asset.		
+		ram.asset.community is the community to upload the asset to.
+		ram.asset.type is the asset type.		
+		ram.asset.shortDescription is a short description of the asset.
+		ram.asset.description is a more detailed description of the asset.
+		ram.asset.artifacts is a .zip file that contains the directory structure of all of the artifacts to be published.	
+			
+		ram.release.guid is the asset to relate with the "implementation for" relationship. Typically, when you publish an asset, you relate the asset to specifications, a release, a design, or some other information; for example, ram.release.version is the version of the "implementation for" asset.
+		
+		 						    		
+		build.id is used by Rational Asset Manager to track the build for this download; build.id can be any string.
+		
+		
+		*** The following properties are optional and are submitted to Rational Asset Manager to describe the purpose 
+		*** of the download.
+		
+		ram.download.result.file is an optional file path to a file that is created by the ramDownloadArtifactLinks.xml script. 
+		                         If you set this property, the script places a dependency relationship on all assets in this file.		
+		verify.state.name        If you set this property, the script verifies that all files in the ram.download.result.file are in the specified state; for example, Approved.
+		
+		The following properties will be placed on the uploaded artifacts as information:
+			build.type         is the type of build; for example, RTC Daily Build.
+			build.team.area    is the team or project that the build is for; for example, RAM project.
+			build.team.server  is the server that is used to change or control the source for this project or team.
+			src.repository     is the repository for the source that this asset was developed with.
+			build.id           is the build ID that generated this asset.	 						      			 
+			build.def.id       is the type of build that was used to create this asset.  				
+			build.label        is a description of the build.
+			build.url          is the URL to the build that this asset was generated with.
+			src.repository     is the repository URL that was used to develop this asset.	
+		
+-->
+<project name="publishAnAsset" default="publishAsset" xmlns:ram="antlib:com.ibm.ram.ant">
+
+	<!-- Initialize the ANT-CONTRIB package. -->
+		<taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
+	
+
+	
+	<target name="preReq" depends="processDownloadedFile,noDownloadedFile" description="Verify required properties are set">
+		
+		<fail message="[ram.url] property is not set" unless="ram.url"/>
+		<fail message="[ram.user.id] property is not set" unless="ram.user.id"/>
+		<fail message="[ram.user.passwd] property is not set" unless="ram.user.passwd"/>		
+		<fail message="[ram.asset.name] property is not set" unless="ram.asset.name"/>
+		<fail message="[ram.asset.version] property is not set" unless="ram.asset.version"/>
+		<fail message="[ram.asset.community] property is not set" unless="ram.asset.community"/>
+		<fail message="[ram.asset.type] property is not set" unless="ram.asset.type"/>
+		<fail message="[ram.asset.shortDescription] property is not set" unless="ram.asset.shortDescription"/>
+		<fail message="[ram.asset.description] property is not set" unless="ram.asset.description"/>
+		<fail message="[ram.asset.artifacts] property is not set" unless="ram.asset.artifacts"/>
+		
+		
+		<echo message="RAM Server: uid=${ram.user.id}, url=${ram.url}"/>
+		<echo message="RAM Asset: ${ram.asset.name}/${ram.asset.version}"/>
+		
+		<ram:server id="ramServer" username="${ram.user.id}" password="${ram.user.passwd}" url="${ram.url}" />
+	</target>	
+	
+	<target name="publishAsset" depends="preReq">		
+		<ram:modify server="ramServer">
+			<ram:search name="${ram.asset.name}" version="${ram.asset.version}" />
+			<ram:asset>				
+				<ram:name>${ram.asset.name}</ram:name>
+				<ram:version>${ram.asset.version}</ram:version>
+				<ram:community>${ram.asset.community}</ram:community>
+				<ram:assetType>${ram.asset.type}</ram:assetType>
+				<!-- Add all of the dependency assets, as noted in ramDownloadArtifactLinks.xml. -->
+				<ram:relatedAssetList>${ram.relatedAssets}</ram:relatedAssetList>
+				
+				<ram:relatedAsset type="implementation for">
+						<ram:asset guid="${ram.release.guid}" version="${ram.release.version}" />
+				</ram:relatedAsset>
+					
+				<ram:artifactSet src="${ram.asset.artifacts}">
+					<!-- Create artifact references to the artifacts in the .zip file above with the following properties. -->
+					<ram:reference>
+						<ram:description>
+								BUILD_LABEL = ${build.label}&#xD;&#xA;
+								BUILD_URL = &lt;a href='${build.url}' target='_blank' &gt; Build Info&lt;a&gt;&#xD;&#xA;
+								SOURCE_REPOSITORY_ADDRESS = &lt;a href='${src.repository}' target='_blank' &gt; Source Repository&lt;a&gt;&#xD;&#xA; 	
+				      			BUILD_RESULT_UUID = ${build.id}&#xD;&#xA; 						      			 
+				      			BUILD_DEFINITION_ID = ${build.def.id}&#xD;&#xA;  
+					   </ram:description>
+						<!-- Set the reference kind to "build reference." -->
+						<ram:kind>com.ibm.ram.reference.build</ram:kind>
+						<ram:value>
+						</ram:value>
+					</ram:reference>
+				</ram:artifactSet>
+						
+				<ram:shortDescription>${ram.asset.shortDescription}</ram:shortDescription>
+				<ram:description>${ram.asset.description}</ram:description>
+			</ram:asset>
+		</ram:modify>
+		<echo message="Submitted asset with guid=${ram.asset.guid} and version=${ram.asset.version}" /> 
+	</target>
+					
+	<!-- 
+		Called from processDownloadedFile. 		
+	-->
+	<target name="processRelationship" description="Add a Dependency relationship">
+		<echo message="Adding Related Asset: ${relAsset}"/>					
+		<condition property="seperator" value=";">
+			<available file="${ram.download.result.file}.relationship"/>
+		</condition>
+		<condition property="seperator" value="">
+			<not>
+				<available file="${ram.download.result.file}.relationship"/>
+			</not>
+		</condition>				
+		
+		<propertyfile file="${ram.download.result.file}.relationship">
+			<entry  key="ram.relatedAssets" default=""  operation="+" value="${seperator}Dependency:${relAsset}"/>
+		</propertyfile>				
+	</target>
+
+	<!--
+		Optionally, you can use the ramDownloadArtifactLinks.xml script to create a file that includes all of the assets that were downloaded to build the project. If this file exists, the publishing process generates a "Dependency" relationship list to publish the asset with.
+	-->
+	<target name="processDownloadedFile" if="ram.download.result.file">	
+		<!-- Load the file. -->
+		<property file="${ram.download.result.file}"/>	
+		<delete file="${ram.download.result.file}.relationship" failonerror="false"/>
+		<!-- Parse the file and build a new file that contains the dependency list. -->
+		<foreach target="processRelationship" param="relAsset" list="${ram.downloadlist}" delimiter=";" inheritall="yes" inheritrefs="true"/>	
+		<!-- Load the dependency list into ram.relatedAssets. -->
+		<property file="${ram.download.result.file}.relationship"/>		
+		<echo message="Dependent Asset List: ${ram.relatedAssets}"/>
+		
+		<foreach target="verifyAssetState" param="guidversion" list="${ram.downloadlist}" delimiter=";" inheritall="yes" inheritrefs="true"/>
+	</target>	
+	<target name="noDownloadedFile" unless="ram.download.result.file">		
+			<property name="ram.relatedAssets" value=""/>
+			<echo message="No Dependent Asset List"/>
+	</target>
+	
+	
+	<!-- 
+		This target is called from processDownloadedFile. It verifies that all of the assets that were used 
+	    to build this asset are in the appropriate states.
+	-->
+	<target name="verifyAssetState" if="verify.state.name">		
+		<propertyregex property="verify.guid" input="${guidversion}" regexp="(.*)\/.*" select="\1" casesensitive="false" />
+		<propertyregex property="verify.version" input="${guidversion}" regexp=".*\/(.*)" select="\1" casesensitive="false" />
+		<echo message="Verify Guid=${verify.guid},Ver=${verify.version} is in State=${verify.state.name}"/>		
+		
+		<ram:server id="ramServer2" username="${ram.user.id}" password="${ram.user.passwd}" url="${ram.url}" />
+		<!-- This helps Rational Asset Manager enable referencing properties, such as verAsset.name.-->
+		<ram:propertyHelper/>
+		<ram:asset guid="${verify.guid}" version="${verify.version}" id="verAsset" server="ramServer2"/>
+		<echo message="${verAsset.name}/${verAsset.version} State=[${verAsset.state.name}]"/>
+		<fail message="Dependent asset: ${verAsset.name}/${verAsset.version} State=[${verAsset.state.name}] not in a valid state - ${verify.state.name}">
+			<condition>
+				<not><equals arg1="${verify.state.name}" arg2="${verAsset.state.name}"/></not>
+			</condition>
+		</fail>			    
+	</target>
+					
+</project>

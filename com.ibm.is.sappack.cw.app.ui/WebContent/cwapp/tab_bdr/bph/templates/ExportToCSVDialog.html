@@ -1,0 +1,53 @@
+<div>
+<div dojoAttachPoint="exportDialog" dojoType="dijit.Dialog" title="${msg.ExportTypeDialog_1}">
+
+	<div class="dialogContent"  style="height: 130px;">
+	
+		<div dojoType="dijit.layout.BorderContainer" style="width: 100%;">
+			<span>${msg.ExportTypeDialog_11}
+			<br></br>
+			</span>
+		</div>
+		
+		<div dojoType="dijit.layout.BorderContainer" gutters="false" style="width:100%; height:100%; margin:0">
+			
+			<div dojoType="dijit.layout.ContentPane" region="top">
+				<input id="g1c2" type="radio" data-dojo-type="dijit/form/RadioButton" dojoAttachPoint="exportBDRCheckbox" checked="true" name="radioGroup1"/>
+				<label id="lg1c2" for="g1c2">${msg.ExportTypeDialog_3}</label>
+				</br>
+				<input id="g1c1" "type="radio" data-dojo-type="dijit/form/RadioButton" checked="false" dojoAttachPoint="exportTableMetadataCheckbox" name="radioGroup1"/>
+				<label id="lg1c1" for="g1c1">${msg.ExportTypeDialog_2}</label>
+			</div>
+		
+			<div dojoType="dijit.layout.BorderContainer" region="top" gutters="false" style="width:100%; height:50%; margin:0; padding-left:0px; padding-right:0px;">
+				<div dojoType="dijit.layout.ContentPane" region="left" style="width:40%;">
+					<input id="g2c1" type="radio" data-dojo-type="dijit/form/RadioButton" dojoAttachPoint="complPrHierarchyCheckbox" checked="true" name="radioGroup2"/>
+					<label id="l1" for="g2c1">${msg.ExportTypeDialog_4}</label>
+					</br>
+					<input id="g2c2" type="radio" data-dojo-type="dijit/form/RadioButton" dojoAttachPoint="selectionCheckbox" checked="false" name="radioGroup2"/>
+					<label id="l2" for="g2c2">${msg.ExportTypeDialog_5}</label>
+				</div>
+		
+				<div dojoType="dijit.layout.ContentPane" region="right" style="width:60%;">
+					<input id="g3c1" type="radio" data-dojo-type="dijit/form/RadioButton" disabled="true" dojoAttachPoint="allFieldsCheckbox" checked="true" name="radioGroup3"/>
+					<label id="l3" for="g3c1">${msg.ExportTypeDialog_6}</label>
+					</br>
+					<input id="g3c2" type="radio" data-dojo-type="dijit/form/RadioButton" disabled="true" dojoAttachPoint="onlyCheckbox" checked="false" name="radioGroup3"/>
+					<label id="l4" for="g3c2">${msg.ExportTypeDialog_7}</label>  					
+					<select name="select" data-dojo-type="dijit.form.Select" disabled="true" dojoAttachPoint="selectionDropdown">
+    					<option value="InScope" selected="selected">${msg.ExportTypeDialog_8}</option>
+    					<option value="NotInScope">${msg.ExportTypeDialog_9}</option>
+   	 					<option value="FollowUp">${msg.ExportTypeDialog_10}</option>
+					</select>
+					<span id="l5">${msg.ExportTypeDialog_12}</span>
+				</div>
+			</div>
+		</div> 
+    </div>
+   
+    <div class="dijitDialogPaneActionBar">
+       	<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="exportButton">${msg.EXPORT}</div>
+		<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="cancelButton">${msg.CANCEL}</div>
+	</div>
+</div>
+</div>

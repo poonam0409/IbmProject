@@ -1,0 +1,29 @@
+<div>
+	<div dojoAttachPoint="progressDialog" dojoType="dijit.Dialog"
+		title="${msg.FIELDSIMPORTDIALOG_5}" class="ProgressDialog" style="display: none;">
+		<div class="dijitDialogPaneContentArea">
+			<div dojoType="idx.layout.BorderContainer" class="ProgressDialog_borderContainer">
+				<div dojoType="dijit.layout.ContentPane" region="top" dojoAttachPoint="dialogContentHeader"
+				    class="ProgressDialog_contentPane">
+				</div>
+				<div dojoType="dijit.layout.ContentPane" region="center" class="ProgressDialog_contentPane"
+					dojoAttachPoint="gridParentContentPane">
+				</div>
+				<div dojoType="dijit.layout.ContentPane" region="bottom" class="ProgressDialog_contentPane">
+					<div class="ProgressDialog_progressItem">
+						<label>${msg.FIELDSIMPORTDIALOG_10}</label>
+						<div dojoType="dijit.ProgressBar" dojoAttachPoint="overallProgress"></div>
+					</div>
+					<div class="ProgressDialog_progressItem_extraSpace">
+						<label>${msg.FIELDSIMPORTDIALOG_11}</label>
+						<div dojoType="dijit.ProgressBar" dojoAttachPoint="tableProgress"></div>
+					</div>
+				</div>
+			</div>
+		</div>	
+		<div class="dijitDialogPaneActionBar">
+			<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="okButton" style="display: none">${msg.OK}</div>
+			<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="cancelButton">${msg.CANCEL}</div>
+		</div>
+	</div>
+</div>

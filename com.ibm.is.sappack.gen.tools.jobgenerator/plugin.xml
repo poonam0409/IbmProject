@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<?eclipse version="3.2"?>
+<plugin>
+
+<extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="com.ibm.iis.sappack.gen.tools.jobgenerator.rgconf.RGConfEditor"
+            default="true"
+            extensions="rgcfg"
+            icon="icons/SAP_rapid_generator_config_16.png"
+            id="com.ibm.iis.sappack.gen.tools.jobgenerator.rgconf"
+            name="%rgConfEditorName">
+      </editor>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="com.ibm.iis.sappack.gen.common.ui.newWizardCategory"
+            class="com.ibm.iis.sappack.gen.tools.jobgenerator.rgconf.NewRGConfWizard"
+            icon="icons/SAP_rapid_generator_config_16.png"
+            id="com.ibm.iis.sappack.gen.tools.jobgenerator.newrgconf"
+            name="%newRGConf">
+      </wizard>
+   </extension>
+   
+   
+   
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            name="%rgCommand"
+            id="com.ibm.iis.sappack.gen.tools.jobgenerator.rgcommand">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="com.ibm.iis.sappack.gen.tools.jobgenerator.rgcommand"
+            class="com.ibm.iis.sappack.gen.tools.jobgenerator.jobgenwizard.RGHandler">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:com.ibm.iis.sappack.gen.common.ui.menu">
+            <command
+                  commandId="com.ibm.iis.sappack.gen.tools.jobgenerator.rgcommand"
+                  icon="icons/SAP_Rapid_Generator_16.png"
+                  id="com.ibm.iis.sappack.gen.tools.jobgenerator.rgmenucommand">
+            </command>
+      </menuContribution>
+      
+   </extension>
+   
+   <extension
+         id="rgcfgvalidator"
+         name="%rgcfgvalidatorname"
+         point="org.eclipse.wst.validation.validatorV2">
+      <validator
+            build="true"
+            class="com.ibm.iis.sappack.gen.tools.jobgenerator.rgconf.validator.RGConfValidator"
+            manual="true"
+            markerId="com.ibm.is.sappack.gen.tools.jobgenerator.rgcfgmarker"
+            version="1">
+         <include>
+            <rules>
+               <fileext
+                     caseSensitive="false"
+                     ext="rgcfg">
+               </fileext>
+            </rules>
+         </include>
+      </validator>
+   </extension>
+
+
+   
+   <extension
+         id="rgcfgmarker"
+         name="%rgcfgmarkername"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.core.resources.problemmarker">
+      </super>
+      <persistent
+            value="true">
+      </persistent>
+   </extension>
+
+
+   <extension
+         point="org.eclipse.ui.navigator.viewer">
+      <viewerContentBinding
+             viewerId="com.ibm.iis.sappack.gen.common.ui.sappacknavigator">
+         <includes>
+           <contentExtension pattern="com.ibm.iis.sappack.gen.tools.jobgenerator.rgnavigatorcontent"/>
+         </includes>
+      </viewerContentBinding>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <navigatorContent
+            activeByDefault="true"
+            contentProvider="com.ibm.iis.sappack.gen.tools.jobgenerator.views.navigator.NavigatorRGContentProvider"
+            id="com.ibm.iis.sappack.gen.tools.jobgenerator.rgnavigatorcontent"
+            labelProvider="com.ibm.iis.sappack.gen.tools.jobgenerator.views.navigator.NavigatorRGLabelProvider"
+            name="%sappackrgnavigatorcontent"
+            priority="normal">
+         <triggerPoints>
+         </triggerPoints>
+         
+      </navigatorContent>
+   </extension>  
+
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <actionProvider
+            class="com.ibm.iis.sappack.gen.tools.jobgenerator.views.navigator.RGActionProvider">
+         <enablement></enablement>
+      </actionProvider>
+   </extension>
+<!--
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IFile"
+            id="com.ibm.is.sappack.gen.tools.jobgenerator">
+			<menu label="%popupMenuLabel"
+	               path="additions"
+	               id="com.ibm.is.sappack.gen.tools.jobgenerator.popupmenu">
+	            <separator
+	                  name="group1">
+	            </separator>
+	         </menu>                        
+	   </objectContribution>
+   </extension>
+-->
+
+
+
+ <extension
+         point="org.eclipse.ui.popupMenus">
+ 
+    <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IFile"
+            id="com.ibm.is.sappack.gen.tools.jobgenerator.abapupload"
+            nameFilter="*.zip">
+            
+         <action
+               label="%jobGeneratorActionUploadAbap"
+               class="com.ibm.is.sappack.gen.tools.jobgenerator.abapProgramUploadWizard.JobGeneratorActionUploadArchivedABAPPrograms"
+	           menubarPath="com.ibm.is.sappack.gen.common.ui.popupmenu/group"               
+               enablesFor="+"               
+               id="com.ibm.is.sappack.gen.tools.jobgenerator.uploadAction">
+         </action>
+                        
+      </objectContribution>      
+   </extension>
+
+   <extension  point="org.eclipse.ui.popupMenus">
+    <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IFile"
+            id="com.ibm.is.sappack.gen.tools.jobgenerator.jobgenpopup"
+            nameFilter="*.dbm">
+            
+         <action
+               class="com.ibm.iis.sappack.gen.tools.jobgenerator.jobgenwizard.JobGeneratorAction"
+               enablesFor="1"
+               icon="icons/SAP_Rapid_Modeler_Generator_16.png"
+               id="com.ibm.is.sappack.gen.tools.jobgenerator.jobgenaction"
+               label="%jobGenAction"
+               menubarPath="com.ibm.is.sappack.gen.common.ui.popupmenu/group">
+         </action>
+<!--
+         <action
+               label="%sapExtractAction"
+               class="com.ibm.iis.sappack.gen.tools.jobgenerator.jobgenwizard.SAPExtractJobGenAction"
+	           menubarPath="com.ibm.is.sappack.gen.common.ui.popupmenu/group"               
+               enablesFor="1"               
+               id="com.ibm.is.sappack.gen.tools.jobgenerator.sapextract">
+         </action>
+
+         <action
+               label="%sapLoadAction"
+               class="com.ibm.iis.sappack.gen.tools.jobgenerator.jobgenwizard.SAPLoadJobGenAction"
+	           menubarPath="com.ibm.is.sappack.gen.common.ui.popupmenu/group"               
+               enablesFor="1"               
+               id="com.ibm.is.sappack.gen.tools.jobgenerator.sapload">
+         </action>
+
+         <action
+               label="%moveAction"
+               class="com.ibm.iis.sappack.gen.tools.jobgenerator.jobgenwizard.MoveJobGenAction"
+	           menubarPath="com.ibm.is.sappack.gen.common.ui.popupmenu/group"               
+               enablesFor="1"               
+               id="com.ibm.is.sappack.gen.tools.jobgenerator.move">
+         </action>
+    -->                    
+      </objectContribution>      
+   </extension>
+
+
+   <extension
+         point="org.eclipse.help.contexts">
+         <contexts
+            file="%helpXML"
+            plugin="com.ibm.is.sappack.gen.tools.jobgenerator">
+         </contexts>         
+   </extension>
+ <!--
+    <extension
+         point="org.eclipse.help.contexts">
+         <contexts
+            file="cshelp/topics/help.xml"
+            plugin="com.ibm.is.sappack.gen.help">
+         </contexts>         
+   </extension>
+ -->
+ 
+</plugin>

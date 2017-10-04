@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="Importation de tables logiques depuis SAP à l'aide de Rapid Modeler for SAP">
+   <intro>
+      <description>
+         Cet aide-mémoire vous montre comment créer un modèle de données logique et comment extraire les métadonnées pour une table logique SAP.
+         <br/>
+         <b>REMARQUE : Assurez-vous d'avoir entré les noms des projets, modèles, etc. dans les étapes suivantes exactement tel
+         qu'indiqué, sinon il est possible que les boutons "Cliquer pour exécuter" ne fonctionnent pas. 
+
+         Les boutons "Cliquer une fois terminé" continueront cependant à fonctionner.
+         </b>
+      </description>
+   </intro>
+   <item
+         title="Ouvrir la perspective de données">
+      <command
+            required="false"
+            serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=com.ibm.datatools.core.internal.ui.perspective)"/>
+         
+      <description>
+         Si vous n'êtes pas déjà dans la perspective de données, sélectionnez, dans le menu principal, <b>Fenêtre</b> &gt; <b>Ouvrir la perspective</b> &gt; <b>Données</b>.
+      </description>
+   </item>
+   <item
+         title="Créer un projet de conception de données">
+      <description>      
+         Avant de créer un modèle de données, vous devez d'abord créer un projet qui contiendra ce modèle. 
+         Dans la barre d'outils principale, cliquez sur <b>Fichier</b> &gt; <b>Nouveau</b> &gt; <b>Projet de conception de données</b>. 
+         <br/>
+         Entrez <b>RMTestProject</b> dans la zone <b>Nom de projet</b>.
+         <br/>Cliquez sur <b>Terminer</b>.
+      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.ui.newWizard(newWizardId=com.ibm.datatools.core.internal.ui.wizard.DatabaseCreationProjectWizard)"/>
+   </item>
+   <item
+         title="Créer un fichier de modèle de données logique">
+      <description>      
+         La prochaine étape consiste à créer un nouveau fichier de modèle de données logique. Dans la barre d'outils principale, cliquez à nouveau sur <b>Fichier</b> &gt; <b>Nouveau</b>  &gt; <b>Modèle de données logique</b>. 
+         <br/>Assurez-vous que le <b>Dossier de destination</b> est défini sur le nom du projet créé lors de l'étape précédente, c'est-à-dire, <b>RMTestProject</b>
+         <br/>Entrez <b>RMTableModel</b> comme nom de fichier.
+         <br/>Cliquez sur <b>Terminer</b>.
+      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.ui.newWizard(newWizardId=com.ibm.datatools.logical.ui.wizards.NewLogicalModelWizard)"/>
+
+   </item>
+   <item dialog="true" 
+            title="Ouvrir l'assistant de Rapid Modeler for SAP sur le modèle logique">
+        <description>
+         Une fois votre modèle logique créé, vous êtes prêt à importer les métadonnées SAP dans ce modèle. 
+         <br/>
+         Dans la vue <b>Explorateur de projet de données</b> (située en général en haut à gauche de la perspective de <b>Données</b>), accédez au
+         modèle de données logique que vous avez créé lors de l'étape précédente
+         (<b>RMTestProject</b> &gt; <b>Modèles de données</b> &gt; <b>RMTableModel.ldm</b>).
+         <br/>Cliquez avec le bouton droit de la souris sur <b>RMTableModel.ldm</b> et
+         sélectionnez <b>Rapid Modeler for SAP</b> &gt; <b>Extraire les métadonnées SAP</b>.
+        </description>
+            <action required="false"
+			pluginId="com.ibm.is.sappack.gen.tools.sap"
+			class="com.ibm.is.sappack.gen.tools.sap.action.MetadataImportCheatSheetAction"
+			param1="RMTestProject" param2="RMTableModel.ldm"/>            
+      </item>
+   <item
+         title="Sélectionner le système SAP">
+      <description>
+         Sur la première page de l'assistant, sélectionnez une connexion du système SAP ou utilisez <b>Editer</b> pour en créer une. 
+         Sélectionnez l'option <b>Parcourir SAP pour rechercher les tables</b>.
+         <br/>Cliquez sur <b>Suivant</b>.
+      </description>
+   </item>
+   <item
+         title="Rechercher les tables">
+      <description>
+         Sur la page <b>Parcourir SAP pour rechercher les tables</b>, entrez la requête <b>KN*1</b> dans la zone de texte, puis cliquez sur <b>Rechercher</b>.
+      </description>
+   </item>
+   <item
+         title="Sélectionner les tables">
+      <description>
+         Dans la table de gauche (<b>Tables trouvées</b>), sélectionnez une table, par exemple, <b>KNA1</b>. 
+
+         Cliquez sur <b>Ajouter des tables</b>. La table devrait passer
+         à droite (<b>Tables sélectionnées</b>).
+         <br/>
+         Cliquez sur <b>Suivant</b>.
+      </description>
+   </item>
+   <item
+         title="Configurer les options d'importation">
+      <description>
+         Sur la page d'options d'importation des tables, décochez <b>Importer les métadonnées pour les tables de vérification connexes</b>.
+         <br/>
+         Cliquez sur <b>Suivant</b>.
+      </description>
+   </item>
+   <item
+         title="Vérifier les tables">
+      <description>
+         Sur la page <b>Vérifier les tables à importer</b>, vérifiez les tables à créer.
+         <br/>
+         Cliquez sur <b>Suivant</b>.
+      </description>
+   </item>
+   <item
+         title="Ignorer les zones techniques">
+      <description>
+         Sur la page <b>Zones techniques</b>, décochez <b>Configurer les zones techniques supplémentaires</b>.
+         <br/>
+         Cliquez sur <b>Suivant</b>.
+      </description>
+   </item>
+   <item
+         title="Ignorer le module spécifique">
+      <description>
+         Sur la page <b>Sélectionner le module à importer</b>, décochez <b>Utilisez un module spécifique comme destination de l'importation</b>.
+         <br/>
+         Lorsque vous cliquez sur <b>Suivant</b>, le processus d'importation démarre.
+         <br/>
+         Cliquez sur <b>Suivant</b>.
+      </description>
+   </item>
+   <item
+         title="Fermer l'assistant">
+      <description>
+         Sur la page <b>Récapitulatif des importations</b>, vérifiez le récapitulatif des importations.
+         <br/>
+         Cliquez sur <b>Terminer</b> pour enregistrer le modèle importé dans votre modèle de données logique.
+         
+      </description>
+      <onCompletion>Félicitations ! Vous avez importé une table logique depuis SAP dans votre modèle de données logique.
+      </onCompletion>
+         </item>
+      </cheatsheet>

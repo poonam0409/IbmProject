@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1467188680557_3" label="3rd Party Components" name="3rd Party Components">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.3rdparty.sap.jco" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.3rdparty.sap.feature" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1467188722786_4" label="DSStages" name="DSStages">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.dsstages.xmeta.common" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.dsstages.xmeta" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.dsstages.xmeta_v8" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.dsstages.common.ccf" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.dsstages.prereqcheck" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.dsstages.idoc" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/Delta Extract Stage" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.dsstages.test" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.dsstages.common" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.dsstages.idoc.listener" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.dsstages.xmeta_v10" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1467189759372_5" label="3rd Party Dependencies" name="3rd Party Dependencies">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/extLibsWAS" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/extLibsIISClient" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/DojoRuntime" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/extLibsIISServer113" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/extLibs" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/extLibsIISClient81" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/extLibsIISClient85" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/extLibsIISClient91" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/extLibsIISClient100" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/extLibsJCO" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/extLibsIISServer85" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1467189902880_6" label="Artifact Generator Metadata Plug-ins" name="Artifact Generator Metadata Plug-ins">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.tools.sap" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.tools.sap.product" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.tools.metadata.test.feature.nls1" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.tools.metadata.feature" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.tools.metadata.feature.nls1" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.tools.sap.nl1" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.tools.sap.test" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.tools.metadata.test.feature" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.tools.modelling" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.tools.sap.product.nl1" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.iis.sappack.ant" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1467189947339_7" label="Artifact Generator Job Generator Server" name="Artifact Generator Job Generator Server">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.server.jobgenerator" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.server" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.server.datastage_v10" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.server.datastage_v8" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.server.EAR" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.server.common" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.server.test" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.server.datastage" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1467189979636_8" label="Artifact Generator Common Resources" name="Artifact Generator Common Resources">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.common" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.common.ui.nl1" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.common.feature" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.common.feature.nls1" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.common.nl1" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.common.ui" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1467190007540_9" label="Rapid Modeler for CW" name="Rapid Modeler for CW">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.cw.tools.modeler.feature" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.cw.branding.nl1" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.cw.tools.modeler.feature.nls1" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.cw.tools.metadata.feature.nls1" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.cw.tools.metadata.feature" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.cw.plugins.feature" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.cw.tools.extensions.nl1" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.cw.tools.sap.nl1" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.cw.tools.extensions" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.cw.tools.sap" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.cw.plugins.feature.nls1" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.cw.branding" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1467190023403_10" label="CONSUMABILITY" name="CONSUMABILITY">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/is-rm-lpad" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/is-cw-lpad" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1467190141460_11" label="OFFERINGS" name="OFFERINGS">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/OFFERINGS" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1467190146857_12" label="Rapid Generator for CW" name="Rapid Generator for CW">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.cw.tools.generator.feature.nls1" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.cw.tools.jobgenerator.nl1" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.cw.tools.jobgenerator" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.cw.tools.generator.feature" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1467191782512_13" label="CW Application" name="CW Application">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.cw.app.ui" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.cw.app.ear" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.cw.app.test" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.cw.app.services" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.cw.app.ear.was8" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.cw.app.dojo.idt" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.cw.app.dojo.idx" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.cw.app.data" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1467193423189_14" label="Artifact Generator Job Generator Plug-ins" name="Artifact Generator Job Generator Plug-ins">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.oda.runtime.driver" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.branding.nl1" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.welcome" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.plugins.feature" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.help" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.oda.runtime.driver.ui" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.oda.feature" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.swg.im.iis.common.ic.doc" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.packv8.branding" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.plugins.feature.nls1" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc.nl1" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.welcome.nl1" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.tools.jobgenerator" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.tools.jobgenerator.product.nl1" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.branding" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.tools.jobgenerator.product" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.tools.jobgenerator.nl1" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.help.nl1" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1467193521125_15" label="Releng" name="Releng">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/UpdateSite_RMRGForSAPPack" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.ibm.is.sappack.gen.releng" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/RMRGForSAPPack" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/3rd-party-dependencies" type="4"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1467114125097_0" label="Window Working Set" name="Aggregate for window 1467114125097"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1467114647591_1" label="Window Working Set" name="Aggregate for window 1467114647591"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1467115596123_2" label="Window Working Set" name="Aggregate for window 1467115596123"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1506256426028_17" label="Window Working Set" name="Aggregate for window 1506256426028"/>
+</workingSetManager>

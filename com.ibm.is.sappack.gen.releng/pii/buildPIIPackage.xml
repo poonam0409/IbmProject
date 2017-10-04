@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<!--
+ Description:
+
+ Ant build file to create PII packages
+-->
+
+<project name="SAP Packs PII script" basedir="." default="all">
+
+	<!--
+	This Ant script creates a PII package to be delivered to translation.
+	"Fast path":
+	  1. Edit the property sci.code to point to the directory where your SCI code was extracted to.
+	  2. Edit the properties pii.package.id / pii.drop.date
+	  3. Right click on this file in Eclipse, select Run As -> Ant build
+	  4. The last line of the output shows the location of the PII package zip file:
+	       [echo] PII package created: <YourRTCworkspaceDir>\com.ibm.is.sappack.gen.releng\pii\piiout\ISv87AAP026_06062011/ISv87AAP026_06062011.zip
+	       
+	  For more advanced usage, check the comments of the other properties below
+	  
+	  NOTE: This build file does *not* collect context sensitive help files!!
+	-->
+	
+	
+	<!-- change these properties accordingly -->
+
+	<!-- Location of your code extracted from SCI 
+	<property name="sci.code" value="C:/Users/IBM_ADMIN/workspaces/SCI_R3x"/>	-->
+		
+	<!-- ============================================================== -->
+	
+	<!-- PII package ID (will be the same for one release) --> 
+	<property name="pii.package.id" value="IS115AAP015"/>
+	<!-- PII package drop date (typically several for one release including emergency_drops) -->
+	<property name="pii.drop.date" value="0731"/>
+
+	
+	<!-- if you don't want to use this workspace or want the results to be put some
+	     where else than the piiout directory, change the following properties -->
+	<property name="rtc.code" value="${basedir}/../.."/>
+	<property name="target.dir" value="${basedir}${file.separator}piiout${file.separator}${pii.package.id}_${pii.drop.date}"/>
+
+	
+	
+	<!-- ============================================================== -->
+	<!-- DO NOT change anything below this line -->
+	
+	<property name="pii.zip.file.name" value ="${pii.package.id}_PII_${pii.drop.date}.zip"/>
+	<property name="zip.file.name" value ="${pii.package.id}_${pii.drop.date}.zip"/>
+	<property name="code.target.dir" value="${target.dir}${file.separator}code"/>
+	<property name="sci.target.dir" value="${code.target.dir}/sci"/>
+	<property name="rtc.target.dir" value="${code.target.dir}/rtc"/>
+	<property name="r3classicstages.code" value="${rtc.code}"/>
+	
+	
+	
+	<target name="prepare">
+		<mkdir dir="${target.dir}"/>
+		<delete includeemptydirs="true">
+			<fileset dir="${target.dir}" includes="**/*"/>
+		</delete>
+		
+		<!--
+		<copy todir="${target.dir}">
+			<fileset dir=".">
+				<include name="*.rme"/>
+			</fileset>
+		</copy>
+		-->
+		<copy file="Readme.rme" tofile="${target.dir}/${pii.package.id}_${pii.drop.date}Readme.rme"/>
+		<copy file="DoNotTranslate.rme" tofile="${target.dir}/${pii.package.id}_${pii.drop.date}DoNotTranslate.rme"/>
+		
+		<copy todir="${code.target.dir}/installer">
+			<fileset dir="./installer">
+		       <include name="ISPackForSAP.properties"/>
+		       <include name="ISPackForSAPClient.properties"/>
+		       <include name="ISPackForSAPServer.properties"/>
+		       <include name="ISPackForSAPServices.properties"/>
+			</fileset>
+		</copy>
+	</target>
+	
+		<target name="copyR3ClassicStagesCode">
+		    <copy todir="${rtc.target.dir}">
+			<fileset dir="${r3classicstages.code}">
+				<exclude name="Classic_Stages/BW_STAGES/**"/>
+				<exclude name="Classic_Stages/installers/**"/>
+				<include name="Classic_Stages/dssapadmin/resources/enu/dsidocutlenu.rc"/>
+				<include name="Classic_Stages/dssapsup/resources/enu/dssapsupenu.rc"/>
+				<include name="Classic_Stages/R3_STAGES/ABAP_EXTRACT/sapgui/resources/enu/sapgui.rc"/>
+				<include name="Classic_Stages/R3_STAGES/ABAP_EXTRACT/sapdss/dsftpenu.rs"/>
+				<include name="Classic_Stages/R3_STAGES/BAPI/dsbapigui/resources/enu/dsbapiguienu.rc"/>
+				<include name="Classic_Stages/R3_STAGES/BAPI/dsruntime/dsr3bapienu.rs"/>
+				<include name="Classic_Stages/R3_STAGES/IDOC/dsidocgui/resources/enu/dsidocguienu.rc"/>
+				<include name="Classic_Stages/R3_STAGES/IDOC/iloadgui/resources/enu/iloadguienu.rc"/>
+				<include name="Classic_Stages/R3_STAGES/DeltaExtract/dsdeltaextractgui/resources/enu/dsdeltaextractguienu.rc"/>
+				<include name="Classic_Stages/R3_STAGES/IDOC/dsidocsvr/dsidocsvr_messages_en.rinl"/>
+				<include name="Classic_Stages/HawkPackages/R3/abappack/META-INF/en/StageDsc.xml"/>
+				<include name="Classic_Stages/HawkPackages/R3/bapipack/META-INF/en/StageDsc.xml"/>
+			</fileset>
+		</copy>
+	</target> 
+	
+	<target name="copyRTCCode">
+		<copy todir="${rtc.target.dir}">
+			<fileset dir="${rtc.code}">
+				<exclude name="com.ibm.is.sappack.gen.tools.sap.test/**"/>
+				<exclude name="com.ibm.is.sappack.dsstages.idoc.extract/**"/>
+				<exclude name="com.ibm.is.sappack.gen.releng/*"/>
+				<exclude name="com.ibm.is.sappack.cw*/**"/>
+				<exclude name="*/**/build.properties"/>
+				<exclude name="com.ibm.is.sappack.gen.oda*/**"/>
+				<exclude name="*.nl1/**"/>
+				<exclude name="*.nls1/**"/>
+				
+				<include name="com.ibm.is.3rdparty*/plugin.properties"/>
+				<include name="com.ibm.is.sappack*/plugin.properties"/>
+				<include name="com.ibm.is.sappack*/feature.properties"/>
+				<include name="com.ibm.is.sappack.cpic2rfc/src/**/cpic2rfcmessages.properties"/>
+				
+				<include name="com.ibm.is.sappack*/src/**/*messages.properties"/>
+				<include name="com.ibm.is.sappack*/src/**/*Messages.properties"/>
+				<include name="com.ibm.is.sappack.dsstages.idoc/build/CC_IDOC_msgs_en_US.txt"/>
+				<include name="Delta Extract Stage/src/com/ibm/is/sappack/deltaextractstage/resources/_DsSapDeltaExtractor_en_US.properties"/>
+				<include name="Delta Extract Stage/PackageBuilder/DeltaExtract_en.txt"/>
+				<include name="com.ibm.is.sappack.gen.branding/about.properties"/>
+				<include name="com.ibm.is.sappack.gen.branding/plugin.properties"/>
+				<include name="com.ibm.is.sappack.gen.branding/plugin_customization.properties"/>
+				<!-- cheat sheets -->
+				<include name="com.ibm.is.sappack.gen.help/**/*CheatSheet*.xml"/>
+				
+				<!-- installer stuff -->
+				<include name="is-rm-installer/Artifacts/client.nlproperties.shortcuts/nl/client-shortcuts.properties"/>
+				<include name="is-rm-installer/Artifacts/com.ibm.is.sappack.gen.lic/plugin.properties"/>
+				<include name="is-rm-lpad/launchpadContent/en/*.properties"/>
+				
+				<!-- welcome page -->
+				<include name="com.ibm.is.sappack.gen.welcome/intro/jobgen.xml"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="createZIPArchive">
+		<zip destfile="${target.dir}/${zip.file.name}">
+			<fileset dir ="${target.dir}" includes="${pii.package.id}*${pii.drop.date}*.rme"/>
+			<fileset dir="${target.dir}">
+				<include name="${pii.zip.file.name}"/>
+		    </fileset>
+		</zip>
+	</target>
+	
+	<target name="createPIIZIP">
+		<zip destfile="${target.dir}/${pii.zip.file.name}">
+			<fileset dir="${code.target.dir}"/>
+		</zip>
+	</target>
+	
+	<target name="runCHKPII">
+	   <exec executable="${basedir}/chkpwh07.exe" failonerror="false" resultproperty="chkpii.return.code">
+		   <arg value="${code.target.dir}${file.separator}*"/>
+		   <arg value="/O"/>
+		   <arg value="${target.dir}/chkpii.sum"/>
+		   <arg value="/S"/>
+	   </exec>
+	   <fail message="chkpii failed">
+	   	  <condition>
+   	  	 	<!-- probably add more conditions here -->
+	   	  	 <and>
+	   	  	 	<not>
+	   	  	 	   <equals arg1="${chkpii.return.code}" arg2="8"/>
+	   	  	    </not>
+	   	  	 </and>
+	   	  </condition>
+	   </fail>
+	</target>
+
+	<target name="addFileList">
+	   <exec executable="tree.com" dir="${code.target.dir}">
+		   <arg value="/F"/>
+	   	   <arg value="/A"/>
+	   	   <redirector output="${target.dir}${file.separator}${pii.package.id}_${pii.drop.date}Readme.rme" append="true">
+		   </redirector>
+	   </exec>
+	</target>
+
+	<target name="addFileListOld">
+	   <exec executable="C:/Program Files/MKS Toolkit/mksnt/find.exe" dir="${code.target.dir}">
+		   <arg value="."/>
+	   	   <arg value="-type"/>
+	   	   <arg value="f"/>
+	   	   <redirector output="${target.dir}${file.separator}${pii.package.id}_${pii.drop.date}Readme.rme" append="true">
+		   </redirector>
+	   </exec>
+	</target>
+
+	<target name="all" depends="prepare,copyR3ClassicStagesCode,copyRTCCode,runCHKPII,addFileList,createPIIZIP,createZIPArchive">
+		<echo>PII package created: ${target.dir}/${zip.file.name}</echo>
+    </target>
+
+</project>

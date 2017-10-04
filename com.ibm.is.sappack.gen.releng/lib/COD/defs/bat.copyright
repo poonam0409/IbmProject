@@ -1,0 +1,16 @@
+# ******************************************************************************
+# Copyright definitions for Windows Batch (.BAT and .CMD) files
+# ******************************************************************************
+
+top-line=@rem **************************************************** {tag.top} ***
+text.1  =@rem * {category.licensed}
+text.2  =@rem * {licensed.rm}
+text.3  =@rem * {product}
+text.4  =@rem * 
+text.5  =@rem * {copyright}  {all.rights}
+text.6  =@rem * 
+text.7  =@rem * {us.gov.1}
+text.8  =@rem * {us.gov.2}
+end-line=@rem **************************************************** {tag.end} ***
+
+use-for =cmd

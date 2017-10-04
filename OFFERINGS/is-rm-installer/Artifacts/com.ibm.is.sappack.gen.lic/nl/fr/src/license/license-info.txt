@@ -1,0 +1,49 @@
+﻿INFORMATIONS SUR LA LICENCE
+
+Les dispositions suivantes s'ajoutent à celles contenues dans le document IBM Conditions Internationales d'Utilisation de Logiciel (référence IBM : Z125-3301-14), pour l'utilisation des Logiciels indiqués ci-dessous.
+
+Nom du Logiciel : IBM InfoSphere Information Server Pack for SAP Applications v7.1
+Référence du Logiciel : 5724-Q55
+
+Nom du Logiciel : IBM InfoSphere Information Server Pack for SAP Applications for Non-Production v7.1
+Référence du Logiciel : 5724-Q55
+
+Tel que décrit dans les Conditions Internationales d'Utilisation de Logiciel ("IPLA") et dans le présent document Informations sur la Licence, IBM concède au Détenteur de la Licence un droit limité pour utiliser le Logiciel. Ce droit est limité au niveau d'Utilisation Autorisée, telle qu'une Unité de Valeur par Coeur Processeur ("PVU"),l'Unité de Valeur ("VU") ou tout autre niveau d'utilisation spécifié, payé par le Détenteur de la Licence comme en témoigne l'Autorisation d'Utilisation. L'utilisation par le Détenteur de la Licence peut également être limitée à une machine spécifiée, ou à une utilisation en tant que Logiciel Auxiliaire, ou être soumise à d'autres restrictions. Si que le Détenteur de la Licence n'a pas payé la totalité de la valeur économique du Logiciel, aucune autre utilisation n'est autorisé sans le paiement de frais supplémentaires. En outre, comme indiqué dans l'IPLA, le Détenteur de la Licence n'est pas autorisé à utiliser le Logiciel pour fournir des services informatiques commerciaux à une tierce partie, pour fournir un hébergement ou un partage de temps commercial, ou pour accorder des sous-licences pour le Logiciel ni pour le louer, sauf indication contraire expresse dans les contrats applicables au titre desquels le Détenteur de la Licence a obtenu les Autorisations d'Utilisation du Logiciel. Des droits supplémentaires pourront être concédés au Détenteur de la Licence sous réserve du paiement des frais supplémentaires ou sous des conditions différentes ou supplémentaires. Ces droits supplémentaires seront concédés au Détenteur de la Licence à la seule discrétion d'IBM.
+
+Les spécifications de ce Logiciel se trouvent dans les sections collectives "Description" et "Technical Information" des Lettres d'annonce dudit Logiciel.
+
+Logiciels Auxiliaires
+
+Le Logiciel est concédé sous licence en tant que module multi-produit et inclut les Logiciels Auxiliaires répertoriés ci-dessous. Le Détenteur de la Licence est autorisé à installer et à utiliser lesdits Logiciels Auxiliaires uniquement dans le cadre de son utilisation du Logiciel Principal au titre du présent Contrat et dans les limites de l'Autorisation d'Utilisation du Logiciel (sauf si le présent document Informations sur la Licence octroie des droits supplémentaires au Détenteur de la Licence). L'expression "dans le cadre de son utilisation" inclut uniquement les tâches liées directement ou nécessaires à l'utilisation autorisée du Logiciel Principal ou d'un Logiciel Auxiliaire. Le Détenteur de la Licence n'est pas autorisé à utiliser les Logiciels Auxiliaires à toute autre fin. Le Détenteur de la Licence n'est pas autorisé à transférer ni à commercialiser les Logiciels Auxiliaires séparément du Logiciel Principal. Un Logiciel Auxiliaire peut inclure des dispositions de licence, et le cas échéant, celles-ci s'appliquent à l'utilisation de ce Logiciel Auxiliaire par le Détenteur de la Licence. En cas de contradiction entre les dispositions, celles du présent document Informations sur la Licence prévalent sur celles du Logiciel Auxiliaire. Lorsque le droit d'utilisation du Logiciel par le Détenteur de la Licence arrive à expiration ou est résilié, le Détenteur de la Licence doit cesser d'utiliser et détruire ou renvoyer rapidement tous les exemplaires des Logiciels Auxiliaires au tiers auprès de qui il a acquis le Logiciel. Si le Détenteur de la Licence a téléchargé les Logiciels Auxiliaires, il doit contacter le tiers auprès de qui il a acquis le Logiciel. Pour toute utilisation des Logiciels Auxiliaires non autorisée par le présent Contrat, le Détenteur de la Licence doit prendre contact avec un Ingénieur Commercial IBM ou avec le tiers auprès de qui il a acquis le Logiciel pour acquérir la licence correspondante.
+
+Les Logiciels Auxiliaires suivants sont concédés sous licence avec le Logiciel :
+- IBM Cognos Business Intelligence v10.2
+- IBM Master Data Management Reference Data Management Hub v10.1
+- IBM Conversion Workbench Migration Asset for SAP Applications v2.1
+- IBM Cognos Data Manager Connector for SAP R/3 v10.2
+
+Composants autorisés
+
+En dépit de toute indication contraire dans le présent Contrat, le Détenteur de la Licence est autorisé à utiliser uniquement les composants suivants ou les fonctions suivantes du Logiciel Auxiliaire correspondant :
+- IBM Master Data Management Reference Data Management Hub (may only be used with IBM Conversion Workbench Migration Asset for SAP Applications)
+- IBM Cognos Business Intelligence (may only be used with IBM Conversion Workbench Migration Asset for SAP Applications)
+- Cognos Connection (of IBM Cognos Business Intelligence)
+- Framework Manager (of IBM Cognos Business Intelligence)
+- Report Studio (of IBM Cognos Business Intelligence)
+- Report Viewer (of IBM Cognos Business Intelligence)
+
+Restriction de non-production
+
+Si le Logiciel porte la mention "Non-Production", le Détenteur de la Licence est autorisé à déployer le Logiciel uniquement dans le cadre d'un environnement de développement et de test en interne pour des activités internes autres que de production, y compris, mais sans que cela soit limitatif, le test, le réglage des performances, le diagnostic d'incidents, les tests de performances internes, le transfert, les activités de QA (assurance qualité) et/ou le développement de compléments ou d'extensions du Logiciel utilisés en interne à l'aide d'API publiées. Le Détenteur de la Licence n'est pas autorisé à utiliser une partie quelconque du Logiciel à toute autre fin avant d'avoir acquis les Autorisations d'Utilisation de production appropriées.
+
+Restrictions relatives à l'utilisation au profit d'un tiers
+
+Le Détenteur de la Licence n'est pas autorisé à utiliser le Logiciel ou l'un de ses composants pour fournir un service bureau, des services d'hébergement ou toute sorte de services informatiques commerciaux à des tiers, ni à transférer le Logiciel à un tiers, sans autorisation écrite d'IBM.
+
+Installation
+
+Le terme "Installation" désigne une unité de mesure par laquelle le Logiciel peut être concédé sous licence. Une Installation désigne un exemplaire du Logiciel installé sur un disque physique ou virtuel et mis à disposition pour être exécuté sur un ordinateur. Le Détenteur de la Licence doit acquérir une Autorisation d'Utilisation pour chaque Installation du Logiciel.
+
+L/N:  L-SBRN-9FN46Q
+D/N:  L-SBRN-9FN46Q
+P/N:  L-SBRN-9FN46Q 

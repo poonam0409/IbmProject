@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2016" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2016" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Creating a connection to the SAP system" />
+<meta name="abstract" content="The Rapid Generator for SAP requires an existing and configured connection to an SAP system. This is a standard connection as used in the IBM InfoSphere Information Server Pack for SAP R/3 in InfoSphere DataStage." />
+<meta name="description" content="The Rapid Generator for SAP requires an existing and configured connection to an SAP system. This is a standard connection as used in the IBM InfoSphere Information Server Pack for SAP R/3 in InfoSphere DataStage." />
+<meta name="DC.subject" content="SAP system, creating a connection, Rapid Generator, connecting to the SAP system" />
+<meta name="keywords" content="SAP system, creating a connection, Rapid Generator, connecting to the SAP system" />
+<meta name="DC.Relation" scheme="URI" content="http://publib.boulder.ibm.com/infocenter/iisinfsv/v8r1/index.jsp?topic=/com.ibm.swg.im.iis.ds.entpak.sapr3.use.doc/topics/c_pack_r3_Administrator_for_SAP_Utility.html" />
+<meta name="DC.Relation" scheme="URI" content="http://publib.boulder.ibm.com/infocenter/iisinfsv/v8r1/index.jsp?topic=/com.ibm.swg.im.iis.ds.entpak.sapr3.use.doc/topics/t_pack_r3_About_the_IDoc_Listener_Settings_page.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="creatingaconnectiontothesapsystem" />
+<meta name="DC.Language" content="en-us" />
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+<title>Creating a connection to the SAP system</title>
+<script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+<script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+<script type="text/javascript">
+var mDivision = "IM/IS";
+var mProductName = "IBM InfoSphere Information Server";
+var mProductVersion = "9.1.2";
+var mToList = "comments@us.ibm.com,cgauthie@us.ibm.com,burkharj@us.ibm.com,eldredge@us.ibm.com";
+var mNewWindow = false;
+var plugin_form = "com.ibm.srcf.doc";
+</script>
+
+</head>
+<body id="creatingaconnectiontothesapsystem"><a name="creatingaconnectiontothesapsystem"><!-- --></a>
+<div role="banner" id="runningheader" class="runningheader">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/IBM_IC_cue.gif" />
+<span class="hf-bold">IBM InfoSphere Information Server Pack for SAP Applications, Version 8.0</span><div id="runningheader-feedback" class="runningheader-feedback">
+<a href="javascript:ibm_id_form()"><span class="hf-bold">Feedback</span></a></div>
+<hr class="hf-hr" />
+</div>
+<!-- This headerarea file can be used for any topic placed in only one subdirectory,
+     not in the root directory of the plug-in. 
+     Template; ICCC Version 3.1, CBU Version 4.2, May 2011.
+--><!-- BEGIN NON-TRANSLATE SECTION --><div>
+   <!-- Additional meta information. -->
+   <meta name="dc.identifier" content="headerfile" />
+   <meta name="dc.rights" content="© Copyright IBM Corporation 2004, 2016" />
+   <!-- meta name="DC.Rights.Owner" content="For support, contact sharpt@us.ibm.com" -->
+   <meta name="feedback" content="" />
+   <meta name="ibm.country" content="US" />
+   <meta name="ibm.effective" scheme="W3CDTF" content="2011-04-27" />
+   <meta name="ibm.expires" scheme="W3CDTF" content="2012-04-27" />
+   <meta name="source" content="CBU map.infocenter transform from DITA" />
+   <!-- Common CSS -->
+   <link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+   <!-- topic_url.js for writing the topic URL in the footer. -->
+   <script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+   <!-- srcfv3.js and variable setup for the Feedback link. -->
+   <script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+   <script type="text/javascript">
+      var mDivision = "IM";
+      var mProductName = "IBM CBU Sample";
+      var mProductVersion = "4.2.0";
+      var mToList = "Notesgroupname";
+      var plugin_form = "com.ibm.srcf.doc"; 
+</script>
+   <noscript>
+      <style type="text/css"><!--.collapsecontent{display:block;}// -->
+      </style>
+   </noscript>
+</div><!-- END NON-TRANSLATE SECTION -->
+<h1 class="title topictitle1">Creating a connection to the SAP system</h1>
+<div class="body taskbody"><p class="shortdesc">The Rapid Generator for SAP requires an existing and configured
+connection to an SAP system. This is a standard connection as used
+in the <span class="ph">IBM® InfoSphere™ Information Server</span> Pack
+for SAP Applications in <span class="ph">InfoSphere DataStage®</span>. </p>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step"><span class="ph cmd">Click <span class="ph menucascade"><span class="ph uicontrol">Start</span> &gt; <span class="ph uicontrol">Programs</span> &gt; <span class="ph uicontrol">IBM InfoSphere Information Server</span> &gt; <span class="ph uicontrol">IBM
+InfoSphere Information Server Pack for SAP Applications</span> &gt; <span class="ph uicontrol">DataStage
+Administrator for SAP.</span></span></span></li>
+<li class="li step"><span class="ph cmd">Open the project that you created, and create a connection
+to your SAP system.</span></li>
+<li class="li step"><span class="ph cmd">In the <span class="ph uicontrol">DataStage Connections to R/3</span> tab,
+click <span class="ph menucascade"><span class="ph uicontrol">Add</span> &gt; <span class="ph uicontrol">New</span></span>. The Connection Properties dialog is displayed.</span></li>
+<li class="li step"><span class="ph cmd">In the <span class="ph uicontrol">Connection and Logon Details</span> tab, enter
+all required fields.</span></li>
+<li class="li step"><span class="ph cmd">To generate IDoc extraction jobs, go to the <span class="ph uicontrol">IDoc
+Listener settings</span> tab, and ensure that the option <span class="ph uicontrol">Listen
+for IDocs</span> received through this connection is selected.</span></li>
+</ol>
+</div>
+<div class="related-links"><div class="relinfo relconcepts"><strong>Related concepts</strong><br />
+<div><img src="../sout.gif" alt="" /><a class="link" href="http://publib.boulder.ibm.com/infocenter/iisinfsv/v8r1/index.jsp?topic=/com.ibm.swg.im.iis.ds.entpak.sapr3.use.doc/topics/c_pack_r3_Administrator_for_SAP_Utility.html" target="_blank">Managing job connections and properties with IBM InfoSphere DataStage and QualityStage Administrator for SAP</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong><br />
+<div><img src="../sout.gif" alt="" /><a class="link" href="http://publib.boulder.ibm.com/infocenter/iisinfsv/v8r1/index.jsp?topic=/com.ibm.swg.im.iis.ds.entpak.sapr3.use.doc/topics/t_pack_r3_About_the_IDoc_Listener_Settings_page.html" target="_blank">IDoc Listener Settings page</a></div>
+</div>
+</div>
+<br />
+<div role="contentinfo" id="runningfooter" class="runningfooter">
+<hr class="hf-hr" />
+
+<p class="runningfooter">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/timestamp.gif" />
+Release date: 2014-07-01
+
+<span class="hf-block"><script language="javascript">write_topic_url();</script></span>
+
+<span class="hf-block"><img class="hf-icon" src="../../com.ibm.base.collateral.doc/images/pdf.gif" alt="" />
+PDF version of this information:
+<a href="http://www.ibm.com/support/docview.wss?uid=swg27008803"><span class="hf-bold">IBM InfoSphere Information Server Integration Guide for IBM InfoSphere Information Server Pack for SAP Applications</span></a>
+</span>
+</p>
+</div>
+</body>
+</html>

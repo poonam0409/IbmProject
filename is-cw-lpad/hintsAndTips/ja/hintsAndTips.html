@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="ja-jp" xml:lang="ja-jp">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="copyright" content="(C) Copyright IBM Corporation 2006" />
+<meta name="DC.rights.owner" content="(C) Copyright IBM Corporation 2006" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Express QuickStart テンプレートのヒント" />
+<meta name="abstract" content="Express QuickStart テンプレートは、Express 製品に使用できるクイック・スタート・ガイド作成のための開始点として準備されています。" />
+<meta name="description" content="Express QuickStart テンプレートは、Express 製品に使用できるクイック・スタート・ガイド作成のための開始点として準備されています。" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="hintsandtips" />
+<meta name="DC.Language" content="ja-jp" />
+<!-- All rights reserved. Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="stylesheet" type="text/css" href="../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../swg_info_common.css" />
+<title>Express QuickStart テンプレートのヒント</title>
+</head>
+<body id="hintsandtips"><a name="hintsandtips"><!-- --></a>
+<h1 class="topictitle1">Express QuickStart テンプレートのヒント</h1>
+<div><p>Express QuickStart テンプレートは開始点として準備されています。</p>
+<p> このテンプレートには、製品のインストールの開始、資料の表示、
+およびローカライズされたコンテンツの提供のために使用できるコードが含まれています。
+</p>
+<p>Express QuickStart テンプレートに関する注意点:</p>
+<ul><li>launchpadContent/global.properties はすべてのコマンドおよびプログラムを定義します。</li>
+<li>サンプル・アプリケーションは、「ディスク・レイアウト」ページの DISK1 に入っています。
+カスタムのインストール・プログラムやアプリケーションを追加するには、launchpadContent\global.properties に
+アプリケーションを定義します (サンプル・アプリケーションの例に従ってください)。「ディスク・レイアウト」タブにあるコントロールを使用して、
+プロジェクト内の適切なディスクにアプリケーションをインポートします。</li>
+<li>すべての HTML ファイルは、launchpadContent ディレクトリーにある同じスタイルシート (content.css) を使用します。</li>
+</ul>
+<p>Express QuickStart テンプレートには次のページが含まれます。</p>
+<ul><li><strong>ようこそ</strong> - 「ようこそ」ページには通常、製品の概要と
+クイック・スタート・ガイドの機能の説明が提供されています。
+「ようこそ」のページは簡潔にまとめられていますが、ページ内にある製品 Web サイトへのリンクを
+ご利用になれば、製品の詳細情報を参照することができます。
+「ようこそ」ページでは、ブラウザーに外部の Web サイトを表示させるためのコードが用意されています。
+JavaScript の <samp class="codeph">window.open()</samp> の代わりに、<samp class="codeph">viewPage()</samp> 機能を
+使用して新規ウィンドウを表示します。<samp class="codeph">window.open()</samp> の方がポップアップ・ブロッカーでブロックされる可能性が高いためです。</li>
+ウェルカム・ページには、PDF の表示およびアプリケーションの実行のためのコードも用意されています。
+<li><strong>ソフトウェアへのアクセス</strong> - 通常「ソフトウェアへのアクセス」ページには、
+製品の内容やダウンロードする資料へのリンクなどが含まれています。</li>
+<li><strong>ハードウェアおよびシステム構成の評価</strong> - 通常このページには
+システム要件についての情報が表示され、システム要件の詳しい資料へのリンクがご利用になれます。
+このページでは、ブラウザーに外部の Web サイトを表示させるためのコードが用意されています。 </li>
+<li><strong>基本アーキテクチャーおよびインストール・ステップのレビュー</strong> - 通常このページには、
+表示されている製品の基本アーキテクチャーのダイアグラムが表示されます。</li>
+<li><strong>資料へのアクセス</strong> - 通常このページには、製品に同梱の資料にアクセスする
+方法が表示されます。
+このページでは、ブラウザーにローカルおよび外部の HTML ページを表示させるためのコードが用意されています。 </li>
+<li><strong>製品のインストール</strong> - 製品インストールのページには、通常、
+製品のインストールを開始するコントロールを提供します。
+インストール・ページには、製品のインストールを開始するコードが提供されます。</li>
+<li><strong>終了</strong> - ナビゲーション・メニューの終了リンクによって、クイック・スタート・ガイドを終了できます。</li>
+</ul>
+</div>
+</body>
+</html>

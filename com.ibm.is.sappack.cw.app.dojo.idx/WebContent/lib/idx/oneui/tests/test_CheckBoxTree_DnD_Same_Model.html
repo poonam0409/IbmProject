@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>idx.oneui.CheckBoxTree Test</title>
+
+	<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+	<script type="text/javascript">
+		dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+	
+	<style id="idxStyles" type="text/css">
+		@import "../../themes/oneui/idx/oneui/oneuiMain.css";
+		@import "../../themes/oneui/dijit/dijitMain.css";
+		@import "../../themes/oneui/oneui.css";
+		@import "../../themes/test.css";
+		@import "../tests/_pagefooter/_PageFooter.css";
+	</style>
+	
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+	</script>
+	
+	<script type="text/javascript">
+		dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+	
+	<script type="text/javascript" id="postDojo">
+		var modules = [
+			"idx.oneui.CheckBoxTree",
+			"dijit.tree.ForestStoreModel",
+			"dojo.data.ItemFileWriteStore",
+			"idx.oneui.checkboxtree.dndSource",
+			"idx.oneui.tests._pagefooter._PageFooter"]; 
+		var _PageFooter = null;
+		function preParse(modules){
+			_PageFooter = modules["idx/oneui/tests/_pagefooter/_PageFooter"];
+			new _PageFooter();
+		}
+		function postParse(modules){
+		}
+		dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+	</script>
+	<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 0px;">
+	<a class="navigationLink" href="#maincontent">Skip to main content</a>
+	<script type="text/javascript">applyThemeToBody("oneui");</script>
+	<a name="maincontent"></a>
+	<div class="testMain">
+		<h1 class="testTitle">idx.oneui.CheckBoxTree Test</h1>
+		<h2>Check Box Tree Test: DnD between trees with same model</h2>
+	
+		<div data-dojo-id="continentStore" data-dojo-type="dojo.data.ItemFileWriteStore" data-dojo-props='url:"_data/countries.json"'></div>
+		<div data-dojo-id="continentModel" data-dojo-type="dijit.tree.TreeStoreModel" data-dojo-props='store:continentStore, query:{id:"ROOT"},
+				rootId:"continentRoot", rootLabel:"Continents", childrenAttrs:["children"]'></div>
+	
+		<div data-dojo-id="continentStore2" data-dojo-type="dojo.data.ItemFileWriteStore" data-dojo-props='url:"_data/countries2.json"'></div>
+		<div data-dojo-id="continentModel2" data-dojo-type="dijit.tree.TreeStoreModel" data-dojo-props='store:continentStore2, query:{id:"ROOT"},
+				rootId:"continentRoot", rootLabel:"Continents", childrenAttrs:["children"]'></div>
+		
+		<h3>Move nodes</h3>
+		<ul>
+			<li>If one or more nodes are selected, DnD operation will result in moving these nodes.</li>
+			<li>If all nodes are unselected, DnD operation will result in moving a single unselected node.</li>
+		</ul>
+		<h3>Copy nodes</h3>
+		<ul>
+			<li>If one or more nodes are selected, DnD operation while holding the CTRL key will result in copying these nodes.</li>
+			<li>If all nodes are unselected, DnD operation while holding the CTRL key will result in copying a single unselected node.</li>
+		</ul>
+		<h3>note: Root node can not be moved or copied</h3>
+		
+		<table style="margin:5px solid gray;width:100%;" >
+		<tr style="vertical-align: top;">
+			<td style="width: 50%;">
+				<div id="mytree" data-dojo-type="idx.oneui.CheckBoxTree" data-dojo-props='model:continentModel, autoExpand:true, openOnClick:true,
+					dragThreshold:8, betweenThreshold:5, dndController: "idx.oneui.checkboxtree.dndSource", onLoad:function(){ console.log("loaded mytree (first tree)"); }'>
+				</div>
+			</td>
+			<td style="width: 50%;">
+				<div id="mytree2" data-dojo-type="idx.oneui.CheckBoxTree" data-dojo-props='model:continentModel, autoExpand:true, openOnClick:true,
+					dragThreshold:8, betweenThreshold:5, dndController: "idx.oneui.checkboxtree.dndSource", onLoad:function(){ console.log("loaded mytree2 (second tree)"); }'>
+				</div>
+			</td>
+		</tr>
+		</table>
+	</div>
+</body>
+</html>

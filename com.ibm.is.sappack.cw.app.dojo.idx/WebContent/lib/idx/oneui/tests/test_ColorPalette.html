@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>ColorPalette Test</title>
+
+	<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+	<script type="text/javascript">
+		dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+	
+    <style id="idxStyles" type="text/css">
+        @import "../../themes/oneui/oneui.css";
+        @import "../../themes/test.css";
+    </style>
+
+	<style type="text/css">
+		body {
+		    margin: 3em;
+		}
+	</style>
+
+	<!-- required: dojo.js -->
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+		dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+
+	<script type="text/javascript" id="postDojo">
+		var palette;
+	
+		function programatic(){ 
+			var date0 = new Date();
+			palette = new dijit.ColorPalette({palette: "7x10", id: "prog"}, dojo.byId("programPalette"));
+			console.log("creation time for 7x10 palette: " + (new Date() - date0) );
+		}
+
+		function setColor(color){
+			var theSpan = dojo.byId("outputSpan");
+			theSpan.style.color = color;
+			theSpan.innerHTML = color;
+		}
+
+		var async= 0;
+		if(async){
+			require(["dijit/dijit", "dijit/ColorPalette", "dojo/parser", "dojo/domReady!"], programatic);
+		}else{
+			dojo.require("dijit.dijit"); // optimize: load dijit layer
+			dojo.require("dijit.ColorPalette");
+			dojo.require("dojo.parser");	// scan page for widgets and instantiate them
+			dojo.ready(programatic);
+		}
+
+			var modules = [
+				"dijit/dijit", 
+				"dijit/ColorPalette",
+				"dojo/parser",
+				"dojo/domReady!",
+				"idx.oneui.tests._pagefooter._PageFooter"
+			]; 
+			var dijit, Calendar, _PageFooter;
+			
+			function preParse(modules){
+				dijit 			= modules["dijit/dijit"];
+				ColorPalette  		= modules["dijit/ColorPalette"];
+				parser  		= modules["dojo/parser"];
+				domReady  		= modules["dojo/domReady!"];
+				/*_PageFooter   	= modules["idx/oneui/tests/_pagefooter/_PageFooter"];*/
+			}
+			function postParse() {
+				new _PageFooter();
+			}
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);		
+	</script>
+	<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+
+<body class="oneui">
+
+	<h1 class="testTitle">dijit.ColorPalette tests</h1>
+
+	<h2>Large color palette (7x10), English tooltips:</h2>
+	<input id="beforeBig" value="for tabIndex testing"/>
+	<div id="big" data-dojo-type="dijit.ColorPalette" data-dojo-props='onChange:function(){ setColor(this.value); }, lang:"en-us", summary:"This is the palette summary"'></div>
+	Test color is: <span id="outputSpan"></span>.
+	<input id="afterBig" value="for tabIndex testing"/>
+
+	<h2>Small color palette (3x4), Spanish tooltips:</h2>
+	<input id="beforeSmall" value="for tabIndex testing"/>
+	<div id="small" data-dojo-type="dijit.ColorPalette" data-dojo-props='palette:"3x4", lang:"es-mx"'></div>
+	<input id="afterSmall" value="for tabIndex testing"/>
+
+	<h2>Default color palette (7x10) created programatically:</h2>
+	<div id="programPalette"></div>
+
+	<h2>ColorPalette with value pre-selected, using old style parser parameters:</h2>
+	<input id="beforeValuePreselected" value="for tabIndex testing"/>
+	<div id="valuePreselected" dojoType="dijit.ColorPalette" value="#0000ff"></div>
+	<input id="afterValuePreselected" value="for tabIndex testing"/>
+</body>
+</html>

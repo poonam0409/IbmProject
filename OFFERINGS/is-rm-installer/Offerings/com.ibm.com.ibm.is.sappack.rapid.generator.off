@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadata version='0.0.4'?>
+<offering assemblyId='com.ibm.is.sappack.rapid.generator.main' assemblyVersion='8.0.0.qualifier' id='com.ibm.com.ibm.is.sappack.rapid.generator' version='8.0.0.qualifier'>
+	<information name='%offering.name' version='8.0.0.qualifier'>
+	%Offering.description
+	</information>
+	<property name='offering.efdVersion' value='8.0.0.0'/>
+	<property name='vendor.name' value='IBM'/>
+	<property name='profileShare' value='true, com.ibm.websphere.BASE.v70, com.ibm.websphere.ND.v70'/>'/>
+    <property name='offering.dependencies.hint' value='%RapidGenerator.depenency.hint'/>
+    <property name='offering.service.repositories' value='@OFFERING_SERVICE_REPOSITORY@'/>
+	<property name='localeLanguages' value='ja, zh, zh_TW, en, ko, pt_BR, fr, es, de, it'/>
+    <property name='maxInstallLocationPathLength.win32' value='54'/>
+    <property name='maxCacheLocationPathLength.win32' value='80'/>
+    <property name='maxInstallLocationPathLength.linux' value='1024'/>
+    <property name='maxCacheLocationPathLength.linux' value='1024'/>
+    <property name='packaged.jre.for.eclipse.ide' value='com.ibm.java.jdk'/>
+    <property name='release.date' value='2011-03-12'/>
+    <property name='minimum.eclipse.ide.platform.version' value='3.4.2'/>
+    <property name='supportedPlatforms' value='(|     (&amp; (os=linux) (| (arch=x86) (arch=x86_64)))     (&amp; (os=win32) (| (arch=x86) (arch=x86_64)))   )'/>
+    <property name='offering.RequiresAdmin' value='false'/>
+    <property name='warnVistaVirtualizationDirectories' value='false'/>
+    <property name='prereq.bundles.precheck' value='[1.3.2,1.3.3000):com.ibm.cic.agent.precheck.workitem21876'/>
+    <property name='support.multiple.profile.install' value='true'/>
+    <!-- <property name='offering.supports64bits' value='true'/> -->
+    <property name='agent.tolerance' value='1.3.0'/>
+    <property name='displayable.agent.tolerance' value='1.3.0'/>
+    <property name='im.tolerance' value='1.5.2000'/>
+    <property name='displayable.im.tolerance' value='1.5.2'/>
+    <property name='eclipseCompatibility' value='classic'/>
+	<featureGroup kind='RequiredAndVisible'>
+		<feature id='main.feature' kind='RequiredAndVisible' selectionId='main'>
+			<information name='Product Files'/>
+		</feature>
+	</featureGroup>
+    <iu adapterId='eclipse' id='com.ibm.check.ibm.jre.20061024' version='999.999.999.-1151321693'>
+        <selectedBy id='InstallHandler'/>
+        <adapterSpecificData>
+            <artifact id='com.ibm.check.ibm.jre.20061024' type='plugin'/>
+            <agentBundle id='com.ibm.check.ibm.jre.20061024' version='1.0.1.20080131'/>
+        </adapterSpecificData>
+    </iu>
+    <iu adapterId='eclipse' id='com.ibm.cic.check.agent13.update' version='999.999.999.-1399730796'>
+        <selectedBy id='InstallHandler'/>
+        <adapterSpecificData>
+            <artifact id='com.ibm.cic.check.agent13.update' type='plugin'/>
+            <agentBundle id='com.ibm.cic.check.agent13.update' version='1.0.2'/>
+        </adapterSpecificData>
+    </iu>
+    <iu adapterId='eclipse' id='com.ibm.cic.agent.precheck.workitem21876' version='999.999.999.475405546'>
+        <selectedBy id='InstallHandler'/>
+        <adapterSpecificData>
+            <artifact downloadSize='3067' exploded='false' id='com.ibm.cic.agent.precheck.workitem21876' installSize='3067' type='plugin'/>
+            <agentBundle id='com.ibm.cic.agent.precheck.workitem21876' version='1.0.0'/>
+        </adapterSpecificData>
+    </iu>
+</offering>

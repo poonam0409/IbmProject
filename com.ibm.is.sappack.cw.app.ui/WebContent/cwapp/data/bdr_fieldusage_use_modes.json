@@ -1,0 +1,10 @@
+{
+	"identifier": "value",
+	"label": "name",
+	"items": [
+	        {"value": "0", "name": "Read", "label": "Read"},
+	        {"value": "1", "name": "Write", "label": "Write"},
+	        {"value": "2", "name": "Follow-up", "label": "Follow-up"},
+	        {"value": "3", "name": "Unused", "label": "Unused"}
+	]
+}

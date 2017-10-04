@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Test TriStateCheckBox</title>
+
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+<script type="text/javascript">
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/claro/claro.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dojox/form/resources/TriStateCheckBox.css", "idxStyles");
+</script>
+
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneui/oneui.css";
+@import "../../themes/vienna/vienna.css";
+@import url("../resources/claroTriStateCheckBox.css");
+@import url("../resources/viennaTriStateCheckBox.css");
+@import "../../themes/test.css";
+
+</style>
+
+<script type="text/javascript">
+	var dojoConfig = currentDojoVersion.dojoConfig;
+</script>
+
+<script type="text/javascript">
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+</script>
+ 
+<script type="text/javascript" id="postDojo">
+var modules = [	"dojo.parser",		
+				"dojo/dom",				// AMD only, otherwise use dojo.byId
+				"dojo/dom-attr",		// AMD only, otherwise use dojo.attr
+				"dijit/_base/manager",	// AMD only, otherwise use dijit.byId
+				"idx.form.TriStateCheckBox"];
+
+function postParse(modules) {
+	var mgr 	= modules["dijit/_base/manager"] ? modules["dijit/_base/manager"] : dijit;
+	var dom    	= modules["dojo/dom"] ? modules["dojo/dom"] : dojo;
+	var setAttr = modules["dojo/dom-attr"] ? modules["dojo/dom-attr"].set : dojo.attr;
+	var manager = mgr;
+	
+	var TriStateCheckBox = modules["idx/form/TriStateCheckBox"];
+	
+	var chb8 = manager.byId("test_TriStateCheckBox_8");
+	chb8.set("disabled", true);
+		
+	var chb9 = manager.byId("test_TriStateCheckBox_9");
+	chb9.set("value", "checked");
+
+	// new idx.form.TriStateCheckBox & set the alt different for each checked state
+	var checkboxid = "myid";
+	var aCheckbox = new TriStateCheckBox({id: checkboxid, 
+            value: "true", 
+            altValues: ['alt for value false', 'alt for value true', 'alt for value mixed'],
+            onClick: function() { alert('clicked the TriStateCheckBox'); },
+            disabled: false});
+	var label = document.createElement("label");
+	setAttr(label, "for", checkboxid);
+	label.innerHTML = "TriStateCheckBox label";
+    var div = dom.byId('test_TriStateCheckBoxDiv_11');
+    div.appendChild(aCheckbox.domNode);
+    div.appendChild(label);
+}
+
+dojoRequireModules(modules, null, currentDojoVersion.async, null, postParse);
+</script>
+<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 0px;">
+<a class="navigationLink" href="#maincontent">Skip to main content</a>
+<script type="text/javascript">applyThemeToBody()</script>
+
+<a name="maincontent"></a>
+<h2>TriStateCheckBox</h2>
+<div style="padding: 10px;">
+	<div>Default</div>
+	<div id="test_TriStateCheckBox_0" dojoType="idx.form.TriStateCheckBox" alt="hover help text here"></div>
+	<label for="test_TriStateCheckBox_0">Unselected Initial State</label>
+	<hr/>
+
+	<div tabindex="0" id="target">checked="checked"</div>
+	<div id="test_TriStateCheckBox_1" dojoType="idx.form.TriStateCheckBox" value="checked"></div>
+	<label for="test_TriStateCheckBox_1">Selected Initial State</label>
+	<hr/>
+
+	<div>disabled="disabled"</div>
+	<div id="test_TriStateCheckBox_2" dojoType="idx.form.TriStateCheckBox" disabled="true"></div>
+	<label for="test_TriStateCheckBox_2">Disabled Unselected Initial State</label>
+	<hr/>
+	
+	<div>checked="checked"</div>
+	<div id="test_TriStateCheckBox_3" dojoType="idx.form.TriStateCheckBox" value="checked"></div>
+	<label for="test_TriStateCheckBox_3">Selected Initial State</label>
+	<hr/>
+	
+	<div>value="mixed" disabled="true"</div>
+	<div id="test_TriStateCheckBox_3_1" dojoType="idx.form.TriStateCheckBox" value="mixed" disabled="true"></div>
+	<label for="test_TriStateCheckBox_3_1">Mixed initial state, disabled</label>
+	<hr/>
+
+	<div>disabled="disabled" checked="checked"</div>
+	<div id="test_TriStateCheckBox_4" dojoType="idx.form.TriStateCheckBox" disabled="true" value="checked"></div>
+	<label for="test_TriStateCheckBox_4">Disabled Selected Initial State</label>
+	<hr/>
+	
+	<div> readOnly = "true" checked = "checked"</div>
+	<div id="test_TriStateCheckBox_4_1" dojoType="idx.form.TriStateCheckBox" readOnly="true" value="checked"></div>
+	<label for="test_TriStateCheckBox_4_1">ReadOnly Selected initial state</label>
+	<hr/>
+
+	<div>value="mixed"</div>
+	<div id="test_TriStateCheckBox_5" dojoType="idx.form.TriStateCheckBox" value="mixed"></div>
+	<label for="test_TriStateCheckBox_5">Mixed Initial State</label>
+	<hr/>
+
+	<div>value="true"</div>
+	<div id="test_TriStateCheckBox_6" dojoType="idx.form.TriStateCheckBox" value="true"></div>
+	<label for="test_TriStateCheckBox_6">Selected Initial State</label>
+	<hr/>
+
+	<div>value="false"</div>
+	<div id="test_TriStateCheckBox_7" dojoType="idx.form.TriStateCheckBox" value="false"></div>
+	<label for="test_TriStateCheckBox_7">Unselected Initial State</label>
+	<hr/>
+
+	<div>value="true" attr('disabled', true)</div>
+	<div id="test_TriStateCheckBox_8" dojoType="idx.form.TriStateCheckBox" value="true"></div>
+	<label for="test_TriStateCheckBox_8">Disabled Selected Initial State</label>
+	<hr/>
+
+	<div>value="mixed" attr('value', 'true')</div>
+	<div id="test_TriStateCheckBox_9" dojoType="idx.form.TriStateCheckBox" value="mixed"></div>
+	<label for="test_TriStateCheckBox_9">Selected Initial State</label>
+	<hr/>
+
+	<div>new idx.form.TriStateCheckBox & different alt per state</div>
+	<div id="test_TriStateCheckBoxDiv_11"></div>
+	<hr/>
+	
+	<form>
+		<div dojoType="idx.form.TriStateCheckBox" value="true"></div>
+		<button type="submit">Submit</button>
+	</form>
+</div>
+
+</body>
+</html>

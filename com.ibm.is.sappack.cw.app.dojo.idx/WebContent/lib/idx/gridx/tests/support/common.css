@@ -1,0 +1,34 @@
+@import "../../../../../dojo_1.7.2/dojo/resources/dojo.css";
+@import "../../../../../dojo_1.7.2/dijit/themes/claro/claro.css";
+@import "../../../../../dojo_1.7.2/dijit/themes/claro/document.css";
+@import "../../resources/claro/Gridx.css";
+@import "../../resources/claro/Gridx_rtl.css";
+
+body {
+	margin: 5em;
+}
+
+.title {
+	font-size: large;
+	font-weight: bolder;
+}
+
+#ctrlPane {
+	width: 200px;
+	height: 500px;
+	padding: 0 20px;
+	vertical-align: top;
+}
+
+#ctrlPane .dijitAccordionContainer {
+	width: 100%;
+	height: 100%;
+}
+
+.pane {
+	vertical-align: top;
+}
+
+#mainPane {
+	vertical-align: top;
+}

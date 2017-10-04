@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map>
+	<bundle bundleID="4450" class="com.ibm.is.sappack.cw.tools.jobgenerator.Activator" localization="plugin" name="%pluginName" project="com.ibm.is.sappack.cw.tools.jobgenerator" provider="%providerName"/>
+	<bundle bundleID="4451" localization="plugin" name="%name" project="com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc" provider="%providerName"/>
+	<bundle bundleID="4452" localization="plugin" name="%pluginName" project="com.ibm.swg.im.iis.common.ic.doc" provider="%providerName"/>
+	<bundle bundleID="4453" class="com.ibm.is.sappack.gen.welcome.Activator" localization="plugin" name="%pluginName" project="com.ibm.is.sappack.gen.welcome" provider="%providerName"/>
+	<bundle bundleID="4454" localization="plugin" name="%pluginName" project="com.ibm.is.sappack.gen.help.nl1" provider="%providerName"/>
+	<bundle bundleID="4455" class="com.ibm.is.sappack.gen.oda.runtime.driver.ui.Activator" localization="plugin" name="%plugin.name" project="com.ibm.is.sappack.gen.oda.runtime.driver.ui" provider="%providerName"/>
+	<bundle bundleID="4456" localization="plugin" name="%pluginName" project="com.ibm.is.sappack.gen.tools.jobgenerator.nl1" provider="%providerName"/>
+	<bundle bundleID="4457" localization="plugin" name="%pluginName" project="com.ibm.is.sappack.gen.tools.jobgenerator.product.nl1" provider="%providerName"/>
+	<bundle bundleID="4458" class="com.ibm.is.sappack.cw.tools.sap.Activator" localization="plugin" name="%pluginName" project="com.ibm.is.sappack.cw.tools.sap" provider="%providerName"/>
+	<bundle bundleID="4459" class="com.ibm.is.sappack.cw.branding.BrandingUIPlugin" localization="plugin" name="%pluginName" project="com.ibm.is.sappack.cw.branding" provider="%providerName"/>
+	<bundle bundleID="4460" class="com.ibm.is.sappack.packsv8.branding.BrandingUIPlugin" localization="plugin" name="%pluginName" project="com.ibm.is.sappack.packv8.branding" provider="%providerName"/>
+	<bundle bundleID="4461" localization="plugin" name="%pluginName" project="com.ibm.is.sappack.gen.tools.sap.nl1" provider="%providerName"/>
+	<bundle bundleID="4462" class="com.ibm.is.sappack.gen.tools.modelling.Activator" localization="plugin" name="%pluginName" project="com.ibm.is.sappack.gen.tools.modelling" provider="%providerName">
+		<library name="."/>
+	</bundle>
+	<bundle bundleID="4463" localization="plugin" name="%pluginName" project="com.ibm.is.sappack.cw.tools.extensions.nl1" provider="%providerName"/>
+	<bundle bundleID="4464" localization="plugin" name="%pluginName" project="com.ibm.is.sappack.gen.branding.nl1" provider="%providerName"/>
+	<bundle bundleID="4465" localization="plugin" name="%pluginName" project="com.ibm.is.sappack.gen.common.nl1" provider="%providerName"/>
+	<bundle bundleID="4466" localization="plugin" name="%pluginName" project="com.ibm.is.sappack.gen.common.ui.nl1" provider="%providerName"/>
+	<bundle bundleID="4467" class="com.ibm.is.sappack.gen.oda.runtime.driver.Activator" localization="plugin" name="%pluginName" project="com.ibm.is.sappack.gen.oda.runtime.driver" provider="%providerName">
+		<library name="."/>
+		<library name="src"/>
+	</bundle>
+	<bundle bundleID="4468" class="com.ibm.is.sappack.gen.tools.sap.test.Activator" localization="plugin" name="%pluginName" project="com.ibm.is.sappack.gen.tools.sap.test" provider="%providerName">
+		<library name="."/>
+	</bundle>
+	<bundle bundleID="4469" localization="plugin" name="%pluginName" project="com.ibm.is.sappack.gen.tools.sap.product.nl1" provider="%providerName"/>
+	<bundle bundleID="4470" class="com.ibm.is.sappack.gen.help.Activator" localization="plugin" name="%pluginName" project="com.ibm.is.sappack.gen.help" provider="%providerName">
+		<library name="."/>
+	</bundle>
+	<bundle bundleID="4471" class="com.ibm.is.sappack.gen.tools.jobgenerator.Activator" localization="plugin" name="%pluginName" project="com.ibm.is.sappack.gen.tools.jobgenerator" provider="%providerName">
+		<library name="."/>
+	</bundle>
+	<bundle bundleID="4472" localization="plugin" name="%pluginName" project="com.ibm.is.sappack.cw.tools.jobgenerator.nl1" provider="%providerName"/>
+	<bundle bundleID="4473" class="com.ibm.is.sappack.gen.tools.jobgenerator.product.Activator" localization="plugin" name="%pluginName" project="com.ibm.is.sappack.gen.tools.jobgenerator.product" provider="%providerName"/>
+	<bundle bundleID="4474" localization="OSGI-INF/l10n/bundle" name="%name" project="com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc.nl1" provider="%providerName"/>
+	<bundle bundleID="4475" localization="plugin" name="%pluginName" project="com.ibm.is.sappack.gen.welcome.nl1" provider="%providerName"/>
+	<bundle bundleID="4476" class="com.ibm.is.sappack.gen.tools.sap.activator.Activator" localization="plugin" name="%pluginName" project="com.ibm.is.sappack.gen.tools.sap" provider="%providerName">
+		<library name="."/>
+	</bundle>
+	<bundle bundleID="4477" class="com.ibm.is.sappack.gen.branding.BrandingUIPlugin" localization="plugin" name="%pluginName" project="com.ibm.is.sappack.gen.branding" provider="%providerName"/>
+	<bundle bundleID="4478" localization="OSGI-INF/l10n/bundle" name="%pluginName" project="com.ibm.is.sappack.cw.tools.extensions" provider="%providerName"/>
+	<bundle bundleID="4479" localization="plugin" name="%pluginName" project="com.ibm.is.sappack.gen.common" provider="%providerName"/>
+	<bundle bundleID="4480" class="com.ibm.is.sappack.gen.common.ui.Activator" localization="plugin" name="%pluginName" project="com.ibm.is.sappack.gen.common.ui" provider="%providerName">
+		<library name="."/>
+	</bundle>
+	<bundle bundleID="4481" class="com.ibm.is.sappack.gen.tools.sap.product.Activator" localization="plugin" name="%pluginName" project="com.ibm.is.sappack.gen.tools.sap.product" provider="%providerName">
+		<library name="."/>
+	</bundle>
+	<bundle bundleID="4482" localization="OSGI-INF/l10n/bundle" name="%pluginName" project="com.ibm.is.sappack.cw.tools.sap.nl1" provider="%providerName"/>
+	<bundle bundleID="4483" localization="plugin" name="%pluginName" project="com.ibm.is.sappack.cw.branding.nl1" provider="%providerName"/>
+	<bundle bundleID="4484" localization="plugin" name="%pluginName" project="com.ibm.is.3rdparty.sap.jco" provider="%providerName">
+		<library name="external:$com.ibm.is.3rdparty.sap.jco.jar.path$"/>
+	</bundle>
+	<bundle bundleID="4485" localization="plugin" name="%pluginName" project="com.ibm.iis.sappack.ant" provider="%providerName"/>
+</map>

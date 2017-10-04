@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2011" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2011" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="cshelp" />
+<meta name="DC.Title" content="IDoc 抽取选项" />
+<meta name="abstract" content="使用该页面可指定 IDoc 抽取作业的源选项和目标选项。" />
+<meta name="description" content="使用该页面可指定 IDoc 抽取作业的源选项和目标选项。" />
+<meta name="DC.Coverage" content="IDoc 抽取选项" />
+<meta name="DC.Relation" scheme="URI" content="../topics/rapidgenforsap_container.html" />
+<meta name="DC.Relation" scheme="URI" content="../../com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc/topics/t_configure_job_idoc_extract.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="specifytablesmanually" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+<link rel="Start" href="../topics/rapidgenforsap_container.html" />
+<title>IDoc 抽取选项</title>
+<script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+<script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+<script type="text/javascript">
+var mDivision = "IM/IS";
+var mProductName = "IBM InfoSphere Information Server";
+var mProductVersion = "8.7.0";
+var mToList = "comments@us.ibm.com,cgauthie@us.ibm.com,burkharj@us.ibm.com,eldredge@us.ibm.com,pattere@us.ibm.com";
+var mNewWindow = false;
+var plugin_form = "com.ibm.srcf.doc";
+</script>
+
+</head>
+<body id="specifytablesmanually"><a name="specifytablesmanually"><!-- --></a>
+<div role="banner" id="runningheader" class="runningheader">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/IBM_IC_cue.gif" />
+<span class="hf-bold">IBM InfoSphere Information Server Pack for SAP Applications V7.0</span><div id="runningheader-feedback" class="runningheader-feedback">
+<a href="javascript:ibm_id_form()"><span class="hf-bold">反馈</span></a></div>
+<hr class="hf-hr" />
+</div>
+<!-- This headerarea file can be used for any topic placed in only one subdirectory,
+     not in the root directory of the plug-in. 
+     Template; ICCC Version 3.1, CBU Version 4.2, May 2011.
+--><div>
+   <!-- Additional meta information. -->
+   <meta name="dc.identifier" content="headerfile" />
+   <meta name="dc.rights" content="© Copyright IBM Corporation 2004, 2011" />
+   <!-- meta name="DC.Rights.Owner" content="For support, contact sharpt@us.ibm.com" -->
+   <meta name="feedback" content="" />
+   <meta name="ibm.country" content="US" />
+   <meta name="ibm.effective" scheme="W3CDTF" content="2011-04-27" />
+   <meta name="ibm.expires" scheme="W3CDTF" content="2012-04-27" />
+   <meta name="source" content="CBU map.infocenter transform from DITA" />
+   <!-- Common CSS -->
+   <link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+   <!-- topic_url.js for writing the topic URL in the footer. -->
+   <script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+   <!-- srcfv3.js and variable setup for the Feedback link. -->
+   <script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+   <script type="text/javascript">
+      var mDivision = "IM";
+      var mProductName = "IBM CBU Sample";
+      var mProductVersion = "4.2.0";
+      var mToList = "Notesgroupname";
+      var plugin_form = "com.ibm.srcf.doc"; 
+</script>
+   <noscript>
+      <style type="text/css"><!--.collapsecontent{display:block;}// -->
+      </style>
+   </noscript>
+</div>
+<h1 class="title topictitle1">IDoc 抽取选项</h1>
+<div class="body csbody"><p class="shortdesc">使用该页面可指定 IDoc 抽取作业的源选项和目标选项。</p>
+<div class="note note"><span class="notetitle">注：</span> 通过使用“#”符号括起文本，可以对文本字段使用 <span class="ph">InfoSphere™ DataStage®</span> 作业参数。使用语法“#”指示参数集：<span class="keyword parmname parmname">#ParameterSetName.ParameterName#</span>。有关参数和参数集的更多信息，请参阅 <span class="ph">IBM® InfoSphere DataStage and QualityStage™ Designer 客户机指南</span></div>
+<dl class="dl"><dt class="dt dlterm">源选项</dt>
+<dd class="dd">指定 IDoc 抽取源选项：<dl class="dl"><dt class="dt dlterm">DataStage SAP 连接</dt>
+<dd class="dd"><span class="ph">IBM InfoSphere DataStage</span> 中配置的 SAP 连接的名称。</dd>
+<dt class="dt dlterm">覆盖连接缺省值</dt>
+<dd class="dd">如果要覆盖 <span class="ph">IBM InfoSphere DataStage</span> 中配置的连接设置，请选中该复选框。</dd>
+<dt class="dt dlterm">SAP 用户</dt>
+<dd class="dd">SAP 用户的用户名。</dd>
+<dt class="dt dlterm">SAP 用户密码</dt>
+<dd class="dd">指定的 SAP 用户的密码。</dd>
+<dt class="dt dlterm">SAP 用户客户机编号</dt>
+<dd class="dd">指定的 SAP 用户的客户机编号。</dd>
+<dt class="dt dlterm">SAP 用户语言</dt>
+<dd class="dd">指定的 SAP 用户的语言。</dd>
+</dl>
+ </dd>
+<dt class="dt dlterm">目标选项</dt>
+<dd class="dd">指定 IDoc 抽取的以下目标选项： <dl class="dl"><dt class="dt dlterm">阶段类型</dt>
+<dd class="dd">选择生成的目标阶段的类型：</dd>
+<dt class="dt dlterm">ODBC 连接器</dt>
+<dd class="dd">指定 ODBC 连接器的以下选项：<dl class="dl"><dt class="dt dlterm">ODBC 数据源</dt>
+<dd class="dd">从 SAP 抽取的对象存储在配置的 ODBC 数据源表中。</dd>
+<dt class="dt dlterm">ODBC 用户</dt>
+<dd class="dd">覆盖数据源配置中所配置的用户。它是可选字段。</dd>
+<dt class="dt dlterm">ODBC 密码</dt>
+<dd class="dd">覆盖数据源配置中所配置的密码。它是可选字段。</dd>
+<dt class="dt dlterm">选择表操作</dt>
+<dd class="dd">您可以选择 <span class="keyword parmname parmname">APPEND</span> 或 <span class="keyword parmname parmname">TRUNCATE</span> 表操作。有关更多信息，请参阅 ODBC Connector 阶段文档。</dd>
+</dl>
+ </dd>
+<dt class="dt dlterm">顺序文件</dt>
+<dd class="dd"> 顺序文件包含以下参数：<dl class="dl"><dt class="dt dlterm">文件</dt>
+<dd class="dd">指定一个名称，此名称将用作用于存储输出的所有文件的前缀。</dd>
+<dt class="dt dlterm">文件更新方式</dt>
+<dd class="dd">可用选项包括 <span class="keyword parmname parmname">APPEND</span>、<span class="keyword parmname parmname">CREATE（存在时出错）</span>或 <span class="keyword parmname parmname">OVERWRITE</span>。有关更多信息，请参阅 Sequential File 阶段文档。</dd>
+<dt class="dt dlterm">第一行为列名称</dt>
+<dd class="dd">如果希望顺序文件中的第一行包含列名称，请选择该选项。</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a class="link" href="../topics/rapidgenforsap_container.html" title="您可以使用由 IBM InfoSphere Rapid Modeler for SAP Applications 导入的 SAP 元数据来生成 InfoSphere DataStage 作业。这些 InfoSphere DataStage 作业将抽取或装入元数据（导入到关系数据库或平面文件，或者从关系数据库或平面文件导入）描述的 SAP 对象的实际数据。">IBM InfoSphere Rapid Generator for SAP Applications</a></div>
+</div>
+<div class="relinfo reltasks"><strong>相关任务</strong><br />
+<div><a class="link" href="../../com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc/topics/t_configure_job_idoc_extract.html" title="完成以下任务，以在 Rapid Generator for SAP 向导中配置 IDoc 抽取作业。">为 IDoc 抽取作业配置作业生成</a></div>
+</div>
+</div>
+<br />
+<div role="contentinfo" id="runningfooter" class="runningfooter">
+<hr class="hf-hr" />
+
+<p class="runningfooter">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/timestamp.gif" />
+发布日期： 2011-10-01
+
+<span class="hf-block"><script language="javascript">write_topic_url();</script></span>
+</p>
+</div>
+</body>
+</html>

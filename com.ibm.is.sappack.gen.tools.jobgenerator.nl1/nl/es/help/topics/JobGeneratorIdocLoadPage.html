@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-es" xml:lang="es-es">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2011" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2011" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="cshelp" />
+<meta name="DC.Title" content="Opciones de IDoc Load" />
+<meta name="abstract" content="Utilice esta página para configurar las opciones de los trabajos de IDoc Load." />
+<meta name="description" content="Utilice esta página para configurar las opciones de los trabajos de IDoc Load." />
+<meta name="DC.Coverage" content="Opciones de IDoc Load" />
+<meta name="DC.Relation" scheme="URI" content="../topics/rapidgenforsap_container.html" />
+<meta name="DC.Relation" scheme="URI" content="../../com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc/topics/t_configure_job_idoc_load.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="specifyingimportoptions" />
+<meta name="DC.Language" content="es-es" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+<link rel="Start" href="../topics/rapidgenforsap_container.html" />
+<title>Opciones de IDoc Load</title>
+<script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+<script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+<script type="text/javascript">
+var mDivision = "IM/IS";
+var mProductName = "IBM InfoSphere Information Server";
+var mProductVersion = "8.7.0";
+var mToList = "comments@us.ibm.com,cgauthie@us.ibm.com,burkharj@us.ibm.com,eldredge@us.ibm.com,pattere@us.ibm.com";
+var mNewWindow = false;
+var plugin_form = "com.ibm.srcf.doc";
+</script>
+
+</head>
+<body id="specifyingimportoptions"><a name="specifyingimportoptions"><!-- --></a>
+<div role="banner" id="runningheader" class="runningheader">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/IBM_IC_cue.gif" />
+<span class="hf-bold">IBM InfoSphere Information Server Pack for SAP Applications, Versión 7.0</span><div id="runningheader-feedback" class="runningheader-feedback">
+<a href="javascript:ibm_id_form()"><span class="hf-bold">Comentarios</span></a></div>
+<hr class="hf-hr" />
+</div>
+<!-- This headerarea file can be used for any topic placed in only one subdirectory,
+     not in the root directory of the plug-in. 
+     Template; ICCC Version 3.1, CBU Version 4.2, May 2011.
+--><div>
+   <!-- Additional meta information. -->
+   <meta name="dc.identifier" content="headerfile" />
+   <meta name="dc.rights" content="© Copyright IBM Corporation 2004, 2011" />
+   <!-- meta name="DC.Rights.Owner" content="For support, contact sharpt@us.ibm.com" -->
+   <meta name="feedback" content="" />
+   <meta name="ibm.country" content="US" />
+   <meta name="ibm.effective" scheme="W3CDTF" content="2011-04-27" />
+   <meta name="ibm.expires" scheme="W3CDTF" content="2012-04-27" />
+   <meta name="source" content="CBU map.infocenter transform from DITA" />
+   <!-- Common CSS -->
+   <link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+   <!-- topic_url.js for writing the topic URL in the footer. -->
+   <script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+   <!-- srcfv3.js and variable setup for the Feedback link. -->
+   <script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+   <script type="text/javascript">
+      var mDivision = "IM";
+      var mProductName = "IBM CBU Sample";
+      var mProductVersion = "4.2.0";
+      var mToList = "Notesgroupname";
+      var plugin_form = "com.ibm.srcf.doc"; 
+</script>
+   <noscript>
+      <style type="text/css"><!--.collapsecontent{display:block;}// -->
+      </style>
+   </noscript>
+</div>
+<h1 class="title topictitle1">Opciones de IDoc Load</h1>
+<div class="body csbody"><p class="shortdesc">Utilice esta página para configurar las opciones de los trabajos de IDoc Load.</p>
+<div class="note note"><span class="notetitle">Nota:</span> Puede utilizar los parámetros de trabajo de <span class="ph">InfoSphere DataStage</span> para los campos de texto si escribe el texto entre símbolos "#". Los conjuntos de parámetros vienen indicados con la sintaxis "#" <span class="keyword parmname parmname">#ParameterSetName.ParameterName#.</span> Para obtener más información sobre los parámetros y los conjuntos de parámetros, consulte <span class="ph">IBM® InfoSphere DataStage and QualityStage Designer
+Client Guide</span></div>
+<dl class="dl"><dt class="dt dlterm">Opciones de origen</dt>
+<dd class="dd">Especifique las siguientes opciones de origen para IDoc Load: <dl class="dl"><dt class="dt dlterm">Tipo de etapa</dt>
+<dd class="dd">Tipo de etapas generadas como origen de los IDocs. Por ejemplo, Conector ODBC o Archivo secuencial. </dd>
+<dt class="dt dlterm">Conector ODBC</dt>
+<dd class="dd">Especifique las siguientes opciones para el conector ODBC: <dl class="dl"><dt class="dt dlterm">Origen de datos ODBC</dt>
+<dd class="dd">Los objetos cargados en SAP se leen de las tablas que el origen de datos ODBC ha configurado en el sistema operativo.</dd>
+<dt class="dt dlterm">Usuario de ODBC</dt>
+<dd class="dd">Sobrescribe el usuario configurado en la configuración del origen de datos. Este campo es opcional. </dd>
+<dt class="dt dlterm">Contraseña de ODBC</dt>
+<dd class="dd">Sobrescribe la contraseña configurada en la configuración del origen de datos. Este campo es opcional. </dd>
+<dt class="dt dlterm">Seleccionar la acción de tabla</dt>
+<dd class="dd">Puede seleccionar las acciones de tabla <span class="keyword parmname parmname">APPEND</span>, <span class="keyword parmname parmname">CREATE</span>, <span class="keyword parmname parmname">REPLACE</span> o <span class="keyword parmname parmname">TRUNCATE</span>. Para obtener más información, consulte la documentación de la etapa Conector ODBC.</dd>
+<dt class="dt dlterm">Condición SQL WHERE de ODBC</dt>
+<dd class="dd">Especifique la cláusula SQL <span class="keyword parmname parmname">where</span> que se va a utilizar cuando se consulten los datos de origen. La cláusula <span class="keyword parmname parmname">where</span> que se especifique aquí se aplicará a todas las tablas que se consulten. Esta opción se utiliza normalmente junto con los campos técnicos que se añaden utilizando <span class="ph">IBM InfoSphere Data Architect</span> Rapid Modeler for SAP application.</dd>
+</dl>
+ </dd>
+</dl>
+</dd>
+<dt class="dt dlterm">Opciones de destino</dt>
+<dd class="dd">Especifique las siguientes opciones de destino para la etapa IDoc Load: <dl class="dl"><dt class="dt dlterm">Tipo de mensaje SAP</dt>
+<dd class="dd">Especifique el tipo de mensaje SAP que se va a utilizar. </dd>
+<dt class="dt dlterm">Conexión de SAP de DataStage</dt>
+<dd class="dd">Nombre de la conexión de SAP configurada en DataStage.</dd>
+<dt class="dt dlterm">Sobrescribir valores predeterminados de la conexión</dt>
+<dd class="dd">Seleccione este recuadro de selección si desea sobrescribir los valores definidos en la conexión en <span class="ph">IBM InfoSphere DataStage</span>.</dd>
+<dt class="dt dlterm">Usuario de SAP</dt>
+<dd class="dd">ID de usuario del usuario de SAP.</dd>
+<dt class="dt dlterm">Contraseña de usuario de SAP</dt>
+<dd class="dd">Contraseña del usuario de SAP especificado. </dd>
+<dt class="dt dlterm">Número de cliente del usuario de SAP</dt>
+<dd class="dd">Número de cliente del usuario de SAP especificado.</dd>
+<dt class="dt dlterm">Idioma del usuario de SAP</dt>
+<dd class="dd">Idioma del usuario de SAP especificado.</dd>
+</dl>
+ </dd>
+</dl>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Tema principal:</strong> <a class="link" href="../topics/rapidgenforsap_container.html" title="Puede generar trabajos de InfoSphere DataStage con los metadatos de SAP importados utilizando IBM InfoSphere Rapid Modeler for SAP Applications. Estos trabajos de InfoSphere DataStage extraen o cargan los datos reales de los objetos SAP descritos por los metadatos que se han importado hacia o desde archivos sin formato o una base de datos relacional.">IBM InfoSphere Rapid Generator for SAP Applications</a></div>
+</div>
+<div class="reltasks"><strong>Tareas relacionadas</strong><br />
+<div><a class="link" href="../../com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc/topics/t_configure_job_idoc_load.html" title="Realice la siguiente tarea para configurar los trabajos de IDoc Load en el asistente de Rapid Generator for SAP.">Configuración de la generación de trabajos para los trabajos de IDoc Load</a></div>
+</div>
+</div>
+<br />
+<div role="contentinfo" id="runningfooter" class="runningfooter">
+<hr class="hf-hr" />
+
+<p class="runningfooter">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/timestamp.gif" />
+Fecha de publicación: 2011-10-01
+
+<span class="hf-block"><script language="javascript">write_topic_url();</script></span>
+</p>
+</div>
+</body>
+</html>

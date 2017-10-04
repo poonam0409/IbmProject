@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SoftwareIdentity name="IBM InfoSphere IS Pack for SAP Applications Rapid Modeler &amp; Rapid Generator" uniqueId="4962a2d3b2684ba8a5f01a074fcee625-8.0.0" version="8.0.0" versionScheme="multipartnumeric" xmlns="http://standards.iso.org/iso/19770/-2/2014-CD1/schema.xsd" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://standards.iso.org/iso/19770/-2/2014-CD1/schema.xsd swid.xsd">
+    <Meta persistentId="4962a2d3b2684ba8a5f01a074fcee625"/>
+    <Meta taxonomyCode="SSQR66"/>
+    <Meta taggingProcess="4-1-20150813"/>
+    <Entity name="IBM" regid="regid.1986-03.com.ibm" role="licensor publisher tagcreator"/>
+</SoftwareIdentity>

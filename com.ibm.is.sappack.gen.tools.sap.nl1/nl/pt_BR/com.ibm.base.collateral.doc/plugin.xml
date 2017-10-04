@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--© Copyright IBM Corporation 2011-->
+<?eclipse version="3.0"?><plugin id="com.ibm.base.collateral.doc"
+        name="Colateral não convertível do centro de informações base"
+        provider-name="IBM"
+        version="3.1.0"/>

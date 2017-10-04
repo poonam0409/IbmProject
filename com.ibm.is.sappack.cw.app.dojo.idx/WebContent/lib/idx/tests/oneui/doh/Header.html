@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>oneui.Header DOH Test</title>
+		
+		<script type="text/javascript" src="../../dojoVersion.js"></script>
+
+		<script type="text/javascript">
+			dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		</script>
+	
+	    <style id="idxStyles" type="text/css">
+    	    @import "../../../themes/oneui/oneui.css";
+        	@import "../../../themes/test.css";
+	    </style>
+		
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+			dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+
+		<script type="text/javascript" id="postDojo">
+			var modules = [
+				"doh",
+				 "idx.oneui.Header", 
+				 "dijit.dijit", 
+				 "dojo._base/sniff", 
+				 "dojo.parser",
+				 "dojo.query",
+				 "dojo.string",
+				 "dojo.ready"];
+				  
+			var doh, 
+				Header, 
+				dijit, 
+				has, 
+				parser,
+				query,
+				string,
+				ready;
+				
+			function preParse(modules){
+				doh = modules["doh"];
+				Header = modules["idx/oneui/Header"];
+				dijit = modules["dijit/dijit"];
+				has = modules["dojo/_base/sniff"];
+				parser = modules["dojo/parser"];
+				query = modules["dojo/query"];
+				string = modules["dojo/string"];
+				ready = modules["dojo/ready"];
+			}
+			
+			function postParse(modules){
+					
+					var testPerformance = /mode=benchmark/i.test(window.location.href);
+					if(!testPerformance){
+						// Register API tests.
+						doh.register("HeaderAPI", [
+							{
+								name: "parse", 
+								runTest: function(t){
+									parser.parse();
+									doh.t(dijit.byId("header_1"));
+								}
+							}/*,
+					        {
+					            name: "SetLabel",
+					            runTest: function(t){
+									var mh = dijit.byId("menu_heading_1");
+									var labelText = 'Menu heading #1';  // Initial value from declared HTML, below.
+									var x = textContent(mh.domNode);
+									doh.t(textContent(mh.domNode) === labelText);
+									doh.t(mh.label == labelText);
+									labelText = 'New menu heading #1';
+									mh.set("label", labelText);
+									doh.t(textContent(mh.domNode) === labelText);
+									doh.t(mh.label == labelText);
+					            }
+					        }*/
+					    ]);      
+					}else{var a=0,b=0,c=0;
+						// Register performance tests
+						doh.register("HeaderPerformance", [
+							{
+								testType: "perf",
+								name: "Create Header",
+								trialDuration: 100,
+								trialIterations: 20,
+								trialDelay: 100,
+								setUp: function(t){
+									console.log("setup "+ ++a);
+									parser.parse();
+								},
+								runTest: function(t){
+									var n = dojo.byId("sandbox");
+									n.appendChild(new Header({}).domNode);
+									if (b == 0) {
+										console.log("runTest " + ++b);
+									}
+								},
+								tearDown: function(t){
+									query("[widgetid*=oneui_Header]", "menu_2").forEach(function(h){
+										dijit.byNode(h).destroyRecursive(false);
+									});
+									console.log("tearDown "+ ++c);
+								}
+							}
+						]);
+					}
+	
+					doh.run();
+			}
+			
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+
+			function textContent(node){
+				return string.trim(has("ff") ? node.textContent : node.innerText);
+			}
+		</script>
+
+		<script type="text/javascript" src="../../commonTest.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+		<h1 class="testTitle">DOH Test of oneui.Header</h1>
+	    <div id="header_1" data-dojo-type="idx.oneui.Header">
+	    </div>
+		<div id="sandbox">
+		</div>
+	</body>
+</html>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2012  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="Creating an ABAP Table List">
+   <intro>
+      <description>
+         This cheat sheet shows you how to create a so-called ABAP table list. An ABAP Table List 
+         contains a list of ABAP table (or logical table) names that can is used later on to define
+         which tables are to be imported into a logical data model.
+         <br/>
+         <b>NOTE: Be sure to enter the names of projects, models, etc. in the following steps exactly as
+         indicated otherwise the "Click to perform" buttons might not work. 
+         However, the "Click when complete" buttons will continue to work.
+         </b>
+      </description>
+   </intro>
+   <item
+         title="Open the Data perspective">
+      <command
+            required="false"
+            serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=com.ibm.datatools.core.internal.ui.perspective)"/>
+         
+      <description>
+         If you&apos;re not already in the Data perspective, in the main menu select <b>Window</b> &gt; <b>Open Perspective</b> &gt; <b>Data</b>.
+      </description>
+   </item>
+   <item
+         title="Create a Data Design project">
+      <description>      
+      ABAP Table Lists must reside in a Data Design project.
+      To create such a project, click on <b>File</b> &gt; <b>New</b> &gt; <b>Data Design Project</b>. 
+         <br/>
+         Enter <b>RMTestProject</b> in the <b>Project name</b> field.
+         <br/>Click <b>Finish</b>.
+      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.ui.newWizard(newWizardId=com.ibm.datatools.core.internal.ui.wizard.DatabaseCreationProjectWizard)"/>
+   </item>
+   <item dialog="true"
+         title="Start the ABAP Table list creation wizard">
+      <description>      
+         Now, we are ready to create the ABAP Table List.
+         In the main toolbar, click on <b>File</b> &gt; <b>New</b>  &gt; <b>Other</b> &gt;
+         <b>InfoSphere Pack for SAP</b> &gt; <b>ABAP Table List</b>. 
+      </description>
+      <command
+            required="true"
+            serialization="org.eclipse.ui.newWizard(newWizardId=com.ibm.iis.sappack.gen.tools.sap.newTableListWizard)"/>
+
+   </item>
+   <item dialog="true" 
+            title="Select creation options">
+        <description>
+        This page lets you select a Data Design Project where the ABAP Table List is to be created
+        ant its name.
+        <br/>
+        Select the Data Design Project created previously (e.g., <b>RMTestProject</b>) 
+        and choose a name (e.g., <b>ExampleTableList</b>).
+        <br/>Click <b>Finish</b>.
+        </description>
+      </item>
+   <item
+         title="Define tables">
+      <description>
+         After finishing the creation wizard, the ABAP Table List editor is opened automatically. 
+      To open the ABAP Table List at a later time, go to the file in the Data Project Explorer and double click on it.
+         <br/>     
+         The ABAP Table List editor consists of two tabs: 
+         <br/>
+         <br/><b>General</b>: This tab contains read-only and modifiable information like the file name, documentation, author, etc.
+         <br/>
+         <br/><b>Tables</b>: On this tab you can enter the names of the tables to be imported. Simply type in the table names, separated with commas and / or newlines
+         into the <b>Tables</b> text field. If the field is empty or incorrect you will see a little red marker.
+         Hovering over the marker will show you the type of error message as a tooltip. You can also search for tables directly on an SAP system by clicking the <b>Browse SAP</b>
+         button.
+         <br/><br/>
+         Enter the table name <b>KNA1</b> in the <b>Tables</b> field.
+         <br/>
+         Save the file by typing <b>Ctrl + s</b>. 
+      </description>
+      <onCompletion>Congratulations! You have successfully created your first ABAP table list.
+      </onCompletion>
+   </item>
+</cheatsheet>

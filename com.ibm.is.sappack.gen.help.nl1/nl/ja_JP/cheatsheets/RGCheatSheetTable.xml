@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="Rapid Generator for SAP を使用して表抽出 DataStage ジョブを生成">
+   <intro>
+      <description>
+この虎の巻では、論理データ・モデルを作成する方法、および SAP 論理表のメタデータを抽出する方法について説明します。         <br/>
+         <b>注: この虎の巻は、虎の巻「Rapid Modeler for SAP を使用して SAP から論理表をインポート」および「ジョブ生成のために論理データ・モデルを準備」を完了していることを前提とします。これらの虎の巻で使用されているプロジェクト、モデルなどの名前は、指示通りに正確に入力してください。正確に入力しないと、「実行するためにクリックする」ボタンが作動しない場合があります。ただし、「完了時にクリックする」ボタンは引き続き作動します。         </b>
+      </description>
+   </intro>
+   <item
+         title="「データ」パースペクティブを開く">
+      <command
+            required="false"
+            serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=com.ibm.datatools.core.internal.ui.perspective)"/>         
+      <description>
+「データ」パースペクティブが開かれていない場合、メインメニューで<b>「ウィンドウ」</b>&gt;<b>「パースペクティブを開く」</b>&gt;<b>「データ」</b>を選択します。      </description>
+   </item>
+   <item dialog="true" 
+            title="物理データ・モデルに対し「Rapid Generator for SAP」ウィザードを開く">
+        <description>
+<b>RMTableModel.dbm</b> ファイルがデータ・デザイン・プロジェクト <b>RMTestProject</b> に存在することを確認します。このファイルは、論理モデル <b>RMTableModel.ldm</b> を物理データ・モデルに変換した結果ですので注意してください。
+         <br/><b>「RMTableModel.dbm」</b>を右クリックし、<b>「Rapid Generator for SAP」</b>&gt;<b>「DataStage ジョブの生成」</b>を選択します。        </description>
+      <action required="false"
+			pluginId="com.ibm.is.sappack.gen.tools.jobgenerator"
+			class="com.ibm.is.sappack.gen.tools.jobgenerator.popup.actions.JobGeneratorCheatSheetAction"
+			param1="RMTestProject" param2="RMTableModel.dbm"/>              
+      </item>
+   <item
+         title="ジョブ・タイプの選択
+">
+      <description>
+<b>「ジョブ・タイプの選択」</b>ページで<b>「ABAP 抽出ジョブ」</b>を選択します。       <br/>
+<b>「次へ」</b>をクリックします。
+      </description>
+   </item>
+   <item
+         title="Information Server の詳細を入力">
+      <description>
+Information Server インストールへの接続情報を入力します。ドメイン名は、通常、<b>Servername:9080</b> などです。ドロップダウン・ボックスを使用して、DataStage プロジェクトおよびプロジェクト内のフォルダーを選択します。<b>「ジョブ名接頭部」</b>としてストリング <b>RGTableJob</b> を入力します。        <br/>
+<b>「次へ」</b>をクリックします。
+
+      </description>
+   </item>
+   <item
+         title="ABAP ステージの詳細を入力">
+      <description>
+<b>「ABAP 抽出オプション」</b>ページで、次のセクションに入力します。 </description>
+      <subitem
+            label="「ソース・オプション」セクションで、証明情報とともに、DataStage サーバーで定義されている SAP 接続を選択します。">
+      </subitem>
+      <subitem
+            label="「ターゲット・オプション」セクションで、「ステージ・タイプ」として「ODBC Connector」を選択します。ODBC データ・ソースの名前と、そのユーザー証明情報を入力します。">
+      </subitem>
+      <subitem
+            label="「RFC 転送方式」セクションで、SAP ゲートウェイおよびサービスを入力します。これらは、通常、SAP アプリケーション・サーバーと同じホスト名と、「sapgw」の後にシステム番号が続くストリング (例えば、sapgw00) です。使用可能な RFC 宛先のリストが含まれるファイルを選択します。このファイルのフォーマットは、RFC 宛先ごとに &lt;RFC 宛先名&gt;&lt;空白&gt;&lt;RFC 宛先プログラム ID&gt; という形式の行が含まれるというフォーマットです。この情報が不明の場合、SAP システム管理者にお問い合わせください。「フローの最大数」ドロップダウンで「1」を選択します。「RFC 宛先の作成」はチェック・マークを外したままにします。">
+      </subitem>
+      <subitem
+            label="「ABAP プログラム・オプション」セクションで、「ワークスペース内の ABAP プログラムを保存」と「プログラムを SAP にアップロード」の両方にチェック・マークを付けます。ABAP プログラムをアップロードする先の SAP 接続をその下で選択します。">
+      </subitem>
+      <subitem
+            label="「SAP 設定の検証」ボタンをクリックして設定を検証します。検証で、すべての設定が OK と示された場合、「次へ」をクリックします。 ">
+      </subitem>
+   </item>
+   <item
+         title="「ジョブ・パラメーターの定義」ページをスキップ">
+      <description>
+<b>「ジョブ・パラメーターの定義」</b>ページで、すべての設定をそのままにします。         <br/>
+<b>「次へ」</b>をクリックします。
+      </description>
+   </item>
+   <item
+         title="「列の出力仕様の定義」ページをスキップ">
+      <description>
+<b>「列の出力仕様の定義」</b>ページで<b>「カスタム出力仕様を使用」</b>のチェック・マークを外します。         <br/>
+このページで「次へ」をクリックすると、ジョブ生成プロセスが開始します。         <br/>
+<b>「次へ」</b>をクリックします。
+      </description>
+   </item>
+   <item
+         title="ウィザードの完了">
+      <description>
+<b>「サマリー」</b>ページで、生成されたジョブを示すサマリーを確認します。         <br/>
+ジョブをコンパイルする場合は、<b>「DataStage マルチ・ジョブ・コンパイラーの起動」</b>チェック・ボックスをオンにします。         <br/>
+<b>「完了」</b>をクリックします。
+      </description>
+         </item>
+   <item
+         skip="true"
+         title="ジョブのコンパイル">
+      <description>
+ウィザードの終了後、生成済みのジョブが選択された状態で、DataStage マルチ・ジョブ・コンパイラーが起動します。ウィザードをウォークスルーしてジョブをコンパイルします。      </description>
+   </item>
+   <item href="http://publib.boulder.ibm.com/infocenter/iisinfsv/v8r1/topic/com.ibm.swg.im.iis.productization.iisinfsv.overview.doc/topics/cisodsdirector.html"
+         title="ジョブの実行">
+      <description>
+ジョブを実行するには、<b>「DataStage ディレクター」</b>を開き、生成したジョブを選択し、<b>「実行」</b>を選択します。      </description>
+   </item>
+      </cheatsheet>

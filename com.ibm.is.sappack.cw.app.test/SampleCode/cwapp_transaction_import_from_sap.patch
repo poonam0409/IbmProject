@@ -1,0 +1,833 @@
+### Jazz Patch 1.0
+#date: "2013-01-21 16:33:50.000000982 +0100"
+#itemid: "com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/tab_bdr/bph/TabTransactions.js" "_oV9FcBIIEeKh79sxP1mXPw" "_eamq0F4HEeGU-beDdXKdvw"
+#item_type: "_oV9FcBIIEeKh79sxP1mXPw" "file"
+#itemid: "com.ibm.is.sappack.cw.app.data/src/com/ibm/is/sappack/cw/app/data/bdr/jpa" "_RdDwMOE2EeG9CfKzjhjmVw" "_eamq0F4HEeGU-beDdXKdvw"
+#item_type: "_RdDwMOE2EeG9CfKzjhjmVw" "folder"
+#itemid: "com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/nls/CwApp.js" "_bZHWALnsEeGMVfte3RVYog" "_eamq0F4HEeGU-beDdXKdvw"
+#item_type: "_bZHWALnsEeGMVfte3RVYog" "file"
+#itemid: "com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/nls" "_X7buMLnsEeGMVfte3RVYog" "_eamq0F4HEeGU-beDdXKdvw"
+#item_type: "_X7buMLnsEeGMVfte3RVYog" "folder"
+#itemid: "com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/tab_bdr/bph/templates/TabTransactions.html" "_mq0ZUBIIEeKh79sxP1mXPw" "_eamq0F4HEeGU-beDdXKdvw"
+#item_type: "_mq0ZUBIIEeKh79sxP1mXPw" "file"
+#itemid: "com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/css/CwApp.css" "_TqBC0LX7EeGw34-EpeB-kg" "_eamq0F4HEeGU-beDdXKdvw"
+#item_type: "_TqBC0LX7EeGw34-EpeB-kg" "file"
+#itemid: "com.ibm.is.sappack.cw.app.services/src/com/ibm/is/sappack/cw/app/services/bdr/jaxrs" "_gF2o0eLnEeG9CfKzjhjmVw" "_eamq0F4HEeGU-beDdXKdvw"
+#item_type: "_gF2o0eLnEeG9CfKzjhjmVw" "folder"
+#itemid: "com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/tab_bdr/bph" "_6GCZ4PwlEeGpNZlPrH0SKQ" "_eamq0F4HEeGU-beDdXKdvw"
+#item_type: "_6GCZ4PwlEeGpNZlPrH0SKQ" "folder"
+#itemid: "com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/css" "_P_WH4LX7EeGw34-EpeB-kg" "_eamq0F4HEeGU-beDdXKdvw"
+#item_type: "_P_WH4LX7EeGw34-EpeB-kg" "folder"
+#itemid: "com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/util/Constants.js" "_htlCAF4IEeGH38LJt_56Kw" "_eamq0F4HEeGU-beDdXKdvw"
+#item_type: "_htlCAF4IEeGH38LJt_56Kw" "file"
+#itemid: "com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/tab_bdr/bph/templates" "_9NkLgPwlEeGpNZlPrH0SKQ" "_eamq0F4HEeGU-beDdXKdvw"
+#item_type: "_9NkLgPwlEeGpNZlPrH0SKQ" "folder"
+#itemid: "com.ibm.is.sappack.cw.app.services/src/com/ibm/is/sappack/cw/app/services" "_F-JDkOE7EeG9CfKzjhjmVw" "_eamq0F4HEeGU-beDdXKdvw"
+#item_type: "_F-JDkOE7EeG9CfKzjhjmVw" "folder"
+#itemid: "com.ibm.is.sappack.cw.app.services/src/com/ibm/is/sappack/cw/app/services/bdr/threads" "_7wD_sBFCEeKF0uPZtkAYKg" "_eamq0F4HEeGU-beDdXKdvw"
+#item_type: "_7wD_sBFCEeKF0uPZtkAYKg" "folder"
+#itemid: "com.ibm.is.sappack.cw.app.data/src/com/ibm/is/sappack/cw/app/data/bdr/jpa/Transaction.java" "_JBIfUN_OEeG9CfKzjhjmVw" "_eamq0F4HEeGU-beDdXKdvw"
+#item_type: "_JBIfUN_OEeG9CfKzjhjmVw" "file"
+#itemid: "com.ibm.is.sappack.cw.app.services/src/com/ibm/is/sappack/cw/app/services/CwApp.java" "_fB430F4IEeGH38LJt_56Kw" "_eamq0F4HEeGU-beDdXKdvw"
+#item_type: "_fB430F4IEeGH38LJt_56Kw" "file"
+#itemid: "com.ibm.is.sappack.cw.app.services/src/com/ibm/is/sappack/cw/app/services/bdr/jaxrs/TransactionImportService.java" "_m4PWUGPCEeKfsvj6xL7zEw" "_eamq0F4HEeGU-beDdXKdvw"
+#item_type: "_m4PWUGPCEeKfsvj6xL7zEw" "file"
+#itemid: "com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/util" "_htjz4V4IEeGH38LJt_56Kw" "_eamq0F4HEeGU-beDdXKdvw"
+#item_type: "_htjz4V4IEeGH38LJt_56Kw" "folder"
+#itemid: "com.ibm.is.sappack.cw.app.services/src/com/ibm/is/sappack/cw/app/services/Constants.java" "_PWIawHNrEeGbr-NFBykJUQ" "_eamq0F4HEeGU-beDdXKdvw"
+#item_type: "_PWIawHNrEeGbr-NFBykJUQ" "file"
+#itemid: "com.ibm.is.sappack.cw.app.services/src/com/ibm/is/sappack/cw/app/services/bdr/threads/TransactionDataImporterThread.java" "_GKcN8GPDEeKfsvj6xL7zEw" "_eamq0F4HEeGU-beDdXKdvw"
+#item_type: "_GKcN8GPDEeKfsvj6xL7zEw" "file"
+#before_state: "com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/tab_bdr/bph/TabTransactions.js" "_oV9FcBIIEeKh79sxP1mXPw" "_uOp220LfEeKyv6ZZRSdVjw"
+#before_state: "com.ibm.is.sappack.cw.app.services/src/com/ibm/is/sappack/cw/app/services/CwApp.java" "_fB430F4IEeGH38LJt_56Kw" "_XO-CAmF-EeKa9sZwjCLuBg"
+#before_state: "com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/nls/CwApp.js" "_bZHWALnsEeGMVfte3RVYog" "_oR8SNGFnEeKa9sZwjCLuBg"
+#before_state: "com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/tab_bdr/bph/templates/TabTransactions.html" "_mq0ZUBIIEeKh79sxP1mXPw" "_yFQeEjWDEeKyvqZZRSdVjw"
+#before_state: "com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/css/CwApp.css" "_TqBC0LX7EeGw34-EpeB-kg" "_KwFveWDOEeKa9sZwjCLuBg"
+#before_state: "com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/util/Constants.js" "_htlCAF4IEeGH38LJt_56Kw" "_VWD2FmFyEeKa9sZwjCLuBg"
+#before_state: "com.ibm.is.sappack.cw.app.services/src/com/ibm/is/sappack/cw/app/services/Constants.java" "_PWIawHNrEeGbr-NFBykJUQ" "_KwG9hmDOEeKa9sZwjCLuBg"
+#before_state: "com.ibm.is.sappack.cw.app.data/src/com/ibm/is/sappack/cw/app/data/bdr/jpa/Transaction.java" "_JBIfUN_OEeG9CfKzjhjmVw" "_AgD4y0N8EeKyv6ZZRSdVjw"
+#
+diff -u -N com.ibm.is.sappack.cw.app.services/src/com/ibm/is/sappack/cw/app/services/CwApp.java com.ibm.is.sappack.cw.app.services/src/com/ibm/is/sappack/cw/app/services/CwApp.java
+--- com.ibm.is.sappack.cw.app.services/src/com/ibm/is/sappack/cw/app/services/CwApp.java	2013-01-18 14:14:31.000000562 +0100
++++ com.ibm.is.sappack.cw.app.services/src/com/ibm/is/sappack/cw/app/services/CwApp.java	1970-01-01 01:00:00.000000333 +0100
+@@ -27,6 +27,7 @@
+ import com.ibm.is.sappack.cw.app.services.bdr.jaxrs.TableImportService;
+ import com.ibm.is.sappack.cw.app.services.bdr.jaxrs.TableService;
+ import com.ibm.is.sappack.cw.app.services.bdr.jaxrs.TableUsageService;
++import com.ibm.is.sappack.cw.app.services.bdr.jaxrs.TransactionImportService;
+ import com.ibm.is.sappack.cw.app.services.config.jaxrs.LegacySystemService;
+ import com.ibm.is.sappack.cw.app.services.config.jaxrs.SAPConnectionsExporter;
+ import com.ibm.is.sappack.cw.app.services.config.jaxrs.SapConnectionTestService;
+@@ -149,6 +150,7 @@
+ 		classes.add(BphImportFileService.class);
+ 		classes.add(BphImportService.class);
+ 		classes.add(ExportToCwdbService.class);
++		classes.add(TransactionImportService.class);
+ 		
+ 		return classes;
+ 	}
+diff -u -N com.ibm.is.sappack.cw.app.services/src/com/ibm/is/sappack/cw/app/services/Constants.java com.ibm.is.sappack.cw.app.services/src/com/ibm/is/sappack/cw/app/services/Constants.java
+--- com.ibm.is.sappack.cw.app.services/src/com/ibm/is/sappack/cw/app/services/Constants.java	2013-01-17 12:56:47.000000237 +0100
++++ com.ibm.is.sappack.cw.app.services/src/com/ibm/is/sappack/cw/app/services/Constants.java	1970-01-01 01:00:00.000000717 +0100
+@@ -14,6 +14,7 @@
+ 	public static final String SESSION_ATTRIBUTE_NAME_BPH_IMPORT_THREAD = "bphImportThread";
+ 	public static final String SESSION_ATTRIBUTE_NAME_BDR_FIELD_IMPORT_THREAD = "fieldDataImportThread";
+ 	public static final String SESSION_ATTRIBUTE_NAME_BDR_TABLES_IMPORT_THREAD = "tablesDataImportThread";
++	public static final String SESSION_ATTRIBUTE_NAME_BDR_TRANSACTION_IMPORT_THREAD = "transactionDataImportThread";
+ 
+ 	// CW BDR export tables and fields
+ 	// Common fields
+diff -u -N com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/util/Constants.js com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/util/Constants.js
+--- com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/util/Constants.js	2013-01-18 11:16:39.000000657 +0100
++++ com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/util/Constants.js	1970-01-01 01:00:02.000000435 +0100
+@@ -187,6 +187,10 @@
+ Services.BDR_FIELD_IMPORT_START = Services.BASEURL + "bdrFieldData/startThread";
+ Services.BDR_FIELD_IMPORT_PROGRESS = "/com.ibm.is.sappack.cw.app.services/webmsg";
+ 
++Services.BDR_TRANSACTION_IMPORT = Services.BASEURL + "bdrTransactionData/import";
++Services.BDR_TRANSACTION_IMPORT_START = Services.BASEURL + "bdrTransactionData/startThread";
++Services.BDR_TRANSACTION_IMPORT_PROGRESS = "/com.ibm.is.sappack.cw.app.services/webmsg";
++
+ Services.BDR_TABLES_IMPORT = Services.BASEURL + "bdrTablesData/import";
+ Services.BDR_TABLES_IMPORT_START = Services.BASEURL + "bdrTablesData/startThread";
+ 
+@@ -277,3 +281,5 @@
+ CometD.TOPIC_TABLES_IMPORT_FINISHED = "/bdr/tablesimport/finished";
+ CometD.TOPIC_BPH_IMPORT_STARTED = "/bdr/bphimport/started";
+ CometD.TOPIC_BPH_IMPORT_FINISHED = "/bdr/bphimport/finished";
++CometD.TOPIC_TRANSACTION_IMPORT_STARTED = "/bdr/transactionimport/started";
++CometD.TOPIC_TRANSACTION_IMPORT_FINISHED = "/bdr/transactionimport/finished";
+diff -u -N /dev/null com.ibm.is.sappack.cw.app.services/src/com/ibm/is/sappack/cw/app/services/bdr/threads/TransactionDataImporterThread.java
+--- /dev/null	1970-01-01 01:00:00.000000000 +0100
++++ com.ibm.is.sappack.cw.app.services/src/com/ibm/is/sappack/cw/app/services/bdr/threads/TransactionDataImporterThread.java	1970-01-01 01:00:01.000000014 +0100
+@@ -0,0 +1,190 @@
++package com.ibm.is.sappack.cw.app.services.bdr.threads;
++
++import java.util.ArrayList;
++import java.util.Arrays;
++import java.util.HashMap;
++import java.util.List;
++import java.util.Map;
++import java.util.Random;
++import java.util.logging.Logger;
++
++import javax.servlet.http.HttpSession;
++
++import com.ibm.is.sappack.cw.app.data.bdr.jpa.ProcessStep;
++import com.ibm.is.sappack.cw.app.data.bdr.jpa.Transaction;
++import com.ibm.is.sappack.cw.app.data.config.LegacySystem;
++import com.ibm.is.sappack.cw.app.services.Constants;
++import com.ibm.is.sappack.cw.app.services.CwApp;
++import com.ibm.is.sappack.cw.app.services.RfcDestinationDataProvider;
++import com.ibm.is.sappack.cw.app.services.bdr.jaxrs.BphService;
++import com.ibm.is.sappack.gen.tools.sap.utilities.IResult;
++import com.ibm.is.sappack.gen.tools.sap.utilities.SAPTableExtractor;
++import com.ibm.websphere.webmsg.publisher.Publisher;
++import com.ibm.websphere.webmsg.publisher.PublisherException;
++import com.ibm.websphere.webmsg.publisher.jndijms.BayeuxJmsTextMsg;
++import com.sap.conn.jco.JCoDestination;
++import com.sap.conn.jco.JCoException;
++
++public class TransactionDataImporterThread extends Thread {
++
++	private static final String CLASS_NAME = TransactionDataImporterThread.class.getName();
++	private final Logger logger;
++	
++	private static final String TOPIC_TRANSACTION_IMPORT_STARTED = "/bdr/transactionimport/started";
++	private static final String TOPIC_TRANSACTION_IMPORT_FINISHED = "/bdr/transactionimport/finished";
++	
++	private static final String TRANSACTION_CODE_COLUMN = "TCODE";
++	private static final String TRANSACTION_TEXT_COLUMN = "TTEXT";
++	private static final String TRANSACTION_LANGUAGE_COLUMN = "SPRSL";
++	
++	private final Publisher pub;
++	private final String sessionId;
++	private final ProcessStep bdrProcessStep;
++
++	private HashMap<String, JCoDestination> sapSystemDestinations;
++	private LegacySystem sapSystem;
++
++	private boolean cancelled = false;
++	private final HttpSession session;
++	private final String loadLanguage;
++
++	public TransactionDataImporterThread(Publisher publisher, String sessionId, ProcessStep bdrProcessStep, LegacySystem sapSystem, HttpSession session, String rdmLanguage) {
++		this.logger = CwApp.getLogger();
++		this.pub = publisher;
++		this.sessionId = sessionId;
++		this.session = session;
++		this.bdrProcessStep = bdrProcessStep;
++		this.loadLanguage = rdmLanguage;
++
++		try {
++			this.sapSystemDestinations = new HashMap<String, JCoDestination>();
++			JCoDestination dest = RfcDestinationDataProvider.getDestination(sapSystem);
++			this.sapSystemDestinations.put(sapSystem.getLegacyId(), dest);
++			this.sapSystem = sapSystem;
++		}
++		catch (JCoException jce) {
++			jce.printStackTrace();
++		}
++   }
++	
++	@Override
++	public void run() {
++		final String METHOD_NAME = "run()"; 
++		logger.entering(CLASS_NAME, METHOD_NAME);
++		
++		ArrayList<Map<String, String>> extractedSapTransactions;
++		
++		// publish a message that we're starting the import of all transactions
++		this.publishTopic(new BayeuxJmsTextMsg(TOPIC_TRANSACTION_IMPORT_STARTED + this.sessionId, "started"));
++		
++		try {
++			extractedSapTransactions = extractSapTransactions();
++
++			// do the actual import
++			if (this.importTransactions(extractedSapTransactions)) {
++				
++				// publish the import success to the client
++				this.publishTopic(new BayeuxJmsTextMsg(TOPIC_TRANSACTION_IMPORT_FINISHED + this.sessionId, "successful"));
++			}
++			else {
++				
++				// publish the import failure to the client
++				this.publishTopic(new BayeuxJmsTextMsg(TOPIC_TRANSACTION_IMPORT_FINISHED + this.sessionId, "failed"));
++			}
++		}
++		catch (JCoException jce) {
++			jce.printStackTrace();
++
++			// publish the import failure to the client
++			this.publishTopic(new BayeuxJmsTextMsg(TOPIC_TRANSACTION_IMPORT_FINISHED + this.sessionId, "failed"));
++		}
++
++		// remove the the reference to this thread from the session, so garbage collector can clean up
++		session.removeAttribute(Constants.SESSION_ATTRIBUTE_NAME_BDR_TRANSACTION_IMPORT_THREAD);
++		logger.exiting(CLASS_NAME, METHOD_NAME);
++	}
++	
++	public synchronized void cancel() {
++		this.cancelled = true;
++	}
++
++	private ArrayList<Map<String, String>> extractSapTransactions() throws JCoException {
++		JCoDestination sapDestination = null;
++		IResult result = null;
++
++		sapDestination = this.sapSystemDestinations.get(this.sapSystem.getLegacyId());
++		List<String> sapColumnNames = Arrays.asList(TRANSACTION_CODE_COLUMN, TRANSACTION_TEXT_COLUMN);
++		String whereClause = TRANSACTION_LANGUAGE_COLUMN + " = '" + this.loadLanguage + "'";
++		
++		SAPTableExtractor extractor = new SAPTableExtractor(sapDestination, "TSTCT", sapColumnNames, whereClause, 100);
++		result = extractor.performQuery();
++		
++		// we are building an ArrayList of the extracted values, because we
++		// could iterate over the result only one time, but we need it twice
++		// so we avoid to extract one more time
++		ArrayList<Map<String, String>> sapExtract = new ArrayList<Map<String, String>>();
++		
++		if (result != null) {
++			while (result.nextRow()) {
++				sapExtract.add(result.getRow());
++				System.out.println("extracted row: " + result.getRow());
++			}
++		}
++		
++		return sapExtract;
++	}
++	
++	private boolean importTransactions(ArrayList<Map<String, String>> extractedSapTransactions) {
++		boolean successful = true;
++
++		try {
++
++			// check for the state of the thread
++			if (this.cancelled) {
++				return successful;
++			}
++
++			// check the data fetching results from SAP and go through it one by one
++			if (extractedSapTransactions != null) {
++				Random randGenerator = new Random();
++				ArrayList<Transaction> transactions = new ArrayList<Transaction>();
++				
++				for (Map<String, String> sapRow : extractedSapTransactions) {					
++					
++					// the transaction does not exist yet so we create it
++					Transaction t = new Transaction();
++
++					t.setTransactionId(randGenerator.nextDouble());
++					t.setName(sapRow.get(TRANSACTION_CODE_COLUMN));
++					t.setDescription(sapRow.get(TRANSACTION_TEXT_COLUMN));
++
++					transactions.add(t);
++					System.out.println("added transaction: " + t.getName() + ", " + t.getDescription());
++				}
++				
++				this.bdrProcessStep.setTransactions(transactions);
++				
++				BphService bs = new BphService();
++				bs.updateProcessStep(this.bdrProcessStep.getProcessStepId(), this.bdrProcessStep);
++				
++				if (this.cancelled) {
++					successful = false;
++				}
++			}
++		}
++		catch (Exception e) {
++			successful = false;
++			e.printStackTrace();
++		}
++		
++		return successful;
++	}
++
++	private synchronized void publishTopic(BayeuxJmsTextMsg message) {
++		try {
++			this.pub.publish(message);
++		} catch (PublisherException pe) {
++			pe.printStackTrace();
++		}
++	}	
++}
+diff -u -N /dev/null com.ibm.is.sappack.cw.app.services/src/com/ibm/is/sappack/cw/app/services/bdr/jaxrs/TransactionImportService.java
+--- /dev/null	1970-01-01 01:00:00.000000000 +0100
++++ com.ibm.is.sappack.cw.app.services/src/com/ibm/is/sappack/cw/app/services/bdr/jaxrs/TransactionImportService.java	1970-01-01 01:00:00.000000231 +0100
+@@ -0,0 +1,115 @@
++package com.ibm.is.sappack.cw.app.services.bdr.jaxrs;
++
++import java.io.IOException;
++import java.net.HttpURLConnection;
++
++import javax.servlet.ServletContext;
++import javax.servlet.http.HttpServletRequest;
++import javax.ws.rs.Consumes;
++import javax.ws.rs.DELETE;
++import javax.ws.rs.POST;
++import javax.ws.rs.Path;
++import javax.ws.rs.Produces;
++import javax.ws.rs.core.Context;
++import javax.ws.rs.core.MediaType;
++import javax.ws.rs.core.StreamingOutput;
++
++import org.apache.wink.json4j.JSONException;
++import org.apache.wink.json4j.JSONObject;
++import org.codehaus.jackson.JsonParseException;
++import org.codehaus.jackson.map.JsonMappingException;
++import org.codehaus.jackson.map.ObjectMapper;
++
++import com.ibm.is.sappack.cw.app.data.bdr.jpa.ProcessStep;
++import com.ibm.is.sappack.cw.app.services.Constants;
++import com.ibm.is.sappack.cw.app.services.CwAppException;
++import com.ibm.is.sappack.cw.app.services.Util;
++import com.ibm.is.sappack.cw.app.services.bdr.threads.TransactionDataImporterThread;
++import com.ibm.is.sappack.cw.app.services.config.jaxrs.SettingService;
++import com.ibm.websphere.webmsg.publisher.Publisher;
++import com.ibm.websphere.webmsg.publisher.jndijms.JmsPublisherServlet;
++
++@Path("/bdrTransactionData")
++public class TransactionImportService {
++
++	@POST
++	@Path("/import")
++	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
++	@Produces(MediaType.TEXT_PLAIN)
++	public StreamingOutput loadTransactionData(@Context HttpServletRequest servletRequest, @Context ServletContext servletContext,
++			String parameterString) {
++		try {
++			ObjectMapper jsonMapper = new ObjectMapper();
++			JSONObject parameterObject = new JSONObject(parameterString);
++			JSONObject processStepAsJson = parameterObject.getJSONObject("processStep");
++			ProcessStep processStep = jsonMapper.readValue(processStepAsJson.toString(), ProcessStep.class);
++			
++			Publisher publisher = (Publisher)servletContext.getAttribute(JmsPublisherServlet.PUBLISHER_SERVLET_CONTEXT_KEY);
++			if(publisher == null){
++				throw new CwAppException(HttpURLConnection.HTTP_INTERNAL_ERROR);
++			}
++	
++			String sessionId = servletRequest.getSession().getId();
++			SettingService settingService = new SettingService();
++			String rdmLanguage = "EN";
++			
++			if (settingService.getSettings(Constants.SETTING_RDM_LANGUAGE).size() > 0) {
++				rdmLanguage = settingService.getSettings(Constants.SETTING_RDM_LANGUAGE).get(0).getValue();
++			}
++
++			JSONObject sapSystemAsJson = parameterObject.getJSONObject("sapSystem");
++
++			TransactionDataImporterThread importerThread = new TransactionDataImporterThread(publisher, sessionId, processStep, Util.legacySystemFromJson(sapSystemAsJson), servletRequest.getSession(), rdmLanguage);
++			servletRequest.getSession().setAttribute(Constants.SESSION_ATTRIBUTE_NAME_BDR_TRANSACTION_IMPORT_THREAD, importerThread);
++	
++			JSONObject response = new JSONObject();
++			response.put("maximum", 1);
++			
++			return Util.output(response.toString());
++		}
++		catch (JSONException je){
++			je.printStackTrace();
++			throw new CwAppException(HttpURLConnection.HTTP_INTERNAL_ERROR);
++		}
++		catch (JsonParseException jpe) {
++			jpe.printStackTrace();
++			throw new CwAppException(HttpURLConnection.HTTP_INTERNAL_ERROR);
++		}
++		catch (JsonMappingException jme) {
++			jme.printStackTrace();
++			throw new CwAppException(HttpURLConnection.HTTP_INTERNAL_ERROR);
++		}
++		catch (IOException ioe) {
++			ioe.printStackTrace();
++			throw new CwAppException(HttpURLConnection.HTTP_INTERNAL_ERROR);
++		}
++	}
++	
++	@POST
++	@Path("/startThread")
++	public void startThread(@Context HttpServletRequest request){
++		TransactionDataImporterThread importerThread = (TransactionDataImporterThread) request.getSession().getAttribute(Constants.SESSION_ATTRIBUTE_NAME_BDR_TRANSACTION_IMPORT_THREAD);
++
++		if (importerThread != null) {
++			Thread t = new Thread(importerThread);
++			t.start();
++		}
++		else {
++
++			// thread is not in the session
++			throw new CwAppException(HttpURLConnection.HTTP_INTERNAL_ERROR);
++		}
++	}
++	
++	@DELETE
++	@Path("/cancel")
++	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
++	public void cancel(@Context HttpServletRequest servletRequest) {
++		TransactionDataImporterThread importerThread = (TransactionDataImporterThread) servletRequest.getSession().getAttribute(Constants.SESSION_ATTRIBUTE_NAME_BDR_TRANSACTION_IMPORT_THREAD);
++		
++		if (importerThread != null) { 
++			importerThread.cancel();
++			servletRequest.getSession().removeAttribute(Constants.SESSION_ATTRIBUTE_NAME_BDR_TRANSACTION_IMPORT_THREAD);
++		}
++	}
++}
+diff -u -N com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/tab_bdr/bph/TabTransactions.js com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/tab_bdr/bph/TabTransactions.js
+--- com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/tab_bdr/bph/TabTransactions.js	2012-12-10 16:38:25.000000492 +0100
++++ com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/tab_bdr/bph/TabTransactions.js	1970-01-01 01:00:03.000000848 +0100
+@@ -6,14 +6,26 @@
+ 
+ dojo.require("dijit.layout.ContentPane");
+ 
++dojo.require("idx.layout.ButtonBar");
++
++dojo.require("idx.dialogs");
++
+ dojo.require("dijit.form.Button");
++dojo.require("dijit.form.DropDownButton");
++dojo.require("dijit.form.Select");
++
++dojo.require("dijit.Menu");
++dojo.require("dijit.MenuItem");
+ 
+ dojo.require("dojo.store.Memory");
+ dojo.require("dojo.data.ObjectStore");
+ 
++dojo.require("dojox.cometd");
++
+ dojo.require("dojox.grid.EnhancedGrid");
+ 
+ dojo.require("cwapp.main.SearchBox");
++dojo.require("cwapp.tab_config.SapSystemPasswordDialog");
+ 
+ dojo.require("dojo.i18n");
+ dojo.require("dojo.parser");
+@@ -34,13 +46,21 @@
+ 		EMPTY_STRING : "",
+ 		SEARCH_FILTER_ALL : "*",
+ 	},
++	
++	// private members
++	_cometdTopics : {
++		TOPIC_TRANSACTION_IMPORT_STARTED : "",
++		TOPIC_TRANSACTION_IMPORT_FINISHED : "",
++	},
+ 
+ 	// private members
+ 	_caller : null,
+ 	_selectedProcessStep : "",
+ 	_transactionDataGridRowCount : 0,
+ 	_transactionDataGrid : null,
+-	_transactionStore : null,	
++	_transactionStore : null,
++	_importTransactionsFromSapButton : null,
++	_sapSystemPasswordDialog : null,
+ 	
+ 	// public functions
+ 	constructor : function(args) {  
+@@ -53,6 +73,9 @@
+ 	
+ 	postCreate : function() {
+ 		
++		// initialize the field import progress dialog
++		this._setupTransactionImportProgressDialog();
++
+ 		// connect the various elements to events
+ 		dojo.connect(this, "onShow", this, "_myShow");
+ 		dojo.connect(window, "onresize", this, "_myResize");
+@@ -132,7 +155,10 @@
+ 			
+ 			// clear any grid selection
+ 			this._transactionDataGrid.selection.clear();
+-			
++
++			// update the toolbar buttons
++			this._updateButtons();
++
+ 			// initial size calculations
+ 			this._myResize();
+ 		}
+@@ -146,6 +172,71 @@
+ 		}
+ 	},
+ 	
++	// updates the toolbar buttons
++	_updateButtons : function() {
++		
++		// initialize the 'import transactions from SAP' button's list of SAP systems
++		this._initImportTransactionsButton();
++	},
++	
++	// initialize the dropdown button with a list of existing SAP systems
++	_initImportTransactionsButton : function() {
++		
++		// first we need to look for an existing button and remove it if it's there
++		// so we can add it later
++		if (this._importTransactionsFromSapButton && this._importTransactionsFromSapButton.domNode) {
++			this.secondaryButtonBarRegion.removeChild(this._importTransactionsFromSapButton.domNode);
++			this._importTransactionsFromSapButton.destroy();
++			
++			// hide the button bar separator
++			dojo.style(this.buttonBarSeparator, "display", "none");
++		}
++
++		dojo.xhrGet({
++			url : Services.TARGETSAPSYSTEMRESTURL,
++			handleAs : "json",
++			load : dojo.hitch(this, function(response, ioArgs) {
++				
++				// only if the response is of length greater than zero
++				// we display the 'import from SAP system button' which is a dropdown button
++				// presenting the user a list of SAP systems to import from.
++				// also check if there is a button already to avoid errors on repeated calls
++				if (response.length > 0 && (!this._importTransactionsFromSapButton || !this._importTransactionsFromSapButton.domNode)) {
++			        var menu = new dijit.Menu({
++			            style : "display: none;"
++			        });
++			        
++					dojo.forEach(response, dojo.hitch(this, function(entry, index) {
++				        var menuItem = new dijit.MenuItem({
++				            label : entry.legacyId,
++				            onClick : dojo.hitch(this, function() {
++				            	this._importTransactionsButtonClicked(entry);
++				            }),
++				        });
++				        
++				        menu.addChild(menuItem);
++					}));
++					
++					this._importTransactionsFromSapButton = new dijit.form.DropDownButton({
++			            label : this.msg.TABTRANSACTIONS_8,
++			            name : "importTransactionsFromSapButton",
++			            dropDown: menu,
++			        });
++					
++					// show the button bar separator
++					dojo.style(this.buttonBarSeparator, "display", "");
++					
++			        this.secondaryButtonBarRegion.appendChild(this._importTransactionsFromSapButton.domNode);
++				}
++				
++				this._handleImportTransactionsButtonEnablement();
++			}),
++			error : dojo.hitch(this, function(response, ioArgs) {
++				console.log("DEBUG: An unexpected error occurred: " + response);
++			})
++		});
++	},
++	
+ 	// setup the data store for the grid
+ 	_setupStore : function() {
+ 		this._transactionStore = new dojo.data.ObjectStore({
+@@ -181,8 +272,9 @@
+ 				
+ 		// define the data grid layout
+ 	    var layout = [[
+-			{"name": this.msg.TABTRANSACTIONS_2, "field": "name",    "width": "40%", "editable": true},
+-			{"name": this.msg.TABTRANSACTIONS_3, "field": "comment", "width": "60%", "editable": true},
++			{"name": this.msg.TABTRANSACTIONS_2, "field": "name",    "width": "20%", "editable": true},
++			{"name": this.msg.TABTRANSACTIONS_3, "field": "comment", "width": "40%", "editable": true},
++			{"name": this.msg.TABTRANSACTIONS_9, "field": "description", "width": "40%", "editable": false},
+ 		]];
+ 		
+ 	    // construct the data grid
+@@ -299,5 +391,158 @@
+ 	// save the store when the in-cell editing of the data grid is applied
+ 	_transactionDataGridEditingApplied : function() {
+ 		this._transactionStore.save();
++	},
++	
++	// the transaction import has been triggered for a specific SAP system
++	_importTransactionsButtonClicked : function(sapSystem) {
++		
++		// initialize the cometd / bayeux protocol
++		this._initCometd();
++
++		// check if there's a password set for the selected SAP system
++		var deferred = this._handleSapSystemPassword(sapSystem);
++		
++		if (deferred != null) {
++			deferred.then(dojo.hitch(this, function(data) {
++				
++				// start listening to topics from the cometd / bayeux server
++				var deferreds = this._openCometd();
++				
++				if (deferreds != null) {
++					deferreds.then(dojo.hitch(this, function() {
++						
++						// construct the request payload
++						var requestData = new Object();
++						requestData.processStep = this._selectedProcessStep;
++						requestData.sapSystem = sapSystem;
++						
++						dojo.xhrPost({
++							url: Services.BDR_TRANSACTION_IMPORT,
++							handleAs: "json",
++							postData: dojo.toJson(requestData),
++							preventCache: true,
++							load: dojo.hitch(this, function(data) {
++								
++								// cleanup the request data object
++								if (requestData) {
++									delete requestData;
++								}
++								
++								dojo.xhrPost({
++									
++									//start the thread on the server
++									url: Services.BDR_TRANSACTION_IMPORT_START,
++									error: dojo.hitch(this, function(error){
++										console.log("DEBUG: An unexpected error occurred: " + error);
++									})
++								});
++							}),
++							error: function(error) {
++
++								// cleanup the request data object
++								if (requestData) {
++									delete requestData;
++								}
++
++								console.log("DEBUG: An unexpected error occurred: " + error);
++							}
++						});
++					}));
++				}
++			}), dojo.hitch(this, function(error) {
++			}));
++		}
++		else {
++			console.log("DEBUG: An unexpected error occurred: SAP system password check failed");
++		}
++	},
++	
++	// check if the SAP system selected via the 'import transactions from SAP' button has a password
++	// and if not, prompt for one
++	// this function is asynchronous therefore we return a dojo.Deferred
++	_handleSapSystemPassword : function(sapSystem) {
++		var deferred = null;
++		
++		// a proper SAP system selection was found
++		if (sapSystem != null) {
++			if (!this._sapSystemPasswordDialog) {
++				this._sapSystemPasswordDialog = new cwapp.tab_config.SapSystemPasswordDialog();
++			}
++			
++			deferred = this._sapSystemPasswordDialog.checkForPassword(sapSystem);	
++		}
++		
++		return deferred;
++	},
++	
++	// handle the enabling / disabling of the SAP import button depending
++	// on whether there are already any transactions entered (and available) or not
++	_handleImportTransactionsButtonEnablement : function() {
++		if (this._importTransactionsFromSapButton && this._importTransactionsFromSapButton.domNode) {
++			if (this._transactionDataGridRowCount != 0) {
++				this._importTransactionsFromSapButton.set("disabled", true);
++			}
++			else {
++				this._importTransactionsFromSapButton.set("disabled", false);
++			}
++		}		
++	},
++	
++	// initialize the cometd / bayeux protocol in order to retrieve topic events from the server
++	_initCometd : function() {
++		dojo.xhrGet({
++			url: Services.SESSIONRESTURL,
++			handleAs: "text",
++			preventCache: true,
++			load: dojo.hitch(this, function(data) {
++				
++				// configure the topics with the current session id
++				for (var topic in this._cometdTopics) {
++					this._cometdTopics[topic]  = CometD[topic] + data;
++				}
++				
++				// initialize the cometd / bayeux protocol
++				dojox.cometd.init(Services.BDR_TRANSACTION_IMPORT_PROGRESS);
++			}),
++			error: dojo.hitch(this, function(error) {
++				console.log("DEBUG: An unexpected error occurred: " + error);
++			})
++		});
++	},
++	
++	// subscribe to certain server topics
++	_openCometd : function() {
++		var started = dojox.cometd.subscribe(this._cometdTopics.TOPIC_TRANSACTION_IMPORT_STARTED, dojo.hitch(this, function(message) {
++			this.transactionImportProgressDialog.show();
++		}));
++		var finished = dojox.cometd.subscribe(this._cometdTopics.TOPIC_TRANSACTION_IMPORT_FINISHED, dojo.hitch(this, function(message) {
++			this.transactionImportProgressDialog.hide();
++			this._transactionDataGrid.render();
++
++			// we need to close the connection to the cometd / bayeux server
++			this._closeCometd();
++		}));
++		
++		var deferreds = new dojo.DeferredList([started, finished]);
++		
++		return deferreds;
++	},
++	
++	// unsubscribe from the server topics and close the cometd / bayeux connection
++	_closeCometd : function() {
++		for (var topic in this._cometdTopics) {
++			setTimeout(dojo.hitch(this, function() {
++				dojox.cometd.unsubscribe(this._cometdTopics[topic]);
++			}), 100);
++		}
++
++		dojox.cometd.disconnect();
++	},
++	
++	// setup the transaction import progress dialog
++	_setupTransactionImportProgressDialog : function() {
++		this.transactionImportProgressDialog._onKey = function(){};
++		dojo.style(this.transactionImportProgressDialog.closeButtonNode, "display", "none");
++		this.transactionImportProgressDialog.startup();
+ 	}
+ });
+diff -u -N com.ibm.is.sappack.cw.app.data/src/com/ibm/is/sappack/cw/app/data/bdr/jpa/Transaction.java com.ibm.is.sappack.cw.app.data/src/com/ibm/is/sappack/cw/app/data/bdr/jpa/Transaction.java
+--- com.ibm.is.sappack.cw.app.data/src/com/ibm/is/sappack/cw/app/data/bdr/jpa/Transaction.java	2012-12-11 11:16:34.000000619 +0100
++++ com.ibm.is.sappack.cw.app.data/src/com/ibm/is/sappack/cw/app/data/bdr/jpa/Transaction.java	1970-01-01 01:00:00.000000435 +0100
+@@ -16,6 +16,9 @@
+ 	@Column(name = "NAME")
+ 	private String name;
+ 
++	@Column(name = "DESCRIPTION")
++	private String description;
++
+ 	@Column(name = "COMMENT")
+ 	private String comment;
+ 
+@@ -35,6 +38,14 @@
+ 		this.name = name;
+ 	}
+ 
++	public String getDescription() {
++	   return description;
++   }
++
++	public void setDescription(String description) {
++	   this.description = description;
++   }
++
+ 	public String getComment() {
+ 		return comment;
+ 	}
+diff -u -N com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/tab_bdr/bph/templates/TabTransactions.html com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/tab_bdr/bph/templates/TabTransactions.html
+--- com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/tab_bdr/bph/templates/TabTransactions.html	2012-11-23 16:32:47.000000644 +0100
++++ com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/tab_bdr/bph/templates/TabTransactions.html	1970-01-01 01:00:00.000000187 +0100
+@@ -1,12 +1,24 @@
+ <div dojoType="dijit.layout.ContentPane" class="bdrTab">
+-	<div class="idxButtonBar TabFields_buttonBar">
++	<div class="idxButtonBar TabTransactions_buttonBar">
+ 		<div class="idxButtonBarLeading idxButtonBarPrimary">
+ 			<button dojoType="dijit.form.Button" type="button"
+ 				dojoAttachPoint="addButton">${msg.BPHTAB_1}</button>
+ 			<button dojoType="dijit.form.Button" type="button"
+ 				dojoAttachPoint="removeButton" disabled="true">${msg.BPHTAB_2}</button>
+ 		</div>
++		<div dojoAttachPoint="buttonBarSeparator" class="idxButtonBarSeparator" style="display: none;"></div>
++		<div dojoAttachPoint="secondaryButtonBarRegion" class="idxButtonBarTrailing idxButtonBarSecondary">
++		</div>
+ 		<div dojoType="cwapp.main.SearchBox" placeHolder="${msg.BPHTABLESTAB_7}" dojoAttachPoint="transactionDataGridFilter" style="float: right;"></div>
+ 	</div>
+ 	<div dojoAttachPoint="transactionDataGridDiv" class="TabTransactions_fieldDataGridDiv"></div>
++	<div dojoType="idx.widget.SimpleIconDialog"
++		title="${msg.TABTRANSACTIONS_6}"
++		dojoAttachPoint="transactionImportProgressDialog"
++		showActionBar="false"
++		iconClass="idxSignIcon dijitContentPaneLoading"
++		text="${msg.TABTRANSACTIONS_7}"
++		class="TabTransactions_transactionImportProgressDialog"
++		style="display: none;">
++	</div>
+ </div>
+\ No newline at end of file
+diff -u -N com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/css/CwApp.css com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/css/CwApp.css
+--- com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/css/CwApp.css	2013-01-17 13:22:19.000000940 +0100
++++ com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/css/CwApp.css	1970-01-01 01:00:05.000000295 +0100
+@@ -1025,6 +1025,14 @@
+ 
+ /* --------------------------- TabTransactions.js begin */
+ 
++.TabTransactions_buttonBar {
++	width: 100%;
++	padding: 10px !important;
++	-webkit-box-sizing: border-box;
++       -moz-box-sizing: border-box;
++            box-sizing: border-box;
++}
++
+ .TabTransactions_fieldDataGridDiv {
+ 	width: 98%;
+ 	height: 90%;
+@@ -1035,6 +1043,12 @@
+             box-sizing: border-box;
+ }
+ 
++.TabTransactions_transactionImportProgressDialog {
++	min-width: 350px;
++	min-height: 100px;
++	max-width: 500px;
++}
++
+ /* --------------------------- TabTransactions.js end */
+ 
+ /* --------------------------- TabUsedIn.js begin */
+diff -u -N com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/nls/CwApp.js com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/nls/CwApp.js
+--- com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/nls/CwApp.js	2013-01-18 12:05:45.000000359 +0100
++++ com.ibm.is.sappack.cw.app.ui/WebContent/cwapp/nls/CwApp.js	1970-01-01 01:00:04.000000698 +0100
+@@ -563,6 +563,10 @@
+ 		TABTRANSACTIONS_3 : "Comment",
+ 		TABTRANSACTIONS_4 : "Enter the name of the SAP transaction here",
+ 		TABTRANSACTIONS_5 : "Enter a description of the SAP transaction here",
++		TABTRANSACTIONS_6 : "Transaction Import from SAP",
++		TABTRANSACTIONS_7 : "Importing transactions from SAP. Please wait.",
++		TABTRANSACTIONS_8 : "Import Transactions from SAP",
++		TABTRANSACTIONS_9 : "Description",
+ 
+ 		// AboutDialog messages
+ 		

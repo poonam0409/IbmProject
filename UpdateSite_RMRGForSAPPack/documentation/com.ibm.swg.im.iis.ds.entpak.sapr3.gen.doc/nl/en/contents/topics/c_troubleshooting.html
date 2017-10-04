@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2016" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2016" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Troubleshooting" />
+<meta name="abstract" content="The troubleshooting topic addresses issues that you might encounter with the IBM InfoSphere Information Server Pack for SAP Applications." />
+<meta name="description" content="The troubleshooting topic addresses issues that you might encounter with the IBM InfoSphere Information Server Pack for SAP Applications." />
+<meta name="DC.subject" content="Known problems, troubleshooting" />
+<meta name="keywords" content="Known problems, troubleshooting" />
+<meta name="DC.Relation" scheme="URI" content="../topics/c_gen_pack_sap_container.html" />
+<meta name="DC.Relation" scheme="URI" content="http://publib.boulder.ibm.com/infocenter/wasinfo/v6r0/index.jsp?topic=/com.ibm.websphere.base.doc/info/aes/ae/ttrb_trcover.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="troubleshooting" />
+<meta name="DC.Language" content="en-us" />
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+<link rel="Start" href="../topics/c_gen_pack_sap_container.html" />
+<title>Troubleshooting</title>
+<script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+<script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+<script type="text/javascript">
+var mDivision = "IM/IS";
+var mProductName = "IBM InfoSphere Information Server";
+var mProductVersion = "9.1.2";
+var mToList = "comments@us.ibm.com,cgauthie@us.ibm.com,burkharj@us.ibm.com,eldredge@us.ibm.com";
+var mNewWindow = false;
+var plugin_form = "com.ibm.srcf.doc";
+</script>
+
+</head>
+<body id="troubleshooting"><a name="troubleshooting"><!-- --></a>
+<div role="banner" id="runningheader" class="runningheader">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/IBM_IC_cue.gif" />
+<span class="hf-bold">IBM InfoSphere Information Server Pack for SAP Applications, Version 8.0</span><div id="runningheader-feedback" class="runningheader-feedback">
+<a href="javascript:ibm_id_form()"><span class="hf-bold">Feedback</span></a></div>
+<hr class="hf-hr" />
+</div>
+<!-- This headerarea file can be used for any topic placed in only one subdirectory,
+     not in the root directory of the plug-in. 
+     Template; ICCC Version 3.1, CBU Version 4.2, May 2011.
+--><!-- BEGIN NON-TRANSLATE SECTION --><div>
+   <!-- Additional meta information. -->
+   <meta name="dc.identifier" content="headerfile" />
+   <meta name="dc.rights" content="© Copyright IBM Corporation 2004, 2016" />
+   <!-- meta name="DC.Rights.Owner" content="For support, contact sharpt@us.ibm.com" -->
+   <meta name="feedback" content="" />
+   <meta name="ibm.country" content="US" />
+   <meta name="ibm.effective" scheme="W3CDTF" content="2011-04-27" />
+   <meta name="ibm.expires" scheme="W3CDTF" content="2012-04-27" />
+   <meta name="source" content="CBU map.infocenter transform from DITA" />
+   <!-- Common CSS -->
+   <link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+   <!-- topic_url.js for writing the topic URL in the footer. -->
+   <script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+   <!-- srcfv3.js and variable setup for the Feedback link. -->
+   <script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+   <script type="text/javascript">
+      var mDivision = "IM";
+      var mProductName = "IBM CBU Sample";
+      var mProductVersion = "4.2.0";
+      var mToList = "Notesgroupname";
+      var plugin_form = "com.ibm.srcf.doc"; 
+</script>
+   <noscript>
+      <style type="text/css"><!--.collapsecontent{display:block;}// -->
+      </style>
+   </noscript>
+</div><!-- END NON-TRANSLATE SECTION -->
+<h1 class="title topictitle1">Troubleshooting</h1>
+<div class="body conbody"><p class="shortdesc">The troubleshooting topic addresses issues that you might
+encounter with the <span class="ph">IBM® InfoSphere™ Information Server</span> Pack
+for SAP Applications.</p>
+<div class="section"><h2 class="title sectiontitle">Client</h2><p class="p">If you encounter an issue while using
+the Rapid Modeler for SAP and, or Rapid Generator for SAP, check the <span class="ph filepath">.log</span> file
+in the workspace's <span class="ph filepath">.metadata</span> directory for errors. </p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Server</h2><p class="p">For Rapid Generator for SAP, you
+might also want to check the log files on the <span class="ph">WebSphere® Application
+Server</span> where
+you have installed the server component enterprise application. This
+directory can typically be found here: <span class="ph filepath">&lt;WAS install directory&gt;/AppServer/profiles/default/logs/server1.</span> Start
+with the <span class="ph filepath">SystemOut.log </span> and <span class="ph filepath">SystemErr.log</span> files.
+If you have enabled tracing, then you will also see a <span class="ph filepath">trace.log</span> file.</p>
+<p class="p">To
+switch on the diagnostic trace see the <a class="xref" href="http://publib.boulder.ibm.com/infocenter/wasinfo/v6r0/index.jsp?topic=/com.ibm.websphere.base.doc/info/aes/ae/ttrb_entrrs.html" target="_blank">respective page in the <span class="ph">WebSphere Application
+Server</span> help.</a> The
+name of the trace component is <span class="keyword parmname parmname">com.ibm.is.SAPPacks.</span> </p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Examples</h2><p class="p">There are a couple of examples
+related to the <span class="ph">IBM InfoSphere Information
+Server Pack for SAP Applications</span>.
+They require an existing Data Design Project.</p>
+<div class="p">To create the
+examples, go to <span class="ph menucascade"><span class="ph uicontrol">File</span> &gt; <span class="ph uicontrol">New</span> &gt; <span class="ph uicontrol">Examples</span> &gt; <span class="ph uicontrol">IBM InfoSphere Information
+Server Pack for SAP Applications.</span></span><ul class="ul"><li class="li">Business Object example model:  This is an example for a predefined
+SAP model that can be used by the Rapid Modeler for SAP.</li>
+<li class="li">Example file for check table blacklists used in the Rapid Modeler
+for SAP. The Rapid Modeler for SAP can use files that contain the
+name for tables that are ignored during import. See Importing SAP
+metadata with <span class="ph">InfoSphere Data
+Architect</span> Rapid
+Modeler for SAP. This is an example how this file might look like.</li>
+<li class="li">Example file for RFC destinations used in the Rapid Generator
+for SAP for ABAP extract jobs  <p class="p">To generate jobs by using the ABAP
+extract stage with the RFC transfer method, one must provide a list
+of RFC destinations and associated program IDs in a file. This is
+an example how this file might look like.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">Known Issues</h2><div class="p">This section contains a description
+of known issues. For known issues and help on the <span class="ph">IBM InfoSphere Information Server</span> Pack
+for SAP R/3 in <span class="ph">InfoSphere DataStage®</span>,
+see <a class="xref" href="http://www-01.ibm.com/support/docview.wss?uid=swg21442372" target="_blank">Pack for SAP R/3, Version 6.5.0.1: Known problems.</a><ol class="ol"><li class="li"><strong class="ph b">Issue: </strong>A generated IDoc load or extract job ends with one
+of the following error messages:<ul class="ul"><li class="li">Fatal Error: <samp class="ph msgph">Fatal: IDOC_F_00131`:`Required property 'DEFAULTUSERNAME'
+not found in configuration file.</samp></li>
+<li class="li">Fatal Error: <samp class="ph msgph">Fatal: IDOC_F_00131`:`Required property 'SAPAPPSERVER'
+not found in configuration file.</samp> </li>
+</ul>
+<p class="p"><strong class="ph b">Solution: </strong>Check that the provided connection name does
+exist and is correctly configured for your DataStage project. </p>
+</li>
+<li class="li"><strong class="ph b">Issue: </strong>SAP JCo library cannot be loaded.<p class="p"><strong class="ph b">Solution:</strong> See <a class="xref" href="http://www-01.ibm.com/support/docview.wss?uid=swg21418488" target="_blank">IBM technote 1418488.</a> This technote is written
+for a different product but the solution applies here also. </p>
+</li>
+<li class="li"><strong class="ph b">Issue: </strong>Rapid Generator for SAP does not generate jobs for
+a physical model other than IBM <span class="ph">DB2® Database
+for Linux, UNIX, and Windows</span>.<p class="p"><strong class="ph b">Reason: </strong>Currently
+only physical data models for DB2 for Linux/Unix/Windows are supported
+with Rapid Generator for SAP.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/c_gen_pack_sap_container.html" title="The IBM InfoSphere Information Server Pack for SAP Applications offers InfoSphere Data Architect tools for importing logical data models and generating InfoSphere DataStage jobs that use the imported metadata.">IBM InfoSphere Data Architect components for the Pack for SAP Applications</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong><br />
+<div><img src="../sout.gif" alt="" /><a class="link" href="http://publib.boulder.ibm.com/infocenter/wasinfo/v6r0/index.jsp?topic=/com.ibm.websphere.base.doc/info/aes/ae/ttrb_trcover.html" target="_blank">Working with trace on WebSphere Application Server 6.0</a></div>
+</div>
+</div>
+<br />
+<div role="contentinfo" id="runningfooter" class="runningfooter">
+<hr class="hf-hr" />
+
+<p class="runningfooter">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/timestamp.gif" />
+Release date: 2014-07-01
+
+<span class="hf-block"><script language="javascript">write_topic_url();</script></span>
+
+<span class="hf-block"><img class="hf-icon" src="../../com.ibm.base.collateral.doc/images/pdf.gif" alt="" />
+PDF version of this information:
+<a href="http://www.ibm.com/support/docview.wss?uid=swg27008803"><span class="hf-bold">IBM InfoSphere Information Server Integration Guide for IBM InfoSphere Information Server Pack for SAP Applications</span></a>
+</span>
+</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadata version='0.0.4'?>
+<su id='com.ibm.sappack.conversion.workbench.swinventory.tag' version='1.1.0.qualifier' iuCount='1'>
+  <selector id='main'/>
+  <iu id='com.ibm.is.sappack.cw.swinventory.tag' version='999.999.999.-448391258' adapterId='native'>
+    <selectedBy id='main'/>
+    <adapterSpecificData>
+      <zip
+        id='com.ibm.is.sappack.cw.swinventory.tag'
+        destination='${profile:installLocation}/properties' downloadSize='116018' installSize='259208'/>
+    </adapterSpecificData>
+  </iu>
+</su>

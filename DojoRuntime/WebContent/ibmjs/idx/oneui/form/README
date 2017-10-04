@@ -1,0 +1,5 @@
+idx.oneui.form.CurrencyTextBox usage recommendation:
+
+Currency input should be left justified by default. 
+Right justified is needed when idx.oneui.form.CurrencyTextBox is used in GridX and DataGrid 
+and there are stacked of currency values displayed requiring the decimal points to align.

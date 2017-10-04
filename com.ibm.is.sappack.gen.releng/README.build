@@ -1,0 +1,34 @@
+////////////////////////////////////////////////////////////////////////////////
+// IBM Confidential                                                            
+//                                                                             
+// OCO Source Materials                                                        
+//                                                                             
+// 5724-Q55                                                                 
+//                                                                             
+// (C) Copyright IBM Corporation 2009, 2011                                              
+//                                                                             
+// The source code for this program is not published or otherwise              
+// divested of its trade secrets, irrespective of what has been                
+// deposited with the U.S. Copyright Office.                                     
+////////////////////////////////////////////////////////////////////////////////
+
+To trigger the command line build from an eclipse workspace, do the following:
+
+1. Unzip the target platform from \\mirow\share\download\RMRG\ida-target-platform.zip to a directory of your choice.
+
+2. Modify the following files:
+./build_master.xml:
+- (Optional): Look for the properties "skipInstallerBuild", "skipClientBuild", "skipServerBuild" 
+  (in the checked in file they are all commented out).
+  Comment in the components that you do not want to build.
+
+./build.properties:
+Modify the following properties:
+buildDirectory= This should point to the directory <YourEclipseWorkSpace>/com.ibm.is.sappack.gen.releng/client.build
+                i.e. this build will be created in your workspace. Note that the build will try to delete this directory
+                at startup so be careful.
+base= The directory where you unzipped the target platform from step 1
+	
+3. To start the build right click on the build.master.xml and select "Run As -> Ant Build".
+If prompted for a target, select the default target ("dist")
+

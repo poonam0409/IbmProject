@@ -1,0 +1,72 @@
+<!--******************************************************************************
+ * Licensed Materials - Property of IBM
+ * (c) Copyright IBM Corporation 2009. All Rights Reserved.
+ * 
+ * Note to U.S. Government Users Restricted Rights:
+ * Use, duplication or disclosure restricted by GSA ADP Schedule
+ * Contract with IBM Corp. 
+ *******************************************************************************-->
+<!--
+
+This is a sample Ant script that you can use to download asset content.
+Typically, this script is used in a headless build process, in which a set of approved libraries or 
+executables files are needed to run the build; for example, a special compiler, common components, 
+common scripts, and so on.  
+ 
+Prerequisites:
+
+1.	This script uses IBM Rational Asset Manager Ant tasks.
+	When you run this Ant script, you must download the ramclient.zip file, extract it to a folder, and include that 
+	folder on the ant lib path. 	
+	The ramclient.zip file contains a set of .jar and Ant script files. You can download the file from the Extensions 
+	page of any deployed Rational Asset Manager server instance.  
+	To access the file directly, use this URL: 
+		http://<host, e.g., localhost>:<port, e.g., 9080>/ram/ramclient.zip
+		
+2.	Properties:
+		lib.dir is the directory to download or extract the asset into.		 
+		ram.url is the URL for the Rational Asset Manager Web services. To find this URL, on the Extensions 
+		        page of Rational Asset Manager, see the Repository location. 
+		ram.user.uid is the user ID to use when you log in to the Rational Asset Manager server.
+		ram.user.passwd is the password to use when you log in to the Rational Asset Manager server.
+		ram.asset.quid is the unique identifier of the asset.
+		ram.asset.version is the version of the asset. 		
+		build.id is used by Rational Asset Manager to track the build for this download.
+		
+		*** The following properties are optional and are submitted to Rational Asset Manager to describe 
+		*** the purpose of the download.
+		
+		build.type is the type of the build; for example, RTC Daily Build.
+		build.team.area is the team or project that this build is for; for example, RAM project.
+		build.team.server is the server that is used to change or control source for this project or team.		
+-->
+<project name="downloadAnAsset" default="downloadAsset" xmlns:ram="antlib:com.ibm.ram.ant">
+
+	<target name="preReq" description="Verify required properties are set">
+		<fail message="[lib.dir] property is not set" unless="lib.dir"/>
+		<fail message="[ram.user.id] property is not set" unless="ram.user.id"/>
+		<fail message="[ram.user.passwd] property is not set" unless="ram.user.passwd"/>
+		<fail message="[ram.url] property is not set" unless="ram.url"/>
+		<fail message="[ram.asset.quid] property is not set" unless="ram.asset.quid"/>
+		<fail message="[ram.asset.version] property is not set" unless="ram.asset.version"/>
+		<fail message="[build.id] property is not set" unless="build.id"/>
+		
+		<echo message="RAM Server: uid=${ram.user.id}, url=${ram.url}"/>
+		<echo message="RAM Asset: ${ram.asset.quid}/${ram.asset.version}"/>
+		
+		<ram:server id="ramServer" username="${ram.user.id}" password="${ram.user.passwd}" url="${ram.url}" />
+	</target>	
+	
+	<target name="downloadAsset" depends="preReq">
+		<echo message="Downloading into: ${lib.dir}"/>		
+		<mkdir dir="${lib.dir}"/>
+		<ram:download destdir="${lib.dir}" server="ramServer" extract="true" overwrite="true">
+			<ram:asset guid="${ram.asset.quid}" version="${ram.asset.version}" server="ramServer" />			
+			<ram:buildInfo buildId="${build.id}">
+				<ram:teamInfo teamServer="${build.team.server}" teamArea="${build.team.area}" teamType="${build.type}" />
+			</ram:buildInfo>
+		</ram:download>
+	</target>
+	
+	
+</project>

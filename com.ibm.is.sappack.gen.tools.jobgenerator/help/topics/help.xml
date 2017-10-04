@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<contexts>
+   <context id="JobTypeSelectionPage">
+      <topic href="help/topics/JobTypeSelectionPage.html" label="SAP system selection"/>
+   </context>
+   <context id="InformationServerDetailsPage">
+      <topic href="help/topics/InformationServerDetailsPage.html" label="Business object selection"/>
+   </context>
+   <context id="JobGeneratorAbapPage">
+      <topic href="help/topics/JobGeneratorAbapPage.html" label="Browse the SAP system"/>
+   </context>
+   <context id="JobGeneratorAbapTransferMethodPage">
+      <topic href="help/topics/JobGeneratorAbapTransferMethodPage.html" label="ABAP transfer method options"/>
+   </context>
+   <context id="JobGeneratorIdocExtractPage">
+      <topic href="help/topics/JobGeneratorIdocExtractPage.html" label="Specify tables manually"/>
+   </context>
+   <context id="JobGeneratorIdocLoadPage">
+      <topic href="help/topics/JobGeneratorIdocLoadPage.html" label="Specify import options"/>
+   </context>
+   
+   <context id="JobGeneratorJobParametersPage">
+      <topic href="help/topics/JobGeneratorJobParametersPage.html" label="Manage SAP system connections"/>
+   </context>
+   <context id="JobGeneratorCustomDerivationsPage">
+      <topic href="help/topics/JobGeneratorCustomDerivationsPage.html" label="Manage SAP system connections"/>
+   </context>
+     <context id="JobParameterResolverPage">
+      <topic href="help/topics/JobParameterResolverPage.html" label="Resolve Job Parameters"/>
+   </context>
+   
+     <context id="ValidationResultPage">
+      <topic href="help/topics/ValidationResultPage.html" label="Validate SAP Settings"/>
+   </context>
+     <context id="JobGenerationSummaryPage">
+        <topic href="help/topics/JobGenerationSummaryPage.html" label="Check the job generation summary"/>
+     </context>
+     <context id="JobGeneratorAbapUploadPage">
+        <topic href="help/topics/JobGeneratorAbapUploadPage.html" label="ABAP Program settings"/>
+     </context>
+</contexts>

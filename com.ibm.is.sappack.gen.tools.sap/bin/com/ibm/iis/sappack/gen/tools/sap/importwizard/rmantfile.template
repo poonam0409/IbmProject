@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+======================================================================
+   Ant file generated on #DATE#
+   by user #USER#
+   
+   NOTE: Run this Ant file from within InfoSphere Data Architect as follows:
+         - Right click on the file from the Navigator view
+         - Select Run As -> Ant...
+         - In the Edit Configuration dialog, go to the tab "JRE"
+         - Select "Run in the same JRE as the workspace"
+         - Click Apply to save this change or Run to run the script
+         Note: you will only have to do this once per build file. Otherwise
+               you can run the script directly with
+               Right click -> Run As -> Ant Build  
+                                                               
+====================================================================== 
+-->
+
+<project name="rapidModelerProject#ID#" default="rapidmodeler">
+    <description>
+       Generated Ant build file for Rapid Modeler for SAP.
+       
+       SAP connection name: #SAP#
+       SAP Object List: #SOC#
+       Rapid Modeler Configuration: #RMCFG#
+       Logical data model: #LDM#    
+       Check table logical data model: #CTLDM#
+    </description>
+
+    <target name="rapidmodeler" description="Import metadata from SAP">
+    	
+       <rapidModeler 
+       	    sapSystemName="#SAP#" 
+       	    sapObjectListFile="#SOC#"
+       	    rapidModelerConfigurationFile="#RMCFG#" 
+       	    ldmFile="#LDM#"
+   	        #CTLDMATTR#
+       />
+	
+    </target>
+
+</project>

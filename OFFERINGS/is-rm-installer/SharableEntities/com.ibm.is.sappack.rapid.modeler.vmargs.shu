@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<?metadata version='0.0.4'?>
+<su id='com.ibm.is.sappack.rapid.modeler.vmargs' version='8.0.0.qualifier'>
+  <information name='Rapid Modeler JRE Configuration'/>
+  <selector id='main'/>
+  <selector id='setvm'/>
+  <!--
+  <iu id='com.ibm.is.sappack.rapid.modeler.setvm.win32' version='8.0.0.qualifier' adapterId='eclipse'>
+    <selectedByExpression>
+      <and>
+        <selectedBy id='setvm'/>
+        <selectedBy id='os' value='win32'/>
+      </and>
+    </selectedByExpression>
+    <adapterSpecificData>
+      <setvm location='${context:installLocation}\ibm-java2-i386-50\jre\bin\javaw'/>
+    </adapterSpecificData>
+  </iu>
+  -->
+  <!--
+  <iu id='com.ibm.is.sappack.rapid.modeler.setvm.linux' version='8.0.0.qualifier' adapterId='eclipse'>
+    <selectedByExpression>
+      <and>
+        <selectedBy id='setvm'/>
+        <selectedBy id='os' value='linux'/>
+      </and>
+    </selectedByExpression>
+    <adapterSpecificData>
+      <setvm location='${context:installLocation}/ibm-java2-i386-50/jre/bin/javaw'/>
+    </adapterSpecificData>
+  </iu>
+  -->
+  <!--
+  <iu id='com.ibm.is.sappack.rapid.modeler.programargs.name' version='8.0.0.qualifier' adapterId='eclipse'>
+    <selectedBy id='main'/>
+    <adapterSpecificData>
+      <programargs>
+        <arg>-name rapid-modeler</arg>
+      </programargs>
+    </adapterSpecificData>
+  </iu>
+  -->
+  <!--
+  <iu id='com.ibm.is.sappack.rapid.modeler.programargs.product' version='8.0.0.qualifier' adapterId='eclipse'>
+    <selectedBy id='main'/>
+    <adapterSpecificData>
+      <programargs>
+        <arg>-product com.ibm.is.sappack.gen.branding.product</arg>
+      </programargs>
+    </adapterSpecificData>
+  </iu>
+  -->
+  <iu id='com.ibm.is.sappack.rapid.modeler.vmargs.ms100m' version='8.0.0.qualifier' adapterId='eclipse'>
+    <selectedBy id='main'/>
+    <adapterSpecificData>
+      <vmargs>
+        <arg>-Xms100m</arg>
+      </vmargs>
+    </adapterSpecificData>
+  </iu>
+  <iu id='com.ibm.is.sappack.rapid.modeler.vmargs.mx1024m' version='8.0.0.qualifier' adapterId='eclipse'>
+    <selectedBy id='main'/>
+    <adapterSpecificData>
+      <vmargs>
+        <arg>-Xmx1024m</arg>
+      </vmargs>
+    </adapterSpecificData>
+  </iu>
+  <iu id='com.ibm.is.sappack.rapid.modeler.vmargs.requiredJavaVersion' version='8.0.0.qualifier' adapterId='eclipse'>
+    <selectedBy id='main'/>
+    <adapterSpecificData>
+      <vmargs>
+        <arg>-Dosgi.requiredJavaVersion=1.5</arg>
+      </vmargs>
+    </adapterSpecificData>
+  </iu>
+  <iu id='com.ibm.is.sappack.rapid.modeler.vmargs.javaLibraryPath' version='8.0.0.qualifier' adapterId='eclipse'>
+    <selectedBy id='main'/>
+    <adapterSpecificData>
+      <vmargs>
+        <arg>-Djava.library.path=${profile:user.jcoNativeDirLocation,com.ibm.is.sappack.rapid.modeler}</arg>
+      </vmargs>
+    </adapterSpecificData>
+  </iu>
+  <iu id='com.ibm.is.sappack.rapid.modeler.vmargs.jcoLibraryPath' version='8.0.0.qualifier' adapterId='eclipse'>
+    <selectedBy id='main'/>
+    <adapterSpecificData>
+      <vmargs>
+        <arg>-Dcom.ibm.is.3rdparty.sap.jco.jar.path=${profile:user.jcoJARLocation,com.ibm.is.sappack.rapid.modeler}</arg>
+      </vmargs>
+    </adapterSpecificData>
+  </iu>
+  <!--
+  <iu id='com.ibm.is.sappack.rapid.modeler.programargs.data.dir.win32' version='8.0.0.qualifier' adapterId='eclipse'>
+    <selectedByExpression>
+      <and>
+        <selectedBy id='main'/>
+        <selectedBy id='os' value='win32'/>
+      </and>
+    </selectedByExpression>
+    <adapterSpecificData>
+      <programargs>
+        <arg>-data ${context:installLocation}\workspace</arg>
+      </programargs>
+    </adapterSpecificData>
+  </iu>
+  -->
+  <!--
+  <iu id='com.ibm.is.sappack.rapid.modeler.programargs.data.dir.linux' version='8.0.0.qualifier' adapterId='eclipse'>
+    <selectedByExpression>
+      <and>
+        <selectedBy id='main'/>
+        <selectedBy id='os' value='linux'/>
+      </and>
+    </selectedByExpression>
+    <adapterSpecificData>
+      <programargs>
+        <arg>-data ${context:installLocation}/workspace</arg>
+      </programargs>
+    </adapterSpecificData>
+  </iu>
+  -->
+  <iu id='com.ibm.is.sappack.rapid.modeler.programargs.config.dir.win32' version='8.0.0.qualifier' adapterId='eclipse'>
+    <selectedByExpression>
+      <and>
+        <selectedBy id='main'/>
+        <selectedBy id='os' value='win32'/>
+      </and>
+    </selectedByExpression>
+    <adapterSpecificData>
+      <programargs>
+        <arg>-configuration ${context:installLocation}\configuration</arg>
+      </programargs>
+    </adapterSpecificData>
+  </iu>
+  <iu id='com.ibm.is.sappack.rapid.modeler.programargs.config.dir.linux' version='8.0.0.qualifier' adapterId='eclipse'>
+    <selectedByExpression>
+      <and>
+        <selectedBy id='main'/>
+        <selectedBy id='os' value='linux'/>
+      </and>
+    </selectedByExpression>
+    <adapterSpecificData>
+      <programargs>
+        <arg>-configuration ${context:installLocation}/configuration</arg>
+      </programargs>
+    </adapterSpecificData>
+  </iu>	
+</su>

@@ -1,0 +1,48 @@
+<div class="ReferenceDataLoadWizard">
+	<div dojoType="idx.layout.BorderContainer" gutters="false" class="fullSizeContainer">
+		<div dojoType="dijit.layout.ContentPane" region="top" class="wizardStepPane">
+			<table class="noBorder">
+				<tr>
+					<td class="wizardStepArrow" dojoAttachPoint='stepArrow1'>
+						<div class='stepArrow'>
+							<div class='stepContent'>
+								<span class="stepIcon"></span> <span class="stepLabel">${msg.WizardParameters_PageTitle}</span>
+							</div>
+						</div>
+					</td>
+					<td class="wizardStepArrow" dojoAttachPoint='stepArrow2'>
+						<div class='stepArrow'>
+							<div class='stepContent'>
+								<span class="stepIcon"></span> <span class="stepLabel">${msg.REFRNCDATATBLSELPG_1}</span>
+							</div>
+						</div>
+					</td>
+					<td class="wizardStepArrow" dojoAttachPoint='stepArrow3'>
+						<div class='stepArrow'>
+							<div class='stepContent'>
+								<span class="stepIcon"></span> <span class="stepLabel">${msg.REFRNCDATAIMPSUMPG_1}</span>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div dojoType="dijit.layout.ContentPane" region="center">
+			<div dojoType="dijit.layout.StackContainer" region="center" dojoAttachPoint="stackContainer" class="stackContainer">
+				<div dojoType="cwapp.tab_rdm.referenceDataLoadWizard.ParametersPage" dojoAttachPoint="parametersPage"></div>
+				<div dojoType="cwapp.tab_rdm.referenceDataLoadWizard.ReferenceDataTableSelectionPage"
+					dojoAttachPoint="referenceDataTableSelectionPage"></div>
+				<div dojoType="cwapp.tab_rdm.referenceDataLoadWizard.ReferenceDataImportSummaryPage"
+					dojoAttachPoint="referenceDataImportSummaryPage"></div>
+			</div>
+		</div>
+		<div dojoType="dijit.layout.ContentPane" region="bottom">
+			<div class="dijitDialogPaneActionBar" style="margin: 0px;">
+				<div dojoType="dijit.form.Button" type="button" region="majorActions" dojoAttachPoint="backButton" disabled="true">${msg.BACK}</div>
+				<div dojoType="dijit.form.Button" type="button" region="majorActions" dojoAttachPoint="nextButton" disabled="true">${msg.NEXT}</div>
+				<div dojoType="dijit.form.Button" type="button" region="majorActions" dojoAttachPoint="finishButton" disabled="true">${msg.FINISH}</div>
+				<div dojoType="dijit.form.Button" type="button" region="majorActions" dojoAttachPoint="cancelButton">${msg.CANCEL}</div>
+			</div>
+		</div>
+	</div>
+</div>

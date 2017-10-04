@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it-it" xml:lang="it-it">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2011" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2011" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="cshelp" />
+<meta name="DC.Title" content="Gestione delle connessioni al sistema SAP" />
+<meta name="abstract" content="Utilizzare questa pagina per gestire le connessioni ai sistemi SAP." />
+<meta name="description" content="Utilizzare questa pagina per gestire le connessioni ai sistemi SAP." />
+<meta name="DC.Coverage" content="sap_system" />
+<meta name="DC.Relation" scheme="URI" content="../topics/rapidmodsap_container.html" />
+<meta name="DC.Relation" scheme="URI" content="../../com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc/topics/t_configure_sap_connections.html" />
+<meta name="DC.Relation" scheme="URI" content="../../com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc/topics/t_select_sap_models.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="managesapsystemconnections" />
+<meta name="DC.Language" content="it-it" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+<link rel="Start" href="../topics/rapidmodsap_container.html" />
+<title>Gestione delle connessioni al sistema SAP</title>
+<script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+<script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+<script type="text/javascript">
+var mDivision = "IM/IS";
+var mProductName = "IBM InfoSphere Information Server";
+var mProductVersion = "8.7.0";
+var mToList = "comments@us.ibm.com,cgauthie@us.ibm.com,burkharj@us.ibm.com,eldredge@us.ibm.com,pattere@us.ibm.com";
+var mNewWindow = false;
+var plugin_form = "com.ibm.srcf.doc";
+</script>
+
+</head>
+<body id="managesapsystemconnections"><a name="managesapsystemconnections"><!-- --></a>
+<div role="banner" id="runningheader" class="runningheader">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/IBM_IC_cue.gif" />
+<span class="hf-bold">IBM InfoSphere Information Server Pack for SAP Applications, Versione 7.0</span><div id="runningheader-feedback" class="runningheader-feedback">
+<a href="javascript:ibm_id_form()"><span class="hf-bold">Feedback</span></a></div>
+<hr class="hf-hr" />
+</div>
+<!-- This headerarea file can be used for any topic placed in only one subdirectory,
+     not in the root directory of the plug-in. 
+     Template; ICCC Version 3.1, CBU Version 4.2, May 2011.
+--><div>
+   <!-- Additional meta information. -->
+   <meta name="dc.identifier" content="headerfile" />
+   <meta name="dc.rights" content="© Copyright IBM Corporation 2004, 2011" />
+   <!-- meta name="DC.Rights.Owner" content="For support, contact sharpt@us.ibm.com" -->
+   <meta name="feedback" content="" />
+   <meta name="ibm.country" content="US" />
+   <meta name="ibm.effective" scheme="W3CDTF" content="2011-04-27" />
+   <meta name="ibm.expires" scheme="W3CDTF" content="2012-04-27" />
+   <meta name="source" content="CBU map.infocenter transform from DITA" />
+   <!-- Common CSS -->
+   <link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+   <!-- topic_url.js for writing the topic URL in the footer. -->
+   <script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+   <!-- srcfv3.js and variable setup for the Feedback link. -->
+   <script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+   <script type="text/javascript">
+      var mDivision = "IM";
+      var mProductName = "Esempio IBM CBU";
+      var mProductVersion = "4.2.0";
+      var mToList = "Notesgroupname";
+      var plugin_form = "com.ibm.srcf.doc";
+</script>
+   <noscript>
+      <style type="text/css"><!--.collapsecontent{display:block;}// -->
+      </style>
+   </noscript>
+</div>
+<h1 class="title topictitle1">Gestione delle connessioni al sistema SAP</h1>
+<div class="body csbody"><p class="shortdesc">Utilizzare questa pagina per gestire le connessioni ai sistemi SAP.</p>
+<dl class="dl"><dt class="dt dlterm">Connessioni esistenti</dt>
+<dd class="dd">Visualizza tutte le connessioni SAP esistenti. Selezionare una connessione per modificare i parametri
+della connessione o per eliminare una connessione.</dd>
+<dt class="dt dlterm">Dettagli connessione</dt>
+<dd class="dd">Visualizza i parametri di connessione per la connessione selezionata: <dl class="dl"><dt class="dt dlterm">Nome sistema SAP</dt>
+<dd class="dd">Nome della connessione a un particolare sistema SAP.</dd>
+<dt class="dt dlterm">Utilizza bilanciamento del carico</dt>
+<dd class="dd">Selezionare questa opzione per abilitare il bilanciamento del carico utilizzando un server di messaggistica
+tra i sistemi SAP e specificare le opzioni correlate.</dd>
+<dt class="dt dlterm">Host SAP</dt>
+<dd class="dd">Nome dell'host di applicazione del sistema SAP.</dd>
+<dt class="dt dlterm">Numero sistema SAP</dt>
+<dd class="dd">Numero di due cifre del sistema SAP.</dd>
+<dt class="dt dlterm">Numero client SAP</dt>
+<dd class="dd">ID client numerico da utilizzare per connettersi al sistema SAP.</dd>
+<dt class="dt dlterm">Stringa router</dt>
+<dd class="dd">La stringa router del sistema SAP.</dd>
+<dt class="dt dlterm">Utente SAP</dt>
+<dd class="dd">Nome dell'utente SAP per la connessione selezionata.</dd>
+<dt class="dt dlterm">Lingua utente SAP</dt>
+<dd class="dd">Specifica la lingua da utilizzare per collegarsi al sistema SAP.</dd>
+<dt class="dt dlterm">Password utente SAP</dt>
+<dd class="dd">Password dell'utente SAP. La password non viene archiviata sulla macchina client. All'utente SAP viene richiesto di immettere la password una sola volta per la sessione di InfoSphere
+Data Architect.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Argomento principale:</strong> <a class="link" href="../topics/rapidmodsap_container.html" title="La procedura guidata IBM InfoSphere Data Architect Rapid Modeler for SAP Applications estrae i metadati da un sistema SAP in un modello di dati logico di IBM InfoSphere Data Architect.">IBM InfoSphere Data Architect Rapid Modeler for SAP Applications</a></div>
+</div>
+<div class="reltasks"><strong>Attività correlate</strong><br />
+<div><a class="link" href="../../com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc/topics/t_configure_sap_connections.html" title="Le connessioni SAP devono essere configurate per utilizzare Rapid Modeler for SAP per importare i metadati per i tipi e i segmenti SAP IDoc.">Configurazione delle connessioni SAP</a></div>
+<div><a class="link" href="../../com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc/topics/t_select_sap_models.html" title="Completare questa attività per selezionare le tabelle dai modelli SAP predefiniti.">Selezione da modelli SAP predefiniti</a></div>
+</div>
+</div>
+<br />
+<div role="contentinfo" id="runningfooter" class="runningfooter">
+<hr class="hf-hr" />
+
+<p class="runningfooter">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/timestamp.gif" />
+Data release: 2011-10-01
+
+<span class="hf-block"><script language="javascript">write_topic_url();</script></span>
+</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<div dojoType="dijit.layout.ContentPane" dojoAttachPoint="root" region="center" class="contentPane">
+	<div dojoType="idx.layout.BorderContainer" dojoAttachPoint="border" gutters="false" class="bdrBorderContainer">
+		<div dojoType="dijit.layout.ContentPane" region="top" class="paddedContainer">
+			<table style="width: 100%;">
+				<tr style="vertical-align: top;">
+					<td>
+						<div dojoAttachPoint="headerImage" class="bdrHeaderIcon"></div>
+					</td>
+					<td style="width: 100%">
+						<div dojoAttachPoint="headerName" class="bdrHeaderName"></div>
+						<div dojoAttachPoint="headerType" class="bdrHeaderType"></div>
+						<div dojoAttachPoint="headerLastUpdated"></div>
+					</td>
+					<td style="float: right;">
+						<div dojoAttachPoint="approvalStatusIndicator" style="height: 20px; margin-bottom: 10px;">
+							<div dojoAttachPoint="approvalStatusImage" style="float: left; margin-right: 8px; margin-top: 2px;"></div>
+							<div dojoAttachpoint="approvalStatusLabel" class="bdrHeaderApprovalStatus"></div>
+						</div>
+						<select	dojoType="cwapp.main.FilteringSelectStatic" placeHolder="${msg.BphApprovalStatusPlaceholder}" autocomplete="true" hasDownArrow="true"
+							searchAttr="name" dojoAttachPoint="approvalButton" required="false" style="clear: both; visibility: hidden;" value="">
+						</select>
+					</td>
+				</tr>
+			</table>
+			<div dojoType="idx.layout.ButtonBar" region="majorActions" class="bdrHeaderButtonBar">
+				<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="saveButton" disabled="true">${msg.SAVE}</div>
+				<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="discardButton" disabled="true">${msg.DISCARD_CHANGES}</div>
+			</div>
+		</div>
+		<div dojoType="dijit.layout.ContentPane" region="center" class="paddedContainerNoTop">
+			<div dojoType="dijit.layout.TabContainer" dojoAttachPoint="itemTabContainer" class="bdrItemTabContainer">
+				<div dojoType="cwapp.tab_bdr.bph.TabDescription" title="${msg.BPHTABLESTAB_4}"
+					dojoAttachPoint="tabDescription"></div>
+ 				<div dojoType="cwapp.tab_bdr.bph.TabUsedIn" title="${msg.BPHTABLESTAB_6}"
+					dojoAttachPoint="tabUsedIn"></div>
+                <div dojoType="cwapp.tab_bdr.bph.TabTransactions" title="${msg.BPHTABLESTAB_Transactions}"
+                    dojoAttachPoint="tabTransactions"></div>
+				<div dojoType="cwapp.tab_bdr.bph.TabFields" title="${msg.BPHTABLESTAB_5}"
+					dojoAttachPoint="tabFields"></div>
+				<div dojoType="cwapp.tab_bdr.bph.TabAccessInfoForProcessStep" title="${msg.TABACCESSINFORMATION_1}"
+					dojoAttachPoint="tabAccessInfoForProcessStep"></div>
+				<div dojoType="cwapp.tab_bdr.bph.TabAccessInfoForProcess" title="${msg.TABACCESSINFORMATION_TitleProcess}"
+					dojoAttachPoint="tabAccessInfoForProcess"></div>
+			</div>
+		</div>
+	</div>
+</div>

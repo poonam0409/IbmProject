@@ -1,0 +1,138 @@
+<div class="fullSizeContainer">
+	<div dojoType="idx.layout.BorderContainer" design="sidebar" gutters="true" liveSplitters="true" dojoAttachPoint="borderContainer"
+		class="tabContainer">
+	    <div dojoType="dijit.layout.ContentPane" class="SystemConfigPage_navContainer" region="leading">
+	        <div dojoType="idx.layout.BorderContainer" gutters="false">
+		        <div dojoType="dijit.layout.ContentPane" region="top" class="paddedContainer">
+					<div dojoType="idx.layout.ButtonBar" region="majorActions">
+						<div dojoType="dijit.form.DropDownButton" dojoAttachPoint="addDropDownButton">
+							<span>${msg.ADD}</span>
+							<div dojoType="dijit.Menu">
+								<div dojoType="dijit.MenuItem" dojoAttachPoint="addSapSystemButton">${msg.SOURCESYSTEMSPG_29}</div>
+								<div dojoType="dijit.MenuItem" dojoAttachPoint="addNonSapSystemButton">${msg.SOURCESYSTEMSPG_30}</div>
+							</div>
+						</div>
+						<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="deleteButton" disabled="true">${msg.SOURCESYSTEMSPG_4}</div>
+						<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="exportButton" region="secondary" disabled="true">${msg.SOURCESYSTEMSPG_36}</div>
+					</div>
+				</div>
+				<div dojoType="dijit.layout.ContentPane" region="center" class="paddedContainerNoTop dijitBorderContainer-child">
+					<table dojoType="dojox.grid.DataGrid" class="dataGrid" dojoAttachPoint="sourceSystemsTable" selectionMode="single">
+						<thead>
+							<tr>
+								<th field="legacyId" width="20%">${msg.CW_SYSTEM_ID}</th>
+								<th field="isSapSystem" width="25px" formatter="_displaySystemTypeColumn">${msg.SOURCESYSTEMSPG_41}</th>
+								<th field="description" width="40%">${msg.DESCRIPTION}</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</div>
+	    <div dojoType="dijit.layout.ContentPane" class="SystemConfigPage_itemContainer" splitter="true" region="center">
+			<div id="sourceSapSystemPlaceHolderWidget" class="placeholderPanel">${msg.BphPlaceholderMessage}</div>
+			<div dojoType="idx.layout.BorderContainer" dojoAttachPoint="border" gutters="false" class="tabContainer" style="visibility: hidden;">
+				<div dojoType="dijit.layout.ContentPane" region="top" class="paddedContainer">
+					<div dojoType="idx.layout.ButtonBar" region="majorActions">
+						<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="revertButton" disabled="true">${msg.DISCARD_CHANGES}</div>
+						<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="saveButton" disabled="true">${msg.SAVE}</div>
+						<div dojoType="dijit.form.Button" type="button" dojoAttachPoint="testConnectionButton" region="secondary"
+							disabled="true">${msg.TEST_CONNECTION_BUTTON}</div>
+					</div>
+				</div>
+				<div dojoType="dijit.layout.ContentPane" region="center" class="contentPane paddedContainerNoTop dijitBorderContainer-child">
+					<form dojoType="dijit.form.Form" class="bigForm">
+						<span dojoType="dojo.data.ItemFileReadStore" jsId="sapLanguageStore" url="cwapp/data/sap_languages_laiso.json"> </span>
+						<div>
+							<div class="formElement">
+								<label for="legacyId" class="formElementLabel_required">${msg.CW_SYSTEM_ID}${msg.COLON}</label>
+								<input type="text" id="legacyId"
+									name="legacyId" tabindex="1" dojoType="dijit.form.ValidationTextBox" dojoAttachPoint="legacyIdInput"
+									maxLength="63" trim="true" uppercase="true" />
+							</div>
+
+							<div class="formElement">
+								<label for="sourceDescription">${msg.DESCRIPTION}${msg.COLON}</label> <input type="text" id="sourceDescription"
+									name="sourceDescription" tabindex="2" dojoType="dijit.form.TextBox" dojoAttachPoint="sourceDescriptionInput"
+									maxLength="255" trim="true" />
+							</div>
+		
+							<div id="sapSystemProperties" style="visibility: hidden;">
+								<div class="formElement">
+									<label for="sapHost" class="formElementLabel_required">${msg.SOURCESYSTEMSPG_24}</label>
+									<input type="text" id="sapHost" name="sapHost"
+										tabindex="3" dojoType="dijit.form.TextBox" dojoAttachPoint="sapHostInput" maxLength="63" trim="true" />
+								</div>
+			
+								<div class="formElement">
+									<label for="sapSystemNumber" class="formElementLabel_required">${msg.SOURCESYSTEMSPG_14}</label>
+									<input type="text"
+										id="sapSystemNumber" name="sapSystemNumber" tabindex="4" dojoType="dijit.form.ValidationTextBox"
+										dojoAttachPoint="sapSystemNumberInput" trim="true" regExp="[\d]{2}" />
+								</div>
+								
+								<div class="formElement">
+		                            <label for="sapClient" class="formElementLabel_required">${msg.SOURCESYSTEMSPG_19}</label>
+		                            <input type="text" id="sapClient"
+		                                name="sapClient" tabindex="5" dojoType="dijit.form.ValidationTextBox" dojoAttachPoint="sapClientInput"
+		                                trim="true" regExp="[\d]{3}" />
+		                        </div>
+			
+								<div class="formElement">
+									<label for="sapUser" class="formElementLabel_required">${msg.SOURCESYSTEMSPG_16}</label>
+									<input type="text" id="sapUser" name="sapUser"
+										tabindex="6" dojoType="dijit.form.TextBox" dojoAttachPoint="sapUserInput" maxLength="63" trim="true" />
+								</div>
+			
+								<div class="formElement">
+									<label for="sapPassword">${msg.SOURCESYSTEMSPG_17}</label> <input type="password" id="sapPassword" autocomplete="off"
+										name="sapPassword" tabindex="7" dojoType="dijit.form.TextBox" dojoAttachPoint="sapPasswordInput" maxLength="63" trim="true" />
+									<div class="formElementPasswordTip">
+										${msg.PASSWORD_NOT_SAVED}
+									</div>						
+								</div>
+		
+								<div class="formElement">
+									<label for="sapLanguage" class="formElementLabel_required">${msg.SOURCESYSTEMSPG_20}</label>
+									<select	dojoType="dijit.form.FilteringSelect" tabindex="8" value="EN" autocomplete="true" hasDownArrow="true"
+										id="sapLanguage" name="sapLanguage" store="sapLanguageStore" searchAttr="name" dojoAttachPoint="sapLanguageInput">
+									</select>
+								</div>
+								
+								<div class="formElement">
+		                            <label for="sapRouterString">${msg.SOURCESYSTEMSPG_15}</label> <input type="text"
+		                                id="sapRouterString" name="sapRouterString" tabindex="9" dojoType="dijit.form.TextBox"
+		                                dojoAttachPoint="sapRouterStringInput" maxLength="63" trim="true" />
+		                        </div>
+								
+								<div class="formElement">
+		                            <label for="sapUseLoadBalancing">${msg.SOURCESYSTEMSPG_13}</label> <input dojoType="dijit.form.CheckBox"
+		                                tabIndex="10" value="" id="sapUseLoadBalancing" name="sapUseLoadBalancing"
+		                                dojoAttachPoint="useLoadBalancingButton">
+		                        </div>
+		    
+		                        <div class="formElement">
+		                            <label for="sapMessageServer">${msg.SOURCESYSTEMSPG_21}</label> <input type="text"
+		                                id="sapMessageServer" name="sapMessageServer" tabindex="11" dojoType="dijit.form.TextBox"
+		                                dojoAttachPoint="sapMessageServerInput" maxLength="63" trim="true" disabled="disabled" />
+		                        </div>
+		    
+		                        <div class="formElement">
+		                            <label for="sapSapSystemId">${msg.SYSTEM_ID}${msg.COLON}</label> <input type="text" id="sapSapSystemId"
+		                                name="sapSapSystemId" tabindex="12" dojoType="dijit.form.TextBox" dojoAttachPoint="sapSapSystemIdInput"
+		                                maxLength="63" trim="true" disabled="disabled" />
+		                        </div>
+		    
+		                        <div class="formElement">
+		                            <label for="sapGroupName">${msg.SOURCESYSTEMSPG_23}</label> <input type="text" id="sapGroupName"
+		                                name="sapGroupName" tabindex="13" dojoType="dijit.form.TextBox" dojoAttachPoint="sapGroupNameInput" maxLength="63" trim="true"
+		                                disabled="disabled" />
+		                        </div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

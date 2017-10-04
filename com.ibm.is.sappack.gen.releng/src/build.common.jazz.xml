@@ -1,0 +1,376 @@
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+**************************************************************************
+
+IBM InfoSphere Information Server Packs for SAP Applications
+
+Module Name : build.common.jazz.xml
+
+*************************-END OF SPECIFICATIONS-**************************
+-->
+<project name="com.ibm.is.sappack.gen.releng.build.common.jazz" default="checkEnv" basedir=".">
+    <description>
+    </description>
+    
+    <!-- You should not use ADMIN, but instead define a special build user. -->
+    <property name="userId" value="${jbe.uid}" />
+    <property name="passwordFile" value="${jbe.password.file}" />
+  
+    <!-- RSA code coverage specific stuff --> 
+    <property name="code-coverage-ext-dir" value="${rsa.code.coverage.path}"/> 
+    <property name="code-coverage-plugins-dir" value="${code-coverage-ext-dir}\plugins"/> 
+    <property name="code-coverage-report-dir" value="${code-coverage-ext-dir}\CodeCoverageReports"/> 
+    <property name="llc-common-plugin" value="com.ibm.rational.llc.common_1.0.103.v20111031_1843.jar"/> 
+    <property name="llc-engine-plugin" value="com.ibm.rational.llc.engine_1.0.5.v20111031_1843.jar"/> 
+    <property name="llc-report-birt-plugin" value="com.ibm.rational.llc.report.birt_1.0.4.v20111031_1843.jar"/> 
+    <property name="eclipse-jdt-compiler-adapter-plugin" value="jdtCompilerAdapter.jar"/> 
+    <property name="eclipse-jdt-core-plugin" value="org.eclipse.jdt.core_3.6.4.v_A79_R36x.jar"/> 
+    <property name="llc-jvm-arg-engine" value="-Xbootclasspath/a:${code-coverage-plugins-dir}\${llc-engine-plugin}"/> 
+    <property name="llc-jvm-arg-output" value="-Dcoverage.out.file="/> 
+    <property name="llc-jvmti-library" value="${code-coverage-ext-dir}\32bit\plugins\org.eclipse.tptp.javaprofiler\JPIBootLoader"/> 
+    <property name="llc-jvm-arg-jvmti" value="-agentpath:${llc-jvmti-library}=JPIAgent:server=standalone,file=;ProbekitAgent:ext-pk-BCILibraryName=BCIEngProbe,ext-pk-probescript="/> 
+
+    <path id="coverage.path">
+      <fileset dir="${code-coverage-plugins-dir}">
+        <include name="${llc-common-plugin}"/>
+        <include name="${llc-engine-plugin}"/>
+        <include name="${llc-report-birt-plugin}"/>
+        <include name="${eclipse-jdt-compiler-adapter-plugin}"/>
+        <include name="${eclipse-jdt-core-plugin}"/>
+      </fileset>
+    </path>
+    
+    <target name="checkEnv">
+        <fail message="The repositoryAddress property must be defined."
+              unless="repositoryAddress" />
+        <echo message="Using repositoryAddress = ${repositoryAddress}" />
+  
+        <fail message="The buildDefinitionId property must be defined."
+              unless="buildDefinitionId" />
+        <echo message="Using buildDefinitionId = ${buildDefinitionId}" />
+  
+        <fail message="The buildEngineId property must be defined."
+              unless="buildEngineId" />
+        <echo message="Using buildEngineId = ${buildEngineId}" />
+  
+                
+        <fail message="The userId property must be defined."
+              unless="userId" />
+        <echo message="Using userId = ${userId}" />
+  
+        <fail message="The password property must be defined."
+              unless="passwordFile" />
+        <!-- Don't echo the password. -->
+    </target>
+  
+    <target name="createBuildLabel" depends="">
+      <changeBuildResultLabel newLabel="${buildLabel}_${build.number}" />
+    </target>
+  
+    <target name="createBuildTags" depends="">
+      <if>
+        <and>
+          <isset property="buildTags" />
+          <length string="${buildTags}" when="greater" length="0" />
+          <not>
+            <equals arg1="${buildTags}" arg2="$${buildTags}" />
+          </not>
+        </and>
+        <then>
+          <addBuildResultTags buildResultTags="${buildTags}" />
+        </then>
+      </if>
+    </target>
+    
+    <target name="init.jazz.common" depends="init.taskdefs, init.jazz.macros, checkEnv, createBuildLabel, createBuildTags" />
+    
+    <target name="init.jazz.macros" depends="">
+      <echo message="Creating Jazz-specific macros to be consumed by Apache Ant." />
+      
+      <macrodef name="testJazzMacros">
+        <attribute name="message" />
+        
+        <sequential>
+          <echo message="Hello: @{message}, this is a Jazz macro test!" />
+        </sequential>
+      </macrodef>
+      
+      <macrodef name="checkoutRelengProject">
+        <attribute name="relengWorkspace" />
+        <attribute name="toDir" />
+        
+        <sequential>
+          <teamAccept repositoryAddress="${repositoryAddress}"
+                          userId="${userId}"
+                          passwordFile="${passwordFile}"
+                          workspaceName="@{relengWorkspace}"
+                          buildResultUUID="${buildResultUUID}"
+                          verbose="true" />
+          <teamFetch repositoryAddress="${repositoryAddress}"
+                         userId="${userId}"
+                         passwordFile="${passwordFile}"
+                         workspaceName="@{relengWorkspace}"
+                         destination="@{toDir}"
+                         verbose="true" />
+        </sequential>
+      </macrodef>
+      
+      <macrodef name="addBuildResultTags">
+        <attribute name="buildResultTags" />
+        
+        <sequential>
+          <buildResultPublisher repositoryAddress="${repositoryAddress}"
+                                    userId="${userId}"
+                                    passwordFile="${passwordFile}"
+                                    buildResultUUID="${buildResultUUID}"
+                                    tags="@{buildResultTags}" />
+        </sequential>
+      </macrodef>
+      
+      <macrodef name="changeBuildResultLabel">
+        <attribute name="newLabel" />
+        
+        <sequential>
+          <buildResultPublisher repositoryAddress="${repositoryAddress}"
+                                    userId="${userId}"
+                                    passwordFile="${passwordFile}"
+                                    buildResultUUID="${buildResultUUID}"
+                                    label="@{newLabel}" />
+        </sequential>
+      </macrodef>
+      
+      <macrodef name="publishJUnitLog">
+        <attribute name="filePath" />
+        <attribute name="componentName" />
+        
+        <sequential>
+          <junitLogPublisher repositoryAddress="${repositoryAddress}"
+                                 userId="${userId}"
+                                 passwordFile="${passwordFile}"
+                                 buildResultUUID="${buildResultUUID}"
+                                 filePath="@{filePath}"
+                                 componentName="@{componentName}" />
+        </sequential>
+      </macrodef>
+      
+      <macrodef name="publishJBELog">
+        <attribute name="filePath" />
+        <attribute name="componentName" />
+        <attribute name="label" />
+        
+        <sequential>
+          <logPublisher repositoryAddress="${repositoryAddress}"
+                            userId="${userId}"
+                            passwordFile="${passwordFile}"
+                            buildResultUUID="${buildResultUUID}"
+                            filePath="@{filePath}"
+                            label="@{label}"
+                            componentName="@{componentName}" />
+        </sequential>
+      </macrodef>
+      
+      <macrodef name="publishRSACoverageData">
+        <attribute name="filePath" />
+        <attribute name="componentName" />
+        <attribute name="label" />
+        
+        <sequential>
+          <filePublisher repositoryAddress="${repositoryAddress}"
+                            userId="${userId}"
+                            passwordFile="${passwordFile}"
+                            buildResultUUID="${buildResultUUID}"
+                            contributionTypeId="com.ibm.rational.llc.build.coverage"
+                            verbose="true"
+                            failOnError="true"
+                            filePath="@{filePath}"
+                            label="@{label}"
+                            componentName="@{componentName}" />
+        </sequential>
+      </macrodef>
+      
+      <macrodef name="publishRSABaselineData">
+        <attribute name="filePath" />
+        <attribute name="componentName" />
+        <attribute name="label" />
+        
+        <sequential>
+          <filePublisher repositoryAddress="${repositoryAddress}"
+                            userId="${userId}"
+                            passwordFile="${passwordFile}"
+                            buildResultUUID="${buildResultUUID}"
+                            contributionTypeId="com.ibm.rational.llc.build.baseline"
+                            verbose="true"
+                            failOnError="true"
+                            filePath="@{filePath}"
+                            label="@{label}"
+                            componentName="@{componentName}" />
+        </sequential>
+      </macrodef>
+      
+      <macrodef name="publishJBECompilerLogs">
+        <attribute name="filePath" />
+        <attribute name="componentName" />
+        
+        <sequential>
+          <if>
+            <available file="@{filePath}" />
+            <then>
+              <jdtCompileLogPublisher repositoryAddress="${repositoryAddress}"
+                                      userId="${userId}"
+                                      passwordFile="${passwordFile}"
+                                      buildResultUUID="${buildResultUUID}"
+                                      componentName="@{componentName}"
+                                      filePath="@{filePath}" />
+            </then>
+            <else>
+              <echo message="Compile log unavailable: @{filePath}" />
+            </else>
+          </if>
+        </sequential>
+      </macrodef>
+    
+      <macrodef name="publishJBELinkArtifact">
+        <attribute name="url" />
+        <attribute name="label" />
+          
+        <sequential>
+          <linkPublisher repositoryAddress="${repositoryAddress}"
+                                 userId="${userId}"
+                                 passwordFile="${passwordFile}"
+                                 buildResultUUID="${buildResultUUID}"
+                                 url="@{url}"
+                                 label="@{label}" />
+        </sequential>
+      </macrodef>
+    
+      <macrodef name="publishJBEFileArtifact">
+        <attribute name="filePath" />
+        <attribute name="label" />
+        <attribute name="componentName" />
+          
+        <sequential>
+          <artifactFilePublisher repositoryAddress="${repositoryAddress}"
+                                 userId="${userId}"
+                                 passwordFile="${passwordFile}"
+                                 buildResultUUID="${buildResultUUID}"
+                                 filePath="@{filePath}"
+                                 label="@{label}" 
+                                 componentName="@{componentName}" />
+        </sequential>
+      </macrodef>
+
+      <!--
+         |
+         | Note: Please have a look at https://jazz.net/wiki/bin/view/Main/BuildActivities
+         |       to understand nested activities.
+         |
+      -->
+      <macrodef name="startJBERootBuildActivity">
+        <attribute name="label" />
+        
+        <sequential>
+          <startBuildActivity label="@{label}"
+                              activityIdProperty="sapPacksBuildActivityId"
+                              buildResultUUID="${buildResultUUID}"
+                              repositoryAddress="${repositoryAddress}"
+                              userId="${userId}"
+                              passwordFile="${passwordFile}"
+                              autoComplete="true"
+                              verbose="true"/>
+        </sequential>
+      </macrodef>
+    
+      <macrodef name="startJBEBuildActivity">
+        <attribute name="label" />
+        
+        <sequential>
+          <startBuildActivity label="@{label}"
+                              parentActivityId="${sapPacksBuildActivityId}"
+                              buildResultUUID="${buildResultUUID}"
+                              repositoryAddress="${repositoryAddress}"
+                              userId="${userId}"
+                              passwordFile="${passwordFile}"
+                              autoComplete="true"
+                              verbose="true"/>
+        </sequential>
+      </macrodef>
+    </target>
+    
+    <target name="init.taskdefs" depends="">
+      <echo message="Creating Jazz-specific task definitions to be consumed by Apache Ant." />
+      
+      <!-- These task definitions make the Jazz ant tasks available to this build file.
+           In order to find these classnames at run time, ant must be invoked with:
+      
+               -lib <buildsystem-location>/buildtoolkit
+      -->
+
+      <taskdef name="startTeamBuild"
+               classname="com.ibm.team.build.ant.task.StartBuildTask" />
+
+      <taskdef name="completeTeamBuild"
+               classname="com.ibm.team.build.ant.task.CompleteBuildTask" />
+
+      <taskdef name="logPublisher"
+               classname="com.ibm.team.build.ant.task.LogPublisherTask" />
+
+      <taskdef name="artifactFilePublisher"
+               classname="com.ibm.team.build.ant.task.ArtifactFilePublisherTask" />
+
+      <taskdef name="artifactLinkPublisher"
+               classname="com.ibm.team.build.ant.task.ArtifactLinkPublisherTask" />
+
+      <taskdef name="buildResultPublisher"
+               classname="com.ibm.team.build.ant.task.BuildResultPublisherTask" />
+
+      <taskdef name="filePublisher"
+               classname="com.ibm.team.build.ant.task.FilePublisherTask" />
+
+      <taskdef name="jdtCompileLogPublisher"
+               classname="com.ibm.team.build.ant.task.JdtCompileLogPublisherTask" />
+
+      <taskdef name="junitLogPublisher"
+               classname="com.ibm.team.build.ant.task.JUnitLogPublisherTask" />
+
+      <taskdef name="linkPublisher"
+               classname="com.ibm.team.build.ant.task.LinkPublisherTask" />
+
+      <taskdef name="logPublisher"
+               classname="com.ibm.team.build.ant.task.LogPublisherTask" />
+
+      <taskdef name="teamAccept"
+               classname="com.ibm.team.build.ant.task.TeamAcceptTask">
+      </taskdef>
+
+      <taskdef name="teamFetch"
+               classname="com.ibm.team.build.ant.task.TeamFetchTask">
+      </taskdef>
+
+      <taskdef name="workItemPublisher"
+               classname="com.ibm.team.build.ant.task.WorkItemPublisherTask">
+      </taskdef>
+
+      <taskdef name="startBuildActivity"
+               classname="com.ibm.team.build.ant.task.StartBuildActivityTask" />
+
+      <taskdef name="completeBuildActivity"
+               classname="com.ibm.team.build.ant.task.CompleteBuildActivityTask" />
+      
+      <!-- Tasks for publishing build results and build contributions. -->
+      <!--
+      <taskdef name="code-coverage-app-analyzer"
+               classname="com.ibm.rational.llc.engine.instrumentation.anttask.CoverageApplicationAnalyzerTask"
+               classpathref="coverage.path" />
+      <taskdef name="code-coverage-report"
+               classname="com.ibm.rational.llc.report.birt.adapters.ant.ReportGenerationTask"
+               classpathref="coverage.path" />
+      -->
+    </target>
+</project>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<compositeCheatsheet name="Scénario de bout en bout : Importation des tables SAP et génération des travaux d'extraction">
+   <taskGroup kind="sequence" name="Importation des tables SAP et génération des travaux d'extraction" skip="false">
+      <intro>
+         Cet aide-mémoire vous guidera de bout en bout tout au long du processus
+         d'importation des tables logiques depuis SAP dans un modèle de données logique,
+         de transformation du modèle de données logique en modèle de données physique, de création d'une base de données en modèle physique,
+         et enfin de génération d'un travail DataStage qui permettra d'extraire la table SAP vers la base de données créée.
+      </intro>
+      <onCompletion>
+         Vous avez désormais créé un modèle de données logique contenant des métadonnées SAP, une base de données qui
+         peut contenir des données SAP, et des travaux capables d'extraire des données depuis SAP vers cette base de données.
+      </onCompletion>
+      <task kind="cheatsheet" name="Importation de tables logiques depuis SAP" skip="true">
+         <intro>
+            Cette tâche vous guidera dans la création d'un modèle de données logique et l'importation de métadonnées des tables logiques SAP dans ce modèle.
+         </intro>
+         <param name="id" value="com.ibm.is.sappack.gen.help.cheatsheet.rm.tables">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Préparer le modèle de données logique pour la génération du travail" skip="true">
+         <intro>
+            Cette tâche vous guidera dans la préparation du modèle de données logique créé précédemment
+            pour Rapid Generator for SAP. Cela implique sa transformation en modèle de données physique et la création de la base de données du modèle de données physique.
+         </intro>
+         <param name="id" value="com.ibm.is.sappack.gen.help.cheatsheet.transform">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Génération de travaux à l'aide de Rapid Generator for SAP" skip="true">
+         <intro>
+            Cette tâche vous montre comment générer les travaux à partir du modèle physique créé précédemment. Ces travaux utiliseront les bases de données créées pour conserver les données SAP.
+         </intro>
+         <param name="id" value="com.ibm.is.sappack.gen.help.cheatsheet.rg.tables">
+         </param>
+      </task>
+   </taskGroup>
+</compositeCheatsheet>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/com.ibm.is.sappack.dsstages.idoc"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/com.ibm.is.sappack.dsstages.common"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/extLibsJCO"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/com.ibm.is.sappack.dsstages.common.ccf"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/com.ibm.is.sappack.dsstages.idoc.listener"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

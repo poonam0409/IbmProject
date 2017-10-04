@@ -1,0 +1,86 @@
+<contexts>
+    <!-- Editor page help -->
+    <!-- Table list pages -->
+	<context id="soc_editor_general_tables">
+		<topic href="cshelp/topics/soc_editor_general_tables.html" label="General page for table lists"/>
+	</context>
+	<context id="soc_editor_general_idocs">
+		<topic href="cshelp/topics/soc_editor_general_idocs.html" label="General page for IDoc segment lists"/>
+	</context>
+	<context id="soc_editor_tables">
+		<topic href="cshelp/topics/soc_editor_tables.html" label="Tables page"/>
+	</context>
+	<context id="soc_editor_idocs">
+		<topic href="cshelp/topics/soc_editor_idocs.html" label="IDoc segments page"/>
+	</context>	
+	
+	<!-- RM config editor -->
+	<context id="rmconfeditor_general">
+		<topic href="cshelp/topics/rmconfeditor_general.html" label="Rapid Modeler Configuration General page"/>
+	</context>
+	<context id="rmconfeditor_import_options_cw">
+		<topic href="cshelp/topics/rmconfeditor_import_options_cw.html" label="Conversion Workbench Import Options"/>
+	</context>
+	<context id="rmconfeditor_targetdb">
+		<topic href="cshelp/topics/rmconfeditor_targetdb.html" label="Target database"/>
+	</context>
+	<context id="rmconfeditor_technicalfields">
+		<topic href="cshelp/topics/rmconfeditor_technicalfields.html" label="Technical fields"/>
+	</context>
+	<context id="rmconfeditor_package">
+		<topic href="cshelp/topics/rmconfeditor_package.html" label="Package"/>
+	</context>
+	<context id="rmconfeditor_ctpackage">
+		<topic href="cshelp/topics/rmconfeditor_ctpackage.html" label="Check Table Package"/>
+	</context>
+
+	<!-- RG config editor -->
+	<context id="rgconfeditor_general">
+		<topic href="cshelp/topics/rgconfeditor_general.html" label="Rapid Generator Configuration General page"/>
+	</context>
+	<context id="rgconfeditor_db_source">
+		<topic href="cshelp/topics/rgconfeditor_db_source.html" label="Database Source"/>
+	</context>
+	<context id="rgconfeditor_db_target">
+		<topic href="cshelp/topics/rgconfeditor_db_target.html" label="Database Target"/>
+	</context>
+	<context id="rgconfeditor_sap_source">
+		<topic href="cshelp/topics/rgconfeditor_sap_source.html" label="SAP Source"/>
+	</context>
+	<context id="rgconfeditor_sap_target">
+		<topic href="cshelp/topics/rgconfeditor_sap_target.html" label="SAP Target"/>
+	</context>
+	<context id="rgconfeditor_abap_extract_settings">
+		<topic href="cshelp/topics/rgconfeditor_abap_extract_settings.html" label="SAP Target"/>
+	</context>
+	<context id="rgconfeditor_idoc_load_cw">
+		<topic href="cshelp/topics/rgconfeditor_idoc_load_cw.html" label="IDoc load"/>
+	</context>
+	<context id="rgconfeditor_custom_derivations">
+		<topic href="cshelp/topics/rgconfeditor_custom_derivations.html" label="Custom derivations"/>
+	</context>
+	<context id="rgconfeditor_job_description">
+		<topic href="cshelp/topics/rgconfeditor_job_description.html" label="Generated job description"/>
+	</context>
+	<context id="rgconfeditor_move_transcode">
+		<topic href="cshelp/topics/rgconfeditor_move_transcode.html" label="Move / Transcode"/>
+	</context>
+	<context id="rgconfeditor_parameters">
+		<topic href="cshelp/topics/rgconfeditor_parameters.html" label="Job Parameters"/>
+	</context>
+	
+	<!-- RM import wizard -->
+	<context id="rmwiz_rmresources">
+		<topic href="cshelp/topics/rmwiz_rmresources.html" label="Rapid Modeler settings"/>
+	</context>
+	<context id="rmwiz_tables_list">
+		<topic href="cshelp/topics/rmwiz_tables_list.html" label="Table List"/>
+	</context>
+	<context id="rmwiz_segment_list">
+		<topic href="cshelp/topics/rmwiz_segment_list.html" label="Segment and Table List"/>
+	</context>
+	<context id="rmwiz_import_summary">
+		<topic href="cshelp/topics/rmwiz_import_summary.html" label="Metadata import summary"/>
+	</context>
+	
+</contexts>

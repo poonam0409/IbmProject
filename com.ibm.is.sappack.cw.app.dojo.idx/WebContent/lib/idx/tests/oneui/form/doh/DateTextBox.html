@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>Date and Time TextBox DoH Test</title>
+		
+		<script type="text/javascript" src="../../../dojoVersion.js"></script>
+		<script type="text/javascript">
+			dojoCSSImport("../../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+			dojoCSSImport("../../../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+		</script>
+		
+		<style id="idxStyles" type="text/css">
+			@import "../../../../themes/oneui/dijit/document.css";
+	        @import "../../../../themes/oneui/dijit/dijitMain.css";
+			@import "../../../../themes/oneui/idx/oneui/oneuiMain.css";
+	        @import "../../../../themes/test.css";
+		</style>
+		
+		<!-- required: dojo.js -->
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+		</script>
+		<script type="text/javascript">
+			dojoScriptImport("../../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+		
+		<script type="text/javascript" id="postDojo">
+			var modules = [
+				"doh", 
+				"dojo.date.locale",
+				"dijit.form.Button",
+				"dijit.form.Form",
+				"idx.oneui.form.DateTextBox",
+				"idx.oneui.form.TimeTextBox"
+			]; 
+			var doh, locale, Button, Form, DateTextBox, TimeTextBox;
+			
+			function preParse(modules){
+				doh 			= modules["doh"];
+				locale			= modules["dojo/date/locale"];
+				Button 			= modules["dijit/form/Button"];
+				Form  			= modules["dijit/form/Form"];
+				DateTextBox   	= modules["idx/oneui/form/DateTextBox"];
+				TimeTextBox 	= modules["idx/oneui/form/TimeTextBox"];
+			}
+			function postParse() {
+				var testPerformance = /mode=benchmark/i.test(window.location.href);
+				if(!testPerformance){
+					// Register API tests.
+					doh.register("parse", function(){
+						dojo.parser.parse();
+						doh.t(dijit.byId("datetextbox"));
+						doh.t(dijit.byId("timetextbox"));
+					});
+		
+					doh.register("getValue & setValue", function(){
+							var widget = dijit.byId("datetextbox");
+							doh.f(widget.get("value"));
+							widget.set("value", "2008-12-31");
+							doh.t(locale.format(widget.get("value"), {formatLength:'short', selector:'date', datePattern:"yyyy-MM-dd"}) == "2008-12-31");
+							
+							var widget2 = dijit.byId("timetextbox");
+							doh.f(widget2.get("value"));
+							widget2.set("value", "T12:01:00");
+							doh.t(locale.format(widget2.get("value"), {formatLength:'short', selector:'time', timePattern:"hh:MM:ss"}) == "12:01:00");
+						}
+					);
+				}else{
+					// Register performance tests
+				}
+				doh.run();
+			}
+			
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+			
+		</script>
+		<script type="text/javascript" src="../../../commonTest.js"></script>
+	</head>
+	<body class="oneui" style="width: 100%; height: 100%; margin: 0; padding: 0;">
+		<a class="navigationLink" href="#maincontent">Skip to main content</a>
+		<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+		<a name="maincontent"></a>
+		
+		<div class="testMain">
+			<h1 class="testTitle">idx.oneui.form.DateTextBox and idx.oneui.form.TimeTextBox DoH Test</h1>
+			<input id="datetextbox" data-dojo-type="idx.oneui.form.DateTextBox" data-dojo-props='
+				hint: "MM/DD/YYYY",
+				hintPosition: "inside",
+				label: "Date:",
+				labelAlignment: "horizontal",
+				labelWidth: 100
+			'/>
+			<br/>
+			<input id="timetextbox" data-dojo-type="idx.oneui.form.TimeTextBox" data-dojo-props='
+				hint: "HH:MM AM/PM",
+				hintPosition: "inside",
+				label: "Time:",
+				labelAlignment: "horizontal",
+				labelWidth: 100
+			'/>
+		</div>
+	</body>
+</html>

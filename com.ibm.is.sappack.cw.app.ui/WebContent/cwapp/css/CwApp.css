@@ -1,0 +1,916 @@
+@CHARSET "ISO-8859-1";
+
+/* --------------------------- Basic Widgets */
+
+
+/*-----disables auto generated -X- close widget for textboxes in IE */
+input[type=text]::-ms-clear {
+    display: none;
+}
+
+.headerPane {
+	height: 99%; /* workaround for height display bug */
+}
+
+.contentPane {
+	height: 100%;
+	width: 100%
+}
+
+.sizingFix {
+	-webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.stackContainer {
+	height: 100%;
+	width: 100%
+}
+
+.dataGrid {
+	border: 0px !important;
+}
+
+.dataGrid img.prefix {
+	margin-right: 2px;
+	margin-left: -7px;
+	margin-top: 1px;
+}
+
+/* Add the checkmark on the rowSelector*/
+.vienna .dojoxGridRowbar {
+	background-color: #E7EdF3;
+	border: none;
+}
+
+.vienna .dojoxGridRowbarSelected {
+	background: #C5D0DA url(../img/checkmark.png) no-repeat center !important;
+}
+
+.vienna .dojoxGridRowbarOver .dojoxGridRowbarTable {
+	background: #C5D0DA url(../img/checkmark_light.png) no-repeat center !important;
+}
+
+/* fix for IDX 1.2.0.1 */
+.dojoxGridRowbarTable {
+	width: 18px !important;
+}
+
+/* Remove the ugly 1px white lines in the table header */
+.claro .dojoxGridMasterHeader {
+	border-left: 0px;
+	border-top: 0px;
+}
+
+/* Fix the missing dashed border on left and right of focused cells and also some alignment and "jumping" issues */
+.vienna .dojoxGrid table {
+	border-collapse: separate;
+}
+
+/* Fix workspace tab hover "jumping" */
+.claro div.idxWorkspaceTabTitle {
+  height: 18px;
+}
+.claro div.idxWorkspaceTabHovered {
+  height: 21px;
+  padding-top: 0px;
+}
+.claro div.idxWorkspaceTabTitleHovered {
+  padding-top: 3px;
+}
+.claro div.idxWorkspaceTabSelected {
+  height: 21px;
+  padding-top: 0px;
+}
+.claro div.idxWorkspaceTabTitleSelected {
+  padding-top: 3px;
+}
+/* End fix */
+
+.vienna .dojoxGridCell,.vienna .dojoxGridRowSelected .dojoxGridCell {
+	border-top: 1px solid transparent !important;
+	border-bottom: 1px solid transparent !important;
+}
+
+.vienna .dojoxGridRowSelected .dojoxGridCellFocus,.vienna .dojoxGridCell .dojoxGridRowSelected,.vienna .dojoxGridCellFocus .dojoxGridRowSelected,.vienna .dojoxGridCellFocus .dojoxGridRowSelected .dojoxGridCell,.vienna .dojoxGridCellFocus .dojoxGridCell,.vienna .dojoxGridCellFocus .dojoxGridCellOver,.vienna .dojoxGridCellFocus {
+	border: 1px dashed darkblue !important;
+}
+
+.vienna .dojoxGridRowOver .dojoxGridCell {
+	border: 1px solid transparent !important;
+}
+
+.dijitSelect {
+	margin: 0px;
+}
+
+.idxAppMarqueeBody {
+	margin-top: 3px;	
+}
+
+.FilterTextfield {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 225px;
+}
+
+.FilteringSelectStatic .dijitValidationIcon {
+	display: none;
+}
+
+/* --------------------------- Main elements */
+
+.CwApp_appFrame {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.CwApp_marqueeSpan {
+	margin: 0 5px;
+}
+
+.topLevelTab {
+	height: 100%;
+}
+
+.bdrTab {
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+}
+
+/* --------------------------- Form elements */
+
+.formElement {
+	margin-bottom: 5px;
+	clear: both;
+}
+
+.formElement label {
+	display: block;
+	text-align: right;
+	width: 120px;
+	float: left;
+	margin-bottom: 20px;
+	padding-right: 10px;
+	padding-top: 3px;
+}
+
+.bigForm {
+	border: 0px;
+	padding-top: 40px;
+}
+
+.bigForm label {
+	width: 175px !important;
+	padding-right: 15px;
+}
+
+.formElementLabel_required:before {
+	content: '* ';
+	color: orange;
+}
+
+.formElementPasswordTip {
+	margin-left: 10px;
+	display: inline-block;
+	color: red;
+}
+
+/* --------------------------- Dialog decorations */
+
+.imageSpacer {
+	margin: 15px;
+}
+
+.ImageQuestion_48 {
+	width: 48px;
+	height: 48px;
+	background: url(../img/question_48.png) 0 0;
+}
+
+.ImageBrowse_48 {
+	width: 48px;
+	height: 48px;
+	background: url(../img/browse_48.png) 0 0;
+}
+
+.ImageOK_48 {
+	width: 48px;
+	height: 48px;
+	background: url(../img/ok_48.png) 0 0;
+}
+
+.ImageWarning_48 {
+	width: 48px;
+	height: 48px;
+	background: url(../img/warning_48.png) 0 0;
+}
+
+.ImageError_48 {
+	width: 48px;
+	height: 48px;
+	background: url(../img/error_48.png) 0 0;
+}
+
+.ImageSpinner_50 {
+	width: 50px;
+	height: 50px;
+	background: url(/DojoRuntime/ibmjs/idx/themes/vienna/images/loading.gif) 0 0;
+}
+
+.PasswordDialog_Table {
+	padding: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.PasswordDialog_Input {
+	padding: 7px;
+}
+
+.PasswordDialog_Input label div input {
+	display: block;
+	margin-bottom: 20px;
+	clear: both;
+}
+
+.PasswordDialog_InputError div.dijitTextBox {
+	border: 1px solid #d46464;
+}
+
+/* --------------------------- Grids */
+
+.imageColumn {
+	padding-top: 0px !important;
+	padding-left: 5px !important;
+	padding-right: 5px !important;
+	padding-bottom: 0px !important;
+}
+
+/* --------------------------------------------------------- BDR */
+
+.tabContainer {
+	width: 100%;
+	height: 100%;
+}
+
+.bdrBorderContainer {
+	width: 100%;
+	height: 100%;
+}
+
+.bdrNavContainer {
+	width: 350px !important;
+	min-width: 350px !important;
+	height: 100%;
+}
+
+.bdrItemContainer {
+	height: 100%;
+}
+
+.bdrBphTreeContainer {
+	height: 100%;
+	overflow: auto;
+}
+
+.bdrBphTree {
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+}
+
+.bdrBoTree {
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+}
+
+.bdrTabFilteringInput {
+	margin-top: 0px;
+	width: 100%;
+	padding: 0px;
+	-webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.gridUnderButtonBar {
+	padding: 10px !important;
+	padding-top: 0px !important;
+	padding-bottom: 6px !important;
+	margin-right: -20px !important;
+}
+
+.fullSizeContainer {
+	width: 100%;
+	height: 100%;
+	border: 0px;
+	padding: 0px;
+}
+
+.fullSizePaddedContainer {
+	width: 100%;
+	height: 100%;
+	border: 0px !important;
+	padding: 10px;
+	-webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.paddedContainer {
+	margin: 10px !important;
+}
+
+.paddedContainerNoTop {
+	margin: 10px !important;
+	margin-top: 0px !important;
+}
+
+.extraTopMargin {
+	margin-top: 20px;
+}
+
+.extraTopMarginThin {
+	margin-top: 10px;
+}
+
+.extraBottomMargin {
+	margin-bottom: 20px !important;
+}
+
+.extraBottomMarginThin {
+	margin-bottom: 10px;
+}
+
+.noBorder {
+	border: 0px !important;
+	border-spacing: 0px !important;
+}
+
+.noHeader {
+	display: none;
+}
+
+.bdrHeaderIcon {
+	width: 64px;
+	height: 64px;
+	margin: 10px;
+	margin-top: 5px;
+	margin-right: 15px;
+}
+
+.bdrHeaderName {
+	font-size: 22px;
+	font-weight: bold;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.bdrHeaderType {
+	font-size: 15px;
+	padding-bottom: 9px;
+}
+
+.bdrHeaderLastUpdate {
+	font-size: 12px;
+}
+
+.bdrHeaderApprovalStatus {
+	font-size: 15px;
+}
+
+.bdrHeaderButtonBar {
+	margin-top: 5px !important;
+	margin-left: 5px !important;
+}
+
+.bdrElementHeader {
+	font-size: 13px;
+	height: 20px;
+	padding: 10px !important;
+}
+
+.bdrItemTabContainer {
+	width: 100%;
+	height: 100%;
+}
+
+.placeholderPanel {
+	padding: 20px;
+	position: absolute;
+}
+
+.bdrAddBODialogContent {
+	width: 400px;
+	height: 350px;
+}
+
+.bdrExportToCwdbDialogContent {
+	width: 600px;
+	height: 300px;
+}
+
+.dialogContent {
+	min-width: 500px;
+	padding: 10px;
+}
+
+
+.DisabledLabel {
+	color: #B5B5B5;
+}
+
+/* BDR item type icons */
+
+.ImageProcess_64 {
+	background: url(../img/bdr/process_64.png) 0 0;
+}
+
+.ImageProcessStep_64 {
+	background: url(../img/bdr/process_step_64.png) 0 0;
+}
+
+.ImageBusinessObject_64 {
+	background: url(../img/bdr/business_object_64.png) 0 0;
+}
+
+.ImageTable_64 {
+	background: url(../img/bdr/table_64.png) 0 0;
+}
+
+.ImageTableUsage_64 {
+	background: url(../img/bdr/table_usage_64.png) 0 0;
+}
+
+/* BPH tree icons */
+
+.BPH_TreeIconProcess {
+	background: url(../img/bdr/process_16.png);
+	background-size: 16px 16px;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 16px;
+	height: 16px;
+}
+
+.BPH_TreeIconBusinessObject {
+	background: url(../img/bdr/business_object_16.png);
+	background-size: 16px 16px;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 16px;
+	height: 16px;
+}
+
+.BPH_TreeIconProcessStep {
+	background: url(../img/bdr/process_step_16.png);
+	background-size: 16px 16px;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 16px;
+	height: 16px;
+}
+
+.BPH_TreeIconTable {
+	background: url(../img/bdr/table_16.png);
+	background-size: 16px 16px;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 16px;
+	height: 16px;
+}
+
+.BPH_TreeIconTableUsage {
+	background: url(../img/bdr/table_usage_16.png);
+	background-size: 16px 16px;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 16px;
+	height: 16px;
+}
+
+/* --------------------------- SearchBox.js begin */
+
+.SearchBox {
+	padding-right: 25px; 
+  	position: relative; 
+}
+
+.SearchBox a.SearchBox_ImageClearCondition {
+	width: 14px;
+	height: 14px;
+	display: block;
+	overflow: hidden;
+	text-indent: -5000px;
+	position: absolute;
+	top: 1px;
+	right: 5px;
+	background: url(../img/clear_field.png) 0 0 no-repeat;
+	z-index: 2000;
+	cursor: pointer; 
+}
+
+/* specific layout for Internet Explorer */
+.dj_ie .SearchBox a.SearchBox_ImageClearCondition  { 
+	top: 2px; 
+}
+
+/* specific layout for Mozilla / Firefox */
+.dj_gecko .SearchBox a.SearchBox_ImageClearCondition {
+	top: 2px;
+}
+
+/* --------------------------- SearchBox.js end */
+
+/* --------------------------- TabTables.js begin */
+
+.TabTables_mixedColumn {
+	padding-top: 1px !important;
+	padding-left: 5px !important;
+	padding-right: 5px !important;
+	padding-bottom: 1px !important;
+}
+
+/* --------------------------- TabTables.js end */
+
+/* --------------------------- TabFields.js begin */
+
+.TabFields_buttonBar {
+	width: 100%;
+	padding: 10px !important;
+	-webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.TabField_filterDiv {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+
+.TabFields_fieldImportProgressDialog {
+	min-width: 350px;
+	min-height: 100px;
+	max-width: 500px;
+}
+
+/* --------------------------- TabFields.js end */
+
+/* --------------------------- TabAccessInformation.js begin */
+
+.TabAccessInformation_innerBorderContainer {
+	width: 40%;
+	height: 100%;
+}
+
+.TabAccessInformation_addRemoveButton .dijitButtonNode {
+	width: 100px;
+}
+
+.TabAccessInformation_userIcon {
+	background: url(../img/bdr/user_16.png) 0 0;
+	width: 16px;   
+    height: 16px;
+}
+
+.TabAccessInformation_groupIcon {
+	background: url(../img/bdr/group_16.png) 0 0;
+	width: 16px;   
+    height: 16px;
+}
+
+/* --------------------------- TabAccessInformation.js end */
+
+/* --------------------------- TabTransactions.js begin */
+
+.TabTransactions_fieldDataGridDiv {
+	width: 100%;
+	height: 90%;
+	margin: 8px;
+	margin-top: 0px;
+	-webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+/* --------------------------- TabTransactions.js end */
+
+/* --------------------------- TabUsedIn.js begin */
+
+.TabUsedIn_usedInTreeDiv {
+	margin: 8px;
+	overflow: auto;
+}
+
+/* --------------------------- TabUsedIn.js end */
+
+/* --------------------------- DetailsPanel.js begin */
+
+.DetailsPanel_approvedImage {
+	background: url(../img/bdr/approval_approved_16.png) 0 0;
+	width: 16px;   
+    height: 16px;
+}
+
+.DetailsPanel_pendingImage {
+	background: url(../img/bdr/approval_pending_16.png) 0 0;
+	width: 16px;   
+    height: 16px;
+}
+
+.DetailsPanel_draftImage {
+	background: url(../img/bdr/approval_draft_16.png) 0 0;
+	width: 16px;   
+    height: 16px;
+}
+
+.DetailsPanel_mixedImage {
+	background: url(../img/bdr/approval_mixed_16.png) 0 0;
+	width: 16px;   
+    height: 16px;
+}
+
+/* --------------------------- DetailsPanel.js end */
+
+/* --------------------------- BphImportDialog.js begin */
+
+.BphImportDialog_messageContent {
+	margin-left: 10px !important;
+}
+
+/* --------------------------- BphImportDialog.js end */
+
+
+.AddBPHObjectDialog_mixedColumn {
+	padding-top: 1px !important;
+	padding-left: 5px !important;
+	padding-right: 5px !important;
+	padding-bottom: 1px !important;
+}
+
+/* --------------------------- AddFieldDialog.js begin */
+
+.AddFieldDialog_addFieldDialog {
+	min-width: 400px;
+	min-height: 300px;
+	max-width: 500px;
+}
+
+.AddFieldDialog_formLayout {
+	border: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+.AddFieldDialog_formLayout label {
+	display: block;
+	width: 100%;
+	float: left;
+	margin-bottom: 20px;
+	text-align: right;
+	padding-right: 20px;
+}
+
+.AddFieldDialog_input {
+	margin-left: 50px;
+	width: 250px;
+}
+
+/* --------------------------- AddFieldDialog.js end */
+
+
+/* -------------------------------------------------------------- RDM */
+
+.statusBar {
+	padding: 5px !important;
+	text-align: left;
+	background-color: #E7EDF3;
+	border-top: 0 none !important;
+	height: 1.5em;
+}
+
+.refreshLink {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+
+/* --------------------------- DataMappingsPage.js begin */
+
+.DataMappingsPage_missingLegacy {
+	background-color: #FFD700 !important;
+}
+
+.DataMappingsPage_StatusConflictIsLoaded {
+	background-color: #FFCCCC !important;
+}
+
+.DataMappingsPage_StatusConflictLoading {
+	background-color: #FFFF99 !important;
+}
+
+.rowEven tr td {
+	background-color: white;
+}
+
+.rowEven.dojoxGridRowSelected tr td {
+	background-color: #C6E966;
+}
+
+.rowOdd tr td {
+	background-color: #F5F5F5;
+}
+
+.rowOdd.dojoxGridRowSelected tr td {
+	background-color: #C6E966;
+}
+
+.DataMappingsPage_TTText {
+	padding-left: 22px !important;
+}
+
+/* --------------------------- DataMappingsPage.js end */
+
+/* --------------------------- ReferenceDataEraseDialog.js begin */
+
+.ReferenceDataEraseDialog_messageContent {
+	margin-left: 10px !important;
+}
+
+/* --------------------------- ReferenceDataEraseDialog.js end */
+
+/* --------------------------- ReferenceDataLoadWizard begin */
+
+.ReferenceDataLoadWizard {
+	width: 800px;
+	height: 600px;
+}
+
+.ReferenceDataLoadWizardPage_contentPane {
+	padding: 10px !important;
+	border: 0px !important;
+}
+
+.wizardStepPane {
+	border: 1px;
+	border-bottom: 0px;
+	background: url(../img/arrow_bg.png);
+}
+
+.wizardStepArrow .stepArrow {
+	padding-right: 14px;
+	background: url('../img/arrow3.png') right top no-repeat;
+}
+
+.wizardStepArrow .stepLabel {
+	font-size: 11px;
+	font-family: Tahoma;
+	color: #464646;
+	padding: 0 6px;
+	vertical-align: top;
+	display: inline-block;
+}
+
+.wizardStepArrow.beforeSelected .stepArrow {
+	background-image: url('../img/arrow1.png');
+}
+
+.wizardStepArrow.beforeSelected .stepIcon, .wizardStepArrow.completed .stepIcon {
+    background-image: url("../img/arrow_completed.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 7px;
+    margin: 4px 0 0 3px;
+    vertical-align: top;
+    width: 7px;
+}
+
+.wizardStepArrow.selected {
+	cursor: default;
+}
+
+.wizardStepArrow.selected .stepContent {
+	background: #FFFFFF;
+}
+
+.wizardStepArrow.selected .stepArrow {
+	background-image: url('../img/arrow2.png');
+}
+
+.wizardStepArrow.selected .stepLabel {
+	font-size: 12px;
+	font-weight: bold;
+	color: #48678A;
+}
+
+.wizardStepArrow.selected .stepContent {
+	background: #FFFFFF;
+	padding-bottom: 7px;
+}
+
+.wizardStepArrow.lastTab .stepArrow {
+	background-image: url('../img/arrow4.png');
+}
+
+.wizardStepArrow.selected.lastTab .stepArrow {
+	background-image: url('../img/arrow5.png');
+}
+
+.wizardStepArrow .stepContent {
+	padding: 6px 6px 7px 6px;
+	height: 15px;
+	background: url('../img/arrow_not_selected_bg.png');
+}
+
+.dj_ie .wizardStepArrow .stepContent {
+	padding: 7px 6px 6px 6px;
+}
+
+/* --------------------------- ReferenceDataLoadWizard end */
+
+/* --------------------------- AbstractProgressDialog.js begin */
+
+.ProgressDialog div.dijitDialogPaneContentArea {
+	width: 800px;
+	height: 500px;
+}
+
+.ProgressDialog_borderContainer {
+	width: 100%;
+	height: 100%;
+}
+
+.ProgressDialog_contentPane {
+	padding: 5px !important;
+	border: 0px !important;
+	overflow: hidden;
+}
+
+.ProgressDialog_progressItem {
+	margin-bottom: 10px;
+}
+
+.ProgressDialog_progressItem label {
+	margin-bottom: 10px;
+}
+
+.ProgressDialog_progressItem_extraSpace {
+	margin-bottom: 20px;
+}
+
+.TabFields_selectCell {
+	padding: 0px !important;
+	border: 0px !important;
+	border-right: 1px solid transparent !important;
+}
+
+.TabFields_selectCell select {
+	height: 100%;
+	margin: 0px;
+	border: 0px;
+}
+
+/* --------------------------- AbstractProgressDialog.js end */
+
+/* ----------------------------------------------------- CONFIGURATION */
+
+/* --------------------------- SystemConfigPages begin */
+
+.SystemConfigPage_navContainer {
+	width: 450px !important;
+	min-width: 450px !important;
+	height: 100%;
+}
+
+.SystemConfigPage_itemContainer {
+	width: 70%;
+	height: 100%;
+}
+
+/* --------------------------- SystemConfigPages end */
+
+/* --------------------------- AboutDialog.js begin */
+
+.AboutDialog_splashImage {
+	background: url(../img/cwapp_about.png) 0 24px;
+	width: 650px;
+	height: 527px;
+}
+
+.AboutDialog_splashImage .dijitDialogPaneContent {
+	background: none;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	border: none;
+	padding: 15px;
+	padding-right: 20px;
+}
+/* --------------------------- AboutDialog.js end */

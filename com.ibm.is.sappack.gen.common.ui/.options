@@ -1,0 +1,2 @@
+# trace setting
+com.ibm.is.sappack.gen.common.ui/debug=true

@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-Name: IBM InfoSphere Information Server Pack for SAP Applications - License Plugin NLS Support
+Bundle-SymbolicName: com.ibm.is.sappack.cw.lic.nl1 ;singleton=true
+Bundle-Version: @AC-VERSION@
+Bundle-Vendor: IBM
+Fragment-Host: com.ibm.is.sappack.cw.lic;bundle-version="[1.0.0,2.0.0)"
+Bundle-Localization: nl_fragment

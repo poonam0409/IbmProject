@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>idx.oneui.form.CheckBoxList DoH</title>
+
+		<script type="text/javascript" src="../../../dojoVersion.js"></script>
+		<script type="text/javascript">
+		dojoCSSImport("../../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		</script>
+		<style id="idxStyles" type="text/css">
+			@import "../../../../themes/oneui/idx/oneui/oneuiMain.css";
+			@import "../../../../themes/oneui/dijit/dijitMain.css";
+			@import "../../../../themes/test.css";
+		</style>
+		<script type="text/javascript" src="../../../commonTest.js"></script>
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+			dojoScriptImport("../../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+		<script type="text/javascript">
+			var modules = [
+				"idx.oneui.form.CheckBoxList",
+				"dojo.data.ItemFileReadStore",
+				"doh"]; 
+			var CheckBoxList,
+				ItemFileReadStore,
+				doh;
+			
+			function preParse(modules){
+				CheckBoxList = modules["idx/oneui/form/CheckBoxList"];
+				ItemFileReadStore = modules["dojo/data/ItemFileReadStore"];
+				doh = modules["doh"];
+			}
+			
+			function postParse(modules){
+				var testPerformance = /mode=benchmark/i.test(window.location.href);
+				
+				if (!testPerformance) {
+					doh.register("parse", function(){
+						dojo.parser.parse();
+						doh.t(dijit.byId("cbl1"));
+					});
+					
+					doh.register("setLabelAlignment", function(){
+						var widget = dijit.byId("cbl1");
+						doh.t(widget.get("labelAlignment") === "horizontal");
+						widget.set("labelAlignment", "vertical");
+						doh.t(widget.get("labelAlignment") === "vertical");
+					});
+					
+					doh.register("setGroupAlignment", function(){
+						var widget = dijit.byId("cbl1");
+						doh.t(widget.get("groupAlignment") === "vertical");
+						widget.set("groupAlignment", "horizontal");
+						doh.t(widget.get("groupAlignment") === "horizontal");
+					});
+					
+					doh.register("setValue", function(){
+						var widget = dijit.byId("cbl1");
+						widget.set("value", ['TN', 'WA']);
+						var value = widget.get("value");
+						doh.t(value.length === 2);
+						doh.t(value[0] === 'TN' && value[1] === 'WA');
+					});
+					
+					doh.register("invertSelection", function(){
+						var widget = dijit.byId("cbl1");
+						widget.invertSelection();
+						var value = widget.get("value");
+						doh.t(value.length === 3);
+						doh.t(value[0] === 'VA' && value[1] === 'FL' && value[2] === 'CA');
+					});
+					
+					doh.register("reset", function(){
+						var widget = dijit.byId("cbl1");
+						widget.reset();
+						var value = widget.get("value")
+						doh.t(value.length === 1);
+						doh.t(value[0] === 'VA');
+					});
+					
+					doh.register("addOption", function(){
+						var widget = dijit.byId("cbl1");
+						widget.addOption({
+							value: 'New option value',
+							label: 'New option label'
+						});
+						var options = widget.getOptions();
+						doh.t(options.length === 6);
+						doh.t(options[5].value === 'New option value' && options[5].label === 'New option label');
+						widget.set("value", ['New option value']);
+						var value = widget.get("value");
+						doh.t(value.length === 1);
+						doh.t(value[0] === 'New option value');
+					});
+					
+					doh.register("removeOption", function(){
+						var widget = dijit.byId("cbl1");
+						widget.removeOption(0);
+						var options = widget.getOptions();
+						doh.t(options.length === 5);
+						doh.t(options[0].label === 'Virginia' && options[0].value === 'VA');
+					});
+				}else{
+					// Register performance testcases
+					var createWidget = function(div){
+						return new CheckBoxList({
+							label: "test check box list:",
+							store: readStore
+						}, div);
+					};
+					
+					doh.register("CreateCheckBoxList", [{
+						testType: "perf",
+						name: "Create CheckBoxList",
+						trialDuration: 100,
+						trialIterations: 30,
+						trialDelay: 100,
+						setUp: function(t){},
+						runTest: function(t){
+							var div = dojo.create("div", {}, dojo.body());
+							readStore = new ItemFileReadStore({
+								data: {
+									identifier: "value",
+									label: "label",
+									items: [{
+										value: "AL",
+										label: "Alabama",
+										selected: true
+									}, {
+										value: "AK",
+										label: "Alaska"
+									}, {
+										value: "AZ",
+										label: "Arizona",
+										selected: true
+									}, {
+										value: "AR",
+										label: "Arkansas"
+									}, {
+										value: "CA",
+										label: "California"
+									}, {
+										value: "CO",
+										label: "Colorado"
+									}, {
+										value: "CT",
+										label: "Connecticut"
+									}]
+								}
+							});
+							var widget = createWidget(div);
+						},
+						tearDown: function(t){
+							dojo.query("[widgetid*=idx_oneui_form_CheckBoxList]").forEach(function(domNode){
+								dijit.byNode(domNode).destroy(false);
+							})
+						}
+					}]);
+				}
+				doh.run();
+			}
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+		</script>
+	</head>
+	<body class="oneui">
+		<h1 class="testTitle">idx.oneui.form.CheckBoxList DoH Test</h1>
+			<select data-dojo-type="idx.oneui.form.CheckBoxList" data-dojo-props="
+				id: 'cbl1',
+				name: 'cbl1',
+				label: 'CheckBoxList1:',
+				labelAlignment: 'horizontal',
+				groupAlignment: 'vertical',
+				value: ['VA'],
+				invalidMessage: 'Checkbox1 is not a valid selection.',
+				isValid: function(){ return !this.getOptions(0).selected; }
+			">
+				<option value="TN">Tennessee</option>
+				<option value="VA">Virginia</option>
+				<option value="WA">Washington</option>
+				<option value="FL">Florida</option>
+				<option value="CA">California</option>
+			</select>
+	</body>
+</html>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2011" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2011" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="IBM InfoSphere Rapid Generator for SAP を使用した InfoSphere DataStage ジョブの生成" />
+<meta name="abstract" content="IBM InfoSphere Rapid Generator for SAP ウィザードを使用して、SAP システムからデータを抽出するか、SAP システムにデータをロードする、ABAP Extract、IDoc Extract、および IDoc Load ジョブを生成することができます。" />
+<meta name="description" content="IBM InfoSphere Rapid Generator for SAP ウィザードを使用して、SAP システムからデータを抽出するか、SAP システムにデータをロードする、ABAP Extract、IDoc Extract、および IDoc Load ジョブを生成することができます。" />
+<meta name="DC.subject" content="Rapid Generator, 生成、InfoSphere DataStage ジョブ, InfoSphere DataStage ジョブ, Rapid Generator を使用した" />
+<meta name="keywords" content="Rapid Generator, 生成、InfoSphere DataStage ジョブ, InfoSphere DataStage ジョブ, Rapid Generator を使用した" />
+<meta name="DC.Relation" scheme="URI" content="../topics/c_gen_pack_sap_container.html" />
+<meta name="DC.Relation" scheme="URI" content="../topics/t_configure_job_abap_extract.html" />
+<meta name="DC.Relation" scheme="URI" content="../topics/t_configure_job_idoc_extract.html" />
+<meta name="DC.Relation" scheme="URI" content="../topics/t_configure_job_idoc_load.html" />
+<meta name="DC.Relation" scheme="URI" content="../topics/c_intro_rapid_generator.html" />
+<meta name="DC.Relation" scheme="URI" content="http://publib.boulder.ibm.com/infocenter/iisinfsv/v8r5/index.jsp?topic=/com.ibm.swg.im.iis.productization.iisinfsv.overview.doc/topics/cisocomppackssapR3.html" />
+<meta name="DC.Relation" scheme="URI" content="../topics/c_prepare_ida_workspace.html" />
+<meta name="DC.Relation" scheme="URI" content="../topics/t_prepare_ds_environment_rapid_generator.html" />
+<meta name="DC.Relation" scheme="URI" content="../topics/t_import_metadata_rapid_modeler.html" />
+<meta name="DC.Relation" scheme="URI" content="http://publib.boulder.ibm.com/infocenter/idm/v2r2/index.jsp?topic=/com.ibm.datatools.transform.ui.doc/topics/ttrans_wiz_phys.html" />
+<meta name="DC.Relation" scheme="URI" content="http://publib.boulder.ibm.com/infocenter/idm/v2r2/index.jsp?topic=/com.ibm.datatools.logical.ui.doc/topics/clogmod.html" />
+<meta name="DC.Relation" scheme="URI" content="http://publib.boulder.ibm.com/infocenter/iisinfsv/v8r1/index.jsp?topic=/com.ibm.swg.im.iis.ds.entpak.sapr3.use.doc/topics/g_pack_r3_ABAP_Stage.html" />
+<meta name="DC.Relation" scheme="URI" content="http://publib.boulder.ibm.com/infocenter/iisinfsv/v8r1/index.jsp?topic=/com.ibm.swg.im.iis.ds.entpak.sapr3.use.doc/topics/c_pack_r3_IDoc_Extract_Stage.html" />
+<meta name="DC.Relation" scheme="URI" content="http://publib.boulder.ibm.com/infocenter/iisinfsv/v8r1/index.jsp?topic=/com.ibm.swg.im.iis.ds.entpak.sapr3.use.doc/topics/c_pack_r3_Introduction.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="generatinginfospheredatastagejobsbyusingrapidgenerator" />
+<meta name="DC.Language" content="ja-jp" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+<link rel="Start" href="../topics/c_gen_pack_sap_container.html" />
+<title>IBM InfoSphere Rapid Generator for SAP を使用した InfoSphere DataStage ジョブの生成</title>
+<script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+<script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+<script type="text/javascript">
+var mDivision = "IM/IS";
+var mProductName = "IBM InfoSphere Information Server";
+var mProductVersion = "8.7.0";
+var mToList = "comments@us.ibm.com,cgauthie@us.ibm.com,burkharj@us.ibm.com,eldredge@us.ibm.com,pattere@us.ibm.com";
+var mNewWindow = false;
+var plugin_form = "com.ibm.srcf.doc";
+</script>
+
+</head>
+<body id="generatinginfospheredatastagejobsbyusingrapidgenerator"><a name="generatinginfospheredatastagejobsbyusingrapidgenerator"><!-- --></a>
+<div role="banner" id="runningheader" class="runningheader">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/IBM_IC_cue.gif" />
+<span class="hf-bold">IBM InfoSphere Information Server Pack for SAP Applications、バージョン 7.0</span><div id="runningheader-feedback" class="runningheader-feedback">
+<a href="javascript:ibm_id_form()"><span class="hf-bold">フィードバック</span></a></div>
+<hr class="hf-hr" />
+</div>
+<!-- This headerarea file can be used for any topic placed in only one subdirectory,
+     not in the root directory of the plug-in. 
+     Template; ICCC Version 3.1, CBU Version 4.2, May 2011.
+--><!-- BEGIN NON-TRANSLATE SECTION --><div>
+   <!-- Additional meta information. -->
+   <meta name="dc.identifier" content="headerfile" />
+   <meta name="dc.rights" content="© Copyright IBM Corporation 2004, 2011" />
+   <!-- meta name="DC.Rights.Owner" content="For support, contact sharpt@us.ibm.com" -->
+   <meta name="feedback" content="" />
+   <meta name="ibm.country" content="US" />
+   <meta name="ibm.effective" scheme="W3CDTF" content="2011-04-27" />
+   <meta name="ibm.expires" scheme="W3CDTF" content="2012-04-27" />
+   <meta name="source" content="CBU map.infocenter transform from DITA" />
+   <!-- Common CSS -->
+   <link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+   <!-- topic_url.js for writing the topic URL in the footer. -->
+   <script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+   <!-- srcfv3.js and variable setup for the Feedback link. -->
+   <script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+   <script type="text/javascript">
+      var mDivision = "IM";
+      var mProductName = "IBM CBU Sample";
+      var mProductVersion = "4.2.0";
+      var mToList = "Notesgroupname";
+      var plugin_form = "com.ibm.srcf.doc"; 
+</script>
+   <noscript>
+      <style type="text/css"><!--.collapsecontent{display:block;}// -->
+      </style>
+   </noscript>
+</div><!-- END NON-TRANSLATE SECTION -->
+<h1 class="title topictitle1">IBM InfoSphere Rapid Generator for SAP を使用した <span class="ph">InfoSphere DataStage</span> ジョブの生成</h1>
+<p class="shortdesc">IBM® InfoSphere™ Rapid Generator
+for SAP ウィザードを使用して、SAP システムからデータを抽出するか、SAP システムにデータをロードする、ABAP Extract、IDoc Extract、および IDoc Load ジョブを生成することができます。</p>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../topics/t_configure_job_abap_extract.html">ABAP Extract ジョブのジョブ生成の構成</a></strong><br />
+IBM InfoSphere Rapid Generator
+for SAP ウィザードを使用して、SAP システムから ABAP データを抽出する <span class="ph">InfoSphere DataStage</span> ジョブを生成することができます。RFC データ転送方式を使用するどの IBM® InfoSphere™
+DataStage® ジョブも、固有の RFC 宛先を使用するように構成されていなければなりません。同じ RFC 宛先を使用する ABAP ステージが同時に実行することはできないので、一度に 1 つの ABAP Extract ジョブのみを実行できます。</li>
+<li class="link ulchildlink"><strong><a href="../topics/t_configure_job_idoc_extract.html">IDoc Extract ジョブのジョブ生成の構成</a></strong><br />
+IBM InfoSphere Rapid Generator
+for SAP ウィザードを使用して、IDoc Extract ジョブを生成することができます。</li>
+<li class="link ulchildlink"><strong><a href="../topics/t_configure_job_idoc_load.html">IDoc Load ジョブのジョブ生成の構成</a></strong><br />
+IBM InfoSphere Rapid Generator
+for SAP ウィザードを使用して、SAP システムから IDoc データをロードする <span class="ph">InfoSphere DataStage</span> ジョブを生成することができます。</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="../topics/c_gen_pack_sap_container.html" title="IBM InfoSphere Information Server Pack for SAP Applications は、論理データ・モデルをインポートし、インポートされたメタデータを使用する InfoSphere DataStage ジョブを生成するための、InfoSphere Data Architect ツールを提供します。">Pack for SAP Applications 用の IBM InfoSphere Data Architect コンポーネント</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連概念</strong><br />
+<div><a class="link" href="../topics/c_intro_rapid_generator.html" title="IBM InfoSphere Rapid Generator for SAP Applications は、SAP との間でデータの抽出やロードを行う InfoSphere DataStage ジョブを InfoSphere Data Architect 内の物理データ・モデルから生成するウィザードです。 この物理データ・モデルは、IBM InfoSphere Rapid Modeler for SAP を使用して、SAP メタデータをインポートした論理データ・モデルを変換することによって、作成する必要があります。">IBM InfoSphere Rapid Generator for SAP Applications の概要</a></div>
+<div><img src="../sout.gif" alt="" /><a class="link" href="http://publib.boulder.ibm.com/infocenter/iisinfsv/v8r5/index.jsp?topic=/com.ibm.swg.im.iis.productization.iisinfsv.overview.doc/topics/cisocomppackssapR3.html" target="_blank">IBM InfoSphere Information Server Pack for SAP R/3</a></div>
+<div><a class="link" href="../topics/c_prepare_ida_workspace.html" title="IBM InfoSphere Data Architect Rapid Modeler for SAP および IBM InfoSphere Rapid Generator for SAP を使用する前に、InfoSphere Data Architect ワークスペースを準備しておく必要があります。">InfoSphere Data Architect ワークスペースの準備</a></div>
+<div><img src="../sout.gif" alt="" /><a class="link" href="http://publib.boulder.ibm.com/infocenter/idm/v2r2/index.jsp?topic=/com.ibm.datatools.transform.ui.doc/topics/ttrans_wiz_phys.html" target="_blank">論理データ・モデルから物理データ・モデルへの変換</a></div>
+<div><img src="../sout.gif" alt="" /><a class="link" href="http://publib.boulder.ibm.com/infocenter/idm/v2r2/index.jsp?topic=/com.ibm.datatools.logical.ui.doc/topics/clogmod.html" target="_blank">論理データ・モデル</a></div>
+<div><img src="../sout.gif" alt="" /><a class="link" href="http://publib.boulder.ibm.com/infocenter/iisinfsv/v8r1/index.jsp?topic=/com.ibm.swg.im.iis.ds.entpak.sapr3.use.doc/topics/g_pack_r3_ABAP_Stage.html" target="_blank">ABAP インターフェースを使用した SAP R/3 データの抽出</a></div>
+<div><img src="../sout.gif" alt="" /><a class="link" href="http://publib.boulder.ibm.com/infocenter/iisinfsv/v8r1/index.jsp?topic=/com.ibm.swg.im.iis.ds.entpak.sapr3.use.doc/topics/c_pack_r3_IDoc_Extract_Stage.html" target="_blank">IDoc を使用した中間 SAP R/3 データの抽出</a></div>
+<div><img src="../sout.gif" alt="" /><a class="link" href="http://publib.boulder.ibm.com/infocenter/iisinfsv/v8r1/index.jsp?topic=/com.ibm.swg.im.iis.ds.entpak.sapr3.use.doc/topics/c_pack_r3_Introduction.html" target="_blank">SAP R/3 システムへの IDoc データのロード</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong><br />
+<div><a class="link" href="../topics/t_prepare_ds_environment_rapid_generator.html" title="IBM InfoSphere Rapid Generator for SAP を使用してジョブを生成する前に、IBM InfoSphere DataStage 環境を構成しておく必要があります。">Rapid Generator for SAP 用の IBM InfoSphere DataStage 環境の構成</a></div>
+<div><a class="link" href="../topics/t_import_metadata_rapid_modeler.html" title="IBM InfoSphere Data Architect Rapid Modeler for SAP ウィザードを使用して、論理テーブルからのメタデータか、SAP からの IDoc タイプを論理データ・モデルにインポートすることができます。">Rapid Modeler を使用した SAP メタデータのインポート</a></div>
+</div>
+</div>
+<br />
+<div role="contentinfo" id="runningfooter" class="runningfooter">
+<hr class="hf-hr" />
+
+<p class="runningfooter">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/timestamp.gif" />
+リリース日付: 2011-10-01
+
+<span class="hf-block"><script language="javascript">write_topic_url();</script></span>
+
+<span class="hf-block"><img class="hf-icon" src="../../com.ibm.base.collateral.doc/images/pdf.gif" alt="" />
+この資料の PDF 版:
+<a href="http://www.ibm.com/support/docview.wss?uid=swg27008803http://www.ibm.com/support/docview.wss?uid=swg27008803"><span class="hf-bold">IBM InfoSphere Information Server Integration Guide for IBM InfoSphere Information Server Pack for SAP Applications</span></a>
+</span>
+</p>
+</div>
+</body>
+</html>

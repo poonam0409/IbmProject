@@ -1,0 +1,85 @@
+/*
+ICCC Version 3.1, CBU Version 4.2, 31 May 2011.
+
+These styles are required for ICCC headers and footers:
+   .hf-block
+   .hf-bold
+   .hf-compact 
+   .hf-hr
+   .hf-icon
+   .hf-leftgap3
+   .runningfooter (including anchor specializations)
+   .runningheader (including anchor specializations)
+   .runningheader-feedback
+   ul.simple
+*/
+
+.hf-block {
+   display: block;
+}
+
+.hf-bold {
+   font-weight: bold;
+}
+
+.hf-compact {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.hf-hr {
+  color: #808080;
+}
+
+.hf-icon {
+    margin-top: 0;
+    border: 0;
+    vertical-align: middle;
+}
+
+.hf-leftgap3 {
+  padding-left: 3ex;
+}
+
+.runningfooter {
+   font-family: sans-serif;
+   font-size: 0.9em;
+}
+
+.runningfooter a:link,
+.runningfooter a:active,
+.runningfooter a:visited {
+    font-weight: bold;
+    text-decoration: underline;
+}
+.runningfooter a:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.runningheader {
+   font-family: sans-serif;
+   font-size: 0.9em;
+}
+
+.runningheader a:link,
+.runningheader a:active,
+.runningheader a:visited {
+    font-weight: bold;
+    text-decoration: underline;
+ }
+.runningheader a:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.runningheader-feedback {
+  float: right;
+  text-align: right;
+}
+
+ul.simple { 
+    list-style-type: none; 
+}

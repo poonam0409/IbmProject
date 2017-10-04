@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Localization: plugin
+Bundle-Name: %name
+Bundle-Vendor: %providerName
+Eclipse-LazyStart: true
+Bundle-SymbolicName: com.ibm.base.collateral.doc; singleton:=true
+Bundle-Version: 3.1.0

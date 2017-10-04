@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2011" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2011" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="SAP システムへの接続の作成" />
+<meta name="abstract" content="Rapid Generator for SAP には、SAP システムへの既存の構成済み接続が必要です。これは、InfoSphere DataStage の IBM InfoSphere Information Server Pack for SAP R/3 で使用される接続と同じ標準接続です。" />
+<meta name="description" content="Rapid Generator for SAP には、SAP システムへの既存の構成済み接続が必要です。これは、InfoSphere DataStage の IBM InfoSphere Information Server Pack for SAP R/3 で使用される接続と同じ標準接続です。" />
+<meta name="DC.subject" content="SAP システム, 接続の作成, Rapid Generator, SAP システムへの接続" />
+<meta name="keywords" content="SAP システム, 接続の作成, Rapid Generator, SAP システムへの接続" />
+<meta name="DC.Relation" scheme="URI" content="http://publib.boulder.ibm.com/infocenter/iisinfsv/v8r1/index.jsp?topic=/com.ibm.swg.im.iis.ds.entpak.sapr3.use.doc/topics/c_pack_r3_Administrator_for_SAP_Utility.html" />
+<meta name="DC.Relation" scheme="URI" content="http://publib.boulder.ibm.com/infocenter/iisinfsv/v8r1/index.jsp?topic=/com.ibm.swg.im.iis.ds.entpak.sapr3.use.doc/topics/t_pack_r3_About_the_IDoc_Listener_Settings_page.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="creatingaconnectiontothesapsystem" />
+<meta name="DC.Language" content="ja-jp" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+<title>SAP システムへの接続の作成</title>
+<script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+<script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+<script type="text/javascript">
+var mDivision = "IM/IS";
+var mProductName = "IBM InfoSphere Information Server";
+var mProductVersion = "8.7.0";
+var mToList = "comments@us.ibm.com,cgauthie@us.ibm.com,burkharj@us.ibm.com,eldredge@us.ibm.com,pattere@us.ibm.com";
+var mNewWindow = false;
+var plugin_form = "com.ibm.srcf.doc";
+</script>
+
+</head>
+<body id="creatingaconnectiontothesapsystem"><a name="creatingaconnectiontothesapsystem"><!-- --></a>
+<div role="banner" id="runningheader" class="runningheader">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/IBM_IC_cue.gif" />
+<span class="hf-bold">IBM InfoSphere Information Server Pack for SAP Applications、バージョン 7.0</span><div id="runningheader-feedback" class="runningheader-feedback">
+<a href="javascript:ibm_id_form()"><span class="hf-bold">フィードバック</span></a></div>
+<hr class="hf-hr" />
+</div>
+<!-- This headerarea file can be used for any topic placed in only one subdirectory,
+     not in the root directory of the plug-in. 
+     Template; ICCC Version 3.1, CBU Version 4.2, May 2011.
+--><!-- BEGIN NON-TRANSLATE SECTION --><div>
+   <!-- Additional meta information. -->
+   <meta name="dc.identifier" content="headerfile" />
+   <meta name="dc.rights" content="© Copyright IBM Corporation 2004, 2011" />
+   <!-- meta name="DC.Rights.Owner" content="For support, contact sharpt@us.ibm.com" -->
+   <meta name="feedback" content="" />
+   <meta name="ibm.country" content="US" />
+   <meta name="ibm.effective" scheme="W3CDTF" content="2011-04-27" />
+   <meta name="ibm.expires" scheme="W3CDTF" content="2012-04-27" />
+   <meta name="source" content="CBU map.infocenter transform from DITA" />
+   <!-- Common CSS -->
+   <link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+   <!-- topic_url.js for writing the topic URL in the footer. -->
+   <script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+   <!-- srcfv3.js and variable setup for the Feedback link. -->
+   <script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+   <script type="text/javascript">
+      var mDivision = "IM";
+      var mProductName = "IBM CBU Sample";
+      var mProductVersion = "4.2.0";
+      var mToList = "Notesgroupname";
+      var plugin_form = "com.ibm.srcf.doc"; 
+</script>
+   <noscript>
+      <style type="text/css"><!--.collapsecontent{display:block;}// -->
+      </style>
+   </noscript>
+</div><!-- END NON-TRANSLATE SECTION -->
+<h1 class="title topictitle1">SAP システムへの接続の作成</h1>
+<div class="body taskbody"><p class="shortdesc">Rapid Generator for SAP には、SAP システムへの既存の構成済み接続が必要です。これは、<span class="ph">InfoSphere™ DataStage®</span> の <span class="ph">IBM® InfoSphere Information Server</span> Pack for SAP R/3 で使用される接続と同じ標準接続です。</p>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">手順</h2></div><ol class="ol steps"><li class="li step"><span class="ph cmd"><span class="ph menucascade"><span class="ph uicontrol">「スタート」</span> &gt; <span class="ph uicontrol">「プログラム」</span> &gt; <span class="ph uicontrol">「IBM InfoSphere Information Server」</span> &gt; <span class="ph uicontrol">「IBM InfoSphere Information Server Pack for SAP R3」</span> &gt; <span class="ph uicontrol">「DataStage Administrator for SAP」</span></span>をクリックします。</span></li>
+<li class="li step"><span class="ph cmd">作成したプロジェクトを開き、SAP システムへの接続を作成します。</span></li>
+<li class="li step"><span class="ph cmd"><span class="ph uicontrol">「R/3 への DataStage 接続」</span>タブで、<span class="ph menucascade"><span class="ph uicontrol">「追加」</span> &gt; <span class="ph uicontrol">「新規」</span></span>をクリックします。「接続プロパティー」ダイアログが表示されます。</span></li>
+<li class="li step"><span class="ph cmd"><span class="ph uicontrol">「接続とログオンの詳細」</span>タブで、すべての必須フィールドに入力します。</span></li>
+<li class="li step"><span class="ph cmd">IDoc Extract ジョブを生成するには、<span class="ph uicontrol">「IDoc リスナー設定」</span>タブに移動し、<span class="ph uicontrol">「この接続を使用して受信される IDoc を listen する」</span>オプションを必ず選択してください。</span></li>
+</ol>
+</div>
+<div class="related-links"><div class="relinfo relconcepts"><strong>関連概念</strong><br />
+<div><img src="../sout.gif" alt="" /><a class="link" href="http://publib.boulder.ibm.com/infocenter/iisinfsv/v8r1/index.jsp?topic=/com.ibm.swg.im.iis.ds.entpak.sapr3.use.doc/topics/c_pack_r3_Administrator_for_SAP_Utility.html" target="_blank">IBM InfoSphere DataStage and QualityStage Administrator for SAP によるジョブ接続とプロパティーの管理</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong><br />
+<div><img src="../sout.gif" alt="" /><a class="link" href="http://publib.boulder.ibm.com/infocenter/iisinfsv/v8r1/index.jsp?topic=/com.ibm.swg.im.iis.ds.entpak.sapr3.use.doc/topics/t_pack_r3_About_the_IDoc_Listener_Settings_page.html" target="_blank">「IDoc リスナー設定」ページ</a></div>
+</div>
+</div>
+<br />
+<div role="contentinfo" id="runningfooter" class="runningfooter">
+<hr class="hf-hr" />
+
+<p class="runningfooter">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/timestamp.gif" />
+リリース日付: 2011-10-01
+
+<span class="hf-block"><script language="javascript">write_topic_url();</script></span>
+
+<span class="hf-block"><img class="hf-icon" src="../../com.ibm.base.collateral.doc/images/pdf.gif" alt="" />
+この資料の PDF 版:
+<a href="http://www.ibm.com/support/docview.wss?uid=swg27008803http://www.ibm.com/support/docview.wss?uid=swg27008803"><span class="hf-bold">IBM InfoSphere Information Server Integration Guide for IBM InfoSphere Information Server Pack for SAP Applications</span></a>
+</span>
+</p>
+</div>
+</body>
+</html>

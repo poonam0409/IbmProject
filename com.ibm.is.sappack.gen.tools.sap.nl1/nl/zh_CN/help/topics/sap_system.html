@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2011" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2011" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="cshelp" />
+<meta name="DC.Title" content="管理 SAP 系统连接" />
+<meta name="abstract" content="使用该页面可管理与 SAP 系统的连接。" />
+<meta name="description" content="使用该页面可管理与 SAP 系统的连接。" />
+<meta name="DC.Coverage" content="sap_system" />
+<meta name="DC.Relation" scheme="URI" content="../topics/rapidmodsap_container.html" />
+<meta name="DC.Relation" scheme="URI" content="../../com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc/topics/t_configure_sap_connections.html" />
+<meta name="DC.Relation" scheme="URI" content="../../com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc/topics/t_select_sap_models.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="managesapsystemconnections" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+<link rel="Start" href="../topics/rapidmodsap_container.html" />
+<title>管理 SAP 系统连接</title>
+<script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+<script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+<script type="text/javascript">
+var mDivision = "IM/IS";
+var mProductName = "IBM InfoSphere Information Server";
+var mProductVersion = "8.7.0";
+var mToList = "comments@us.ibm.com,cgauthie@us.ibm.com,burkharj@us.ibm.com,eldredge@us.ibm.com,pattere@us.ibm.com";
+var mNewWindow = false;
+var plugin_form = "com.ibm.srcf.doc";
+</script>
+
+</head>
+<body id="managesapsystemconnections"><a name="managesapsystemconnections"><!-- --></a>
+<div role="banner" id="runningheader" class="runningheader">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/IBM_IC_cue.gif" />
+<span class="hf-bold">IBM InfoSphere Information Server Pack for SAP Applications V7.0</span><div id="runningheader-feedback" class="runningheader-feedback">
+<a href="javascript:ibm_id_form()"><span class="hf-bold">反馈</span></a></div>
+<hr class="hf-hr" />
+</div>
+<!-- This headerarea file can be used for any topic placed in only one subdirectory,
+     not in the root directory of the plug-in. 
+     Template; ICCC Version 3.1, CBU Version 4.2, May 2011.
+--><div>
+   <!-- Additional meta information. -->
+   <meta name="dc.identifier" content="headerfile" />
+   <meta name="dc.rights" content="© Copyright IBM Corporation 2004, 2011" />
+   <!-- meta name="DC.Rights.Owner" content="For support, contact sharpt@us.ibm.com" -->
+   <meta name="feedback" content="" />
+   <meta name="ibm.country" content="US" />
+   <meta name="ibm.effective" scheme="W3CDTF" content="2011-04-27" />
+   <meta name="ibm.expires" scheme="W3CDTF" content="2012-04-27" />
+   <meta name="source" content="CBU map.infocenter transform from DITA" />
+   <!-- Common CSS -->
+   <link rel="stylesheet" type="text/css" href="../../com.ibm.base.collateral.doc/css/swg_info_common.css" />
+   <!-- topic_url.js for writing the topic URL in the footer. -->
+   <script type="text/javascript" src="../../com.ibm.base.collateral.doc/js/topic_url.js"></script>
+   <!-- srcfv3.js and variable setup for the Feedback link. -->
+   <script type="text/javascript" src="../../com.ibm.srcf.doc/srcfv3.js"></script>
+   <script type="text/javascript">
+      var mDivision = "IM";
+      var mProductName = "IBM CBU Sample";
+      var mProductVersion = "4.2.0";
+      var mToList = "Notesgroupname";
+      var plugin_form = "com.ibm.srcf.doc"; 
+</script>
+   <noscript>
+      <style type="text/css"><!--.collapsecontent{display:block;}// -->
+      </style>
+   </noscript>
+</div>
+<h1 class="title topictitle1">管理 SAP 系统连接</h1>
+<div class="body csbody"><p class="shortdesc">使用该页面可管理与 SAP 系统的连接。</p>
+<dl class="dl"><dt class="dt dlterm">现有连接</dt>
+<dd class="dd">显示所有现有的 SAP 连接。选择一个连接，以修改连接参数或删除连接。</dd>
+<dt class="dt dlterm">连接详细信息</dt>
+<dd class="dd">显示所选连接的连接参数：<dl class="dl"><dt class="dt dlterm">SAP 系统名称</dt>
+<dd class="dd">与特定 SAP 系统的连接的名称。</dd>
+<dt class="dt dlterm">使用负载均衡</dt>
+<dd class="dd">选择该选项可通过在 SAP 系统间使用消息服务器来启用负载均衡，并指定相关选项/</dd>
+<dt class="dt dlterm">SAP 主机</dt>
+<dd class="dd">SAP 系统的应用程序主机名。</dd>
+<dt class="dt dlterm">SAP 系统编号</dt>
+<dd class="dd">SAP 系统的两数字编号。</dd>
+<dt class="dt dlterm">SAP 客户机编号</dt>
+<dd class="dd">连接 SAP 系统时要使用的客户机数字标识。</dd>
+<dt class="dt dlterm">路由器字符串</dt>
+<dd class="dd">SAP 系统的路由器字符串。</dd>
+<dt class="dt dlterm">SAP 用户</dt>
+<dd class="dd">所选连接的 SAP 用户的名称。</dd>
+<dt class="dt dlterm">SAP 用户语言</dt>
+<dd class="dd">指定登录 SAP 系统时要所用的语言。</dd>
+<dt class="dt dlterm">SAP 用户密码</dt>
+<dd class="dd">SAP 用户的密码。密码不存储在客户机上。针对每个 InfoSphere
+Data Architect 会话，将提示 SAP 用户输入一次密码。</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a class="link" href="../topics/rapidmodsap_container.html" title="IBM InfoSphere Data Architect Rapid Modeler for SAP Applications 向导将元数据从 SAP 系统抽取到 IBM InfoSphere Data Architect 的逻辑数据模型中。">IBM InfoSphere Data Architect Rapid Modeler for SAP Applications</a></div>
+</div>
+<div class="relinfo reltasks"><strong>相关任务</strong><br />
+<div><a class="link" href="../../com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc/topics/t_configure_sap_connections.html" title="必须配置 SAP 连接以使用 Rapid Modeler for SAP 来导入 SAP IDoc 类型和段的元数据。">配置 SAP 连接</a></div>
+<div><a class="link" href="../../com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc/topics/t_select_sap_models.html" title="完成该任务以从预定义的 SAP 模型中选择表。">从预定义的 SAP 模型中选择</a></div>
+</div>
+</div>
+<br />
+<div role="contentinfo" id="runningfooter" class="runningfooter">
+<hr class="hf-hr" />
+
+<p class="runningfooter">
+<img class="hf-icon" alt="" src="../../com.ibm.base.collateral.doc/images/timestamp.gif" />
+发布日期： 2011-10-01
+
+<span class="hf-block"><script language="javascript">write_topic_url();</script></span>
+</p>
+</div>
+</body>
+</html>

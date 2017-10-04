@@ -1,0 +1,9 @@
+INDEX VERSION 1.126
+D:\IBM\IBM_8.0.0.1\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2636703582.index
+\com.ibm.is.sappack.cw.app.ui\src
+D:\IBM\IBM_8.0.0.1\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4042985115.index
+\com.ibm.is.sappack.cw.app.ui\src
+D:\IBM\IBM_Workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2636703582.index
+\com.ibm.is.sappack.cw.app.ui\src
+D:\IBM\IBM_Workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4042985115.index
+\com.ibm.is.sappack.cw.app.ui\src

@@ -1,0 +1,264 @@
+<html>
+<!-- ***************************************************** {COPYRIGHT-TOP} ***
+* IBM Confidential
+*
+* Licensed Internal Code - Property of IBM
+*
+* Copyrights On Demand (COD)
+*
+* (C) Copyright IBM Corp. 2007, 2008  All Rights Reserved.
+********************************************************** {COPYRIGHT-END} -->
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<title>COD Maven Plugin</title>
+<link href="cod.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="4" cellspacing="4" width="100%" > <tr> <td class="Box" colspan="1" valign="top"> <font size="+3">Maven<br>Plug-in</font> <p><b><small><u>Since</u></small></b><br>2.1</p> <td class="Box" colspan="4" align="center"> <a href="http://w3.ibm.com/connections/communities/service/html/communityview?communityUuid=ff89b7ae-dda7-462a-82c1-be74cb87b274"><img src="cod-logo.jpg" border="0"></a></td> <td class="Box" colspan="1" valign="top" ><p align="right"><b><small><u>Version</u></small></b><br>4.0.0b <p align="right"><b><u><small>Last Updated</small></u><br></b>06/24/2011 </td> </tr> </table>
+
+<h2>Overview</h2>
+<p>Runs <strong>Copyrights On Demand</strong> (COD) against a set of files.
+COD assists product teams in complying with the requirements of
+IBM Corporate Standard <a href="http://w3-06.ibm.com/jp/domino60/mkt/cmi4web8.nsf/f38024cf92ab644849256b7d00003858/80b440b64c60ebec492573be0030e1f3/$FILE/C-S%200-6045-002.pdf">C-S 0-6045-002</a>
+by automating the maintenance
+of the copyright banners within its source parts. For more information:</p>
+<ul>
+  <li>Visit the COD <a href="@url@">project</a> or <a href="@home@">home page</a></li>
+  <li>Read the <a href="cod-ug.html">User's Guide</a></li>
+  <li>Visit the Maven <a href="http://maven.apache.org/">home page</a> for additional 
+    Maven resources </li>
+</ul>
+<h2>COD and Maven Integration</h2>
+
+<h3>Repository setup</h3>
+<p>COD provides a plugin that is usuable from within any Maven 2.0 pom. However, 
+  COD is not currently published to any maven public repositories. Before it 
+  can be used it must be pushed to the local m2 directory or preferably to a local 
+  maven repository. Because the groupID, artifactID and version are compiled into 
+  <strong>cod.jar</strong>; they MUST be:</p>
+<ul>
+  <li>groupId: <b>com.ibm.tools.copyright</b></li>
+  <li>artifactId: <b>cod</b></li>
+  <li>version: <b>4.0.0</b></li>
+</ul>
+<h4>Installing to local filesystem</h4>
+<pre class="Code">
+mvn deploy:deploy-file -DgroupId=com.ibm.tools.copyright -DartifactId=cod
+    -Dversion=4.0.0 -Dpackaging=maven-plugin -Dfile=cod.jar
+    "-Durl=file:C:/Documents and Settings/Administrator/.m2/repository" -DrepositoryId=Common
+</pre>
+<h4>Installing to repository using sftp</h4>
+<pre class="Code">
+mvn deploy:deploy-file -DgroupId=com.ibm.tools.copyright -DartifactId=cod
+    -Dversion=4.0.0 -Dpackaging=maven-plugin -Dfile=cod.jar
+    -Durl=sftp://mavenRepo.ibm.com:/maven/development -DrepositoryId=distribution-release.ibm.com</pre>
+<h3>POM plugin integration</h3>
+<p>Use the following to add COD to your POM.</p>
+<pre class="Code">
+    &lt;plugins&gt;
+    ...
+      &lt;plugin&gt;
+        &lt;groupId&gt;com.ibm.tools.copyright&lt;/groupId&gt;
+        &lt;artifactId&gt;cod&lt;/artifactId&gt;
+        &lt;version&gt;4.0.0&lt;/version&gt;
+        &lt;configuration&gt;
+          &lt;root&gt;/src/main&lt;/root&gt;
+          &lt;check&gt;true&lt;/check&gt;
+          &lt;defs&gt;codDefs&lt;/defs&gt;
+          &lt;excludes&gt;
+            &lt;exclude&gt;./dojo&lt;/exclude&gt;
+          &lt;/excludes&gt;
+        &lt;/configuration&gt;
+        &lt;executions&gt;
+          &lt;execution&gt;
+            &lt;goals&gt;
+              &lt;goal&gt;cod&lt;/goal&gt;
+            &lt;/goals&gt;
+          &lt;/execution&gt;
+        &lt;/executions&gt;
+      &lt;/plugin&gt;
+    ...
+    &lt;/plugins&gt;
+</pre>
+<h4>Configuration Documentation</h4>
+<table border="1" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="Desc" valign="top" align="left"  ><b>Config Entry</b></td>
+    <td class="Desc" valign="top" align="left"  ><b>Description</b></td>
+    <td class="Desc" valign="top" align="left"  ><b>Default</b></td>
+    <td class="Desc" valign="top" align="center"><b>Required</b></td>
+  </tr>
+  <tr>
+    <td valign="centre">defs</td>
+    <td valign="top">
+      <p>Defines the directory housing the COD definition files.</p>
+    </td>
+    <td valign="center" align="center">&nbsp;</td>
+    <td valign="top" align="center">Yes</td>
+  </tr>
+  <tr>
+    <td valign="centre">filelist</td>
+    <td valign="top">
+      <p>File containing a list of files for COD to process.</p>
+    </td>
+    <td valign="center" align="center">&nbsp;</td>
+    <td valign="top" align="center"><div align="left">this or <b>root</b> must 
+        be defined</div></td>
+  </tr>
+  <tr>
+    <td valign="centre">root</td>
+    <td valign="top">
+      <p>Root directory that COD will process. COD will process all subdirectories of the root.</p>
+    </td>
+    <td valign="center" align="center">&nbsp;</td>
+    <td valign="top" align="center">this or <b>filelist</b> must be defined</td>
+  </tr>
+  <tr>
+    <td valign="centre">excludes</td>
+    <td valign="top">
+      <p>List of directories that COD will NOT process. COD will ignore all subdirectories of each entry.<br>This entry is composed of a list of nested &lt;exclude&gt; entries.</p>
+    </td>
+    <td valign="center" align="center">&nbsp;</td>
+    <td valign="top" align="center">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="center">check</td>
+    <td valign="top">
+      <p>Controls if the files are just checked (read-only) or actually updated (read-write).</p>
+      <ul>
+        <li> If <b>false</b>, any file that requires updating is re-written</li>
+        <li> If <b><u>true</u></b>, each file is processed and any errors
+        are reported but no file is re-written</li>
+      </ul>
+    </td>
+    <td valign="center" align="center">false</td>
+    <td valign="center" align="center">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top">verbose</td>
+    <td valign="top">Provide extra information during file processing.</td>
+    <td valign="center" align="center">false</td>
+    <td valign="top" align="center">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top">year</td>
+     <td valign="top">
+       <p>Define the copyright year to be used. Valid values are the previous, current, and next year.</p>
+     </td>
+     <td valign="top" align="center">current year</td>
+     <td valign="center" align="center">&nbsp;</td>
+  </tr>
+</table>
+<br>
+
+
+<h3>Simple Configuration - Standalone POM</h3>
+<p>This is how a standard POM will look. Adjust parameters as needed.</p>
+<pre class="Code">
+  &lt;build&gt;
+  	...
+    &lt;plugins&gt;
+    ...
+      &lt;plugin&gt;
+        &lt;groupId&gt;com.ibm.tools.copyright&lt;/groupId&gt;
+        &lt;artifactId&gt;cod&lt;/artifactId&gt;
+        &lt;version&gt;4.0.0&lt;/version&gt;
+        &lt;configuration&gt;
+          &lt;root&gt;/src/main&lt;/root&gt;
+          &lt;defs&gt;${rootPOM}/codDefs&lt;/defs&gt;
+        &lt;/configuration&gt;
+        &lt;executions&gt;
+          &lt;execution&gt;
+            &lt;goals&gt;
+              &lt;goal&gt;cod&lt;/goal&gt;
+            &lt;/goals&gt;
+          &lt;/execution&gt;
+        &lt;/executions&gt;
+      &lt;/plugin&gt;
+      ...
+    &lt;/plugins&gt;
+    ...
+  &lt;/build&gt;
+
+
+</pre>
+<h3>Advanced Configuration - Common Definition file using a super POM</h3>
+<p>In the super POM you can specificy plug-in management for each child project.<BR>
+  <b>NOTE:</b> Maven doesn't have the concept of a 'root project directory' so 
+  we have to fake this. There is a property in each file that defines the path 
+  of the rootPOM. In the ideal maven world you should create a seperate project 
+  that will define all the COD definitions.</p>
+<h4>Super POM</h4>
+<pre class="Code">
+&lt;project&gt;
+...
+  &lt;properties&gt;
+    &lt;rootPOM&gt;${basedir}&lt;/rootPOM&gt;
+  &lt;/properties&gt;
+...
+  &lt;build&gt;
+  ...
+  &lt;pluginManagement&gt;
+    ...
+    &lt;plugins&gt;
+    ...
+      &lt;plugin&gt;
+        &lt;groupId&gt;com.ibm.tools.copyright&lt;/groupId&gt;
+        &lt;artifactId&gt;cod&lt;/artifactId&gt;
+        &lt;version&gt;4.0.0&lt;/version&gt;
+        &lt;configuration&gt;
+          &lt;check&gt;true&lt;/check&gt;
+          &lt;defs&gt;${rootPOM}/codDefs&lt;/defs&gt;
+        &lt;/configuration&gt;
+        &lt;executions&gt;
+          &lt;execution&gt;
+            &lt;goals&gt;
+              &lt;goal&gt;cod&lt;/goal&gt;
+            &lt;/goals&gt;
+          &lt;/execution&gt;
+        &lt;/executions&gt;
+      &lt;/plugin&gt;
+      ...
+    &lt;/plugins&gt;
+    ...
+  &lt;/pluginManagement&gt;
+  ...
+  &lt;/build&gt;
+...
+&lt;/project&gt;
+</pre>
+<h4>Child POM</h4>
+<p>Of interest here is the ${rootPOM} being defined relative to the ${basedir}. When each POM is run, this property will supercede that of the parent POM so the &lt;defs&gt; is correctly defined.</p>
+<pre class="Code">
+&lt;project&gt;
+...
+  &lt;properties&gt;
+    &lt;rootPOM&gt;${basedir}/../../&lt;/rootPOM&gt;
+  &lt;/properties&gt;
+...
+  &lt;build&gt;
+  ...
+    &lt;plugins&gt;
+    ...
+      &lt;plugin&gt;
+        &lt;groupId&gt;com.ibm.tools.copyright&lt;/groupId&gt;
+        &lt;artifactId&gt;cod&lt;/artifactId&gt;
+        &lt;configuration&gt;
+          &lt;check&gt;false&lt;/check&gt;
+        &lt;/configuration&gt;
+      &lt;/plugin&gt;
+    ...
+    &lt;/plugins&gt;
+  ...
+  &lt;/build&gt;
+...
+&lt;/project&gt;</pre>
+<br>
+
+<hr class="Sep"> <table width="100%" border="0" cellspacing="4" cellpadding="4"> <tr> <td valign="top"><img src="cod-small.png"></td> <td valign="top"> <div align="center"> <strong>COD: <a href="http://w3.ibm.com/connections/communities/service/html/communityview?communityUuid=ff89b7ae-dda7-462a-82c1-be74cb87b274">Copyrights On Demand</a></strong> <br> <font size="-1">Copyright &copy; 2004, 2011 IBM Corporation - All rights Reserved.</font> </div> </td> <td valign="top"><div align="right">v4.0.0b - 06/24/2011</div></td> </tr> </table>
+
+</body>
+</html>

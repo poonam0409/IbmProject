@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>idx.oneui.layout.ToggleBorderContainer Test</title>
+
+	<script type="text/javascript" src="../../../tests/dojoVersion.js"></script>
+	<script type="text/javascript">
+		dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+	<style id="idxStyles" type="text/css">
+		@import "../../../themes/oneui/oneui.css";
+		@import "../../../themes/test.css";
+		@import "../../tests/_pagefooter/_PageFooter.css";
+	</style>
+	
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+	</script>
+
+	<script type="text/javascript">
+		dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+
+	<script type="text/javascript" id="postDojo">
+		function watchSplitters(bc){
+			var spl = bc.getSplitter("bottom");
+			dojo.connect(spl, "onOpen", function(pane){
+				dojo.style(pane.domNode, "backgroundColor", "#f6f6f6");
+			});
+			dojo.connect(spl, "onCollapsed", function(pane){
+				dojo.style(pane.domNode, "backgroundColor", "#e2effc");
+			});
+		}
+		
+		var modules = [
+			"idx.oneui.layout.ToggleBorderContainer",
+			"dijit.layout.ContentPane",
+			"idx.oneui.tests._pagefooter._PageFooter"]; 
+		var _PageFooter = null;
+		function preParse(modules){
+			_PageFooter = modules["idx/oneui/tests/_pagefooter/_PageFooter"];
+			new _PageFooter();
+		}
+		function postParse(modules){
+			watchSplitters(dijit.byId("border1"));
+		}
+		
+		dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+	</script>
+	<script type="text/javascript" src="../../../tests/commonTest.js"></script>
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 0px;">
+	<a class="navigationLink" href="#maincontent">Skip to main content</a>
+	<script type="text/javascript">applyThemeToBody("oneui");</script>
+	<a name="maincontent"></a>
+	<div class="testMain" id="main">
+		<h1 class="testTitle">idx.oneui.layout.ToggleBorderContainer Test</h1>
+		<h2>Headline layout (default)</h2>
+		<p>Click the splitters to toggle them <b>open/collapsed(optional)/closed</b>. If <b>toggleSplitterCollapsedSize</b> is set on the content pane, the pane has the optional collapsed state. Or it only has two states.</p>
+	
+		<div id="border1" data-dojo-type="idx.oneui.layout.ToggleBorderContainer" data-dojo-props="
+			style: 'width: 1000px; height: 500px; background: #ffffff; border: 1px solid #cccccc;'
+		">
+			<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="
+				region: 'top',
+				splitter: true,
+				toggleSplitterCollapsedSize: '30px',
+				style: 'background-color: #f6f6f6; height: 50px;'
+			">
+				Resizable top bar with three states (open/collapsed/closed). The toggleSplitterCollapsedSize is "30px" here.
+			</div>
+			<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="
+				region: 'left',
+				splitter: true,
+				minSize: 20,
+				style: 'width: 300px;'
+			">
+				Resizable left panel.
+			</div>
+			<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="
+				region: 'center',
+				style: 'background-color: #ffffff; padding: 5px;'
+			">
+				Main panel.
+			</div>
+			<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="
+				region: 'right',
+				splitter: true,
+				toggleSplitterState: 'closed',
+				toggleSplitterCollapsedSize: '30px',
+				style: 'background-color: #f6f6f6; width: 100px;'
+			">
+				Initialized closed
+			</div>
+			<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="
+				region: 'bottom',
+				toggleSplitterCollapsedSize: '20px',
+				splitter: true,
+				style: 'background-color: #f6f6f6; height: 50px;'
+			">
+				Resizable bottom bar which background color is changed when the toggle button is clicked.
+			</div>
+		</div>
+	</div>
+</body>
+</html>

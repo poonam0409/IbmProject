@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+//***************************************************************************
+// (c) Copyright IBM Corp. 2014 All rights reserved.
+// 
+// The following sample of source code ("build.xml") is owned by International 
+// Business Machines Corporation or one of its subsidiaries ("IBM") and is 
+// copyrighted and licensed, not sold. You may use, copy, modify, and 
+// distribute the Sample in any form without payment to IBM, for the purpose of 
+// assisting you in the development of your applications.
+// 
+// The Sample code is provided to you on an "AS IS" basis, without warranty of 
+// any kind. IBM HEREBY EXPRESSLY DISCLAIMS ALL WARRANTIES, EITHER EXPRESS OR 
+// IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+// MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. Some jurisdictions do 
+// not allow for the exclusion or limitation of implied warranties, so the above 
+// limitations or exclusions may not apply to you. IBM shall not be liable for 
+// any damages you suffer as a result of using, copying, modifying or 
+// distributing the Sample, even if IBM has been advised of the possibility of 
+// such damages.
+//*************************************************************************** -->
+<project name="Connector SDK Packaging Tool" default="build" basedir=".">
+	
+   <property environment="env"/>
+   <property name="env.CC_SDK_HOME" value="../../Delta Extract Stage/PackageBuilder/ConnectivitySDK"/>
+	
+   <property file="sdk.properties"/>
+   <fail unless="stage.id" message="SDK5000E Specify a value for the stage.id property. "/>
+   <fail unless="env.CC_SDK_HOME" message="SDK5001E Set the CC_SDK_HOME environment variable. "/>
+
+   <!-- check if build file exists on the current directory -->
+   <property name="absolute.path.basedir" location="${basedir}"/>
+   <property name="absolute.path.userdir" location="${user.dir}"/>
+   <condition property="executed.from.wrong.path">
+      <not><equals arg1="${absolute.path.basedir}" arg2="${absolute.path.userdir}"/></not>
+   </condition>
+   <fail if="executed.from.wrong.path" message="SDK5002E The build.xml script needs to exist in the current directory."/>
+         
+   <condition property="icon.is.not.set">
+      <not><isset property="icon"/></not>
+   </condition>
+   <condition property="smallicon.is.not.set">
+      <not><isset property="smallicon"/></not>
+   </condition>
+   
+   <!-- begin properties input by users -->
+   <property name="xml" value="${user.dir}/${stage.id}.xml"/>
+   <property name="jar" value="${user.dir}/${stage.id}.jar"/>
+   <property name="icon" value="${user.dir}/${stage.id}.bmp"/>
+   <property name="smallicon" value="${user.dir}/${stage.id}small.bmp"/>
+   <property name="res" value="${user.dir}"/>
+   <property name="target.dir" value="${user.dir}"/>
+   <property name="manifest.properties" value="${user.dir}/manifest.properties"/>
+   <!-- extra.files.dir is also used to add extra files in the package installation. -->
+   <!-- end properties input by users -->
+
+   <property name="tool.home" value="${env.CC_SDK_HOME}"/>
+   <property name="tool.jar" value="${tool.home}/jars/StageGenTool.jar"/>
+   <property name="jar.package.name" value="${stage.id}_Package.jar" />
+   <property name="jar.package" value="${target.dir}/${jar.package.name}"/>
+   <property name="package.dir" value="${target.dir}/package"/>
+   <property name="ispkg.dir" value="${target.dir}/ispkg"/>
+   <basename property="jar.basename" file="${jar}" suffix=".jar"/>
+
+   <condition property="to.create.target.dir">
+      <not>
+         <available file="${target.dir}" type="dir"/>
+      </not>
+   </condition>
+   <target name="create_target_dir" if="to.create.target.dir">
+      <mkdir dir="${target.dir}"/>
+   </target>
+
+   <condition property="to.copy.icon">
+      <and>
+         <available file="${icon}" type="file"/>
+         <available file="${smallicon}" type="file"/>
+      </and>
+   </condition>
+
+   <condition property="to.localize">
+      <or>
+         <available file="${res}/${stage.id}_de.txt" type="file"/>
+         <available file="${res}/${stage.id}_en.txt" type="file"/>
+         <available file="${res}/${stage.id}_es.txt" type="file"/>
+         <available file="${res}/${stage.id}_fr.txt" type="file"/>
+         <available file="${res}/${stage.id}_it.txt" type="file"/>
+         <available file="${res}/${stage.id}_ja.txt" type="file"/>
+         <available file="${res}/${stage.id}_ko.txt" type="file"/>
+         <available file="${res}/${stage.id}_pt_BR.txt" type="file"/>
+         <available file="${res}/${stage.id}_zh_CN.txt" type="file"/>
+         <available file="${res}/${stage.id}_zh_TW.txt" type="file"/>
+      </or>
+   </condition>
+
+   <path id="build.classpath">
+      <pathelement location="${tool.jar}"/>
+   </path>
+   
+   <target name="precheck.icon" unless="icon.is.not.set">
+      <available file="${icon}" property="icon.file.exists"/>
+      <fail unless="icon.file.exists" message="SDK5004E The icon property was specified but the file that was specified as the stage icon was not found."/>
+   </target>
+   <target name="precheck.smallicon" unless="smallicon.is.not.set">
+      <available file="${smallicon}" property="smallicon.file.exists"/>
+      <fail unless="smallicon.file.exists" message="SDK5005E The smallicon property was specified but the file that was specified as the small stage icon was not found."/>
+   </target>
+   <target name="precheck.manifest">
+      <available file="${manifest.properties}" type="file" property="manifest.file.exists"/>
+      <fail unless="manifest.file.exists" message="SDK5006E The following manifest properties file was not found: ${manifest.properties}"/>
+   </target>
+
+   <target name="precheck">
+      <ant target="precheck.icon"/>
+      <ant target="precheck.smallicon"/>
+      <ant target="precheck.manifest"/>
+   </target>
+   <target name="convert">
+      
+      <ant target="create_target_dir"/>
+      <java classname="com.ibm.iis.cc.sdk.DescriptorGenerator" fork="true" failonerror="true">
+         <classpath refid="build.classpath"/>
+         <arg value="-in"/>
+         <arg value="${xml}"/>
+         <arg value="-out"/>
+         <arg value="${target.dir}"/>
+         <arg value="-jarname"/>
+         <arg value="${jar.basename}.jar"/>
+      </java>
+
+      <ant target="createDeployWithIcon"/>
+      <ant target="createDeployWithoutIcon"/>
+   </target>
+   
+   <target name="createDeployWithIcon" if="to.copy.icon">
+      <java classname="com.ibm.iis.cc.sdk.DeployGenerator" fork="true" failonerror="true">
+         <classpath refid="build.classpath"/>
+         <arg value="-in"/>
+         <arg value="${xml}"/>
+         <arg value="-out"/>
+         <arg value="${target.dir}"/>
+         <arg value="-jarname"/>
+         <arg value="${jar.basename}.jar"/>
+         <arg value="-icon"/>
+      </java>
+   </target>
+
+   <target name="createDeployWithoutIcon" unless="to.copy.icon">
+      <java classname="com.ibm.iis.cc.sdk.DeployGenerator" fork="true" failonerror="true">
+         <classpath refid="build.classpath"/>
+         <arg value="-in"/>
+         <arg value="${xml}"/>
+         <arg value="-out"/>
+         <arg value="${target.dir}"/>
+         <arg value="-jarname"/>
+         <arg value="${jar.basename}.jar"/>
+      </java>
+   </target>
+
+   <target name="localize">
+      <ant target="localize_with_user_resources"/>
+      <ant target="copy_resources"/>
+   </target>
+   
+   <target name="localize_with_user_resources" if="to.localize">
+      <!-- first make sure English resource file exists -->
+      <condition property="english.res.file.exists" value="true">
+         <available file="${res}/${stage.id}_en.txt" type="file"/>
+      </condition>
+      <fail unless="english.res.file.exists" message="SDK5003E The directory ${res} must contain an English resource file."/>
+      <ant target="localize_with_res_file">
+         <property name="loc" value="en"/>
+         <property name="res.file.exists" value="true"/>
+      </ant>
+
+      <!-- check other resource files existence and process -->
+      <ant target="localize_if_res_file_exists">
+         <property name="loc" value="de"/>
+      </ant>
+      <ant target="localize_if_res_file_exists">
+         <property name="loc" value="es"/>
+      </ant>
+      <ant target="localize_if_res_file_exists">
+         <property name="loc" value="fr"/>
+      </ant>
+      <ant target="localize_if_res_file_exists">
+         <property name="loc" value="it"/>
+      </ant>
+      <ant target="localize_if_res_file_exists">
+         <property name="loc" value="ja"/>
+      </ant>
+      <ant target="localize_if_res_file_exists">
+         <property name="loc" value="ko"/>
+      </ant>
+      <ant target="localize_if_res_file_exists">
+         <property name="loc" value="pt_BR"/>
+      </ant>
+      <ant target="localize_if_res_file_exists">
+         <property name="loc" value="zh_CN"/>
+      </ant>
+      <ant target="localize_if_res_file_exists">
+         <property name="loc" value="zh_TW"/>
+      </ant>
+   </target>
+
+   <target name="localize_if_res_file_exists">
+      <condition property="res.file.exists" value="true">
+         <available file="${res}/${stage.id}_${loc}.txt" type="file"/>
+      </condition>
+      <ant target="localize_with_res_file"/>
+      <ant target="copy_res_file"/>
+   </target>
+   
+   <target name="localize_with_res_file" if="res.file.exists">
+         <java classname="com.ibm.iis.cc.sdk.FileLocalizer" fork="true" failonerror="true">
+            <classpath refid="build.classpath"/>
+            <arg value="-in"/>
+            <arg value="${target.dir}/StageDsc.xml"/>
+            <arg value="-res"/>
+            <arg value="${res}/${stage.id}_${loc}.txt"/>
+            <arg value="-out"/>
+            <arg value="${target.dir}/StageDsc_${loc}.xml"/>
+         </java>
+   </target>
+   
+   <target name="copy_res_file" unless="res.file.exists">
+      <copy file="${target.dir}/StageDsc_en.xml"    tofile="${target.dir}/StageDsc_${loc}.xml"    overwrite="true"/>
+   </target>
+
+   <target name="copy_resources" unless="to.localize">
+      <copy file="${target.dir}/StageDsc.xml"    tofile="${target.dir}/StageDsc_de.xml"    overwrite="true"/>
+      <copy file="${target.dir}/StageDsc.xml"    tofile="${target.dir}/StageDsc_en.xml"    overwrite="true"/>
+      <copy file="${target.dir}/StageDsc.xml"    tofile="${target.dir}/StageDsc_es.xml"    overwrite="true"/>
+      <copy file="${target.dir}/StageDsc.xml"    tofile="${target.dir}/StageDsc_fr.xml"    overwrite="true"/>
+      <copy file="${target.dir}/StageDsc.xml"    tofile="${target.dir}/StageDsc_it.xml"    overwrite="true"/>
+      <copy file="${target.dir}/StageDsc.xml"    tofile="${target.dir}/StageDsc_ja.xml"    overwrite="true"/>
+      <copy file="${target.dir}/StageDsc.xml"    tofile="${target.dir}/StageDsc_ko.xml"    overwrite="true"/>
+      <copy file="${target.dir}/StageDsc.xml"    tofile="${target.dir}/StageDsc_pt_BR.xml" overwrite="true"/>
+      <copy file="${target.dir}/StageDsc.xml"    tofile="${target.dir}/StageDsc_zh_CN.xml" overwrite="true"/>
+      <copy file="${target.dir}/StageDsc.xml"    tofile="${target.dir}/StageDsc_zh_TW.xml" overwrite="true"/>
+   </target>
+
+   <target name="inject">
+      <copy file="${jar}" tofile="${target.dir}/${jar.basename}_injected.jar" overwrite="true"/>
+      <jar jarfile="${target.dir}/${jar.basename}_injected.jar" update="true">
+         <fileset dir="${tool.home}/resources">
+            <include name="com/**"/>
+         </fileset>
+      </jar>
+   </target>
+
+   <target name="archive" depends="inject">
+
+      <mkdir dir="${package.dir}"/>
+      <mkdir dir="${package.dir}/Server"/>
+      <mkdir dir="${package.dir}/Server/Shared"/>
+      <mkdir dir="${package.dir}/META-INF"/>
+
+      <mkdir dir="${package.dir}/META-INF/de"/>
+      <mkdir dir="${package.dir}/META-INF/en"/>
+      <mkdir dir="${package.dir}/META-INF/es"/>
+      <mkdir dir="${package.dir}/META-INF/fr"/>
+      <mkdir dir="${package.dir}/META-INF/it"/>
+      <mkdir dir="${package.dir}/META-INF/ja"/>
+      <mkdir dir="${package.dir}/META-INF/ko"/>
+      <mkdir dir="${package.dir}/META-INF/pt_BR"/>
+      <mkdir dir="${package.dir}/META-INF/zh_CN"/>
+      <mkdir dir="${package.dir}/META-INF/zh_TW"/>
+
+      <copy file="${target.dir}/${jar.basename}_injected.jar" tofile="${package.dir}/Server/Shared/${jar.basename}.jar" overwrite="true"/>
+
+      <copy file="${target.dir}/StageDsc_de.xml"    tofile="${package.dir}/META-INF/de/StageDsc.xml"    overwrite="true"/>
+      <copy file="${target.dir}/StageDsc_en.xml"    tofile="${package.dir}/META-INF/en/StageDsc.xml"    overwrite="true"/>
+      <copy file="${target.dir}/StageDsc_es.xml"    tofile="${package.dir}/META-INF/es/StageDsc.xml"    overwrite="true"/>
+      <copy file="${target.dir}/StageDsc_fr.xml"    tofile="${package.dir}/META-INF/fr/StageDsc.xml"    overwrite="true"/>
+      <copy file="${target.dir}/StageDsc_it.xml"    tofile="${package.dir}/META-INF/it/StageDsc.xml"    overwrite="true"/>
+      <copy file="${target.dir}/StageDsc_ja.xml"    tofile="${package.dir}/META-INF/ja/StageDsc.xml"    overwrite="true"/>
+      <copy file="${target.dir}/StageDsc_ko.xml"    tofile="${package.dir}/META-INF/ko/StageDsc.xml"    overwrite="true"/>
+      <copy file="${target.dir}/StageDsc_pt_BR.xml" tofile="${package.dir}/META-INF/pt_BR/StageDsc.xml" overwrite="true"/>
+      <copy file="${target.dir}/StageDsc_zh_CN.xml" tofile="${package.dir}/META-INF/zh_CN/StageDsc.xml" overwrite="true"/>
+      <copy file="${target.dir}/StageDsc_zh_TW.xml" tofile="${package.dir}/META-INF/zh_TW/StageDsc.xml" overwrite="true"/>
+
+      <copy file="${target.dir}/Deploy.xml"    todir="${package.dir}/META-INF/de/"    overwrite="true"/>
+      <copy file="${target.dir}/Deploy.xml"    todir="${package.dir}/META-INF/en/"    overwrite="true"/>
+      <copy file="${target.dir}/Deploy.xml"    todir="${package.dir}/META-INF/es/"    overwrite="true"/>
+      <copy file="${target.dir}/Deploy.xml"    todir="${package.dir}/META-INF/fr/"    overwrite="true"/>
+      <copy file="${target.dir}/Deploy.xml"    todir="${package.dir}/META-INF/it/"    overwrite="true"/>
+      <copy file="${target.dir}/Deploy.xml"    todir="${package.dir}/META-INF/ja/"    overwrite="true"/>
+      <copy file="${target.dir}/Deploy.xml"    todir="${package.dir}/META-INF/ko/"    overwrite="true"/>
+      <copy file="${target.dir}/Deploy.xml"    todir="${package.dir}/META-INF/pt_BR/" overwrite="true"/>
+      <copy file="${target.dir}/Deploy.xml"    todir="${package.dir}/META-INF/zh_CN/" overwrite="true"/>
+      <copy file="${target.dir}/Deploy.xml"    todir="${package.dir}/META-INF/zh_TW/" overwrite="true"/>
+      
+      <ant target="copy_icon_to_package"/>
+      
+      <jar jarfile="${jar.package}">
+         <fileset dir="${package.dir}">
+            <include name="**"/>
+         </fileset>
+      </jar>
+   </target>
+
+   <target name="copy_icon_to_package" if="to.copy.icon">
+      <mkdir dir="${package.dir}/Bitmaps"/>
+      <copy file="${icon}"      tofile="${package.dir}/Bitmaps/${stage.id}PX.bmp"  overwrite="true"/>
+      <copy file="${smallicon}" tofile="${package.dir}/Bitmaps/${stage.id}PXs.bmp" overwrite="true"/>
+   </target>
+
+   <target name="package">
+      <property file="${manifest.properties}"/>
+      <property name="ispkg.package" value="${target.dir}/${package.name}.ispkg"/>
+      <mkdir dir="${ispkg.dir}"/>
+      <condition property="to.package.with.files">
+         <isset property="extra.files.dir"/>
+      </condition>
+      <ant target="generate.manifest.with.files"/>
+      <ant target="generate.manifest.without.files"/>
+
+      <copy file="${jar.package}" todir="${ispkg.dir}" overwrite="true"/>
+      
+      <zip destfile="${ispkg.package}" basedir="${ispkg.dir}/" includes="**"/>
+   </target>
+
+   <target name="generate.manifest.with.files" if="to.package.with.files">
+      <java classname="com.ibm.iis.cc.sdk.ManifestGenerator" fork="true" failonerror="true">
+         <classpath refid="build.classpath"/>
+         <arg value="-in"/>
+         <arg value="${manifest.properties}"/>
+         <arg value="-out"/>
+         <arg value="${ispkg.dir}/PatchManifest.xml"/>
+         <arg value="-jarname"/>
+         <arg value="${jar.package.name}"/>
+         <arg value="-add"/>
+         <arg value="${extra.files.dir}"/>
+      </java>
+      <copy todir="${ispkg.dir}" overwrite="true">
+         <fileset dir="${extra.files.dir}"/>
+      </copy>
+   </target>
+
+   <target name="generate.manifest.without.files" unless="to.package.with.files">
+      <java classname="com.ibm.iis.cc.sdk.ManifestGenerator" fork="true" failonerror="true">
+         <classpath refid="build.classpath"/>
+         <arg value="-in"/>
+         <arg value="${manifest.properties}"/>
+         <arg value="-out"/>
+         <arg value="${ispkg.dir}/PatchManifest.xml"/>
+         <arg value="-jarname"/>
+         <arg value="${jar.package.name}"/>
+      </java>
+   </target>
+   <!--
+        The target that cleans up the build environment and build all artifacts from scratch
+   -->
+   <target name="build" description="Package everything">
+      <ant target="precheck"/>
+      <ant target="clean"/>
+      <ant target="convert"/>
+      <ant target="localize"/>
+      <ant target="archive"/>
+      <ant target="package"/>
+   </target>
+
+   <target name="clean">
+      <!-- Not deleting ${target.dir} because it's current directory by default. -->
+      <delete quiet="true" file="${target.dir}/StageDsc.xml" />
+      <delete quiet="true" file="${target.dir}/Deploy.xml" />
+      
+      <delete quiet="true" file="${target.dir}/StageDsc.xml" />
+      <delete quiet="true" file="${target.dir}/StageDsc_de.xml"/>
+      <delete quiet="true" file="${target.dir}/StageDsc_en.xml"/>
+      <delete quiet="true" file="${target.dir}/StageDsc_es.xml"/>
+      <delete quiet="true" file="${target.dir}/StageDsc_fr.xml"/>
+      <delete quiet="true" file="${target.dir}/StageDsc_it.xml"/>
+      <delete quiet="true" file="${target.dir}/StageDsc_ja.xml"/>
+      <delete quiet="true" file="${target.dir}/StageDsc_ko.xml"/>
+      <delete quiet="true" file="${target.dir}/StageDsc_pt_BR.xml"/>
+      <delete quiet="true" file="${target.dir}/StageDsc_zh_CN.xml"/>
+      <delete quiet="true" file="${target.dir}/StageDsc_zh_TW.xml"/>
+
+      <delete quiet="true" file="${target.dir}/${jar.basename}_injected.jar"/>
+      <delete quiet="true" file="${jar.package}"/>
+      <delete quiet="true">
+         <fileset dir="${target.dir}">
+            <include name="*.ispkg"/>
+         </fileset>
+      </delete>
+      <delete quiet="true" dir="${package.dir}"/>
+      <delete quiet="true" dir="${ispkg.dir}"/>
+   </target>
+</project>   

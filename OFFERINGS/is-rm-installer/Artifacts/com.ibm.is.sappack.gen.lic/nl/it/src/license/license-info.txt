@@ -1,0 +1,49 @@
+﻿INFORMAZIONI RELATIVE ALLA LICENZA
+
+I Programmi descritti di seguito sono forniti in licenza in base alle seguenti clausole e condizioni che integrano quelle di IBM Accordo Internazionale di Licenza di Programmi (Form number IBM Z125-3301-14).
+
+Nome Programma: IBM InfoSphere Information Server Pack for SAP Applications v7.1
+Numero Programma: 5724-Q55
+
+Nome Programma: IBM InfoSphere Information Server Pack for SAP Applications for Non-Production v7.1
+Numero Programma: 5724-Q55
+
+Come descritto nell'International Program License Agreement ("IPLA") e in queste Informazioni sulla Licenza, IBM concede al licenziatario un diritto limitato di utilizzare il Programma. Questo diritto è limitato al livello di Uso Autorizzato, come Processor Value Unit ("PVU"), Value Unit ("VU"), o altro livello di utilizzo specificato, pagato dal licenziatario come evidenziato nella Prova di Titolarità. L'utilizzo del licenziatario può anche essere limitato ad una macchina specifica, o solo come Programma di Supporto, o soggetto ad altre limitazioni. Poichè il licenziatario non ha pagato per tutto il valore economico del Programma, non è consentito nessun altro utilizzo senza il pagamento di canoni aggiuntivi. Inoltre, come dichiarato nell'IPLA, il licenziatario non può utilizzare il Programma per fornire servizi IT commerciali a terze parti, fornire hosting o timesharing commerciali, o sublicenziare, noleggiare o concedere in leasing il Programma se non espressamente stabilito negli accordi applicabili in base ai quali il licenziatario ottiene autorizzazioni all'utilizzo del Programma. Il licenziatario può ottenere altri diritto a seguito del pagamento di canoni aggiuntivi o in base a clausole diverse o supplementari. IBM si riserva il diritto di determinare se tali diritti aggiuntivi possano essere disponibili per il licenziatario.
+
+Le specifiche del Programma si possono trovare nelle sezioni pubbliche Descrizioni e Informazioni Tecniche delle Lettere d'Annuncio del Programma.
+
+Programmi di Supporto
+
+Il Programma è concesso in licenza come pacchetto multi-prodotto ed include i Programmi di Supporto identificati di seguito. Il licenziatario può installare ed utilizzare tali Programmi di Supporto solo per supportare il proprio utilizzo del Programma Principale in base a questo Accordo ed entro i limiti delle Prove di Titolarità per il Programma (salvo laddove siano concessi diritti più ampi altrove in questo documento di Informazioni di Licenza). L'espressione "per supportare il proprio utilizzo" include solo quegli utilizzi che sono necessari o in altro modo direttamente correlati ad un uso autorizzato del Programma Principale o di un altro Programma di Supporto. I Programmi di Supporto non possono essere utilizzati per altri scopi. Il licenziatario non può trasferire o rivendere i Programmi di Supporto separatamente dal Programma Principale. Un Programma di Supporto può essere accompagnato da clausole di licenza e tali clausole, se esistenti, si applicano all'utilizzo di quel Programma di Supporto da parte del licenziatario. In caso di conflitto, le clausole di questo documento di Informazioni relative alla Licenza prevarranno sulle clausole del Programma di Supporto. Una volta scaduti o terminati i diritti di utilizzo del Programma, il licenziatario deve interromperne l'uso, distruggere o rimandare prontamente indietro tutte le copie dei Programmi di Supporto alla parte da cui il licenziatario ha acquisito il Programma. Se il licenziatario ha scaricato i Programmi di Supporto, dovrà contattare la parte da cui ha acquisito il Programma. Se il licenziatario desidera concedere in licenza i Programmi di Supporto affinché vengano utilizzati oltre i limiti di quanto consentito sopra, dovrà contattare un Rappresentante vendite IBM o la società da cui ha acquisito il Programma per ottenere la licenza appropriata.
+
+Di seguito i Programmi di Supporto concessi in licenza con il Programma:
+- IBM Cognos Business Intelligence v10.2
+- IBM Master Data Management Reference Data Management Hub v10.1
+- IBM Conversion Workbench Migration Asset for SAP Applications v2.1
+- IBM Cognos Data Manager Connector for SAP R/3 v10.2
+
+Componenti consentite
+
+Nonostante quanto dichiarato nell'Accordo, il licenziatario può utilizzare solo le seguenti componenti o funzioni del Programma di Supporto identificato:
+- IBM Master Data Management Reference Data Management Hub (may only be used with IBM Conversion Workbench Migration Asset for SAP Applications)
+- IBM Cognos Business Intelligence (may only be used with IBM Conversion Workbench Migration Asset for SAP Applications)
+- Cognos Connection (of IBM Cognos Business Intelligence)
+- Framework Manager (of IBM Cognos Business Intelligence)
+- Report Studio (of IBM Cognos Business Intelligence)
+- Report Viewer (of IBM Cognos Business Intelligence)
+
+Limitazione per Non-Produzione
+
+Se il Programma è designato per "Non-Produzione", il Programma può essere utilizzato solo come parte dello sviluppo interno del licenziatario e come ambiente di test per attività interne di non-produzione, incluse a titolo di esempio il test, l'ottimizzazione delle prestazioni, la diagnosi degli errori, la verifica delle prestazioni interne (benchmarking), lo staging, e attività di garanzia di qualità e/o sviluppare aggiunte o estensioni da utilizzare internamente al Programma utilizzando interfacce di application programming pubblicate. Il licenziatario non può utilizzare alcuna parte del Programma per altri scopi senza acquisire le titolarità per produzione appropriate.
+
+Limitazioni all'utilizzo a vantaggio di una Terza Parte
+
+Il licenziatario non può utilizzare il Programma o qualsiasi sua componente per fornire service bureau, servizi di hosting, o qualsiasi tipo di servizi di tecnologia per informazioni commerciali a terze parti, o trasferire il Programma ad una terza parte, fatto salvo quanto diversamente stabilito da IBM per iscritto.
+
+Installazione
+
+Un'Installazione è l'unità di misura per cui il Programma può essere concesso in licenza. Un'Installazione è una copia installata del Programma su un disco virtuale o fisico reso disponibile per essere eseguito su un computer. Il licenziatario deve ottenere una titolarità per ogni Installazione del Programma.
+
+L/N:  L-SBRN-9FN46Q
+D/N:  L-SBRN-9FN46Q
+P/N:  L-SBRN-9FN46Q 

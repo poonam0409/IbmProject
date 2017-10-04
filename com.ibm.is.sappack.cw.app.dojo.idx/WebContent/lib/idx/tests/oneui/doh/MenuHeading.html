@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>oneui.MenuHeading DOH Test</title>
+		
+		<script type="text/javascript" src="../../dojoVersion.js"></script>
+
+		<script type="text/javascript">
+			dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		</script>
+	
+	    <style id="idxStyles" type="text/css">
+    	    @import "../../../themes/oneui/oneui.css";
+        	@import "../../../themes/test.css";
+	    </style>
+		
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+			dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+
+		<script type="text/javascript" id="postDojo">
+			var modules = [
+				"doh", 
+				"idx.oneui.MenuBar", 
+				"idx.oneui.Menu", 
+				"idx.oneui.MenuHeading", 
+				"dijit.PopupMenuBarItem", 
+				"dijit.dijit", 
+				"dojo._base.sniff", 
+				"dojo.parser",
+				"dojo.query",
+				"dojo.string",
+				"dojo.ready"];
+
+			var doh, 
+				MenuBar, 
+				Menu, 
+				MenuHeading, 
+				PopupMenuBarItem, 
+				dijit, 
+				has, 
+				parser,
+				query,
+				string,
+				ready;
+					
+			function preParse(modules){
+				doh = modules["doh"];
+				MenuBar = modules["idx/oneui/MenuBar"];
+				Menu = modules["idx/oneui/Menu"]; 
+				MenuHeading = modules["idx/oneui/MenuHeading"]; 
+				PopupMenuBarItem = modules["dijit/PopupMenuBarItem"]; 
+				dijit = modules["dijit/dijit"]; 
+				has = modules["dojo/_base/sniff"]; 
+				parser = modules["dojo/parser"];
+				query = modules["dojo/query"];
+				string = modules["dojo/string"];
+				ready = modules["dojo/ready"];
+			}
+				
+			function postParse(modules){
+				var testPerformance = /mode=benchmark/i.test(window.location.href);
+				if(!testPerformance){
+					// Register API tests.
+					doh.register("MenuHeadingAPI", [
+						{
+							name: "parse", 
+							runTest: function(t){
+								parser.parse();
+								doh.t(dijit.byId("menu_bar_1"));
+								doh.t(dijit.byId("menu_1"));
+								doh.t(dijit.byId("menu_heading_1"));
+							}
+						},
+				        {
+				            name: "SetLabel",
+				            runTest: function(t){
+								var mh = dijit.byId("menu_heading_1");
+								var labelText = 'Menu heading #1';  // Initial value from declared HTML, below.
+								var x = textContent(mh.domNode);
+								doh.t(textContent(mh.domNode) === labelText);
+								doh.t(mh.label == labelText);
+								labelText = 'New menu heading #1';
+								mh.set("label", labelText);
+								doh.t(textContent(mh.domNode) === labelText);
+								doh.t(mh.label == labelText);
+				            }
+				        }
+				    ]);      
+				}else{
+					// Register performance tests
+					doh.register("MenuHeadingPerformance", [
+						{
+							testType: "perf",
+							name: "Create Menu Heading",
+							trialDuration: 100,
+							trialIterations: 20,
+							trialDelay: 100,
+							setUp: function(t){
+								parser.parse();
+							},
+							runTest: function(t){
+								var m = dijit.byId("menu_2");
+								m.addChild(new MenuHeading({label: "oneui.MenuHeading"}));
+							},
+							tearDown: function(t){
+								query("[widgetid*=oneui_MenuHeading]", "menu_2").forEach(function(mh){
+									dijit.byNode(mh).destroyRecursive(false);
+								});
+							}
+						}
+					]);
+				}
+
+				doh.run();
+			}
+
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+
+			function textContent(node){
+				return string.trim(has("ff") ? node.textContent : node.innerText);
+			}
+		</script>
+
+		<script type="text/javascript" src="../../commonTest.js"></script>
+	</head>
+	<body >
+		<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+		<h1 class="testTitle">DOH Test of idx.oneui.MenuHeading</h1>
+	    <div id="menu_bar_1" data-dojo-type="idx.oneui.MenuBar">
+			<div data-dojo-type="dijit.PopupMenuBarItem">
+				<span>idx.oneui.Menu #1</span>
+				<div id="menu_1" data-dojo-type="idx.oneui.Menu">
+					<div id="menu_heading_1" data-dojo-type="idx.oneui.MenuHeading" data-dojo-props="label:'Menu heading #1'">Error - label property did not work.</div> 
+					<div id="menu_item_1" data-dojo-type="dijit.MenuItem">Menu item #1</div>
+				</div>
+			</div>
+			<div data-dojo-type="dijit.PopupMenuBarItem">
+				<span>idx.oneui.Menu #2</span>
+				<div id="menu_2" data-dojo-type="idx.oneui.Menu">
+				</div>
+			</div>
+	    </div>
+	</body>
+</html>

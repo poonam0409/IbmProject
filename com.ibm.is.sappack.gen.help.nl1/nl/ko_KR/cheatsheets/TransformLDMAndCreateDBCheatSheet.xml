@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="작업 생성을 위해 논리 데이터 모델 준비">
+   <intro>
+      <description>
+         이 치트 시트에서는 논리 데이터 모델을 Rapid Generator for SAP에 대해
+         사용될 실제 데이터 모델로 변환하는 방법을 보여 줍니다.
+         또한 이 치트 시트에서는 이 실제 모델에서 DB를 작성하는 방법도 보여 줍니다.
+         
+         <br/>
+         <b>참고: 표시된 대로 정확하게 다음과 같은 단계에서 프로젝트, 모델 등의
+         이름을 입력하십시오. 그렇지 않으면 "수행하기" 단추가 작동하지 않을 수 있습니다.
+         하지만 "완료 시 클릭" 단추는 계속 작동합니다.
+         </b>
+      </description>
+   </intro>
+   <item
+         dialog="true"
+         href="/com.ibm.datatools.transform.ui.doc/topics/ctransform.html"
+         title="논리 모델을 실제 모델로 변환">
+      <description>
+         Rapid Modeler for SAP를 사용하여 SAP에서 메타데이터를 가져오는 데 사용한
+         논리 데이터 모델로 이동하십시오.
+      </description>
+      <subitem
+            label="논리 데이터 모델을 마우스 오른쪽 단추로 클릭한 후 실제 데이터 모델로 변환을 선택하십시오. ">
+      </subitem>
+      <subitem
+            label="대상 실제 데이터 모델 페이지에서 새 모델 작성을 선택하십시오. 다음을 클릭하십시오. ">
+      </subitem>
+      <subitem
+            label="실제 데이터 모델 파일 페이지에서 DB2를 대상 데이터베이스로 선택하십시오. 다음을 클릭하십시오. ">
+      </subitem>
+      <subitem
+            label="옵션 페이지에서 설정(특히 스키마 이름)을 확인하십시오. 다음을 클릭하십시오. ">
+      </subitem>
+      <subitem
+            label="출력 마법사 페이지에서 완료를 클릭하십시오. ">
+      </subitem>
+         </item>
+   <item
+         title="DB2 데이터베이스 식별">
+      <description>
+         SAP 데이터를 보유하기 위해 사용할 DB2 데이터베이스를 시스템 환경에서 식별하십시오.
+         <br/> 
+         이 데이터베이스에 대한 ODBC 연결을 DataStage 서버 시스템에서 작성해야 합니다.
+         ODBC 연결을 작성하는 방법은 운영 체제에 따라 다릅니다. 시스템 관리자에게
+         문의하십시오.
+      </description>
+   </item>
+   <item
+         dialog="true"
+         href="/com.ibm.datatools.connection.repository.ui.doc/topics/tcommon_connecting_wiz.html"
+         title="데이터베이스에 대한 연결 작성">
+      <description>
+         이 단계를 사용하면 InfoSphere Data Architect에서 데이터베이스에 대한 연결을 작성할 수 있습니다.
+         <br/>
+         데이터베이스에서 이전에 수동으로 작성된 DDL 스크립트를 실행하려는 경우에는 이 단계를 건너뛸 수 있습니다.
+      </description>
+      <subitem
+            label="데이터 소스 탐색기 보기에서 데이터베이스 연결 -&gt; 새로 작성을 마우스 오른쪽 단추로 클릭하십시오. "
+            skip="true"> 새로 작성.">
+      </subitem>
+      <subitem
+            label="데이터베이스의 연결 정보를 입력하는 동안 새 연결 마법사를 클릭하십시오. "
+            skip="true">
+      </subitem>
+   </item>
+   <item
+         skip="true"
+         title="DataStage 서버에서 ODBC 연결 작성">
+      <description>
+         데이터베이스에 대한 ODBC 연결을 DataStage 서버
+         시스템에서 작성해야 해당 연결을  DataStage 작업에서
+         사용할 수 있습니다.
+      </description>
+   </item>
+   <item
+         dialog="true"
+         href="/com.ibm.datatools.fe.ui.doc/topics/ruidll_saverun.html"
+         title="DDL 스크립트 생성">
+      <description>
+         데이터 프로젝트 탐색기의 이전 단계에서 작성된 결과 실제 데이터 모델을 탐색하십시오. dbm 항목을 두 번 클릭하십시오.
+         dbm 파일 아래의 데이터베이스 항목을 마우스 오른쪽 단추로 클릭한 후 DDL 생성을 선택하십시오.
+         DDL 생성 마법사를 진행하여 데이터 디자인 프로젝트에서 .sql 파일을 작성하십시오.
+      </description>
+      <subitem
+            label="데이터 프로젝트 탐색기의 이전 단계에서 작성된 결과 실제 데이터 모델을 탐색하여 두 번 클릭하십시오. ">
+      </subitem>
+      <subitem
+            label="dbm 파일 아래의 데이터베이스 항목을 마우스 오른쪽 단추로 클릭한 후 DDL 생성을 선택하십시오. ">
+      </subitem>
+      <subitem
+            label="DDL 생성 마법사를 진행하여 데이터 디자인 프로젝트에서 .sql 파일을 작성하십시오. ">
+      </subitem>
+   </item>
+   <item
+         href="/com.ibm.datatools.server.ui.doc/topics/cdatabaseexplorer.html"
+         title="데이터베이스에서 DDL 스크립트 실행">
+      <description>
+         이 단계에서는 이전 단계에서 작성된 연결에서 DDL 스크립트를 실행하는 방법을 보여 줍니다.
+      </description>
+      <subitem
+            label="데이터 디자인 프로젝트의 SQL 스크립트 폴더에서 .sql 파일을 두 번 클릭한 후 SQL 실행을 선택하십시오. "
+            skip="true">
+      </subitem>
+      <subitem
+            label="이전 단계에서 작성된 데이터베이스 연결을 선택한 후 마법사를 완료하십시오. "
+            skip="true">
+      </subitem>
+   </item>
+      </cheatsheet>

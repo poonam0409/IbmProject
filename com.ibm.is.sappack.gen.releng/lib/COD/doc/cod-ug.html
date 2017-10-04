@@ -1,0 +1,889 @@
+<html>
+
+<!-- ***************************************************** {COPYRIGHT-TOP} ***
+* IBM Confidential
+*
+* Licensed Internal Code - Property of IBM
+*
+* Copyrights On Demand (COD)
+*
+* (C) Copyright IBM Corp. 2004, 2011  All Rights Reserved.
+********************************************************** {COPYRIGHT-END} -->
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Copyrights On Demand &quot;User's Guide&quot;</title>
+<link href="cod.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<a name="top"></a>
+ 
+<table border="0" cellpadding="4" cellspacing="4" width="100%" > <tr> <td class="Box" colspan="1" valign="top"> <font size="+3">User's<br>Guide</font> <td class="Box" colspan="4" align="center"> <a href="http://w3.ibm.com/connections/communities/service/html/communityview?communityUuid=ff89b7ae-dda7-462a-82c1-be74cb87b274"><img src="cod-logo.jpg" border="0"></a></td> <td class="Box" colspan="1" valign="top" ><p align="right"><b><small><u>Version</u></small></b><br>4.0.0b <p align="right"><b><u><small>Last Updated</small></u><br></b>06/24/2011 </td> </tr> </table>
+ 
+<p>
+The COD tool assists product teams in complying with the
+requirements of IBM Corporate Standard <a href="http://w3-06.ibm.com/jp/domino60/mkt/cmi4web8.nsf/f38024cf92ab644849256b7d00003858/80b440b64c60ebec492573be0030e1f3/$FILE/C-S%200-6045-002.pdf">C-S 0-6045-002</a>
+by automating the maintenance
+of the copyright banners within its source parts.
+</p>
+  
+<table border="0" width="100%" cellspacing="6">
+
+  <tr>
+    <td class="Desc"><strong>Information in this document</strong></td>
+    <td>&nbsp;</td>
+    <td class="Desc"><strong>Related Information</strong></td>
+    <td>&nbsp;</td>
+    <td class="Desc"><strong>COD Information</strong></td>
+  </tr>
+  
+  <tr>
+    <td valign="top" class="Cell"><a href="#how">How does COD work?</a></td>
+    <td>&nbsp;</td>
+    <td class="Cell">
+      <p>IBM Corporate Standard <a href="http://w3-06.ibm.com/jp/domino60/mkt/cmi4web8.nsf/f38024cf92ab644849256b7d00003858/80b440b64c60ebec492573be0030e1f3/$FILE/C-S%200-6045-002.pdf">C-S 0-6045-002</a></p>
+      <blockquote><font size="-1">&quot;Proprietary Protection for IBM Materials (Including Copyright)&quot;</font></blockquote>      
+		</td>
+    <td>&nbsp;</td>
+    <td class="Cell">CSNext <a href="http://w3.ibm.com/connections/communities/service/html/communityview?communityUuid=ff89b7ae-dda7-462a-82c1-be74cb87b274">Community</a></td>
+  </tr>
+  
+  <tr>
+    <td class="Cell"><a href="#howToUse">How do I use the COD tool?</a></td>
+    <td></td>
+    <td class="Cell">Legal <a href="http://w3.ibm.com/articles/legal/copyright_main.html">information and guidance</a></td>
+    <td>&nbsp;</td>
+    <td class="Cell">Available <a href="https://csnext.ibm.com/ram/search/index.jsp?a=fGroup%2Ccod">Assets</a></td>
+  </tr>
+  
+  <tr>
+    <td class="Cell"><a href="#yourProduct">Using COD with Your Product</a></td>
+    <td>&nbsp;</td>
+    <td class="Cell">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class="Cell"><a href="readme.html">Read Me</a></td>
+  </tr>
+  
+	<tr>
+	  <td class="Cell"><a href="#classCopyrights">Managing Copyright Information
+    in .class Files</a></td>
+ 		<td>&nbsp;</td>
+    <td class="Cell">&nbsp;</td>
+		<td>&nbsp;</td>
+    <td class="Cell"><a href="cod-task.html">COD</a> ANT Task</td>
+	</tr>
+	
+	<tr>
+    <td valign="top" class="Cell"><a href="#installation">Installation</a> </td>
+    <td>&nbsp;</td>
+    <td class="Cell">&nbsp;</td>
+    <td>&nbsp;</td>
+   <td class="Cell"><a href="rtc-changes-task.html">rtc-changes</a> ANT Task</td>
+  </tr>
+    
+  <tr>
+    <td class="Cell">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class="Cell">&nbsp;</td>
+    <td>&nbsp;</td>
+   <td class="Cell">Legacy <a href="http://w3.opensource.ibm.com/projects/cod">project</a></td>
+  </tr>
+ 
+</table>
+
+<hr  class="Sep">
+<a name="how"></a>
+<h1>How does COD work? </h1>
+<h2>The Big Picture</h2>
+<p>COD examines a set of product source files. Based 
+  on a file's extension, the appropriate product defined copyright content <a href="#definitions">rules</a> 
+  are applied and the file is re-written.</p>
+  
+<p><img src="overview.jpg"></p>
+<a name="anatomy" id="anatomy"></a>
+<h2>Anatomy of a Source Part</h2>
+<p>COD views each source part as being composed of these areas:</p>
+<table border="0" cellpadding="4">
+  <tr>
+    <td colspan="2" class="Code"><div align="center"><strong>File</strong></div></td>
+    <td>&nbsp;</td>
+    <td class="Desc"><strong>Notes</strong></td>
+    <td class="Desc"><strong><a href="#definitions">&lt;ext&gt;.copyright </a> Property</strong></td>
+    <td class="Desc"><strong><a href="#product">product.properties</a> Property</strong></td>
+  </tr>
+  <tr>
+    <td colspan="2" class="Cell"><div align="center">[ Head ]</div></td>
+    <td>&nbsp;</td>
+    <td><font color="#FF0000">Optional;</font> varies by type of file</td>
+    <td><span class="arg"><strong>Read:</strong></span><strong> <span class="Property">head.<em>#</em></span></strong></td>
+    <td><strong>&nbsp;</strong></td>
+  </tr>
+  <tr>
+    <td rowspan="3" class="Desc"><strong>B<br>
+      a<br>
+      n<br>
+      n<br>
+      e<br>
+      r</strong></td>
+    <td class="Cell">[ Top  &quot;Marker&quot; ]</td>
+    <td>&nbsp;</td>
+    <td rowspan="3"><font color="#FF0000">Optional</font>&nbsp;&nbsp;</td>
+    <td><p><strong><font color="#FF0000">Write:</font> <span class="Property">top-line</span></strong> if
+      banner is added or the <span class="arg"><a href="#migrate-top-end">migrate</a> <font color="#000000">option
+      is used</font></span></p>
+    </td>
+    <td><strong><span class="arg"><strong>Read:</strong></span> tag.top</strong></td>
+  </tr>
+  <tr>
+    <td class="Cell"><p><br>
+        <strong>&nbsp;&nbsp;&nbsp;</strong>[&nbsp;Copyright&nbsp;Content&nbsp;]<br>
+        <br>
+      </p>
+    </td>
+    <td>&nbsp;</td>
+    <td><strong><font color="#FF0000">Write:</font><span class="Property"> text.#</span> </strong>in
+      all cases</td>
+    <td><strong>&nbsp;</strong></td>
+  </tr>
+  <tr>
+    <td class="Cell">[ End    &quot;Marker&quot; ]</td>
+    <td>&nbsp;</td>
+    <td><strong><font color="#FF0000">Write:</font> <span class="Property">end-line</span></strong> if
+      banner is added or the <span class="arg"><a href="#migrate-top-end">migrate</a> <font color="#000000">option
+      is used</font></span></td>
+    <td><strong><span class="arg"><strong>Read:</strong></span> tag.end</strong></td>
+  </tr>
+  <tr>
+    <td colspan="2" class="Cell"><p align="center"><strong><br>
+      Body
+            <br>
+            <br>
+</strong></p>
+    </td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td><strong>&nbsp;</strong></td>
+    <td><strong>&nbsp;</strong></td>
+  </tr>
+</table>
+
+<h2>Imbedded Copyright Information</h2>
+
+<p>COD uses a set of dedicated <em><a href="#topEndTags">tags</a></em> 
+to locate the start/end of the imbedded copyright information in a source 
+part. For simplicity, the same <em>tags </em>are used for every file extension. 
+This makes the fuzzy guess work of where copyright banners are located a thing 
+of the past. The downside is that development must be made aware of this process. 
+</p>
+
+<p>The tool will automatically insert a banner if one is not detected.
+Therefore, a common approach to starting a new project with COD is to remove
+all copyright banners from current source files and let the tool add them. </p>
+
+<p>The following is a snippet of a Java file that shows its
+  existing copyright banner (in <strong>bold</strong>).</p>
+<p class="Code"><strong><font size="-1">
+  /*********************************************************** {COPYRIGHT-TOP} *** <BR>
+  * IBM Confidential <br>
+  * <br>
+  * Copyrights On Demand (COD) <br>
+  * <br>
+  * (C) Copyright IBM Corp. 1999, 2004 <br>
+  ************************************************************ {COPYRIGHT-END} **/ 
+  </font></strong><font size="-1"><BR>
+  import java.awt.*; <BR>
+  import javax.swing.*; <BR>
+  <BR>
+  public class HelloWorld<BR>
+  {<BR>
+  ... </font></p>
+  
+<p>Notice that the copyright banner is:</p>
+<ol>
+  <li> delimited by the lines containing <strong>{COPYRIGHT-TOP}</strong> and 
+    <strong>{COPYRIGHT-END}</strong> regardless of what ever text is on the same 
+    line. 
+    <ul>
+      <li>The COD tool use these tags to locate and <a href="#determiningECD">extract</a> 
+        existing copyright information (see the next section)</li>
+    </ul>
+  </li>
+  <li> contained within a proper Java comment</li>
+</ol>
+
+<a name="determiningECD"></a>
+<h3>Determination of the &quot;Year 1&quot; Copyright Date</h3>
+<p>When existing copyright banner lines are detected, they are scanned to extract 
+  relevant copyright date information for inclusion in the updated file </p>
+<ul>
+  <li> The current copyright date(s) are found by located the  line that contains
+    both <span class="Term">&quot;(c)&quot;</span> 
+    and <span class="Term">&quot;copyright&quot;</span> 
+  </li>
+  <li>The entire line is parsed into tokens 
+      (delimited by a space, comma, hyphen, and period)</li>
+  <li> The numeric token found with the lowest value is <em>remembered</em> as 
+    the &quot;Year 1&quot; date. Mistakes in ordering are simply&quot;absorbed&quot;... 
+  </li>
+</ul>
+<h4>Examples of Determining the &quot;Year 1&quot; Copyright Date</h4>
+<table border="1" cellspacing="2" cellpadding="2">
+  <tr>
+    <td class="Desc">Existing Copyright Date(s)</td>
+    <td class="Desc">&quot;Year 1&quot;</td>
+  </tr>
+  <tr>
+    <td>2002</td>
+    <td>2002 (duh!)</td>
+  </tr>
+  <tr>
+    <td>2000,2002</td>
+    <td>2000</td>
+  </tr>
+  <tr>
+    <td>2000, 2001, 2002, 2003</td>
+    <td>2000</td>
+  </tr>
+  <tr>
+    <td>2003, 2001</td>
+    <td>2001</td>
+  </tr>
+  <tr>
+    <td>2001-2004</td>
+    <td>2001</td>
+  </tr>
+</table>
+
+<h3>Generation of the Copyright Dates</h3>
+<p>The copyright date(s) is inserted into the <span class="Property"><strong>text.# </strong></span>line
+  that contains <span class="Term">&quot;&lt;COPYRIGHT DATE&gt;&quot;</span>.
+</p>
+<p>
+It's formatting is defined by Section 7.2 of the Corporate Standard 
+and may be controlled using the <a href="#format-copyright">cod.format</a> property [since 4.0] 
+</p>
+<p>
+The optional <a href="#exclude-copyright">cod.exclude</a> property [since 4.0] 
+allows one or more years to be automatically excluded before the 
+the formatting occurs.  
+
+This can be useful for development projects that 
+span multiple years (say 2010 and 2011) and some source parts have  
+already been updated with a copyright year of 2010.  
+By excluding 2010 you can:
+<ol>
+<li>enforce the use of just <code>2011</code>; important if <i>all</i> copyright years are being used
+<li>ensure that new parts correctly use just <code>2011</code> instead of <code>2010, 2011</code>
+</ol> 
+</p>
+<p>
+As an optimization, if the resulting copyright date(s) are the same as what was 
+in the original file, the file is not re-written.
+</p>
+ 
+<hr  class="Sep">
+
+<a name="product" id="product"></a>
+<h2>Defining Product Specific Information to COD</h2>
+<p>COD uses product specific information to tailor how its operates so that it
+can  meet the needs of any  product. This is important since products vary
+in their security classification and the types of source files they use. All of
+this information is placed into a single directory that is then specified when
+ COD is run.</p>
+<p><img src="productdefs.jpg"></p>
+
+<h3>Product Specific Properties</h3>
+<p>COD reads the <strong>product.properties</strong> file 
+to obtain all of the product specific information it requires.</p>
+<p>COD ships <strong>defs/product.properties</strong> as an
+example.  It defines:</p>
+<ol>
+  <li>A set of COD <font color="#FF0000">operational controls</font></li>
+  <li>All of the <em><font color="#0000FF">insert </font></em><font color="#0000FF">values</font> that
+    may be used in a copyright definitions file. Many of these text strings are
+    defined by <strong>C-S 0-6045-002</strong>. 
+    This simplifies a product's effort by having all possible required text
+    strings ready for use as they <a href="#yourProduct">customize</a> the
+    copyright definitions files.</li>
+</ol>
+
+<table border="1" cellpadding="4" cellspacing="2" bgcolor="#eeeeee" width="100%">
+  <tr>
+    <td>
+<pre>
+<font color="#FF0000">
+################################################################################
+# The following values provide additional control over COD's operation
+################################################################################
+
+<a name="leading-blanks" id="leading-blanks"></a>
+###########################################################
+# Character that indicates &quot;leading whitespace &quot; in the
+# values read from a copyright definition file.
+# COD will automatically convert to a space. 
+# 
+# Note: this is because leading whitespace is automatically
+# trimmed by Java when a .properties file is loaded 
+# (see Properties.load() javadoc for full details)
+#
+# Default: ^
+###########################################################
+cod.leading = ^ 
+
+<a name="migrate-top-end" id="migrate-top-end"></a>
+##########################################################
+# Boolean that controls if COD automatically migrates the 
+# Top/End Banner Lines
+# 
+# Default: false
+###########################################################
+cod.migrate = false 
+
+<a name="format-copyright" id="format-copyright"></a>
+###########################################################
+# Controls how COD formats copyright date(s) 
+# 
+# Values:  all.........format all defined copyright date(s)
+#                      2001 | 2001, 2011 | 2001, 2002, 2011 | 2001, 2002, 2009, 2011
+#
+#          firstLast...format just first and last copyright date(s)
+#                      2001 | 2001, 2011
+#
+# Default: firstLast
+###########################################################
+cod.format    = firstLast 
+
+<a name="exclude-copyright" id="exclude-copyright"></a>
+###########################################################
+# Defines year(s) that should be excluded from the 
+# final formatted copyright date(s) 
+# 
+# Values:  one or more years; blank or comma separated
+#          2001 | 2001 2011 | 2001, 2002, 2011 | 2001, 2002, 2009, 2011
+#
+# Default: no years are automatically excluded
+###########################################################
+cod.exclude   = 2010
+</font>
+<font color="#0000FF">
+################################################################################
+# The following values are automatically inserted into various lines
+# of each *.copyright file.
+#
+# - The current product information is inserted by specifying {product}
+################################################################################
+ 
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+# These values MUST be updated for your product
+#/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+<strong>
+###########################################################
+# Your product's name/PID/etc for every copyright banner. 
+###########################################################
+</strong>
+product =***Your Product***
+
+#/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+# These values are usually NOT updated for your product
+#/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+
+###########################################################
+# Define the various security levels
+###########################################################
+security.conf =IBM Confidential
+
+###########################################################
+# Define the various categories of material
+###########################################################
+category.internal =Licensed Internal Code - Property of IBM
+category.licensed =Licensed Materials - Property of IBM
+category.oco =OCO Source Materials
+
+###########################################################
+# Additional &quot;Licensed Source Material&quot; Legend
+###########################################################
+licensed.rm =&quot;Restricted Materials of IBM&quot;
+
+###########################################################
+# Copyright Notice Template
+#
+# - &lt;COPYRIGHT DATE&gt; indicates where COD should insert the 
+# appropriate copyright year(s)
+#
+# Reference: C-S 0-6045-002 Section 7.2
+###########################################################
+copyright =(C) Copyright IBM Corp. &lt;COPYRIGHT DATE&gt;
+
+###########################################################
+# Additional Copyright Qualifier
+###########################################################
+all.rights =All Rights Reserved.
+
+###########################################################
+# Reference: C-S 0-6045-002 Section 7.4
+###########################################################
+oco.trade.secret.1 =The source code for this program is not published or otherwise 
+oco.trade.secret.2 =divested of its trade secrets, irrespective of what has been 
+oco.trade.secret.3 =deposited with the U.S. Copyright Office.
+
+###########################################################
+# Reference: C-S 0-6045-002 Section 7.9
+###########################################################
+us.gov.1 =US Government Users Restricted Rights - Use, duplication, or
+us.gov.2 =disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+
+################################################################################
+# The &quot;unique&quot; text that indicates to COD the top of the copyright banner lines.
+#
+# - it is used when scanning a file's contents to determine if it already 
+# contains a set of banner lines.
+# - when a set of copyright banner lines is added to a file, this value is 
+# automatically inserted into the file type's TOPLINE definition 
+################################################################################
+tag.top ={COPYRIGHT-TOP}
+
+################################################################################
+# The &quot;unique&quot; text that indicates to COD the end of the copyright banner lines.
+#
+# - it is used when scanning a file's contents to locate the end of the set
+# of banner lines started by &quot;tag.top&quot;
+#
+# - when a set of copyright banner lines is added to a file, this value is 
+# automatically inserted into the file type's ENDLINE definition 
+################################################################################
+ tag.end ={COPYRIGHT-END}
+</font></pre> 
+</td>
+  </tr>
+</table>
+<br>
+<hr  class="Rule">
+
+<a name="definitions" id="definitions"></a>
+<h3>Product Specific Copyright Banner Definitions</h3>
+<p>When a file is processed, COD uses its extension (.java,
+  .xml, etc) to locate the appropriate copyright<strong> </strong> definitions file</p>
+<ul>
+  <li>If one is found, it's content defines how to format the copyright banner 
+    in a manner that will not affect the source part (i.e. a Java file will still 
+    compile without errors, scripts will still run, etc). </li>
+  <li>If one is not  found, then that file
+    is simply ignored (i.e. not processed/updated)</li>
+</ul>
+<p>COD ships a set of example definition files: <strong>defs/*.copyright</strong>.
+   Each product must analyze and <a href="#yourProduct">customize</a> these files
+   to meet their unique copyright requirements according to the Corporate Standard.</p>
+<p>Each definitions file is a standard Java <strong>Properties</strong> file
+  with the following format:</p>
+<p class="Code"><font size="-1"># This is a comment line<br>
+  <br>
+&lt;property name&gt; =&lt;property value&gt;</font></p>
+<p class="Normal">The following
+shows what a <strong>java.copyright</strong> definition file 
+looks like:</p>
+<table border="1" cellpadding="4" cellspacing="2" bgcolor="#eeeeee">
+  <tr>
+    <td width="666"><pre><strong><font size="-1">top-line</font></strong><font size="-1">=/********************************************************* <strong>{tag.top}</strong> *** 
+text.1 &nbsp;=* <strong>{security.conf} </strong>
+text.2 &nbsp;=* <strong>{category.oco}</strong> 
+text.3 &nbsp;=*   <strong>{product}</strong> 
+text.4 &nbsp;=* 
+text.5 &nbsp;=* <strong>{copyright}</strong> 
+text.6 &nbsp;=* 
+text.7 &nbsp;=* <strong>{oco.trade.secret.1}</strong>  
+text.8 &nbsp;=* <strong>{oco.trade.secret.2}</strong> 
+text.9 &nbsp;=* <strong>{oco.trade.secret.3}</strong> 
+<strong>end-line</strong>=********************************************************** <strong>{tag.end}</strong> **/</font></pre>
+    </td>
+  </tr>
+</table>
+
+<p>Items such as <strong>{tag.top} </strong>indicate where <a href="#product">product.properties</a>  values are to be inserted</p>
+<p>The <span class="Property"><strong>top-line</strong></span> and <span class="Property"><strong>end-line</strong></span> properties
+define the lines to be used for these situations:</p>
+<ol>
+  <li>when a copyright banner does NOT already exist in the file</li>
+  <li>when a copyright banner DOES  exist in the file and the <span class="arg"><a href="#migrate-top-end">migrate</a></span> option
+    has been enabled</li>
+</ol>
+<ul>
+  <li>They must work together and with the <span class="Property"><strong>text</strong></span> properties
+    to  generate a set of lines that are treated as comments by whatever tool
+    may 
+    process the file. </li>
+  <li>These are file type specific.</li>
+  <li>Above, when all properties are added the result is a multi-line Java comment 
+    block. </li>
+  <li>An alternative would have been to format <span class="Property"><strong>top-line</strong></span>, <span class="Property"><strong>text.#</strong></span><strong>,</strong> 
+    and <span class="Property"><strong>end-line</strong> </span>using
+    Java's single line comment indicator: (i.e. 
+    <font color="#006600"><strong>text.1 = // {security.conf} </strong></font>)</li>
+  <li>Existing top/end lines can optionally be <a href="#migrate-top-end">migrated</a></li>
+</ul>
+<p>The <span class="Property"><strong>text</strong> </span>properties
+  defines the copyright banner  content for this file type. </p>
+<ul>
+  <li> It is specified as an array of lines using consecutive index values (1..n). 
+    Do not leave any gaps! 
+  <li>If the file's type does not support &quot;block&quot; comments, then every 
+    <span class="Property">text</span> line must be started by the appropriate
+    comment indicator
+  <li>The remainder of the line can should then contain indicators where one or 
+    more <a href="#product">product.properties</a> values should be inserted to 
+    create the appropriate text. 
+  <li>For example, place <span class="Term"> {copyright} </span>where you want 
+    the standard copyright notice to be placed.
+  <li>Existing banner text is always completely replaced by these values. 
+  <li>If a banner is added to the file, they are placed between the <span class="Property"><strong>top-line</strong></span> 
+  and <span class="Property"><strong>end-line</strong></span> properties. 
+  <li>Support has been added to allow the use of <a href="#leading-blanks">leading
+      blanks</a> 
+</ul>
+<hr  class="Sep">
+<p>Since the <a href="#anatomy">anatomy</a> of some files require that certain
+   text appear before the copyright banner, the <span class="Property"><strong>head.#</strong></span><strong> </strong>properties
+    (where the # represents a number like the <span class="Property">text</span> property
+    above) are used to define  these line(s). The following shows what a copyright
+    definition for an XML file would use:</p>
+<p class="Code"><font size="-1"><strong>HEAD.1 =&lt;?xml</strong></font></p>
+<p>The <span class="Property"><strong>head.1</strong></span> property
+  tells COD that the banner lines must be added after the <strong>&lt;?xml</strong>.line
+  as required by the XML standard.</p>
+<hr  class="Sep">
+<p>It is quite common that  the  copyright banner is  the
+  same for multiple file extensions. The <span class="Property"><strong>use-for</strong></span> property
+  defines the other file extension(s) that this definition should 
+  also be
+  used for. </p>
+<p>For instance, the <strong>html.copyright </strong>definitions could include
+  this property so that .htm files also use the same banner definition.</p>
+<p class="Code"><font size="-1">use-for=htm</font></p>
+<p>The format is: <span class="Property">use-for</span> = <font color="#0000FF">ext</font> [ <font color="#0000FF">&lt;sep&gt; ext &lt;sep&gt; ext</font> ...
+  ]</p>
+<p>where:</p>
+<ul>
+  <li><font color="#0000FF">ext </font>is a file extension such as java or cmd; do not include a period</li>
+  <li><font color="#0000FF">&lt;sep&gt;</font> can be a blank or  comma</li>
+</ul>
+<p>These default *.copyright files contain a <span class="Property">use-for</span> property:</p>
+<table border="1" cellpadding="4">
+  <tr>
+    <td class="Desc"><strong>Definition File</strong></td>
+    <td class="Desc"><strong>use-for Definition</strong></td>
+    <td class="Desc"><strong>Since</strong></td>
+  </tr>
+  <tr>
+    <td>bat.copyright</td>
+    <td>cmd</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>html.copyright</td>
+    <td>htm</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>pl.copyright</td>
+    <td>pm</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>xml.copyright</td>
+    <td>dtd, xsd, xsl</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<br>
+<hr  class="Sep">
+<h1>How do I use the COD tool?<a name="howToUse"></a></h1>
+
+The <a href="cod-task.html">COD</a> tool is run as an ANT task.
+<p>
+The complementary
+<a href="rtc-changes-task.html">rtc-changes</a> task allows you to process  the 
+		files that have been changed in your RTC repository [since 4.0].</p>
+		
+<hr  class="Sep">
+<h1>Using COD with Your Product<a name="yourProduct" id="yourProduct"></a></h1>
+<p>For COD to update your source parts in a manner that's
+    proper for your product's classification, you must <em>tweak </em>the COD
+    provided definition files. Here's how.</p>
+
+<h2 >Create Your Own Set of Definition Files</h2>
+  
+<ol>
+  <li> 
+    <div align="left">Create a new directory, say <strong>codDefs, 
+      </strong></div>
+    <ul>
+      <li><span class="Tip">Tip </span> Its recommended to place this directory 
+        somewhere in your product's source tree so that it can be persisted in 
+        a source control system (CMVC, CVS, etc) for use next release </li>
+    </ul>
+  </li>
+  <li>Copy the entire contents of one of the following directories to <strong>codDefs</strong>. 
+    Choose the one that most closely matches the file types contained in your 
+    product 
+    <ol type="a">
+      <li><strong>&lt;install root&gt;/defs</strong> </li>
+      <li><strong>&lt;install root&gt;/product-samples/COD </strong></li>
+      <li><strong>&lt;install root&gt;/product-samples/Xxxx</strong></li>
+    </ol>
+  </li>
+</ol>
+
+<h2>Edit <strong>codDefs/product.properties </strong> 
+</h2>
+<ol>
+  <li>change the value of the<strong> product</strong> property to the appropriate
+  value for your product. this would be your product name, PID, etc</li>
+</ol>
+
+<h2>Update Your Copyright Definitions</h2>
+<ol>
+  <li>Review 
+      IBM Corporate Standard <a href="http://w3-06.ibm.com/jp/domino60/mkt/cmi4web8.nsf/f38024cf92ab644849256b7d00003858/80b440b64c60ebec492573be0030e1f3/$FILE/C-S%200-6045-002.pdf">C-S 0-6045-002</a>
+      and determine the format of the copyright banner you'll need 
+      for each type of file.  </li>
+  <ul>
+    <li>Refer to <em><strong>Appendix A. Sample Proprietary Statements</strong></em> 
+    for guidance.</li>
+  </ul>
+  <li>Update each <strong>codDefs/*.copyright </strong>file based on your requirements 
+  </li>
+  <ul>
+    <li>Use the appropriate <strong>product.properties</strong> inserts</li>
+    <li>Add/insert/delete <span class="Property"><strong>text</strong></span><strong> </strong>line(s) if necessary but
+      remember to keep the index numbers in sequential consecutive order</li>
+    <li>Use the <span class="Property">use-for</span> property if there are multiple
+       file types that can share the same copyright banner</li>
+  </ul>
+  <li>For each file extension <em><strong>xxx</strong></em> that COD has not been 
+        provided a <strong>xxx.copyright</strong> file 
+    <ul>
+      <li> create <strong>codDefs/xxx.copyright</strong> </li>
+      <li>define the appropriate copyright text, top/end lines, and head line(s) 
+        [if necessary]</li>
+      <li>if <em><strong>xxx</strong></em> is a common file type, then consider 
+            contributing your <strong>xxx.copyright</strong> file back to the
+        COD project :-)</li>
+    </ul>
+  </li>
+</ol>
+
+<h2>Running COD</h2>
+<p>Create an Ant build script with the appropriate &lt;CODgt; task(s).
+  Its <strong>&lt;fileset&gt;</strong> element(s) provides the most
+  flexible means of locating the files to be processed.</p>
+
+<h2>Test Your Definition Files in a &quot;Sandbox&quot;</h2>
+
+<p>Getting the copyright information just right is often an iterative process,
+so its recommended to let <strong>COD</strong>process a &quot;sandbox&quot; 
+copy of your source parts as tweak your *.copyright definitions.</p>
+
+<p>Be sure to verify both of this scenarios:</p>
+
+<ol>
+  <li> 
+    <strong>Files already contain a copyright banner</strong>
+  </li>
+  <ul>
+    <li>were they correctly updated?</li>
+  </ul>
+  <li> 
+    <strong>Files missing a copyright banner</strong>
+    <ul>
+      <li> 
+        were they correctly added?
+      </li>
+      <li>were they added according to any <span class="Property"><strong>head.#</strong></span><strong> </strong>specification?</li>
+    </ul>
+  </li>
+</ol>
+
+<h2>Final Run</h2>
+<p>After you are satisfied that your work
+in the &quot;sandbox&quot; is 100% correct:</p>
+ 
+  <ol>
+    <li>
+         Make a backup of your &quot;master&quot; source tree
+    </li>
+         >Run <strong>COD</strong>against the &quot;master&quot; source tree
+    </li>
+    <li>Check-in the final <strong>codDefs </strong>files into your source
+    control system 
+    </li>
+    <li>Take that needed vacation...</li>
+  </ol>
+ 
+<p><a href="#top">Top</a></p>
+      
+<hr  class="Sep">
+<a name="classCopyrights" id="classCopyrights"></a>
+
+<h1>Managing Copyright Information in .class Files</h1>
+<p>
+The purpose of  COD is to manage the copyright information
+contained in your source parts and/or shipped samples/text files. 
+IBM Corporate Standard <a href="http://w3-06.ibm.com/jp/domino60/mkt/cmi4web8.nsf/f38024cf92ab644849256b7d00003858/80b440b64c60ebec492573be0030e1f3/$FILE/C-S%200-6045-002.pdf">C-S 0-6045-002</a>
+also defines the requirement to place proprietary statements
+in the products object code. For Java based products this means the generated
+<b>.class</b> file.</p>
+
+<p>
+COD has been modified to demonstrate one technique for doing this.</p>
+      
+<h2 >The &quot;Master&quot; COPYRIGHT Text</h2>
+<p>
+The <strong>Info.java </strong>file contains
+the <em>master</em> copyright
+text. This provides a single point of maintenance. All other Java source
+files reference this constant.</p>
+
+               <table border="1" cellpadding="4">
+                <tr>
+                  <td class="Code"><p> <strong>public final static String COPYRIGHT</strong> =<br>
+                    <br>
+                      &nbsp;&nbsp;&quot;Licensed Materials-Property of IBM&quot;<br>
+                    + &quot;\nCopyrights On Demand&quot;<br>
+                    + &quot;\n(C)Copyright IBM Corp 2004,<font color="#FF0000">2005</font>&quot;<br>
+                    + &quot;\nAll rights reserved&quot;<br>
+                    + &quot;\nUS Govt Users Restricted Rights-&quot;<br>
+                    + &quot;Use,duplication,or disclosure restricted by GSA ADP Schedule Contract
+w/IBM Corp&quot;;<br>
+                    </p>
+                  </td>
+                </tr>
+              </table>
+              
+<p>
+The ANT build script (build.xml) actually generates the <strong>Info.java
+</strong>file. One of the reason is so that the ending copyright date (<font color="#FF0000">2005</font>)
+can be automatically maintained.</p>
+
+<h2> Referencing the &quot;Master&quot; COPYRIGHT Text</h2>
+<p>
+All other Java source files simply reference the <em>master</em> copyright
+text. By using a package qualified reference, an<strong> import</strong> statement does not
+have to be added to any .java file.</p>
+
+          <table border="1" cellpadding="4">
+            <tr>
+              <td class="Code"><p>   
+/*****************************************************************************<br>
+* This will imbed required copyright text into generated .class file.<br>
+*<br>
+* Note: 'C' used as field name just to reduce # bytes added to .class<br>
+*****************************************************************************/<br>
+@SuppressWarnings( "unused" )<br>
+private static final String C = com.ibm.tools.copyright.Info.COPYRIGHT;<br>
+                </p>
+              </td>
+            </tr>
+          </table>
+
+ <div align="left">
+ <a href="#top">Top</a> 
+ <br>
+
+<h2>Verifying the .class File</h2>
+<p>
+You can verify that a .class file contains copyright information by simply 
+<i>typing</i> the file from a command prompt:
+<p>
+<img src="class-copyright.png" border="8">      
+ 
+ <hr  class="Sep">
+ <a name="installation" id="installation"></a>
+ <h1>Installation Structure</h1>
+ 
+ <p>The directory structure is created when you  unzip the  COD
+       installation ZIP file:</p>
+  
+ <table border="1" cellpadding="4" width="100%">
+      <tr> 
+        <td rowspan="7" valign="top" class="Code"> 
+<pre>
+&lt;COD install root&gt;  
+    | 
+    +-- defs
+    | 
+    +-- doc
+    | 
+    +-- lib
+    | 
+    +-- product-samples  
+    |   |
+    |   +-- COD 
+    |   +-- xxx
+    | 
+    +-- test   
+        |
+        +-- xxx
+        
+</pre> 
+        </td>
+        <td class="Desc"><strong>Directory</strong></td>
+        <td class="Desc"><strong>Contents</strong></td>
+      </tr>
+      
+      <tr> 
+        <td valign="top" class="Cell">defs</td>
+        <td class="Normal"><ol>
+            <li>Default <span class="Term"><strong>product.properties</strong></span> 
+              file</li>
+            <li>Default<strong> <span class="Term">*.copyright</span> </strong>definition 
+              files</li>
+          </ol></td>
+      </tr>
+      
+      <tr> 
+        <td valign="top" class="Cell"><font color="#000000"><strong>doc</strong></font></td>
+        <td class="Normal"><p>All of the COD documentation</p>
+        </td>
+      </tr>
+      
+      <tr> 
+        <td valign="top" class="Cell"><font color="#000000"><strong>lib</strong></font></td>
+        <td class="Normal"><p>The <strong> COD </strong>code JAR file:<strong> 
+            cod.jar</strong></p>
+          <p>
+            It also contains the 
+            <a href="enabling-cod-ant-tasks.html">definitions</a> 
+            of the COD ANT tasks. 
+        </td>
+      </tr>
+      
+      <tr> 
+        <td valign="top" class="Cell">product-samples</td>
+        <td class="Normal"><p>This directory contains a variety of product samples.
+       </tr>
+      
+      <tr> 
+        <td valign="top" class="Cell">product-samples\COD</td>
+        <td class="Normal">This directory contains the files used to run <strong>COD</strong> 
+          against its own source</td>
+      </tr>
+     
+      <tr> 
+        <td valign="top" class="Cell">test</td>
+        <td class="Normal">This directory contains Ant-based unit tests for 
+            the COD tasks.
+            <ul compact>
+            <li>Studying the test case XML files can provide insight/ideas for your
+            own use of these tasks.          
+            <li>Subdirectories contain sets of test data for various test scenarios.
+            </ul>
+       </tr>      
+    </table>
+</div>
+</div>
+     
+ <hr class="Sep"> <table width="100%" border="0" cellspacing="4" cellpadding="4"> <tr> <td valign="top"><img src="cod-small.png"></td> <td valign="top"> <div align="center"> <strong>COD: <a href="http://w3.ibm.com/connections/communities/service/html/communityview?communityUuid=ff89b7ae-dda7-462a-82c1-be74cb87b274">Copyrights On Demand</a></strong> <br> <font size="-1">Copyright &copy; 2004, 2011 IBM Corporation - All rights Reserved.</font> </div> </td> <td valign="top"><div align="right">v4.0.0b - 06/24/2011</div></td> </tr> </table>
+ 
+</body>
+</html>

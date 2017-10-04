@@ -1,0 +1,227 @@
+////////////////////////////////////////////////////////////////////////////////
+// IBM Confidential                                                            
+//                                                                             
+// OCO Source Materials                                                        
+//                                                                             
+// 5724-Q55                                                                 
+//                                                                             
+// (C) Copyright IBM Corporation 2009, 2014                                              
+//                                                                             
+// The source code for this program is not published or otherwise              
+// divested of its trade secrets, irrespective of what has been                
+// deposited with the U.S. Copyright Office.                                     
+//////////////////////////////////////////////////////////////////////////////// 
+// Maintenance log - insert most recent change descriptions at top 
+//
+// Date....  WorkItem WHO     Description........................................
+//
+// 03/20/2011   95535 osuhre  Initial creation
+// 01/08/2013  156132 hschoen All messages moved from sapstagesmessages.properties
+// 04/09/2014  199326 hschoen Message 'CC_IDOC_ConfigFileEmpty' added
+////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////
+//
+// Correct encoding for this file and translations: UTF-8
+//
+//////////////////////////////////////////////////////////
+
+CC_IDOC_msgs_ja_JP:table
+{
+// new        
+   // descriptor messages
+   // load
+	CC_IDOC_LOAD_STAGE_DISPLAY_NAME:string {"IDoc Load Connector �X�e�[�W"}
+	CC_IDOC_LOAD_SHORT_DESC:string {"IDoc �� SAP �փ��[�h���邽�߂̃X�e�[�W"} 
+	CC_IDOC_LOAD_LONG_DESC:string {"IDoc �� SAP �փp�������Ƀ��[�h���邽�߂̃X�e�[�W"} 
+        
+   // extract
+	CC_IDOC_EXTRACT_STAGE_DISPLAY_NAME:string {"IDoc Extract Connector �X�e�[�W"}
+	CC_IDOC_EXTRACT_SHORT_DESC:string {"SAP �����M���� IDoc ���������邽�߂̃X�e�[�W"} 
+	CC_IDOC_EXTRACT_LONG_DESC:string {"IDoc ���X�i�[�E�T�[�r�X��ʂ��� SAP ����ȑO�Ɏ�M���� IDoc ���������邽�߂̃X�e�[�W"} 
+           
+   // common
+    CC_IDOC_PX_REPOSITORY_LOCATION:string {"\\\\�X�e�[�W�E�^�C�v\\\\�p������\\\\�p�b�N"}
+ 
+   /////////////////////////////////
+   // Stage properties
+   
+   // common stage properties 
+        CC_IDOC_SP_DESTINATION:string {"����"}
+	CC_IDOC_SP_USERNAME:string {"     ���[�U�[��"} 
+	CC_IDOC_SP_JOBNAME:string {"�W���u��"} 
+	CC_IDOC_SP_FILENAME:string {"�t�@�C����"} 
+	CC_IDOC_SP_PASSWORD:string {"     �p�X���[�h"} 
+	CC_IDOC_SP_CLIENT:string {"�N���C�A���g"} 
+	CC_IDOC_SP_IDOCTYP:string {"IDoc �^�C�v��"} 
+	CC_IDOC_SP_BASTYP:string {"��{�^�C�v��"} 
+	CC_IDOC_SP_LANGUAGE:string {"     ����"} 
+	CC_IDOC_SP_CONNECTIONNAME:string {"�ڑ���"} 
+	CC_IDOC_SP_USEDEFAULTSAPLOGON:string {"�f�t�H���g�� SAP ���O�I��?"} 
+	CC_IDOC_SP_USEOFFLINEPROCESSING:string {"�t�@�C���Ɋ�Â� IDoc �������g�p�\�ɂ��܂���?"} 
+	CC_IDOC_SP_ROUTERSTR:string {"���[�^�[�E�X�g�����O"} 
+	CC_IDOC_SP_PLUGVSN:string {"�v���O�C���E�o�[�W����"} 
+        // design time only properties
+	CC_IDOC_SP_CONNECTIONNAMEDT:string {"�f�U�C�����ڑ���"} 
+	CC_IDOC_SP_DSSAPCONNECTIONDT:string {"�f�U�C�����ڑ�"} 
+	CC_IDOC_SP_USESAPLOGONDT:string {"�f�U�C�����p�̂��̐ڑ����g�p���܂���?"} 
+	CC_IDOC_SP_DSSAPCONNECTIONPARAMETERDT:string {"�f�U�C�����ڑ��p�����[�^�[��"} 
+	CC_IDOC_SP_IDOCTYPE:string {"IDoc �^�C�v���"} 
+	CC_IDOC_SP_GWHOST:string {"Gateway �z�X�g"} 
+	CC_IDOC_SP_SYSNBR:string {"�V�X�e���ԍ�"} 
+	CC_IDOC_SP_MSGSVR:string {"���b�Z�[�W�E�T�[�o�["} 
+	CC_IDOC_SP_SYSNAME:string {"�V�X�e�� ID"} 
+	CC_IDOC_SP_GROUP:string {"�O���[�v"} 
+	CC_IDOC_SP_LOADBLN:string {"���[�h�E�o�����V���O"} 
+	CC_IDOC_SP_SAPUSERID:string {"�J�X�^�� SAP ���[�U�[ ID"} 
+	CC_IDOC_SP_SAPPASSWORD:string {"�J�X�^�� SAP �p�X���[�h"} 
+	CC_IDOC_SP_SAPCLIENTNUMBER:string {"�J�X�^�� SAP �N���C�A���g�ԍ�"} 
+	CC_IDOC_SP_SAPLANGUAGE:string {"�J�X�^�� SAP ����"} 
+	CC_IDOC_SP_DSSAPCONNECTION:string {"DSSAPCONNECTION"}
+	CC_IDOC_SP_DSSAPCONNECTIONPARAMETER:string {"�ڑ��p�����[�^�[��"}                 
+	CC_IDOC_SP_PORT_VERSION:string {"PORT_VERSION"} 
+	CC_IDOC_SP_IDOC_TYPE_VERSION:string {"IDOC_TYPE_VERSION"}
+	CC_IDOC_SP_OFFLINE_DESIGN:string {"�I�t���C���E�f�U�C��"}
+
+    // load stage properties
+    CC_IDOC_LOAD_SP_MESSAGETYPE:string {"IDoc ���b�Z�[�W�E�^�C�v (����)"}        
+    CC_IDOC_LOAD_SP_MESTYP:string {"IDoc ���b�Z�[�W�E�^�C�v"}        
+
+    // extract stage properties
+	CC_IDOC_EXTRACT_SP_IDOC_EXTRACT_LIST:string {"IDOC Extract ���X�g"}
+	CC_IDOC_EXTRACT_SP_MANUAL_BATCH_SIZE:string {"�蓮�o�b�`�E�T�C�Y"}
+	CC_IDOC_EXTRACT_SP_TESTMODE:string {"�e�X�g�E���[�h"} 
+
+
+    ////////////////////////////////////////
+    // Link properties
+    
+    // commmon link properties
+	CC_IDOC_LP_SEGTYP:string {"�Z�O�����g�E�^�C�v��"} 
+      // design time only link properties
+	CC_IDOC_LP_DESCRIPTION:string {"����"} 
+	CC_IDOC_LP_PORT_VERSION:string {"PORT_VERSION"} 
+	CC_IDOC_LP_IDOC_TYPE_VERSION:string {"IDOC_TYPE_VERSION"} 
+	CC_IDOC_LP_OBJECTTYPE:string {"OBJECTTYPE"} 
+	CC_IDOC_LP_OBJECTNAME:string {"OBJECTNAME"} 
+	CC_IDOC_LP_RECORDTYP:string {"RECORDTYP"} 
+	CC_IDOC_LP_SEGNAM:string {"SEGNAM"} 
+	CC_IDOC_LP_CONNECTION_NAME:string {"CONNECTION_NAME"} 
+	CC_IDOC_LP_IDOC_TYPE_NAME:string {"IDOC_TYPE_NAME"} 
+	  // Link properties for the Metadata Workbench integration (DataLineage)
+	CC_IDOC_LP_PDS_LOCATOR:string {"���p�f�[�^�E�\�[�X�E���P�[�^�["}
+	CC_IDOC_LP_PDS_FIELDMAP:string {"���p�f�[�^�E�\�[�X�E�t�B�[���h�E�}�b�v"}
+    
+    // load link properties
+	CC_IDOC_LOAD_LP_FKEYCOLS:string {"�O���L�["} 
+	CC_IDOC_LOAD_LP_PKEYCOLS:string {"��L�["} 
+      // design time only load link properties
+	CC_IDOC_LOAD_LP_IDOCCOMPONENTTOLOAD:string {"IDOCCOMPONENTTOLOAD"} 
+	CC_IDOC_LOAD_LP_LOADFIELDLIST:string {"LOADFIELDLIST"} 
+	CC_IDOC_LOAD_LP_PARENTOBJECTTYPE:string {"PARENTOBJECTTYPE"} 
+	CC_IDOC_LOAD_LP_PARENTOBJECTNAME:string {"PARENTOBJECTNAME"} 
+	CC_IDOC_LOAD_LP_PKEYCOUNT:string {"PKEYCOUNT"} 
+	CC_IDOC_LOAD_LP_FKEYCOUNT:string {"FKEYCOUNT"} 
+      
+    // extract link properties
+	CC_IDOC_EXTRACT_LP_IDOCCOMPONENTTOEXTRACT:string {"���o���� IDoc �R���|�[�l���g"} 	
+	CC_IDOC_EXTRACT_LP_EXTRACTFIELDLIST:string {"���o�t�B�[���h�E���X�g"} 	
+            
+	CC_COMMON_PRPDSC_JAVA_CATEGORY:string {"CC_COMMON_PRPDSC_JAVA_CATEGORY"}
+	CC_COMMON_PRPLBL_JAVA_CATEGORY:string {"CC_COMMON_PRPLBL_JAVA_CATEGORY"}
+	CC_COMMON_PRPLBL_JAVA_CLASSPATH:string {"CC_COMMON_PRPLBL_JAVA_CLASSPATH"}
+	CC_COMMON_PRPDSC_JAVA_CLASSPATH:string {"CC_COMMON_PRPDSC_JAVA_CLASSPATH"}
+	CC_COMMON_PRPDSC_JAVA_JVM_OPTIONS:string {"CC_COMMON_PRPDSC_JAVA_JVM_OPTIONS"}
+	CC_COMMON_PRPLBL_JAVA_JVM_OPTIONS:string {"CC_COMMON_PRPLBL_JAVA_JVM_OPTIONS"}
+
+	// --> moved from file 'sapstagesmessages.properties'
+	CC_IDOC_VersionInfo:string {"�o�[�W�������: {0}"}
+	CC_IDOC_SAPUser:string {"SAP ���[�U�["}
+	CC_IDOC_SAPPassword:string {"SAP �p�X���[�h"}
+	CC_IDOC_SAPClientId:string {"SAP �N���C�A���g ID"}
+	CC_IDOC_SAPLangue:string {"SAP ����"}
+
+	CC_IDOC_CommonUnexpectedException:string {"�\��Ȃ���O���������܂����B{0}"}
+	CC_IDOC_UnexpectedSAPException:string {"SAP �Ƃ̒ʐM���ɗ\��Ȃ���O���������܂����B{0}"}
+	CC_IDOC_ConfigFileNotFound:string {"�\���t�@�C���u{0}�v���T�[�o�[��Ō�����܂���ł����B"}
+	CC_IDOC_ConfigFileWrongFormat:string {"�\���t�@�C���u{0}�v�̃t�H�[�}�b�g������Ă��܂��B"}
+    CC_IDOC_ConfigFileEmpty:string {"�\���t�@�C���u{0}�v����ł��B"}
+	CC_IDOC_ExceptionWhileCreatingConnection:string {"SAP �ւ̐ڑ��̍쐬���ɗ\��Ȃ���O���������܂����B{0}"}
+	CC_IDOC_DSSAPConnectionNotFound:string {"�ڑ��u{0}�v��������܂���ł����B"}
+	CC_IDOC_DSSAPHOMENotSet:string {"���ϐ� DSSAPHOME ���ݒ肳��Ă��܂���B"}
+	CC_IDOC_EnvVarNotPositiveNumeric:string {"���ϐ��u{0}�v�ɂ͐��̐��l��ݒ肷��K�v������܂����A�l�u{1}�v���ݒ肳��Ă��܂�"}
+	CC_IDOC_TypeNotFoundInSAP:string {"IDoc �^�C�v�u{0}�v�� SAP �Ō�����܂���ł����B"}
+	CC_IDOC_BasicIDocTypeNotFoundInSAP:string {"��{ IDoc �^�C�v�u{0}�v�� SAP �Ō�����܂���ł����B"}
+	CC_IDOC_ExtensionIDocTypeNotFoundInSAP:string {"�g�� IDoc �^�C�v�u{0}�v�� SAP �Ō�����܂���ł����B"}
+
+	CC_IDOC_JCOClassNotFound:string {"SAP JCo �N���X��������܂���ł����Bsapjco3.jar ���N���X�p�X�ɂ��邱�Ƃ��m�F���Ă��������B"}
+	CC_IDOC_JCODLLNotFound:string {"SAP JCo �l�C�e�B�u�E���C�u�����[��������܂���ł����Bsapjco3 �l�C�e�B�u�E���C�u�����[�����邱�Ƃ��m�F���Ă��������B"}
+	CC_IDOC_JCoCheckSuccessful:string {"SAP JCo ���C�u�����[��������܂����B"}
+
+	CC_IDOC_ControlRecordDescription:string {"IDoc ���䃌�R�[�h"}
+	CC_IDOC_TypeMetadataFileNotFound:string {"IDoc �^�C�v {0} �̃��^�f�[�^�E�t�@�C�����T�[�o�[�ɑ��݂��܂���B"}
+	CC_IDOC_TypeMetadataFileWriteError:string {"IDoc ���^�f�[�^�E�t�@�C�� {0} �̏������݂ŃG���[���������܂���"}
+	CC_IDOC_TypeMetadataFileReadError:string {"IDoc ���^�f�[�^�E�t�@�C�� {0} �̓ǂݎ��ŃG���[���������܂���"}
+	CC_IDOC_TypeMetadataFileFormatError:string {"IDoc ���^�f�[�^�E�t�@�C�� {0} �̃t�H�[�}�b�g������Ă��܂��B"}
+	CC_IDOC_TypeMetadataFileRetrievalFailed:string {"IDoc ���^�f�[�^�E�t�@�C������ IDoc ���^�f�[�^���擾�ł��܂���ł����B����� SAP ���� IDoc ���^�f�[�^�����擾���܂��B"}
+	CC_IDOC_TypeMetadataDirectoryError:string {"IDoc ���^�f�[�^�E�t�@�C�� {0} �̐e�f�B���N�g���[���쐬�ł��܂���ł����B"}
+	CC_IDOC_TypeMetadataSAPRetrieval:string {"IDoc �^�C�v {0} �̃��^�f�[�^�� SAP ����擾���܂�"}
+	CC_IDOC_TypeMetadataFileRetrieval:string {"IDoc �^�C�v {0} �̃��^�f�[�^�� IDoc ���^�f�[�^�E�t�@�C�� {1} ����擾���܂�"}
+	CC_IDOC_TypeMetadataSegmentTypeNotFound:string {"�Z�O�����g�E�^�C�v�u{0}�v�� IDoc �^�C�v�u{1}�v�Ō�����܂���ł����B"}
+
+	CC_IDOC_IncorrectProgramLogic:string {"�����G���[���������܂����B�v���O�����E���W�b�N������Ă��܂��B"}
+	CC_IDOC_ClientIDNotNumeric:string {"�N���C�A���g�ԍ��͐��l�łȂ���΂Ȃ�܂���B"}
+	CC_IDOC_NodeNumberMessage:string {"���s�̃m�[�h�ԍ��� {0} �ŁA������ {1} �ł�"}
+
+	CC_IDOC_ReadingIDocTypeWithRelease:string {"IDoc �^�C�v�u{0}�v���X�e�[�W�ɑ΂��\������܂����B�����[�X�́u{1}�v�ł�"}
+	CC_IDOC_InitializingConnection:string {"�ڑ��u{0}�v�ł̒�`�ɏ]�� SAP �V�X�e���ւ̐ڑ��������܂�"}
+	CC_IDOC_PropertyNotFound:string {"�K�v�ȃX�e�[�W�E�v���p�e�B�[�u{0}�v��������܂���ł���"}
+	CC_IDOC_SEGTYPNotFound:string {"IDoc �Z�O�����g�E�^�C�v���I������Ă��܂���"}
+	CC_IDOC_IDOCTYPNotFound:string {"IDoc �^�C�v���I������Ă��܂���"}
+
+	CC_IDOC_SegmentIsOrphan:string {"�Z�O�����g�ԍ��u{0}�v�̃Z�O�����g (IDoc �u{1}�v��) �ɐe������܂���B"}
+	CC_IDOC_SegmentHasParentInDifferentIDoc:string {"�Z�O�����g�ԍ��u{0}�v�̃Z�O�����g (IDoc �u{1}�v��) �ɁA�ʂ� IDoc �Ɋ֘A�t�����Ă���e�Z�O�����g�ԍ��u{2}�v���ݒ肳��Ă��܂��B"}
+	CC_IDOC_NoSegmentsForIDoc:string {"�ԍ��u{0}�v�� IDoc �ɗL��ȃZ�O�����g���܂܂�Ă��܂���B"}
+	CC_IDOC_WrongSegmentMetadata:string {"�ԍ��u{0}�v�̃Z�O�����g (IDoc �u{1}�v��) �ɁA�^�C�v�u{2}�v(�u{3}�v�ł���ׂ�) �̐e�Z�O�����g������܂��B"}
+	CC_IDOC_SegmentAlreadySeen:string {"�ԍ��u{0}�v�Őe�ԍ��u{1}�v�̃Z�O�����g (IDoc �u{2}�v��) ����ɑ}���܂����B�V�K�Z�O�����g�E�f�[�^�͖�������܂��B"}
+	CC_IDOC_FieldTruncation:string {"�t�B�[���h {0} (IDoc {1}) �͐؂�̂Ă��܂����B"}
+	
+	CC_IDOC_RFMDoesNotExist:string {"�����[�g�֐����W���[���u{0}�v�� SAP �V�X�e���u{1}�v�ɑ��݂��܂���"}
+	CC_IDOC_TableParamsListIsNull:string {"IDOC_INBOUND_ASYNCHRONOUS �̕\�p�����[�^�[�E���X�g�� NULL �ł�"}
+	CC_IDOC_TypeNotConfigured:string {"IDoc �^�C�v�u{0}�v�͐ڑ��p�ɍ\������Ă��܂���"}
+	CC_IDOC_AdminFieldNotFound:string {"�e�N�j�J���E�t�B�[���h�u{0}�v�������N��Ō�����܂���ł����B"}
+	CC_IDOC_ErrorCreatingDirectory:string {"�f�B���N�g���[ {0} ���A���̐e�� 1 ���쐬�ł��܂���ł����B"}
+	CC_IDOC_AllSegmentDataCollected:string {"���ׂẴZ�O�����g�E�f�[�^����W����܂����BSAP �ւ̑��M���J�n���܂�"}
+	CC_IDOC_FieldNotOnLink:string {"IDoc �t�B�[���h�u{0}�v(�Z�O�����g�u{1}�v��) �������N�ɑ��݂��܂���B"}
+	CC_IDOC_IncorrectPartitioningType:string {"IDoc �Z�O�����g�̎�W����ь��ؒ��ɁA��肪���o����܂����B����������肪��������ꍇ�AIDoc Load �X�e�[�W�̓�̓����N�ɑ΂��đI�������p�[�e�B�V�����̃^�C�v���K�؂łȂ��\��������܂��B�K�X�A�\�����m�F���Ă��������B"}
+	CC_IDOC_StartingSegmentCollection:string {"IDoc �Z�O�����g����W��"}
+	CC_IDOC_FileReadException:string {"IDoc �t�@�C���̓ǂݎ�莞�ɗ�O���������܂����B"}
+	CC_IDOC_ClassFoundInJar:string {"�N���X�u{0}�v�� JAR �t�@�C���u{1}�v�Ō�����܂���"}
+
+	CC_IDOC_InvalidSAPLogonDetailsInConnection:string {"����܂��͋�� SAP ���O�I���̏ڍׂ��ڑ��Ŏw�肳��܂����B{0}"}
+	CC_IDOC_InvalidSAPLogonDetailsInStage:string {"����܂��͋�� SAP ���O�I���̏ڍׂ��X�e�[�W�Ŏw�肳��܂����B{0}"}
+	CC_IDOC_UnknownSAPEncoding:string {"JAVA �� SAP �V�X�e���̃G���R�[�h�������ł��܂���B"}
+	
+	CC_IDOC_EXTRACT_JobStart:string {"IDoc Extract �W���u�� {0} �ŊJ�n����܂���"}
+	CC_IDOC_EXTRACT_BookmarkFileInitError:string {"IDoc �u�b�N�}�[�N�E�t�@�C�� {0} ��K�؂ɏ���ł��܂���ł����B"}
+	CC_IDOC_EXTRACT_BookmarkFileWriteError:string {"IDoc �u�b�N�}�[�N�E�t�@�C�� {0} �̏������݂ŃG���[���������܂���"}
+	CC_IDOC_EXTRACT_BookmarkFileReadError:string {"IDoc �u�b�N�}�[�N�E�t�@�C�� {0} �̓ǂݎ��ŃG���[���������܂���"}
+	CC_IDOC_EXTRACT_BookmarkFileSetupFailed:string {"IDoc �u�b�N�}�[�N�E�t�@�C���̐ݒ肪���s���܂����B{0}"}
+	CC_IDOC_EXTRACT_BookmarkFileUpdateFailed:string {"IDoc �u�b�N�}�[�N�E�t�@�C���̍X�V�����s���܂����B{0}"}
+	CC_IDOC_EXTRACT_IDocFileReadError:string {"IDoc �t�@�C�� {0} �̓ǂݎ��ŃG���[���������܂���"}
+	CC_IDOC_EXTRACT_IDocFileExtractSegmentData:string {"IDoc �t�@�C�� {0} ����̃Z�O�����g�E�f�[�^�̒��o�ŃG���[���������܂���"}
+	CC_IDOC_EXTRACT_SegmentDataTooShort:string {"IDoc ���^�f�[�^�ƃZ�O�����g�E�f�[�^������v���܂���B�Z�O�����g�E�f�[�^���Z�����܂��B{0}�A{1}�A{2}"}
+	CC_IDOC_EXTRACT_NumberOfFiles:string {"{0} �� IDoc �t�@�C�����������Ă��܂� ..."}
+	
+	CC_IDOC_LOAD_UnexpectedException:string {"IDoc �̃��[�h�ŗ\��Ȃ���O���������܂����B{0}"}
+	CC_IDOC_LOAD_Summary:string {"�T�}���[: {0} �� IDoc ���A{1} �̃g�����U�N�V������ SAP �ɑ��M����܂���"}
+	CC_IDOC_LOAD_TransactionOpen:string {"{0} �� IDoc ���g�����U�N�V���� #{1} �� SAP �ɑ��M���܂�..."}
+	CC_IDOC_LOAD_TransactionClose:string {"{0} �� IDoc ���g�����U�N�V���� #{1} �� SAP �ɑ��M����܂���"}
+	CC_IDOC_LOAD_JobStart:string {"IDoc Load �W���u�� {0} �ŊJ�n����܂���"}
+	CC_IDOC_LOAD_ValidationError:string {"IDoc ���؂����s���܂����B{0}�A{1}"}
+	CC_IDOC_LOAD_SimulationModeOn:string {"IDoc Load �V�~�����[�V�����E���[�h���I���ł��BIDoc �� SAP �ɑ��M����܂���B"}
+	CC_IDOC_LOAD_FileSummary:string {"�T�}���[: {0} �� IDoc �� {1} �̃g�����U�N�V�����Ńm�[�h {2} �̃f�B�X�N�ɕۊǂ���܂���"}
+	CC_IDOC_LOAD_FilesToBeDeleted:string {"{0} �ɂ��邷�ׂĂ̊�� IDoc Load �t�@�C���͍폜����܂�"}
+	CC_IDOC_LOAD_FilesNamingConflict:string {"{0} �ɂ����� IDoc Load �t�@�C���͍폜����Ȃ����߁A�t�@�C�����̋�����������\��������܂��B"}
+	CC_IDOC_LOAD_FileWriteError:string {"IDoc �t�@�C�� {0} �̏������݂ŃG���[���������܂���"}
+}

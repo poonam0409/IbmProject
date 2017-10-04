@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2011, 2014  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<project default="PackageAll" name="PluginBuild">
+    <tstamp/>
+    <property name="dest.plugins.dir" value="../plugins/" />
+    <property name="src.metadata.dir" value="." />
+    <property name="plugin.name.prefix" value="com.ibm.is.sappack.gen.lic" />
+    <property name="file.name.version" value="1.1.0" />
+	<property name="im.install.dir" value="C:/Program Files/IBM/Installation Manager" />
+    <property name="version.qualifier" value="${DSTAMP}${TSTAMP}"/>
+    <property name="offeringLICplugin" value="${plugin.name.prefix}_${file.name.version}.${version.qualifier}" />
+	<property name="offeringLICpluginNL1" value="${plugin.name.prefix}.nl1_${file.name.version}.${version.qualifier}" />
+	<property name="offeringLICpluginNL2a" value="${plugin.name.prefix}.nl2a_${file.name.version}.${version.qualifier}" />
+	
+	<target name="package.plugin" depends="build.plugin">
+  	  <manifest file="META-INF/MANIFEST.MF" mode="update">
+  	    <attribute name="Bundle-Version" value="${file.name.version}.${version.qualifier}"/>
+  	  </manifest>
+	  
+      <jar destfile="${dest.plugins.dir}${offeringLICplugin}.jar"
+           manifest="META-INF/MANIFEST.MF"
+           update="true">
+
+		<!--
+        <fileset dir="${pkg.dev.plugins.bin.dir}/com.ibm.is.sappack.gen.lic/bin">
+          <exclude name="**/.copyarea.db"/>
+        </fileset>
+		-->	
+        <fileset dir=".">
+		  <include name="**/plugin*.*" />
+		  <include name="**/license/*.*" />
+		  <include name="**/nl/*.*" />
+		  <exclude name="**/.copyarea.db"/>
+        </fileset>
+
+      </jar>
+	  
+      <jar destfile="${dest.plugins.dir}${offeringLICpluginNL1}.jar"
+           manifest="META-INF/MANIFEST.MF"
+           update="true">
+
+		<!--
+        <fileset dir="${pkg.dev.plugins.bin.dir}/com.ibm.is.sappack.gen.lic/bin">
+          <exclude name="**/.copyarea.db"/>
+        </fileset>
+		-->	
+        <fileset dir="../com.ibm.is.sappack.gen.lic.nl1">
+		  <include name="**/nl_frag*.*" />
+		  <include name="**/fragment.xml" />
+		  <include name="**/license/*.*" />
+		  <exclude name="**/.copyarea.db"/>
+        </fileset>
+
+      </jar>
+	  
+	</target>
+
+    <!-- Build Target repository -->
+    <target name="build.plugin" depends="clean.plugin">
+    	<mkdir dir="bin" />
+        <javac srcdir="src/java"
+               destdir="bin"
+               includes="**/*"
+               optimize="on"
+               failonerror="true"
+               listfiles="yes"
+               encoding="UTF-8">
+  			 
+          <classpath>
+            <pathelement path="${classpath}"/>
+            <fileset dir="${im.install.dir}/eclipse/plugins">
+              <include name="**/*.jar"/>
+            </fileset>
+          </classpath>
+        </javac>
+    </target>
+
+    <!-- Clean Target repository -->
+    <target name="clean.plugin" depends="">
+        <echo message="Deleting: ${dest.native.dir}/${native.name.prefix}_${file.name.version}.*.zip"/>
+    	<delete dir="bin" />
+        <delete dir="${dest.plugins.dir}">
+            <include name="${plugin.name.prefix}_${file.name.version}.*.jar" />
+        	<include name="${plugin.name.prefix}.nl1_${file.name.version}.*.jar" />
+            <include name="${plugin.name.prefix}.nl2a_${file.name.version}.*.jar" />
+        </delete>
+    </target>
+
+	<target name="PackageAll" depends="BuildAll, package.plugin" />
+    <target name="BuildAll" depends="CleanAll, build.plugin" />
+    <target name="CleanAll" depends="clean.plugin" />
+</project>

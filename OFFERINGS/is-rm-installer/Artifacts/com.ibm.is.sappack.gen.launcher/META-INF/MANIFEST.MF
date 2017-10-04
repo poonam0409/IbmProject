@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.7.1
+Created-By: 2.4 (IBM Corporation)
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: com.ibm.is.sappack.gen.launcher;singleton:=true
+Bundle-Version: 1.0.0.201109161542
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="ID">13430741985001610655759</entry>
+<entry key="DOCUMENTATION">Example ABAP Table List</entry>
+<entry key="KEY_TABLES">KNA1,
+KNB1</entry>
+<entry key="PROP_KEY_MODE">RMRG_CW_MODE</entry>
+</properties>

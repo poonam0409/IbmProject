@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>idx.oneui.form.Select DoH</title>
+		
+		<script type="text/javascript" src="../../../dojoVersion.js"></script>
+		<script type="text/javascript">
+		dojoCSSImport("../../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		</script>
+		<style id="idxStyles" type="text/css">
+			@import "../../../../themes/oneui/idx/oneui/oneuiMain.css";
+			@import "../../../../themes/oneui/dijit/dijitMain.css";
+			@import "../../../../themes/test.css";
+		</style>
+		<script type="text/javascript" src="../../../commonTest.js"></script>
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+			dojoScriptImport("../../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+		
+		<script type="text/javascript">
+			var modules = [
+				"idx.oneui.form.Select",
+				"dojo.data.ItemFileReadStore",
+				"doh"]; 
+			var Select,
+				ItemFileReadStore,
+				doh;
+			
+			function preParse(modules){
+				Select = modules["idx/oneui/form/Select"];
+				ItemFileReadStore = modules["dojo/data/ItemFileReadStore"];
+				doh = modules["doh"];
+			}
+
+			function postParse(modules){
+				var testPerformance = /mode=benchmark/i.test(window.location.href);
+				if (!testPerformance) {
+					doh.register("parse", function(){
+						dojo.parser.parse();
+						doh.t(dijit.byId("select1"));
+					});
+					
+					doh.register("setLabelAlignment", function(){
+						var widget = dijit.byId("select1");
+						doh.t(widget.get("labelAlignment") === "horizontal");
+						widget.set("labelAlignment", "vertical");
+						doh.t(widget.get("labelAlignment") === "vertical");
+					});
+				}else{
+					// Register performance testcases
+					var createWidget = function(div){
+						return new Select({
+							label: "test Select:",
+							store: readStore
+						}, div);
+					};
+					
+					doh.register("CreateSelect", [{
+						testType: "perf",
+						name: "Create Select",
+						trialDuration: 100,
+						trialIterations: 30,
+						trialDelay: 100,
+						setUp: function(t){},
+						runTest: function(t){
+							var div = dojo.create("div", {}, dojo.body());
+							readStore = new ItemFileReadStore({
+								data: {
+									identifier: "value",
+									label: "label",
+									items: [{
+										value: "AL",
+										label: "Alabama",
+										selected: true
+									}, {
+										value: "AK",
+										label: "Alaska"
+									}, {
+										value: "AZ",
+										label: "Arizona",
+									}, {
+										value: "AR",
+										label: "Arkansas"
+									}, {
+										value: "CA",
+										label: "California"
+									}, {
+										value: "CO",
+										label: "Colorado"
+									}, {
+										value: "CT",
+										label: "Connecticut"
+									}]
+								}
+							});
+							var widget = createWidget(div);
+						},
+						tearDown: function(t){
+							dojo.query("[widgetid*=idx_oneui_form_Select]").forEach(function(domNode){
+								dijit.byNode(domNode).destroy(false);
+							})
+						}
+					}]);
+				}
+				doh.run();
+			}
+			
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+		</script>
+	</head>
+	<body class="oneui">
+		<h1 class="testTitle">idx.oneui.form.Select DoH Test</h1>
+			<select data-dojo-type="idx.oneui.form.Select"
+					data-dojo-props='name:"select1",
+					id: "select1",
+					label: "Test composite Select: ",
+					labelAlignment: "horizontal",
+					hint: "some hint",
+					isValid: function(){
+						return this.get("value") != "WA";
+					},
+					invalidMessage: "Washington is an invalid option!"
+			'>
+					<option value="TN" selected="selected">Tennessee</option>
+					<option value="VA" >Virginia</option>
+					<option value="WA">Washington</option>
+					<option value="FL">Florida</option>
+					<option value="CA">California</option>
+			</select>
+	</body>
+</html>

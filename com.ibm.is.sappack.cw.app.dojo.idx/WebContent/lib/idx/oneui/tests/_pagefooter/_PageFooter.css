@@ -1,0 +1,31 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+body{
+	padding-bottom: 3em;
+}
+
+._testPageFooter {
+	position: fixed;
+	*position: absolute;
+	z-index: 256;
+	left: 0;
+	*left: auto;
+	bottom: 0;
+	*bottom: auto; 
+	clear: both; 
+	*top:expression(eval(document.compatMode && 
+		document.compatMode=='CSS1Compat') ? 
+		documentElement.scrollTop 
+		+(documentElement.clientHeight-this.clientHeight) - 1 
+		: document.body.scrollTop 
+		+(document.body.clientHeight-this.clientHeight) - 1
+	); 
+	width: 100%;
+	padding: 0 2em 0 2em;
+	background-color:#F3F3F3;
+}

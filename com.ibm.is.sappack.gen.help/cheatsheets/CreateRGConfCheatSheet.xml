@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2012  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="Creating a Rapid Generator configuration">
+   <intro>
+      <description>
+         This cheat sheet shows you how to create a so-called Rapid Generator configuration.
+         A Rapid Generator configuration lets you edit settings required for job generation.
+         For instance, it defines which DataStage SAP connections, users, or ODBC connections are used.
+         <br/>
+         There are three types of RG configurations depending on the sources and targets used in the jobs:
+         <br/>
+         1. SAP Extract: Generate jobs that extract data from an SAP system to a database.
+         <br/>
+         2. SAP Load: Generate jobs that load data from a database to an SAP system.
+         <br/>
+         3. Move / Transcode: Generate jobs that move data from one database to another. In
+         Conversion Workbench, these jobs are used to move data from, e.g. the alignment to the#
+         preload area. 
+      </description>
+   </intro>
+   <item dialog="true"
+         title="Start the Rapid Generator configuration creation wizard">
+      <description>      
+         In the main toolbar, click on <b>File</b> &gt; <b>New</b>  &gt; <b>Other</b> &gt;
+         <b>InfoSphere Pack for SAP</b> &gt; <b>Rapid Generator Configuration</b>. 
+      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.ui.newWizard(newWizardId=com.ibm.iis.sappack.gen.tools.jobgenerator.newrgconf)"/>
+
+   </item>
+   <item dialog="true" 
+            title="Select creation options">
+        <description>
+        This page lets you select a Data Design Project where the Rapid Generator configuration is created
+        and its name.
+        <br/>
+        Select the type for this Rapid Generator configuration.
+        In this example, choose "SAP Extract".
+        <br/>
+        Click <b>Finish</b>.
+        </description>
+      </item>
+   <item
+         title="Define Rapid Generator Configuration details">
+      <description>
+         After finishing the creation wizard, the Rapid Generator configuration is opened automatically. 
+      To open the Rapid Generator configuration at a later time, go to the file in the Data Project Explorer and double click on it.
+         <br/>     
+         The Rapid Generator configuration editor consists of the following tabs: 
+         <br/>
+         <br/><b>General</b>: This tab contains read-only and modifiable information like the file name, documentation, author, etc.
+         <br/>
+         <br/><b>Source</b>: 
+         <br/>
+         <br/><b>ABAP Extract *</b>:
+         <br/>
+         <br/><b>IDoc load *</b>:
+         <br/>
+         <br/><b>Move / Transcode *</b>:
+         <br/>
+         <br/><b>Derivations</b>:
+         <br/>
+         <br/><b>Description</b>:
+         <br/>
+         <br/><b>Parameters</b>:
+         <br/>
+         *: These tabs might not be present depending on the configuration type.
+         <br/><br/>
+         For the purpose of this example, You can leave all fields as-is.
+         <br/>
+         Save the file by typing <b>Ctrl + s</b>. 
+      </description>
+      <onCompletion>Congratulations! You have successfully created a Rapid Generator Configuration.
+      </onCompletion>
+   </item>
+</cheatsheet>

@@ -1,0 +1,19 @@
+#Tue Feb 07 13:50:27 IST 2017
+repositories/0/uri=https\://ips-rtc.swg.usma.ibm.com/jazz/
+repositories/0/id=_q8yJQYsXEd2JYM8C7X577Q
+com.ibm.team.process.rcp.ui.RepositoryCreationPart/dialog/uri/history2/value=https\://localhost\:9443/jazz
+repositories/0/username=skumar90@iespc.ibm.com
+repositories/0/timeout=480
+connectedProjectAreasMemento=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<connectedProjectAreas>\r\n<connectedProjectArea projectAreaName\="Packs - R3" projectAreaSelected\="true" projectAreaUUID\="_U4rkgLGyEd6tcpaYdliIJw" repositoryId\="_q8yJQYsXEd2JYM8C7X577Q">\r\n<selectedTeamArea projectAreaUUID\="_uHEmILVbEeGV3dz4wE2wyg"/>\r\n<selectedTeamArea projectAreaUUID\="_VQAfYLGyEd6QkYwemTUL7Q"/>\r\n<selectedTeamArea projectAreaUUID\="_VAKmUPrEEeKRJZ1TsCdiaw"/>\r\n<selectedTeamArea projectAreaUUID\="_sIqJMLNnEeSuOKb0leF0rw"/>\r\n<teamArea projectAreaUUID\="_uHEmILVbEeGV3dz4wE2wyg"/>\r\n<teamArea projectAreaUUID\="_VQAfYLGyEd6QkYwemTUL7Q"/>\r\n<teamArea projectAreaUUID\="_VAKmUPrEEeKRJZ1TsCdiaw"/>\r\n<teamArea projectAreaUUID\="_sIqJMLNnEeSuOKb0leF0rw"/>\r\n</connectedProjectArea>\r\n</connectedProjectAreas>
+eclipse.preferences.version=1
+repositories/0/name=ips-rtc.swg.usma.ibm.com
+com.ibm.team.process.rcp.ui.RepositoryCreationPart/dialog/name/history0/value=ips-rtc.swg.usma.ibm.com
+repositories/0/authentication-id=com.ibm.team.repository.client.internal.UserAndPassLoginInfo
+repositories/0/savePassword=true
+com.ibm.team.process.rcp.ui.RepositoryCreationPart/dialog/uri/history1/value=https\://localhost\:9443/ccm
+com.ibm.team.process.rcp.ui.RepositoryCreationPart/dialog/uri/history0/value=https\://ips-rtc.swg.usma.ibm.com/jazz
+repositories/0/userId=SKUMAR90@iespc.ibm.com
+repositories/0/autoLogin=true
+repositories/0/aliasRepositoryURIs1=https\://ips-rtc.swg.usma.ibm.com/jazz/
+repositories/0/aliasRepositoryURIs0=https\://ips-rtc.swg.usma.ibm.com/jazz
+com.ibm.team.process.internal.rcp.ui.UserAndPassLoginInfoUIPart/dialog/userId/history0/value=skumar90@iespc.ibm.com

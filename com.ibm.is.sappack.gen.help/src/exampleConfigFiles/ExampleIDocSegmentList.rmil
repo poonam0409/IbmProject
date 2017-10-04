@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="ID">1343074248140-506658668</entry>
+<entry key="KEY_IDOCSEGMENTS">E1KNA1M,
+E1KNA11</entry>
+<entry key="DOCUMENTATION">Example IDoc Segment List</entry>
+<entry key="KEY_IDOCTYPENAME">DEBMAS06</entry>
+<entry key="PROP_KEY_MODE">RMRG_CW_MODE</entry>
+</properties>

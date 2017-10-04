@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>idx.oneui.form.CheckBox DoH</title>
+
+		<script type="text/javascript" src="../../../dojoVersion.js"></script>
+		<script type="text/javascript">
+		dojoCSSImport("../../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		</script>
+		<style id="idxStyles" type="text/css">
+			@import "../../../../themes/oneui/idx/oneui/oneuiMain.css";
+			@import "../../../../themes/oneui/dijit/dijitMain.css";
+			@import "../../../../themes/test.css";
+		</style>
+		<script type="text/javascript" src="../../../commonTest.js"></script>
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+			dojoScriptImport("../../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+		<script type="text/javascript" id="postDojo">
+			var modules = [
+				"idx.oneui.form.CheckBox",
+				"doh"]; 
+			var CheckBox, 
+				doh;
+			function preParse(modules){
+				CheckBox = modules["idx/oneui/form/CheckBox"];
+				doh = modules["doh"];
+			}
+			function postParse(modules){
+				var testPerformance = /mode=benchmark/i.test(window.location.href);
+				
+				if (!testPerformance) {
+					doh.register("parse", function(){
+						dojo.parser.parse();
+						doh.t(dijit.byId("cb1"));
+					});
+					
+					doh.register("setChecked", function(){
+						var widget = dijit.byId("cb1");
+						widget.set("checked", true);
+						doh.t(widget.get("checked") === true);
+						widget.set("checked", false);
+						doh.t(widget.get("checked") === false);
+					});
+					
+					doh.register("setValue", function(){
+						var widget = dijit.byId("cb1");
+						doh.t(widget.get("value") === false);
+						widget.set("value", true);
+						doh.t(widget.get("checked") === true && widget.get("value") === "on");
+						widget.set("value", false);
+						doh.t(widget.get("checked") === false && widget.get("value") === false);
+						widget.set("value", "foo");
+						doh.t(widget.get("checked") === true && widget.get("value") === "foo");
+					});
+					
+					doh.register("reset", function(){
+						var widget = dijit.byId("cb1");
+						widget.reset();
+						doh.t(widget.get("checked") === false);
+						doh.t(widget.get("value") === false);
+					});
+				}
+				else {
+					// Register performance testcases
+					var createWidget = function(div){
+						return new CheckBox({
+							label: "test check box:"
+						}, div);
+					};
+					
+					doh.register("CreateCheckBox", [{
+						testType: "perf",
+						name: "Create CheckBox",
+						trialDuration: 100,
+						trialIterations: 30,
+						trialDelay: 100,
+						setUp: function(t){},
+						runTest: function(t){
+							var div = dojo.create("div", {}, dojo.body());
+							var widget = createWidget(div);
+						},
+						tearDown: function(t){
+							dojo.query("[widgetid*=idx_oneui_form_CheckBox]").forEach(function(domNode){
+								dijit.byNode(domNode).destroy(false);
+							})
+						}
+					}]);
+				}
+				doh.run();
+			}
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+		</script>
+	</head>
+	<body class="oneui">
+		<h1 class="testTitle">oneui.form.CheckBox DoH Test</h1>
+			<input id="cb1" data-dojo-id="cb1" data-dojo-type="idx.oneui.form.CheckBox" data-dojo-props='name:"cb1",
+				label:"CheckBox label", onClick:function(){ console.log("clicked cb1") }'/>
+	</body>
+</html>

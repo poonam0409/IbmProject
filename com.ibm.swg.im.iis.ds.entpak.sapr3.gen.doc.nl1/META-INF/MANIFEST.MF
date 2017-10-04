@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %name
+Bundle-SymbolicName: com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc.nl1
+Bundle-Version: 8.0.0.qualifier
+Bundle-Vendor: %providerName
+Fragment-Host: com.ibm.swg.im.iis.ds.entpak.sapr3.gen.doc;bundle-version="8.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

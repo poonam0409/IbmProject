@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+ 
+5724-Q55
+
+(c) Copyright IBM Corp. 2009, 2011  All Rights Reserved.
+
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<cheatsheet title="使用 Rapid Modeler for SAP 從 SAP 匯入邏輯表格
+">
+   <intro>
+      <description>
+         這個提要會顯示如何建立邏輯資料模型，以及如何擷取 SAP 邏輯表格的 meta 資料。
+         <br/>
+         <b>附註：在下列步驟中輸入專案、模型等名稱時，務必要與指出的名稱完全
+         相同，否則「按一下執行」按鈕可能無法運作。不過，「完成時
+         按一下」按鈕將繼續運作。
+         </b>
+      </description>
+   </intro>
+   <item
+         title="開啟資料視景">
+      <command
+            required="false"
+            serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=com.ibm.datatools.core.internal.ui.perspective)"/>
+         
+      <description>
+         如果您尚未在「資料」視景中，請在主功能表中選取<b>視窗</b> &gt; <b>開啟視景</b> &gt; <b>資料</b>。
+      </description>
+   </item>
+   <item
+         title="建立資料設計專案">
+      <description>      
+         建立資料模型之前，我們需要一個專案置於其中。在主工具列中，
+         按一下<b>檔案</b> &gt; <b>新建</b> &gt; <b>資料設計專案</b>。
+         <br/>
+         在<b>專案名稱</b>欄位中輸入 <b>RMTestProject</b>。
+         <br/>按一下<b>完成</b>。
+      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.ui.newWizard(newWizardId=com.ibm.datatools.core.internal.ui.wizard.DatabaseCreationProjectWizard)"/>
+   </item>
+   <item
+         title="建立邏輯資料模型檔案">
+      <description>      
+         下一步就是建立新的邏輯資料模型檔案。再次在主工具列中，按一下<b>檔案</b> &gt; <b>新建</b> &gt; <b>邏輯資料模型</b>。
+         <br/>確定<b>目的地資料夾</b>已設為前一個步驟中建立的專案名稱，亦即 <b>RMTestProject</b>
+         <br/>輸入 <b>RMTableModel</b> 作為檔名。
+         <br/>按一下<b>完成</b>。
+      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.ui.newWizard(newWizardId=com.ibm.datatools.logical.ui.wizards.NewLogicalModelWizard)"/>
+
+   </item>
+   <item dialog="true" 
+            title="在邏輯模型上開啟 Rapid Modeler for SAP 精靈">
+        <description>
+         既然已建立邏輯模型，您就可以將 SAP meta 資料匯入這個模型中。
+         <br/>
+         在<b>資料專案瀏覽器</b>視圖（通常位於<b>資料</b>視景的左上方）中，
+         瀏覽至您已在前一個步驟中建立的邏輯資料模型
+         （<b>RMTestProject</b> &gt; <b>資料模型</b> &gt; <b>RMTableModel.ldm</b>）。
+         <br/>用滑鼠右鍵按一下 <b>RMIDocModel.ldm</b>，
+         然後選取 <b>Rapid Modeler for SAP</b> &gt; <b>擷取 SAP meta 資料</b>。
+        </description>
+            <action required="false"
+			pluginId="com.ibm.is.sappack.gen.tools.sap"
+			class="com.ibm.is.sappack.gen.tools.sap.action.MetadataImportCheatSheetAction"
+			param1="RMTestProject" param2="RMTableModel.ldm"/>            
+      </item>
+   <item
+         title="選取 SAP 系統">
+      <description>
+         在第一個精靈頁面上，選取 SAP 系統連線，或使用<b>編輯</b>來建立一個。
+         選取<b>瀏覽 SAP 以取得表格</b>選項。
+         <br/>按<b>下一步</b>。
+      </description>
+   </item>
+   <item
+         title="搜尋表格">
+      <description>
+         在<b>瀏覽 SAP 以取得表格</b>頁面上，於文字欄位中輸入查詢 <b>KN*1</b>，然後按一下<b>搜尋</b>。
+      </description>
+   </item>
+   <item
+         title="選取表格">
+      <description>
+         在左手邊的表格（<b>找到的表格</b>）中，選取一個表格，例如 <b>KNA1</b>。
+         按一下<b>新增表格</b>。表格應該移至右手邊（<b>選取的表格</b>）。
+         <br/>
+         按<b>下一步</b>。
+      </description>
+   </item>
+   <item
+         title="配置匯入選項">
+      <description>
+         在「表格匯入」選項頁面上，取消勾選<b>匯入相關檢查表格的 meta 資料</b>。
+         <br/>
+         按<b>下一步</b>。
+      </description>
+   </item>
+   <item
+         title="檢閱表格">
+      <description>
+         在<b>檢閱要匯入的表格</b>頁面上，檢閱要匯入的表格。
+         <br/>
+         按<b>下一步</b>。
+      </description>
+   </item>
+   <item
+         title="跳過技術欄位">
+      <description>
+         在<b>技術欄位</b>頁面上，取消勾選<b>配置其他技術欄位</b>。
+         <br/>
+         按<b>下一步</b>。
+      </description>
+   </item>
+   <item
+         title="跳過非預設套件">
+      <description>
+         在<b>選取套件以進行匯入</b>頁面上，取消勾選<b>使用特定套件作為匯入目的地</b>。
+         <br/>
+         當您按<b>下一步</b>時，匯入程序即會開始。
+         <br/>
+         按<b>下一步</b>。
+      </description>
+   </item>
+   <item
+         title="完成精靈">
+      <description>
+         在<b>匯入摘要</b>頁面上，檢閱匯入摘要。
+         <br/>
+         按一下<b>完成</b>，以將匯入的模型儲存至您的邏輯資料模型。
+         
+      </description>
+      <onCompletion>恭喜！您已將 SAP 中的邏輯表格匯入邏輯資料模型中。
+      </onCompletion>
+         </item>
+      </cheatsheet>

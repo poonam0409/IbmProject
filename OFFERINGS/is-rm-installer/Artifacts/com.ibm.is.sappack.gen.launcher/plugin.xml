@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  <extension point="com.ibm.cic.agent.ui.launcher">
+     <launcher id="com.ibm.is.sappack.rapid.modeler.install.launcher">
+        <platform
+              os="win32"
+              path="${context:installLocation}\eclipse.exe -product com.ibm.is.sappack.gen.branding.product"
+              workingDirectory="${context:installLocation}"/>
+     </launcher>
+     <launcherOfferingBinding
+           label="%Offering.name"
+           launcherId="com.ibm.is.sappack.rapid.modeler.install.launcher"
+           offeringId="com.ibm.is.sappack.rapid.modeler"
+           offeringVersion="[7.0.0,8.0.0)"/>
+  </extension>
+</plugin>

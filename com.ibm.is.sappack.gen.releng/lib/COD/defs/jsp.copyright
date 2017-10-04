@@ -1,0 +1,20 @@
+################################################################################
+# Copyright definitions for Java Server Page (JSP) files
+#
+# Reference: http://java.sun.com/products/jsp/syntax/2.0/syntaxref203.html
+################################################################################
+
+# Note: using JSP container comments which are NOT include in generated response
+
+top-line=<%-- **************************************************** {tag.top} ***
+text.1  =* {category.licensed}
+text.2  =* {licensed.rm}
+text.3  =* {product}
+text.4  =* 
+text.5  =* {copyright}  {all.rights}
+text.6  =* 
+text.7  =* {us.gov.1}
+text.8  =* {us.gov.2}
+end-line=******************************************************** {tag.end} --%>
+
+head.1  =<!DOCTYPE

@@ -1,0 +1,16 @@
+﻿ライセンス情報
+
+以下に表示されている「プログラム」には、プログラムのご使用条件 および次の追加条件に基づいて使用権が許諾されます。
+
+プログラム名: IBM InfoSphere Information Server Pack for SAP Applications V 7.1
+プログラム番号: 5724-Q55
+
+プログラム名: IBM InfoSphere Information Server Pack for SAP Applications for Non-Production Environments V 7.1
+プログラム番号: 5724-Q55
+
+インストール
+
+インストールは、「プログラム」が使用許諾される際の単位です。 インストールとは、コンピューター上での実行に使用可能な物理ディスクまたは仮想ディスク上に導入された「プログラム」のコピーをいいます。 ライセンシーは、「プログラム」のインストールごとに、使用権を取得してください。
+
+D/N:  L-JCHN-8KES35
+P/N:  L-JCHN-8KES35 

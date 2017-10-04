@@ -1,0 +1,43 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: XMeta Sandbox and Common Models Plug-in
+Bundle-SymbolicName: com.ibm.iis.ismodels
+Bundle-Version: 11.3.0.0
+Bundle-Vendor: IBM
+Bundle-ClassPath: .,
+  ../../../lib/java/xmeta_common.jar,
+  ../../../lib/java/ASCLModel_api_gen_ecore.jar,
+  ../../../lib/java/ASCLBI_api_gen_ecore.jar,
+  ../../../lib/java/ASCLCustomAttribute_api_gen_ecore.jar,
+  ../../../lib/java/Insight_api_gen_ecore.jar,
+  ../../../lib/java/Flows_api_gen_ecore.jar
+Eclipse-LazyStart: true
+Require-Bundle: com.ibm.iis.client,
+ org.eclipse.emf.common,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi
+Export-Package: ASCLModel,
+ ASCLModel.ASCLBI,
+ ASCLCustomAttribute,
+ com.ascential.xmeta.model.view.Insight,
+ Flows,
+ com.ibm.iis.xmeta.client.exception,
+ com.ibm.iis.xmeta.client.exception.data,
+ com.ibm.iis.xmeta.client.exception.runtime,
+ com.ibm.iis.xmeta.client.exception.usage,
+ com.ibm.iis.xmeta.client.identity,
+ com.ibm.iis.xmeta.client,
+ com.ibm.iis.xmeta.client.option,
+ com.ibm.iis.xmeta.client.result,
+ com.ibm.iis.xmeta.client.util,
+ com.ibm.iis.xmeta.service,
+ com.ibm.iis.xmeta.util,
+ com.ibm.xmeta.model.XMetaAnnotation,
+ com.ibm.xmeta.model.XMetaBase,
+ com.ibm.xmeta.model.XMetaIdentity,
+ com.ibm.xmeta.model.XMetaModelUpgrade,
+ com.ibm.xmeta.shared.model.XMetaImportExport,
+ com.ibm.xmeta.util.serialization,
+ com.ibm.xmeta.util.serialization.exception
+
+

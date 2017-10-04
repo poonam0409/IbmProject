@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Test Link</title>
+	<script type="text/javascript" src="../../dojoVersion.js"></script>
+
+	<script type="text/javascript">
+		dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+        dojoCSSImport("../../../../../@dojopath@/InternalUse_DoNotDistribute_DOHRobot/util/doh/robot/robot.css", "idxStyles");
+	</script>
+	
+    <style id="idxStyles" type="text/css">
+   	    @import "../../../themes/oneui/oneui.css";
+  	    @import "../../../themes/vienna/vienna.css";
+   	    @import "../../../themes/claro/claro.css";
+   	    @import "../../../resources/claro_idx.css";
+   	    @import "../../../resources/vienna_idx.css";
+   	    @import "../../../themes/test.css";
+    </style>
+		
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+		dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+		
+	<script type="text/javascript" id="postDojo">
+		var modules = ["dijit.robotx",
+		               "dijit.dijit",
+		               "doh.robot",
+		               "dojo/_base/connect",
+		               "dijit/registry",
+		               "dojo/dom"];
+
+		function preParse(modules) {
+			var dRobot = modules["doh/robot"];
+			dRobot.initRobot('../test_Link.html');		
+		}		               
+		
+		function postParse(modules) {
+			var dDoh = modules["doh"] ? modules["doh"] : doh;
+			var dRobot = modules["doh/robot"];
+			var dConnect = modules["doh/_base/connect"] ? modules["doh/_base/connect"] : dojo;
+			var dRegistry = modules["dijit/registry"] ? modules["dijit/registry"] : dijit;
+			var dDom = modules["dojo/dom"] ? modules["dojo/dom"] : dojo;
+			
+			
+			dDoh.register("idx.form.Link", [
+               {
+                   name:"testClickBubble",
+                   timeout:10000,
+                   setUp:function(){
+                   },
+                   runTest:function(){
+                	   var d=new dDoh.Deferred();
+                	   dConnect.connect(dDom.byId("containingDiv"), "onclick", this, function(e) {
+                		   d._fired = true;
+                		   d.callback(true);
+                	   });
+                	   dRegistry.byId("linkInDiv").bubbleClickEvent = true;
+                	   dRobot.mouseMoveAt(dojo.byId('linkInDiv'));
+                	   dRobot.mouseClick({left:true}); 
+                	   if (!d._fired) {
+                		    return d;
+                	   }
+                	   //else PASSED
+                   }
+               },
+               /* ,
+               Would be great to test the default click behavior of not bubbling
+               but cannot figure out a way to test that the timeout occurred and
+               instead of failing the test, make it pass.
+               */
+               {
+                   name:"testClickNoBubble",
+                   timeout:30000,
+                   setUp:function(){
+                   },
+                   runTest:function(){
+                	   var d=new dDoh.Deferred();
+                       dConnect.connect(dDom.byId("containingDiv"), "onclick", this, function(e) {
+                           d._fired = true;
+                           d.errback(new Error("Click was bubbled and it should not have been"));
+                       });
+                       
+                       dRegistry.byId("linkInDiv").bubbleClickEvent = false;
+                       dRobot.mouseMoveAt(dojo.byId('linkInDiv'));
+                       dRobot.mouseClick({left:true}); 
+                       if (d._fired) {
+                    	   throw new doh._AssertFailure("Click was bubbled and it should not have been");
+                       }
+                       
+                       //ideally we don't use a timeout, but what I am trying to capture here is that
+                       //the click doesn't get bubbled.  So I need to fire the click and then
+                       //check that it didn't get fired, the only way I can see how to do that is
+                       //by waiting some amount of time and then seeing if it bubbled
+                       setTimeout(function() {
+                    	   if (d._fired) {
+                    		   d.errback(new Error("Click was bubbled and it should not have been"));
+                    	   } else {
+                    		   d.callback(true);
+                    	   }
+                       }, 5000);
+                       
+                       return d;
+ 	                  }
+    	           }
+        	   ]);
+
+			  dDoh.run();
+		}
+
+		dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+		
+	</script>
+</head>
+</html>

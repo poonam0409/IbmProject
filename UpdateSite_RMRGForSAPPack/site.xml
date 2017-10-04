@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/RMRGForSAPPack_8.0.0.qualifier.jar" id="RMRGForSAPPack" version="8.0.0.qualifier"/>
+</site>
